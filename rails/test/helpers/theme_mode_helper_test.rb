@@ -12,7 +12,7 @@ class ThemeModeHelperTest < ActionView::TestCase
 
   test "theme mode" do
     {
-      nil => ["auto", "light"],
+      nil => ["dark", "auto"],
       "garbage" => ["auto", "light"],
       "auto" => ["auto", "light"],
       "light" => ["light", "dark"],
