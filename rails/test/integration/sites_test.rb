@@ -15,9 +15,9 @@ class SitesTest < CapybaraIntegrationTest
   test 'creating and viewing a site' do
     # Create a site
     visit sites_url
-    click_on 'Create', class: 'btn'
+    click_on 'Tiddlyspot-Website beanspruchen', class: 'btn'
     fill_in 'site_name', with: 'bar'
-    click_on 'Create'
+    click_on 'Tiddlyspot-Website beanspruchen'
 
     # Confirm we are sent back to sites index
     assert_current_path '/sites'
