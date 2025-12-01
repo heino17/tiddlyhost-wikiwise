@@ -13,8 +13,8 @@ class ClaimSitesTest < CapybaraIntegrationTest
 
   test 'link is present' do
     visit '/sites'
-    click_link 'Claim Tiddlyspot site'
-    assert_selector 'h2', text: 'Claim Tiddlyspot site'
+    click_link 'Eine bestehenden Tiddlyspot-Website beanspruchen'
+    assert_selector 'h2', text: 'Eine bestehenden Tiddlyspot-Website beanspruchen'
   end
 
   # Fetcher functionality has been removed since the S3 bucket is gone.
