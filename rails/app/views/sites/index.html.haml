@@ -37,7 +37,7 @@
     = link_to({ controller: :tspot_sites, action: :claim_form },
       class: 'btn', title: 'Eigentum an einer bestehenden Tiddlyspot-Website beanspruchen') do
       = bi_icon('flag')
-      Anspruch auf die Website Tiddlyspot
+      Eine bestehenden Tiddlyspot-Website beanspruchen
 
   - if @filtered_site_count > 0
     = link_to({ controller: :sites, action: :download_all }.merge(params.permit(:q, :kind, :access, :s, :tags)),
