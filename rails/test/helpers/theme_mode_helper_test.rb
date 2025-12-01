@@ -47,7 +47,7 @@ class ThemeModeHelperTest < ActionView::TestCase
 
     # Test: Invalid user preference falls back to cookie
     user.theme_mode_pref = "invalid"
-    @cookies[:theme_mode] = "auto"
+    @cookies[:theme_mode] = "dark"
     assert_equal "dark", theme_mode, "should fall back to cookie with invalid user pref"
 
     # Test: No user preference, use cookie
