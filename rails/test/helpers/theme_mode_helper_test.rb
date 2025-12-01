@@ -58,7 +58,7 @@ class ThemeModeHelperTest < ActionView::TestCase
     # Test: No user preference, no cookie
     @cookies[:theme_mode] = nil
     user.theme_mode_pref = nil
-    assert_equal "auto", theme_mode, "should fall back to default"
+    assert_equal "dark", theme_mode, "should fall back to default"
 
     # Test: Theme titles and icons work with user preferences
     user.theme_mode_pref = "dark"
