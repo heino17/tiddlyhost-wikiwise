@@ -4,7 +4,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
     get '/'
     assert_response :success
-    assert_select '.jumbotron h3', 'Get started now'
+    assert_select '.jumbotron h3', 'Jetzt loslegen'
   end
 
   test 'www subdomain should redirect' do
