@@ -7,7 +7,7 @@ class UserSignupTest < CapybaraIntegrationTest
 
     # Visit home page and click sign up link
     visit '/'
-    within(:css, '.jumbotron') { click_link 'Sign up' }
+    within(:css, '.jumbotron') { click_link 'Konto erstellen' }
 
     # Fill in the sign up form fields
     fill_in 'user[name]', with: name
