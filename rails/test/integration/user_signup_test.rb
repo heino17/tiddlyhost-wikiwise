@@ -47,7 +47,7 @@ class UserSignupTest < CapybaraIntegrationTest
     click_button 'Anmelden'
 
     # Confirm we are logged in
-    assert page.has_css?('h1', text: 'Your sites')
+    assert page.has_css?('h1', text: 'Deine Seiten')
 
     # Logout
     click_link 'Abmelden'
