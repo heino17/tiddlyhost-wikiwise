@@ -15,9 +15,9 @@ class SitesTest < CapybaraIntegrationTest
   test 'creating and viewing a site' do
     # Create a site
     visit sites_url
-    click_on 'Erstellen', class: 'btn'
+    click_on 'Konto erstellen', class: 'btn'
     fill_in 'site_name', with: 'bar'
-    click_on 'Erstellen'
+    click_on 'Konto erstellen'
 
     # Confirm we are sent back to sites index
     assert_current_path '/sites'
