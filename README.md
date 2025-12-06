@@ -16,11 +16,8 @@ Huge thanks to Simon Baird for the fun with your awesome software!
 
 („• ᴗ •„)
 
-Nachfolgend die originale readme ins Deutsche übersetzt,
-mit angepassten Pfaden zu meiner repo.
-
-Below is the original readme translated into German,  
-with paths adapted to my repo.
+Nachfolgend die originale readme ins Deutsche übersetzt, mit angepassten Pfaden zu meiner repo.  
+Below is the original readme translated into German, with paths adapted to my repo.
 
 ## Tiddlyhost 
 
