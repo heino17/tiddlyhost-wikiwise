@@ -1,7 +1,7 @@
 Tiddlyhost-wikiwise
 ===================
 Ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer (fast vollständig :) ) ins Deutsche übersetzten Oberfläche. 
-Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-branch/Readme-Anpassungen.md)
+Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)
 
 Ich habe für eine online-Präsentation den originalen footer belassen und eine extra Impressum-Seite angelegt.
 
@@ -89,62 +89,53 @@ Du solltest nun in der Lage sein, Rails wie folgt zu starten:
 
     make start
 
-Rufen Sie die Seite <https://tiddlyhost.local/> in Ihrem Browser auf, und du solltest eine funktionierende Webanwendung sehen.
+Rufe die Seite <https://tiddlyhost.local/> in Deinem Browser auf, und du solltest eine funktionierende Webanwendung sehen.
 
-Note that the development environment is using a self-signed SSL certificate,
-so you will need to accept the warnings about insecure connections.
+Beachte, dass die Entwicklungsumgebung ein selbstsigniertes SSL-Zertifikat verwendet.  
+Du musst daher die Warnungen bezüglich unsicherer Verbindungen akzeptieren.
 
-### Create an account and create a site
+### Erstelle ein Konto und erstelle eine Seite
 
-Click "Sign up" and enter some details. A fake email address is fine.
+Klicke auf „Anmelden“ und gib einige Daten ein. Eine falsche E-Mail-Adresse ist in Ordnung.
 
-Emails won't be sent when running locally, but you can find the email
-confirmation link by running this:
+Bei lokaler Ausführung werden keine E-Mails versendet, aber du kannst den Bestätigungslink für die E-Mail finden, indem du Folgendes ausführst:
 
     make signup-link
 
-Click that link and then you should be able to sign in.
+Klicke auf diesen Link, dann solltest du dich anmelden können.
 
-Note: For the very first user created, the confirmation step will be skipped
-and you'll be logged in immediately.
+Hinweis: Beim ersten vom Benutzer erstellten Konto wird der Bestätigungsschritt übersprungen und Du wirst sofort angemeldet.  
+Klicke auf „Erstellen“, um eine Seite zu erstellen. Beachte, dass du einen Seitennamen verwenden musst,  
+der mit etwas übereinstimmt, das du zu deiner /etc/hosts-Datei hinzugefügt hast, z. B. aaa oder bbb.  
 
-Click "Create Site" to create a site. Note that you need to use a site name
-that matches something that you added to your /etc/hosts file, aaa or bbb for
-example.
+Wenn du fertig bist, klicke auf „Speichern“, um die Seite zu speichern.  
+Klicke auf die Website, um sie zu öffnen. Akzeptiere erneut die Zertifikatswarnungen. 
+Klicke auf die Schaltfläche „Speichern“ und stelle sicher, dass deine Website gespeichert werden konnte.  
 
-Click on the site to open it. Accept the certificate warnings again. Click the
-save button and confirm your site was able to be saved.
+Erstelle nach Bedarf weitere Websites oder lokale Konten.
 
-Create other sites or other local accounts as required.
+### Weitere nützliche Befehle
 
-### Other useful commands
+Beachte, dass der Container das Verzeichnis „rails“ mountet, sodass der Code dort außerhalb des Containers bearbeitet werden kann, während Rails innerhalb des Containers ausgeführt wird.
 
-Note that the container mounts the rails directory, so the code can be edited
-there outside the container while rails is running inside the container.
-
-You can shell into the running container in another terminal like this:
+Du kannst dich wie folgt in einem anderen Terminal in den laufenden Container einloggen:
 
     make join
 
-From there you can access the rails console, run tests, etc, inside the
-container.
+Von dort aus kannst du auf die Rails-Konsole zugreifen, Tests ausführen usw., innerhalb des Containers.
 
-You can hit Ctrl-C in the terminal where you ran `make start` to shut
-it down.
+Du kannst Strg-C im Terminal drücken, in dem du „make start“ ausgeführt hast, um es zu beenden.
 
-You can also shut down and clean up like this:
+Du kannst auch so herunterfahren und aufräumen:
 
     make cleanup
 
-Note that the make tasks are mostly just wrappers for `docker compose` so you
-can use your own `docker compose` commands directly if you prefer. See the
-Makefile for details.
+Beachte, dass die Make-Aufgaben meist nur Wrapper für „docker compose“ sind, sodass Du auch direkt Deine eigenen „docker compose“-Befehle verwenden kannst, wenn Du das lieber möchtest. Details findest Du im Makefile.
 
-Run `make` by itself to see a full list of make commands. Read the Makefile to
-learn more about what they do.
+Führe „make“ allein aus, um eine vollständige Liste der Make-Befehle anzuzeigen. Lies das Makefile, um mehr über deren Funktionen zu erfahren.
 
-License
+Lizenz
 -------
 
-Tiddlyhost is open source software. It uses a BSD license. See
+Tiddlyhost ist eine Open-Source-Software. Sie verwendet eine BSD-Lizenz. Siehe
 [LICENSE.md](LICENSE.md).
