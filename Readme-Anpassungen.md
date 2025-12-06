@@ -2,11 +2,12 @@
 
 ### make rails-init
 Falls es eine Fehlermeldung wegen jsMath-3.3g.zip, Error 23 gibt, fehlt der Ordner "etc" im Hauptverzeichnis tiddlyhost-com
+```
 Verzeichnis anlegen 
 mkdir etc
 Verzeichnisrechte
 sudo chown -R deinuser:deinuser etc
-
+```
 dann make rails-init wiederholen
 
 ### ports (docker-compose.yml)
