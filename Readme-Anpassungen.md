@@ -72,3 +72,4 @@ SSL_MODE: self_signed
 /rails/app/views/home/impressum.html.haml
 Als kleine Spielerei ist Adresse und eMail-Adresse in Unicode codiert,
 so stehen die Daten nicht im Quelltext...
+https://iotools.cloud/tool/text-to-unicode-converter/
