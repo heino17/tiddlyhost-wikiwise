@@ -13,6 +13,7 @@ dann make rails-init wiederholen
 ### make test
 Wird 4  404-Fehler zeigen, ich habe in der '/rails/lib/settings/features.rb' 
 'subscriptions_enabled' auf 'false' gesetzt.
+Damit ist die Abonnement-Funktion im Adminbereich deaktiviert.
 
 ### ports (docker-compose.yml)
 Auf meinem Server läuft ein apache2-Webserver auf port 80 bzw. 443,
