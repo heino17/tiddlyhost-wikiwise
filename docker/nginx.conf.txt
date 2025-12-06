@@ -1,4 +1,4 @@
-# Falls eine leere nginx.conf geschrieben wir, hier eine Vorlage
+# Falls eine leere nginx.conf geschrieben wird, hier eine Vorlage
 
 events {
     worker_connections 1024;
