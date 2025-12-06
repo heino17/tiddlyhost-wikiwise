@@ -23,61 +23,59 @@ Below is the original readme translated into German, with paths adapted to my re
 
 ### About
 
-[Tiddlyhost](https://tiddlyhost.com/) is the new Tiddlyspot, a hosting
-service for TiddlyWiki.
+[Tiddlyhost](https://tiddlyhost.com/) ist das neue Tiddlyspot, ein Hosting-Dienst für TiddlyWiki.
 
-It aims to be the easiest and best way to use TiddlyWiki online.
+Es soll die einfachste und beste Möglichkeit sein, TiddlyWiki online zu nutzen.  
 
-Unlike the original Tiddlyspot, Tiddlyhost features:
+Im Gegensatz zum ursprünglichen Tiddlyspot bietet Tiddlyhost folgende Funktionen:
 
-* Secure SSL
-* Password recovery
-* TiddlyWiki5 support
-* Open source code
+* Sicheres SSL
+* Passwortwiederherstellung
+* TiddlyWiki5-Unterstützung
+* Offener Quellcode
 
-For more information please see
+Weitere Informationen findest du unter
 [FAQ](https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ).
 
-Current Status
+Aktueller Status
 --------------
 
-Tiddlyhost is in active development.
+Tiddlyhost wird aktiv weiterentwickelt.
 
-For status updates see the
+Aktuelle Statusinformationen findest du unter
 [Journal](https://github.com/tiddlyhost/tiddlyhost-com/wiki/Journal).
 
-Getting Started (for developers)
+Erste Schritte (für Entwickler)
 --------------------------------
 
-Todo: Describe the other way to bring up a development system where you run
-rails directly.
+Todo: Eine andere Möglichkeit beschreiben, ein Entwicklungssystem einzurichten, in dem Rails direkt ausgeführt wird.
 
-### Prepare environment
+### Umgebung vorbereiten
 
-You need to have docker and docker compose
+Du benötigst Docker und Docker Compose.
 [installed on your system](https://docs.docker.com/engine/install/).
 
-Check out the code:
+Schau dir den Code an:
 
-    git clone git@github.com:tiddlyhost/tiddlyhost-com.git
-    cd tiddlyhost-com
+    git clone --branch wikiwise-local-branch https://github.com/heino17/tiddlyhost-wikiwise.git
+    cd tiddlyhost-wikiwise
 
-### Build the development container and set up rails
+### Erstelle den Container und richte Rails ein.
 
-Build the container image used for development:
+Erstelle ein Container-Image für die Entwicklung:  
 
     make build-base
 
-Install all ruby gems, node modules, and initialize the databases:
+Installiere alle Ruby Gems und Node-Module und initialisiere Sie die Datenbanken:  
 
     make rails-init
 
-Run the test suite. Hopefully it's all passing:
+Führe die Testsuite aus. Hoffentlich wird alles bestanden:  
 
     make test
 
-Tiddlyhost uses wildcard subdomains. To simulate this for local development,
-add some entries to your /etc/hosts:
+Tiddlyhost verwendet Wildcard-Subdomains. Um dies für die lokale Entwicklung zu simulieren,  
+füge einige Einträge zu Ihrer /etc/hosts hinzu:
 
     127.0.0.1 tiddlyhost.local
     127.0.0.1 aaa.tiddlyhost.local
@@ -85,15 +83,13 @@ add some entries to your /etc/hosts:
     127.0.0.1 foo.tiddlyhost.local
     127.0.0.1 bar.tiddlyhost.local
 
-You should now be able to start rails like this:
+Du solltest nun in der Lage sein, Rails wie folgt zu starten:
 
-(It runs in the foreground, so I suggest you do this in a second terminal
-window.)
+(Es läuft im Vordergrund, daher empfehle ich dir, dies in einem zweiten Terminalfenster zu tun.)
 
     make start
 
-Visit <https://tiddlyhost.local/> in your browser and you should see a working
-web application.
+Rufen Sie die Seite <https://tiddlyhost.local/> in Ihrem Browser auf, und du solltest eine funktionierende Webanwendung sehen.
 
 Note that the development environment is using a self-signed SSL certificate,
 so you will need to accept the warnings about insecure connections.
