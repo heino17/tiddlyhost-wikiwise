@@ -1,9 +1,18 @@
 ## Anpassungen für Tiddlyhost-wikiwise
 
+### make rails-init
+Falls es eine Fehlermeldung wegen jsMath-3.3g.zip, Error 23 gibt, fehlt der Ordner "etc" im Hauptverzeichnis tiddlyhost-com
+Verzeichnis anlegen 
+mkdir etc
+Verzeichnisrechte
+sudo chown -R deinuser:deinuser etc
+
+dann make rails-init wiederholen
+
 ### ports (docker-compose.yml)
-Auf meinem Server läuft ein Webserver auf port 80,
-deshalb bekommt Tiddlyhost-wikiwise port 8034 bzw. 7443
-In der docker-compose.yml sieht's dann so aus:
+Auf meinem Server läuft ein apache2-Webserver auf port 80 bzw. 443,
+deshalb bekommt Tiddlyhost-wikiwise port 8034 bzw. 7443 und wird per apache auf port 8034 geleitet.
+In der docker-compose.yml sieht es so aus:
 ```
 ports:
     - "8034:80"
@@ -43,4 +52,12 @@ http {
         }
     }
 }
+```
+
+### evtl. /docker/config/settings_local.yml anpassen
+```
+HOSTNAME: tiddlyhost.local
+LETSENCRYPT_EMAIL: dev@example.com
+RAILS_ENV: development
+SSL_MODE: self_signed
 ```
