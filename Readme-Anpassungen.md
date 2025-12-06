@@ -10,6 +10,10 @@ sudo chown -R deinuser:deinuser etc
 ```
 dann make rails-init wiederholen
 
+### make test
+Wird 4 404-Fehler zeigen, ich habe in der '/rails/lib/settings/features.rb' 
+'subscriptions_enabled' auf 'false' gesetzt.
+
 ### ports (docker-compose.yml)
 Auf meinem Server läuft ein apache2-Webserver auf port 80 bzw. 443,
 deshalb bekommt Tiddlyhost-wikiwise port 8034 bzw. 7443 und wird per apache auf port 8034 geleitet.
