@@ -26,7 +26,8 @@ ports:
 ```
 ### leere /docker/nginx-conf/nginx.conf
 
-Falls eine leere nginx.conf erstellt wurde, hier eine Vorlage die bei mir läuft
+Falls eine leere nginx.conf erstellt wurde, hier eine Vorlage die bei mir läuft.  
+Server "listen" bleibt hier auf 80!
 ```
 events {
     worker_connections 1024;
@@ -74,3 +75,33 @@ Als kleine Spielerei ist Adresse und eMail-Adresse in Unicode codiert,
 so stehen die Daten nicht im Quelltext...
  
 https://iotools.cloud/tool/text-to-unicode-converter/
+
+### apache2 tiddlyhost.local host Beispiel
+```
+<VirtualHost 192.168.17.17:80>
+    ServerName tiddlyhost.local
+    ServerAlias *.tiddlyhost.local  # Für Wildcard-Subdomains
+    Redirect permanent / https://tiddlyhost.local/
+</VirtualHost>
+<VirtualHost 192.168.17.17:443> 
+    ServerName tiddlyhost.local
+    ServerAlias *.tiddlyhost.local  # Für Wildcard-Subdomains
+
+    ProxyRequests Off
+    ProxyPreserveHost On
+    #ProxyVia Full
+
+    <Proxy *>
+        Require all granted
+    </Proxy>
+
+    ProxyPass / http://127.0.0.1:8034/
+    ProxyPassReverse / http://127.0.0.1:8034/
+    AllowEncodedSlashes On
+    SSLEngine on
+    SSLCertificateFile /pfad/zum/letsencrypt-cert.pem
+    SSLCertificateKeyFile /pfad/zum/letsencrypt-key.pem
+    SSLCACertificateFile /pfad/zum/letsencrypt-ca.pem
+    SSLProtocol +TLSv1.2 +TLSv1.3   
+</VirtualHost>  
+```
