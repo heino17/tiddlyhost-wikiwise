@@ -1,6 +1,6 @@
 Tiddlyhost-wikiwise
 ===================
-Ist eine Kopie von [Tiddlyhost](https://github.com/tiddlyhost/tiddlyhost-com) mit einer (fast vollständig :) ) ins Deutsche übersetzten Oberfläche. 
+Ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer (fast vollständig :) ) ins Deutsche übersetzten Oberfläche. 
 Es ist für meine Server-Umgebung etwas angepasst, siehe Readme-Anpassungen.md
 
 
