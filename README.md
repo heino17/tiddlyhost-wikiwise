@@ -3,6 +3,7 @@ Tiddlyhost-wikiwise
 Ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer (fast vollständig :) ) ins Deutsche übersetzten Oberfläche. 
 Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-branch/Readme-Anpassungen.md)
 
+Ich habe für eine online-Präsentation den originalen footer belassen und eine extra Impressum-Seite angelegt.
 
 Lieben Dank an Simon Baird, für den Spaß mit Deiner tollen Software!
 
