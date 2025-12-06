@@ -9,9 +9,9 @@ ports:
     - "8034:80"
     - "7443:443"
 ```
-### nginx.conf
+### leere /docker/nginx-conf/nginx.conf
 
-Falls eine leere nginx.conf erstellt wird, hier eine Vorlage
+Falls eine leere nginx.conf erstellt wurde, hier eine Vorlage die bei mir läuft
 ```
 events {
     worker_connections 1024;
