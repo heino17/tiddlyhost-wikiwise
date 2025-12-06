@@ -67,3 +67,8 @@ LETSENCRYPT_EMAIL: dev@example.com
 RAILS_ENV: development
 SSL_MODE: self_signed
 ```
+
+### Impressum - Seite
+/rails/app/views/home/impressum.html.haml
+Als kleine Spielerei ist Adresse und eMail-Adresse in Unicode codiert,
+so stehen die Daten nicht im Quelltext...
