@@ -52,8 +52,7 @@ Todo: Eine andere Möglichkeit beschreiben, ein Entwicklungssystem einzurichten,
 
 ### Umgebung vorbereiten
 
-Du benötigst Docker und Docker Compose.
-[installed on your system](https://docs.docker.com/engine/install/).
+Du benötigst Docker und Docker Compose [auf Deinem System installiert](https://docs.docker.com/engine/install/).
 
 Schau dir den Code an:
 
