@@ -1,14 +1,14 @@
 Tiddlyhost-wikiwise
 ===================
 Ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer (fast vollständig :) ) ins Deutsche übersetzten Oberfläche. 
-Es ist für meine Server-Umgebung etwas angepasst, siehe Readme-Anpassungen.md
+Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-branch/Readme-Anpassungen.md)
 
 
 Lieben Dank an Simon Baird, für den Spaß mit Deiner tollen Software!
 
 ( ･_･)»(ﾟｰﾟ)»(｡_｡)(｡_｡)«(ﾟｰﾟ)«( ･_･)
 
-This is a copy of [Tiddlyhost]([https://tiddlyhost.com/](https://github.com/tiddlyhost/tiddlyhost-com)) with an interface that has been (almost completely :) ) translated into German.
+This is a copy of [Tiddlyhost](https://github.com/tiddlyhost/tiddlyhost-com) with an interface that has been (almost completely :) ) translated into German.
 It has been slightly adapted for my server environment, see Readme-Anpassungen.md
 
 Huge thanks to Simon Baird for the fun with your awesome software!
