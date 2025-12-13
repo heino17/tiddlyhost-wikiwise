@@ -1,5 +1,3 @@
-I start over :)
-
 Tiddlyhost-wikiwise
 ===================
 Ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer (fast vollständig :) ) ins Deutsche übersetzten Oberfläche. 
