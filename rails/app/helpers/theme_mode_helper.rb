@@ -1,5 +1,6 @@
 module ThemeModeHelper
-  MODES = %w[auto light dark]
+  MODES = %w[dark auto light] 
+# Heino Theme dark, vorher: [auto dark light]
 
   DEFAULT_MODE = MODES.first
 
