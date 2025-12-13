@@ -88,8 +88,8 @@ class UserTest < ActiveSupport::TestCase
 
     # (Actually not used anywhere)
     assert_equal 'dark', @user.theme_mode_pref
+    assert_equal 'auto', @user.theme_mode_pref_cycle
     assert_equal 'light', @user.theme_mode_pref_cycle
     assert_equal 'dark', @user.theme_mode_pref_cycle
-    assert_equal 'auto', @user.theme_mode_pref_cycle
   end
 end
