@@ -2,10 +2,10 @@
   .form-check.enable-tooltips
     = f.check_box :allow_public_clone, class: 'form-check-input'
     = f.label :allow_public_clone, class: 'form-check-label' do
-      Make this site available as a template for others to clone
+      Diese Seite als Vorlage für andere zum Klonen verfügbar machen
 
       = render 'popover_help',
-        html_content: 'This is intended to be used for sharing customized "editions" |
-          of TiddlyWiki that could be used by other Tiddlyhost users as a template |
-          for creating new sites. Public &amp; searchable sites with this option set will be |
-          listed on the <a href="/templates?t=1" target="_blank">Templates page</a>.' |
+        html_content: 'Dies ist für die gemeinsame Nutzung angepasster „Editionen“ |
+        von TiddlyWiki vorgesehen, die von anderen Tiddlyhost-Benutzern als Vorlage |
+        für die Erstellung neuer Websites verwendet werden können. Öffentliche und durchsuchbare Websites, für die diese Option aktiviert ist, werden |
+        auf der Seite <a href="/templates?t=1" target="_blank">Vorlagen</a> aufgelistet.' |
