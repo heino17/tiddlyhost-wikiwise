@@ -32,17 +32,17 @@
     = render layout: 'field_wrapper' do
       = f.label :benutzername
       = f.text_field :username, autofocus: true, autofill: 'off', autocomplete: 'off', class: 'form-control'
-      .small.form-text.text-muted Optional. Choose a unique username between 3 and 30 characters long
+      .small.form-text.text-muted Optional. Waehle einen eindeutigen Benutzernamen mit einer Laenge zwischen 3 und 30 Zeichen.
 
     = render layout: 'field_wrapper' do
       = f.label :passwort
       = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
-      .small.form-text.text-muted #{Settings.minimum_password_length} characters minimum
+      .small.form-text.text-muted #{Settings.minimum_password_length} Zeichen mindestens
 
     = render layout: 'field_wrapper' do
       = f.label :passwort_wiederholen
       = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
-      .small.form-text.text-muted Re-type your password to confirm
+      .small.form-text.text-muted Zur Bestaetigung Passwort erneut eingeben
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-3' } do
       = f.submit 'Konto erstellen', class: 'btn btn-primary'
