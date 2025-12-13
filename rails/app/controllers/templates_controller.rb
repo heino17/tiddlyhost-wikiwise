@@ -3,12 +3,12 @@ class TemplatesController < HubController
 
   def set_default_title
     @thing_name = 'Template'
-    @default_title = 'Templates'
+    @default_title = 'Vorlagen'
     @explanation_text = %(
-      Templates are useful or interesting customized editions of TiddlyWiki, created by
-      Tiddlyhost users, that you can copy and use for yourself. Click "Clone" to create
-      a site on Tiddlyhost using a template, or click "Download" to download a copy to
-      use locally.
+      Vorlagen sind nützliche oder interessante angepasste Versionen von TiddlyWiki, 
+      die von Tiddlyhost-Benutzern erstellt wurden, die Du kopieren und für Dich selbst verwenden kannst. 
+      Klicke auf „Klonen”, um eine Website auf Tiddlyhost unter Verwendung einer Vorlage zu erstellen, 
+      oder klicke auf „Herunterladen”, um eine Kopie herunterzuladen und lokal zu verwenden.
     ).squish
   end
 end
