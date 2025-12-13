@@ -18,7 +18,7 @@
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
       = f.label :name
       = f.text_field :name, class: 'form-control', maxlength: 63, autofocus: @site.new_record?
-      %small.form-text.text-muted Kleinbuchstaben, Zahlen und nicht f체hrende, nicht nachfolgende '-' Zeichen sind zul채ssig.
+      %small.form-text.text-muted Kleinbuchstaben, Zahlen und nicht fuehrende, nicht nachfolgende '-' Zeichen sind zulaessig.
 
     - if @site.new_record?
       = render layout: 'field_wrapper' do
