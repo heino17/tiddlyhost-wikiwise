@@ -14,7 +14,7 @@
         = bi_icon('x', height: '0.8em', style: 'padding:0; margin:0; margin-right: 0;')
 
 .d-inline-block.sites-menu
-  = link_to("#", class: "#{'ms-2 ' unless params[:tags].present?}btn btn-sm dropdown-toggle", title: 'Site kind filter',
+  = link_to("#", class: "#{'ms-2 ' unless params[:tags].present?}btn btn-sm dropdown-toggle", title: 'Filter nach Seiten-Art',
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
     - if params[:kind]
       %span.pe-1
@@ -30,7 +30,7 @@
       = title
 
 .d-inline-block.sites-menu
-  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: 'Site access filter',
+  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: 'Filter nach Zugaenglichkeit',
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
     - if params[:access]
       %span.pe-1
@@ -46,7 +46,7 @@
       = title
 
 .d-inline-block.sites-menu
-  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: 'Sort by',
+  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: 'Sortieren nach',
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
     Sortierung: #{sort_by}
     = bi_icon(sort_bi_icon, fill: '#666', style: "margin-right: -2px;")
