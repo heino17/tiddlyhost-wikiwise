@@ -2,8 +2,8 @@
 .nice-radio-container.type-chooser.enable-tooltips{ class: @site.empty.primary? ? "shorter" : "longer" }
 
   = f.label nil do
-    Type
-    = link_to "Weitere Typen anzeigen", "#", class: 'longer-link'
+    Varianten 
+    = link_to "Weitere Varianten anzeigen", "#", class: 'longer-link'
 
   - @empties_for_select.each_with_index do |empty, i|
 
