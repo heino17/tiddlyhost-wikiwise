@@ -41,7 +41,7 @@
   primary: false
   info_link: https://tiddlywiki.com/prerelease/
   tooltip: Nicht für den ernsthaften Einsatz empfohlen, da es Fehler oder unvollstaendige
-    neue Funktionen enthalten kann. Verwenden Sie diese Version, um die nächste Version von TiddlyWiki zu testen oder eine Vorschau anzuzeigen.
+    neue Funktionen enthalten kann. Verwende diese Version, um die naechste Version von TiddlyWiki zu testen oder eine Vorschau anzuzeigen.
 - id: 5
   name: feather
   title: Feather Wiki
@@ -85,5 +85,5 @@
   display_order: 25
   primary: false
   info_link: https://alamantus.codeberg.page/siteleteer/
-  tooltip: Um zu sehen, wie es funktioniert, schauen Sie sich den sauberen und sehr gut lesbaren Quellcode der Seite an. Erfordert
+  tooltip: Um zu sehen, wie es funktioniert, schau Dir den sauberen und sehr gut lesbaren Quellcode der Seite an. Erfordert
     einen benutzerdefinierten Build von Siteleteer.
