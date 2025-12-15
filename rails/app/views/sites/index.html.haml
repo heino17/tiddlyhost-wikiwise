@@ -15,7 +15,7 @@
   .ps-1.ms-2.mb-3.th-text-small
     - if @filtered_site_count != @site_count
       Zeigt #{@filtered_site_count} #{params[:access]} Seiten von #{pluralize(@site_count, 'site')} gesamt.
-      = link_to('Clear filter', sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
+      = link_to('Filter loeschen', sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
     - else
       = pluralize(@site_count, 'site') + ","
     = nice_byte_count(@total_storage_bytes)
