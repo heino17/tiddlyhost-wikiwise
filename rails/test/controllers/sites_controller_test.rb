@@ -235,7 +235,7 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     end
     assert_select 'div.modal#modal .modal-dialog .modal-content .modal-title' do |modal_body|
       # There should be a title though
-      assert_equal 'Set label', modal_body.text.strip
+      assert_equal 'Label festlegen', modal_body.text.strip
     end
 
     # Smoke test the ajax js end point
