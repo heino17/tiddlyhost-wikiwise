@@ -123,7 +123,7 @@ $(document).ready(function () {
   // Upload form UI tweaks
   $('#site_tiddlywiki_file').on('change', function () {
     var fileName = $(this).get(0).files.item(0).name;
-    $('#upload-submit').prop('value', 'Upload file \"' + fileName + '\"').show();
+    $('#upload-submit').prop('value', 'Datei hochladen \"' + fileName + '\"').show();
   });
 
   // Trick to set cursor position to the end of the text in the search box
