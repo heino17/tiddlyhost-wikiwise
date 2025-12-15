@@ -49,7 +49,7 @@ class HubController < ApplicationController
     z: { title: 'Name z-a', field: 'name DESC' },
     nv: { title: 'Neue Version', field: 'tw_version_trimmed DESC NULLS LAST' },
     ov: { title: 'Alte Version', field: 'tw_version_trimmed ASC NULLS LAST' },
-    r: { title: 'Zuf채llig', field: 'rand_sort' },
+    r: { title: 'Zufaellig', field: 'rand_sort' },
   }.freeze
 
   private
