@@ -174,10 +174,10 @@ module ApplicationHelper
   # these ones from the site history page
   #
   SHARED_LINK_CONTENT = {
-    view: ['box-arrow-up-right', 'View'],
-    download: ['download', 'Download'],
-    restore: ['file-earmark-arrow-up', 'Restore as current version'],
-    discard: ['trash', 'Discard'],
+    view: ['box-arrow-up-right', 'Ansicht'],
+    download: ['download', 'Runterladen'],
+    restore: ['file-earmark-arrow-up', 'Als aktuelle Version wiederherstellen'],
+    discard: ['trash', 'Loeschen'],
     upgrade: [['stars', { class: 'red-icon' }], 'Upgrade plan'],
   }.freeze
 
