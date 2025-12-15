@@ -106,7 +106,7 @@ class SitesTest < CapybaraIntegrationTest
     # ..which is the same as regular create
     visit new_site_path
     assert_selector 'h2', text: 'Erstelle'
-    assert_selector 'label', text: 'Type'
+    assert_selector 'label', text: 'Varianten'
     assert_selector 'label[for="site_empty_id_1"]'
   end
 
