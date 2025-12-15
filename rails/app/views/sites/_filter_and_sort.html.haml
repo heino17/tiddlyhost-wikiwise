@@ -24,7 +24,7 @@
       Art
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
-      Seiten Art-Filter:
+      Filter nach Seiten-Art:
     = filter_link_group :kind do |val, title|
       = logo_for_kind(val, "margin-right: 4px; height: 1.3em;")
       = title
@@ -40,7 +40,7 @@
       Zugang
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
-      Seiten Zugangsfilter:
+      Filter nach Zugaenglichkeit:
     = filter_link_group :access do |val, title|
       = access_icon(val.to_s)
       = title
