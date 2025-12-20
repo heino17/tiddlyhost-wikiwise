@@ -1,7 +1,7 @@
 ## Anpassungen für Tiddlyhost-wikiwise
 
 ### make rails-init
-Falls es eine Fehlermeldung wegen jsMath-3.3g.zip, Error 23 gibt, fehlt der Ordner "etc" im Hauptverzeichnis tiddlyhost-com
+Falls es eine Fehlermeldung wegen jsMath-3.3g.zip, Error 23 gibt, fehlt der Ordner "etc" im Hauptverzeichnis tiddlyhost-wikiwise
 ```
 Verzeichnis anlegen 
 mkdir etc
