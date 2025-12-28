@@ -18,10 +18,10 @@
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
     - if params[:kind]
       %span.pe-1
-        Kind:
+        Art:
       = logo_for_kind(params[:kind])
     - else
-      Kind
+      Art
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
       Site kind filter:
@@ -34,10 +34,10 @@
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
     - if params[:access]
       %span.pe-1
-        Access:
+        Zugang:
       = access_icon(params[:access])
     - else
-      Access
+      Zugang
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
       Site access filter:
@@ -48,7 +48,7 @@
 .d-inline-block.sites-menu
   = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: 'Sort by',
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
-    Sort: #{sort_by}
+    Sortierung: #{sort_by}
     = bi_icon(sort_bi_icon, fill: '#666', style: "margin-right: -2px;")
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
@@ -66,5 +66,5 @@
 .d-inline-block.sites-menu
   = link_to({ controller: :sites, action: :view_toggle }.merge(params.permit(:q, :kind, :access, :s, :tags)),
     class: "m-1 btn btn-sm", title: "#{list_mode_next.titleize} view") do
-    View:
+    Ansicht:
     = bi_icon(list_mode_next == 'grid' ? 'grid' : 'list-ul', fill: '#666')
