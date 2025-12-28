@@ -8,16 +8,16 @@
       = link_to(site.url, class: 'btn btn-light', target: site.long_name, title: 'View') { bi_icon('box-arrow-up-right', height: '1em') }
       = link_to(download_tspot_site_path(site), class: 'btn btn-light', title: 'Download') { bi_icon('download', height: '1em') }
     - else
-      = link_to(edit_site_path(site), class: 'btn btn-light', title: 'Settings') { bi_icon('sliders', height: '1em') }
+      = link_to(edit_site_path(site), class: 'btn btn-light', title: 'Einstellungen') { bi_icon('sliders', height: '1em') }
       - if show_history_link?(site) && !local_assigns[:history_mode]
-        = link_to(history_site_path(site), class: 'btn btn-light', title: 'Save history') { bi_icon('clock-history', height: '1em') }
-      = link_to(site.url, class: 'btn btn-light', target: site.long_name, title: 'View') { bi_icon('box-arrow-up-right', height: '1em') }
-      = link_to(download_site_path(site), class: 'btn btn-light', title: 'Download') { bi_icon('download', height: '1em') }
+        = link_to(history_site_path(site), class: 'btn btn-light', title: 'Versionsverlauf') { bi_icon('clock-history', height: '1em') }
+      = link_to(site.url, class: 'btn btn-light', target: site.long_name, title: 'Ansicht') { bi_icon('box-arrow-up-right', height: '1em') }
+      = link_to(download_site_path(site), class: 'btn btn-light', title: 'Runterladen') { bi_icon('download', height: '1em') }
 
   %button.btn.btn-light{ type: "button",
     "data-bs-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false",
     style: ("border-color: transparent !important;" if local_assigns[:menu_only]),
-    title: (local_assigns[:menu_only] ? "Actions" : "More...") }
+    title: (local_assigns[:menu_only] ? "Actions" : "Mehr...") }
     = bi_icon('three-dots', fill: '#212529')
 
   .dropdown-menu.dropdown-menu-end
@@ -48,10 +48,10 @@
         "to delete '#{site.host}' forever?") }) { bi_icon('trash') + 'Delete' }
 
     - else
-      = link_to(edit_site_path(site), class: 'dropdown-item') { bi_icon('sliders') + 'Settings' }
+      = link_to(edit_site_path(site), class: 'dropdown-item') { bi_icon('sliders') + 'Einstellungen' }
 
       - if show_history_link?(site) && !local_assigns[:history_mode]
-        = link_to(history_site_path(site), class: 'dropdown-item') { bi_icon('clock-history') + 'Save history' }
+        = link_to(history_site_path(site), class: 'dropdown-item') { bi_icon('clock-history') + 'Versionsverlauf' }
 
       .dropdown-divider
 
@@ -62,10 +62,10 @@
           "Click okay then wait a few moments and reload the page.") }) { bi_icon('camera') + 'Create thumbnail' }
         .dropdown-divider
 
-      = link_to(site.url, class: 'dropdown-item', target: site.long_name) { bi_icon('box-arrow-up-right') + 'View' }
+      = link_to(site.url, class: 'dropdown-item', target: site.long_name) { bi_icon('box-arrow-up-right') + 'Ansicht' }
 
       - if safe_mode_url = site.safe_mode_url
-        = link_to(safe_mode_url, class: 'dropdown-item', target: '_blank') { bi_icon('life-preserver') + 'View in safe mode' }
+        = link_to(safe_mode_url, class: 'dropdown-item', target: '_blank') { bi_icon('life-preserver') + 'Ansicht abgesicherter Modus' }
 
       .dropdown-divider
 
@@ -82,15 +82,15 @@
         = link_to(download_core_js_site_path(site), class: 'dropdown-item') { bi_icon('download') + 'Download core javascript file' }
 
       - else
-        = link_to(download_site_path(site), class: 'dropdown-item') { bi_icon('download') + 'Download' }
+        = link_to(download_site_path(site), class: 'dropdown-item') { bi_icon('download') + 'Runterladen' }
 
       .dropdown-divider
 
-      = link_to(new_site_path(clone: site.name), class: 'dropdown-item') { bi_icon('files') + 'Clone' }
-      = link_to(upload_form_site_path(site), class: 'dropdown-item') { bi_icon('upload') + 'Upload' }
+      = link_to(new_site_path(clone: site.name), class: 'dropdown-item') { bi_icon('files') + 'Clonen/Kopieren' }
+      = link_to(upload_form_site_path(site), class: 'dropdown-item') { bi_icon('upload') + 'Hochladen' }
 
       -# (Don't allow deleting the entire site from the history page)
       - unless local_assigns[:history_mode]
         .dropdown-divider
         = link_to(site, method: :delete, class: 'dropdown-item',
-          data: { confirm: "Are you sure you want to delete '#{site.name}'?" }) { bi_icon('trash') + 'Delete' }
+          data: { confirm: "Bist du sicher, dass du '#{site.name}' loeschen moechtest?" }) { bi_icon('trash') + 'Loeschen' }
