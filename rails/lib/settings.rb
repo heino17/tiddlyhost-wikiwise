@@ -20,7 +20,7 @@ class Settings
     # (Used in settings.yaml to tweak db name, url protocol and port)
     is_in_container = File.expand_path(rails_root) == '/opt/app'
 
-   read_settings = lambda do |settings_file|
+    read_settings = lambda do |settings_file|
       file_name = "#{rails_root}/#{settings_file}"
       if File.exist?(file_name)
         erb_template = ERB.new(File.read(file_name))
