@@ -41,6 +41,11 @@ gem 'redcarpet', '~> 3.6'
 # For memcached
 gem 'dalli'
 
+# Pin connection_pool to avoid breaking changes in 3.x related to
+# dalli and MemCacheStore
+# See: https://github.com/mperham/connection_pool/issues/210
+gem 'connection_pool', '< 3.0'
+
 # Added manually to fix error running tests...?
 gem 'rexml'
 
@@ -126,6 +131,10 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver', '~> 4.2'
+
+  # Keep minitest below 6.0.0 to avoid some breaking changes
+  # Remove after Rails 8 upgrade (?)
+  gem 'minitest', '~> 5.25'
 
   gem 'mocha', require: false
   gem 'simplecov', require: false
