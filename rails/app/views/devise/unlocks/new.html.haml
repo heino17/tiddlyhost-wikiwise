@@ -1,6 +1,5 @@
-
-= render layout: 'form_wrapper', locals: { heading: 'Resend unlock instructions',
-  intro_text: "Enter your email address to resend the account unlock link." } do
+= render layout: 'form_wrapper', locals: { heading: 'Anleitung zum Entsperren erneut senden',
+  intro_text: "Gib deine E-Mail-Adresse ein, um den Link zum Entsperren des Kontos zu erhalten." } do
 
   = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
 
@@ -11,6 +10,6 @@
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.submit 'Resend unlock instructions', class: 'btn btn-primary'
+      = f.submit 'Anleitung zum Entsperren erneut senden', class: 'btn btn-primary'
 
     = render 'devise/shared/links'

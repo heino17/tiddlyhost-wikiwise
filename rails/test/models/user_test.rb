@@ -74,7 +74,7 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 'grid', @user.reload.list_mode_pref
     assert_raises(ArgumentError) { @user.list_mode_pref = 'carousel' }
 
-    assert_equal 'auto', @user.theme_mode_pref
+    assert_equal 'dark', @user.theme_mode_pref
     @user.theme_mode_pref = 'dark'
     assert_equal 'dark', @user.reload.theme_mode_pref
     assert_raises(ArgumentError) { @user.theme_mode_pref = 'purple' }
@@ -87,9 +87,9 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 'list', @user.list_mode_pref_cycle
 
     # (Actually not used anywhere)
-    assert_equal 'auto', @user.theme_mode_pref
+    assert_equal 'dark', @user.theme_mode_pref
+    assert_equal 'auto', @user.theme_mode_pref_cycle
     assert_equal 'light', @user.theme_mode_pref_cycle
     assert_equal 'dark', @user.theme_mode_pref_cycle
-    assert_equal 'auto', @user.theme_mode_pref_cycle
   end
 end

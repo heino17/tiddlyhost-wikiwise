@@ -1,5 +1,5 @@
-= render layout: 'form_wrapper', locals: { heading: 'Resend confirmation instructions',
-  intro_text: "Enter your email address to resend the email confirmation link." } do
+= render layout: 'form_wrapper', locals: { heading: 'Anleitung zur Bestaetigung erneut senden',
+  intro_text: "Gib deine E-Mail-Adresse ein, um den Bestaetigungslink erneut zu erhalten." } do
 
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
 
@@ -11,6 +11,6 @@
         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.submit 'Resend confirmation instructions', class: 'btn btn-primary'
+      = f.submit 'Anleitung zur Bestaetigung erneut senden', class: 'btn btn-primary'
 
     = render 'devise/shared/links'

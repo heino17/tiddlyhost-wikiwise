@@ -1,5 +1,5 @@
 module ThemeModeHelper
-  MODES = %w[auto light dark]
+  MODES = %w[dark auto light]
 
   DEFAULT_MODE = MODES.first
 

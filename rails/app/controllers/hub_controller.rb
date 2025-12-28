@@ -36,20 +36,20 @@ class HubController < ApplicationController
     # helpers can see them.
     q: {}, # text search
     t: {}, # template filter
-    k: { 'tw' => 'TiddlyWiki (any)' }.merge(SiteCommon::KINDS).to_a.to_h { |k, v| [k.to_sym, { title: v }] }
+    k: { 'tw' => 'TiddlyWiki (alle)' }.merge(SiteCommon::KINDS).to_a.to_h { |k, v| [k.to_sym, { title: v }] }
   }.freeze
 
   # We don't do asc/desc sorting for the hub
   SORT_OPTIONS = {
-    v: { title: 'view count', field: 'view_count DESC' },
-    cl: { title: 'clone count', field: 'clone_count DESC' },
-    u: { title: 'recently updated', field: 'blob_created_at DESC NULLS LAST' },
-    c: { title: 'recently created', field: 'created_at DESC NULLS LAST' },
-    a: { title: 'name a-z', field: 'name ASC' },
-    z: { title: 'name z-a', field: 'name DESC' },
-    nv: { title: 'newer version', field: 'tw_version_trimmed DESC NULLS LAST' },
-    ov: { title: 'older version', field: 'tw_version_trimmed ASC NULLS LAST' },
-    r: { title: 'random', field: 'rand_sort' },
+    v: { title: 'Anzahl der Aufrufe', field: 'view_count DESC' },
+    cl: { title: 'Anzahl der Klone', field: 'clone_count DESC' },
+    u: { title: 'Gerade aktualisiert', field: 'blob_created_at DESC NULLS LAST' },
+    c: { title: 'Gerade erstellt', field: 'created_at DESC NULLS LAST' },
+    a: { title: 'Name a-z', field: 'name ASC' },
+    z: { title: 'Name z-a', field: 'name DESC' },
+    nv: { title: 'Neue Version', field: 'tw_version_trimmed DESC NULLS LAST' },
+    ov: { title: 'Alte Version', field: 'tw_version_trimmed ASC NULLS LAST' },
+    r: { title: 'Zufaellig', field: 'rand_sort' },
   }.freeze
 
   private

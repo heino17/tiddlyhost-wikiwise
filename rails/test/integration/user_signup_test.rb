@@ -7,7 +7,7 @@ class UserSignupTest < CapybaraIntegrationTest
 
     # Visit home page and click sign up link
     visit '/'
-    within(:css, '.jumbotron') { click_link 'Sign up' }
+    within(:css, '.jumbotron') { click_link 'Konto erstellen' }
 
     # Fill in the sign up form fields
     fill_in 'user[name]', with: name
@@ -17,7 +17,7 @@ class UserSignupTest < CapybaraIntegrationTest
     fill_in 'user[password_confirmation]', with: weak_password
 
     # Submit
-    click_button 'Create account'
+    click_button 'Konto erstellen'
 
     # Password is not strong enough...
     assert page.has_content?('Password is too short')
@@ -28,7 +28,7 @@ class UserSignupTest < CapybaraIntegrationTest
     fill_in 'user[password_confirmation]', with: strong_password
 
     # Click the sign up button and confirm an email is sent
-    assert_difference('ActionMailer::Base.deliveries.count') { click_button 'Create account' }
+    assert_difference('ActionMailer::Base.deliveries.count') { click_button 'Konto erstellen' }
 
     # Confirm the "check email" page is shown
     assert page.has_content?('please click the confirmation link')
@@ -44,13 +44,13 @@ class UserSignupTest < CapybaraIntegrationTest
     # Login
     fill_in 'user[email]', with: email
     fill_in 'user[password]', with: strong_password
-    click_button 'Log in'
+    click_button 'Anmelden'
 
     # Confirm we are logged in
-    assert page.has_css?('h1', text: 'Your sites')
+    assert page.has_css?('h1', text: 'Deine Seiten')
 
     # Logout
-    click_link 'Log out'
+    click_link 'Abmelden'
 
     # Confirm we are logged out
     assert page.has_css?('.jumbotron')

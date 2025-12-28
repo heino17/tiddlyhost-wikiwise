@@ -1,8 +1,7 @@
-
-%h1 Your sites
+%h1 Deine Seiten
 
 - if @sites.empty?
-  %p Click 'Create' below to create your first TiddlyWiki site.
+  %p Klicke unten auf „Erstellen“, um deine erste TiddlyWiki-Website zu erstellen.
 
 - else
   - if current_user.has_hub_link?
@@ -14,33 +13,33 @@
 
   .ps-1.ms-2.mb-3.th-text-small
     - if @filtered_site_count != @site_count
-      Showing #{@filtered_site_count} #{params[:access]} sites of #{pluralize(@site_count, 'site')} total.
-      = link_to('Clear filter', sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
+      Zeigt #{@filtered_site_count} #{params[:access]} Seiten von #{pluralize(@site_count, 'site')} gesamt.
+      = link_to('Filter löschen', sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
     - else
       = pluralize(@site_count, 'site') + ","
     = nice_byte_count(@total_storage_bytes)
-    storage used.
+    Speicherplatz verwendet.
 
   -# 'list_view' or 'grid_view'
   = render "#{@list_mode}_view"
 
 .nice-buttons.mx-2.my-4.py-2
-  = link_to new_site_path, class: 'btn me-3', title: 'Create a site' do
+  = link_to new_site_path, class: 'btn me-3', title: 'Erstelle eine Seite' do
     = bi_icon('plus-lg', style: "margin-right: 1px;")
-    Create
+    Erstellen
 
-  = link_to '/hub?t=1', class: 'btn me-3', title: 'Create a site using a template' do
+  = link_to '/hub?t=1', class: 'btn me-3', title: 'Erstelle eine Seite von einer Vorlage' do
     = bi_icon('files')
-    Create from template
+    Aus Vorlage erstellen
 
   - if Settings.tiddlyspot_enabled?
     = link_to({ controller: :tspot_sites, action: :claim_form },
-      class: 'btn', title: 'Claim ownership of an existing Tiddlyspot site') do
+      class: 'btn', title: 'Claim Tiddlyspot site') do
       = bi_icon('flag')
       Claim Tiddlyspot site
 
   - if @filtered_site_count > 0
     = link_to({ controller: :sites, action: :download_all }.merge(params.permit(:q, :kind, :access, :s, :tags)),
-      class: 'btn', title: "Download #{pluralize(@filtered_site_count, "site")} zipped") do
+      class: 'btn', title: "Download #{pluralize(@filtered_site_count, "site")} als gepackte .zip-Datei") do
       = bi_icon('file-earmark-zip')
-      Download all
+      Alle runterladen

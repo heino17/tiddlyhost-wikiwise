@@ -1,6 +1,5 @@
-
-= render layout: 'form_wrapper', locals: { heading: 'Forgot your password?',
-  intro_text: "Enter your email address to receive a reset password link." } do
+= render layout: 'form_wrapper', locals: { heading: 'Passwort vergessen?',
+  intro_text: "Gib deine E-Mail-Adresse ein, um einen Link zum Zuruecksetzen deines Passworts zu erhalten." } do
 
   = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
 
@@ -11,6 +10,6 @@
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.submit 'Send reset password link', class: 'btn btn-primary'
+      = f.submit 'Link zum Zuruecksetzen des Passworts senden', class: 'btn btn-primary'
 
     = render 'devise/shared/links'

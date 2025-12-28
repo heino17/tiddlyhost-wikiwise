@@ -6,10 +6,10 @@ class DeviseControllerTest < ActionDispatch::IntegrationTest
   #
   test 'home page' do
     {
-      '/users/sign_in' => 'Log in',
-      '/users/sign_up' => 'Create account',
-      '/users/confirmation/new' => 'Resend confirmation instructions',
-      '/users/unlock/new' => 'Resend unlock instructions',
+      '/users/sign_in' => 'Anmelden',
+      '/users/sign_up' => 'Konto erstellen',
+      '/users/confirmation/new' => 'Anleitung zur Bestaetigung erneut senden',
+      '/users/unlock/new' => 'Anleitung zum Entsperren erneut senden',
 
     }.each do |path, button_text|
       get path

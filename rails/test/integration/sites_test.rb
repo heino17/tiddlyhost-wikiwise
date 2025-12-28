@@ -9,13 +9,13 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'visiting the index' do
     visit sites_url
-    assert_selector 'h1', text: 'Your sites'
+    assert_selector 'h1', text: 'Deine Seiten'
   end
 
   test 'creating and viewing a site' do
     # Create a site
     visit sites_url
-    click_on 'Create', class: 'btn'
+    click_on 'Erstellen', class: 'btn'
     fill_in 'site_name', with: 'bar'
     click_on 'Create'
 

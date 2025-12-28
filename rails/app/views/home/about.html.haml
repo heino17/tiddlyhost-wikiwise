@@ -1,5 +1,4 @@
-
-%h1 About Tiddlyhost
+%h1 Über Tiddlyhost
 
 %p
   = image_tag 'logo-800-square.png', class: 'rounded',
@@ -7,18 +6,18 @@
 
 %p
   %i
-    The easiest way to use
+    Der einfachste Weg, 
     = link_to 'TiddlyWiki', 'https://tiddlywiki.com/', target: '_blank'
-    online.
+    online zu verwenden.
 
-%p Created, maintained and supported by Simon Baird.
+%p Erstellt, gewartet und unterhalten von Simon Baird.
 
 %p
-  If you have problems please
-  = link_to('report an issue in Github',
+  Wenn es zu Problemen kommt, bitte
+  = link_to('berichte das bitte auf Github',
     Settings.create_issue_url, target: '_blank')
-  or
-  = support_mail_to(link_title: 'send an email to Simon') + '.'
+  oder
+  = support_mail_to(link_title: 'sende eine eMail an Simon') + '.'
   See #{link_to "Support", "/support"} for more support options.
 
 %ul.about-links
@@ -35,7 +34,7 @@
   %li<
     = link_to Settings.docs_url, target: '_blank' do
       = bi_icon('file-text')
-      Documentation
+      Dokumentation
 
   %li<
     = link_to 'https://tiddlyspot.blogspot.com/' do
@@ -70,7 +69,7 @@
   %li<
     = link_to '/donate' do
       = bi_icon('piggy-bank')
-      Donations &amp; Sponsorship
+      Spenden &amp; Sponsoring
 
 %table.m-2.p-1
   %tr
@@ -83,7 +82,7 @@
 
   %tr
     %td.pt-4.p-1.pe-3.text-muted.align-top
-      Empty versions:
+      Leere Versionen:
     %td.pt-4.p-1.lh-lg
       - @build_info['empties'].each do |e|
         %span.me-1

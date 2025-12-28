@@ -1,4 +1,3 @@
-
 .container-fluid
   .row.mx-2.my-4.p-md-2.p-0
 
@@ -8,8 +7,7 @@
         - unless Rails.env.production?
           %li Env: #{Rails.env}
         %li Version: #{link_to Settings.app_version, '/about'}
-        - if feature_enabled?(:admin)
-          %li Built: #{nice_timestamp(DateTime.parse(Settings.build_info['date']))}
+
         %li &copy; 2021-#{Time.now.year} Simon Baird
 
     .col-md-3.col-6
@@ -56,12 +54,12 @@
         %li
           = mail_to Settings.support_email do
             = bi_icon('envelope')
-            Send email
+            Send email (Entwickler)
 
         %li
           = link_to '/donate' do
             = bi_icon('piggy-bank')
-            Donate/Sponsor
+            Donate/Sponsor (Entwickler)
 
     .col-md-3.col-6
       %h6.text-muted Tiddlyhost
@@ -84,4 +82,14 @@
         %li
           = link_to Settings.github_url, target: '_blank' do
             = bi_icon('gem')
-            Source Code
+            Source Code            
+
+    .col.md-6
+      %br
+      <center>
+      %h6.text-muted ❤️ Tiddlyhost-WikiWise.local
+      %ul      
+        %li
+          = link_to '/impressum' do
+            = bi_icon('file-earmark-text')
+            Impressum

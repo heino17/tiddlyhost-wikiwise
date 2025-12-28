@@ -1,3 +1,4 @@
+
 %nav.navbar.navbar-dark.navbar-expand-sm.bg-gradient{ class: navbar_prod }
   .container-fluid
 
@@ -18,27 +19,27 @@
 
         -# Links for logged in users
         %ul.navbar-nav.me-auto.mb-lg-0
-          = nav_link_to "WikiWise", root_path
-          = nav_link_to "Schaufenster", '/explore'
-          = nav_link_to "Vorlagen", '/templates?t=1'
+          = nav_link_to "Home", root_path
+          = nav_link_to "Explore", '/explore'
+          = nav_link_to "Templates", '/templates?t=1'
 
           - if user_is_admin?
-            = nav_link_to "Admin", admin_path, style: 'opacity: 40%;'
+            = nav_link_to "Admin", admin_path, style: 'opacity: 10%;'
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link
 
           -# For normal nav bar
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
-            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block', title: 'Seite erstellen'
+            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block', title: 'Create site'
 
           -# For burger menu
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
             style: "opacity:90%; margin-left:-3px; margin-right:0px;") + content_tag(:span,
-            'Seite erstellen'), new_site_path, li_class: 'd-block d-sm-none', title: 'Seite erstellen'
+            'Create site'), new_site_path, li_class: 'd-block d-sm-none', title: 'Create site'
 
           %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: "Benutzermen端",
+            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: "User menu",
               "data-bs-toggle"=>"dropdown", "aria-expanded"=>"false", "aria-haspopup"=>"true" }
               - if current_user.use_avatar?
                 = avatar_image(current_user, size: 18, style: 'margin-top: -2px;')
@@ -53,12 +54,12 @@
 
         -# Links for not logged in users
         %ul.navbar-nav.me-auto
-          = nav_link_to "WikiWise", root_path
-          = nav_link_to "Schaufenster", '/explore'
-          = nav_link_to "Vorlagen", '/templates?t=1'
-          -## = nav_link_to "Pricing", '/pricing'
-          -## = nav_link_to "Sign up", new_user_registration_path
+          = nav_link_to "Home", root_path
+          = nav_link_to "Explore", '/explore'
+          = nav_link_to "Templates", '/templates?t=1'
+          = nav_link_to "Pricing", '/pricing'
+          = nav_link_to "Sign up", new_user_registration_path
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link
-          = nav_link_to "Anmelden", new_user_session_path
+          = nav_link_to "Log in", new_user_session_path
