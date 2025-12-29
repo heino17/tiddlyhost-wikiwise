@@ -13,10 +13,10 @@
 
   .ps-1.ms-2.mb-3.th-text-small
     - if @filtered_site_count != @site_count
-      Zeigt #{@filtered_site_count} #{params[:access]} Seiten von #{pluralize(@site_count, 'site')} gesamt.
+      Zeigt #{@filtered_site_count} #{params[:access]} Seiten von #{pluralize(@site_count, 'Site')} gesamt.
       = link_to('Filter löschen', sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
     - else
-      = pluralize(@site_count, 'site') + ","
+      = pluralize(@site_count, 'Site') + ","
     = nice_byte_count(@total_storage_bytes)
     Speicherplatz verwendet.
 
