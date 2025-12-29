@@ -17,7 +17,7 @@ class SitesTest < CapybaraIntegrationTest
     visit sites_url
     click_on 'Erstellen', class: 'btn'
     fill_in 'site_name', with: 'bar'
-    click_on 'Create'
+    click_on 'Erstellen'
 
     # Confirm we are sent back to sites index
     assert_current_path '/sites'
@@ -90,8 +90,8 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'cloning form' do
     visit new_site_path(clone: 'mysite')
-    assert_selector 'h2', text: 'Clone site'
-    assert_selector 'label', text: 'Cloning from'
+    assert_selector 'h2', text: 'Klone eine Seite'
+    assert_selector 'label', text: 'Klonen von'
     assert_selector 'form a', text: 'mysite'
     assert_no_selector 'label[for="site_empty_id_1"]'
     # See also test/controllers/sites_controller_test.rb for
@@ -99,13 +99,13 @@ class SitesTest < CapybaraIntegrationTest
 
     # When the clone isn't found
     visit new_site_path(clone: 'notmysite')
-    assert_selector 'h2', text: 'Create'
+    assert_selector 'h2', text: 'Erstelle'
     assert_selector 'label', text: 'Type'
     assert_selector 'label[for="site_empty_id_1"]'
 
     # ..which is the same as regular create
     visit new_site_path
-    assert_selector 'h2', text: 'Create'
+    assert_selector 'h2', text: 'Erstelle'
     assert_selector 'label', text: 'Type'
     assert_selector 'label[for="site_empty_id_1"]'
   end
@@ -164,10 +164,10 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'updating site settings' do
     visit sites_url
-    click_on 'Settings', match: :first
+    click_on 'Einstellungen', match: :first
 
     fill_in 'Name', with: 'foo'
-    click_on 'Update'
+    click_on 'Aktualisieren'
 
     # Back to the sites index after update
     assert_current_path '/sites'
@@ -176,7 +176,7 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'uploading a site' do
     visit sites_url
-    click_on 'Upload', match: :first
+    click_on 'Hochladen', match: :first
     assert_equal 200, page.status_code
     # TODO: Test uploading
   end
