@@ -1,4 +1,3 @@
-
 :ruby
   is_tspot = site.is_a?(TspotSite)
   is_templates = @show_templates.present?
@@ -21,9 +20,9 @@
     -# Show the new style clone and download buttons
     .clone-download-buttons
       = link_to "#{site.url}/download", class: 'btn btn-sm btn-light' do
-        #{bi_icon('download', height: '1.2em', fill: '#777')}Download
+        #{bi_icon('download', height: '1.2em', fill: '#777')}Runterladen
       = link_to new_site_path(clone: site.name), class: 'btn btn-sm btn-light' do
-        #{bi_icon('files', height: '1.2em', fill: '#777')}Clone
+        #{bi_icon('files', height: '1.2em', fill: '#777')}Klonen
 
     - unless is_templates
       -# Same thing but it will be visible pre-hover

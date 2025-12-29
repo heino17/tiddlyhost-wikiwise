@@ -38,7 +38,7 @@
             'Seite erstellen'), new_site_path, li_class: 'd-block d-sm-none', title: 'Seite erstellen'
 
           %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: "Benutzermen端",
+            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: "Benutzermenue",
               "data-bs-toggle"=>"dropdown", "aria-expanded"=>"false", "aria-haspopup"=>"true" }
               - if current_user.use_avatar?
                 = avatar_image(current_user, size: 18, style: 'margin-top: -2px;')
