@@ -142,7 +142,7 @@ class SitesController < ApplicationController
   def update
     respond_to do |format|
       if @site.update(site_params_for_update)
-        format.html { redirect_to sites_url, notice: 'Site was successfully updated.' }
+        format.html { redirect_to sites_url, notice: 'Die Seite wurde erfolgreich aktualisiert' }
         # format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
@@ -159,7 +159,7 @@ class SitesController < ApplicationController
       if @site.content_upload(new_content)
         @site.increment_save_count
 
-        format.html { redirect_to sites_url, notice: 'Upload to site was successfully completed.' }
+        format.html { redirect_to sites_url, notice: 'Der Upload wurde erfolgreich abgeschlossen.' }
         # format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
@@ -173,7 +173,7 @@ class SitesController < ApplicationController
   def destroy
     @site.destroy
     respond_to do |format|
-      format.html { redirect_to sites_url, notice: 'Site was successfully destroyed.' }
+      format.html { redirect_to sites_url, notice: 'Die Seite wurde erfolgreich geloescht' }
       # format.json { head :no_content }
     end
   end
@@ -182,7 +182,7 @@ class SitesController < ApplicationController
 
   def set_site
     @site = current_user.sites.find(params[:id])
-    redirect_to sites_url, notice: 'Site not found' unless @site
+    redirect_to sites_url, notice: 'Seite nicht gefunden' unless @site
   end
 
   def set_sites

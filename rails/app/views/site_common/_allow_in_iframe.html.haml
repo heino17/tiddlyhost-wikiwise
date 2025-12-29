@@ -1,16 +1,15 @@
-
 = render layout: 'field_wrapper' do
   .form-check.enable-tooltips
     = f.check_box :allow_in_iframe, class: 'form-check-input'
 
     = f.label :allow_in_iframe, class: 'form-check-label' do
-      Allow site to be loaded inside an iframe
+      Das Laden der Website innerhalb eines Iframes zulassen
 
       = render 'popover_help',
         html_content: ' |
-          When this is set the default <a |
+          Wenn dies als Standard festgelegt ist, <a |
           href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options" |
-          target="_blank">X-Frame-Options</a> deny header will be suppressed. |
-          Beware that sites loaded inside iframes may be vulnerable to |
+          target="_blank">X-Frame-Options</a> wird der Deny-Header unterdrückt. |
+          Beachten Sie, dass Seiten, die in iframes geladen werden, anfällig sein können für |
           <a target="_blank" href="https://en.wikipedia.org/wiki/Clickjacking">click-jacking</a> |
-          attacks.' |
+          Angriffe.' |
