@@ -11,7 +11,7 @@ sudo chown -R deinuser:deinuser etc
 dann make rails-init wiederholen
 
 ### make test
-Wird 4  404-Fehler zeigen, ich habe in der '/rails/lib/settings/features.rb' 
+Wird `3` 404-Fehler zeigen, ich habe in der '/rails/lib/settings/features.rb' 
 'subscriptions_enabled' auf 'false' gesetzt.
 Damit ist die Abonnement-Funktion im Adminbereich deaktiviert.
 
