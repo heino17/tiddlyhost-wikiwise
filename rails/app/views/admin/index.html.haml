@@ -1,33 +1,32 @@
-
 %h2= @title
 
 = render 'tabs'
 
 .stats
-  = render 'stat_card', title: 'Users',         count: @user_count, big: true
-  = render 'stat_card', title: 'Subscriptions', count: "#{@subscription_count} + #{@alt_subscription_count}", big: true
-  = render 'stat_card', title: 'Sites',         count: @site_count, big: true
-  = render 'stat_card', title: 'Site views',    count: nice_view_count(@view_count), big: true
+  = render 'stat_card', title: 'Benutzer',         count: @user_count, big: true
+  = render 'stat_card', title: 'Abonnements', count: "#{@subscription_count} + #{@alt_subscription_count}", big: true
+  = render 'stat_card', title: 'Seiten',         count: @site_count, big: true
+  = render 'stat_card', title: 'Seitenaufrufe',    count: nice_view_count(@view_count), big: true
 
   - if Settings.tiddlyspot_enabled?
     = render 'stat_card', title: 'Tspots',      count: @tspot_site_count, big: true
     = render 'stat_card', title: 'Tspot views', count: nice_view_count(@tspot_view_count), big: true
 
-  = render 'stat_card', title: 'Storage',       count: nice_byte_count(@total_site_bytes, precision: 5), big: true
+  = render 'stat_card', title: 'Speicher',       count: nice_byte_count(@total_site_bytes, precision: 5), big: true
   %br
 
-  = render 'stat_card', title: 'Active daily',          count: @active_daily, total: @user_count
-  = render 'stat_card', title: 'Active weekly',         count: @active_weekly, total: @user_count
-  = render 'stat_card', title: 'Active monthly',        count: @active_monthly, total: @user_count
-  = render 'stat_card', title: 'Signed in once users',  count: @signed_in_once_users, total: @user_count
-  = render 'stat_card', title: 'Never signed in users', count: @never_signed_in_users, total: @user_count
+  = render 'stat_card', title: 'Täglich aktiv',          count: @active_daily, total: @user_count
+  = render 'stat_card', title: 'Aktiv wöchentlich',         count: @active_weekly, total: @user_count
+  = render 'stat_card', title: 'Aktiv monatlich',        count: @active_monthly, total: @user_count
+  = render 'stat_card', title: 'Einmal angemeldet',  count: @signed_in_once_users, total: @user_count
+  = render 'stat_card', title: 'Nie angemeldete Benutzer', count: @never_signed_in_users, total: @user_count
   %br
 
-  = render 'stat_card', title: 'Never updated sites',   count: @never_updated_sites, total: @site_count
-  = render 'stat_card', title: 'Private sites',         count: @private_count, total: @site_count
-  = render 'stat_card', title: 'Public sites',          count: @public_count, total: @site_count
-  = render 'stat_card', title: 'Public non-searchable sites', count: @public_non_searchable_count, total: @site_count
-  = render 'stat_card', title: 'Public searchable sites',     count: @searchable_count, total: @site_count
+  = render 'stat_card', title: 'Nie aktualisierte Seiten',   count: @never_updated_sites, total: @site_count
+  = render 'stat_card', title: 'Private Seiten',         count: @private_count, total: @site_count
+  = render 'stat_card', title: 'Öffentliche Seiten',          count: @public_count, total: @site_count
+  = render 'stat_card', title: 'Öffentliche, nicht durchsuchbare Seiten', count: @public_non_searchable_count, total: @site_count
+  = render 'stat_card', title: 'Öffentlich durchsuchbare Seiten',     count: @searchable_count, total: @site_count
 
   - if Settings.tiddlyspot_enabled?
     %br
@@ -35,6 +34,6 @@
     = render 'stat_card', title: 'Saved tspots',   count: @saved_tspot_count, total: @tspot_site_count
 
   %br
-  = render 'stat_card', title: 'Jobs in queue', alert: @jobs_alert, count: @jobs_count
-  = render 'stat_card', title: 'Locked since',  alert: @jobs_alert, count: nice_timestamp(@jobs_running_since)
-  = render 'stat_card', title: 'Running now', alert: @jobs_alert, count: render("running_job_site_links")
+  = render 'stat_card', title: 'Jobs in der Warteschlange', alert: @jobs_alert, count: @jobs_count
+  = render 'stat_card', title: 'Gesperrt seit',  alert: @jobs_alert, count: nice_timestamp(@jobs_running_since)
+  = render 'stat_card', title: 'Jetzt laufend', alert: @jobs_alert, count: render("running_job_site_links")

@@ -42,7 +42,7 @@ module AdminChartData
   DEFAULT_CHART = KNOWN_CHARTS.first
 
   # Make these both on a Sunday so the X-axis rendering matches the data better
-  USERS_EPOCH = '2021-02-07'
+  USERS_EPOCH = '2023-07-09'
   SUBSCRIBERS_EPOCH = '2023-02-19'
 
   #---------------------------------------------------------------------------

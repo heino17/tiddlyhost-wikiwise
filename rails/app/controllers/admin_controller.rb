@@ -9,7 +9,7 @@ class AdminController < ApplicationController
   before_action :enable_chart_js, only: [:charts]
 
   def index
-    @title = 'Stats'
+    @title = 'Statistiken'
 
     @view_count = Site.sum(:access_count)
     @tspot_view_count = TspotSite.sum(:access_count)

@@ -1,11 +1,10 @@
-
 %div{ style: "margin-bottom: 2em;" }
   %ul.nav.nav-tabs
-    = tab_link_to('Stats', action: :index)
-    = tab_link_to('Charts', action: :charts)
-    = tab_link_to('Users', action: :users)
-    = tab_link_to('Sites', action: :sites)
+    = tab_link_to('Statistiken', action: :index)
+    = tab_link_to('Diagramme', action: :charts)
+    = tab_link_to('Benutzer', action: :users)
+    = tab_link_to('Seiten', action: :sites)
     - if Settings.tiddlyspot_enabled?
       = tab_link_to('Tspot Sites', action: :tspot_sites, no_stub: '1')
-    = tab_link_to('Storage', action: :storage)
-    = tab_link_to('Etc', action: :etc)
+    = tab_link_to('Speicher', action: :storage)
+    = tab_link_to('etc.', action: :etc)
