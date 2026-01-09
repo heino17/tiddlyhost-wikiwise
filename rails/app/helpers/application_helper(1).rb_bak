@@ -1,13 +1,5 @@
 module ApplicationHelper
   include Recaptcha::Adapters::ViewMethods
-  # Language switch for i18n
-  def language_switcher_links
-    available_locales = [:en, :de]  # Erweitere später auf [:en, :de, :fr] usw.
-    available_locales.map do |loc|
-      link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{I18n.locale == loc ? 'active' : ''}"
-    end.join(' | ').html_safe
-  end
-  # Language switch for i18n end
 
   def nice_byte_count(bytes, precision: 3)
     return '-' if bytes.nil?

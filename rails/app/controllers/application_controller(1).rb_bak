@@ -1,20 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :redirect_www_requests
   before_action :permit_devise_params, if: :devise_controller?
-  before_action :set_locale
-
-  private
-
-  def set_locale
-    locale = params[:locale] || session[:locale] || browser_language || I18n.default_locale
-    I18n.locale = locale if I18n.available_locales.include?(locale.to_sym)
-    session[:locale] = I18n.locale   # merken für die nächste Anfrage
-  end
-
-  def browser_language
-    # Nutzt den Accept-Language-Header des Browsers
-    request.env['HTTP_ACCEPT_LANGUAGE']&.scan(/[a-z]{2}/)&.first
-  end
 
   protected
 

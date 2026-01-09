@@ -1,33 +1,24 @@
-
 .row.blurb
   .col
-    %h4 Your own wiki in seconds
+    %h4= t('signed_out_col1_heading')
     %p
-      Get your own powerful, extensible, personal wiki for free in seconds with no installation
-      required. Make it private, public, or show it off on the
+      = t('signed_out_col1_text')
       #{link_to('Explore page', '/explore')}.
 
   .col
-    %h4 Powered by TiddlyWiki
+    %h4= t('signed_out_col2_heading')
     %p
-
-      Tiddlyhost is powered by #{link_to 'TiddlyWiki', 'https://tiddlywiki.com/'}
-      the revolutionary open source JavaScript wiki. It also supports the new
-      superlight #{link_to 'Feather Wiki', 'https://feather.wiki/'} and the
-      old-school original #{link_to 'TiddlyWiki Classic', 'https://classic.tiddlywiki.com/'}.
+      = t('signed_out_col2_text').html_safe
 
   .col
-    %h4 From the creator of Tiddlyspot
+    %h4= t('signed_out_col3_heading')
     %p
-      Tiddlyhost is the secure, modern, reliable successor to Tiddlyspot, and its
-      code is #{link_to 'open source', 'https://github.com/tiddlyhost/tiddlyhost-com'}.
-      Find out more at the #{link_to 'FAQ', 'https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ'}
-      or the #{link_to 'About', '/about'} page.
+      = t('signed_out_col3_text').html_safe
 
 .rounded.mt-3.p-4.th-bg-jumbo.jumbotron{ style: "padding: 1.5em 1.5em 2em 1.5em" }
-  %h3 Get started now
+  %h3= t('get_started_heading')
   = link_to new_user_registration_path, class: 'btn btn-lg btn-primary' do
-    Sign up
-  %span or
+    = t('get_started_button_signup')
+  %span= t('get_started_divider')
   = link_to new_user_session_path, class: 'btn btn-lg btn-primary' do
-    Log in
+    = t('get_started_button_login')

@@ -1,0 +1,33 @@
+
+.row.blurb
+  .col
+    %h4 Your own wiki in seconds
+    %p
+      Get your own powerful, extensible, personal wiki for free in seconds with no installation
+      required. Make it private, public, or show it off on the
+      #{link_to('Explore page', '/explore')}.
+
+  .col
+    %h4 Powered by TiddlyWiki
+    %p
+
+      Tiddlyhost is powered by #{link_to 'TiddlyWiki', 'https://tiddlywiki.com/'}
+      the revolutionary open source JavaScript wiki. It also supports the new
+      superlight #{link_to 'Feather Wiki', 'https://feather.wiki/'} and the
+      old-school original #{link_to 'TiddlyWiki Classic', 'https://classic.tiddlywiki.com/'}.
+
+  .col
+    %h4 From the creator of Tiddlyspot
+    %p
+      Tiddlyhost is the secure, modern, reliable successor to Tiddlyspot, and its
+      code is #{link_to 'open source', 'https://github.com/tiddlyhost/tiddlyhost-com'}.
+      Find out more at the #{link_to 'FAQ', 'https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ'}
+      or the #{link_to 'About', '/about'} page.
+
+.rounded.mt-3.p-4.th-bg-jumbo.jumbotron{ style: "padding: 1.5em 1.5em 2em 1.5em" }
+  %h3 Get started now
+  = link_to new_user_registration_path, class: 'btn btn-lg btn-primary' do
+    Sign up
+  %span or
+  = link_to new_user_session_path, class: 'btn btn-lg btn-primary' do
+    Log in
