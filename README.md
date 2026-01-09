@@ -9,6 +9,13 @@ Branch ready for 1. Test! :)
 - can be tested NOW!
 - note the ports!
 
+for clone branch:
+SSH:
+git clone --branch wikiwise-local-translation git@github.com:heino17/tiddlyhost-wikiwise.git
+
+https:
+git clone --branch wikiwise-local-translation https://github.com/heino17/tiddlyhost-wikiwise.git
+
 Tiddlyhost
 ==========
 
