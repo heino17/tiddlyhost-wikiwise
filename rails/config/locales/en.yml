@@ -284,4 +284,10 @@ en:
   about_links_blog: "Blog"
   about_links_x: "X"
   about_links_terms: "Terms of Use"
+  about_links_privacy: "Privacy Policy"
+  about_links_source: "Source Code"
+  about_links_license: "Software License"
+  about_links_donate: "Donations Sponsorships"
+  about_hint_version: "Version:"
+  about_hint_empty_versions: "Empty Versions:"
   

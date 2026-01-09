@@ -298,4 +298,9 @@ de:
   about_links_blog: "Blog"
   about_links_x: "X"
   about_links_terms: "Nutzungsbedingungen"
-    
+  about_links_privacy: "Datenschutzerklärung"
+  about_links_source: "Source Code"
+  about_links_license: "Software Lizenz"
+  about_links_donate: "Spenden Sponsoring"
+  about_hint_version: "Version:"
+  about_hint_empty_versions: "Leere Versionen:"
