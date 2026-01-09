@@ -1,5 +1,6 @@
 Branch ready for 1. Test! :)
 ============================
+- rails I18n implemented
 - DE/EN switchable, Switch in menu bar
 - stays on the current site
 - more languages easy to implement
