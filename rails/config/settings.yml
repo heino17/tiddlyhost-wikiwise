@@ -72,8 +72,8 @@ test:
 
 production:
   url_defaults:
-    :host: tiddlyhost.com
-    #:host: tiddlyhost.local
+    #:host: tiddlyhost.com
+    :host: tiddlyhost.local
     :protocol: https
   thumbs_storage_service: thumbs2
   public_thumbs_storage_service: thumbs_public
