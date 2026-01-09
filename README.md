@@ -18,6 +18,9 @@ https:
 ```
 git clone --branch wikiwise-local-translation https://github.com/heino17/tiddlyhost-wikiwise.git  
 ```
+```
+cd tiddlyhost-wikiwise
+```
 Tiddlyhost
 ==========
 
