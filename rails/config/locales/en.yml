@@ -272,3 +272,16 @@ en:
   get_started_button_signup: "Sign up"
   get_started_divider: "or"
   get_started_button_login: "Log in"
+#
+  site_heading_about: "About Tiddlyhost"
+  site_text_about: "The easiest way to use 
+  <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> online. <p>Created, maintained and supported by Simon Baird."
+  site_text2_about: "If you have problems please <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>report an issue in Github</a> 
+  , <a href=\"mailto:simon.baird@gmail.com\">send an email to Simon</a>, or see <a href=\"/support\">Support</a> for more support options."
+  about_links_support: "Support"
+  about_links_faq: "FAQ"
+  about_links_documentation: "Documentation"
+  about_links_blog: "Blog"
+  about_links_x: "X"
+  about_links_terms: "Terms of Use"
+  

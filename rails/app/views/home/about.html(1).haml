@@ -1,45 +1,56 @@
-%h1= t('site_heading_about')
+
+%h1 About Tiddlyhost
 
 %p
   = image_tag 'logo-800-square.png', class: 'rounded',
     style: 'width: 120px; height: 120px; float: left; margin: 0.5em 1em 0.5em 0;'
 
 %p
-  = t('site_text_about').html_safe
+  %i
+    The easiest way to use
+    = link_to 'TiddlyWiki', 'https://tiddlywiki.com/', target: '_blank'
+    online.
+
+%p Created, maintained and supported by Simon Baird.
 
 %p
-  = t('site_text2_about').html_safe
+  If you have problems please
+  = link_to('report an issue in Github',
+    Settings.create_issue_url, target: '_blank')
+  or
+  = support_mail_to(link_title: 'send an email to Simon') + '.'
+  See #{link_to "Support", "/support"} for more support options.
 
 %ul.about-links
   %li<
     = link_to '/support' do
       = bi_icon('life-preserver')
-      = t('about_links_support')
+      Support
 
   %li<
     = link_to Settings.faq_url do
       = bi_icon('patch-question')
-      = t('about_links_faq')
+      FAQ
 
   %li<
     = link_to Settings.docs_url, target: '_blank' do
       = bi_icon('file-text')
-      = t('about_links_documentation')
-  
-  %li<
-    = link_to Settings.blog_url, target: '_blank' do
-      = bi_icon('newspaper')
-      = t('about_links_blog')
+      Documentation
 
-  %li
-    = link_to Settings.twitterx_url, target: '_blank' do
+  %li<
+    = link_to 'https://tiddlyspot.blogspot.com/' do
+      = bi_icon('newspaper')
+      Blog
+
+  %li<
+    = link_to 'https://x.com/tiddlyhost' do
       = bi_icon('twitter-x')
-      = t('about_links_x')
+      X
 
   %li<
     = link_to '/terms-of-use' do
       = bi_icon('file-earmark-text')
-      = t('about_links_terms')
+      Terms of Use
 
   %li<
     = link_to '/privacy-policy' do

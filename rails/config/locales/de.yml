@@ -286,3 +286,16 @@ de:
   get_started_divider: "oder"
   get_started_button_login: "Anmelden"  
   #
+  site_heading_about: "Über Tiddlyhost"
+  site_text_about: "Der einfachste Weg 
+  <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> online zu verwenden. Erstellt, gewartet und unterhalten von Simon Baird."
+  site_text2_about: "Wenn es zu Problemen kommt, bitte 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>berichte das bitte auf Github</a>!<br>
+  <a href=\"mailto:simon.baird@gmail.com\">Sende eine eMail an Simon.</a> Oder sieh Dir für weitere Optionen die <a href=\"/support\">Support-Seite</a> an."
+  about_links_support: "Support"
+  about_links_faq: "FAQ"
+  about_links_documentation: "Dokumentation"
+  about_links_blog: "Blog"
+  about_links_x: "X"
+  about_links_terms: "Nutzungsbedingungen"
+    

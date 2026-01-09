@@ -7,6 +7,8 @@ defaults:
   docs_url: https://github.com/tiddlyhost/tiddlyhost-com/wiki
   faq_url: https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ
   create_issue_url: https://github.com/tiddlyhost/tiddlyhost-com/issues/new
+  blog_url: https://tiddlyspot.blogspot.com/
+  twitterx_url: https://x.com/tiddlyhost
   prod_main_site_url: https://tiddlyhost.com
   tiddlyhost_account_email: tiddlyhost@gmail.com
   devise_mailer_sender: '"Tiddlyhost" <tiddlyhost@gmail.com>'

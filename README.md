@@ -1,3 +1,13 @@
+Branch ready for 1. Test! :)
+============================
+- DE/EN switchable, Switch in menu bar
+- stays on the current site
+- more languages easy to implement
+- just started translating the texts and transferring them to de.yml/en.yml
+
+- can be tested NOW!
+- note the ports!
+
 Tiddlyhost
 ==========
 
