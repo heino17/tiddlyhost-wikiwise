@@ -225,10 +225,10 @@ de:
       long: "%A, %d. %B %Y, %H:%M Uhr"
       short: "%d. %b, %H:%M Uhr"
     pm: nachmittags
-#
-#
-# From here Tiddlyhost for i18n
-# 
+  #
+  #
+  # From here Tiddlyhost for i18n
+  # 
   # This is a little annoying...
   will_paginate:
     models:
@@ -236,28 +236,28 @@ de:
         zero:  Seiten
         one:   Seite
         few:   Seiten
-        other: Seiten  
-#        
-    previous_label: "« Vorherige"
-    previous_aria_label: "Vorherige Seite"
-    next_label: "Nächste »"
-    next_aria_label: "Nächste Seite"
-    page_gap: "..."
-    container_aria_label: "Seitennavigation"
-    page_aria_label: "Seite %{page}"
+        other: Seiten
+  #        
+  previous_label: "« Vorherige"
+  previous_aria_label: "Vorherige Seite"
+  next_label: "Nächste »"
+  next_aria_label: "Nächste Seite"
+  page_gap: "..."
+  container_aria_label: "Seitennavigation"
+  page_aria_label: "Seite %{page}"
 
-    page_entries_info:
-      single_page:
-        zero: "Keine %{model} gefunden"
-        one: "Zeige 1 %{model}"
-        other: "Zeige alle %{count} %{model}"
-      single_page_html:
-        zero: "Keine %{model} gefunden"
-        one: "Zeige <b>1</b> %{model}"
-        other: "Zeige <b>alle %{count}</b> %{model}"
+  page_entries_info:
+    single_page:
+      zero: "Keine %{model} gefunden"
+      one: "Zeige 1 %{model}"
+      other: "Zeige alle %{count} %{model}"
+    single_page_html:
+      zero: "Keine %{model} gefunden"
+      one: "Zeige <b>1</b> %{model}"
+      other: "Zeige <b>alle %{count}</b> %{model}"
       multi_page: "Zeige %{model} %{from} - %{to} von %{count} insgesamt"
       multi_page_html: "Zeige %{model} <b>%{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
-#      
+  #      
 de:
   your_sites: "Deine Seiten"
   click_create_below: "Klicke unten auf 'Erstellen', um deine erste TiddlyWiki-Site anzulegen."
@@ -270,10 +270,10 @@ de:
   create_from_template: "Aus Vorlage erstellen"
   claim_tiddlyspot_site: "Tiddlyspot-Site beanspruchen"
   download_all: "Alle herunterladen"  
-#  
+  #  
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"
-#  
+  #  
   signed_out_col1_heading: "Dein eigenes Wiki in Sekunden!"
   signed_out_col1_text: "Erstelle in wenigen Sekunden kostenlos Dein eigenes leistungsstarkes, erweiterbares, persönliches Wiki, ohne dass eine Installation erforderlich ist. Mach es privat, öffentlich oder zeige es auf der"
   signed_out_col2_heading: "Unterstützt von TiddlyWiki"
@@ -285,3 +285,4 @@ de:
   get_started_button_signup: "Konto erstellen"
   get_started_divider: "oder"
   get_started_button_login: "Anmelden"  
+  #
