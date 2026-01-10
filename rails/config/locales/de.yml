@@ -289,6 +289,11 @@ de:
   hub_view_search_box_clear: "Löschen"
   hub_view_access_searchable: "Durchsuchbar"
   hub_view_access_template: "Vorlage"
+  hub_view_action_menu_settings: "Einstellungen"
+  hub_view_action_menu_save_history: "Speicherverlauf"
+  hub_view_action_menu_view: "Ansicht"
+  hub_view_action_menu_download: "Runterladen"
+  hub_view_action_menu_more: "Mehr..."
   #hub_view_show_per_page: "18" # not yet implemented
   hub_view_table_actions: "Aktionen"
   # Test in footer
