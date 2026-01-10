@@ -258,6 +258,12 @@ en:
   download_all: "Download all"
   # hub view
   hub_view_all_sites: "All sites"
+  hub_view_created_by_user: "Sites created by Tiddlyhost user"
+  hub_view_list_kind: "Kind"
+  hub_view_list_show_all: "show all"
+  hub_view_list_sort_by: "sort by"
+  hub_view_search_box: "Search"
+  hub_view_search_box_clear: "Clear"
   # Test in footer
   test: "Hello World"
   test_ok: "(en.yml working!)"

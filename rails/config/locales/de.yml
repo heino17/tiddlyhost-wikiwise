@@ -267,6 +267,12 @@ de:
   download_all: "Alle herunterladen"  
   # hub view
   hub_view_all_sites: "Alle Seiten"
+  hub_view_created_by_user: "Seiten erstellt von Tiddlyhost-Anwender"
+  hub_view_list_kind: "Art"
+  hub_view_list_show_all: "Zeige alle"
+  hub_view_list_sort_by: "Sortiere nach"
+  hub_view_search_box: "Suche"
+  hub_view_search_box_clear: "Löschen"
   # Test in footer
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"
