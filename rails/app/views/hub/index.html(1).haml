@@ -25,7 +25,7 @@
 
 %div{ style: "margin-bottom: 2em;" }
   %ul.nav.nav-tabs
-    = hub_link_to(t('hub_view_all_sites'), hub_all_url)
+    = hub_link_to("All #{@thing_name.downcase}s", hub_all_url)
     - @tag_tabs.each do |tag|
       = hub_tag_link_to(tag, crawler_protect: true)
 

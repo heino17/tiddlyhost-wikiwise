@@ -255,7 +255,9 @@ en:
   create: "Create"
   create_from_template: "Create from template"
   claim_tiddlyspot_site: "Claim Tiddlyspot site"
-  download_all: "Download all"  
+  download_all: "Download all"
+  # hub view
+  hub_view_all_sites: "All sites"
   # Test in footer
   test: "Hello World"
   test_ok: "(en.yml working!)"

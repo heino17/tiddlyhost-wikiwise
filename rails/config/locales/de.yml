@@ -229,14 +229,22 @@ de:
   #
   # From here Tiddlyhost for i18n
   # 
+de:  
   # This is a little annoying...
   will_paginate:
-    models:
       site:
-        zero:  Seiten
-        one:   Seite
-        few:   Seiten
-        other: Seiten
+      page_entries_info:
+        single_page:
+          zero: "Keine %{model} gefunden"
+          one: "Zeige 1 %{model}"
+          other: "Zeige alle %{count} %{model}"
+        single_page_html:
+          zero: "Keine %{model} gefunden"
+          one: "Zeige <b>1</b> %{model}"
+          other: "Zeige <b>alle %{count}</b> %{model}"
+        multi_page: "Zeige %{model} %{from} - %{to} von %{count} insgesamt"
+        multi_page_html: "Zeige %{model} <b>%{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
+
   #        
   previous_label: "« Vorherige"
   previous_aria_label: "Vorherige Seite"
@@ -245,32 +253,20 @@ de:
   page_gap: "..."
   container_aria_label: "Seitennavigation"
   page_aria_label: "Seite %{page}"
-
-  page_entries_info:
-    single_page:
-      zero: "Keine %{model} gefunden"
-      one: "Zeige 1 %{model}"
-      other: "Zeige alle %{count} %{model}"
-    single_page_html:
-      zero: "Keine %{model} gefunden"
-      one: "Zeige <b>1</b> %{model}"
-      other: "Zeige <b>alle %{count}</b> %{model}"
-      multi_page: "Zeige %{model} %{from} - %{to} von %{count} insgesamt"
-      multi_page_html: "Zeige %{model} <b>%{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
-  #      
-de:
   # hub site
   your_sites: "Deine Seiten"
   click_create_below: "Klicke unten auf 'Erstellen', um deine erste TiddlyWiki-Site anzulegen."
   showing_filtered_sites: "Zeige %{filtered_count} %{access} Sites von %{total_count} insgesamt."
   clear_filter: "Filter löschen"
-  sites: "Sites"
-  site: "Site"
+  sites: "Seiten"
+  site: "Seite"
   storage_used: "%{bytes} Speicher verwendet."
   create: "Erstellen"
   create_from_template: "Aus Vorlage erstellen"
   claim_tiddlyspot_site: "Tiddlyspot-Site beanspruchen"
   download_all: "Alle herunterladen"  
+  # hub view
+  hub_view_all_sites: "Alle Seiten"
   # Test in footer
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"
@@ -330,7 +326,7 @@ de:
   site_plans_title: "Abonnement-Pläne"
   site_pricing_title: "Preisgestaltung"
   site_plans_text_card1: "Pricing"
-  
+  #
   site_plans_notloggedin_stripe_text: "Registriere Dich, um ein Konto zu erstellen und Tiddlyhost kostenlos und ohne Kreditkarte zu nutzen.
   Für den Standard-Plan, gehe nach der Anmeldung zur \"Abonnement-Pläne\"-Seite. Die Abrechnung des Tiddlyhost-Abonnements erfolgt per "
   site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 
@@ -340,3 +336,5 @@ de:
   backed by strict industry standards for security and data protection."
   site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
   backed by strict industry standards for security and data protection."
+  #
+  
