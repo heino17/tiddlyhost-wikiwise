@@ -259,6 +259,7 @@ de:
       multi_page_html: "Zeige %{model} <b>%{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
   #      
 de:
+  # hub site
   your_sites: "Deine Seiten"
   click_create_below: "Klicke unten auf 'Erstellen', um deine erste TiddlyWiki-Site anzulegen."
   showing_filtered_sites: "Zeige %{filtered_count} %{access} Sites von %{total_count} insgesamt."
@@ -270,33 +271,33 @@ de:
   create_from_template: "Aus Vorlage erstellen"
   claim_tiddlyspot_site: "Tiddlyspot-Site beanspruchen"
   download_all: "Alle herunterladen"  
-  #  
+  # Test in footer
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"
-  #
+  # Logo
   logo_link_title: "Tiddlyhost-Wikiwise"
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
   logo_alt: "logo.svg"
-  #
+  # Menu
   top_menu_root: "Wikiwise"
   top_menu_explore: "Schaufenster"
   top_menu_templates: "Vorlagen"
   top_menu_pricing: "Preise"
   top_menu_signup: "Registrieren"
-  #
+  # Startseite Texte
   signed_out_col1_heading: "Dein eigenes Wiki in Sekunden!"
   signed_out_col1_text: "Erstelle in wenigen Sekunden kostenlos Dein eigenes leistungsstarkes, erweiterbares, persönliches Wiki, ohne dass eine Installation erforderlich ist. Mach es privat, öffentlich oder zeige es auf der"
   signed_out_col2_heading: "Unterstützt von TiddlyWiki"
   signed_out_col2_text: "Tiddlyhost wird unterstützt von <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a>, dem revolutionären Open-Source-JavaScript-Wiki. Es unterstützt auch das neue superleichte <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> und das alte Original <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>."
   signed_out_col3_heading: "Vom Entwickler von Tiddlyspot"
   signed_out_col3_text: "Tiddlyhost ist der sichere, moderne und zuverlässige Nachfolger von Tiddlyspot, dessen Code <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>open source</a> ist. Weitere Informationen findest du in den <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> oder der"
-  
+  # Startseite login
   get_started_heading: "Jetzt loslegen"
   get_started_button_signup: "Konto erstellen"
   get_started_divider: "oder"
   get_started_button_login: "Anmelden"  
-  #
+  # About-Seite
   site_heading_about: "Über Tiddlyhost"
   site_text_about: "Der einfachste Weg 
   <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> online zu verwenden. Erstellt, gewartet und unterhalten von Simon Baird."
@@ -315,3 +316,6 @@ de:
   about_links_donate: "Spenden Sponsoring"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Leere Versionen:"
+  # Explore-site
+  signed_out_linkto_explore: "Schaufenster-Seite"
+  

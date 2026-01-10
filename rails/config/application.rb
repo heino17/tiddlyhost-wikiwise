@@ -43,7 +43,7 @@ module App
 
     # Configuration for the application, engines, and railties goes here.
     #
-    config.i18n.default_locale = :de   # ← das ist der entscheidende Eintrag
+    config.i18n.default_locale = :en   # ← das ist der entscheidende Eintrag
     # Optional: erlaube nur bestimmte Sprachen (gut für die Zukunft)
     # config.i18n.available_locales = [:en, :de, :fr]
     #

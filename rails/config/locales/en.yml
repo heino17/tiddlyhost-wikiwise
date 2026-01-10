@@ -244,6 +244,7 @@ en:
 #
 # From here translations for rails i18n
 en:
+  # hub site
   your_sites: "Your sites"
   click_create_below: "Click 'Create' below to create your first TiddlyWiki site."
   showing_filtered_sites: "Show %{filtered_count} %{access} Sites of %{total_count} in total."
@@ -255,21 +256,21 @@ en:
   create_from_template: "Create from template"
   claim_tiddlyspot_site: "Claim Tiddlyspot site"
   download_all: "Download all"  
-#  
+  # Test in footer
   test: "Hello World"
   test_ok: "(en.yml working!)"
-  #
+  # Logo
   logo_link_title: "Tiddlyhost-Wikiwise"
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
   logo_alt: "logo.svg"
-  #
+  # Menu
   top_menu_root: "Home"
   top_menu_explore: "Explore"
   top_menu_templates: "Templates"
   top_menu_pricing: "Pricing"
   top_menu_signup: "Sign up"
-  #
+  # Start Page Texts
   signed_out_col1_heading: "Your own wiki in seconds"  
   signed_out_col1_text: "Get your own powerful, extensible, personal wiki for free in seconds with no installation required. Make it private, public, or show it off on the"
   
@@ -278,12 +279,12 @@ en:
   
   signed_out_col3_heading: "From the creator of Tiddlyspot"  
   signed_out_col3_text: "Tiddlyhost is the secure, modern, reliable successor to Tiddlyspot, and its code is <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>open source</a>. Find out more at the <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> or the <a href=\"about\">About</a> page."
-  
+  # Startpage Log in
   get_started_heading: "Get started now"
   get_started_button_signup: "Sign up"
   get_started_divider: "or"
   get_started_button_login: "Log in"
-#
+  # About-site
   site_heading_about: "About Tiddlyhost"
   site_text_about: "The easiest way to use 
   <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> online. <p>Created, maintained and supported by Simon Baird."
@@ -301,4 +302,6 @@ en:
   about_links_donate: "Donations Sponsorships"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Empty Versions:"
+  # Explore-site
+  signed_out_linkto_explore: "Explore page"
   
