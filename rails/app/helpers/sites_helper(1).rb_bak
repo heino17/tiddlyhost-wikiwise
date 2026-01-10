@@ -54,7 +54,7 @@ module SitesHelper
 
     # We don't call it "Hub listed" any more
     access_title = if access_type == 'hub_listed'
-      t('hub_view_access_searchable')
+      'Searchable'
     else
       access_type.humanize
     end

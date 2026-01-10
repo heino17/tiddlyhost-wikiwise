@@ -65,7 +65,7 @@ de:
     distance_in_words:
       about_x_hours:
         one: etwa eine Stunde her
-        other: etwa %{count} Stunden
+        other: etwa %{count} Stunden her
       about_x_months:
         one: etwa ein Monat her
         other: etwa %{count} Monate her
@@ -90,7 +90,7 @@ de:
         other: "%{count} Sekunden her"
       x_minutes:
         one: eine Minute her
-        other: "%{count} Minuten"
+        other: "%{count} Minuten her"
       x_days:
         one: ein Tag her
         other: "%{count} Tage her"
@@ -287,7 +287,10 @@ de:
   hub_view_list_sort_random: "Zufällig"
   hub_view_search_box: "Suche"
   hub_view_search_box_clear: "Löschen"
-  #hub_view_show_per_page: "18"
+  hub_view_access_searchable: "Durchsuchbar"
+  hub_view_access_template: "Vorlage"
+  #hub_view_show_per_page: "18" # not yet implemented
+  hub_view_table_actions: "Aktionen"
   # Test in footer
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"

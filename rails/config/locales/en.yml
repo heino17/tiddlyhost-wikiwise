@@ -279,8 +279,10 @@ en:
   hub_view_list_sort_older_version: "older version"
   hub_view_list_sort_random: "random"
   hub_view_search_box_clear: "Clear"
-  #hub_view_show_per_page: "18"
-  
+  hub_view_access_searchable: "Searchable"
+  hub_view_access_template: "Template"
+  #hub_view_show_per_page: "18" # not yet implemented
+  hub_view_table_actions: "Actions"
   # Test in footer
   test: "Hello World"
   test_ok: "(en.yml working!)"

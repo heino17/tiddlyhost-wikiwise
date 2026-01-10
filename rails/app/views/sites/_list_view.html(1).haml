@@ -9,7 +9,7 @@
     %th= sort_link 'Views'
     %th= sort_link 'Size'
     %th= sort_link 'Updated'
-    %th= t('hub_view_table_actions')
+    %th Actions
 
   %tbody
     - @filtered_sites.each do |site|
@@ -40,7 +40,7 @@
         %td.small.smaller
           = site_access(site)
           - if site.cloneable_by_public?
-            = ('('+t('hub_view_access_template'))+')'
+            (template)
 
         %td.small.smaller
           .views
