@@ -2,8 +2,8 @@
   .container-fluid
 
     -# Logo
-    = link_to(root_path, class: 'navbar-brand', title: t('logo_link_title')) do
-      = image_tag(t('logo_path'), style: "height:32px;margin-left:12px;opacity:80%;", alt: t('logo_alt'))
+    = link_to(root_path, class: 'navbar-brand', title: 'Tiddlyhost') do
+      = image_tag("logo.svg", style: "height:32px;margin-left:12px;opacity:80%;")
 
     -# Burger button for phone screens
     %button.navbar-toggler{ type: "button",
@@ -63,11 +63,11 @@
 
         -# Links for not logged in users
         %ul.navbar-nav.me-auto
-          = nav_link_to t('top_menu_root'), root_path
-          = nav_link_to t('top_menu_explore'), '/explore'
-          = nav_link_to t('top_menu_explore'), '/templates?t=1'
-          = nav_link_to t('top_menu_pricing'), '/pricing'
-          = nav_link_to t('top_menu_signup'), new_user_registration_path
+          = nav_link_to "Home", root_path
+          = nav_link_to "Explore", '/explore'
+          = nav_link_to "Templates", '/templates?t=1'
+          = nav_link_to "Pricing", '/pricing'
+          = nav_link_to "Sign up", new_user_registration_path
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link

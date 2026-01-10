@@ -64,42 +64,42 @@ de:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: etwa eine Stunde
+        one: etwa eine Stunde her
         other: etwa %{count} Stunden
       about_x_months:
-        one: etwa ein Monat
-        other: etwa %{count} Monate
+        one: etwa ein Monat her
+        other: etwa %{count} Monate her
       about_x_years:
-        one: etwa ein Jahr
-        other: etwa %{count} Jahre
+        one: etwa ein Jahr her
+        other: etwa %{count} Jahre her
       almost_x_years:
-        one: fast ein Jahr
-        other: fast %{count} Jahre
-      half_a_minute: eine halbe Minute
+        one: fast ein Jahr her
+        other: fast %{count} Jahre her
+      half_a_minute: eine halbe Minute her
       less_than_x_seconds:
-        one: weniger als eine Sekunde
-        other: weniger als %{count} Sekunden
+        one: weniger als eine Sekunde her
+        other: weniger als %{count} Sekunden her
       less_than_x_minutes:
-        one: weniger als eine Minute
-        other: weniger als %{count} Minuten
+        one: weniger als eine Minute her
+        other: weniger als %{count} Minuten her
       over_x_years:
-        one: mehr als ein Jahr
-        other: mehr als %{count} Jahre
+        one: mehr als ein Jahr her
+        other: mehr als %{count} Jahre her
       x_seconds:
-        one: eine Sekunde
-        other: "%{count} Sekunden"
+        one: eine Sekunde her
+        other: "%{count} Sekunden her"
       x_minutes:
-        one: eine Minute
+        one: eine Minute her
         other: "%{count} Minuten"
       x_days:
-        one: ein Tag
-        other: "%{count} Tage"
+        one: ein Tag her
+        other: "%{count} Tage her"
       x_months:
-        one: ein Monat
-        other: "%{count} Monate"
+        one: ein Monat her
+        other: "%{count} Monate her"
       x_years:
-        one: ein Jahr
-        other: "%{count} Jahre"
+        one: ein Jahr her
+        other: "%{count} Jahre her"
     prompts:
       second: Sekunde
       minute: Minute
@@ -273,7 +273,18 @@ de:
   #  
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"
-  #  
+  #
+  logo_link_title: "Tiddlyhost-Wikiwise"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
+  #
+  top_menu_root: "Wikiwise"
+  top_menu_explore: "Schaufenster"
+  top_menu_templates: "Vorlagen"
+  top_menu_pricing: "Preise"
+  top_menu_signup: "Registrieren"
+  #
   signed_out_col1_heading: "Dein eigenes Wiki in Sekunden!"
   signed_out_col1_text: "Erstelle in wenigen Sekunden kostenlos Dein eigenes leistungsstarkes, erweiterbares, persönliches Wiki, ohne dass eine Installation erforderlich ist. Mach es privat, öffentlich oder zeige es auf der"
   signed_out_col2_heading: "Unterstützt von TiddlyWiki"

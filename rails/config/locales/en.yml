@@ -258,7 +258,18 @@ en:
 #  
   test: "Hello World"
   test_ok: "(en.yml working!)"
-  
+  #
+  logo_link_title: "Tiddlyhost-Wikiwise"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
+  #
+  top_menu_root: "Home"
+  top_menu_explore: "Explore"
+  top_menu_templates: "Templates"
+  top_menu_pricing: "Pricing"
+  top_menu_signup: "Sign up"
+  #
   signed_out_col1_heading: "Your own wiki in seconds"  
   signed_out_col1_text: "Get your own powerful, extensible, personal wiki for free in seconds with no installation required. Make it private, public, or show it off on the"
   
