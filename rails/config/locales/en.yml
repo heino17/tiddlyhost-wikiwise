@@ -279,6 +279,7 @@ en:
   
   signed_out_col3_heading: "From the creator of Tiddlyspot"  
   signed_out_col3_text: "Tiddlyhost is the secure, modern, reliable successor to Tiddlyspot, and its code is <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>open source</a>. Find out more at the <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> or the <a href=\"about\">About</a> page."
+  signed_out_linkto_explore: "Explore page"
   # Startpage Log in
   get_started_heading: "Get started now"
   get_started_button_signup: "Sign up"
@@ -303,7 +304,23 @@ en:
   about_hint_version: "Version:"
   about_hint_empty_versions: "Empty Versions:"
   # Explore-site
-  signed_out_linkto_explore: "Explore page"
   site_explore_title: "Explore"
   site_explore_explanation_text: "Discover content created and shared by Tiddlyhost users."
+  # Templates-site
+  site_templates_title: "Templates"
+  site_templates_explanation_text: "Templates are useful or interesting customized editions of TiddlyWiki, 
+  created by Tiddlyhost users, that you can copy and use for yourself. 
+  Click \"Clone\" to create a site on Tiddlyhost using a template, or click \"Download\" to download a copy to use locally."
+  # Plans-site
+  site_plans_title: "Plans"
+  site_pricing_title: "Pricing"
+  site_plans_text_card1: "Pricing"
+  site_plans_notloggedin_stripe_text: "Sign up to create an account and use Tiddlyhost for free and without requiring a credit card.
+  To access the Standard Plan, go to the \"Subscription plans\" page after signing up. Tiddlyhost subscription billing is handled by "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
   
