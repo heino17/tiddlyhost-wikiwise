@@ -264,15 +264,30 @@ de:
   create: "Erstellen"
   create_from_template: "Aus Vorlage erstellen"
   claim_tiddlyspot_site: "Tiddlyspot-Site beanspruchen"
-  download_all: "Alle herunterladen"  
-  # hub view
+  download_all: "Alle herunterladen"
+  #explore view
+  explore_view_templates_only: "nur Vorlagen"
+  explore_view_templates_only_tooltip: "Vorlagen sind von Tiddlyhost-Benutzern erstellte 
+  und für andere freigegebene „leere“ Vorlagen. Du kannst allgemeine Verbesserungen und Anpassungen enthalten 
+  oder für einen bestimmten speziellen Zweck entwickelt worden sein."
+  # hub view - not good choosen
   hub_view_all_sites: "Alle Seiten"
   hub_view_created_by_user: "Seiten erstellt von Tiddlyhost-Anwender"
   hub_view_list_kind: "Art"
   hub_view_list_show_all: "Zeige alle"
   hub_view_list_sort_by: "Sortiere nach"
+  hub_view_list_sort_view_count: "Aufrufe"
+  hub_view_list_sort_clone_count: "Anzahl der Klone"
+  hub_view_list_sort_recently_updated: "Gerade aktualisiert"
+  hub_view_list_sort_recently_created: "Gerade erstellt"
+  hub_view_list_sort_name_az: "Name a-z"
+  hub_view_list_sort_name_za: "Name z-a"
+  hub_view_list_sort_newer_version: "Aufrufe"
+  hub_view_list_sort_older_version: "Aufrufe"
+  hub_view_list_sort_random: "Zufällig"
   hub_view_search_box: "Suche"
   hub_view_search_box_clear: "Löschen"
+  #hub_view_show_per_page: "18"
   # Test in footer
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"
