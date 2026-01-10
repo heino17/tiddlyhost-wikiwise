@@ -304,4 +304,6 @@ en:
   about_hint_empty_versions: "Empty Versions:"
   # Explore-site
   signed_out_linkto_explore: "Explore page"
+  site_explore_title: "Explore"
+  site_explore_explanation_text: "Discover content created and shared by Tiddlyhost users."
   

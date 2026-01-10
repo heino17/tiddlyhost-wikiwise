@@ -316,6 +316,8 @@ de:
   about_links_donate: "Spenden Sponsoring"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Leere Versionen:"
-  # Explore-site
+  # Explore-Seite
   signed_out_linkto_explore: "Schaufenster-Seite"
+  site_explore_title: "Schaufenster"
+  site_explore_explanation_text: "Entdecke die Inhalte, die von Tiddlyhost-Nutzern erstellt und geteilt wurden."
   
