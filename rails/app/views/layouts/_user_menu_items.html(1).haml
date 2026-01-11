@@ -1,5 +1,6 @@
+
 %li.dropdown-item-text
-  = t('user_menu_head_account')
+  Account
   %br
   %b.ps-1
     = link_to edit_user_registration_path do
@@ -12,28 +13,28 @@
 %li
   = link_to edit_user_registration_path, class: 'dropdown-item' do
     = bi_icon('person-square', fill: "#444", style: "margin-left: 2px;")
-    = t('user_menu_item_manage_account')
+    Manage account
 
 - if feature_enabled?(:subscriptions)
   %li.dropdown-divider
 
   %li.dropdown-item-text
-    = t('user_menu_head_plan')
+    Plan
     %br
     %b.ps-1
       = link_to subscription_path, class: "plan-#{current_user.subscription_info.name}-fg" do
         - if current_user.subscribed?
           = bi_icon('check2-circle', style: "margin-left: 1px; margin-right: -2px;")
-        = (t('site_title')+" #{current_user.subscription_info.name}")
+        Tiddlyhost #{current_user.subscription_info.name}
 
   %li
     = link_to subscription_path, class: 'dropdown-item' do
       - if current_user.subscribed?
         = bi_icon('bag-check', style: "margin-left: 1px;")
-        = t('user_menu_head_plan')
+        Manage subscription
       - else
         = bi_icon('stars', style: "margin-left: 1px; margin-right: -2px;", class: "red-icon")
-        = t('user_menu_item_subscription_plans')
+        Subscription plans
 
 %li.dropdown-divider
 
@@ -42,14 +43,15 @@
   %br
   %b.ps-2
     = link_to sites_path do
-      #{current_user.all_sites.count} #{t('user_menu_item_counted_sites')}
+      #{current_user.all_sites.count}
+      sites
       (#{nice_byte_count(current_user.total_storage_bytes)})
   %br
 
 %li
   = link_to sites_path, class: 'dropdown-item' do
     = bi_icon('sliders')
-    = t('user_menu_item_manage_sites')
+    Manage sites
 
 
 %li.dropdown-divider{ style: "margin-bottom: 1.5em;" }
@@ -57,4 +59,4 @@
 %li
   = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
     = bi_icon('box-arrow-left')
-    = t('user_menu_item_logout')
+    Log out

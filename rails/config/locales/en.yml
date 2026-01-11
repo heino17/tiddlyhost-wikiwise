@@ -243,7 +243,8 @@ en:
 #
 #
 # From here translations for rails i18n
-#en:
+#
+  site_title: "Tiddlyhost"
   languages:
     en: English
     de: German
@@ -321,7 +322,7 @@ en:
   test: "Hello World"
   test_ok: "(en.yml working!)"
   # Logo
-  logo_link_title: "Tiddlyhost-Wikiwise"
+  logo_link_title: "Tiddlyhost"
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
   logo_alt: "logo.svg"
@@ -331,6 +332,16 @@ en:
   top_menu_templates: "Templates"
   top_menu_pricing: "Pricing"
   top_menu_signup: "Sign up"
+  # User menu if loged in
+  user_menu_head_account: "Account"
+  user_menu_item_manage_account: "Manage account"
+  user_menu_head_plan: "Plan"
+  user_menu_item_manage subscription: "Manage subscription"
+  user_menu_item_subscription_plans: "Subscription plans"
+  user_menu_head_sites: "Sites"
+  user_menu_item_counted_sites: "sites"
+  user_menu_item_manage_sites: "Manage sites"
+  user_menu_item_logout: "Log out"
   #
   burger_menu_title: "Your account"
   burger_menu_create_site: "Create a site"
@@ -350,8 +361,10 @@ en:
   # Login page
   log_in_page_heading: "Log in"
   log_in_page_ask_need_account: "Need an account? Go to"
-  log_in_page_submit_button: "Log in"
-  log_in_page_remember_me: "Remember me"
+  log_in_page_email_label: "Email"
+  log_in_page_password_label: "Password"
+  log_in_page_remember_me_label: "Remember me"
+  log_in_page_submit_button: "Log in"  
   # Page shared Links (devise)
   shared_links_cancel: "Cancel"
   shared_links_login: "Login"

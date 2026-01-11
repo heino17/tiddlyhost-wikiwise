@@ -255,6 +255,7 @@ de:
   container_aria_label: "Seitennavigation"
   page_aria_label: "Seite %{page}"
   #
+  site_title: "Tiddlyhost"
   languages:
     en: Englisch
     de: Deutsch
@@ -339,11 +340,21 @@ de:
   logo_path: "logo.svg"
   logo_alt: "logo.svg"
   # Menu
-  top_menu_root: "Wikiwise"
+  top_menu_root: "Start"
   top_menu_explore: "Schaufenster"
   top_menu_templates: "Vorlagen"
   top_menu_pricing: "Preise"
   top_menu_signup: "Registrieren"
+  # User menu if loged in
+  user_menu_head_account: "Konto"
+  user_menu_item_manage_account: "Konto bearbeiten"
+  user_menu_head_plan: "Abonnement"
+  user_menu_item_manage subscription: "Abo bearbeiten"
+  user_menu_item_subscription_plans: "Abonnement-Modelle"
+  user_menu_head_sites: "Seiten"
+  user_menu_item_counted_sites: "Seiten"
+  user_menu_item_manage_sites: "Seiten bearbeiten"
+  user_menu_item_logout: "Abmelden"
   #
   burger_menu_title: "Dein Konto"
   burger_menu_create_site: "Eine Seite erstellen"
@@ -362,9 +373,11 @@ de:
   get_started_button_login: "Anmelden"  
   # Login page
   log_in_page_heading: "Anmelden"
-  log_in_page_ask_need_account: "Noch kein Konto? Dann hier"
+  log_in_page_ask_need_account: "Noch kein Konto? Dann hier ein"
+  log_in_page_email_label: "e-Mail"
+  log_in_page_password_label: "Passwort"  
+  log_in_page_remember_me_label: "Angemeldet bleiben?"
   log_in_page_submit_button: "Anmelden"
-  log_in_page_remember_me: "Angemeldet bleiben?"
   # Page shared Links (devise)
   shared_links_cancel: "Abbrechen"
   shared_links_login: "Anmelden"
