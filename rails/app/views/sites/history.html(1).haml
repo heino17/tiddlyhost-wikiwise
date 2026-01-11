@@ -1,5 +1,5 @@
 = render layout: 'form_wrapper',
-  locals: { heading: t('site_view_save_history_for') + " '#{@site.name}'" } do
+  locals: { heading: "Save history for '#{@site.name}'" } do
 
   .my-3
     = render 'site_tile_clone', mode: 'home', site: @site
@@ -9,25 +9,26 @@
       %tr.enable-tooltips
         %th #
         %th
-          = t('site_view_save_history_timestamp')
-          = render 'popover_help', html_content: t('site_view_save_history_timestamp_tooltip')
+          Timestamp
+          = render 'popover_help', html_content: "Times are shown in UTC."
+
+        %th Saved
 
         %th
-          = t('site_view_save_history_saved')
+          Size
+          = render 'popover_help', html_content: "The compressed file size."
 
         %th
-          = t('site_view_save_history_size')
-          = render 'popover_help', html_content: t('site_view_save_history_size_tooltip')
+          Checksum
+          = render 'popover_help', html_content: "Identical checksums indicate identical saved versions."
 
         %th
-          = t('site_view_save_history_checksum')
-          = render 'popover_help', html_content: t('site_view_save_history_checksum_tooltip')
+          Label
+          = render 'popover_help', html_content: text_join("Saved versions with labels will prioritized ",
+              "over saved versions without labels when pruning the saved version list. ",
+              "This allows you to keep important versions indefinitely.")
 
-        %th
-          = t('site_view_save_history_label')
-          = render 'popover_help', html_content: t('site_view_save_history_label_tooltip')
-
-        %th.text-end.pe-3= t('site_view_save_history_actions')
+        %th.text-end.pe-3 Actions
 
     %tbody
       - @site.saved_content_files.order('created_at DESC').limit(@site.keep_count+2).each_with_index do |f, i|
@@ -36,7 +37,7 @@
         - if is_current
           %tr
             %td.pt-4{ colspan: 7 }
-              %b= t('site_view_save_history_current_version')+':'
+              %b Current version:
 
         - fade_opac = fade_away_opacity(@site, i) unless feature_enabled?(:site_history)
         %tr
@@ -66,13 +67,12 @@
           - if @saved_version_count > 1
             %tr
               %td.pt-4{ colspan: 7 }
-                %b= t('site_view_save_history_older_versions')+':'
+                %b Older versions:
           - else
             %tr
               %td.p-4{ colspan: 7, style: "border-bottom-width: 0px;" }
-                %br
-                %br
-                %i.text-muted= t('site_view_save_history_no_older_versions')
+                %i.text-muted <br><br>No older versions found.
+
 
   - if !feature_enabled?(:site_history)
     .p-4
@@ -90,4 +90,4 @@
         removed.
 
 -# Will be opened by the edit link in the history_label partial
-= render 'modal_wrapper', title: t('site_view_save_history_pop_set_label'), submit: t('site_view_save_history_pop_update')
+= render 'modal_wrapper', title: "Set label", submit: "Update"
