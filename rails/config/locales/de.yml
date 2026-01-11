@@ -127,6 +127,7 @@ de:
       model_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
       not_a_number: ist keine Zahl
       not_an_integer: muss ganzzahlig sein
+      not_saved: "Es sind %{count} Fehler aufgetreten:"
       odd: muss ungerade sein
       other_than: darf nicht gleich %{count} sein
       password_too_long: ist zu lang
@@ -229,7 +230,7 @@ de:
   #
   # From here Tiddlyhost for i18n
   # 
-de:  
+  #de:  
   # This is a little annoying...
   will_paginate:
       site:
@@ -359,6 +360,57 @@ de:
   get_started_button_signup: "Konto erstellen"
   get_started_divider: "oder"
   get_started_button_login: "Anmelden"  
+  # Login page
+  log_in_page_heading: "Anmelden"
+  log_in_page_ask_need_account: "Noch kein Konto? Dann hier"
+  log_in_page_submit_button: "Anmelden"
+  log_in_page_remember_me: "Angemeldet bleiben?"
+  # Page shared Links (devise)
+  shared_links_cancel: "Abbrechen"
+  shared_links_login: "Anmelden"
+  shared_links_sign_up: "Konto erstellen"
+  shared_links_forgot_password: "Passwort vergessen?"
+  shared_links_resend_confirmation: "Anmeldeinformationen erneut senden"
+  shared_links_resend_unlock: "Entsperranweisungen erneut senden"
+  shared_links_signup_with: "Anmelden mit" # not implementet yet
+  shared_links_cancel: "Abbrechen"
+  # Sign up page
+  sign_up_page_heading: "Registrieren"
+  sign_up_page_ask_have_account: "Du hast ein Konto? Dann hier"
+  sign_up_page_email_label: "eMail"  
+  sign_up_page_enter_email: "Deine eMail-Adresse"
+  sign_up_page_name_label: "Name"
+  sign_up_page_enter_name: "Gib hier Deinen Name ein"
+  sign_up_page_username_label: "Benutzername"
+  sign_up_page_enter_username: "Optional. Wähle einen eindeutigen Benutzernamen mit einer Länge zwischen 3 und 30 Zeichen."
+  sign_up_page_password_label: "Passwort"
+  sign_up_page_password_hint: "Zeichen mindestens!"
+  sign_up_page_password_confirm_label: "Passwort wiederholen"
+  sign_up_page_password_confirm_hint: "Gib Dein Passwort zur Bestätigung noch einmal ein."
+  sign_up_page_submit_create: "Konto erstellen"  
+  # Explore-Seite
+  site_explore_title: "Schaufenster"
+  site_explore_explanation_text: "Entdecke die Inhalte, die von Tiddlyhost-Nutzern erstellt und geteilt wurden."
+  # Templates-site
+  site_templates_title: "Vorlagen"
+  site_templates_explanation_text: "Vorlagen sind nützliche oder interessante angepasste Versionen von TiddlyWiki, 
+  die von Tiddlyhost-Benutzern erstellt wurden, die Du kopieren und für Dich selbst verwenden kannst. 
+  Klicke auf \"Klonen\", um eine Website auf Tiddlyhost unter Verwendung einer Vorlage zu erstellen, 
+  oder klicke auf \"Herunterladen\", um eine Kopie herunterzuladen und lokal zu verwenden."
+  # Plans-site
+  site_plans_title: "Abonnement-Pläne"
+  site_pricing_title: "Preisgestaltung"
+  #site_plans_text_card1: "Pricing"
+  #
+  site_plans_notloggedin_stripe_text: "Registriere Dich, um ein Konto zu erstellen und Tiddlyhost kostenlos und ohne Kreditkarte zu nutzen.
+  Für den Standard-Plan, gehe nach der Anmeldung zur \"Abonnement-Pläne\"-Seite. Die Abrechnung des Tiddlyhost-Abonnements erfolgt per "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 
+  ist eine benutzerfreundliche und äußerst vertrauenswürdige Plattform für die Abwicklung von Online-Zahlungen, 
+  die sich an strengen Branchenstandards für Sicherheit und Datenschutz orientiert."
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
   # About-Seite
   site_heading_about: "Über Tiddlyhost"
   site_text_about: "Der einfachste Weg 
@@ -378,41 +430,5 @@ de:
   about_links_donate: "Spenden Sponsoring"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Leere Versionen:"
-  # Login page
-  log_in_page_heading: "Anmelden"
-  log_in_page_ask_need_account: "Noch kein Konto? Dann hier"
-  log_in_page_submit_button: "Anmelden"
-  log_in_page_remember_me: "Angemeldet bleiben?"
-  # Login page shared Links
-  shared_links_cancel: "Abbrechen"
-  shared_links_login: "Anmelden"
-  shared_links_sign_up: "Konto erstellen"
-  shared_links_forgot_password: "Passwort vergessen?"
-  shared_links_resend_confirmation: "Anmeldeinformationen erneut senden"
-  shared_links_resend_unlock: "Entsperranweisungen erneut senden"
-  shared_links_signup_with: "Anmelden mit" # not implementet yet
-  # Explore-Seite
-  site_explore_title: "Schaufenster"
-  site_explore_explanation_text: "Entdecke die Inhalte, die von Tiddlyhost-Nutzern erstellt und geteilt wurden."
-  # Templates-site
-  site_templates_title: "Vorlagen"
-  site_templates_explanation_text: "Vorlagen sind nützliche oder interessante angepasste Versionen von TiddlyWiki, 
-  die von Tiddlyhost-Benutzern erstellt wurden, die Du kopieren und für Dich selbst verwenden kannst. 
-  Klicke auf \"Klonen\", um eine Website auf Tiddlyhost unter Verwendung einer Vorlage zu erstellen, 
-  oder klicke auf \"Herunterladen\", um eine Kopie herunterzuladen und lokal zu verwenden."
-  # Plans-site
-  site_plans_title: "Abonnement-Pläne"
-  site_pricing_title: "Preisgestaltung"
-  site_plans_text_card1: "Pricing"
-  #
-  site_plans_notloggedin_stripe_text: "Registriere Dich, um ein Konto zu erstellen und Tiddlyhost kostenlos und ohne Kreditkarte zu nutzen.
-  Für den Standard-Plan, gehe nach der Anmeldung zur \"Abonnement-Pläne\"-Seite. Die Abrechnung des Tiddlyhost-Abonnements erfolgt per "
-  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 
-  ist eine benutzerfreundliche und äußerst vertrauenswürdige Plattform für die Abwicklung von Online-Zahlungen, 
-  die sich an strengen Branchenstandards für Sicherheit und Datenschutz orientiert."
-  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
-  backed by strict industry standards for security and data protection."
-  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
-  backed by strict industry standards for security and data protection."
-  #
+  
   

@@ -1,5 +1,6 @@
-= render layout: 'form_wrapper', locals: { heading: t('sign_up_page_heading'),
-  intro_text: t('sign_up_page_ask_have_account') + " #{link_to t('shared_links_login'), new_user_session_path}."} do
+
+= render layout: 'form_wrapper', locals: { heading: 'Sign up',
+  intro_text: "Already have an account? Go to #{link_to "log in", new_user_session_path}."} do
 
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
 
@@ -20,31 +21,31 @@
       setInterval(() => executeRecaptchaForSignup(), 110000)
 
     = render layout: 'field_wrapper' do
-      = f.label t('sign_up_page_email_label')
+      = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-      .small.form-text.text-muted=t('sign_up_page_enter_email')
+      .small.form-text.text-muted Enter your email address
 
     = render layout: 'field_wrapper' do
-      = f.label +(t('sign_up_page_name_label'))
+      = f.label :name
       = f.text_field :name, autofill: 'off', autocomplete: 'off', class: 'form-control'
-      .small.form-text.text-muted=t('sign_up_page_enter_name')
+      .small.form-text.text-muted Please enter your name
 
     = render layout: 'field_wrapper' do
-      = f.label +(t('sign_up_page_username_label'))
+      = f.label :username
       = f.text_field :username, autofocus: true, autofill: 'off', autocomplete: 'off', class: 'form-control'
-      .small.form-text.text-muted=t('sign_up_page_enter_username')
+      .small.form-text.text-muted Optional. Choose a unique username between 3 and 30 characters long
 
     = render layout: 'field_wrapper' do
-      = f.label +(t('sign_up_page_password_label'))
+      = f.label :password
       = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
-      .small.form-text.text-muted #{Settings.minimum_password_length} #{t('sign_up_page_password_hint')}
+      .small.form-text.text-muted #{Settings.minimum_password_length} characters minimum
 
     = render layout: 'field_wrapper' do
-      = f.label +(t('sign_up_page_password_confirm_label'))
+      = f.label :password_confirmation
       = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
-      .small.form-text.text-muted=t('sign_up_page_password_confirm_hint')
+      .small.form-text.text-muted Re-type your password to confirm
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-3' } do
-      = f.submit t('sign_up_page_submit_create'), class: 'btn btn-primary'
+      = f.submit 'Create account', class: 'btn btn-primary'
 
     = render 'devise/shared/links'

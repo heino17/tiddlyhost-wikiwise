@@ -243,7 +243,7 @@ en:
 #
 #
 # From here translations for rails i18n
-en:
+#en:
   languages:
     en: English
     de: German
@@ -336,43 +336,23 @@ en:
   burger_menu_create_site: "Create a site"
   # Start Page Texts
   signed_out_col1_heading: "Your own wiki in seconds"  
-  signed_out_col1_text: "Get your own powerful, extensible, personal wiki for free in seconds with no installation required. Make it private, public, or show it off on the"
-  
+  signed_out_col1_text: "Get your own powerful, extensible, personal wiki for free in seconds with no installation required. Make it private, public, or show it off on the"  
   signed_out_col2_heading: "Powered by TiddlyWiki"  
-  signed_out_col2_text: "Tiddlyhost is powered by <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> the revolutionary open source JavaScript wiki. It also supports the new superlight <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> and the old-school original <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>."
-  
+  signed_out_col2_text: "Tiddlyhost is powered by <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> the revolutionary open source JavaScript wiki. It also supports the new superlight <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> and the old-school original <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>."  
   signed_out_col3_heading: "From the creator of Tiddlyspot"  
   signed_out_col3_text: "Tiddlyhost is the secure, modern, reliable successor to Tiddlyspot, and its code is <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>open source</a>. Find out more at the <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> or the <a href=\"about\">About</a> page."
   signed_out_linkto_explore: "Explore page"
-  # Startpage Log in
+  # Startpage Get started now - box
   get_started_heading: "Get started now"
   get_started_button_signup: "Sign up"
   get_started_divider: "or"
   get_started_button_login: "Log in"
-  # About-site
-  site_heading_about: "About Tiddlyhost"
-  site_text_about: "The easiest way to use 
-  <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> online. <p>Created, maintained and supported by Simon Baird."
-  site_text2_about: "If you have problems please <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>report an issue in Github</a> 
-  , <a href=\"mailto:simon.baird@gmail.com\">send an email to Simon</a>, or see <a href=\"/support\">Support</a> for more support options."
-  about_links_support: "Support"
-  about_links_faq: "FAQ"
-  about_links_documentation: "Documentation"
-  about_links_blog: "Blog"
-  about_links_x: "X"
-  about_links_terms: "Terms of Use"
-  about_links_privacy: "Privacy Policy"
-  about_links_source: "Source Code"
-  about_links_license: "Software License"
-  about_links_donate: "Donations Sponsorships"
-  about_hint_version: "Version:"
-  about_hint_empty_versions: "Empty Versions:"
   # Login page
   log_in_page_heading: "Log in"
   log_in_page_ask_need_account: "Need an account? Go to"
   log_in_page_submit_button: "Log in"
   log_in_page_remember_me: "Remember me"
-  # Login page shared Links
+  # Page shared Links (devise)
   shared_links_cancel: "Cancel"
   shared_links_login: "Login"
   shared_links_sign_up: "Sign up"
@@ -380,6 +360,20 @@ en:
   shared_links_resend_confirmation: "Resend confirmation instructions"
   shared_links_resend_unlock: "Resend unlock instructions"
   shared_links_signup_with: "Sign in with" # not implementet yet
+  # Sign up page
+  sign_up_page_heading: "Sign up"
+  sign_up_page_ask_have_account: "Already have an account? Go to"
+  sign_up_page_email_label: "Email"
+  sign_up_page_enter_email: "Enter your email address"
+  sign_up_page_name_label: "name"
+  sign_up_page_enter_name: "Please enter your name"
+  sign_up_page_username_label: "username"
+  sign_up_page_enter_username: "Optional. Choose a unique username between 3 and 30 characters long"
+  sign_up_page_password_label: "password"
+  sign_up_page_password_hint: "characters minimum"
+  sign_up_page_password_confirm_label: "password_confirmation"
+  sign_up_page_password_confirm_hint: "Re-type your password to confirm"
+  sign_up_page_submit_create: "Create account"
   # Explore-site
   site_explore_title: "Explore"
   site_explore_explanation_text: "Discover content created and shared by Tiddlyhost users."
@@ -400,4 +394,22 @@ en:
   backed by strict industry standards for security and data protection."
   site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
   backed by strict industry standards for security and data protection."
+  # About-site
+  site_heading_about: "About Tiddlyhost"
+  site_text_about: "The easiest way to use 
+  <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> online. <p>Created, maintained and supported by Simon Baird."
+  site_text2_about: "If you have problems please <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>report an issue in Github</a> 
+  , <a href=\"mailto:simon.baird@gmail.com\">send an email to Simon</a>, or see <a href=\"/support\">Support</a> for more support options."
+  about_links_support: "Support"
+  about_links_faq: "FAQ"
+  about_links_documentation: "Documentation"
+  about_links_blog: "Blog"
+  about_links_x: "X"
+  about_links_terms: "Terms of Use"
+  about_links_privacy: "Privacy Policy"
+  about_links_source: "Source Code"
+  about_links_license: "Software License"
+  about_links_donate: "Donations Sponsorships"
+  about_hint_version: "Version:"
+  about_hint_empty_versions: "Empty Versions:"
   
