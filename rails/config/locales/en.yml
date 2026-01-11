@@ -367,6 +367,19 @@ en:
   about_links_donate: "Donations Sponsorships"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Empty Versions:"
+  # Login page
+  log_in_page_heading: "Log in"
+  log_in_page_ask_need_account: "Need an account? Go to"
+  log_in_page_submit_button: "Log in"
+  log_in_page_remember_me: "Remember me"
+  # Login page shared Links
+  shared_links_cancel: "Cancel"
+  shared_links_login: "Login"
+  shared_links_sign_up: "Sign up"
+  shared_links_forgot_password: "Forgot your password?"
+  shared_links_resend_confirmation: "Resend confirmation instructions"
+  shared_links_resend_unlock: "Resend unlock instructions"
+  shared_links_signup_with: "Sign in with" # not implementet yet
   # Explore-site
   site_explore_title: "Explore"
   site_explore_explanation_text: "Discover content created and shared by Tiddlyhost users."

@@ -1,5 +1,6 @@
-= render layout: 'form_wrapper', locals: { heading: t('log_in_page_heading'),
-  intro_text: t('log_in_page_ask_need_account')+ " #{link_to (t('shared_links_sign_up')), new_user_registration_path}." } do
+
+= render layout: 'form_wrapper', locals: { heading: 'Log in',
+  intro_text: "Need an account? Go to #{link_to 'sign up', new_user_registration_path}." } do
 
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 
@@ -25,11 +26,11 @@
     - if devise_mapping.rememberable?
       .form-check.px-3.pb-4
         = f.check_box :remember_me
-        = f.label t('log_in_page_remember_me')
+        = f.label :remember_me
 
     = render layout: 'field_wrapper' do
       - if params[:s]
         = f.hidden_field :site_redir, value: params[:s]
-      = f.submit t('get_started_button_login'), class: 'btn btn-primary'
+      = f.submit 'Log in', class: 'btn btn-primary'
 
     = render 'devise/shared/links'

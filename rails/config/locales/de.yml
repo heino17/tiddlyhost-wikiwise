@@ -378,6 +378,19 @@ de:
   about_links_donate: "Spenden Sponsoring"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Leere Versionen:"
+  # Login page
+  log_in_page_heading: "Anmelden"
+  log_in_page_ask_need_account: "Noch kein Konto? Dann hier"
+  log_in_page_submit_button: "Anmelden"
+  log_in_page_remember_me: "Angemeldet bleiben?"
+  # Login page shared Links
+  shared_links_cancel: "Abbrechen"
+  shared_links_login: "Anmelden"
+  shared_links_sign_up: "Konto erstellen"
+  shared_links_forgot_password: "Passwort vergessen?"
+  shared_links_resend_confirmation: "Anmeldeinformationen erneut senden"
+  shared_links_resend_unlock: "Entsperranweisungen erneut senden"
+  shared_links_signup_with: "Anmelden mit" # not implementet yet
   # Explore-Seite
   site_explore_title: "Schaufenster"
   site_explore_explanation_text: "Entdecke die Inhalte, die von Tiddlyhost-Nutzern erstellt und geteilt wurden."
