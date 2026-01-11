@@ -7,6 +7,20 @@ module ApplicationHelper
       link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{I18n.locale == loc ? 'active' : ''}"
     end.join(' | ').html_safe
   end
+
+  def flag_code_for(locale)
+    case locale.to_sym
+    when :de then 'de'
+    when :en then 'gb'   # oder 'us' – deine Wahl!
+    when :fr then 'fr'
+    # Später einfach erweitern, z.B. when :es then 'es'
+    else 'xx'  # Fallback: graue Platzhalter-Flagge oder leer
+    end
+  end
+  # Optional: wenn du keine t() für Sprachnamen hast, fallback zu humanisierten Namen
+  def language_name(locale)
+    t("languages.#{locale}", default: locale.to_s.upcase)
+  end
   # Language switch for i18n end
 
   def nice_byte_count(bytes, precision: 3)

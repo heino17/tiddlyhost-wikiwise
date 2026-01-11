@@ -253,6 +253,13 @@ de:
   page_gap: "..."
   container_aria_label: "Seitennavigation"
   page_aria_label: "Seite %{page}"
+  #
+  languages:
+    en: Englisch
+    de: Deutsch
+    fr: Französisch
+  #
+  app_language_switch_tooltip: "Sprache wechseln"
   # hub site
   your_sites: "Deine Seiten"
   click_create_below: "Klicke unten auf 'Erstellen', um deine erste TiddlyWiki-Site anzulegen."
@@ -336,6 +343,9 @@ de:
   top_menu_templates: "Vorlagen"
   top_menu_pricing: "Preise"
   top_menu_signup: "Registrieren"
+  #
+  burger_menu_title: "Dein Konto"
+  burger_menu_create_site: "Eine Seite erstellen"
   # Startseite Texte
   signed_out_col1_heading: "Dein eigenes Wiki in Sekunden!"
   signed_out_col1_text: "Erstelle in wenigen Sekunden kostenlos Dein eigenes leistungsstarkes, erweiterbares, persönliches Wiki, ohne dass eine Installation erforderlich ist. Mach es privat, öffentlich oder zeige es auf der"

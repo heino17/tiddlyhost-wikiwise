@@ -27,28 +27,35 @@
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link
-          -# NEU: Sprachwechsler auch fuer nicht-angemeldete User (kopiere den Block von oben hier rein)
+          -# NEU: Sprachwechsler – dynamisch aus available_locales
           %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: "Sprache wechseln",
-              "data-bs-toggle"=>"dropdown", "aria-expanded"=>"false", "aria-haspopup"=>"true" }
-              = I18n.locale.to_s.upcase
-              %span.ms-1= I18n.locale == :de ? 'Deutsch' : 'English'
+            - current_flag_code = flag_code_for(I18n.locale)   # ← Neu: Definiere hier für den Button
+            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: t('app_language_switch_tooltip'),
+              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true" }
+              -# Aktuelle Flagge + Text
+              = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
+              = t("languages.#{I18n.locale}")
 
             %ul.dropdown-menu.dropdown-menu-end
-              %li= link_to "Deutsch", url_for(locale: :de), class: "dropdown-item #{I18n.locale == :de ? 'active' : ''}"
-              %li= link_to "English", url_for(locale: :en), class: "dropdown-item #{I18n.locale == :en ? 'active' : ''}"  
+              - I18n.available_locales.each do |loc|
+                - flag_code = flag_code_for(loc)   # Pro Eintrag korrekt
+                - active = (I18n.locale == loc) ? 'active' : ''
+                %li
+                  = link_to url_for(locale: loc), class: "dropdown-item #{active}" do
+                    = image_tag "flags/4x3/#{flag_code}.svg", width: 24, class: "me-2 align-text-bottom", alt: t("languages.#{loc}")
+                    = t("languages.#{loc}")
           
           -# For normal nav bar
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
-            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block', title: 'Create site'
+            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block', title: t('burger_menu_create_site')
 
           -# For burger menu
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
             style: "opacity:90%; margin-left:-3px; margin-right:0px;") + content_tag(:span,
-            'Create site'), new_site_path, li_class: 'd-block d-sm-none', title: 'Create site'
+            t('burger_menu_create_site')), new_site_path, li_class: 'd-block d-sm-none', title: t('burger_menu_create_site')
 
           %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: "User menu",
+            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: t('burger_menu_title'),
               "data-bs-toggle"=>"dropdown", "aria-expanded"=>"false", "aria-haspopup"=>"true" }
               - if current_user.use_avatar?
                 = avatar_image(current_user, size: 18, style: 'margin-top: -2px;')
@@ -71,15 +78,23 @@
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link
-          -# NEU: Sprachwechsler auch fuer nicht-angemeldete User (kopiere den Block von oben hier rein)
+
+          -# NEU: Sprachwechsler – dynamisch aus available_locales
           %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: "Sprache wechseln",
-              "data-bs-toggle"=>"dropdown", "aria-expanded"=>"false", "aria-haspopup"=>"true" }
-              = I18n.locale.to_s.upcase
-              %span.ms-1= I18n.locale == :de ? 'Deutsch' : 'English'
+            - current_flag_code = flag_code_for(I18n.locale)   # ← Neu: Definiere hier für den Button
+            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: t('app_language_switch_tooltip'),
+              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true" }
+              -# Aktuelle Flagge + Text
+              = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
+              = t("languages.#{I18n.locale}")
 
             %ul.dropdown-menu.dropdown-menu-end
-              %li= link_to "Deutsch", url_for(locale: :de), class: "dropdown-item #{I18n.locale == :de ? 'active' : ''}"
-              %li= link_to "English", url_for(locale: :en), class: "dropdown-item #{I18n.locale == :en ? 'active' : ''}"   
-          
-          = nav_link_to "Log in", new_user_session_path
+              - I18n.available_locales.each do |loc|
+                - flag_code = flag_code_for(loc)   # Pro Eintrag korrekt
+                - active = (I18n.locale == loc) ? 'active' : ''
+                %li
+                  = link_to url_for(locale: loc), class: "dropdown-item #{active}" do
+                    = image_tag "flags/4x3/#{flag_code}.svg", width: 24, class: "me-2 align-text-bottom", alt: t("languages.#{loc}")
+                    = t("languages.#{loc}")
+
+            = nav_link_to "Log in", new_user_session_path

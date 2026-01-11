@@ -244,6 +244,12 @@ en:
 #
 # From here translations for rails i18n
 en:
+  languages:
+    en: English
+    de: German
+    fr: French
+  #
+  app_language_switch_tooltip: "Change language"
   # hub site
   your_sites: "Your sites"
   click_create_below: "Click 'Create' below to create your first TiddlyWiki site."
@@ -325,6 +331,9 @@ en:
   top_menu_templates: "Templates"
   top_menu_pricing: "Pricing"
   top_menu_signup: "Sign up"
+  #
+  burger_menu_title: "Your account"
+  burger_menu_create_site: "Create a site"
   # Start Page Texts
   signed_out_col1_heading: "Your own wiki in seconds"  
   signed_out_col1_text: "Get your own powerful, extensible, personal wiki for free in seconds with no installation required. Make it private, public, or show it off on the"
