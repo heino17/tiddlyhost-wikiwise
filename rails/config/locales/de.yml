@@ -243,6 +243,25 @@ de:
   <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">ein Ticket bei Codeberg erstellen</a>. 
   <br>Bestehende Probleme mit Feather Wiki 
   <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">findest Du hier</a>."
+  # Donations & Sponsorships-Site
+  donations_page_heading: "Spenden & Patenschaften"
+  donations_page_subheading: "<i><b>...unterstütze unsere Gemeinschaft!</b></i>"
+  # Donations & Sponsorships text
+  donations_page_txt_1: "Wenn Du Tiddlyhost nützlich findest, denk bitte über eine Spende oder ein Sponsoring nach. 
+  Eine Spende oder ein Sponsoring hilft dabei, die Hosting-Kosten zu decken, 
+  und fördert die weitere Unterstützung und Entwicklung von Tiddlyhost."
+  donations_page_txt_2: "Um zu spenden oder Sponsor zu werden, nutze  
+  <a href=\"https://www.paypal.com/\" target=\"_blank\">PayPal</a>, 
+  <a href=\"https://github.com/sponsors\" target=\"_blank\">Github Sponsors</a> 
+  oder
+  <a href=\"https://www.buymeacoffee.com/\" target=\"_blank\">Buy Me a Coffee</a>. 
+  Oder klicke unten auf die Schaltflächen."
+  donations_page_logged_in_out_before: "Du kannst jetzt auch den Tiddlyhost Standard-Tarif abonnieren, der Dir Zugang 
+  zu zusätzlichen Tiddlyhost-Funktionen bietet und die weitere Entwicklung von Tiddlyhost unterstützt. Sieh Dir die"
+  donations_page_logged_in_after: "an, um mehr über die Tiddlyhost-Abonnementtarife zu erfahren."
+  donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
+  donations_page_buy_coffee_button_title: "Buy Me a Coffee"
+  donations_page_subscribed_already: "I can see you're already a subscriber. Thank you very much!"
 
   #####################################################################
   # the following are changes that differ from original rails I18n-files

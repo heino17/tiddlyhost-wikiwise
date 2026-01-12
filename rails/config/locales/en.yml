@@ -229,13 +229,23 @@ en:
   <br>The existing Feather Wiki 
   <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">issues are here</a>."
   # Donations & Sponsorships-Site
-  support_page_heading: "Support"
-  support_page_subheading: "Tiddlyhost support"
-  support_page_intro_txt: "If you have Tiddlyhost problems or need help with something, please use one of the following options:"
-  support_page_report_to_github: "Report an issue in GitHub"
-  support_page_suggest_to_github: "Suggest a feature in GitHub"
-  support_page_send_email: "Send an email"
-  # Tiddlyhost support text
+  donations_page_heading: "Donations & Sponsorships"
+  donations_page_subheading: "<i><b>...support our community!</b></i>"
+  # Donations & Sponsorships text
+  donations_page_txt_1: "If you find Tiddlyhost useful then please consider a donation or a sponsorship. 
+  A donation or sponsorship will help cover hosting costs, 
+  and encourage the continued support and development of Tiddlyhost."
+  donations_page_txt_2: "To donate or become a sponsor, use 
+  <a href=\"https://www.paypal.com/\" target=\"_blank\">PayPal</a>, 
+  <a href=\"https://github.com/sponsors\" target=\"_blank\">Github Sponsors</a> 
+  or
+  <a href=\"https://www.buymeacoffee.com/\" target=\"_blank\">Buy Me a Coffee</a>. Or click on the buttons below."
+  donations_page_logged_in_out_before: "You can also now subscribe to the <b>Tiddlyhost Standard</b> plan, which gives you access to additional Tiddlyhost features, as well as supports the continued development of Tiddlyhost. 
+  Visit the"
+  donations_page_logged_in_after: "to learn more about Tiddlyhost subscription plans."
+  donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
+  donations_page_buy_coffee_button_title: "Buy Me a Coffee"
+  donations_page_subscribed_already: "I can see you're already a subscriber. Thank you very much!"
 
   #####################################################################
   # the following are changes that differ from original rails I18n-files
