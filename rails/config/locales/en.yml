@@ -133,7 +133,6 @@ en:
       model_invalid: 'Validation failed: %{errors}'
       not_a_number: is not a number
       not_an_integer: must be an integer
-      not_saved: "%{count} errors have been detected! Your data has not yet been processed!"
       odd: must be odd
       other_than: must be other than %{count}
       password_too_long: is too long
@@ -426,4 +425,61 @@ en:
   about_links_donate: "Donations Sponsorships"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Empty Versions:"
+  #####################################################################
+  # the following are changes that differ from original ruby I18n-files
+  not_saved: "%{count} errors have been detected! Your data has not yet been processed!"
+  #
+  # and the hole time block
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about %{count} hour ago
+        other: about %{count} hours ago
+      about_x_months:
+        one: about %{count} month ago
+        other: about %{count} months ago
+      about_x_years:
+        one: about %{count} year ago
+        other: about %{count} years ago
+      almost_x_years:
+        one: almost %{count} year ago
+        other: almost %{count} years ago
+      half_a_minute: half a minute ago
+      less_than_x_seconds:
+        one: less than %{count} second ago
+        other: less than %{count} seconds ago
+      less_than_x_minutes:
+        one: less than a minute ago
+        other: less than %{count} minutes ago
+      over_x_years:
+        one: over %{count} year ago
+        other: over %{count} years ago
+      x_seconds:
+        one: "%{count} second ago"
+        other: "%{count} seconds ago"
+      x_minutes:
+        one: "%{count} minute ago"
+        other: "%{count} minutes ago"
+      x_days:
+        one: "%{count} day ago"
+        other: "%{count} days ago"
+      x_months:
+        one: "%{count} month ago"
+        other: "%{count} months ago"
+      x_years:
+        one: "%{count} year ago"
+        other: "%{count} years ago"
+    prompts:
+      second: Seconds
+      minute: Minute
+      hour: Hour
+      day: Day
+      month: Month
+      year: Year
+    relative:
+      future: in %{time}
+      past: "%{time} ago"
+  
+  
+  
   
