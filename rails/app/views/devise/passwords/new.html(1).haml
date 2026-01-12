@@ -1,15 +1,16 @@
-= render layout: 'form_wrapper', locals: { heading: t('user_forgot_password_header'),
-  intro_text: t('user_forgot_password_intro_text') } do
+
+= render layout: 'form_wrapper', locals: { heading: 'Forgot your password?',
+  intro_text: "Enter your email address to receive a reset password link." } do
 
   = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
 
     = render 'devise/shared/error_messages', resource: resource
 
     = render layout: 'field_wrapper' do
-      = f.label t('user_forgot_password_email_label')
+      = f.label :email
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.submit t('user_forgot_password_submit_button'), class: 'btn btn-primary'
+      = f.submit 'Send reset password link', class: 'btn btn-primary'
 
     = render 'devise/shared/links'
