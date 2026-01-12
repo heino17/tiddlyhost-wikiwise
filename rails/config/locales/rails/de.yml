@@ -1,4 +1,5 @@
-# Folgende Zeilen aus dem Original: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml
+# Folgende Zeilen aus dem Original: 
+# https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml
 # Ich lasse es wegen möglicher Veränderungen unberührt
 # Wenn wir etwas ändern, machen wir es mit unseren eigenen Dateien
 ---
