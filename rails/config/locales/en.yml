@@ -67,42 +67,42 @@ en:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: about %{count} hour
-        other: about %{count} hours
+        one: about %{count} hour ago
+        other: about %{count} hours ago
       about_x_months:
-        one: about %{count} month
-        other: about %{count} months
+        one: about %{count} month ago
+        other: about %{count} months ago
       about_x_years:
-        one: about %{count} year
-        other: about %{count} years
+        one: about %{count} year ago
+        other: about %{count} years ago
       almost_x_years:
-        one: almost %{count} year
-        other: almost %{count} years
-      half_a_minute: half a minute
+        one: almost %{count} year ago
+        other: almost %{count} years ago
+      half_a_minute: half a minute ago
       less_than_x_seconds:
-        one: less than %{count} second
-        other: less than %{count} seconds
+        one: less than %{count} second ago
+        other: less than %{count} seconds ago
       less_than_x_minutes:
-        one: less than a minute
-        other: less than %{count} minutes
+        one: less than a minute ago
+        other: less than %{count} minutes ago
       over_x_years:
-        one: over %{count} year
-        other: over %{count} years
+        one: over %{count} year ago
+        other: over %{count} years ago
       x_seconds:
-        one: "%{count} second"
-        other: "%{count} seconds"
+        one: "%{count} second ago"
+        other: "%{count} seconds ago"
       x_minutes:
-        one: "%{count} minute"
-        other: "%{count} minutes"
+        one: "%{count} minute ago"
+        other: "%{count} minutes ago"
       x_days:
-        one: "%{count} day"
-        other: "%{count} days"
+        one: "%{count} day ago"
+        other: "%{count} days ago"
       x_months:
-        one: "%{count} month"
-        other: "%{count} months"
+        one: "%{count} month ago"
+        other: "%{count} months ago"
       x_years:
-        one: "%{count} year"
-        other: "%{count} years"
+        one: "%{count} year ago"
+        other: "%{count} years ago"
     prompts:
       second: Seconds
       minute: Minute
@@ -133,6 +133,7 @@ en:
       model_invalid: 'Validation failed: %{errors}'
       not_a_number: is not a number
       not_an_integer: must be an integer
+      not_saved: "%{count} errors have been detected! Your data has not yet been processed!"
       odd: must be odd
       other_than: must be other than %{count}
       password_too_long: is too long
@@ -229,7 +230,7 @@ en:
 #
 #
 # From here Tiddlyhost english original texts for rails i18n
-en:
+#
   hello: "Hello world"
 
   # This is a little annoying...

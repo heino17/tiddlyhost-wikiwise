@@ -127,7 +127,7 @@ de:
       model_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
       not_a_number: ist keine Zahl
       not_an_integer: muss ganzzahlig sein
-      not_saved: "Es sind %{count} Fehler aufgetreten:"
+      not_saved: "Es wurden %{count} Fehler festgestellt! Deine Daten wurden noch nicht verabeitet!"
       odd: muss ungerade sein
       other_than: darf nicht gleich %{count} sein
       password_too_long: ist zu lang

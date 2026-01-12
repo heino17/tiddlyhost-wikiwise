@@ -128,12 +128,12 @@ module ApplicationHelper
     return '-' unless timestamp
 
     content_tag :span, title: timestamp.to_s do
-      brief ? brief_time_ago_in_words(timestamp) : "#{time_ago_in_words(timestamp)}"
+      brief ? brief_time_ago_in_words(timestamp) : "#{time_ago_in_words(timestamp)} ago"
     end
   end
 
   def brief_time_ago_in_words(timestamp)
-    "#{time_ago_in_words(timestamp).sub(/^(about|less than) /, '')}"
+    "#{time_ago_in_words(timestamp).sub(/^(about|less than) /, '')} ago"
   end
 
   def nice_timespan(start_time, end_time, brief: false)
