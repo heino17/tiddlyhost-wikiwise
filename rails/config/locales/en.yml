@@ -1,235 +1,10 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 #
-# Following lines from original: https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml
----
-en:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Validation failed: %{errors}'
-        restrict_dependent_destroy:
-          has_one: Cannot delete record because a dependent %{record} exists
-          has_many: Cannot delete record because dependent %{record} exist
-  date:
-    abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
-    abbr_month_names:
-    -
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
-    day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
-    formats:
-      default: "%Y-%m-%d"
-      long: "%B %d, %Y"
-      short: "%b %d"
-    month_names:
-    -
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
-    order:
-    - year
-    - month
-    - day
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: about %{count} hour ago
-        other: about %{count} hours ago
-      about_x_months:
-        one: about %{count} month ago
-        other: about %{count} months ago
-      about_x_years:
-        one: about %{count} year ago
-        other: about %{count} years ago
-      almost_x_years:
-        one: almost %{count} year ago
-        other: almost %{count} years ago
-      half_a_minute: half a minute ago
-      less_than_x_seconds:
-        one: less than %{count} second ago
-        other: less than %{count} seconds ago
-      less_than_x_minutes:
-        one: less than a minute ago
-        other: less than %{count} minutes ago
-      over_x_years:
-        one: over %{count} year ago
-        other: over %{count} years ago
-      x_seconds:
-        one: "%{count} second ago"
-        other: "%{count} seconds ago"
-      x_minutes:
-        one: "%{count} minute ago"
-        other: "%{count} minutes ago"
-      x_days:
-        one: "%{count} day ago"
-        other: "%{count} days ago"
-      x_months:
-        one: "%{count} month ago"
-        other: "%{count} months ago"
-      x_years:
-        one: "%{count} year ago"
-        other: "%{count} years ago"
-    prompts:
-      second: Seconds
-      minute: Minute
-      hour: Hour
-      day: Day
-      month: Month
-      year: Year
-    relative:
-      future: in %{time}
-      past: "%{time} ago"
-  errors:
-    format: "%{attribute} %{message}"
-    messages:
-      accepted: must be accepted
-      blank: can't be blank
-      confirmation: doesn't match %{attribute}
-      empty: can't be empty
-      equal_to: must be equal to %{count}
-      even: must be even
-      exclusion: is reserved
-      greater_than: must be greater than %{count}
-      greater_than_or_equal_to: must be greater than or equal to %{count}
-      in: must be in %{count}
-      inclusion: is not included in the list
-      invalid: is invalid
-      less_than: must be less than %{count}
-      less_than_or_equal_to: must be less than or equal to %{count}
-      model_invalid: 'Validation failed: %{errors}'
-      not_a_number: is not a number
-      not_an_integer: must be an integer
-      odd: must be odd
-      other_than: must be other than %{count}
-      password_too_long: is too long
-      present: must be blank
-      required: must exist
-      taken: has already been taken
-      too_long:
-        one: is too long (maximum is %{count} character)
-        other: is too long (maximum is %{count} characters)
-      too_short:
-        one: is too short (minimum is %{count} character)
-        other: is too short (minimum is %{count} characters)
-      wrong_length:
-        one: is the wrong length (should be %{count} character)
-        other: is the wrong length (should be %{count} characters)
-    template:
-      body: 'There were problems with the following fields:'
-      header:
-        one: "%{count} error prohibited this %{model} from being saved"
-        other: "%{count} errors prohibited this %{model} from being saved"
-  helpers:
-    select:
-      prompt: Please select
-    submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
-  number:
-    currency:
-      format:
-        delimiter: ","
-        format: "%u%n"
-        negative_format: "-%u%n"
-        precision: 2
-        separator: "."
-        significant: false
-        strip_insignificant_zeros: false
-        unit: "$"
-    format:
-      delimiter: ","
-      precision: 3
-      round_mode: default
-      separator: "."
-      significant: false
-      strip_insignificant_zeros: false
-    human:
-      decimal_units:
-        format: "%n %u"
-        units:
-          billion: Billion
-          million: Million
-          quadrillion: Quadrillion
-          thousand: Thousand
-          trillion: Trillion
-          unit: ''
-      format:
-        delimiter: ''
-        precision: 3
-        significant: true
-        strip_insignificant_zeros: true
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one: Byte
-            other: Bytes
-          eb: EB
-          gb: GB
-          kb: KB
-          mb: MB
-          pb: PB
-          tb: TB
-          zb: ZB
-    percentage:
-      format:
-        delimiter: ''
-        format: "%n%"
-    precision:
-      format:
-        delimiter: ''
-  support:
-    array:
-      last_word_connector: ", and "
-      two_words_connector: " and "
-      words_connector: ", "
-  time:
-    am: am
-    formats:
-      default: "%a, %d %b %Y %H:%M:%S %z"
-      long: "%B %d, %Y %H:%M"
-      short: "%d %b %H:%M"
-    pm: pm
-#
-#
-#
 # From here Tiddlyhost english original texts for rails i18n
 #
+---
+en:
   hello: "Hello world"
 
   # This is a little annoying...
@@ -240,7 +15,6 @@ en:
         one:   site
         few:   sites
         other: sites
-#
 #
 # From here translations for rails i18n
 #
@@ -424,7 +198,37 @@ en:
   about_links_license: "Software License"
   about_links_donate: "Donations Sponsorships"
   about_hint_version: "Version:"
-  about_hint_empty_versions: "Empty Versions:"
+  about_hint_empty_versions: "Empty Versions:"  
+  # Donations-Seite
+  donations_page_heading: "Support"
+  donations_page_subheading: "Tiddlyhost support"
+  donations_page_intro_txt: "If you have Tiddlyhost problems or need help with something, please use one of the following options:"
+  donations_page_report_to_github: "Report an issue in GitHub"
+  donations_page_suggest_to_github: "Suggest a feature in GitHub"
+  donations_page_send_email: "Send an email"
+  # Tiddlyhost support text
+  donations_page_tiddlyhost_support_txt: "You can also browse the existing issues in 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 
+  to see if there's an issue filed already for your problem. See also the 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> and the 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a>. 
+  <br>(Improved documentation for Tiddlyhost is planned for the future.)"
+  # TiddlyWiki support text
+  donations_page_tiddlywiki_subheading: "TiddlyWiki support"
+  donations_page_tiddlywiki_support_txt: "There are a lot of information out there related to TiddlyWiki. The primary forum for asking questions is 
+  <a href=\"https://talk.tiddlywiki.org/\" target=\"_blank\">Talk TiddlyWiki</a>, 
+  but you can find additional resources via 
+  <a href=\"https://tiddlywiki.com/#Forums\" target=\"_blank\">TiddlyWiki Forums</a> and the 
+  <a href=\"https://tiddlywiki.com/#Community\" target=\"_blank\">TiddlyWiki Community</a>. 
+  You can also file issues for TiddlyWiki
+  <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">in GitHub here</a>"
+  # Feather Wiki support text
+  donations_page_featherwiki_subheading: "Feather Wiki support"
+  donations_page_featherwiki_support_txt: "If you need help with Feather Wiki, or you want to report a bug or request a feature, the best way to do that is to 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">file an issue in Codeberg</a> 
+  <br>The existing Feather Wiki 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">issues are here</a>."
+
   #####################################################################
   # the following are changes that differ from original ruby I18n-files
   not_saved: "%{count} errors have been detected! Your data has not yet been processed!"
@@ -479,7 +283,3 @@ en:
     relative:
       future: in %{time}
       past: "%{time} ago"
-  
-  
-  
-  
