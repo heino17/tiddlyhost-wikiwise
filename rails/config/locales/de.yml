@@ -267,6 +267,11 @@ de:
   user_forgot_password_intro_text: "Gib Deine E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten."
   user_forgot_password_email_label: "eMail"
   user_forgot_password_submit_button: "Reset-Passwort-Link senden"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "Bestätigung Deiner Anmeldung erneut senden"
+  user_resend_confirmation_intro_text: "Gib Deine E-Mail-Adresse ein, um den Bestätigungslink erneut zu senden."
+  user_resend_confirmation_email_label: "e-Mail"
+  user_resend_confirmation_submit_button: "Bestätigung erneut senden"
 
   #####################################################################
   # the following are changes that differ from original rails I18n-files

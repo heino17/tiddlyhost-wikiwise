@@ -246,11 +246,16 @@ en:
   donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
   donations_page_buy_coffee_button_title: "Buy Me a Coffee"
   donations_page_subscribed_already: "I can see you're already a subscriber. Thank you very much!"
-  # Devise user forgot password
+  # user forgot password
   user_forgot_password_header: "Forgot your password?"
   user_forgot_password_intro_text: "Enter your email address to receive a reset password link."
   user_forgot_password_email_label: "email"
   user_forgot_password_submit_button: "Send reset password link"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "Resend confirmation instructions"
+  user_resend_confirmation_intro_text: "Enter your email address to resend the email confirmation link."
+  user_resend_confirmation_email_label: "email"
+  user_resend_confirmation_submit_button: "Resend confirmation instructions"
   #####################################################################
   # the following are changes that differ from original rails I18n-files
   errors:
