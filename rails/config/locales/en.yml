@@ -256,6 +256,11 @@ en:
   user_resend_confirmation_intro_text: "Enter your email address to resend the email confirmation link."
   user_resend_confirmation_email_label: "email"
   user_resend_confirmation_submit_button: "Resend confirmation instructions"
+  # user resend unlock instructions
+  user_resend_unlock_header: "Resend unlock instructions"
+  user_resend_unlock_intro_text: "Enter your email address to resend the account unlock link."
+  user_resend_unlock_email_label: "e-Mail"
+  user_resend_unlock_submit_button: "Resend unlock instructions"
   #####################################################################
   # the following are changes that differ from original rails I18n-files
   errors:

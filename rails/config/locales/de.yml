@@ -262,16 +262,21 @@ de:
   donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
   donations_page_buy_coffee_button_title: "Buy Me a Coffee"
   donations_page_subscribed_already: "Ich sehe, dass Du bereits Abonnent bist. Vielen Dank!"
-  # Devise user forgot password
+  # user resend password
   user_forgot_password_header: "Passwort vergessen?"
   user_forgot_password_intro_text: "Gib Deine E-Mail-Adresse ein, um einen Link zum Zurücksetzen des Passworts zu erhalten."
   user_forgot_password_email_label: "eMail"
   user_forgot_password_submit_button: "Reset-Passwort-Link senden"
-  # user Resend confirmation instructions
+  # user resend confirmation link
   user_resend_confirmation_header: "Bestätigung Deiner Anmeldung erneut senden"
   user_resend_confirmation_intro_text: "Gib Deine E-Mail-Adresse ein, um den Bestätigungslink erneut zu senden."
   user_resend_confirmation_email_label: "e-Mail"
   user_resend_confirmation_submit_button: "Bestätigung erneut senden"
+  # user resend unlock instructions
+  user_resend_unlock_header: "Anleitung zum Entsperren erneut senden"
+  user_resend_unlock_intro_text: "Gib Deine E-Mail-Adresse ein, um den Link zum Entsperren des Kontos erneut zu senden."
+  user_resend_unlock_email_label: "e-Mail"
+  user_resend_unlock_submit_button: "Anleitung erneut senden"
 
   #####################################################################
   # the following are changes that differ from original rails I18n-files
