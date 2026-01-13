@@ -136,9 +136,15 @@ de:
   signed_out_col1_heading: "Dein eigenes Wiki in Sekunden!"
   signed_out_col1_text: "Erstelle in wenigen Sekunden kostenlos Dein eigenes leistungsstarkes, erweiterbares, persönliches Wiki, ohne dass eine Installation erforderlich ist. Mach es privat, öffentlich oder zeige es auf der"
   signed_out_col2_heading: "Unterstützt von TiddlyWiki"
-  signed_out_col2_text: "Tiddlyhost wird unterstützt von <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a>, dem revolutionären Open-Source-JavaScript-Wiki. Es unterstützt auch das neue superleichte <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> und das alte Original <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>."
+  signed_out_col2_text: "Tiddlyhost wird unterstützt von 
+  <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a>, dem revolutionären Open-Source-JavaScript-Wiki. 
+  Es unterstützt auch das neue superleichte <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> und das alte Original 
+  <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>."
   signed_out_col3_heading: "Vom Entwickler von Tiddlyspot"
-  signed_out_col3_text: "Tiddlyhost ist der sichere, moderne und zuverlässige Nachfolger von Tiddlyspot, dessen Code <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>open source</a> ist. Weitere Informationen findest du in den <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> oder der"
+  signed_out_col3_text: "Tiddlyhost ist der sichere, moderne und zuverlässige Nachfolger von Tiddlyspot, dessen Code 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>open source</a> ist. Weitere Informationen findest du in den 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> oder der 
+  <a href=\"/about\">Über Tiddlyhost</a>-Seite."
   signed_out_linkto_explore: "Schaufenster-Seite"
   # Startseite login
   get_started_heading: "Jetzt loslegen"
