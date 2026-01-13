@@ -261,6 +261,7 @@ en:
   user_resend_unlock_intro_text: "Enter your email address to resend the account unlock link."
   user_resend_unlock_email_label: "e-Mail"
   user_resend_unlock_submit_button: "Resend unlock instructions"
+  
   #####################################################################
   # the following are changes that differ from original rails I18n-files
   errors:
