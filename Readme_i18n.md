@@ -24,7 +24,7 @@ Implemented together with Grok (as of January 2026)
 
 - `app/views/layouts/_header.html.haml`
   - Language dropdown showing current language + switch links (using `url_for(locale: …)`)
-  - (future extension: flag icons via flag-icons CSS library possible)
+  - svg flag-icons load from assets folder
 
 - Various views & controllers (examples):
   - `app/views/subscription/_plans.html.haml` → dynamic title (Pricing / Subscription plans)
@@ -63,7 +63,7 @@ Gemeinsam mit Grok umgesetzt (Stand: Januar 2026)
 
 - `app/views/layouts/_header.html.haml`
   - Sprach-Dropdown mit aktueller Sprache + Links (url_for(locale: …))
-  - (später: Flag-Icons via flag-icons CSS möglich)
+  - SVG-Flaggen-Symbole werden aus dem Ordner „assets“ geladen
 
 - Diverse Views & Controller (Beispiele):
   - `app/views/subscription/_plans.html.haml` → dynamischer Titel (Pricing / Subscription plans)
