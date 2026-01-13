@@ -1,7 +1,10 @@
-  # From here Tiddlyhost for i18n
-  # 
-  #de:  
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+# From here Tiddlyhost for i18n
+# 
   # This is a little annoying...
+---
 de:  
   will_paginate:
       site:

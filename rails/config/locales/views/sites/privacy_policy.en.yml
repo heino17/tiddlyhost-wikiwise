@@ -3,7 +3,7 @@ en:
   privacy_policy_header: "Privacy Policy"
   privacy_policy_text: "
   
-    ```/rails/config/locales/views/sites/privacy_policy_en.yml```
+    ```/rails/config/locales/views/sites/privacy_policy.en.yml```
     
     # Tiddlyhost Privacy Policy
 
