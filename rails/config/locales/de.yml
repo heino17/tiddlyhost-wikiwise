@@ -77,13 +77,22 @@ de:
   hub_view_action_menu_view: "Ansicht"
   hub_view_action_menu_view_safe_mode: "Anicht im sicheren Modus"
   hub_view_action_menu_download: "Runterladen"
-  hub_view_action_menu_clone: "Klonen/Kopieren"
+  hub_view_action_menu_clone: "Klonen"
   hub_view_action_menu_upload: "Hochladen"
   hub_view_action_menu_delete: "Löschen"
   hub_view_action_menu_delete_realy: "Diese Seite wirklich löschen"
   hub_view_action_menu_more: "Mehr..."
   #hub_view_show_per_page: "18" # not yet implemented
   hub_view_table_actions: "Aktionen"
+  #clones and views
+  hub:
+    clones:
+      one: "Klon"
+      other: "Klone"
+    views:
+      one: "Aufruf"
+      other: "Aufrufe"
+    saved: "Letzte Aktualisierung"
   # site view "save history"
   site_view_save_history_for: "Speicherverlauf für"
   site_view_save_history_timestamp: "Zeitstempel"

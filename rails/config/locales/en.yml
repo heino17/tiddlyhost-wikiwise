@@ -74,6 +74,15 @@ en:
   hub_view_action_menu_more: "More..."
   #hub_view_show_per_page: "18" # not yet implemented
   hub_view_table_actions: "Actions"
+  #clones and views
+  hub:
+    clones:
+      one: "Clone"
+      other: "Clones"
+    views:
+      one: "View"
+      other: "Views"
+    saved: "Last update"
   # site view "save history"
   site_view_save_history_for: "Save history for"
   site_view_save_history_timestamp: "Timestamp"
