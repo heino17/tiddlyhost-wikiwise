@@ -1,4 +1,4 @@
-Branch ready for 2. Test! :)
+Branch ready for 3. Test! :)
 ============================
 - rails I18n  
 - EN/DE switchable, Switch in menu bar  
