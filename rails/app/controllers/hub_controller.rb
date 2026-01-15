@@ -1,6 +1,6 @@
 # This is a base class for TemplatesController and ExploreController
 class HubController < ApplicationController
-  PER_PAGE = 18
+  PER_PAGE = 3
 
   before_action :set_show_templates
   before_action :set_kind_filter

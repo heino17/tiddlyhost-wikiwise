@@ -10,29 +10,51 @@
   - else
     = @default_title
 
-  = render 'templates_switch', show_templates: @show_templates
+  = render 'templates_switch', show_templates: @show_templates  
 
 %p.small
   = @explanation_text
 
+- thing_key = { 'Site' => :site, 'Template' => :template }[@thing_name] || :site
+- count = @sites.respond_to?(:total_count) ? @sites.total_count : (@sites.size rescue 0)
+
 %p.text-muted{ style: 'font-size: 95%' }
   - if @tag.present?
-    #{@thing_name}s tagged with
+    - if thing_key == :site
+      - if count == 1
+        = t('hub_view.tagged_with.site.one')
+      - else
+        = t('hub_view.tagged_with.site.other')
+    - elsif thing_key == :template
+      - if count == 1
+        = t('hub_view.tagged_with.template.one')
+      - else
+        = t('hub_view.tagged_with.template.other')
     %b= @tag + '.'
   - elsif @user.present?
-    = t('hub_view_created_by_user')
+    - if thing_key == :site
+      = t('hub_view.created_by.site')
+    - elsif thing_key == :template
+      = t('hub_view.created_by.template')
     %b= @user.username + '.'
 
 %div{ style: "margin-bottom: 2em;" }
   %ul.nav.nav-tabs
-    = hub_link_to(t('hub_view_all_sites'), hub_all_url)
+    - if thing_key == :site
+      = hub_link_to(t('hub_view.nav.all_sites'), hub_all_url)
+    - elsif thing_key == :template
+      = hub_link_to(t('hub_view.nav.all_templates'), hub_all_url)
     - @tag_tabs.each do |tag|
       = hub_tag_link_to(tag, crawler_protect: true)
 
 .page_info.text-muted
   = page_entries_info(@sites, model: @thing_name)
-  = "tagged with #{@tag}" if @tag.present?
-  = "matching '#{search_text}'" if search_text
+  - if @tag.present?
+    = t('hub_view.suffix.tagged_with')
+  %b= @tag
+  - if search_text.present?
+    = t('hub_view.suffix.matching')
+  %b= "#{search_text}"
 
   %span.sort-by
     = link_to("#", class:'dropdown-toggle',

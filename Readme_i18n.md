@@ -32,8 +32,9 @@ Implemented together with Grok (as of January 2026)
 
 **Current status (January 2026):**
 - Stable with 0 test failures (at least when running in :en)
-- Large portion of UI text already translated (de.yml keeps growing)
+- Large portion of UI text already translated (de.yml - looks like a battlefield, I promise to make it better :))
 - Very solid foundation for adding more languages
+- 
 
 +++++++++++++++++ German Readme ++++++++++++++++++
 
@@ -71,5 +72,5 @@ Gemeinsam mit Grok umgesetzt (Stand: Januar 2026)
 
 **Aktueller Status (Januar 2026):**
 - Funktioniert stabil mit 0 Fehlern in den Tests (bei :en)
-- Großteil der UI-Texte bereits übersetzt (de.yml wächst kontinuierlich)
+- Großteil der UI-Texte bereits übersetzt (de.yml - sieht aus wie eine Schlachtfeld, ich gelobe besserung :))
 - Sehr gute Basis für weitere Sprachen vorhanden

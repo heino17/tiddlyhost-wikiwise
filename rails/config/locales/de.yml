@@ -7,27 +7,38 @@
 ---
 de:  
   will_paginate:
-      site:
+    site:
+    page_entries_info:
+        single_page:
+          zero: "Keine <b>Seite</b> gefunden"
+          one: "Zeige 1 <b>Seite</b>"
+          other: "Zeige alle %{count} Seiten"
+        single_page_html:
+          zero: "Keine <b>Seite</b> gefunden"
+          one: "Gezeigt wird <b>1 Seite</b>"
+          other: "Gezeigt werden <b>%{count} Seiten</b>"
+        multi_page: "Seite %{from} - %{to} von %{count} insgesamt"
+        multi_page_html: "Zeige alle <b>Seiten %{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
+    template:
       page_entries_info:
         single_page:
-          zero: "Keine %{model} gefunden"
-          one: "Zeige 1 %{model}"
-          other: "Zeige alle %{count} %{model}"
+          zero: "Keine Vorlage gefunden"
+          one: "Zeige 1 <b>Vorlage</b>"
+          other: "Zeige alle %{count} Seiten"
         single_page_html:
-          zero: "Keine %{model} gefunden"
-          one: "Zeige <b>1</b> %{model}"
-          other: "Zeige <b>alle %{count}</b> %{model}"
-        multi_page: "Zeige %{model} %{from} - %{to} von %{count} insgesamt"
-        multi_page_html: "Zeige %{model} <b>%{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
-
-  #        
-  previous_label: "« Vorherige"
-  previous_aria_label: "Vorherige Seite"
-  next_label: "Nächste »"
-  next_aria_label: "Nächste Seite"
-  page_gap: "..."
-  container_aria_label: "Seitennavigation"
-  page_aria_label: "Seite %{page}"
+          zero: "Keine <b>Vorlage</b> gefunden"
+          one: "Gezeigt wird <b>1 von %{count} Vorlagen</b>"
+          other: "Gezeigt werden <b>%{count} Vorlagen</b>"
+        multi_page: "Vorlage %{from} - %{to} von %{count} insgesamt"
+        multi_page_html: "Zeige alle <b>Vorlagen %{from} - %{to}</b> von <b>%{count}</b> insgesamt"
+        #      
+        previous_label: "« Vorherige"
+        previous_aria_label: "Vorherige Seite"
+        next_label: "Nächste »"
+        next_aria_label: "Nächste Seite"
+        page_gap: "..."
+        container_aria_label: "Seitennavigation"
+        page_aria_label: "Seite %{page}"
   #
   site_title: "Tiddlyhost"
   languages:
@@ -39,7 +50,7 @@ de:
   # hub site
   your_sites: "Deine Seiten"
   click_create_below: "Klicke unten auf 'Erstellen', um deine erste TiddlyWiki-Site anzulegen."
-  showing_filtered_sites: "Zeige %{filtered_count} %{access} Sites von %{total_count} insgesamt."
+  showing_filtered_sites: "Zeige %{filtered_count} %{access} Seiten von %{total_count} insgesamt."
   clear_filter: "Filter löschen"
   sites: "Seiten"
   site: "Seite"
@@ -53,7 +64,9 @@ de:
   explore_view_templates_only_tooltip: "Vorlagen sind von Tiddlyhost-Benutzern erstellte 
   und für andere freigegebene „leere“ Vorlagen. Du kannst allgemeine Verbesserungen und Anpassungen enthalten 
   oder für einen bestimmten speziellen Zweck entwickelt worden sein."
-  # hub view - not good choosen
+  # hub view - may be not good choosen
+  hub_view_sites_on_your: "Seiten auf Deiner"
+  hub_view_sites_on_your_explore_page: "Schaufenster-Seite"
   hub_view_all_sites: "Alle Seiten"
   hub_view_created_by_user: "Seiten erstellt von Tiddlyhost-Anwender"
   hub_view_list_kind: "Art"
@@ -93,6 +106,20 @@ de:
       one: "Aufruf"
       other: "Aufrufe"
     saved: "Letzte Aktualisierung"
+#
+  hub_view:
+    tagged_with:
+      site: { one: "Seite getagged mit", other: "Seiten getagged mit" }
+      template: { one: "Vorlage getagged mit", other: "Vorlagen getagged mit" }
+    created_by:
+      site: "Seiten erstellt von Tiddlyhost user"
+      template: "Vorlagen erstellt von Tiddlyhost user"
+    suffix:
+      tagged_with: "mit dem Tag"
+      matching: "mit Suchbegriff"
+    nav:
+      all_sites: "Alle Seiten"
+      all_templates: "Alle Vorlagen"
   # site view "save history"
   site_view_save_history_for: "Speicherverlauf für"
   site_view_save_history_timestamp: "Zeitstempel"

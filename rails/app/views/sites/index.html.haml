@@ -13,11 +13,10 @@
 
   .ps-1.ms-2.mb-3.th-text-small
     - if @filtered_site_count != @site_count
-      = t('showing_filtered_sites', filtered_count: @filtered_site_count, access: params[:access], total_count: pluralize(@site_count, t('site')))
+      = t('showing_filtered_site', filtered_count: @filtered_site_count, access: params[:access], total_count: pluralize(@site_count, t('site')))
       = link_to(t('clear_filter'), sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
     - else
-      = pluralize(@site_count, t('site')) + ","
-    = nice_byte_count(@total_storage_bytes)
+      = pluralize(@site_count, t('sites')) + ","
     = t('storage_used', bytes: nice_byte_count(@total_storage_bytes))  # Oder kombiniere es
 
   -# 'list_view' or 'grid_view'

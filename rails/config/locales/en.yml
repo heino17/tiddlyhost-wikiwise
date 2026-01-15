@@ -1,22 +1,44 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 #
-# From here Tiddlyhost english original texts for rails i18n
+# From here Tiddlyhost for i18n
 #
+# This is a little annoying...
 ---
 en:
-  hello: "Hello world"
-
-  # This is a little annoying...
   will_paginate:
-    models:
-      site:
-        zero:  sites
-        one:   site
-        few:   sites
-        other: sites
-#
-# From here translations for rails i18n
+    site:
+    page_entries_info:
+        single_page:
+          zero: "No <b>site</b> found"
+          one: "Showing 1 <b>Site</b>"
+          other: "Showing all %{count} Sites"
+        single_page_html:
+          zero: "No <b>site</b> found"
+          one: "Showing <b>1 Site</b>"
+          other: "Showing <b>%{count} sites</b>"
+        multi_page: "Site %{from} - %{to} of %{count} in total"
+        multi_page_html: "Showing all <b>sites %{from} - %{to}</b> of <b>%{count}</b> in total" 
+    template:
+      page_entries_info:
+        single_page:
+          zero: "No template found"
+          one: "Showing 1 <b>template</b>"
+          other: "Showing all %{count} templates"
+        single_page_html:
+          zero: "No <b>template</b> found"
+          one: "Showing <b>1 template</b>"
+          other: "Showing <b>%{count} templates</b>"
+        multi_page: "Template %{from} - %{to} of %{count} in total"
+        multi_page_html: "Showing all <b>templates %{from} - %{to}</b> of <b>%{count}</b> in total"  
+  #        
+  previous_label: "« Vorherige"
+  previous_aria_label: "Vorherige Seite"
+  next_label: "Nächste »"
+  next_aria_label: "Nächste Seite"
+  page_gap: "..."
+  container_aria_label: "Seitennavigation"
+  page_aria_label: "Seite %{page}"
 #
   site_title: "Tiddlyhost"
   languages:
@@ -42,7 +64,9 @@ en:
   explore_view_templates_only_tooltip: "Templates are customized \"empties\" created by Tiddlyhost users 
   and shared for use by others. They may contain general purpose enhancements and customizations
   or they may be designed for a particular specialized purpose."
-  # hub view - not good choosen
+  # hub view - may be not good choosen
+  hub_view_sites_on_your: "Sites on your"
+  hub_view_sites_on_your_explore_page: "Explore page"
   hub_view_all_sites: "All sites"
   hub_view_created_by_user: "Sites created by Tiddlyhost user"
   hub_view_list_kind: "Kind"
@@ -83,6 +107,20 @@ en:
       one: "View"
       other: "Views"
     saved: "Last update"
+#
+  hub_view:
+    tagged_with:
+      site: { one: "Site tagged with", other: "Sites tagged with" }
+      template: { one: "Template tagged with", other: "Templates tagged with" }
+    created_by:
+      site: "Sites created by Tiddlyhost user"
+      template: "Templates created by Tiddlyhost user"
+    suffix:
+      tagged_with: "tagged with"
+      matching: "matching"
+    nav:
+      all_sites: "All sites"
+      all_templates: "All templates"
   # site view "save history"
   site_view_save_history_for: "Save history for"
   site_view_save_history_timestamp: "Timestamp"
