@@ -31,14 +31,14 @@ en:
           other: "Showing <b>%{count} templates</b>"
         multi_page: "Template %{from} - %{to} of %{count} in total"
         multi_page_html: "Showing all <b>templates %{from} - %{to}</b> of <b>%{count}</b> in total"  
-  #        
-  previous_label: "« Vorherige"
-  previous_aria_label: "Vorherige Seite"
-  next_label: "Nächste »"
-  next_aria_label: "Nächste Seite"
-  page_gap: "..."
-  container_aria_label: "Seitennavigation"
-  page_aria_label: "Seite %{page}"
+    #      
+    previous_label: "Previous"
+    previous_aria_label: "Previous page"
+    next_label: "Next"
+    next_aria_label: "Next page"
+    page_gap: "..."
+    container_aria_label: "Page navigation"
+    page_aria_label: "Page %{page}"
 #
   site_title: "Tiddlyhost"
   languages:
