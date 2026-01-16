@@ -4,7 +4,7 @@ Branch ready for 3. Test! :)
 - EN/DE switchable, Switch in menu bar  
 - stays on the current site  
 - more languages easy to implement  
-- just started translating the texts and transferring them to de.yml/en.yml  
+- translated texts and transfered them to de.yml/en.yml  
 
 - can be tested NOW!  
 - note the ports!  
