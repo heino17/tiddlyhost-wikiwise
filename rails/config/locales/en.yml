@@ -11,11 +11,11 @@ en:
     page_entries_info:
         single_page:
           zero: "No <b>site</b> found"
-          one: "Showing 1 <b>Site</b>"
-          other: "Showing all %{count} Sites"
+          one: "Showing 1 <b>site</b>"
+          other: "Showing all %{count} sites"
         single_page_html:
           zero: "No <b>site</b> found"
-          one: "Showing <b>1 Site</b>"
+          one: "Showing <b>1 site</b>"
           other: "Showing <b>%{count} sites</b>"
         multi_page: "Site %{from} - %{to} of %{count} in total"
         multi_page_html: "Showing all <b>sites %{from} - %{to}</b> of <b>%{count}</b> in total" 
@@ -50,7 +50,7 @@ en:
   # hub site
   your_sites: "Your sites"
   click_create_below: "Click 'Create' below to create your first TiddlyWiki site."
-  showing_filtered_sites: "Show %{filtered_count} %{access} Sites of %{total_count} in total."
+  showing_filtered_sites: "Show %{filtered_count} %{access} sites of %{total_count} in total."
   clear_filter: "Clear filter"
   sites: "Sites"
   site: "Site"
