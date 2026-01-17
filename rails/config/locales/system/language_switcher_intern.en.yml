@@ -1,0 +1,13 @@
+# Everyone should be able to read the label in their own language!
+# no need to change
+---
+en:
+  languages:
+    en: English
+    de: Deutsch
+    fr: Français
+    es: Español    
+  #
+  # Change language tooltip
+  # I'll leave it international, the same for everyone
+  app_language_switch_tooltip: "Change language"

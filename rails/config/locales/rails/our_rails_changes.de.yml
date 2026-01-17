@@ -1,0 +1,60 @@
+#####################################################################
+# the following are changes that differ from original rails I18n-files
+---
+de:
+  # this one is missing
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      not_saved: "Es wurden %{count} Fehler festgestellt! Deine Daten wurden noch nicht verabeitet!"
+  # and the hole time block for "her"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: etwa eine Stunde her
+        other: etwa %{count} Stunden her
+      about_x_months:
+        one: etwa ein Monat her
+        other: etwa %{count} Monate her
+      about_x_years:
+        one: etwa ein Jahr her
+        other: etwa %{count} Jahre her
+      almost_x_years:
+        one: fast ein Jahr her
+        other: fast %{count} Jahre her
+      half_a_minute: eine halbe Minute her
+      less_than_x_seconds:
+        one: weniger als eine Sekunde her
+        other: weniger als %{count} Sekunden her
+      less_than_x_minutes:
+        one: weniger als eine Minute her
+        other: weniger als %{count} Minuten her
+      over_x_years:
+        one: mehr als ein Jahr her
+        other: mehr als %{count} Jahre her
+      x_seconds:
+        one: eine Sekunde her
+        other: "%{count} Sekunden her"
+      x_minutes:
+        one: eine Minute her
+        other: "%{count} Minuten her"
+      x_days:
+        one: ein Tag her
+        other: "%{count} Tage her"
+      x_months:
+        one: ein Monat her
+        other: "%{count} Monate her"
+      x_years:
+        one: ein Jahr her
+        other: "%{count} Jahre her"
+    prompts:
+      second: Sekunde
+      minute: Minute
+      hour: Stunde
+      day: Tag
+      month: Monat
+      year: Jahr
+    relative:
+      future: in %{time}
+      past: "%{time} her"
+  # end

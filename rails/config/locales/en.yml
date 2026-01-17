@@ -41,16 +41,11 @@ en:
     page_aria_label: "Page %{page}"
 #
   site_title: "Tiddlyhost"
-  languages:
-    en: English
-    de: German
-    fr: French
-  #
-  app_language_switch_tooltip: "Change language"
+  iso_language_code: "en"
   # hub site
   your_sites: "Your sites"
   click_create_below: "Click 'Create' below to create your first TiddlyWiki site."
-  showing_filtered_sites: "Show %{filtered_count} %{access} sites of %{total_count} in total."
+  showing_filtered_sites: "Showing %{filtered_count} %{access} sites of %{total_count} in total."
   clear_filter: "Clear filter"
   sites: "Sites"
   site: "Site"
@@ -88,7 +83,7 @@ en:
   hub_view_access_template: "Template"
   hub_view_action_menu_settings: "Settings"
   hub_view_action_menu_save_history: "Save history"
-  hub_view_action_menu_view: "View"
+  hub_view_action_menu_view: "Open Wiki in new window"
   hub_view_action_menu_view_safe_mode: "View in safe mode"
   hub_view_action_menu_download: "Download"
   hub_view_action_menu_clone: "Clone"
@@ -147,7 +142,7 @@ en:
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
   logo_alt: "logo.svg"
-  # Menu
+  # Top Menu
   top_menu_root: "Home"
   top_menu_explore: "Explore"
   top_menu_templates: "Templates"
@@ -246,7 +241,7 @@ en:
   about_links_donate: "Donations Sponsorships"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Empty Versions:"  
-  # Support-Seite
+  # Support-site
   support_page_heading: "Support"
   support_page_subheading: "Tiddlyhost support"
   support_page_intro_txt: "If you have Tiddlyhost problems or need help with something, please use one of the following options:"
@@ -308,61 +303,3 @@ en:
   user_resend_unlock_intro_text: "Enter your email address to resend the account unlock link."
   user_resend_unlock_email_label: "e-Mail"
   user_resend_unlock_submit_button: "Resend unlock instructions"
-  
-  #####################################################################
-  # the following are changes that differ from original rails I18n-files
-  errors:
-    format: "%{attribute} %{message}"
-    messages:
-      not_saved: "%{count} errors have been detected! Your data has not yet been processed!"
-  #
-  # and the hole time block
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: about %{count} hour ago
-        other: about %{count} hours ago
-      about_x_months:
-        one: about %{count} month ago
-        other: about %{count} months ago
-      about_x_years:
-        one: about %{count} year ago
-        other: about %{count} years ago
-      almost_x_years:
-        one: almost %{count} year ago
-        other: almost %{count} years ago
-      half_a_minute: half a minute ago
-      less_than_x_seconds:
-        one: less than %{count} second ago
-        other: less than %{count} seconds ago
-      less_than_x_minutes:
-        one: less than a minute ago
-        other: less than %{count} minutes ago
-      over_x_years:
-        one: over %{count} year ago
-        other: over %{count} years ago
-      x_seconds:
-        one: "%{count} second ago"
-        other: "%{count} seconds ago"
-      x_minutes:
-        one: "%{count} minute ago"
-        other: "%{count} minutes ago"
-      x_days:
-        one: "%{count} day ago"
-        other: "%{count} days ago"
-      x_months:
-        one: "%{count} month ago"
-        other: "%{count} months ago"
-      x_years:
-        one: "%{count} year ago"
-        other: "%{count} years ago"
-    prompts:
-      second: Seconds
-      minute: Minute
-      hour: Hour
-      day: Day
-      month: Month
-      year: Year
-    relative:
-      future: in %{time}
-      past: "%{time} ago"

@@ -40,13 +40,8 @@ de:
     container_aria_label: "Seitennavigation"
     page_aria_label: "Seite %{page}"
   #
-  site_title: "Tiddlyhost"
-  languages:
-    en: Englisch
-    de: Deutsch
-    fr: Französisch
-  #
-  app_language_switch_tooltip: "Sprache wechseln"
+  site_title: "Tiddlyhost - local"
+  iso_language_code: "de"
   # hub site
   your_sites: "Deine Seiten"
   click_create_below: "Klicke unten auf 'Erstellen', um deine erste TiddlyWiki-Site anzulegen."
@@ -59,7 +54,7 @@ de:
   create_from_template: "Aus Vorlage erstellen"
   claim_tiddlyspot_site: "Tiddlyspot-Site beanspruchen"
   download_all: "Alle herunterladen"
-  #explore view
+  # explore view
   explore_view_templates_only: "nur Vorlagen"
   explore_view_templates_only_tooltip: "Vorlagen sind von Tiddlyhost-Benutzern erstellte 
   und für andere freigegebene „leere“ Vorlagen. Du kannst allgemeine Verbesserungen und Anpassungen enthalten 
@@ -87,7 +82,7 @@ de:
   hub_view_access_template: "Vorlage"
   hub_view_action_menu_settings: "Einstellungen"
   hub_view_action_menu_save_history: "Speicherverlauf"
-  hub_view_action_menu_view: "Ansicht"
+  hub_view_action_menu_view: "Öffne Wiki in neuem Fenster"
   hub_view_action_menu_view_safe_mode: "Anicht im sicheren Modus"
   hub_view_action_menu_download: "Runterladen"
   hub_view_action_menu_clone: "Klonen"
@@ -106,7 +101,7 @@ de:
       one: "Aufruf"
       other: "Aufrufe"
     saved: "Letzte Aktualisierung"
-#
+  #
   hub_view:
     tagged_with:
       site: { one: "Seite getagged mit", other: "Seiten getagged mit" }
@@ -145,7 +140,7 @@ de:
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"
   # Logo
-  logo_link_title: "Tiddlyhost-Wikiwise"
+  logo_link_title: "Tiddlyhost - local"
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
   logo_alt: "logo.svg"
@@ -240,7 +235,7 @@ de:
   backed by strict industry standards for security and data protection."
   site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
   backed by strict industry standards for security and data protection."
-  # About-Seite
+  # About-site
   site_heading_about: "Über Tiddlyhost"
   site_text_about: "Der einfachste Weg 
   <a href=\"https://tiddlywiki.com/\" target=_blank>Tiddlywiki</a> online zu verwenden. Erstellt, gewartet und unterhalten von Simon Baird."
@@ -259,7 +254,7 @@ de:
   about_links_donate: "Spenden Sponsoring"
   about_hint_version: "Version:"
   about_hint_empty_versions: "Leere Versionen:"
-  # Support-Seite
+  # Support-site
   support_page_heading: "Hilfe und Unterstützung"
   support_page_subheading: "Tiddlyhost-Unterstützung"
   support_page_intro_txt: "Wenn Du Probleme mit Tiddlyhost hast oder Hilfe bei etwas benötigst, nutze bitte eine der folgenden Optionen:"
@@ -322,58 +317,3 @@ de:
   user_resend_unlock_intro_text: "Gib Deine E-Mail-Adresse ein, um den Link zum Entsperren des Kontos erneut zu senden."
   user_resend_unlock_email_label: "e-Mail"
   user_resend_unlock_submit_button: "Anleitung erneut senden"
-
-  #####################################################################
-  # the following are changes that differ from original rails I18n-files
-  #
-  errors:
-    format: "%{attribute} %{message}"
-    messages:
-      not_saved: "Es wurden %{count} Fehler festgestellt! Deine Daten wurden noch nicht verabeitet!"
-  # und der gesamte datetime-Block
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: etwa eine Stunde her
-        other: etwa %{count} Stunden her
-      about_x_months:
-        one: etwa ein Monat her
-        other: etwa %{count} Monate her
-      about_x_years:
-        one: etwa ein Jahr her
-        other: etwa %{count} Jahre her
-      almost_x_years:
-        one: fast ein Jahr her
-        other: fast %{count} Jahre her
-      half_a_minute: eine halbe Minute her
-      less_than_x_seconds:
-        one: weniger als eine Sekunde her
-        other: weniger als %{count} Sekunden her
-      less_than_x_minutes:
-        one: weniger als eine Minute her
-        other: weniger als %{count} Minuten her
-      over_x_years:
-        one: mehr als ein Jahr her
-        other: mehr als %{count} Jahre her
-      x_seconds:
-        one: eine Sekunde her
-        other: "%{count} Sekunden her"
-      x_minutes:
-        one: eine Minute her
-        other: "%{count} Minuten her"
-      x_days:
-        one: ein Tag her
-        other: "%{count} Tage her"
-      x_months:
-        one: ein Monat her
-        other: "%{count} Monate her"
-      x_years:
-        one: ein Jahr her
-        other: "%{count} Jahre her"
-    prompts:
-      second: Sekunde
-      minute: Minute
-      hour: Stunde
-      day: Tag
-      month: Monat
-      year: Jahr  

@@ -1,5 +1,5 @@
 # Folgende Zeilen aus dem Original: 
-# https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/en.yml
+# https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/de.yml
 # Ich lasse es wegen möglicher Veränderungen unberührt
 # Wenn wir etwas ändern, machen wir es mit unseren eigenen Dateien
 ---
@@ -65,52 +65,7 @@ de:
     - :day
     - :month
     - :year
-  datetime:
-    distance_in_words:
-      about_x_hours:
-        one: etwa eine Stunde her
-        other: etwa %{count} Stunden her
-      about_x_months:
-        one: etwa ein Monat her
-        other: etwa %{count} Monate her
-      about_x_years:
-        one: etwa ein Jahr her
-        other: etwa %{count} Jahre her
-      almost_x_years:
-        one: fast ein Jahr her
-        other: fast %{count} Jahre her
-      half_a_minute: eine halbe Minute her
-      less_than_x_seconds:
-        one: weniger als eine Sekunder her
-        other: weniger als %{count} Sekunden her
-      less_than_x_minutes:
-        one: weniger als eine Minute her
-        other: weniger als %{count} Minuten her
-      over_x_years:
-        one: mehr als ein Jahr her
-        other: mehr als %{count} Jahre her
-      x_seconds:
-        one: eine Sekunde her
-        other: "%{count} Sekunden her"
-      x_minutes:
-        one: eine Minute her
-        other: "%{count} Minuten her"
-      x_days:
-        one: ein Tag her
-        other: "%{count} Tage her"
-      x_months:
-        one: ein Monat
-        other: "%{count} Monate her"
-      x_years:
-        one: ein Jahr
-        other: "%{count} Jahre her"
-    prompts:
-      second: Sekunde
-      minute: Minute
-      hour: Stunde
-      day: Tag
-      month: Monat
-      year: Jahr
+  # date time block removed her, changed and separated
   errors:
     format: "%{attribute} %{message}"
     messages:

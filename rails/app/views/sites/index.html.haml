@@ -13,7 +13,7 @@
 
   .ps-1.ms-2.mb-3.th-text-small
     - if @filtered_site_count != @site_count
-      = t('showing_filtered_site', filtered_count: @filtered_site_count, access: params[:access], total_count: pluralize(@site_count, t('site')))
+      = t('showing_filtered_sites', filtered_count: @filtered_site_count, access: params[:access], total_count: pluralize(@site_count, t('sites')))
       = link_to(t('clear_filter'), sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
     - else
       = pluralize(@site_count, t('sites')) + ","
