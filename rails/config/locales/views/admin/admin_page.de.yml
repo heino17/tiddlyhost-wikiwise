@@ -9,6 +9,7 @@ de:
       tspot_sites: "Tspot Seiten"
       storage: "Speicher"
       etc: "Etc."
+      #
     tab_stats:
       tab_stats_header: "Statistiken"
       users: "Benutzer"
@@ -34,6 +35,23 @@ de:
       locked_since: "Gesperrt seit"
       running_now: "z.Z. laufende Jobs"
       no_running_jobs: "Keine"
+      #
+    tab_users_table_headers:
+      th_id: "Id"
+      th_name: "Name"
+      th_username: "Benutzername"
+      th_email: "eMail"
+      th_av: "Av"
+      th_type: "Typ"
+      th_subscription: "Abo"
+      th_logins: "Abmeldungen"
+      th_sites: "Seiten"
+      th_tspot_sites: "Tspot Seiten"
+      th_current_sign_in: "Aktuelle Anmeldung"
+      th_last_sign_in: "Vorherige Anmeldung"
+      th_created: "Erstellt"
+      th_confirmed: "Bestätigt"
+      #
     tab_sites_table_headers:
       th_id: "Id"
       th_name: "Name"
@@ -59,12 +77,24 @@ de:
       th_last_access: "Letzte Anmeldung"
       th_last_update: "Letztes Update"
       th_created: "Erstellt"
+      #
     tab_storage_table_headers:
       th_type: "Typ"
       th_service: "Dienst"
       th_bucket: "Behälter"
       th_files: "Dateien"
       th_bytes: "Im Speicher"
+      #
     tab_etc:
       raise_an_exception: "Eine Ausnahme auslösen"
       connection_pool_stats: "Verbindungs-Pool-Statistiken"
+      # admin_helper.rb
+    pagination_showing_entries:
+      showing: "Zeige Einträge"
+      # 1
+      to: "bis"
+      # ...
+      of: "von"
+      # ...
+      in_total: "insgesamt."
+      
