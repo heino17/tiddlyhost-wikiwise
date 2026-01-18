@@ -1,0 +1,39 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+en:  
+  # user_home
+  # hub view - may be not good choosen
+  hub_view_sites_on_your: "Sites on your"
+  hub_view_sites_on_your_explore_page: "Explore page"
+  
+  your_sites: "Your sites"
+  click_create_below: "Click 'Create' below to create your first TiddlyWiki site."
+  showing_filtered_sites: "Showing %{filtered_count} %{access} sites of %{total_count} in total."
+  clear_filter: "Clear filter"
+  sites: "Sites"
+  site: "Site"
+  storage_used: "%{bytes} storage used."
+  create: "Create"
+  create_from_template: "Create from template"
+  claim_tiddlyspot_site: "Claim Tiddlyspot site"
+  download_all: "Download all"
+  # user home "Save history"-details
+  site_view_save_history_for: "Save history for"
+  site_view_save_history_timestamp: "Timestamp"
+  site_view_save_history_timestamp_tooltip: "Times are shown in UTC."
+  site_view_save_history_saved: "Saved"
+  site_view_save_history_size: "Size"
+  site_view_save_history_size_tooltip: "The compressed file size."
+  site_view_save_history_checksum: "Checksum"
+  site_view_save_history_checksum_tooltip: "Identical checksums indicate identical saved versions."
+  site_view_save_history_label: "Label"
+  site_view_save_history_label_tooltip: "Saved versions with labels will prioritized over saved versions
+  without labels when pruning the saved version list. This allows you to keep important versions indefinitely."
+  site_view_save_history_actions: "Actions"
+  site_view_save_history_current_version: "Current version"
+  site_view_save_history_older_versions: "Older versions"
+  site_view_save_history_no_older_versions: "No older versions found."
+  site_view_save_history_pop_set_label: "Set label"
+  site_view_save_history_pop_update: "Update"

@@ -1,0 +1,17 @@
+---
+de:
+  # Plans-site
+  site_plans_title: "Abonnement-Pläne"
+  site_pricing_title: "Preisgestaltung"
+  #site_plans_text_card1: "Pricing"
+  #
+  site_plans_notloggedin_stripe_text: "Registriere Dich, um ein Konto zu erstellen und Tiddlyhost kostenlos und ohne Kreditkarte zu nutzen.
+  Für den Standard-Plan, gehe nach der Anmeldung zur \"Abonnement-Pläne\"-Seite. Die Abrechnung des Tiddlyhost-Abonnements erfolgt per "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 
+  ist eine benutzerfreundliche und äußerst vertrauenswürdige Plattform für die Abwicklung von Online-Zahlungen, 
+  die sich an strengen Branchenstandards für Sicherheit und Datenschutz orientiert."
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  

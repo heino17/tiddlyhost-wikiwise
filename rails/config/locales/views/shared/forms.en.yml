@@ -1,0 +1,46 @@
+---
+en:
+  # Login page
+  log_in_page_heading: "Log in"
+  log_in_page_ask_need_account: "Need an account? Go to"
+  log_in_page_email_label: "Email"
+  log_in_page_password_label: "Password"
+  log_in_page_remember_me_label: "Remember me"
+  log_in_page_submit_button: "Log in"  
+  # Page shared Links (devise)
+  shared_links_cancel: "Cancel"
+  shared_links_login: "Login"
+  shared_links_sign_up: "Sign up"
+  shared_links_forgot_password: "Forgot your password?"
+  shared_links_resend_confirmation: "Resend confirmation instructions"
+  shared_links_resend_unlock: "Resend unlock instructions"
+  shared_links_signup_with: "Sign in with" # not implementet yet
+  # Sign up page
+  sign_up_page_heading: "Sign up"
+  sign_up_page_ask_have_account: "Already have an account? Go to"
+  sign_up_page_email_label: "Email"
+  sign_up_page_enter_email: "Enter your email address"
+  sign_up_page_name_label: "name"
+  sign_up_page_enter_name: "Please enter your name"
+  sign_up_page_username_label: "username"
+  sign_up_page_enter_username: "Optional. Choose a unique username between 3 and 30 characters long"
+  sign_up_page_password_label: "password"
+  sign_up_page_password_hint: "characters minimum"
+  sign_up_page_password_confirm_label: "password_confirmation"
+  sign_up_page_password_confirm_hint: "Re-type your password to confirm"
+  sign_up_page_submit_create: "Create account"
+  # user forgot password
+  user_forgot_password_header: "Forgot your password?"
+  user_forgot_password_intro_text: "Enter your email address to receive a reset password link."
+  user_forgot_password_email_label: "email"
+  user_forgot_password_submit_button: "Send reset password link"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "Resend confirmation instructions"
+  user_resend_confirmation_intro_text: "Enter your email address to resend the email confirmation link."
+  user_resend_confirmation_email_label: "email"
+  user_resend_confirmation_submit_button: "Resend confirmation instructions"
+  # user resend unlock instructions
+  user_resend_unlock_header: "Resend unlock instructions"
+  user_resend_unlock_intro_text: "Enter your email address to resend the account unlock link."
+  user_resend_unlock_email_label: "e-Mail"
+  user_resend_unlock_submit_button: "Resend unlock instructions"

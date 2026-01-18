@@ -1,0 +1,38 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+en:  
+  will_paginate:
+    site:
+    page_entries_info:
+        single_page:
+          zero: "No <b>site</b> found"
+          one: "Showing 1 <b>site</b>"
+          other: "Showing all %{count} sites"
+        single_page_html:
+          zero: "No <b>site</b> found"
+          one: "Showing <b>1 site</b>"
+          other: "Showing <b>%{count} sites</b>"
+        multi_page: "Site %{from} - %{to} of %{count} in total"
+        multi_page_html: "Showing all <b>sites %{from} - %{to}</b> of <b>%{count}</b> in total" 
+    template:
+      page_entries_info:
+        single_page:
+          zero: "No template found"
+          one: "Showing 1 <b>template</b>"
+          other: "Showing all %{count} templates"
+        single_page_html:
+          zero: "No <b>template</b> found"
+          one: "Showing <b>1 template</b>"
+          other: "Showing <b>%{count} templates</b>"
+        multi_page: "Template %{from} - %{to} of %{count} in total"
+        multi_page_html: "Showing all <b>templates %{from} - %{to}</b> of <b>%{count}</b> in total"  
+    #      
+    previous_label: "Previous"
+    previous_aria_label: "Previous page"
+    next_label: "Next"
+    next_aria_label: "Next page"
+    page_gap: "..."
+    container_aria_label: "Page navigation"
+    page_aria_label: "Page %{page}"

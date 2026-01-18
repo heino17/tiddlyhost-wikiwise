@@ -1,0 +1,15 @@
+---
+en:
+  # Plans-site
+  site_plans_title: "Plans"
+  site_pricing_title: "Pricing"
+  #site_plans_text_card1: "Pricing"
+  site_plans_notloggedin_stripe_text: "Sign up to create an account and use Tiddlyhost for free and without requiring a credit card.
+  To access the Standard Plan, go to the \"Subscription plans\" page after signing up. Tiddlyhost subscription billing is handled by "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
+  backed by strict industry standards for security and data protection."
+  

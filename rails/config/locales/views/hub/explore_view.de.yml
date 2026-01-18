@@ -1,0 +1,74 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+de:
+  # explore-site
+  site_explore_title: "Schaufenster"
+  site_explore_explanation_text: "Entdecke die Inhalte, die von Tiddlyhost-Nutzern erstellt und geteilt wurden."
+  # templates only switch
+  explore_view_templates_only: "nur Vorlagen"
+  explore_view_templates_only_tooltip: "Vorlagen sind von Tiddlyhost-Benutzern erstellte 
+  und für andere freigegebene „leere“ Vorlagen. Du kannst allgemeine Verbesserungen und Anpassungen enthalten 
+  oder für einen bestimmten speziellen Zweck entwickelt worden sein."
+  # templates-site
+  site_templates_title: "Vorlagen"
+  site_templates_explanation_text: "Vorlagen sind nützliche oder interessante angepasste Versionen von TiddlyWiki, 
+  die von Tiddlyhost-Benutzern erstellt wurden, die Du kopieren und für Dich selbst verwenden kannst. 
+  Klicke auf \"Klonen\", um eine Website auf Tiddlyhost unter Verwendung einer Vorlage zu erstellen, 
+  oder klicke auf \"Herunterladen\", um eine Kopie herunterzuladen und lokal zu verwenden."  
+  # hub view - may be not good choosen
+  hub_view_all_sites: "Alle Seiten"
+  hub_view_created_by_user: "Seiten erstellt von Tiddlyhost-Anwender"
+  hub_view_list_kind: "Art"
+  hub_view_list_show_all: "Zeige alle"
+  hub_view_list_sort_by: "Sortiere nach"
+  hub_view_list_sort_view_count: "Aufrufe"
+  hub_view_list_sort_clone_count: "Anzahl der Klone"
+  hub_view_list_sort_recently_updated: "Gerade aktualisiert"
+  hub_view_list_sort_recently_created: "Gerade erstellt"
+  hub_view_list_sort_name_az: "Name a-z"
+  hub_view_list_sort_name_za: "Name z-a"
+  hub_view_list_sort_newer_version: "Aufrufe"
+  hub_view_list_sort_older_version: "Aufrufe"
+  hub_view_list_sort_random: "Zufällig"
+  hub_view_search_box: "Suche"
+  hub_view_search_box_clear: "Löschen"
+  hub_view_access_searchable: "Durchsuchbar"
+  hub_view_access_template: "Vorlage"
+  hub_view_action_menu_settings: "Einstellungen"
+  hub_view_action_menu_save_history: "Speicherverlauf"
+  hub_view_action_menu_view: "Öffne Wiki in neuem Fenster"
+  hub_view_action_menu_view_safe_mode: "Anicht im sicheren Modus"
+  hub_view_action_menu_download: "Runterladen"
+  hub_view_action_menu_clone: "Klonen"
+  hub_view_action_menu_upload: "Hochladen"
+  hub_view_action_menu_delete: "Löschen"
+  hub_view_action_menu_delete_realy: "Diese Seite wirklich löschen"
+  hub_view_action_menu_more: "Mehr..."
+  #hub_view_show_per_page: "18" # not yet implemented
+  hub_view_table_actions: "Aktionen"
+  #clones and views
+  hub:
+    clones:
+      one: "Klon"
+      other: "Klone"
+    views:
+      one: "Aufruf"
+      other: "Aufrufe"
+    saved: "Letzte Aktualisierung"
+  #
+  hub_view:
+    tagged_with:
+      site: { one: "Seite getagged mit", other: "Seiten getagged mit" }
+      template: { one: "Vorlage getagged mit", other: "Vorlagen getagged mit" }
+    created_by:
+      site: "Seiten erstellt von Tiddlyhost user"
+      template: "Vorlagen erstellt von Tiddlyhost user"
+    suffix:
+      tagged_with: "mit dem Tag"
+      matching: "mit Suchbegriff"
+    nav:
+      all_sites: "Alle Seiten"
+      all_templates: "Alle Vorlagen"
+  
