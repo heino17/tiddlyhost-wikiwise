@@ -15,11 +15,11 @@ de:
   sign_up_page_name_label: "Name"
   sign_up_page_enter_name: "Gib hier Deinen Name ein"
   sign_up_page_username_label: "Benutzername"
-  sign_up_page_enter_username: "Optional. Wähle einen eindeutigen Benutzernamen mit einer Länge zwischen 3 und 30 Zeichen."
+  sign_up_page_enter_username: "Optional. Waehle einen eindeutigen Benutzernamen mit einer Laenge zwischen 3 und 30 Zeichen."
   sign_up_page_password_label: "Passwort"
   sign_up_page_password_hint: "Zeichen mindestens!"
   sign_up_page_password_confirm_label: "Passwort wiederholen"
-  sign_up_page_password_confirm_hint: "Gib Dein Passwort zur Bestätigung noch einmal ein."
+  sign_up_page_password_confirm_hint: "Gib Dein Passwort zur Bestaetigung noch einmal ein."
   sign_up_page_submit_create: "Konto erstellen"
   # Page shared Links (devise)
   shared_links_cancel: "Abbrechen"
@@ -32,14 +32,14 @@ de:
   shared_links_cancel: "Abbrechen"
   # user resend password
   user_forgot_password_header: "Passwort vergessen?"
-  user_forgot_password_intro_text: "Gib Deine E-Mail-Adresse ein, um einen Link zum Zur?cksetzen des Passworts zu erhalten."
+  user_forgot_password_intro_text: "Gib Deine E-Mail-Adresse ein, um einen Link zum Zuruecksetzen des Passworts zu erhalten."
   user_forgot_password_email_label: "eMail"
   user_forgot_password_submit_button: "Reset-Passwort-Link senden"
   # user resend confirmation link
-  user_resend_confirmation_header: "Best?tigung Deiner Anmeldung erneut senden"
-  user_resend_confirmation_intro_text: "Gib Deine E-Mail-Adresse ein, um den Best?tigungslink erneut zu senden."
+  user_resend_confirmation_header: "Bestaetigung Deiner Anmeldung erneut senden"
+  user_resend_confirmation_intro_text: "Gib Deine E-Mail-Adresse ein, um den Bestaetigungslink erneut zu senden."
   user_resend_confirmation_email_label: "e-Mail"
-  user_resend_confirmation_submit_button: "Best?tigung erneut senden"
+  user_resend_confirmation_submit_button: "Bestaetigung erneut senden"
   # user resend unlock instructions
   user_resend_unlock_header: "Anleitung zum Entsperren erneut senden"
   user_resend_unlock_intro_text: "Gib Deine E-Mail-Adresse ein, um den Link zum Entsperren des Kontos erneut zu senden."

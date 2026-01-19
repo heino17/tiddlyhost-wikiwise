@@ -1,0 +1,24 @@
+---
+en:
+  # Account created
+  account_created_heading: "Account created"
+  account_created_thanks: "Thanks for signing up!"
+  
+  account_created_confirmation_send: "A confirmation email has been sent to your email address.
+  To complete the signup process please click the confirmation link in that email."
+  
+  account_created_help_heading: "Troubleshooting"
+  
+  account_created_help_paragraph_1: "If the confirmation email did not arrive it may be being classified as spam. 
+  Check your spam folder or try adding 'tiddlyhost@gmail.com' to your email contacts 
+  and then use" 
+  account_created_help_paragraph_1_link: "this Form"
+  account_created_help_paragraph_1_2: "to resend the email." 
+  
+  account_created_help_paragraph_2_1: "If you're still unable to receive the confirmation link,"
+  account_created_help_email_me: "email me"
+  account_created_help_email_me_subject: "Tiddlyhost signup problems"
+  account_created_help_email_me_body: "I signed up and I didn't receive my confirmation, confirmation email. 
+  Please send it to me manually if you can."
+  account_created_help_paragraph_2_2: "and I'll see if I can send it to you directly."
+  

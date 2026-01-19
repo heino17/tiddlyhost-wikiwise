@@ -1,0 +1,24 @@
+---
+de:
+  # Account created
+  account_created_heading: "Konto erstellt"
+  account_created_thanks: "Herzlich willkommen!"
+  
+  account_created_confirmation_send: "Eine Bestätigungs-E-Mail wurde an Deine E-Mail-Adresse gesendet. 
+  Um die Anmeldung abzuschließen, klicke bitte auf den Bestätigungslink in dieser E-Mail."
+  
+  account_created_help_heading: "Hilfestellung"
+  
+  account_created_help_paragraph_1: "Wenn die Bestätigungs-E-Mail nicht angekommen ist, wurde sie möglicherweise als Spam klassifiziert. 
+  Überprüfe Deinen Spam-Ordner oder versuche, 'tiddlyhost@gmail.com' zu Deinen E-Mail-Kontakten hinzu 
+  und verwende dann" 
+  account_created_help_paragraph_1_link: "diesen Link"
+  account_created_help_paragraph_1_2: "um die eMail noch einmal zu erhalten!"  
+  
+  account_created_help_paragraph_2_1: "Wenn Du den Bestätigungslink immer noch nicht erhalten hast,"
+  account_created_help_email_me: "schreib mir eine eMail"
+  account_created_help_email_me_subject: "Tiddlyhost Registrierungsproblem"
+  account_created_help_email_me_body: "Ich habe mich angemeldet, aber keine Bestätigungs-E-Mail erhalten. 
+  Bitte sende mir diese manuell zu, wenn möglich."
+  account_created_help_paragraph_2_2: "und ich werde sehen, ob ich es Dir direkt schicken kann."
+  
