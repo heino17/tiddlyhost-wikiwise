@@ -23,10 +23,11 @@ class ApplicationController < ActionController::Base
     # → KEIN browser_language hier verwenden!
     # Fresh start → Force Rails default (English)
     # → Do NOT use browser_language here!
-    I18n.locale = I18n.default_locale
+    #I18n.locale = I18n.default_locale
     #
     # Optional: ← nur wenn du Default auch speichern willst
-    # session[:locale] = I18n.default_locale
+    # Optional: ← only if you also want to save the default
+    #session[:locale] = I18n.default_locale
   end
 end
 
