@@ -63,21 +63,8 @@
     - if sites.any?(&:is_tspot?)
       = sort_link 'origin', :asc, 'dropdown-item'
 
-  -# this one shows "View" on button and "Switch to [the other] view" on tooltip
--#.d-inline-block.sites-menu
-  = link_to({ controller: :sites, action: :view_toggle }.merge(params.permit(:q, :kind, :access, :s, :tags)),
-    class: "m-1 btn btn-sm", title: t("site_view_grid_list.#{list_mode_next}")) do
-    = t("site_view_grid_list.#{list_mode_next}")
-    = bi_icon(list_mode_next == 'grid' ? 'grid' : 'list-ul', fill: '#666')
-
-  -# this one is like original shows site_view_grid_list on button and tooltip
 .d-inline-block.sites-menu
-  - next_mode_key = (list_mode_next == 'grid' ? 'grid' : 'list')
-  - title_text    = t("site_view_grid_list.#{list_mode_next}")
-  - button_text   = t("site_view_filter_and_sort_view")
-
   = link_to({ controller: :sites, action: :view_toggle }.merge(params.permit(:q, :kind, :access, :s, :tags)),
-    class: "m-1 btn btn-sm",
-    title: t("site_view_grid_list.#{list_mode_next}")) do
-    = button_text
+    class: "m-1 btn btn-sm", title: "#{list_mode_next.titleize} view") do
+    = t('site_view_filter_and_sort_view')
     = bi_icon(list_mode_next == 'grid' ? 'grid' : 'list-ul', fill: '#666')

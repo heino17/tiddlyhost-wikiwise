@@ -14,45 +14,45 @@
         = bi_icon('x', height: '0.8em', style: 'padding:0; margin:0; margin-right: 0;')
 
 .d-inline-block.sites-menu
-  = link_to("#", class: "#{'ms-2 ' unless params[:tags].present?}btn btn-sm dropdown-toggle", title: t('site_view_filter_and_sort_kind_filter_tooltip'),
+  = link_to("#", class: "#{'ms-2 ' unless params[:tags].present?}btn btn-sm dropdown-toggle", title: 'Site kind filter',
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
     - if params[:kind]
       %span.pe-1
-        = t('site_view_filter_and_sort_kind')
+        Kind:
       = logo_for_kind(params[:kind])
     - else
-      = t('site_view_filter_and_sort_kind_else')
+      Kind
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
-      = t('site_view_filter_and_sort_kind_filter_tooltip')
+      Site kind filter:
     = filter_link_group :kind do |val, title|
       = logo_for_kind(val, "margin-right: 4px; height: 1.3em;")
       = title
 
 .d-inline-block.sites-menu
-  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: t('site_view_filter_and_sort_access_filter_tooltip'),
+  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: 'Site access filter',
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
     - if params[:access]
       %span.pe-1
-        = t('site_view_filter_and_sort_access')
+        Access:
       = access_icon(params[:access])
     - else
-      = t('site_view_filter_and_sort_access_else')
+      Access
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
-      = t('site_view_filter_and_sort_access_filter_drop_header')
+      Site access filter:
     = filter_link_group :access do |val, title|
       = access_icon(val.to_s)
       = title
 
 .d-inline-block.sites-menu
-  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: t('site_view_filter_and_sort_sort_tooltip'),
+  = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: 'Sort by',
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
-    = t('site_view_filter_and_sort_sort') + " #{sort_by}"
+    Sort: #{sort_by}
     = bi_icon(sort_bi_icon, fill: '#666', style: "margin-right: -2px;")
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
-      = t('site_view_filter_and_sort_sort_drop_header')
+      Sort by:
     = sort_link 'name',    :asc,  'dropdown-item'
     = sort_link 'kind',    :desc, 'dropdown-item'
     = sort_link 'version', :desc, 'dropdown-item'
@@ -63,21 +63,8 @@
     - if sites.any?(&:is_tspot?)
       = sort_link 'origin', :asc, 'dropdown-item'
 
-  -# this one shows "View" on button and "Switch to [the other] view" on tooltip
--#.d-inline-block.sites-menu
-  = link_to({ controller: :sites, action: :view_toggle }.merge(params.permit(:q, :kind, :access, :s, :tags)),
-    class: "m-1 btn btn-sm", title: t("site_view_grid_list.#{list_mode_next}")) do
-    = t("site_view_grid_list.#{list_mode_next}")
-    = bi_icon(list_mode_next == 'grid' ? 'grid' : 'list-ul', fill: '#666')
-
-  -# this one is like original shows site_view_grid_list on button and tooltip
 .d-inline-block.sites-menu
-  - next_mode_key = (list_mode_next == 'grid' ? 'grid' : 'list')
-  - title_text    = t("site_view_grid_list.#{list_mode_next}")
-  - button_text   = t("site_view_filter_and_sort_view")
-
   = link_to({ controller: :sites, action: :view_toggle }.merge(params.permit(:q, :kind, :access, :s, :tags)),
-    class: "m-1 btn btn-sm",
-    title: t("site_view_grid_list.#{list_mode_next}")) do
-    = button_text
+    class: "m-1 btn btn-sm", title: "#{list_mode_next.titleize} view") do
+    View:
     = bi_icon(list_mode_next == 'grid' ? 'grid' : 'list-ul', fill: '#666')

@@ -33,7 +33,8 @@ en:
   site_view_save_history_checksum_tooltip: "Identical checksums indicate identical saved versions."
   site_view_save_history_label: "Label"
   site_view_save_history_label_tooltip: "Saved versions with labels will prioritized over saved versions
-  without labels when pruning the saved version list. This allows you to keep important versions indefinitely."
+  without labels when pruning the saved version list. 
+  This allows you to keep important versions indefinitely."
   site_view_save_history_actions: "Actions"
   site_view_save_history_current_version: "Current version"
   site_view_save_history_older_versions: "Older versions"
@@ -52,6 +53,8 @@ en:
   site_view_edit_wiki_create_from_template_tooltip: "You can also create a site by selecting a community created template and cloning it. 
   This link takes you to the list of available templates."
   
+  site_view_edit_wiki_tw5_description: "Test"
+  
   site_view_edit_wiki_clone_from: "Cloning from"
   site_view_edit_wiki_description_label: "Description"
   site_view_edit_wiki_description_text: "Optional. A short description of the site, visible on the Explore page for searchable sites."
@@ -59,18 +62,20 @@ en:
   site_view_edit_wiki_tag_list_text: "Optional. A comma delimited list of tags, visible on the Explore page for searchable sites."
   site_view_save_history_button_create: "Create"
   site_view_save_history_button_update: "Update"
-  site_view_save_history_button_cancel: "Cancel"
-  
+  site_view_save_history_button_cancel: "Cancel"  
   # Access chooser
   site_view_edit_wiki_access_heading: "Access"
   site_view_edit_wiki_access_private: "Private"
-  site_view_edit_wiki_access_public: "Public"
+  site_view_edit_wiki_access_public: "Public"  
   site_view_edit_wiki_access_hub_listed: "Public & searchable"
-  site_view_edit_wiki_access_public_tooltip: "Best for content you'd like to be able to share with others."
-  site_view_edit_wiki_access_public_description: "Your site will be accessible on the internet and viewable by anyone"
+  
   site_view_edit_wiki_access_private_tooltip: "Best for private notes and content that you don't want to be visible on the internet."
   site_view_edit_wiki_access_private_description_tspot_sites: "Your site will require a password to access"
   site_view_edit_wiki_access_private_description_else: "Your site will be accessible to you only"
+  
+  site_view_edit_wiki_access_public_tooltip: "Best for content you'd like to be able to share with others."
+  site_view_edit_wiki_access_public_description: "Your site will be accessible on the internet and viewable by anyone"
+  
   site_view_edit_wiki_access_hub_listed_tooltip: "Best for showcasing interesting, well maintained sites for people to discover. Note that the name, description and tags will be searchable on the Explore page."
   site_view_edit_wiki_access_hub_listed_description: "Your site will be accessible on the internet and also be listed and searchable on the"
   # Advanced settings
@@ -78,7 +83,10 @@ en:
   site_view_edit_wiki_advanced_settings_heading: "Advanced settings"
   
   site_view_edit_wiki_advanced_settings_allow_public_clone: "Make this site available as a template for others to clone"
-  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Best for showcasing interesting, well maintained sites for people to discover. Note that the name, description and tags will be searchable on the Explore page."
+  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Best for showcasing interesting, 
+  well maintained sites for people to discover. 
+  Note that the name, description and tags will 
+  be searchable on the Explore page."
   
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "Allow site to be loaded inside an iframe"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "When this is set the default 
@@ -97,7 +105,29 @@ en:
   <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">this FAQ</a>."
   
   site_view_edit_wiki_advanced_settings_skip_etag_check: "Ignore \"file changed on server\" check when saving"
-  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Check this box if you think the \"file changed on server\" error is incorrectly preventing you from saving.    
+  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Check this box if you think 
+  the \"file changed on server\" error is incorrectly preventing you from saving.    
   It is recommended to use this option temporarily when needed, rather than leave it permanently set."
   
+  # filter and sort
+  site_view_filter_and_sort_kind: "Kind:"
+  site_view_filter_and_sort_kind_else: "Kind"
+  site_view_filter_and_sort_kind_filter_tooltip: "Site kind filter:"
+  #
+  site_view_filter_and_sort_access: "Access:"
+  site_view_filter_and_sort_access_else: "Access"
+  site_view_filter_and_sort_access_filter_tooltip: "Site access filter"
+  site_view_filter_and_sort_access_filter_drop_header: "Site access filter:"
+  #
+  site_view_filter_and_sort_sort: "Sort:"
+  site_view_filter_and_sort_sort_tooltip: "Sort by"
+  site_view_filter_and_sort_sort_drop_header: "sort by"
+  #
+  site_view_filter_and_sort_view: "View"
+  site_view_grid_list:
+    # 2 characters indented here
+    grid: "Switch to grid view"
+    list: "Switch to list view"
+  #
+  site_view_filter_and_sort_show_all: "show all"
   

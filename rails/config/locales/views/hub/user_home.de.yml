@@ -11,7 +11,7 @@ de:
   your_sites: "Deine Seiten"
   click_create_below: "Klicke unten auf 'Erstellen', um deine erste TiddlyWiki-Site anzulegen."
   showing_filtered_sites: "Zeige %{filtered_count} %{access} Seiten von %{total_count} insgesamt."
-  clear_filter: "Filter l?schen"
+  clear_filter: "Filter löschen"
   sites: "Seiten"
   site: "Seite"
   storage_used: "%{bytes} Speicher verwendet."
@@ -51,7 +51,7 @@ de:
   site_view_edit_wiki_show_more_types: "Zeige mehr Typen"
   site_view_edit_wiki_create_from_template: "Erstelle von einer Vorlage"
   site_view_edit_wiki_create_from_template_tooltip: "Du kannst auch eine Seite erstellen, indem du eine von der Community erstellte Vorlage auswählst und sie klonst. 
-  Über diesen Link gelangst du zur Liste der verfügbaren Vorlagen."
+  Über diesen Link gelangst Du zur Liste der verfügbaren Vorlagen."
   
   site_view_edit_wiki_tw5_description: "Test"
   
@@ -66,13 +66,16 @@ de:
   # Access chooser
   site_view_edit_wiki_access_heading: "Zugänglichkeit"
   site_view_edit_wiki_access_private: "Privat"
-  site_view_edit_wiki_access_public: "Öffentlich"
+  site_view_edit_wiki_access_public: "Öffentlich"  
   site_view_edit_wiki_access_hub_listed: "Öffentlich & durchsuchbar"
-  site_view_edit_wiki_access_public_tooltip: "Am besten geeignet für Inhalte, die Du mit anderen teilen möchtest."
-  site_view_edit_wiki_access_public_description: "Deine Seite wird im Internet zugänglich sein und von jedem angesehen werden können."
+  
   site_view_edit_wiki_access_private_tooltip: "Am besten geeignet für private Notizen und Inhalte, die Du nicht im Internet sichtbar haben möchtest."
   site_view_edit_wiki_access_private_description_tspot_sites: "Für den Zugriff auf Deine Website ist ein Passwort erforderlich."
   site_view_edit_wiki_access_private_description_else: "Deine Seite wird nur für dich zugänglich sein"
+  
+  site_view_edit_wiki_access_public_tooltip: "Am besten geeignet für Inhalte, die Du mit anderen teilen möchtest."
+  site_view_edit_wiki_access_public_description: "Deine Seite wird im Internet zugänglich sein und von jedem angesehen werden können."
+  
   site_view_edit_wiki_access_hub_listed_tooltip: "Am besten geeignet, um interessante, gut gepflegte Websites zu präsentieren, die andere entdecken können. Beachte, dass der Name, die Beschreibung und die Tags auf der „Schaufenster“-Seite durchsuchbar sind."
   site_view_edit_wiki_access_hub_listed_description: "Deine Seite wird im Internet zugänglich sein und auch aufgeführt und durchsuchbar sein auf der"
   # Advanced settings
@@ -83,7 +86,7 @@ de:
   site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Dies ist für die gemeinsame Nutzung angepasster \"Editionen\" von TiddlyWiki vorgesehen, 
   die von anderen Tiddlyhost-Benutzern als Vorlage für die Erstellung neuer Seiten verwendet werden können. 
   Öffentliche und durchsuchbare Seiten, für die diese Option aktiviert ist, werden auf der Seite 
-  <a href=\"/templates?t=1\" target=\"_blank\">Vorlagen</a> aufgelistet."
+  <a href=\"/templates?t=1\" target=\"_blank\">Vorlagen</a> gelistet."
   
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "Erlaube das Laden Deiner Seite in einem iframe"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "Wenn diese Option aktiviert ist, wird der Standard-Header 
@@ -106,4 +109,25 @@ de:
   dass der Fehler \"Datei auf Server geändert\" das Speichern fälschlicherweise verhindert. Es wird empfohlen, diese Option bei Bedarf 
   vorübergehend zu verwenden, anstatt sie dauerhaft aktiviert zu lassen."
   
+  # filter and sort
+  site_view_filter_and_sort_kind: "Art:"
+  site_view_filter_and_sort_kind_else: "Art"
+  site_view_filter_and_sort_kind_filter_tooltip: "Nach Seiten-Art filtern"
+  #
+  site_view_filter_and_sort_access: "Zugang:"
+  site_view_filter_and_sort_access_else: "Zugang"
+  site_view_filter_and_sort_access_filter_tooltip: "Nach Zugänglichkeit filtern"
+  site_view_filter_and_sort_access_filter_drop_header: "Filtern nach Zugang:"
+  #
+  site_view_filter_and_sort_sort: "Sortierung:"
+  site_view_filter_and_sort_sort_tooltip: "Sortieren nach"
+  site_view_filter_and_sort_sort_drop_header: "sortieren nach"
+  #
+  site_view_filter_and_sort_view: "Ansicht"
+  site_view_grid_list:
+    #2 characters indented here
+    grid: "Zur Rasteransicht umschalten"
+    list: "Zur Listenansicht umschalten"
+  #
+  site_view_filter_and_sort_show_all: "zeige alle"
   
