@@ -1,16 +1,9 @@
-
 = render layout: 'field_wrapper' do
   .form-check.enable-tooltips
     = f.check_box :allow_in_iframe, class: 'form-check-input'
 
     = f.label :allow_in_iframe, class: 'form-check-label' do
-      Allow site to be loaded inside an iframe
+      = t('site_view_edit_wiki_advanced_settings_allow_public_iframe')
 
       = render 'popover_help',
-        html_content: ' |
-          When this is set the default <a |
-          href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options" |
-          target="_blank">X-Frame-Options</a> deny header will be suppressed. |
-          Beware that sites loaded inside iframes may be vulnerable to |
-          <a target="_blank" href="https://en.wikipedia.org/wiki/Clickjacking">click-jacking</a> |
-          attacks.' |
+        html_content: t('site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip')

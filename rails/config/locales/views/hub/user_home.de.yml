@@ -19,6 +19,9 @@ de:
   create_from_template: "Aus Vorlage erstellen"
   claim_tiddlyspot_site: "Tiddlyspot-Site beanspruchen"
   download_all: "Alle herunterladen"
+  #
+  site_view_create_a_site_heading: "Erstelle eine Seite"
+  site_view_clone_a_site_heading: "Klone eine Seite"
   # user home "Save history"-details
   site_view_save_history_for: "Speicherverlauf für"
   site_view_save_history_timestamp: "Zeitstempel"
@@ -34,7 +37,73 @@ de:
   Auf diese Weise können Sie wichtige Versionen unbegrenzt aufbewahren."
   site_view_save_history_actions: "Aktionen"
   site_view_save_history_current_version: "Aktuelle Version"
-  site_view_save_history_older_versions: "Älter Versionen"
+  site_view_save_history_older_versions: "Ältere Versionen"
   site_view_save_history_no_older_versions: "Keine älteren Versionen gefunden."
   site_view_save_history_pop_set_label: "Label beschriften"
   site_view_save_history_pop_update: "Aktualisieren"
+  # user home actions menu "Settings"-details
+  # Settings = Edit a/the single Wiki
+  site_view_edit_wiki_heading: "Einstellungen für"
+  site_view_edit_wiki_name_label: "Name"
+  site_view_edit_wiki_name_text: "Kleinbuchstaben, Zahlen und nicht am Anfang oder Ende stehende Bindestriche/Minuszeichen sind zulässig."
+  
+  site_view_edit_wiki_show_more_types_label: "Typ"
+  site_view_edit_wiki_show_more_types: "Zeige mehr Typen"
+  site_view_edit_wiki_create_from_template: "Erstelle von einer Vorlage"
+  site_view_edit_wiki_create_from_template_tooltip: "Du kannst auch eine Seite erstellen, indem du eine von der Community erstellte Vorlage auswählst und sie klonst. 
+  Über diesen Link gelangst du zur Liste der verfügbaren Vorlagen."
+  
+  site_view_edit_wiki_tw5_description: "Test"
+  
+  site_view_edit_wiki_clone_from: "Klonen von"
+  site_view_edit_wiki_description_label: "Beschreibung"
+  site_view_edit_wiki_description_text: "Optional. Eine kurze Beschreibung der Seite, die auf der Seite „Schaufenster“ für durchsuchbare Seiten angezeigt wird."
+  site_view_edit_wiki_tag_list_label: "Tags"
+  site_view_edit_wiki_tag_list_text: "Optional. Eine durch Kommas getrennte Liste von Tags, die auf der Seite „Schaufenster“ für durchsuchbare Websites angezeigt wird."
+  site_view_save_history_button_create: "Erstellen"
+  site_view_save_history_button_update: "Speichern"
+  site_view_save_history_button_cancel: "Abbrechen"
+  # Access chooser
+  site_view_edit_wiki_access_heading: "Zugänglichkeit"
+  site_view_edit_wiki_access_private: "Privat"
+  site_view_edit_wiki_access_public: "Öffentlich"
+  site_view_edit_wiki_access_hub_listed: "Öffentlich & durchsuchbar"
+  site_view_edit_wiki_access_public_tooltip: "Am besten geeignet für Inhalte, die Du mit anderen teilen möchtest."
+  site_view_edit_wiki_access_public_description: "Deine Seite wird im Internet zugänglich sein und von jedem angesehen werden können."
+  site_view_edit_wiki_access_private_tooltip: "Am besten geeignet für private Notizen und Inhalte, die Du nicht im Internet sichtbar haben möchtest."
+  site_view_edit_wiki_access_private_description_tspot_sites: "Für den Zugriff auf Deine Website ist ein Passwort erforderlich."
+  site_view_edit_wiki_access_private_description_else: "Deine Seite wird nur für dich zugänglich sein"
+  site_view_edit_wiki_access_hub_listed_tooltip: "Am besten geeignet, um interessante, gut gepflegte Websites zu präsentieren, die andere entdecken können. Beachte, dass der Name, die Beschreibung und die Tags auf der „Schaufenster“-Seite durchsuchbar sind."
+  site_view_edit_wiki_access_hub_listed_description: "Deine Seite wird im Internet zugänglich sein und auch aufgeführt und durchsuchbar sein auf der"
+  # Advanced settings
+  site_view_edit_wiki_advanced_settings_link: "Erweiterte Einstellungen"
+  site_view_edit_wiki_advanced_settings_heading: "Erweiterte Einstellungen"
+  
+  site_view_edit_wiki_advanced_settings_allow_public_clone: "Als Vorlage verfügbar machen, daß andere sie klonen können."
+  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Dies ist für die gemeinsame Nutzung angepasster \"Editionen\" von TiddlyWiki vorgesehen, 
+  die von anderen Tiddlyhost-Benutzern als Vorlage für die Erstellung neuer Seiten verwendet werden können. 
+  Öffentliche und durchsuchbare Seiten, für die diese Option aktiviert ist, werden auf der Seite 
+  <a href=\"/templates?t=1\" target=\"_blank\">Vorlagen</a> aufgelistet."
+  
+  site_view_edit_wiki_advanced_settings_allow_public_iframe: "Erlaube das Laden Deiner Seite in einem iframe"
+  site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "Wenn diese Option aktiviert ist, wird der Standard-Header 
+  <a  href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options\"  target=\"_blank\">X-Frame-Options</a> 
+  unterdrückt. Beachte, dass Websites, die in iframes geladen werden, anfällig für 
+  <a href=\"https://en.wikipedia.org/wiki/Clickjacking\" target=\"_blank\">Clickjacking-Angriffe</a> sein können."
+  
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver: "Verwende den alten \"Upload\"-Saver für TiddlyWiki-Versionen 5.2.3 und höher."
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "Standardmäßig wird der Put Saver für TiddlyWiki-Versionen 5.2.3 und höher verwendet. 
+  Aktiviere diese Option, wenn Du stattdessen den Upload Saver für diese TiddlyWiki-Versionen verwenden möchten. Siehe auch 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">diese FAQ</a>."
+  
+  site_view_edit_wiki_advanced_settings_prefer_put_saver: "Verwende den \"Put\"-Saver für TiddlyWiki-Versionen 5.2.2 und niedriger"
+  site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "Standardmäßig wird der Upload-Saver für TiddlyWiki-Versionen 5.2.2 und niedriger verwendet. 
+  Aktiviere diese Option, wenn Du für diese TiddlyWiki-Versionen lieber den „put”-Saver verwenden möchtest. Siehe auch 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">diese FAQ</a>."
+  
+  site_view_edit_wiki_advanced_settings_skip_etag_check: "\"Datei auf Server geändert\"-Überprüfung beim Speichern ignorieren"
+  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Aktiviere dieses Kontrollkästchen, wenn Du der Meinung bist, 
+  dass der Fehler \"Datei auf Server geändert\" das Speichern fälschlicherweise verhindert. Es wird empfohlen, diese Option bei Bedarf 
+  vorübergehend zu verwenden, anstatt sie dauerhaft aktiviert zu lassen."
+  
+  

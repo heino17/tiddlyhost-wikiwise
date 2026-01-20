@@ -3,11 +3,11 @@
 .advanced.pt-4{ style: display_none_when(has_advanced_settings) }
   = render layout: 'field_wrapper' do
     .form-text
-      = link_to t('site_view_edit_wiki_advanced_settings_link'), '#', onclick: "$('.advanced').toggle(150); return false;"
+      = link_to 'Show advanced settings', '#', onclick: "$('.advanced').toggle(150); return false;"
 
 .advanced.pt-4{ style: display_none_when(!has_advanced_settings) }
   = render layout: 'field_wrapper' do
     .form-text
-      %h5 #{t('site_view_edit_wiki_advanced_settings_heading')}
+      %h5 Advanced settings
 
   = yield
