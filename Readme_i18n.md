@@ -3,7 +3,9 @@
 # The fun factor
 ## # "Key findings":
 
-- Fully working language switch *🇬🇧 English ↔ 🇩🇪 German ↔ 🇪🇸 Spanish ↔  🇫🇷 French* with persistence via session cookie
+- Fully working language switch - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR switchable
+- Switch in menu bar, Text & Flags
+- with persistence via session cookie
 - Clean, lightweight option for future languages (it, pl, ru, gr, etc.)
 - First page view reliably starts in English (:en as default, can be changed)
 - Browser language is considered a suggestion, not automatically adopted (can be changed)
