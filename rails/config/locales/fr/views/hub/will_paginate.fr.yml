@@ -1,0 +1,38 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+fr:  
+  will_paginate:
+    site:
+      page_entries_info:
+        single_page:
+          zero: "Aucun <b>site</b> trouvé"
+          one: "Affichage de 1 <b>site</b>"
+          other: "Affichage de tous les %{count} sites"
+        single_page_html:
+          zero: "Aucun <b>site</b> trouvé"
+          one: "Affichage de <b>1 site</b>"
+          other: "Affichage de <b>%{count} sites</b>"
+        multi_page: "Site %{from} - %{to} sur %{count} au total"
+        multi_page_html: "Affichage de tous les <b>sites %{from} - %{to}</b> sur <b>%{count}</b> au total" 
+    template:
+      page_entries_info:
+        single_page:
+          zero: "Aucun modèle trouvé"
+          one: "Affichage de 1 <b>modèle</b>"
+          other: "Affichage de tous les %{count} modèles"
+        single_page_html:
+          zero: "Aucun <b>modèle</b> trouvé"
+          one: "Affichage de <b>1 modèle</b>"
+          other: "Affichage de <b>%{count} modèles</b>"
+        multi_page: "Modèle %{from} - %{to} sur %{count} au total"
+        multi_page_html: "Affichage de tous les <b>modèles %{from} - %{to}</b> sur <b>%{count}</b> au total"  
+    #      
+    previous_label: "Précédent"
+    previous_aria_label: "Page précédente"
+    next_label: "Suivant"
+    next_aria_label: "Page suivante"
+    page_gap: "..."
+    container_aria_label: "Navigation de pages"
+    page_aria_label: "Page %{page}"

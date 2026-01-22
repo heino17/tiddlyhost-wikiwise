@@ -113,6 +113,7 @@ de:
   site_view_filter_and_sort_kind: "Art:"
   site_view_filter_and_sort_kind_else: "Art"
   site_view_filter_and_sort_kind_filter_tooltip: "Nach Seiten-Art filtern"
+  site_view_filter_and_sort_kind_filter_drop_header: "Nach Seiten-Art filtern:"
   #
   site_view_filter_and_sort_access: "Zugang:"
   site_view_filter_and_sort_access_else: "Zugang"
@@ -121,7 +122,7 @@ de:
   #
   site_view_filter_and_sort_sort: "Sortierung:"
   site_view_filter_and_sort_sort_tooltip: "Sortieren nach"
-  site_view_filter_and_sort_sort_drop_header: "sortieren nach"
+  site_view_filter_and_sort_sort_drop_header: "Sortieren nach:"
   #
   site_view_filter_and_sort_view: "Ansicht"
   site_view_grid_list:

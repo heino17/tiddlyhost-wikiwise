@@ -1,0 +1,99 @@
+---
+es:
+  admin:
+    tabs_header:
+      stats: "Estadísticas"
+      charts: "Gráficos"
+      users: "Usuarios"
+      sites: "Sitios"
+      tspot_sites: "Páginas Tspot"
+      storage: "Almacenamiento"
+      etc: "Etc"
+      #
+    tab_stats:
+      tab_stats_header: "Estadísticas"
+      users: "Usuarios"
+      subscriptions: "Suscripciones"
+      sites: "Sitios"
+      site_views: "Vistas de sitios"
+      tspots: "Tspots"
+      tspot_views: "Vistas de Tspots"
+      storage: "Almacenamiento"
+      activ_daily: "Activos diarios"
+      activ_weekly: "Activos semanales"
+      activ_monthly: "Activos mensuales"
+      signed_in_once_users: "Usuarios que iniciaron sesión una vez"
+      never_signed_in_users: "Usuarios que nunca iniciaron sesión"
+      never_updated_sites: "Sitios nunca actualizados"
+      private_sites: "Sitios privados"
+      public_sites: "Sitios públicos"
+      public_non_searchable_sites: "Sitios públicos no buscables"
+      public_searchable_sites: "Sitios públicos buscables"
+      owned_tspots: "Tspots propios"
+      saved_tspots: "Tspots guardados"
+      jobs_in_queue: "Trabajos en cola"
+      locked_since: "Bloqueado desde"
+      running_now: "Ejecutándose ahora"
+      no_running_jobs: "Ninguno"
+      #
+    tab_users_table_headers:
+      th_id: "Id"
+      th_name: "Nombre"
+      th_username: "Nombre de usuario"
+      th_email: "Correo electrónico"
+      th_av: "Av"               # Av wahrscheinlich "Avatar" – lasse ich als Abkürzung, oder ggf. "Avatar" machen?
+      th_type: "Tipo"
+      th_subscription: "Suscr"
+      th_logins: "Inicios de sesión"
+      th_sites: "Sitios"
+      th_tspot_sites: "Sitios Tspot"
+      th_current_sign_in: "Inicio de sesión actual"
+      th_last_sign_in: "Último inicio de sesión"
+      th_created: "Creado"
+      th_confirmed: "Confirmado"
+      #
+    tab_sites_table_headers:
+      th_id: "Id"
+      th_name: "Nombre"
+      th_kind: "Tipo"
+      th_empty: "Vacío"
+      th_clone: "Clonar"
+      th_version: "Versión"
+      th_description: "Descripción"
+      th_private: "¿Privado?"
+      th_hub: "¿Hub?"
+      th_template: "¿Plantilla?"
+      th_iframes: "¿IFrames?"
+      th_put: "¿Put?"
+      th_upload: "¿Subir?"
+      th_views: "Vistas"
+      th_accesses: "Accesos"
+      th_saves: "Guardados"
+      th_clones: "Clones"
+      th_versions: "Versiones"
+      th_owner: "Propietario"
+      th_raw: "Raw"
+      th_storage: "Almacenamiento"
+      th_last_access: "Último acceso"
+      th_last_update: "Última actualización"
+      th_created: "Creado"
+      #
+    tab_storage_table_headers:
+      th_type: "Tipo"
+      th_service: "Servicio"
+      th_bucket: "Bucket"
+      th_files: "Archivos"
+      th_bytes: "Bytes"
+      #
+    tab_etc:
+      raise_an_exception: "Generar una excepción"
+      connection_pool_stats: "Estadísticas del pool de conexiones"
+      # admin_helper.rb
+    pagination_showing_entries:
+      showing: "Mostrando entradas"
+      # 1
+      to: "a"
+      # ...
+      of: "de"
+      # ...
+      in_total: "en total."

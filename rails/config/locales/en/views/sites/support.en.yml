@@ -24,7 +24,7 @@ en:
   You can also file issues for TiddlyWiki
   <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">in GitHub here</a>"
   # Feather Wiki support text
-  support_featherwiki_subheading: "Feather Wiki support"
+  support_page_featherwiki_subheading: "Feather Wiki support"
   support_page_featherwiki_support_txt: "If you need help with Feather Wiki, or you want to report a bug or request a feature, the best way to do that is to 
   <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">file an issue in Codeberg</a> 
   <br>The existing Feather Wiki 

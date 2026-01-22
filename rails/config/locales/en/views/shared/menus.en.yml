@@ -9,6 +9,7 @@ en:
   top_menu_templates: "Templates"
   top_menu_pricing: "Pricing"
   top_menu_signup: "Sign up"
+  top_menu_log_in: "Log in"
   # User menu if loged in
   user_menu_head_account: "Account"
   user_menu_item_manage_account: "Manage account"

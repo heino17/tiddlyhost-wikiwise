@@ -38,7 +38,15 @@
             .text-muted -
 
         %td.small.smaller
-          = site_access(site)
+          -# extended for i18n
+          - if site.access_private?
+            = t('site_view_edit_wiki_access_private')
+          - elsif site.access_public?
+            = t('site_view_edit_wiki_access_public')
+          - elsif site.access_public? || site.access_hub_listed?
+            = t('site_view_edit_wiki_access_hub_listed')
+          - elsif site.access_public? || site.access_hub_listed?
+            = t('site_view_edit_wiki_access_hub_listed')
           - if site.cloneable_by_public?
             = ('('+t('hub_view_access_template'))+')'
 

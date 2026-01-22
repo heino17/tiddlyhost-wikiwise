@@ -4,12 +4,12 @@
 # From here Tiddlyhost for i18n
 # 
 ---
-de:  
-  site_title: "Tiddlyhost - Deutsch"
-  iso_language_code: "de"    
+fr:  
+  site_title: "Tiddlyhost - Français"
+  iso_language_code: "fr"    
   
   # Test in footer
-  test: "Hallo Welt"
+  test: "Bonjour tout le monde"
   test_ok: "(de.yml working!)"
   # Logo
   logo_link_title: "Tiddlyhost - local"

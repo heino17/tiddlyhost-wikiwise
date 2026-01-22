@@ -9,8 +9,8 @@
       Note: A redirect is in effect for this site. See details in <i>Advanced settings</i> below.
 
   - { 'private' => t('site_view_edit_wiki_access_private'),
-    'public' => t('site_view_edit_wiki_access_public'),
-    'hub_listed' => t('site_view_edit_wiki_access_hub_listed') }.each do |choice, choice_title|
+      'public' => t('site_view_edit_wiki_access_public'),
+      'hub_listed' => t('site_view_edit_wiki_access_hub_listed') }.each do |choice, choice_title|
     - is_selected = @site.send("access_#{choice}?")
 
     %div{ class: ('selected' if is_selected) }

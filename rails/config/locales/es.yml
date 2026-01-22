@@ -2,18 +2,18 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 #
 # From here Tiddlyhost for i18n
-# 
+#
 ---
-de:  
-  site_title: "Tiddlyhost - Deutsch"
-  iso_language_code: "de"    
+es:
+  site_title: "Tiddlyhost - Español"
+  iso_language_code: "es"
   
   # Test in footer
-  test: "Hallo Welt"
-  test_ok: "(de.yml working!)"
+  test: "¡Hola mundo!"
+  test_ok: "(es.yml working!)"
   # Logo
-  logo_link_title: "Tiddlyhost - local"
+  logo_link_title: "Tiddlyhost"
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
-  logo_alt: "logo.svg"  
+  logo_alt: "logo.svg"
   

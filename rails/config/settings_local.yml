@@ -2,3 +2,89 @@
 # You can use this to override values in settings.yml.
 # The content here will be replaced by ansible on deploy,
 # see ansible/templates/config/settings_local
+---
+# May be overridden by values in settings_local.yml
+
+defaults:
+  github_url: https://github.com/tiddlyhost/tiddlyhost-com
+  issues_url: https://github.com/tiddlyhost/tiddlyhost-com/issues
+  docs_url: https://github.com/tiddlyhost/tiddlyhost-com/wiki
+  faq_url: https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ
+  create_issue_url: https://github.com/tiddlyhost/tiddlyhost-com/issues/new
+  blog_url: https://tiddlyspot.blogspot.com/
+  twitterx_url: https://x.com/tiddlyhost
+  prod_main_site_url: https://tiddlyhost.com
+  license_url: https://github.com/tiddlyhost/tiddlyhost-com/blob/main/LICENSE.md
+  tiddlyhost_account_email: tiddlyhost@gmail.com
+  devise_mailer_sender: '"Tiddlyhost" <tiddlyhost@gmail.com>'
+  stripe_support_email: '"Tiddlyhost" <tiddlyhost@gmail.com>'
+  support_email: tino@das-buddhistische-haus.de
+  support_email_name: Simon Baird
+  default_user_type_name: basic
+  default_empty_name: tw5
+  minimum_password_length: 8
+  hub_tag_tab_count: 6
+  hub_tag_cache_hours: 12
+  db_host: <%= is_in_container ? "db" : "localhost" %>
+  th_log_file: <%= is_in_container ? "/var/log/app/app.log" : "#{rails_root}/log/app.log" %>
+  thumbs_storage_service: local1
+  public_thumbs_storage_service: local2
+
+  major_version: "1.8"
+
+  #banner_message:
+  #  :icon: exclamation-triangle
+  #  :html: |
+  #    Beware, Tiddlyhost is in the early stages of development and may be
+  #    unstable. If you experience problems or have a feature suggestion, please create an
+  #    issue in <a href="https://github.com/tiddlyhost/tiddlyhost-com/issues">GitHub</a>.
+
+  plan_descriptions:
+    :free:
+      :features:
+      - Create public and private TiddlyWiki & Feather Wiki sites
+      - Share your creations with others via the Explore page
+    :standard:
+      :features:
+      - Redirect claimed Tiddlyspot sites to any url
+      - View and recover previous versions of your sites with the <b>save history</b> feature
+    :premium:
+      :features:
+      - Custom domain names
+      - Externally hosted images and PDFs
+
+  # How many versions of a site to keep
+  keep_counts:
+    :free: 4
+    :standard: 100
+    :tiddlyspot: 4
+
+development:
+  url_defaults:
+    :host: tiddlyhost.local
+    # By "in container" we actually mean running with
+    # `docker compose up` with nginx handling requests
+    :protocol: <%= is_in_container ? "https" : "http" %>
+    :port: <%= is_in_container ? nil : 3333 %>
+
+  tiddlyspot_host: tiddlyspot.local
+
+test:
+  url_defaults:
+    :host: tiddlyhost-test-example.com
+    :protocol: http
+
+  tiddlyspot_host: tiddlyspot-test-example.com
+  thumbs_storage_service: test1
+  public_thumbs_storage_service: test2
+
+production:
+  url_defaults:
+    #:host: tiddlyhost.com
+    :host: tiddlyhost.local
+    :protocol: https
+  thumbs_storage_service: thumbs2
+  public_thumbs_storage_service: thumbs_public
+
+  tiddlyspot_host: tiddlyspot.com
+  #tiddlyspot_host: tiddlyspot.local

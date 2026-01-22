@@ -1,0 +1,20 @@
+---
+es:
+  # About-site
+  site_heading_about: "Acerca de Tiddlyhost"
+  site_text_about: "La forma más fácil de usar 
+  <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> en línea. <p>Creado, mantenido y soportado por Simon Baird."
+  site_text2_about: "Si tienes problemas, por favor <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>reporta un issue en GitHub</a>, 
+  <a href=\"mailto:simon.baird@gmail.com\">envía un email a Simon</a>, o consulta la página de <a href=\"/support\">Soporte</a> para más opciones."
+  about_links_support: "Soporte"
+  about_links_faq: "Preguntas frecuentes"
+  about_links_documentation: "Documentación"
+  about_links_blog: "Blog"
+  about_links_x: "X"
+  about_links_terms: "Términos de Uso"
+  about_links_privacy: "Política de Privacidad"
+  about_links_source: "Código Fuente"
+  about_links_license: "Licencia de Software"
+  about_links_donate: "Donaciones y Patrocinios"
+  about_hint_version: "Versión:"
+  about_hint_empty_versions: "Versiones vacías:"

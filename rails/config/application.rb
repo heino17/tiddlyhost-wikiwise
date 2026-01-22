@@ -46,7 +46,7 @@ module App
     config.i18n.default_locale = :en   # ← das ist der entscheidende Eintrag
     # Optional: erlaube nur bestimmte Sprachen (gut für die Zukunft)
     # config.i18n.available_locales = [:en, :de, :fr]
-    config.i18n.available_locales = [:en, :de]
+    config.i18n.available_locales = [:en, :de, :es , :fr]
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.

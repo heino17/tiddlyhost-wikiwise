@@ -1,0 +1,25 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+fr:
+  # Top Menu
+  top_menu_root: "Accueil"
+  top_menu_explore: "Explorer"
+  top_menu_templates: "Modèles"
+  top_menu_pricing: "Tarifs"
+  top_menu_signup: "S'inscrire"  
+  top_menu_log_in: "Se connecter"
+  # User menu if loged in
+  user_menu_head_account: "Compte"
+  user_menu_item_manage_account: "Gérer le compte"
+  user_menu_head_plan: "Plan"
+  user_menu_item_manage_subscription: "Gérer l'abonnement"
+  user_menu_item_subscription_plans: "Plans d'abonnement"
+  user_menu_head_sites: "Sites"
+  user_menu_item_counted_sites: "sites"
+  user_menu_item_manage_sites: "Gérer les sites"
+  user_menu_item_logout: "Se déconnecter"
+  # Burger menu
+  burger_menu_title: "Votre compte"
+  burger_menu_create_site: "Créer un site"
