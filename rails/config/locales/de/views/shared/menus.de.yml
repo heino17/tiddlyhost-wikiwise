@@ -8,7 +8,7 @@ de:
   top_menu_explore: "Schaufenster"
   top_menu_templates: "Vorlagen"
   top_menu_pricing: "Preise"
-  top_menu_signup: "Registrieren"
+  top_menu_signup: "Konto erstellen"
   top_menu_log_in: "Anmelden"
   # User menu if loged in
   user_menu_head_account: "Dein Konto"
