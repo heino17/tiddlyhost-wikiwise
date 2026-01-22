@@ -1,15 +1,15 @@
-Branch ready for 3. Test! :)
-============================
-- rails I18n  
-- EN/DE switchable, Switch in menu bar  
-- stays on the current site  
-- more languages easy to implement  
-- translated texts and transfered them to de.yml/en.yml  
+# Branch ready for 4. Test! :)
 
+## rails I18n language implementation
+
+- 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR switchable, Switch in menu bar  
+- works fine  
+- more languages easy to implement  
+  
 - can be tested NOW!  
 - note the ports!  
   
-**Steps explained in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
+### More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)  
 
 for clone branch:  
 SSH:  

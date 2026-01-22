@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   def set_locale
   if params[:locale].present?
-    # User hat explizit über Link/Dropdown/URL-Parameter gewechselt → übernehmen & merken
     # User explicitly switched via link/dropdown/URL parameter → apply & remember
     requested = params[:locale].to_sym
     if I18n.available_locales.include?(requested)
@@ -15,17 +14,12 @@ class ApplicationController < ActionController::Base
       session[:locale] = requested
     end
   elsif session[:locale].present?
-    # Bereits eine bewusste Wahl gespeichert → benutzen
-    # Already saved a conscious choice → use
+    # If :locale is already present as saved choice → use
     I18n.locale = session[:locale]
   else
-    # Ganz frischer Start → Rails-Default (Englisch) erzwingen
-    # → KEIN browser_language hier verwenden!
-    # Fresh start → Force Rails default (English)
-    # → Do NOT use browser_language here!
+    # Optional: → Do NOT use browser_language here!
     #I18n.locale = I18n.default_locale
     #
-    # Optional: ← nur wenn du Default auch speichern willst
     # Optional: ← only if you also want to save the default
     #session[:locale] = I18n.default_locale
   end
