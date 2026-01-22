@@ -13,6 +13,7 @@ rails/public/packs/
 rails/public/packs-test/
 rails/public/jsMath/
 rails/public/build-info.txt
+rails/config/settings_local.yml
 rails/config/master.key
 rails/config/credentials.yml.enc
 rails/config/credentials/development.key
