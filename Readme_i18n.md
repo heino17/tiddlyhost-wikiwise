@@ -74,7 +74,9 @@
 ## Der Spaßfaktor
 ## # "Schlüssel-Erkenntnisse":
 
-- Vollständig funktionsfähige Sprachumschaltung  *🇬🇧 Englisch ↔ 🇩🇪 Deutsch ↔ 🇪🇸 Spanisch ↔ 🇫🇷 Französisch)* mit Persistenz über Session-Cookie
+- Vollständig funktionsfähige Sprachumschaltung - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR umschaltbar
+- Schalter in der Menüleiste, Text und Flaggen
+- mit Persistenz über Session-Cookie  
 - Saubere, leichtgewichtige Möglichkeit für zukünftige Sprachen (it, pl, ru, gr, …)
 - Erster Seitenaufruf startet zuverlässig auf Englisch (:en als Default, kann geändert werden)
 - Browser-Sprache wird als Vorschlag betrachtet, nicht automatisch übernommen (Änderung möglich)
