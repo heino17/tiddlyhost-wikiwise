@@ -30,7 +30,7 @@ class SubscriptionControllerTest < ActionDispatch::IntegrationTest
 
     get '/pricing'
     assert_response :success
-    assert_match I18n.t('site_pricing_sign_up_submit_button'), response.body
+    assert_match 'Sign up', response.body
   end
 
   test 'subscription pages for authed user' do
@@ -39,16 +39,16 @@ class SubscriptionControllerTest < ActionDispatch::IntegrationTest
 
     get '/subscription'
     assert_response :success
-    assert_match I18n.t('site_subscription_subscribe_button'), response.body
+    assert_match 'Subscribe now', response.body
 
     get '/subscription/plans'
     assert_response :success
-    assert_match I18n.t('site_plans_subscribe_button'), response.body
+    assert_match 'Subscribe now', response.body
 
     # Same as /subscription/plans iirc
     get '/pricing'
     assert_response :success
-    assert_match I18n.t('site_plans_subscribe_button'), response.body
+    assert_match 'Subscribe now', response.body
   end
 
   def setup_authed_user_with_stubs

@@ -1,10 +1,23 @@
 ---
 de:
   # Plans-site
-  site_plans_title: "Abonnement-Pläne"
-  site_pricing_title: "Preisgestaltung"
-  #site_plans_text_card1: "Pricing"
-  #
+  site_plans_title: "Abonnements"
+  site_plans_free: "Free"
+  site_plans_standard: "Standard"
+  site_plans_subscription_standard_period: "/Monat"
+  site_plans_premium: "Premium"
+  site_plans_premium_someday: "irgendwann..."
+  site_plans_subscribe_button: "Jetzt abonnieren"
+  # Pricing-site
+  site_pricing_title: "Abonnement-Modelle"
+  # pricing card
+  site_pricing_pricingcard_titel: "Plan"
+  site_pricing_pricingcard_if_subscribed: "Abonniert"
+  site_pricing_sign_up_submit_button: "Jetzt abonnieren"
+  # subscription-site
+  site_subscription_title: "Abonnement"
+  site_subscription_subscribe_button: "Jetzt abonnieren"
+  
   site_plans_notloggedin_stripe_text: "Registriere Dich, um ein Konto zu erstellen und Tiddlyhost kostenlos und ohne Kreditkarte zu nutzen.
   Für den Standard-Plan, gehe nach der Anmeldung zur \"Abonnement-Pläne\"-Seite. Die Abrechnung des Tiddlyhost-Abonnements erfolgt per "
   site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 
