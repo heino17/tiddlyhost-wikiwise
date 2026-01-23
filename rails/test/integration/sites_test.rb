@@ -9,15 +9,15 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'visiting the index' do
     visit sites_url
-    assert_selector 'h1', text: 'Your sites'
+    assert_selector 'h1', text: I18n.t('your_sites')
   end
 
   test 'creating and viewing a site' do
     # Create a site
     visit sites_url
-    click_on 'Create', class: 'btn'
+    click_on I18n.t('create'), class: 'btn'
     fill_in 'site_name', with: 'bar'
-    click_on 'Create'
+    click_on I18n.t('create')
 
     # Confirm we are sent back to sites index
     assert_current_path '/sites'
@@ -90,8 +90,8 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'cloning form' do
     visit new_site_path(clone: 'mysite')
-    assert_selector 'h2', text: 'Clone a site'
-    assert_selector 'label', text: 'Cloning from'
+    assert_selector 'h2', text: I18n.t('site_view_clone_a_site_heading')
+    assert_selector 'label', text: I18n.t('site_view_edit_wiki_clone_from')
     assert_selector 'form a', text: 'mysite'
     assert_no_selector 'label[for="site_empty_id_1"]'
     # See also test/controllers/sites_controller_test.rb for
@@ -99,13 +99,13 @@ class SitesTest < CapybaraIntegrationTest
 
     # When the clone isn't found
     visit new_site_path(clone: 'notmysite')
-    assert_selector 'h2', text: 'Create'
+    assert_selector 'h2', text: I18n.t('create')
     assert_selector 'label', text: 'Type'
     assert_selector 'label[for="site_empty_id_1"]'
 
     # ..which is the same as regular create
     visit new_site_path
-    assert_selector 'h2', text: 'Create'
+    assert_selector 'h2', text: I18n.t('create')
     assert_selector 'label', text: 'Type'
     assert_selector 'label[for="site_empty_id_1"]'
   end
@@ -164,10 +164,10 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'updating site settings' do
     visit sites_url
-    click_on 'Settings', match: :first
+    click_on I18n.t('hub_view_action_menu_settings'), match: :first
 
     fill_in 'site_name', with: 'foo'
-    click_on 'Update'
+    click_on I18n.t('site_view_save_history_button_update')
 
     # Back to the sites index after update
     assert_current_path '/sites'
@@ -176,7 +176,7 @@ class SitesTest < CapybaraIntegrationTest
 
   test 'uploading a site' do
     visit sites_url
-    click_on 'Upload', match: :first
+    click_on I18n.t('hub_view_action_menu_upload'), match: :first
     assert_equal 200, page.status_code
     # TODO: Test uploading
   end
