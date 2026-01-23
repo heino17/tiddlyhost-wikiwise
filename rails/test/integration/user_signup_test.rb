@@ -44,7 +44,7 @@ class UserSignupTest < CapybaraIntegrationTest
     # Login
     fill_in 'user[email]', with: email
     fill_in 'user[password]', with: strong_password
-    click_button I18n.t('top_menu_log_in')
+    click_button I18n.t('get_started_button_login')
 
     # Confirm we are logged in
     assert page.has_css?('h1', text: I18n.t('your_sites'))

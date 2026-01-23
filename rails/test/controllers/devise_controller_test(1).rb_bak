@@ -6,10 +6,10 @@ class DeviseControllerTest < ActionDispatch::IntegrationTest
   #
   test 'home page' do
     {
-      '/users/sign_in' => I18n.t('log_in_page_submit_button'),
-      '/users/sign_up' => I18n.t('sign_up_page_submit_create'),
-      '/users/confirmation/new' => I18n.t('user_resend_confirmation_submit_button'),
-      '/users/unlock/new' => I18n.t('user_resend_unlock_submit_button'),
+      '/users/sign_in' => 'Log in',
+      '/users/sign_up' => 'Create account',
+      '/users/confirmation/new' => 'Resend confirmation instructions',
+      '/users/unlock/new' => 'Resend unlock instructions',
 
     }.each do |path, button_text|
       get path
@@ -22,7 +22,7 @@ class DeviseControllerTest < ActionDispatch::IntegrationTest
 
   test 'account edit' do
     {
-      '/users/edit' => I18n.t('user_update_account_button_submit'),
+      '/users/edit' => 'Update',
 
     }.each do |path, button_text|
       sign_in users(:bobby)
