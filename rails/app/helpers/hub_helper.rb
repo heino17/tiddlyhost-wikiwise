@@ -21,5 +21,5 @@ module HubHelper
     ("#{nice_view_count(hub_site.clone_count)} #{t('hub.clones', count: hub_site.clone_count)}" if show_clone_count),
     ("#{t('hub.saved')}: #{brief_time_ago_in_words(hub_site.blob_created_at)}" if hub_site.blob_created_at && hub_site.save_count > 0)
   ].compact.join(', ')
-end
+  end
 end
