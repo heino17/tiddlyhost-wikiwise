@@ -1,5 +1,4 @@
-
-= render layout: 'form_wrapper', locals: { heading: "Upload to site '#{@site.name}'" } do
+= render layout: 'form_wrapper', locals: { heading: I18n.t('action_menu_upload_form_title') + " '#{@site.name}'" } do
 
   = form_for(@site, url: { action: :upload, id: @site.id }) do |f|
 
@@ -7,19 +6,19 @@
       %b.small.text-danger
         %big
           = bi_icon('exclamation-triangle', fill: '#dc3545', style: 'margin-right: -2px;')
-        Proceed carefully!
-
+        = I18n.t('action_menu_upload_form_warning_hint')
+        
+      -# changed the way the link is embedded in the text (with a customizable line break)
       .small
-        This will delete your site's content and replace it with whatever TiddlyWiki
-        file you upload now.
-        %br
-        You may want to
-        = link_to(download_site_path(@site)) { bi_icon('download') + 'download' }
-        a copy of your site first in case something goes wrong.
+        - line_break = content_tag(:span, '', class: 'd-block', style: 'height: 0.5em; margin: 0.0em 0;')
+        - download_link = link_to(download_site_path(@site)) { bi_icon('download') + I18n.t('hub_view_action_menu_download') }
+        = raw I18n.t('action_menu_upload_form_text', 
+          insert_line_break: line_break, 
+          download_copy_link: download_link)
 
     = render layout: 'field_wrapper' do
       %label.btn.btn-secondary{ for: 'site_tiddlywiki_file' }
-        Choose file to upload
+        = I18n.t('action_menu_upload_form_choose_file')
 
       -#
         It is hidden for cosmetic reasons. Clicking the label
@@ -27,10 +26,9 @@
 
       = f.file_field(:tiddlywiki_file, style: 'display: none;')
 
-      - confirmation_text = ["Are you sure you want to replace site '#{@site.name}' with",
-        "the TiddlyWiki file you're about to upload?",
-        "This operation cannot be undone."].join("\n")
-
+      - confirmation_text = ["#{I18n.t('action_menu_upload_form_confirmation_text_before')} '#{@site.name}', 
+        #{I18n.t('action_menu_upload_form_confirmation_text_after')}"].join("\n")
+        
       -#
         Also hidden to begin with but will be shown once a file is selected.
         See the code in app/javascript/packs/application.js.
@@ -38,4 +36,4 @@
       = f.submit("Upload", data: { confirm: confirmation_text }, id: 'upload-submit',
         style: 'display: none; margin-left: 1em;', class: "form-submit btn btn-primary")
 
-      = link_to 'Cancel', sites_url, style: 'margin-left: 1em;'
+      = link_to I18n.t('action_menu_upload_form_cancel'), sites_url, style: 'margin-left: 1em;'

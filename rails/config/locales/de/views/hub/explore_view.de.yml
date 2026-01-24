@@ -46,6 +46,18 @@ de:
   hub_view_action_menu_delete: "Löschen"
   hub_view_action_menu_delete_realy: "Diese Seite wirklich löschen"
   hub_view_action_menu_more: "Mehr..."
+  # hub_view_action_menu_upload_form
+  action_menu_upload_form_title: "Zur Seite hochladen:"
+  action_menu_upload_form_warning_hint: "Gehe vorsichtig vor!"
+  # -> insert_line_break and download link made in upload_form.html.haml
+  action_menu_upload_form_text: "Dadurch werden die Inhalte Deiner Seite gelöscht und durch die TiddlyWiki-Datei ersetzt, die Du jetzt hochlädst! 
+  %{insert_line_break} Du könntest vorher eine Kopie Deiner Seite %{download_copy_link}, falls etwas schiefgeht!"
+  action_menu_upload_form_choose_file: "Datei zum Hochladen auswählen"
+  action_menu_upload_form_upload_file: "Datei hochladen"
+  action_menu_upload_form_cancel: "Abbrechen"
+  action_menu_upload_form_confirmation_text_before: "Bist Du sicher, dass du die Seite"
+  action_menu_upload_form_confirmation_text_after: "durch Hochladen dieser Datei überschreiben möchtest? \n\nDieser Vorgang kann nicht rückgängig gemacht werden!"
+  #
   #hub_view_show_per_page: "18" # not yet implemented
   hub_view_table_actions: "Aktionen"
   #clones and views

@@ -46,6 +46,18 @@ en:
   hub_view_action_menu_delete: "Delete"
   hub_view_action_menu_delete_realy: "Are you sure you want to delete"
   hub_view_action_menu_more: "More..."
+  # hub_view_action_menu_upload_form
+  action_menu_upload_form_title: "Upload to site"
+  action_menu_upload_form_warning_hint: "Proceed carefully!"
+  # -> insert_line_break and download link made in upload_form.html.haml
+  action_menu_upload_form_text: "This will delete your site's content and replace it with whatever TiddlyWiki file you upload now! 
+  %{insert_line_break} You may want to %{download_copy_link} a copy of your site first in case something goes wrong."
+  action_menu_upload_form_choose_file: "Choose file to upload"
+  action_menu_upload_form_upload_file: "Upload file"
+  action_menu_upload_form_cancel: "Cancel"
+  action_menu_upload_form_confirmation_text_before: "Are you sure you want to replace site"
+  action_menu_upload_form_confirmation_text_after: "with the TiddlyWiki file you are about to upload? \n\nThis operation cannot be undone!"
+  #
   #hub_view_show_per_page: "18" # not yet implemented
   hub_view_table_actions: "Actions"
   #clones and views
