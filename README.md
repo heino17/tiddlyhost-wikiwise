@@ -1,15 +1,23 @@
-# Branch ready for final test! :)
-
+# Tiddlyhost-wikiwise
 ## rails I18n language implementation
 
-- 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR switchable, Switch in menu bar
-- works fine  
-- more languages easy to implement  
-- can be tested NOW!  
-- note the ports!  
-  
-### More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)  
-I thought it might increase interest in the software, for example among German, Spanish, or French programmers...  
+- 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR - Schalter in menu bar
+- funktioniert gut  
+- weitere Sprachen einfach zu implementieren  
+- beachte die Ports!  
+ 
+...ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer in 4 Sprachen übersetzten Oberfläche,  
+durch Implementierung von I18n Sprachunterstützung.
+Siehe: [Readme_i18n.md](Readme_i18n.md)  
+
+Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](Readme-Anpassungen.md),  
+ansonsten ist diese Kopie 1:1 + I18n
+**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**
+Ich dachte, es könnte das Interesse an der Software steigern, zum Beispiel bei deutschen, spanischen oder französischen Programmierern...  
+
+Lieben Dank an Simon Baird, für den Spaß mit Deiner tollen Software!
+
+( ･_･)»(ﾟｰﾟ)»(｡_｡)(｡_｡)«(ﾟｰﾟ)«( ･_･)
   
 for clone branch:  
 SSH:  
@@ -25,29 +33,26 @@ cd tiddlyhost-wikiwise
 ```
 
 # Tiddlyhost-wikiwise
+## rails I18n language implementation
 
-Ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer in 4 Sprachen übersetzten Oberfläche,  
-durch Implementierung von I18n Sprachunterstützung.
-Siehe: [Readme_i18n.md](Readme_i18n.md)  
-
-Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](Readme-Anpassungen.md),  
-ansonsten ist diese Kopie 1:1 + I18n
-
-Lieben Dank an Simon Baird, für den Spaß mit Deiner tollen Software!
-
-( ･_･)»(ﾟｰﾟ)»(｡_｡)(｡_｡)«(ﾟｰﾟ)«( ･_･)
-
-This is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with an interface translated into 4 languages  
+- 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR - Switch in menu bar
+- works fine  
+- more languages easy to implement  
+- note the ports!  
+ 
+...is is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with an interface translated into 4 languages  
 through the implementation of I18n language support.  
 It has been slightly adapted for my server environment, see [Readme-Anpassungen.md](Readme-Anpassungen.md),  
 otherwise, this copy is 1:1 + I18n  
+**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**
+I thought it might increase interest in the software, for example among German, Spanish, or French programmers...  
 
 Huge thanks to Simon Baird for the fun with your awesome software!
 
 („• ᴗ •„)
 
-**Nachfolgend die originale readme ins Deutsche übersetzt, mit angepassten Pfaden zu meiner repo.  
-Below is the original readme translated into German, with paths adapted to my repo.**
+**Nachfolgend die originale, unveränderte Tiddlyhost-readme ins Deutsche übersetzt.  
+Below is the original, unmodified Tiddlyhost readme translated into German.**
 
 # Tiddlyhost 
 
@@ -86,8 +91,8 @@ Du benötigst Docker und Docker Compose [auf Deinem System installiert](https://
 
 Schau dir den Code an:
 
-    git clone --branch wikiwise-local-branch https://github.com/heino17/tiddlyhost-wikiwise.git
-    cd tiddlyhost-wikiwise
+    git clone git@github.com:tiddlyhost/tiddlyhost-com.git
+    cd tiddlyhost-com
 
 ### Erstelle den Container und richte Rails ein.
 
