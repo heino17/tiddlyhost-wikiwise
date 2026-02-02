@@ -56,7 +56,7 @@ Below is the original, unmodified Tiddlyhost readme translated into German.**
 
 # Tiddlyhost 
 
-## About
+## Über
 
 [Tiddlyhost](https://tiddlyhost.com/) ist das neue Tiddlyspot, ein Hosting-Dienst für TiddlyWiki.
 
