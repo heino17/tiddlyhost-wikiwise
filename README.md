@@ -11,9 +11,8 @@ durch Implementierung von I18n Sprachunterstützung.
 Siehe: [Readme_i18n.md](Readme_i18n.md)  
 
 Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](Readme-Anpassungen.md),  
-ansonsten ist diese Kopie 1:1 + I18n
-  
-**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**
+ansonsten ist diese Kopie 1:1 + I18n  
+**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
 Ich dachte, es könnte das Interesse an der Software steigern, zum Beispiel bei deutschen, spanischen oder französischen Programmierern...  
 
 Lieben Dank an Simon Baird, für den Spaß mit Deiner tollen Software!
@@ -46,9 +45,9 @@ through the implementation of I18n language support.
 It has been slightly adapted for my server environment, see [Readme-Anpassungen.md](Readme-Anpassungen.md),  
 otherwise, this copy is 1:1 + I18n  
   
-**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**
+**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
 I thought it might increase interest in the software, for example among German, Spanish, or French programmers...  
-
+  
 Huge thanks to Simon Baird for the fun with your awesome software!
 
 („• ᴗ •„)
