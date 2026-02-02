@@ -1,5 +1,5 @@
 # Tiddlyhost-wikiwise
-## rails I18n language implementation
+## + rails I18n language implementation
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR - Schalter in menu bar
 - funktioniert gut  
@@ -33,7 +33,7 @@ cd tiddlyhost-wikiwise
 ```
 
 # Tiddlyhost-wikiwise
-## rails I18n language implementation
+## + rails I18n language implementation
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR - Switch in menu bar
 - works fine  
