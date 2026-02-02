@@ -12,7 +12,7 @@ Siehe: [Readme_i18n.md](Readme_i18n.md)
 
 Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](Readme-Anpassungen.md),  
 ansonsten ist diese Kopie 1:1 + I18n  
-**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
+**Mehr darüber in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
 Ich dachte, es könnte das Interesse an der Software steigern, zum Beispiel bei deutschen, spanischen oder französischen Programmierern...  
 
 Lieben Dank an Simon Baird, für den Spaß mit Deiner tollen Software!
