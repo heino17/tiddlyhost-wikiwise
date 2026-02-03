@@ -11,7 +11,8 @@ durch Implementierung von I18n Sprachunterstützung.
 Siehe: [Readme_i18n.md](Readme_i18n.md)  
 
 Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](Readme-Anpassungen.md),  
-ansonsten ist diese Kopie 1:1 + I18n **Mehr darüber in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
+ansonsten ist diese Kopie 1:1 + I18n  
+**Mehr darüber in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
 
 Ich dachte, es könnte das Interesse an der Software steigern, zum Beispiel bei deutschen, spanischen oder französischen Programmierern...  
 
@@ -43,7 +44,8 @@ cd tiddlyhost-wikiwise
 ...is is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with an interface translated into 4 languages  
 through the implementation of I18n language support.  
 It has been slightly adapted for my server environment, see [Readme-Anpassungen.md](Readme-Anpassungen.md),  
-otherwise, this copy is 1:1 + I18n **More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
+otherwise, this copy is 1:1 + I18n  
+**More about in [Readme_i18n.md](https://github.com/heino17/tiddlyhost-wikiwise/blob/wikiwise-local-translation/Readme_i18n.md)**  
 
 I thought it might increase interest in the software, for example among German, Spanish, or French programmers...  
   
