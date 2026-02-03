@@ -1,5 +1,5 @@
 # Tiddlyhost-wikiwise
-## + rails I18n language implementation
+## + rails I18n Sprach-Implementierung
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR - Schalter in menu bar
 - funktioniert gut  
