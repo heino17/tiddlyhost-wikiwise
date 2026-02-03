@@ -1,0 +1,31 @@
+---
+es:
+  # Support-site
+  support_page_heading: "Soporte"
+  support_page_subheading: "Soporte de Tiddlyhost"
+  support_page_intro_txt: "Si tienes problemas con Tiddlyhost o necesitas ayuda con algo, por favor usa una de las siguientes opciones:"
+  support_page_report_to_github: "Reportar un problema en GitHub"
+  support_page_suggest_to_github: "Sugerir una función en GitHub"
+  support_page_send_email: "Enviar un email"
+  # Tiddlyhost support text
+  support_page_tiddlyhost_support_txt: "También puedes revisar los problemas existentes en 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 
+  para ver si ya hay un reporte sobre tu problema. Consulta también la 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> y las 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">Preguntas frecuentes</a>. 
+  <br>(Mejoras en la documentación de Tiddlyhost están planeadas para el futuro.)"
+  # TiddlyWiki support text
+  support_page_tiddlywiki_subheading: "Soporte de TiddlyWiki"
+  support_page_tiddlywiki_support_txt: "Hay mucha información disponible sobre TiddlyWiki. El foro principal para hacer preguntas es 
+  <a href=\"https://talk.tiddlywiki.org/\" target=\"_blank\">Talk TiddlyWiki</a>, 
+  pero también puedes encontrar recursos adicionales en los 
+  <a href=\"https://tiddlywiki.com/#Forums\" target=\"_blank\">Foros de TiddlyWiki</a> y en la 
+  <a href=\"https://tiddlywiki.com/#Community\" target=\"_blank\">Comunidad de TiddlyWiki</a>. 
+  Puedes reportar problemas de TiddlyWiki 
+  <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">en GitHub aquí</a>."
+  # Feather Wiki support text
+  support_page_featherwiki_subheading: "Soporte de Feather Wiki"
+  support_page_featherwiki_support_txt: "Si necesitas ayuda con Feather Wiki, quieres reportar un error o solicitar una función, la mejor forma es 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">crear un issue en Codeberg</a>. 
+  <br>Los issues existentes de Feather Wiki están 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">aquí</a>."

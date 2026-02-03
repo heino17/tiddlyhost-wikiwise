@@ -1,9 +1,8 @@
-
 .nice-radio-container.type-chooser.enable-tooltips{ class: @site.empty.primary? ? "shorter" : "longer" }
 
   = f.label nil do
-    Type
-    = link_to "Show more types", "#", class: 'longer-link'
+    = t('site_view_edit_wiki_show_more_types_label')
+    = link_to t('site_view_edit_wiki_show_more_types'), "#", class: 'longer-link'
 
   - @empties_for_select.each_with_index do |empty, i|
 
@@ -28,8 +27,6 @@
           = empty.description
 
   .no-hover.longer-only.ms-3.small
-    = link_to "Create from a template", "/hub?t=1"
+    = link_to t('site_view_edit_wiki_create_from_template'), "/hub?t=1"
     = render 'popover_help',
-      html_content: "You can also create a site by selecting a community |
-        created template and cloning it. This link takes you to the list |
-        of available templates." |
+      html_content: t('site_view_edit_wiki_create_from_template_tooltip')

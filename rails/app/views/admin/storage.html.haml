@@ -1,15 +1,14 @@
-
-%h2 Storage
+%h2=t('admin.tabs_header.storage')
 
 = render 'tabs'
 
 %table.admin.table.table-striped{ style: "width: auto; font-size: 1.1rem;" }
   %thead
-    %th Type
-    %th Service
-    %th Bucket
-    %th Files
-    %th Bytes
+    %th=t('admin.tab_storage_table_headers.th_type')
+    %th=t('admin.tab_storage_table_headers.th_service')
+    %th=t('admin.tab_storage_table_headers.th_bucket')
+    %th=t('admin.tab_storage_table_headers.th_files')
+    %th=t('admin.tab_storage_table_headers.th_bytes')
 
   - configs = Rails.application.config.active_storage.service_configurations
 

@@ -1,0 +1,37 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+es:
+  will_paginate:
+    site:
+      page_entries_info:
+        single_page:
+          zero: "No se encontró ningún <b>sitio</b>"
+          one: "Mostrando 1 <b>sitio</b>"
+          other: "Mostrando todos los %{count} sitios"
+        single_page_html:
+          zero: "No se encontró ningún <b>sitio</b>"
+          one: "Mostrando <b>1 sitio</b>"
+          other: "Mostrando <b>%{count} sitios</b>"
+        multi_page: "Sitio %{from} - %{to} de %{count} en total"
+        multi_page_html: "Mostrando todos los <b>sitios %{from} - %{to}</b> de <b>%{count}</b> en total"
+    template:
+      page_entries_info:
+        single_page:
+          zero: "No se encontró ninguna plantilla"
+          one: "Mostrando 1 <b>plantilla</b>"
+          other: "Mostrando todas las %{count} plantillas"
+        single_page_html:
+          zero: "No se encontró ninguna <b>plantilla</b>"
+          one: "Mostrando <b>1 plantilla</b>"
+          other: "Mostrando <b>%{count} plantillas</b>"
+        multi_page: "Plantilla %{from} - %{to} de %{count} en total"
+        multi_page_html: "Mostrando todas las <b>plantillas %{from} - %{to}</b> de <b>%{count}</b> en total"
+    previous_label: "Anterior"
+    previous_aria_label: "Página anterior"
+    next_label: "Siguiente"
+    next_aria_label: "Página siguiente"
+    page_gap: "..."
+    container_aria_label: "Navegación de páginas"
+    page_aria_label: "Página %{page}"

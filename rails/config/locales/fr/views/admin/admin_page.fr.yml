@@ -1,0 +1,99 @@
+---
+fr:
+  admin:
+    tabs_header:
+      stats: "Statistiques"
+      charts: "Graphiques"
+      users: "Utilisateurs"
+      sites: "Sites"
+      tspot_sites: "Pages Tspot"
+      storage: "Stockage"
+      etc: "Etc"
+      #
+    tab_stats:
+      tab_stats_header: "Statistiques"
+      users: "Utilisateurs"
+      subscriptions: "Abonnements"
+      sites: "Sites"
+      site_views: "Vues des sites"
+      tspots: "Tspots"
+      tspot_views: "Vues des Tspots"
+      storage: "Stockage"
+      activ_daily: "Actifs quotidiens"
+      activ_weekly: "Actifs hebdomadaires"
+      activ_monthly: "Actifs mensuels"
+      signed_in_once_users: "Utilisateurs connectés une seule fois"
+      never_signed_in_users: "Utilisateurs jamais connectés"
+      never_updated_sites: "Sites jamais mis à jour"
+      private_sites: "Sites privés"
+      public_sites: "Sites publics"
+      public_non_searchable_sites: "Sites publics non recherchables"
+      public_searchable_sites: "Sites publics recherchables"
+      owned_tspots: "Tspots possédés"
+      saved_tspots: "Tspots enregistrés"
+      jobs_in_queue: "Tâches en file d'attente"
+      locked_since: "Verrouillé depuis"
+      running_now: "En cours d'exécution"
+      no_running_jobs: "Aucune"
+      #
+    tab_users_table_headers:
+      th_id: "Id"
+      th_name: "Nom"
+      th_username: "Nom d'utilisateur"
+      th_email: "Email"
+      th_av: "Av"               # Av = Avatar, bleibt als Abkürzung
+      th_type: "Type"
+      th_subscription: "Abon"
+      th_logins: "Connexions"
+      th_sites: "Sites"
+      th_tspot_sites: "Sites Tspot"
+      th_current_sign_in: "Connexion actuelle"
+      th_last_sign_in: "Dernière connexion"
+      th_created: "Créé"
+      th_confirmed: "Confirmé"
+      #
+    tab_sites_table_headers:
+      th_id: "Id"
+      th_name: "Nom"
+      th_kind: "Type"
+      th_empty: "Vide"
+      th_clone: "Cloner"
+      th_version: "Version"
+      th_description: "Description"
+      th_private: "Privé ?"
+      th_hub: "Hub ?"
+      th_template: "Modèle ?"
+      th_iframes: "IFrames ?"
+      th_put: "Put ?"
+      th_upload: "Upload ?"
+      th_views: "Vues"
+      th_accesses: "Accès"
+      th_saves: "Enregistrements"
+      th_clones: "Clones"
+      th_versions: "Versions"
+      th_owner: "Propriétaire"
+      th_raw: "Brut"
+      th_storage: "Stockage"
+      th_last_access: "Dernier accès"
+      th_last_update: "Dernière mise à jour"
+      th_created: "Créé"
+      #
+    tab_storage_table_headers:
+      th_type: "Type"
+      th_service: "Service"
+      th_bucket: "Bucket"
+      th_files: "Fichiers"
+      th_bytes: "Octets"
+      #
+    tab_etc:
+      raise_an_exception: "Provoquer une exception"
+      connection_pool_stats: "Statistiques du pool de connexions"
+      # admin_helper.rb
+    pagination_showing_entries:
+      showing: "Affichage des entrées"
+      # 1
+      to: "à"
+      # ...
+      of: "sur"
+      # ...
+      in_total: "au total."

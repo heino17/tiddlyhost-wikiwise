@@ -1,0 +1,86 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+en:
+  # explore-site
+  site_explore_title: "Explore"
+  site_explore_explanation_text: "Discover content created and shared by Tiddlyhost users."
+  # templates only switch
+  explore_view_templates_only: "Templates only"
+  explore_view_templates_only_tooltip: "Templates are customized \"empties\" created by Tiddlyhost users 
+  and shared for use by others. They may contain general purpose enhancements and customizations
+  or they may be designed for a particular specialized purpose."
+  # templates-site
+  site_templates_title: "Templates"
+  site_templates_explanation_text: "Templates are useful or interesting customized editions of TiddlyWiki, 
+  created by Tiddlyhost users, that you can copy and use for yourself. 
+  Click \"Clone\" to create a site on Tiddlyhost using a template, or click \"Download\" to download a copy to use locally."  
+  # hub view - may be not good choosen
+  hub_view_all_sites: "All sites"
+  hub_view_created_by_user: "Sites created by Tiddlyhost user"
+  hub_view_list_kind: "Kind"
+  hub_view_list_show_all: "show all"
+  hub_view_list_sort_by: "sort by"
+  hub_view_search_box: "Search"
+  hub_view_list_sort_by: "sort by"
+  hub_view_list_sort_view_count: "view count"
+  hub_view_list_sort_clone_count: "clone count"
+  hub_view_list_sort_recently_updated: "recently updated"
+  hub_view_list_sort_recently_created: "recently created"
+  hub_view_list_sort_name_az: "name a-z"
+  hub_view_list_sort_name_za: "name z-a"
+  hub_view_list_sort_newer_version: "newer version"
+  hub_view_list_sort_older_version: "older version"
+  hub_view_list_sort_random: "random"
+  hub_view_search_box_clear: "Clear"
+  hub_view_access_searchable: "Searchable"
+  hub_view_access_template: "Template"
+  hub_view_action_menu_settings: "Settings"
+  hub_view_action_menu_save_history: "Save history"
+  hub_view_action_menu_view: "Open Wiki in new window"
+  hub_view_action_menu_view_safe_mode: "View in safe mode"
+  hub_view_action_menu_download: "Download"
+  hub_view_action_menu_clone: "Clone"
+  hub_view_action_menu_upload: "Upload"
+  hub_view_action_menu_delete: "Delete"
+  hub_view_action_menu_delete_realy: "Are you sure you want to delete"
+  hub_view_action_menu_more: "More..."
+  # hub_view_action_menu_upload_form
+  action_menu_upload_form_title: "Upload to site"
+  action_menu_upload_form_warning_hint: "Proceed carefully!"
+  # -> insert_line_break and download link made in upload_form.html.haml
+  action_menu_upload_form_text: "This will delete your site's content and replace it with whatever TiddlyWiki file you upload now! 
+  %{insert_line_break} You may want to %{download_copy_link} a copy of your site first in case something goes wrong."
+  action_menu_upload_form_choose_file: "Choose file to upload"
+  action_menu_upload_form_upload_file: "Upload file"
+  action_menu_upload_form_cancel: "Cancel"
+  action_menu_upload_form_confirmation_text_before: "Are you sure you want to replace site"
+  action_menu_upload_form_confirmation_text_after: "with the TiddlyWiki file you are about to upload? \n\nThis operation cannot be undone!"
+  #
+  #hub_view_show_per_page: "18" # not yet implemented
+  hub_view_table_actions: "Actions"
+  #clones and views
+  hub:
+    clones:
+      one: "Clone"
+      other: "Clones"
+    views:
+      one: "View"
+      other: "Views"
+    saved: "Last update"
+  #
+  hub_view:
+    tagged_with:
+      site: { one: "Site tagged with", other: "Sites tagged with" }
+      template: { one: "Template tagged with", other: "Templates tagged with" }
+    created_by:
+      site: "Sites created by Tiddlyhost user"
+      template: "Templates created by Tiddlyhost user"
+    suffix:
+      tagged_with: "tagged with"
+      matching: "matching"
+    nav:
+      all_sites: "All sites"
+      all_templates: "All templates"
+  

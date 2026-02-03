@@ -1,0 +1,115 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+fr:
+  # user_home
+  hub_view_sites_on_your: "Sites sur votre"
+  hub_view_sites_on_your_explore_page: "page Explorer"
+  
+  your_sites: "Vos sites"
+  click_create_below: "Cliquez sur 'Créer' ci-dessous pour créer votre premier site TiddlyWiki."
+  showing_filtered_sites: "Affichage de %{filtered_count} sites %{access} sur %{total_count} au total."
+  clear_filter: "Effacer le filtre"
+  sites: "Sites"
+  site: "Site"
+  storage_used: "%{bytes} de stockage utilisé."
+  create: "Créer"
+  create_from_template: "Créer à partir d'un modèle"
+  claim_tiddlyspot_site: "Revendiquer un site Tiddlyspot"
+  download_all: "Télécharger tout"
+  #
+  site_view_create_a_site_heading: "Créer un site"
+  site_view_clone_a_site_heading: "Cloner un site"
+  # user home "Save history"-details
+  site_view_save_history_for: "Enregistrer l'historique pour"
+  site_view_save_history_timestamp: "Horodatage"
+  site_view_save_history_timestamp_tooltip: "Les heures sont affichées en UTC."
+  site_view_save_history_saved: "Enregistré"
+  site_view_save_history_size: "Taille"
+  site_view_save_history_size_tooltip: "La taille du fichier compressé."
+  site_view_save_history_checksum: "Somme de contrôle"
+  site_view_save_history_checksum_tooltip: "Des sommes de contrôle identiques indiquent des versions enregistrées identiques."
+  site_view_save_history_label: "Étiquette"
+  site_view_save_history_label_tooltip: "Les versions enregistrées avec des étiquettes auront la priorité sur celles sans étiquettes lors du nettoyage de la liste des versions enregistrées. Cela permet de conserver indéfiniment les versions importantes."
+  site_view_save_history_actions: "Actions"
+  site_view_save_history_current_version: "Version actuelle"
+  site_view_save_history_older_versions: "Versions antérieures"
+  site_view_save_history_no_older_versions: "Aucune version antérieure trouvée."
+  site_view_save_history_pop_set_label: "Définir l'étiquette"
+  site_view_save_history_pop_update: "Mettre à jour"
+  # user home actions menu "Settings"-details
+  site_view_edit_wiki_heading: "Paramètres pour"
+  site_view_edit_wiki_name_label: "Nom"
+  site_view_edit_wiki_name_text: "Lettres minuscules, chiffres et caractères '-' non en début ni en fin sont autorisés."
+  
+  site_view_edit_wiki_show_more_types_label: "Type"
+  site_view_edit_wiki_show_more_types: "Afficher plus de types"
+  site_view_edit_wiki_create_from_template: "Créer à partir d'un modèle"
+  site_view_edit_wiki_create_from_template_tooltip: "Vous pouvez également créer un site en sélectionnant un modèle créé par la communauté et en le clonant. Ce lien vous mène à la liste des modèles disponibles."
+  
+  site_view_edit_wiki_tw5_description: "Essai"
+  
+  site_view_edit_wiki_clone_from: "Clonage depuis"
+  site_view_edit_wiki_description_label: "Description"
+  site_view_edit_wiki_description_text: "Optionnel. Une brève description du site, visible sur la page Explorer pour les sites recherchables."
+  site_view_edit_wiki_tag_list_label: "Étiquettes"
+  site_view_edit_wiki_tag_list_text: "Optionnel. Une liste d'étiquettes séparées par des virgules, visible sur la page Explorer pour les sites recherchables."
+  site_view_save_history_button_create: "Créer"
+  site_view_save_history_button_update: "Mettre à jour"
+  site_view_save_history_button_cancel: "Annuler"  
+  # Access chooser
+  site_view_edit_wiki_access_heading: "Accès"
+  site_view_edit_wiki_access_private: "Privé"
+  site_view_edit_wiki_access_public: "Public"  
+  site_view_edit_wiki_access_hub_listed: "Public et recherchable"
+  
+  site_view_edit_wiki_access_private_tooltip: "Idéal pour les notes privées et le contenu que vous ne voulez pas visible sur internet."
+  site_view_edit_wiki_access_private_description_tspot_sites: "Votre site nécessitera un mot de passe pour y accéder"
+  site_view_edit_wiki_access_private_description_else: "Votre site ne sera accessible que par vous"
+  
+  site_view_edit_wiki_access_public_tooltip: "Idéal pour le contenu que vous souhaitez partager avec d'autres."
+  site_view_edit_wiki_access_public_description: "Votre site sera accessible sur internet et visible par tout le monde"
+  
+  site_view_edit_wiki_access_hub_listed_tooltip: "Idéal pour montrer des sites intéressants et bien entretenus afin que les gens les découvrent. Notez que le nom, la description et les étiquettes seront recherchables sur la page Explorer."
+  site_view_edit_wiki_access_hub_listed_description: "Votre site sera accessible sur internet et également listé et recherchable sur la"
+  # Advanced settings
+  site_view_edit_wiki_advanced_settings_link: "Afficher les paramètres avancés"
+  site_view_edit_wiki_advanced_settings_heading: "Paramètres avancés"
+  
+  site_view_edit_wiki_advanced_settings_allow_public_clone: "Rendre ce site disponible comme modèle pour que d'autres le clonent"
+  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Idéal pour montrer des sites intéressants et bien entretenus afin que les gens les découvrent. Notez que le nom, la description et les étiquettes seront recherchables sur la page Explorer."
+  
+  site_view_edit_wiki_advanced_settings_allow_public_iframe: "Autoriser le chargement du site dans un iframe"
+  site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "Lorsque cela est activé, l'en-tête deny X-Frame-Options par défaut sera supprimé. Attention, les sites chargés dans des iframes peuvent être vulnérables aux attaques de clickjacking."
+  
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver: "Utiliser l'enregistreur legacy \"upload\" pour les versions de TiddlyWiki 5.2.3 et supérieures"
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "Par défaut, l'enregistreur put est utilisé pour les versions de TiddlyWiki 5.2.3 et supérieures. Cochez ceci si vous préférez utiliser l'enregistreur upload pour ces versions. Voir aussi cette FAQ."
+  
+  site_view_edit_wiki_advanced_settings_prefer_put_saver: "Utiliser l'enregistreur \"put\" pour les versions de TiddlyWiki 5.2.2 et inférieures"
+  site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "Par défaut, l'enregistreur upload est utilisé pour les versions de TiddlyWiki 5.2.2 et inférieures. Cochez ceci si vous préférez utiliser l'enregistreur put pour ces versions. Voir aussi cette FAQ."
+  
+  site_view_edit_wiki_advanced_settings_skip_etag_check: "Ignorer la vérification \"fichier modifié sur le serveur\" lors de l'enregistrement"
+  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Cochez cette case si vous pensez que l'erreur \"fichier modifié sur le serveur\" vous empêche d'enregistrer à tort. Il est recommandé d'utiliser cette option temporairement lorsque nécessaire, plutôt que de la laisser activée en permanence."
+  
+  # filter and sort
+  site_view_filter_and_sort_kind: "Type :"
+  site_view_filter_and_sort_kind_else: "Type"
+  site_view_filter_and_sort_kind_filter_tooltip: "Filtre par type de site"
+  site_view_filter_and_sort_kind_filter_drop_header: "Filtre par type de site :"
+  #
+  site_view_filter_and_sort_access: "Accès :"
+  site_view_filter_and_sort_access_else: "Accès"
+  site_view_filter_and_sort_access_filter_tooltip: "Filtre par accès au site"
+  site_view_filter_and_sort_access_filter_drop_header: "Filtre d'accès au site :"
+  #
+  site_view_filter_and_sort_sort: "Trier :"
+  site_view_filter_and_sort_sort_tooltip: "Trier par"
+  site_view_filter_and_sort_sort_drop_header: "Trier par :"
+  #
+  site_view_filter_and_sort_view: "Vue"
+  site_view_grid_list:
+    grid: "Passer à la vue en grille"
+    list: "Passer à la vue en liste"
+  #
+  site_view_filter_and_sort_show_all: "tout afficher"

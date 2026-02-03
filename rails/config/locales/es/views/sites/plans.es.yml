@@ -1,0 +1,28 @@
+---
+es:
+  # Plans-site
+  site_plans_title: "Plans"
+  site_plans_free: "Free"
+  site_plans_standard: "Standard"
+  site_plans_subscription_standard_period: "/al mes"
+  site_plans_premium: "Premium"
+  site_plans_premium_someday: "Algún día"
+  site_plans_subscribe_button: "Suscríbete ahora"
+  # Pricing-site
+  site_pricing_title: "Precios"
+  # pricing card
+  site_pricing_pricingcard_titel: "Plan"
+  site_pricing_pricingcard_if_subscribed: "Suscrito"
+  site_pricing_sign_up_submit_button: "Inscríbete"
+  # subscription-site
+  site_subscription_title: "Subscription"
+  site_subscription_subscribe_button: "Suscríbete ahora"
+  
+  site_plans_notloggedin_stripe_text: "Regístrate para crear una cuenta y usar Tiddlyhost gratis sin necesidad de tarjeta de crédito.
+  Para acceder al Plan Standard, ve a la página \"Planes de suscripción\" después de registrarte. La facturación de suscripciones de Tiddlyhost es manejada por "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> es una plataforma fácil de usar y altamente confiable para el manejo de pagos en línea, 
+  respaldada por estrictos estándares de la industria en seguridad y protección de datos."
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> es una plataforma fácil de usar y altamente confiable para el manejo de pagos en línea, 
+  respaldada por estrictos estándares de la industria en seguridad y protección de datos."
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> es una plataforma fácil de usar y altamente confiable para el manejo de pagos en línea, 
+  respaldada por estrictos estándares de la industria en seguridad y protección de datos."

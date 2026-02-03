@@ -1,0 +1,20 @@
+---
+es:
+  # Account created
+  account_created_heading: "Cuenta creada"
+  account_created_thanks: "¡Gracias por registrarte!"
+  
+  account_created_confirmation_send: "Se ha enviado un email de confirmación a tu dirección de correo. Para completar el proceso de registro, haz clic en el enlace de confirmación en ese email."
+  
+  account_created_help_heading: "Solución de problemas"
+  
+  account_created_help_paragraph_1: "Si el email de confirmación no llega, podría estar clasificado como spam. Revisa tu carpeta de spam o intenta agregar 'tiddlyhost@gmail.com' a tus contactos de email y luego usa" 
+  account_created_help_paragraph_1_link: "este formulario"
+  account_created_help_paragraph_1_2: "para reenviar el email." 
+  
+  account_created_help_paragraph_2_1: "Si aún no puedes recibir el enlace de confirmación,"
+  account_created_help_email_me: "envíame un email"
+  account_created_help_email_me_subject: "Problemas con el registro en Tiddlyhost"
+  account_created_help_email_me_body: "Me registré y no recibí mi email de confirmación. Por favor, envíamelo manualmente si puedes."
+  account_created_help_paragraph_2_2: "y veré si puedo enviártelo directamente."
+  

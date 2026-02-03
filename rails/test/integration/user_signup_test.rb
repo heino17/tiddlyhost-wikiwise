@@ -7,7 +7,7 @@ class UserSignupTest < CapybaraIntegrationTest
 
     # Visit home page and click sign up link
     visit '/'
-    within(:css, '.jumbotron') { click_link 'Sign up' }
+    within(:css, '.jumbotron') { click_link I18n.t('top_menu_signup') }
 
     # Fill in the sign up form fields
     fill_in 'user[name]', with: name
@@ -17,7 +17,7 @@ class UserSignupTest < CapybaraIntegrationTest
     fill_in 'user[password_confirmation]', with: weak_password
 
     # Submit
-    click_button 'Create account'
+    click_button I18n.t('sign_up_page_submit_create')
 
     # Password is not strong enough...
     assert page.has_content?('Password is too short')
@@ -28,10 +28,10 @@ class UserSignupTest < CapybaraIntegrationTest
     fill_in 'user[password_confirmation]', with: strong_password
 
     # Click the sign up button and confirm an email is sent
-    assert_difference('ActionMailer::Base.deliveries.count') { click_button 'Create account' }
+    assert_difference('ActionMailer::Base.deliveries.count') { click_button I18n.t('sign_up_page_submit_create') }
 
     # Confirm the "check email" page is shown
-    assert page.has_content?('please click the confirmation link')
+    assert page.has_content?(I18n.t('account_created_confirmation_send'))
 
     # Sanity check the 'to' address in the confirmation email
     confirmation_email = ActionMailer::Base.deliveries.last
@@ -44,13 +44,13 @@ class UserSignupTest < CapybaraIntegrationTest
     # Login
     fill_in 'user[email]', with: email
     fill_in 'user[password]', with: strong_password
-    click_button 'Log in'
+    click_button I18n.t('get_started_button_login')
 
     # Confirm we are logged in
-    assert page.has_css?('h1', text: 'Your sites')
+    assert page.has_css?('h1', text: I18n.t('your_sites'))
 
     # Logout
-    click_link 'Log out'
+    click_link I18n.t('user_menu_item_logout') 
 
     # Confirm we are logged out
     assert page.has_css?('.jumbotron')

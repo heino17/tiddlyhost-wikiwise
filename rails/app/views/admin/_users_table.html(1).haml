@@ -1,0 +1,39 @@
+%thead
+  %tr
+    %th= sort_link 'Id', :asc
+    %th= sort_link 'Name', :asc
+    %th= sort_link 'Username', :asc
+    %th= sort_link 'Email', :asc
+    %th= sort_link 'Av'
+    %th= sort_link 'Type'
+    %th= sort_link 'Subscr', :asc
+    %th= sort_link 'Logins'
+    %th= sort_link 'Sites'
+    - if Settings.tiddlyspot_enabled?
+      %th= sort_link 'Tspot Sites'
+    %th= sort_link 'Current sign in'
+    %th= sort_link 'Last sign in'
+    %th= sort_link 'Created'
+    %th= sort_link 'Confirmed'
+
+%tbody
+  - records.each do |user|
+    %tr
+      %td= user.id
+      %td= link_to_user(user.name, user)
+      %td= link_to_user(user.username, user)
+      %td= link_to_user(user.email, user)
+      %td
+        - if user.use_avatar?
+          = avatar_image(user, size: 18)
+      %td= user.user_type.name
+      %td= plan_name_with_indicator(user)
+      %td= user.sign_in_count
+      %td= link_to_user_sites(pluralize(user.sites.count, 'site'), user, action: :sites)
+      - if Settings.tiddlyspot_enabled?
+        %td= link_to_user_sites(pluralize(user.tspot_sites.count, 'tspot'), user, action: :tspot_sites)
+      %td= nice_timestamp user.current_sign_in_at
+      %td= nice_timestamp user.last_sign_in_at
+      %td= nice_timestamp user.created_at
+      -# Show the timespan since it is more interesting than the raw timestamp
+      %td= nice_timespan(user.created_at, user.confirmed_at)

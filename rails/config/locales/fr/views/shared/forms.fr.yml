@@ -1,0 +1,46 @@
+---
+fr:
+  # Login page
+  log_in_page_heading: "Se connecter"
+  log_in_page_ask_need_account: "Besoin d'un compte ? Allez sur"
+  log_in_page_email_label: "Courriel"
+  log_in_page_password_label: "Mot de passe"
+  log_in_page_remember_me_label: "Se souvenir de moi"
+  log_in_page_submit_button: "Se connecter"  
+  # Page shared Links (devise)
+  shared_links_cancel: "Annuler"
+  shared_links_login: "Connexion"
+  shared_links_sign_up: "S'inscrire"
+  shared_links_forgot_password: "Mot de passe oublié ?"
+  shared_links_resend_confirmation: "Renvoyer les instructions de confirmation"
+  shared_links_resend_unlock: "Renvoyer les instructions de déverrouillage"
+  shared_links_signup_with: "Se connecter avec" # pas encore implémenté
+  # Sign up page
+  sign_up_page_heading: "S'inscrire"
+  sign_up_page_ask_have_account: "Vous avez déjà un compte ? Allez sur"
+  sign_up_page_email_label: "Courriel"
+  sign_up_page_enter_email: "Entrez votre adresse email"
+  sign_up_page_name_label: "nom"
+  sign_up_page_enter_name: "Veuillez entrer votre nom"
+  sign_up_page_username_label: "nom d'utilisateur"
+  sign_up_page_enter_username: "Optionnel. Choisissez un nom d'utilisateur unique entre 3 et 30 caractères"
+  sign_up_page_password_label: "mot de passe"
+  sign_up_page_password_hint: "caractères minimum"
+  sign_up_page_password_confirm_label: "confirmation du mot de passe"
+  sign_up_page_password_confirm_hint: "Retapez votre mot de passe pour le confirmer"
+  sign_up_page_submit_create: "Créer un compte"
+  # user forgot password
+  user_forgot_password_header: "Mot de passe oublié ?"
+  user_forgot_password_intro_text: "Entrez votre adresse email pour recevoir un lien de réinitialisation du mot de passe."
+  user_forgot_password_email_label: "Courriel"
+  user_forgot_password_submit_button: "Envoyer le lien de réinitialisation du mot de passe"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "Renvoyer les instructions de confirmation"
+  user_resend_confirmation_intro_text: "Entrez votre adresse email pour renvoyer le lien de confirmation email."
+  user_resend_confirmation_email_label: "Courriel"
+  user_resend_confirmation_submit_button: "Renvoyer les instructions de confirmation"
+  # user resend unlock instructions
+  user_resend_unlock_header: "Renvoyer les instructions de déverrouillage"
+  user_resend_unlock_intro_text: "Entrez votre adresse email pour renvoyer le lien de déverrouillage du compte."
+  user_resend_unlock_email_label: "Courriel"
+  user_resend_unlock_submit_button: "Renvoyer les instructions de déverrouillage"

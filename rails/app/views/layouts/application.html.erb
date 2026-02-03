@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html data-theme-mode="<%= theme_mode %>" data-bs-theme="<%= theme_mode %>">
+<html data-theme-mode="<%= theme_mode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">
   <head>
-    <title>Tiddlyhost</title>
+    <title><%= t('site_title') %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

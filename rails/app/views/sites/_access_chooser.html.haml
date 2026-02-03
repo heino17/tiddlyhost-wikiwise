@@ -1,16 +1,16 @@
 .nice-radio-container.access-chooser.enable-tooltips
 
   = f.label nil do
-    Access
+    = t('site_view_edit_wiki_access_heading')
 
   - if @site.redirect_to.present?
     .form-text.m-1.no-hover.fw-bold
       = bi_icon('exclamation-circle', fill: 'orange', style: 'margin-right: -1px;')
       Note: A redirect is in effect for this site. See details in <i>Advanced settings</i> below.
 
-  - { 'private' => 'Private',
-    'public' => 'Public',
-    'hub_listed' => 'Public & searchable' }.each do |choice, choice_title|
+  - { 'private' => t('site_view_edit_wiki_access_private'),
+      'public' => t('site_view_edit_wiki_access_public'),
+      'hub_listed' => t('site_view_edit_wiki_access_hub_listed') }.each do |choice, choice_title|
     - is_selected = @site.send("access_#{choice}?")
 
     %div{ class: ('selected' if is_selected) }
@@ -23,26 +23,25 @@
 
         - case choice when "public"
           = render 'popover_help',
-            html_content: "Best for content you'd like to be able to share with others."
+            html_content: t('site_view_edit_wiki_access_public_tooltip')
           .description
-            Your site will be accessible on the internet and viewable by anyone
+            = t('site_view_edit_wiki_access_public_description')
 
         - when "private"
           = render 'popover_help',
-            html_content: "Best for private notes and content that you don't want to be visible on the internet."
+            html_content: t('site_view_edit_wiki_access_private_tooltip')
           .description
             - if controller_name == "tspot_sites"
-              Your site will require a password to access
+              = t('site_view_edit_wiki_access_private_description_tspot_sites')
             - else
-              Your site will be accessible to you only
+              = t('site_view_edit_wiki_access_private_description_else')
 
         - when "hub_listed"
           = render 'popover_help',
-            html_content: text_join("Best for showcasing interesting, well maintained sites for people to discover.",
-            "Note that the name, description and tags will be searchable on the Explore page.")
+            html_content: text_join("#{t('site_view_edit_wiki_access_hub_listed_tooltip')}")
           .description
-            Your site will be accessible on the internet and also be listed and searchable on the
-            = link_to('Explore page', '/explore', target: "_blank")
+            = t('site_view_edit_wiki_access_hub_listed_description')
+            = link_to(t('hub_view_sites_on_your_explore_page'), '/explore', target: "_blank")
 
   -#
     "_access_choice" is not a real attribute of the site record but these

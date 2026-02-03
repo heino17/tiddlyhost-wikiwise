@@ -1,5 +1,8 @@
-
-%h2= @title
+-# inserted a heading here, instead of just showing @title
+- if action_name == "users"
+  %h2= t('admin.tabs_header.users')
+- else
+  %h2= t('admin.tabs_header.sites')
 
 = render 'tabs'
 

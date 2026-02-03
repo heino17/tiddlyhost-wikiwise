@@ -1,4 +1,3 @@
-
 = render layout: 'form_wrapper', locals: { heading: heading } do
 
   = form_for @site do |f|
@@ -16,15 +15,15 @@
         = render 'site_tile_clone', site: @site
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.label :name
+      = f.label t('site_view_edit_wiki_name_label')
       = f.text_field :name, class: 'form-control', maxlength: 63, autofocus: @site.new_record?
-      %small.form-text.text-muted Lower case letters, numbers, and non-leading, non-trailing '-' chars are allowed.
+      %small.form-text.text-muted #{t('site_view_edit_wiki_name_text')}
 
     - if @site.new_record?
       = render layout: 'field_wrapper' do
         - if @site_to_clone
           -# Show details about the site being cloned
-          = f.label nil, "Cloning from"
+          = f.label nil, t('site_view_edit_wiki_clone_from')
           = render 'site_tile_clone', site: @site_to_clone
           -# Pass the value through
           = hidden_field_tag(:clone, @site_to_clone.name)
@@ -37,14 +36,14 @@
       = render 'access_chooser', f:
 
     = render layout: 'field_wrapper' do
-      = f.label :description
+      = f.label t('site_view_edit_wiki_description_label')
       = f.text_area :description, class: 'form-control'
-      .form-text Optional. A short description of the site, visible on the Explore page for searchable sites.
+      .form-text #{t('site_view_edit_wiki_description_text')}
 
     = render layout: 'field_wrapper' do
-      = f.label :tag_list, 'Tags'
+      = f.label :tag_list, t('site_view_edit_wiki_tag_list_label')
       = f.text_field :tag_list, class: 'form-control', value: @site.tag_list.to_s
-      .form-text Optional. A comma delimited list of tags, visible on the Explore page for searchable sites.
+      .form-text #{t('site_view_edit_wiki_tag_list_text')}
 
     = render layout: 'advanced_wrapper' do
       = render 'public_clone', f:
@@ -53,5 +52,5 @@
       = render 'skip_etag_check', f:
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-5' } do
-      = f.submit @site.new_record? ? 'Create' : 'Update', class: 'btn btn-primary'
-      = link_to 'Cancel', sites_path, class: 'mx-4'
+      = f.submit @site.new_record? ? t('site_view_save_history_button_create') : t('site_view_save_history_button_update'), class: 'btn btn-primary'
+      = link_to t('site_view_save_history_button_cancel'), sites_path, class: 'mx-4'

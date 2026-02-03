@@ -14,7 +14,7 @@ module AdminHelper
     return unless user.has_username?
 
     link_to(hub_user_url(user.username), target: '_blank') do
-      safe_join([pluralize(user.hub_sites_count, 'hub site'),
+      safe_join([pluralize(user.hub_sites_count, t('hub_view_sites_on_your')), ' ', t('hub_view_sites_on_your_explore_page'),
       bi_icon('arrow-right-short')])
     end
   end
@@ -36,7 +36,9 @@ module AdminHelper
       records.offset + records.per_page :
       records.total_entries
 
-    "Showing #{records.offset + 1} to #{last_item_index} of #{records.total_entries} entries."
+    "#{t('admin.pagination_showing_entries.showing')} #{records.offset + 1} 
+    #{t('admin.pagination_showing_entries.to')} #{last_item_index} 
+    #{t('admin.pagination_showing_entries.of')} #{records.total_entries} #{t('admin.pagination_showing_entries.in_total')}"
   end
 
   def admin_site_link(site)

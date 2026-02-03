@@ -1,0 +1,29 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+fr:  
+  # user_update_account
+  user_update_account_heading: "Mettre à jour le compte"
+  user_update_account_email_label: "email"
+  user_update_account_email_text: "Votre adresse email"
+  user_update_account_waiting_for_confimation: "En attente de confirmation pour l'adresse email :"
+  user_update_account_name_label: "nom"
+  user_update_account_name_text: "Votre nom"
+  user_update_account_username_label: "nom d'utilisateur"
+  user_update_account_username_text: "Nom d'utilisateur unique (optionnel). Sera cliquable sur la page Explorer."
+  user_update_account_profile_image_label: "Image de profil"
+  user_update_account_current_password_label: "Mot de passe actuel. Requis pour effectuer des modifications."
+  user_update_account_current_password_text: "Saisissez votre mot de passe actuel pour confirmer les modifications"
+  user_update_account_new_password_label: "Nouveau mot de passe"
+  user_update_account_new_password_leave_blank: "(laissez vide si vous ne souhaitez pas le changer)"
+  user_update_account_new_password_text: "caractères minimum"
+  user_update_account_confirm_password_label: "Confirmation du nouveau mot de passe"
+  user_update_account_confirm_password_text: "Retapez votre nouveau mot de passe pour le confirmer"
+  user_update_account_button_submit: "Mettre à jour"
+  user_update_account_button_cancel: "Annuler"
+  user_delete_account_heading: "Supprimer le compte"
+  user_delete_account_danger_text: "Procédez avec prudence. Si vous supprimez votre compte, vos sites seront également supprimés immédiatement."
+  user_delete_account_button_delete: "Supprimer le compte"
+  user_delete_account_popup_confirm: "Êtes-vous sûr de vouloir supprimer votre compte ?"   
+  user_update_account_use: "Utiliser"

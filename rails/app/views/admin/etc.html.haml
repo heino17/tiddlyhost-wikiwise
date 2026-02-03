@@ -1,8 +1,7 @@
-
-%h2 Etc
+%h2=t('admin.tabs_header.etc')
 
 = render 'tabs'
 
 %ul.th-spaced.ms-3
-  %li= link_to "Raise an exception", action: :boom
-  %li= link_to "Connection pool stats", action: :pool_stats
+  %li= link_to t('admin.tab_etc.raise_an_exception'), action: :boom
+  %li= link_to t('admin.tab_etc.connection_pool_stats'), action: :pool_stats

@@ -1,0 +1,95 @@
+
+%h1 About Tiddlyhost
+
+%p
+  = image_tag 'logo-800-square.png', class: 'rounded',
+    style: 'width: 120px; height: 120px; float: left; margin: 0.5em 1em 0.5em 0;'
+
+%p
+  %i
+    The easiest way to use
+    = link_to 'TiddlyWiki', 'https://tiddlywiki.com/', target: '_blank'
+    online.
+
+%p Created, maintained and supported by Simon Baird.
+
+%p
+  If you have problems please
+  = link_to('report an issue in Github',
+    Settings.create_issue_url, target: '_blank')
+  or
+  = support_mail_to(link_title: 'send an email to Simon') + '.'
+  See #{link_to "Support", "/support"} for more support options.
+
+%ul.about-links
+  %li<
+    = link_to '/support' do
+      = bi_icon('life-preserver')
+      Support
+
+  %li<
+    = link_to Settings.faq_url do
+      = bi_icon('patch-question')
+      FAQ
+
+  %li<
+    = link_to Settings.docs_url, target: '_blank' do
+      = bi_icon('file-text')
+      Documentation
+
+  %li<
+    = link_to 'https://tiddlyspot.blogspot.com/' do
+      = bi_icon('newspaper')
+      Blog
+
+  %li<
+    = link_to 'https://x.com/tiddlyhost' do
+      = bi_icon('twitter-x')
+      X
+
+  %li<
+    = link_to '/terms-of-use' do
+      = bi_icon('file-earmark-text')
+      Terms of Use
+
+  %li<
+    = link_to '/privacy-policy' do
+      = bi_icon('file-earmark-text')
+      Privacy Policy
+
+  %li<
+    = link_to "#{Settings.github_url}/blob/main/LICENSE.md" do
+      = bi_icon('file-earmark-check')
+      Software License
+
+  %li<
+    = link_to Settings.github_url do
+      = bi_icon('gem')
+      Source Code
+
+  %li<
+    = link_to '/donate' do
+      = bi_icon('piggy-bank')
+      Donations &amp; Sponsorship
+
+%table.m-2.p-1
+  %tr
+    %td.p-1.pe-3.text-muted
+      Version:
+    %td.p-1
+      = Settings.app_version
+
+  = render "admin_about", build_info: @build_info
+
+  %tr
+    %td.pt-4.p-1.pe-3.text-muted.align-top
+      Empty versions:
+    %td.pt-4.p-1.lh-lg
+      - @build_info['empties'].each do |e|
+        %span.me-1
+          = logo_for_kind(e[:kind])
+        %div{ style: "display: inline-block; min-width: 3.5em;" }= e[:version]
+        %small.text-muted
+          %span{ style: "opacity: 0.4;" } ❮
+          #{e[:title]}
+        %br

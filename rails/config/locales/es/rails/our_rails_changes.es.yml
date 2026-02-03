@@ -1,0 +1,61 @@
+#####################################################################
+# the following are changes that differ from original rails I18n-files
+---
+es:
+  # this one is missing
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      not_saved: "¡Se han detectado %{count} errores! ¡Sus datos aún no se han procesado!"
+  #
+  # and the hole time block for "ago"/"hace"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: hace alrededor de %{count} hora
+        other: hace alrededor de %{count} horas
+      about_x_months:
+        one: hace alrededor de %{count} mes
+        other: hace alrededor de %{count} meses
+      about_x_years:
+        one: hace alrededor de %{count} año
+        other: hace alrededor de %{count} años
+      almost_x_years:
+        one: hace casi %{count} año
+        other: hace casi %{count} años
+      half_a_minute: hace medio minuto
+      less_than_x_seconds:
+        one: hace menos de %{count} segundo
+        other: hace menos de %{count} segundos
+      less_than_x_minutes:
+        one: hace menos de %{count} minuto
+        other: hace menos de %{count} minutos
+      over_x_years:
+        one: hace más de %{count} año
+        other: hace más de %{count} años
+      x_seconds:
+        one: "hace %{count} segundo"
+        other: "hace %{count} segundos"
+      x_minutes:
+        one: "hace %{count} minuto"
+        other: "hace %{count} minutos"
+      x_days:
+        one: "hace %{count} día"
+        other: "hace %{count} días"
+      x_months:
+        one: "hace %{count} mes"
+        other: "hace %{count} meses"
+      x_years:
+        one: "hace %{count} año"
+        other: "hace %{count} años"
+    prompts:
+      second: Segundo
+      minute: Minuto
+      hour: Hora
+      day: Día
+      month: Mes
+      year: Año
+    relative:
+      future: en %{time}
+      past: "hace %{time}"
+  # end

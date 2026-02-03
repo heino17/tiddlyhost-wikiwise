@@ -83,7 +83,7 @@ module SortAndFilterLinkHelper
 
   def filter_link(param_key, param_val, crawler_protect: false)
     filter_opts = filter_params.dig(param_key&.to_sym, param_val&.to_sym) || {}
-    link_title = filter_opts[:title] || param_val&.to_s || 'show all'
+    link_title = filter_opts[:title] || param_val&.to_s || t('site_view_filter_and_sort_show_all')
 
     selected = params[param_key] == param_val&.to_s
     klass = ['dropdown-item', (selected ? 'sel' : 'notsel')]

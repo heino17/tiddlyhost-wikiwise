@@ -1,34 +1,33 @@
-
-= render layout: 'form_wrapper', locals: { heading: 'Update account' } do
+= render layout: 'form_wrapper', locals: { heading: t('user_update_account_heading') } do
 
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
 
     = render 'devise/shared/error_messages', resource: resource
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.label :email
+      = f.label t('user_update_account_email_label')
       = f.email_field :email, autofill: 'off', autocomplete: 'off', class: 'form-control'
-      .form-text Your email address
+      .form-text #{t('user_update_account_email_text')}
 
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       = render layout: 'field_wrapper' do
         .form-text
-          Currently waiting confirmation for email address:
+          t('user_update_account_waiting_for_confimation')
           %b
             = resource.unconfirmed_email
 
     = render layout: 'field_wrapper' do
-      = f.label :name
+      = f.label "#{t('user_update_account_name_label')}"
       = f.text_field :name, autofocus: true, autofill: 'off', autocomplete: 'off', class: 'form-control'
-      .form-text Your name
+      .form-text= t('user_update_account_name_text')
 
     = render layout: 'field_wrapper' do
-      = f.label :username
+      = f.label t('user_update_account_username_label')
       = f.text_field :username, autofocus: true, autofill: 'off', autocomplete: 'off', class: 'form-control'
-      .form-text Unique username (optional). Will be clickable on the Explore page.
+      .form-text= t('user_update_account_username_text')
 
     = render layout: 'field_wrapper' do
-      = f.label 'Profile image'
+      = f.label t('user_update_account_profile_image_label')
       .row.my-2
         .col
           %div.form-check
@@ -36,45 +35,45 @@
               = gravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
               %br
               = f.check_box :use_gravatar, class: 'form-check-input'
-              .form-check-label Use #{link_to 'Gravatar', 'https://gravatar.com/', target: '_blank'}
+              .form-check-label #{t('user_update_account_use')} #{link_to 'Gravatar', 'https://gravatar.com/', target: '_blank'}
         .col
           %div.form-check
             = f.label :use_libravatar do
               = libravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
               %br
               = f.check_box :use_libravatar, class: 'form-check-input'
-              .form-check-label Use #{link_to('Libravatar', 'https://libravatar.org/', target: '_blank')}
+              .form-check-label #{t('user_update_account_use')} #{link_to('Libravatar', 'https://libravatar.org/', target: '_blank')}
 
     = render layout: 'field_wrapper' do
-      = f.label :current_password, 'Current password. Required to make changes.'
+      = f.label :current_password, t('user_update_account_current_password_label')
       = f.password_field :current_password, autocomplete: 'current-password', class: 'form-control'
-      .form-text Enter your current password to confirm the changes
+      .form-text= t('user_update_account_current_password_text')
 
     = render layout: 'field_wrapper' do
-      = f.label :password, 'New password'
-      .form-text (leave blank if you don't want to change it)
+      = f.label :password, t('user_update_account_new_password_label')
+      .form-text #{t('user_update_account_new_password_leave_blank')}
       = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
-      .form-text #{Settings.minimum_password_length} characters minimum
+      .form-text #{Settings.minimum_password_length} #{t('user_update_account_new_password_text')}
 
     = render layout: 'field_wrapper' do
-      = f.label :password_confirmation, 'New password confirmation'
+      = f.label :password_confirmation, t('user_update_account_confirm_password_text')
       = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
-      .form-text Re-type your new password to confirm it
+      .form-text #{t('user_update_account_confirm_password_text')}
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-3' } do
-      = f.submit 'Update', class: 'btn btn-primary'
-      = link_to 'Cancel', sites_path, class: 'px-3'
+      = f.submit t('user_update_account_button_submit'), class: 'btn btn-primary'
+      = link_to t('user_update_account_button_cancel'), sites_path, class: 'px-3'
 
 .m-2.p-2
   &nbsp;
 
-= render layout: 'form_wrapper', locals: { heading: 'Delete account' } do
+= render layout: 'form_wrapper', locals: { heading: t('user_delete_account_heading') } do
 
   = render layout: 'field_wrapper' do
     .form-text{ style: 'padding:1em;' }
       = bi_icon 'exclamation-triangle', class: 'warning', height: '2em', width: '2em'
-      %b.text-danger Proceed with caution. If you delete your account your sites will also be immediately deleted.
+      %b.text-danger #{t('user_delete_account_danger_text')}
 
   = render layout: 'field_wrapper' do
-    = button_to 'Delete account', registration_path(resource_name), method: :delete, class: 'btn btn-danger',
-      data: { confirm: 'Are you sure you want to delete your account?' }
+    = button_to t('user_delete_account_button_delete'), registration_path(resource_name), method: :delete, class: 'btn btn-danger',
+      data: { confirm: t('user_delete_account_popup_confirm') }

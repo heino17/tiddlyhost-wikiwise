@@ -1,40 +1,39 @@
-
-%h2= @title
+%h2=t('admin.tabs_header.stats')
 
 = render 'tabs'
 
 .stats
-  = render 'stat_card', title: 'Users',         count: @user_count, big: true
-  = render 'stat_card', title: 'Subscriptions', count: "#{@subscription_count} + #{@alt_subscription_count}", big: true
-  = render 'stat_card', title: 'Sites',         count: @site_count, big: true
-  = render 'stat_card', title: 'Site views',    count: nice_view_count(@view_count), big: true
+  = render 'stat_card', title: t('admin.tab_stats.users'),         count: @user_count, big: true
+  = render 'stat_card', title: t('admin.tab_stats.subscriptions'), count: "#{@subscription_count} + #{@alt_subscription_count}", big: true
+  = render 'stat_card', title: t('admin.tab_stats.sites'),         count: @site_count, big: true
+  = render 'stat_card', title: t('admin.tab_stats.site_views'),    count: nice_view_count(@view_count), big: true
 
   - if Settings.tiddlyspot_enabled?
-    = render 'stat_card', title: 'Tspots',      count: @tspot_site_count, big: true
-    = render 'stat_card', title: 'Tspot views', count: nice_view_count(@tspot_view_count), big: true
+    = render 'stat_card', title: t('admin.tab_stats.tspots'),      count: @tspot_site_count, big: true
+    = render 'stat_card', title: t('admin.tab_stats.tspot_views'), count: nice_view_count(@tspot_view_count), big: true
 
-  = render 'stat_card', title: 'Storage',       count: nice_byte_count(@total_site_bytes, precision: 5), big: true
+  = render 'stat_card', title: t('admin.tab_stats.storage'),       count: nice_byte_count(@total_site_bytes, precision: 5), big: true
   %br
 
-  = render 'stat_card', title: 'Active daily',          count: @active_daily, total: @user_count
-  = render 'stat_card', title: 'Active weekly',         count: @active_weekly, total: @user_count
-  = render 'stat_card', title: 'Active monthly',        count: @active_monthly, total: @user_count
-  = render 'stat_card', title: 'Signed in once users',  count: @signed_in_once_users, total: @user_count
-  = render 'stat_card', title: 'Never signed in users', count: @never_signed_in_users, total: @user_count
+  = render 'stat_card', title: t('admin.tab_stats.activ_daily'),          count: @active_daily, total: @user_count
+  = render 'stat_card', title: t('admin.tab_stats.activ_weekly'),         count: @active_weekly, total: @user_count
+  = render 'stat_card', title: t('admin.tab_stats.activ_monthly'),        count: @active_monthly, total: @user_count
+  = render 'stat_card', title: t('admin.tab_stats.signed_in_once_users'),  count: @signed_in_once_users, total: @user_count
+  = render 'stat_card', title: t('admin.tab_stats.never_signed_in_users'), count: @never_signed_in_users, total: @user_count
   %br
 
-  = render 'stat_card', title: 'Never updated sites',   count: @never_updated_sites, total: @site_count
-  = render 'stat_card', title: 'Private sites',         count: @private_count, total: @site_count
-  = render 'stat_card', title: 'Public sites',          count: @public_count, total: @site_count
-  = render 'stat_card', title: 'Public non-searchable sites', count: @public_non_searchable_count, total: @site_count
-  = render 'stat_card', title: 'Public searchable sites',     count: @searchable_count, total: @site_count
+  = render 'stat_card', title: t('admin.tab_stats.never_updated_sites'),   count: @never_updated_sites, total: @site_count
+  = render 'stat_card', title: t('admin.tab_stats.private_sites'),         count: @private_count, total: @site_count
+  = render 'stat_card', title: t('admin.tab_stats.public_sites'),          count: @public_count, total: @site_count
+  = render 'stat_card', title: t('admin.tab_stats.public_non_searchable_sites'), count: @public_non_searchable_count, total: @site_count
+  = render 'stat_card', title: t('admin.tab_stats.public_searchable_sites'),     count: @searchable_count, total: @site_count
 
   - if Settings.tiddlyspot_enabled?
     %br
-    = render 'stat_card', title: 'Owned tspots',   count: @owned_tspot_site_count, total: @tspot_site_count
-    = render 'stat_card', title: 'Saved tspots',   count: @saved_tspot_count, total: @tspot_site_count
+    = render 'stat_card', title: t('admin.tab_stats.owned_tspots'),   count: @owned_tspot_site_count, total: @tspot_site_count
+    = render 'stat_card', title: t('admin.tab_stats.saved_tspots'),   count: @saved_tspot_count, total: @tspot_site_count
 
   %br
-  = render 'stat_card', title: 'Jobs in queue', alert: @jobs_alert, count: @jobs_count
-  = render 'stat_card', title: 'Locked since',  alert: @jobs_alert, count: nice_timestamp(@jobs_running_since)
-  = render 'stat_card', title: 'Running now', alert: @jobs_alert, count: render("running_job_site_links")
+  = render 'stat_card', title: t('admin.tab_stats.jobs_in_queue'), alert: @jobs_alert, count: @jobs_count
+  = render 'stat_card', title: t('admin.tab_stats.locked_since'),  alert: @jobs_alert, count: nice_timestamp(@jobs_running_since)
+  = render 'stat_card', title: t('admin.tab_stats.running_now'), alert: @jobs_alert, count: render("running_job_site_links")

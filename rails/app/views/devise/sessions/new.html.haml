@@ -1,15 +1,14 @@
-
-= render layout: 'form_wrapper', locals: { heading: 'Log in',
-  intro_text: "Need an account? Go to #{link_to 'sign up', new_user_registration_path}." } do
+= render layout: 'form_wrapper', locals: { heading: t('log_in_page_heading'),
+  intro_text: t('log_in_page_ask_need_account')+ " #{link_to (t('shared_links_sign_up')), new_user_registration_path}." } do
 
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
 
     = render layout: 'field_wrapper' do
-      = f.label :email
+      = f.label t('log_in_page_email_label')
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
 
     = render layout: 'field_wrapper', locals: { pb: 'pb-2' } do
-      = f.label :password
+      = f.label t('log_in_page_password_label')
       .input-group
         = f.password_field :password, autocomplete: 'current-password',
           class: 'form-control', style: 'border-radius: 0.375rem; padding-right: 2.8rem;'
@@ -26,11 +25,11 @@
     - if devise_mapping.rememberable?
       .form-check.px-3.pb-4
         = f.check_box :remember_me
-        = f.label :remember_me
+        = f.label t('log_in_page_remember_me_label')
 
     = render layout: 'field_wrapper' do
       - if params[:s]
         = f.hidden_field :site_redir, value: params[:s]
-      = f.submit 'Log in', class: 'btn btn-primary'
+      = f.submit t('get_started_button_login'), class: 'btn btn-primary'
 
     = render 'devise/shared/links'

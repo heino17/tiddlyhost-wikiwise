@@ -1,0 +1,48 @@
+---
+de:
+  # Login page
+  log_in_page_heading: "Anmelden"
+  log_in_page_ask_need_account: "Noch kein Konto? Dann hier ein"
+  log_in_page_email_label: "e-Mail"
+  log_in_page_password_label: "Passwort"  
+  log_in_page_remember_me_label: "Angemeldet bleiben?"
+  log_in_page_submit_button: "Anmelden"
+  # Sign up page
+  sign_up_page_heading: "Registrieren"
+  sign_up_page_ask_have_account: "Du hast ein Konto? Dann hier"
+  sign_up_page_email_label: "eMail"  
+  sign_up_page_enter_email: "Deine eMail-Adresse"
+  sign_up_page_name_label: "Name"
+  sign_up_page_enter_name: "Gib hier Deinen Name ein"
+  sign_up_page_username_label: "Benutzername"
+  sign_up_page_enter_username: "Optional. Waehle einen eindeutigen Benutzernamen mit einer Laenge zwischen 3 und 30 Zeichen."
+  sign_up_page_password_label: "Passwort"
+  sign_up_page_password_hint: "Zeichen mindestens!"
+  sign_up_page_password_confirm_label: "Passwort wiederholen"
+  sign_up_page_password_confirm_hint: "Gib Dein Passwort zur Bestaetigung noch einmal ein."
+  sign_up_page_submit_create: "Konto erstellen"
+  # Page shared Links (devise)
+  shared_links_cancel: "Abbrechen"
+  shared_links_login: "Anmelden"
+  shared_links_sign_up: "Konto erstellen"
+  shared_links_forgot_password: "Passwort vergessen?"
+  shared_links_resend_confirmation: "Anmeldeinformationen erneut senden"
+  shared_links_resend_unlock: "Entsperranweisungen erneut senden"
+  shared_links_signup_with: "Anmelden mit" # not implementet yet
+  shared_links_cancel: "Abbrechen"
+  # user resend password
+  user_forgot_password_header: "Passwort vergessen?"
+  user_forgot_password_intro_text: "Gib Deine E-Mail-Adresse ein, um einen Link zum Zuruecksetzen des Passworts zu erhalten."
+  user_forgot_password_email_label: "eMail"
+  user_forgot_password_submit_button: "Reset-Passwort-Link senden"
+  # user resend confirmation link
+  user_resend_confirmation_header: "Bestaetigung Deiner Anmeldung erneut senden"
+  user_resend_confirmation_intro_text: "Gib Deine E-Mail-Adresse ein, um den Bestaetigungslink erneut zu senden."
+  user_resend_confirmation_email_label: "e-Mail"
+  user_resend_confirmation_submit_button: "Bestaetigung erneut senden"
+  # user resend unlock instructions
+  user_resend_unlock_header: "Anleitung zum Entsperren erneut senden"
+  user_resend_unlock_intro_text: "Gib Deine E-Mail-Adresse ein, um den Link zum Entsperren des Kontos erneut zu senden."
+  user_resend_unlock_email_label: "e-Mail"
+  user_resend_unlock_submit_button: "Anleitung erneut senden"
+  

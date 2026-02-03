@@ -1,10 +1,9 @@
-
 %nav.navbar.navbar-dark.navbar-expand-sm.bg-gradient{ class: navbar_prod }
   .container-fluid
 
     -# Logo
-    = link_to(root_path, class: 'navbar-brand', title: 'Tiddlyhost') do
-      = image_tag("logo.svg", style: "height:32px;margin-left:12px;opacity:80%;")
+    = link_to(root_path, class: 'navbar-brand', title: t('logo_link_title')) do
+      = image_tag(t('logo_path'), style: "height:32px;margin-left:12px;opacity:80%;", alt: t('logo_alt'))
 
     -# Burger button for phone screens
     %button.navbar-toggler{ type: "button",
@@ -19,27 +18,44 @@
 
         -# Links for logged in users
         %ul.navbar-nav.me-auto.mb-lg-0
-          = nav_link_to "Home", root_path
-          = nav_link_to "Explore", '/explore'
-          = nav_link_to "Templates", '/templates?t=1'
+          = nav_link_to t('top_menu_root'), root_path
+          = nav_link_to t('top_menu_explore'), '/explore'
+          = nav_link_to t('top_menu_templates'), '/templates?t=1'
 
           - if user_is_admin?
-            = nav_link_to "Admin", admin_path, style: 'opacity: 10%;'
+            = nav_link_to "Admin", admin_path, style: 'opacity: 40%;'
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link
+          -# NEU: Sprachwechsler – dynamisch aus available_locales
+          %li.nav-item.dropdown
+            - current_flag_code = flag_code_for(I18n.locale)   # ← Neu: Definiere hier für den Button
+            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: t('app_language_switch_tooltip'),
+              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true" }
+              -# Aktuelle Flagge + Text
+              = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
+              = t("languages.#{I18n.locale}")
 
+            %ul.dropdown-menu.dropdown-menu-end
+              - I18n.available_locales.each do |loc|
+                - flag_code = flag_code_for(loc)   # Pro Eintrag korrekt
+                - active = (I18n.locale == loc) ? 'active' : ''
+                %li
+                  = link_to url_for(locale: loc), class: "dropdown-item #{active}" do
+                    = image_tag "flags/4x3/#{flag_code}.svg", width: 24, class: "me-2 align-text-bottom", alt: t("languages.#{loc}")
+                    = t("languages.#{loc}")
+          
           -# For normal nav bar
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
-            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block', title: 'Create site'
+            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block', title: t('burger_menu_create_site')
 
           -# For burger menu
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
             style: "opacity:90%; margin-left:-3px; margin-right:0px;") + content_tag(:span,
-            'Create site'), new_site_path, li_class: 'd-block d-sm-none', title: 'Create site'
+            t('burger_menu_create_site')), new_site_path, li_class: 'd-block d-sm-none', title: t('burger_menu_create_site')
 
           %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: "User menu",
+            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: t('burger_menu_title'),
               "data-bs-toggle"=>"dropdown", "aria-expanded"=>"false", "aria-haspopup"=>"true" }
               - if current_user.use_avatar?
                 = avatar_image(current_user, size: 18, style: 'margin-top: -2px;')
@@ -54,12 +70,31 @@
 
         -# Links for not logged in users
         %ul.navbar-nav.me-auto
-          = nav_link_to "Home", root_path
-          = nav_link_to "Explore", '/explore'
-          = nav_link_to "Templates", '/templates?t=1'
-          = nav_link_to "Pricing", '/pricing'
-          = nav_link_to "Sign up", new_user_registration_path
+          = nav_link_to t('top_menu_root'), root_path
+          = nav_link_to t('top_menu_explore'), '/explore'
+          = nav_link_to t('top_menu_templates'), '/templates?t=1'
+          = nav_link_to t('top_menu_pricing'), '/pricing'
+          = nav_link_to t('top_menu_signup'), new_user_registration_path
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link
-          = nav_link_to "Log in", new_user_session_path
+
+          -# NEU: Sprachwechsler – dynamisch aus available_locales
+          %li.nav-item.dropdown
+            - current_flag_code = flag_code_for(I18n.locale)   # ← Neu: Definiere hier für den Button
+            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: t('app_language_switch_tooltip'),
+              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true" }
+              -# Aktuelle Flagge + Text
+              = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
+              = t("languages.#{I18n.locale}")
+
+            %ul.dropdown-menu.dropdown-menu-end
+              - I18n.available_locales.each do |loc|
+                - flag_code = flag_code_for(loc)   # Pro Eintrag korrekt
+                - active = (I18n.locale == loc) ? 'active' : ''
+                %li
+                  = link_to url_for(locale: loc), class: "dropdown-item #{active}" do
+                    = image_tag "flags/4x3/#{flag_code}.svg", width: 24, class: "me-2 align-text-bottom", alt: t("languages.#{loc}")
+                    = t("languages.#{loc}")
+
+            = nav_link_to t('top_menu_log_in'), new_user_session_path

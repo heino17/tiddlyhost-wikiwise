@@ -1,0 +1,69 @@
+%h1
+  - if @tag.present?
+    = bi_icon('tag') + @tag
+  - elsif @user.present?
+    - if @user.use_avatar?
+      = avatar_image(@user, size: 30,
+        style: 'vertical-align: top; margin-top: 0.25em; margin-right: 0.1em;') + @user.name
+    - else
+      = bi_icon('person-fill') + @user.name
+  - else
+    = @default_title
+
+  = render 'templates_switch', show_templates: @show_templates
+
+%p.small
+  = @explanation_text
+
+%p.text-muted{ style: 'font-size: 95%' }
+  - if @tag.present?
+    #{@thing_name}s tagged with
+    %b= @tag + '.'
+  - elsif @user.present?
+    #{@thing_name}s created by Tiddlyhost user
+    %b= @user.username + '.'
+
+%div{ style: "margin-bottom: 2em;" }
+  %ul.nav.nav-tabs
+    = hub_link_to("All #{@thing_name.downcase}s", hub_all_url)
+    - @tag_tabs.each do |tag|
+      = hub_tag_link_to(tag, crawler_protect: true)
+
+.page_info.text-muted
+  = page_entries_info(@sites, model: @thing_name)
+  = "tagged with #{@tag}" if @tag.present?
+  = "matching '#{search_text}'" if search_text
+
+  %span.sort-by
+    = link_to("#", class:'dropdown-toggle',
+      role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
+      %span.pe-1
+        Kind:
+      - if @kind_filter.present? && @kind_filter != "all"
+        = logo_for_kind(@kind_filter, "margin-left: 2px; height: 1.3em; margin-top: -3px;")
+      - else
+        show all
+    .dropdown-menu.hub-menu{ 'aria-labelledby': 'dropdownMenuLink' }
+      = filter_link(:k, nil, crawler_protect: true)
+      - filter_params[:k].keys.each do |k|
+        = filter_link(:k, k, crawler_protect: true) do |_, title|
+          = logo_for_kind(k, "margin-right: 4px; height: 1.3em;")
+          = title
+
+  %span.sort-by
+    = link_to("#", class:'dropdown-toggle',
+      role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
+      %span.pe-1
+        Sort by:
+      = sort_opt[:title]
+    .dropdown-menu.hub-menu{ 'aria-labelledby': 'dropdownMenuLink' }
+      - sort_options.keys.each do |k|
+        = simple_sort_link k, 'dropdown-item', crawler_protect: true
+
+  = render 'search_box'
+
+.hub{ class: ("clone-button-on-hover" unless @show_templates) }
+  - @sites.each do |site|
+    = render 'site_tile', site: site, mode: 'hub'
+
+= will_paginate(@sites)

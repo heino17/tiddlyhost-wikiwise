@@ -7,10 +7,6 @@
     <input class="form-check-input" id="templates-toggle-switch"
     type="checkbox" role="switch" #{show_templates ? "checked" : ""}
     onclick="window.location.href = '#{url_for(sort_filter_url(:t, show_templates ? nil : '1'))}';">
-    Templates only
+    = t('explore_view_templates_only')
   = render 'popover_help', placement: 'bottom', size: '0.875rem', fill: '#666',
-    html_content: ' |
-      Templates are customized "empties" created by Tiddlyhost users |
-      and shared for use by others. They may contain general purpose enhancements and |
-      customizations or they may be designed for a particular specialized |
-      purpose.' |
+    html_content: t('explore_view_templates_only_tooltip')

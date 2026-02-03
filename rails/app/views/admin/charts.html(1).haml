@@ -1,0 +1,10 @@
+
+%h2 Charts
+
+= render 'tabs'
+
+%h3
+  = @chart_data[:title]
+  = render 'chart_menu'
+
+= render 'line_chart', chart_data: @chart_data

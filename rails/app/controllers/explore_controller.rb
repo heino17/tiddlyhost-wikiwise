@@ -3,9 +3,7 @@ class ExploreController < HubController
 
   def set_default_title
     @thing_name = 'Site'
-    @default_title = 'Explore'
-    @explanation_text = %(
-      Discover content created and shared by Tiddlyhost users.
-    ).squish
+    @default_title = t('site_explore_title')
+    @explanation_text = t('site_explore_explanation_text').squish
   end
 end

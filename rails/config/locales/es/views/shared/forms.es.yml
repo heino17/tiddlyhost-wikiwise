@@ -1,0 +1,46 @@
+---
+es:
+  # Login page
+  log_in_page_heading: "Iniciar sesión"
+  log_in_page_ask_need_account: "¿Necesitas una cuenta? Ve a"
+  log_in_page_email_label: "Correo electrónico"
+  log_in_page_password_label: "Contraseña"
+  log_in_page_remember_me_label: "Recordarme"
+  log_in_page_submit_button: "Iniciar sesión"  
+  # Page shared Links (devise)
+  shared_links_cancel: "Cancelar"
+  shared_links_login: "Iniciar sesión"
+  shared_links_sign_up: "Registrarse"
+  shared_links_forgot_password: "¿Olvidaste tu contraseña?"
+  shared_links_resend_confirmation: "Reenviar instrucciones de confirmación"
+  shared_links_resend_unlock: "Reenviar instrucciones de desbloqueo"
+  shared_links_signup_with: "Iniciar sesión con" # aún no implementado
+  # Sign up page
+  sign_up_page_heading: "Registrarse"
+  sign_up_page_ask_have_account: "¿Ya tienes una cuenta? Ve a"
+  sign_up_page_email_label: "Correo electrónico"
+  sign_up_page_enter_email: "Ingresa tu dirección de correo electrónico"
+  sign_up_page_name_label: "nombre"
+  sign_up_page_enter_name: "Por favor, ingresa tu nombre"
+  sign_up_page_username_label: "nombre de usuario"
+  sign_up_page_enter_username: "Opcional. Elige un nombre de usuario único entre 3 y 30 caracteres"
+  sign_up_page_password_label: "contraseña"
+  sign_up_page_password_hint: "caracteres como mínimo"
+  sign_up_page_password_confirm_label: "confirmación de contraseña"
+  sign_up_page_password_confirm_hint: "Vuelve a escribir tu contraseña para confirmarla"
+  sign_up_page_submit_create: "Crear cuenta"
+  # user forgot password
+  user_forgot_password_header: "¿Olvidaste tu contraseña?"
+  user_forgot_password_intro_text: "Ingresa tu dirección de correo para recibir un enlace de restablecimiento de contraseña."
+  user_forgot_password_email_label: "correo electrónico"
+  user_forgot_password_submit_button: "Enviar enlace de restablecimiento de contraseña"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "Reenviar instrucciones de confirmación"
+  user_resend_confirmation_intro_text: "Ingresa tu dirección de correo para reenviar el enlace de confirmación de email."
+  user_resend_confirmation_email_label: "correo electrónico"
+  user_resend_confirmation_submit_button: "Reenviar instrucciones de confirmación"
+  # user resend unlock instructions
+  user_resend_unlock_header: "Reenviar instrucciones de desbloqueo"
+  user_resend_unlock_intro_text: "Ingresa tu dirección de correo para reenviar el enlace de desbloqueo de cuenta."
+  user_resend_unlock_email_label: "correo electrónico"
+  user_resend_unlock_submit_button: "Reenviar instrucciones de desbloqueo"

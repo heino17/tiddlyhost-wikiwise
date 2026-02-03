@@ -1,5 +1,4 @@
-
-%h1= @user ? "Subscription plans" : "Pricing"
+%h1= @user ? t('site_plans_title') : t('site_pricing_title')
 
 %p.mt-3
 - if @subscribed
@@ -45,17 +44,11 @@
 - else
   -# User is not logged in
   %p.enable-tooltips
-    Sign up to create an account and use Tiddlyhost for free and without requiring a credit card.
-    To access the Standard Plan, go to the "Subscription plans" page after signing up.
-    Tiddlyhost subscription billing is handled by
+    = t('site_plans_notloggedin_stripe_text')
     = link_to 'https://stripe.com/', target: '_blank', title: "stripe.com", class: "stripe-logo-link" do
       = render 'stripe_logo'
     = render 'popover_help',
-      html_content: ' |
-        <a href="https://stripe.com/" target="_blank">Stripe</a> |
-        is an easy to use and highly trusted platform for online payment handling, |
-        backed by strict industry standards for security and data protection. ' |
-    \.
+      html_content: t('site_plans_notloggedin_stripe_tooltip')
 
 .d-flex.mt-4.m-2.mx-lg-5.justify-content-center.flex-column.flex-md-row.text-center
   = render 'pricing_card', plan: :free

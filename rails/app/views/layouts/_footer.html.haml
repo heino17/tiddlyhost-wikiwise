@@ -1,87 +1,99 @@
-
 .container-fluid
   .row.mx-2.my-4.p-md-2.p-0
 
     .col-md-3.col-6
-      %h6.text-muted Version
+      %h6.text-muted= t('footer_version_header')
       %ul{ style: "padding-left: 0.5em; opacity: 70%;" }
         - unless Rails.env.production?
-          %li Env: #{Rails.env}
-        %li Version: #{link_to Settings.app_version, '/about'}
+          %li=t('footer_version_environment_title')+ ": #{Rails.env}"
+        %li
+          = t('footer_version_version_title')+ ":"
+          = link_to '/about' do
+            = "#{Settings.app_version}"
         - if feature_enabled?(:admin)
-          %li Built: #{nice_timestamp(DateTime.parse(Settings.build_info['date']))}
+          %li
+            = t('footer_version_built_title')+ ":"
+            = "#{nice_timestamp(DateTime.parse(Settings.build_info['date']))}"
         %li &copy; 2021-#{Time.now.year} Simon Baird
 
     .col-md-3.col-6
       %h6.text-muted
         = link_to '/about' do
-          About
+          = t('footer_about_header')
       %ul
         %li
           = link_to Settings.faq_url, target: '_blank' do
             = bi_icon('patch-question')
-            FAQ
+            = t('about_links_faq')
 
         %li
           = link_to Settings.docs_url, target: '_blank' do
             = bi_icon('file-text')
-            Docs
+            = t('footer_about_faq')
 
         %li
-          = link_to 'https://tiddlyspot.blogspot.com/', target: '_blank' do
+          = link_to t('footer_about_link_to_blog'), target: '_blank' do
             = bi_icon('newspaper')
-            Blog
+            = t('footer_about_blog')
 
         %li
-          = link_to 'https://x.com/tiddlyhost', target: '_blank' do
+          = link_to t('footer_about_link_to_x'), target: '_blank' do
             = bi_icon('twitter-x')
-            X
+            = t('footer_about_x')
 
     .col-md-3.col-6
       %h6.text-muted
         = link_to '/support' do
-          Support
+          = t('footer_support_header')
 
       %ul
         %li
           = link_to Settings.create_issue_url, target: '_blank' do
             = bi_icon('bug')
-            Report issue
+            = t('footer_support_report_issue')
 
         %li
           = link_to Settings.create_issue_url, target: '_blank' do
             = bi_icon('lightbulb')
-            Suggest feature
+            = t('footer_support_suggest_feature')
 
         %li
           = mail_to Settings.support_email do
             = bi_icon('envelope')
-            Send email
+            = t('footer_support_send_email')
 
         %li
           = link_to '/donate' do
             = bi_icon('piggy-bank')
-            Donate/Sponsor
+            = t('footer_support_donate')
 
     .col-md-3.col-6
-      %h6.text-muted Tiddlyhost
+      %h6.text-muted= t('footer_host_info_header')
       %ul
         %li
           = link_to '/terms-of-use' do
             = bi_icon('file-earmark-text')
-            Terms of Use
+            = t('footer_host_info_terms_of_use')
 
         %li
           = link_to '/privacy-policy' do
             = bi_icon('file-earmark-text')
-            Privacy Policy
+            = t('footer_host_info_privacy_policy')
 
         %li
           = link_to "#{Settings.github_url}/blob/main/LICENSE.md", target: '_blank' do
             = bi_icon('file-earmark-check')
-            Software License
+            = t('footer_host_info_software_license')
 
         %li
           = link_to Settings.github_url, target: '_blank' do
             = bi_icon('gem')
-            Source Code
+            = t('footer_host_info_source_code')            
+
+    .col.md-6
+      %br
+      <center>      
+      %ul
+        %b= t('test')
+        %br
+        = t('test_ok')

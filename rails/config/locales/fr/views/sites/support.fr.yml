@@ -1,0 +1,31 @@
+---
+fr:
+  # Support-site
+  support_page_heading: "Assistance"
+  support_page_subheading: "Assistance Tiddlyhost"
+  support_page_intro_txt: "Si vous avez des problèmes avec Tiddlyhost ou besoin d'aide pour quelque chose, veuillez utiliser l'une des options suivantes :"
+  support_page_report_to_github: "Signaler un problème sur GitHub"
+  support_page_suggest_to_github: "Suggérer une fonctionnalité sur GitHub"
+  support_page_send_email: "Envoyer un email"
+  # Tiddlyhost support text
+  support_page_tiddlyhost_support_txt: "Vous pouvez également parcourir les problèmes existants sur 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 
+  pour voir si un problème a déjà été signalé pour votre cas. Consultez également la 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> et les 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a>. 
+  <br>(Une documentation améliorée pour Tiddlyhost est prévue pour l'avenir.)"
+  # TiddlyWiki support text
+  support_page_tiddlywiki_subheading: "Assistance TiddlyWiki"
+  support_page_tiddlywiki_support_txt: "Il existe beaucoup d'informations sur TiddlyWiki. Le forum principal pour poser des questions est 
+  <a href=\"https://talk.tiddlywiki.org/\" target=\"_blank\">Talk TiddlyWiki</a>, 
+  mais vous pouvez trouver des ressources supplémentaires via les 
+  <a href=\"https://tiddlywiki.com/#Forums\" target=\"_blank\">Forums TiddlyWiki</a> et la 
+  <a href=\"https://tiddlywiki.com/#Community\" target=\"_blank\">Communauté TiddlyWiki</a>. 
+  Vous pouvez également signaler des problèmes pour TiddlyWiki 
+  <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">sur GitHub ici</a>."
+  # Feather Wiki support text
+  support_page_featherwiki_subheading: "Assistance Feather Wiki"
+  support_page_featherwiki_support_txt: "Si vous avez besoin d'aide avec Feather Wiki, souhaitez signaler un bug ou demander une fonctionnalité, la meilleure façon est de 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">créer un ticket sur Codeberg</a>. 
+  <br>Les tickets existants de Feather Wiki  
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">sont ici</a>."

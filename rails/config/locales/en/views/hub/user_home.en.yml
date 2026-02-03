@@ -1,0 +1,133 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+en:  
+  # user_home
+  # hub view - may be not good choosen
+  hub_view_sites_on_your: "Sites on your"
+  hub_view_sites_on_your_explore_page: "Explore page"
+  
+  your_sites: "Your sites"
+  click_create_below: "Click 'Create' below to create your first TiddlyWiki site."
+  showing_filtered_sites: "Showing %{filtered_count} %{access} sites of %{total_count} in total."
+  clear_filter: "Clear filter"
+  sites: "Sites"
+  site: "Site"
+  storage_used: "%{bytes} storage used."
+  create: "Create"
+  create_from_template: "Create from template"
+  claim_tiddlyspot_site: "Claim Tiddlyspot site"
+  download_all: "Download all"
+  #
+  site_view_create_a_site_heading: "Create a site"
+  site_view_clone_a_site_heading: "Clone a site"
+  # user home "Save history"-details
+  site_view_save_history_for: "Save history for"
+  site_view_save_history_timestamp: "Timestamp"
+  site_view_save_history_timestamp_tooltip: "Times are shown in UTC."
+  site_view_save_history_saved: "Saved"
+  site_view_save_history_size: "Size"
+  site_view_save_history_size_tooltip: "The compressed file size."
+  site_view_save_history_checksum: "Checksum"
+  site_view_save_history_checksum_tooltip: "Identical checksums indicate identical saved versions."
+  site_view_save_history_label: "Label"
+  site_view_save_history_label_tooltip: "Saved versions with labels will prioritized over saved versions
+  without labels when pruning the saved version list. 
+  This allows you to keep important versions indefinitely."
+  site_view_save_history_actions: "Actions"
+  site_view_save_history_current_version: "Current version"
+  site_view_save_history_older_versions: "Older versions"
+  site_view_save_history_no_older_versions: "No older versions found."
+  site_view_save_history_pop_set_label: "Set label"
+  site_view_save_history_pop_update: "Update"
+  # user home actions menu "Settings"-details
+  # Settings = Edit a/the single Wiki
+  site_view_edit_wiki_heading: "Settings for"
+  site_view_edit_wiki_name_label: "Name"
+  site_view_edit_wiki_name_text: "Lower case letters, numbers, and non-leading, non-trailing '-' chars are allowed."
+  
+  site_view_edit_wiki_show_more_types_label: "Type"
+  site_view_edit_wiki_show_more_types: "Show more types"
+  site_view_edit_wiki_create_from_template: "Create from template"
+  site_view_edit_wiki_create_from_template_tooltip: "You can also create a site by selecting a community created template and cloning it. 
+  This link takes you to the list of available templates."
+  
+  site_view_edit_wiki_tw5_description: "Test"
+  
+  site_view_edit_wiki_clone_from: "Cloning from"
+  site_view_edit_wiki_description_label: "Description"
+  site_view_edit_wiki_description_text: "Optional. A short description of the site, visible on the Explore page for searchable sites."
+  site_view_edit_wiki_tag_list_label: "Tags"
+  site_view_edit_wiki_tag_list_text: "Optional. A comma delimited list of tags, visible on the Explore page for searchable sites."
+  site_view_save_history_button_create: "Create"
+  site_view_save_history_button_update: "Update"
+  site_view_save_history_button_cancel: "Cancel"  
+  # Access chooser
+  site_view_edit_wiki_access_heading: "Access"
+  site_view_edit_wiki_access_private: "Private"
+  site_view_edit_wiki_access_public: "Public"  
+  site_view_edit_wiki_access_hub_listed: "Public & searchable"
+  
+  site_view_edit_wiki_access_private_tooltip: "Best for private notes and content that you don't want to be visible on the internet."
+  site_view_edit_wiki_access_private_description_tspot_sites: "Your site will require a password to access"
+  site_view_edit_wiki_access_private_description_else: "Your site will be accessible to you only"
+  
+  site_view_edit_wiki_access_public_tooltip: "Best for content you'd like to be able to share with others."
+  site_view_edit_wiki_access_public_description: "Your site will be accessible on the internet and viewable by anyone"
+  
+  site_view_edit_wiki_access_hub_listed_tooltip: "Best for showcasing interesting, well maintained sites for people to discover. Note that the name, description and tags will be searchable on the Explore page."
+  site_view_edit_wiki_access_hub_listed_description: "Your site will be accessible on the internet and also be listed and searchable on the"
+  # Advanced settings
+  site_view_edit_wiki_advanced_settings_link: "Show advanced settings"
+  site_view_edit_wiki_advanced_settings_heading: "Advanced settings"
+  
+  site_view_edit_wiki_advanced_settings_allow_public_clone: "Make this site available as a template for others to clone"
+  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Best for showcasing interesting, 
+  well maintained sites for people to discover. 
+  Note that the name, description and tags will 
+  be searchable on the Explore page."
+  
+  site_view_edit_wiki_advanced_settings_allow_public_iframe: "Allow site to be loaded inside an iframe"
+  site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "When this is set the default 
+  <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options\" target=\"_blank\">X-Frame-Options</a> 
+  deny header will be suppressed. Beware that sites loaded inside iframes may be vulnerable to 
+  <a href=\"https://en.wikipedia.org/wiki/Clickjacking\" target=\"_blank\" >click-jacking</a> attacks."
+  
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver: "Use the legacy \"upload\" saver for TiddlyWiki versions 5.2.3 and higher"
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "By default the put saver will be used for TiddlyWiki versions 5.2.3 and higher. 
+  Check this if you prefer to instead use the upload saver for those TiddlyWiki versions. See also 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">this FAQ</a>."
+  
+  site_view_edit_wiki_advanced_settings_prefer_put_saver: "Use the \"put\" saver for TiddlyWiki versions 5.2.2 and lower"
+  site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "By default the upload saver will be used for TiddlyWiki versions 5.2.2. and lower. 
+  Check this if you prefer to instead use the \"put\" saver for those TiddlyWiki versions. See also 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">this FAQ</a>."
+  
+  site_view_edit_wiki_advanced_settings_skip_etag_check: "Ignore \"file changed on server\" check when saving"
+  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Check this box if you think 
+  the \"file changed on server\" error is incorrectly preventing you from saving.    
+  It is recommended to use this option temporarily when needed, rather than leave it permanently set."
+  
+  # filter and sort
+  site_view_filter_and_sort_kind: "Kind:"
+  site_view_filter_and_sort_kind_else: "Kind"
+  site_view_filter_and_sort_kind_filter_tooltip: "Site kind filter:"
+  #
+  site_view_filter_and_sort_access: "Access:"
+  site_view_filter_and_sort_access_else: "Access"
+  site_view_filter_and_sort_access_filter_tooltip: "Site access filter"
+  site_view_filter_and_sort_access_filter_drop_header: "Site access filter:"
+  #
+  site_view_filter_and_sort_sort: "Sort:"
+  site_view_filter_and_sort_sort_tooltip: "Sort by"
+  site_view_filter_and_sort_sort_drop_header: "sort by"
+  #
+  site_view_filter_and_sort_view: "View"
+  site_view_grid_list:
+    # 2 characters indented here
+    grid: "Switch to grid view"
+    list: "Switch to list view"
+  #
+  site_view_filter_and_sort_show_all: "show all"
+  

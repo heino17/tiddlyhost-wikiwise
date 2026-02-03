@@ -1,6 +1,5 @@
-
 - if @jobs_running_sites.empty?
-  None
+  =t('admin.tab_stats.no_running_jobs')
 - else
   - @jobs_running_sites.each do |site|
     = site_link(site, link_title: "#{site.class.name}/#{site.id}")

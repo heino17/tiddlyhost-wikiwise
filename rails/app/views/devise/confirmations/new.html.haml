@@ -1,16 +1,16 @@
-= render layout: 'form_wrapper', locals: { heading: 'Resend confirmation instructions',
-  intro_text: "Enter your email address to resend the email confirmation link." } do
+= render layout: 'form_wrapper', locals: { heading: t('user_resend_confirmation_header'),
+  intro_text: t('user_resend_confirmation_intro_text') } do
 
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
 
     = render 'devise/shared/error_messages', resource: resource
 
     = render layout: 'field_wrapper' do
-      = f.label :email
+      = f.label t('user_resend_confirmation_email_label')
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control',
         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.submit 'Resend confirmation instructions', class: 'btn btn-primary'
+      = f.submit t('user_resend_confirmation_submit_button'), class: 'btn btn-primary'
 
     = render 'devise/shared/links'

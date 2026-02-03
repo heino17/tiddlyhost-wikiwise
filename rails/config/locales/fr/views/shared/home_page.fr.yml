@@ -1,0 +1,20 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+# From here Tiddlyhost for i18n
+#
+---
+fr:
+  # Start Page Texts
+  signed_out_col1_heading: "Votre propre wiki en quelques secondes"  
+  signed_out_col1_text: "Obtenez votre propre wiki puissant, extensible et personnel gratuitement en quelques secondes, sans installation requise. Rendez-le privé, public, ou montrez-le sur la"  
+  signed_out_col2_heading: "Propulsé par TiddlyWiki"  
+  signed_out_col2_text: "Tiddlyhost est propulsé par <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a>, le wiki JavaScript révolutionnaire open source. Il supporte également le nouveau superléger <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> et l'original old-school <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>."  
+  signed_out_col3_heading: "Du créateur de Tiddlyspot"  
+  signed_out_col3_text: "Tiddlyhost est le successeur sécurisé, moderne et fiable de Tiddlyspot, et son code est <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>open source</a>. Découvrez-en plus sur la <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> ou la page <a href=\"about\">À propos</a>."
+  signed_out_linkto_explore: "page Explorer"
+  # Startpage Get started now - box
+  get_started_heading: "Commencez maintenant"
+  get_started_button_signup: "S'inscrire"
+  get_started_divider: "ou"
+  get_started_button_login: "Se connecter"

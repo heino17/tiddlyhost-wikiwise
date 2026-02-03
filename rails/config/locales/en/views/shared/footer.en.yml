@@ -1,0 +1,28 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+en:
+  footer_version_header: "Version"
+  footer_version_environment_title: "Env."
+  footer_version_version_title: "Version"
+  footer_version_built_title: "Built" # in admin only
+    
+  footer_about_header: "About"
+  footer_about_faq: "Docs"
+  footer_about_blog: "Blog"
+  footer_about_link_to_blog: "https://tiddlyspot.blogspot.com/"
+  footer_about_x: "X"
+  footer_about_link_to_x: "https://x.com/tiddlyhost"
+  
+  footer_support_header: "Support"
+  footer_support_report_issue: "Report issue"
+  footer_support_suggest_feature: "Suggest feature"
+  footer_support_send_email: "Send email"
+  footer_support_donate: "Donate/Sponsor"
+  
+  footer_host_info_header: "Tiddlyhost"
+  footer_host_info_terms_of_use: "Terms of Use"
+  footer_host_info_privacy_policy: "Privacy Policy"
+  footer_host_info_software_license: "Software License"
+  footer_host_info_source_code: "Source Code"

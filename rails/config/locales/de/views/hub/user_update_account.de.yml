@@ -1,0 +1,30 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+de:  
+  # user_update_account
+  user_update_account_heading: "Konto bearbeiten"
+  user_update_account_email_label: "eMail"
+  user_update_account_email_text: "Deine E-Mail-Adresse"
+  user_update_account_waiting_for_confimation: "Bestätigung der E-Mail-Adresse wird derzeit erwartet:"
+  user_update_account_name_label: "Name"
+  user_update_account_name_text: "Dein Name"
+  user_update_account_username_label: "Benutzername"
+  user_update_account_username_text: "Einzigartiger Benutzername (optional). Kann auf der Seite „Schaufenster“ angeklickt werden."
+  user_update_account_profile_image_label: "Profilbild"
+  user_update_account_current_password_label: "Aktuelles Passwort. Erforderlich, um Änderungen vorzunehmen."
+  user_update_account_current_password_text: "Gib Dein aktuelles Passwort ein, um die Änderungen zu bestätigen."
+  user_update_account_new_password_label: "Neues Passwort"
+  user_update_account_new_password_leave_blank: "(lasse das Feld leer, wenn Du Dein Passwort nicht ändern möchtest)"  
+  user_update_account_new_password_text: "Zeichen mindestens!"
+  user_update_account_confirm_password_label: "Neues Passwort bestätigen"
+  user_update_account_confirm_password_text: "Gib Dein neues Passwort nochmal ein, um es zu bestätigen."
+  user_update_account_button_submit: "Speichern"
+  user_update_account_button_cancel: "Abbrechen"
+  user_delete_account_heading: "Konto löschen"
+  user_delete_account_danger_text: "Gehe vorsichtig vor. Wenn Du Dein Konto löschst, werden auch Deine Seiten sofort gelöscht."
+  user_delete_account_button_delete: "Konto löschen"
+  user_delete_account_popup_confirm: "Hähh, hallo!? Bist Du sicher, dass Du dein Konto löschen möchtest?"   
+  user_update_account_use: "Verwende"
+  
