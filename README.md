@@ -20,14 +20,14 @@ Lieben Dank an Simon Baird, für den Spaß mit Deiner tollen Software!
 
 ( ･_･)»(ﾟｰﾟ)»(｡_｡)(｡_｡)«(ﾟｰﾟ)«( ･_･)
   
-for clone branch:  
+## clone branch:  
 SSH:  
 ```
-git clone --branch wikiwise-local-translation git@github.com:heino17/tiddlyhost-wikiwise.git  
+git clone git@github.com:heino17/tiddlyhost-wikiwise.git  
 ```
 https:  
 ```
-git clone --branch wikiwise-local-translation https://github.com/heino17/tiddlyhost-wikiwise.git  
+git clone https://github.com/heino17/tiddlyhost-wikiwise.git  
 ```
 ```
 cd tiddlyhost-wikiwise
