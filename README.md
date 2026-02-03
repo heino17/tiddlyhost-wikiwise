@@ -41,7 +41,7 @@ cd tiddlyhost-wikiwise
 - more languages easy to implement  
 - note the ports!  
  
-...is is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with an interface translated into 4 languages  
+...is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with an interface translated into 4 languages  
 through the implementation of I18n language support.  
 It has been slightly adapted for my server environment, see [Readme-Anpassungen.md](Readme-Anpassungen.md),  
 otherwise, this copy is 1:1 + I18n  
