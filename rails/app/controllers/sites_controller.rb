@@ -209,22 +209,34 @@ class SitesController < ApplicationController
     @empties_for_select = Empty.for_select
   end
 
-  def site_params_for_create
-    params.
-      require(:site).
-      permit(
-        :name, :description, :is_private, :is_searchable, :tag_list, :allow_in_iframe,
-        :prefer_put_saver, :prefer_upload_saver, :allow_public_clone, :skip_etag_check,
-        :empty_id).
-      merge(user_id: current_user.id)
-  end
+  UPDATEABLE_PARAMS = %i[
+    name
+    description
+    is_private
+    is_searchable
+    tag_list
+    allow_in_iframe
+    prefer_put_saver
+    prefer_upload_saver
+    allow_public_clone
+    skip_etag_check
+  ]
 
   def site_params_for_update
     params.
       require(:site).
-      permit(
-        :name, :description, :is_private, :is_searchable, :tag_list, :allow_in_iframe,
-        :prefer_put_saver, :prefer_upload_saver, :allow_public_clone, :skip_etag_check)
+      permit(*UPDATEABLE_PARAMS)
+  end
+
+  UPDATEABLE_PARAMS_ON_CREATE = UPDATEABLE_PARAMS + %i[
+    empty_id
+  ]
+
+  def site_params_for_create
+    params.
+      require(:site).
+      permit(*UPDATEABLE_PARAMS_ON_CREATE).
+      merge(user_id: current_user.id)
   end
 
   # Sets @site_to_clone which will be nil if there's no clone param or if the
