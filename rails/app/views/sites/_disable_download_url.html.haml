@@ -1,0 +1,9 @@
+= render layout: 'field_wrapper' do
+  .form-check.enable-tooltips
+    = f.check_box :disable_download_url, class: 'form-check-input'
+    = f.label :disable_download_url, class: 'form-check-label' do
+      Disable public download url
+
+      = render 'popover_help',
+        html_content: "Disable the <a href=\"#{site.download_url}\">download url</a> to |
+          make it less convenient for users to download a full copy of your public site." |

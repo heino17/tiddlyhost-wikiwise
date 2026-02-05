@@ -154,6 +154,7 @@ class Site < ApplicationRecord
     return true if allow_public_clone?
     return true if allow_in_iframe?
     return true if skip_etag_check?
+    return true if disable_download_url?
 
     false
   end

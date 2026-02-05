@@ -85,6 +85,45 @@ class TiddlywikiControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  [
+    # Public site, download url enabled
+    [false, false, nil, :success],
+    [false, false, :bobby, :success],
+    [false, false, :mary, :success],
+
+    # Public site, download url disabled
+    [false, true, nil, :not_found],
+    [false, true, :bobby, :not_found],
+    [false, true, :mary, :not_found],
+
+    # Private site, download url enabled
+    [true, false, nil, :unauthorized],
+    [true, false, :bobby, :success],
+    [true, false, :mary, :forbidden],
+
+  ].each do |is_private, disable_download_url, signed_in_user, expected_response|
+    test "download url #{disable_download_url ? 'disabled' : 'enabled'} #{is_private ? 'private' : 'public'} user #{signed_in_user || 'nil'} expected #{expected_response}" do
+      @site.update(disable_download_url:)
+      @site.update(is_private:)
+      sign_in users(signed_in_user) if signed_in_user
+      get '/download'
+      assert_response expected_response
+
+      if expected_response == :success
+        # Sanity check we have some content
+        assert_match 'TiddlyWiki', response.body
+
+        # Sanity check the download header
+        assert_equal(
+          "attachment; filename=\"foo.html\"; filename*=UTF-8''foo.html",
+          response.headers['content-disposition'])
+      else
+        # Sanity check we do not have content
+        assert_equal '', response.body
+      end
+    end
+  end
+
   test 'allow in iframe' do
     fetch_site_as_user
     assert_equal 'SAMEORIGIN', response.headers['X-Frame-Options']

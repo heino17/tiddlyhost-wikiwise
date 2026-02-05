@@ -197,10 +197,15 @@ class TiddlywikiController < ApplicationController
     # Site doesn't exist
     return [404, 'Not Found'] unless site_exists?
 
+    # Special handling for the /download url
+    return [404, 'Not Found'] if action_name == 'download' && site_visible? && site_download_url_disabled?
+
     # User signed in, site unavailable
+    # Fixme: Actually the name is wrong, should be [403, 'Forbidden']
     return [403, 'Unauthorized'] if user_signed_in?
 
     # User not signed in, site unavailable
+    # Fixme: Actually the name is wrong, should be [401, 'Unauthorized']
     [401, 'Forbidden']
   end
 
@@ -209,7 +214,7 @@ class TiddlywikiController < ApplicationController
   end
 
   def site_downloadable?
-    site_visible?
+    site_visible? && !site_download_url_disabled?
   end
 
   def site_saveable?
@@ -238,6 +243,10 @@ class TiddlywikiController < ApplicationController
   def site_valid?
     # Beware this requires downloading the site's content
     @site.looks_valid?
+  end
+
+  def site_download_url_disabled?
+    @site.disable_download_url?
   end
 
   def find_site

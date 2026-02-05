@@ -220,6 +220,7 @@ class SitesController < ApplicationController
     prefer_upload_saver
     allow_public_clone
     skip_etag_check
+    disable_download_url
   ]
 
   def site_params_for_update

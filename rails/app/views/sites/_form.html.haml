@@ -48,6 +48,7 @@
 
     = render layout: 'advanced_wrapper' do
       = render 'public_clone', f:
+      = render 'disable_download_url', site: @site, f:
       = render 'site_common/allow_in_iframe', f:
       = render 'save_method_prefs', f:
       = render 'skip_etag_check', f:
