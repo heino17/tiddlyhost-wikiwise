@@ -192,11 +192,11 @@ class SitesTest < CapybaraIntegrationTest
   end
 
   def assert_is_401
-    assert_is_status(401, 'Forbidden')
+    assert_is_status(401, 'Unauthorized')
   end
 
   def assert_is_403
-    assert_is_status(403, 'Unauthorized')
+    assert_is_status(403, 'Forbidden')
   end
 
   def assert_is_status(status_code, status_message)

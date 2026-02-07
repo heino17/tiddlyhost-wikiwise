@@ -201,12 +201,10 @@ class TiddlywikiController < ApplicationController
     return [404, 'Not Found'] if action_name == 'download' && site_visible? && site_download_url_disabled?
 
     # User signed in, site unavailable
-    # Fixme: Actually the name is wrong, should be [403, 'Forbidden']
-    return [403, 'Unauthorized'] if user_signed_in?
+    return [403, 'Forbidden'] if user_signed_in?
 
     # User not signed in, site unavailable
-    # Fixme: Actually the name is wrong, should be [401, 'Unauthorized']
-    [401, 'Forbidden']
+    [401, 'Unauthorized']
   end
 
   def site_visible?
