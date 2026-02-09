@@ -69,3 +69,73 @@
         = home_tag_links(site)
       - else
         = hub_tag_links(site, crawler_protect: true)
+  -# this line for view voting
+  = render 'sites/vote_partial', site: site
+  -# below for comments
+  - user_comment = user_signed_in? ? site.comments.find_by(user: current_user) : nil
+  - comments = site.comments.includes(:user).order(created_at: :desc).limit(3)
+  - comment_count = site.comments.count
+
+  %details.site-comments{ style: 'margin-top: 0.1rem; font-size: 0.5rem;' }
+    %summary.text-muted{ style: "cursor: pointer;" }
+      %strong
+        #{comment_count}
+        = comments.size == 1 ? t('comments.title_singular') : t('comments.title_plural')
+      #{bi_icon('feather', height: '1.2em', fill: '#777')}
+
+    - if user_signed_in?
+      - comment_record = user_comment || Comment.new
+      = form_with model: comment_record,
+            url: site_comments_path(site),
+            method: :post,
+            local: true do |f|
+        .mb-1
+          = f.text_area :body,
+            value: (user_comment&.body || ''),
+            rows: 2,
+            class: 'form-control form-control-sm',
+            style: 'margin-top: 0rem; font-size: 90%;',
+            placeholder: t('comments.your_comment_short')
+        .mb-1
+          = f.submit t(user_comment ? 'comments.update_button' : 'comments.create_button'),
+            class: 'btn btn-sm btn-outline-primary',
+            style: 'margin-top: 0rem; font-size: 100%;'
+
+    - else
+      .text-muted{ style: 'margin-bottom: 0.0rem; margin-top: 0.0rem;' }
+        = t('comments.login_hint_short')
+
+    - comments.each do |comment|
+      %div.comment-item{ style: 'border-top: 1px solid #eee; padding-top: 0.2rem; margin-top: 0.2rem; font-size: 90%; position: relative;' }
+        %span.text-muted
+        = comment.user.username.presence || comment.user.email
+        = ' · '
+        = l(comment.created_at, format: :long)
+        - if comment.edited_at.present?
+          %br
+          = "(#{t('comments.edited')}: #{l(comment.edited_at, format: :long)})"
+
+      %div
+        = simple_format(comment.body, {}, wrapper_tag: 'span')
+
+      %div.text-muted.d-flex.justify-content-between.align-items-center.mt-1
+        %span
+          -#= t('comments.score_label')
+          -#= ': '
+          -#= comment.score
+          / hier später Up-/Downvote-Buttons
+
+        - if user_signed_in? && comment.user == current_user
+          = link_to t('comments.delete_button'),
+            site_comment_path(site, comment),
+            method: :delete,
+            data: { confirm: t('comments.delete_confirm') || "Kommentar wirklich löschen?" },
+            class: 'btn btn-sm btn-link text-danger p-0',
+            style: 'font-size: 90%; text-decoration: none;'            
+
+    - if comment_count > 1
+      .text-center.mt-2
+      = link_to t('comments.show_all_button', count: comment_count),
+                site_comments_path(site),
+                class: 'btn btn-sm btn-outline-primary mt-2 d-block text-center',
+                style: 'font-size: 100%;'

@@ -8,6 +8,7 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import $ from "jquery"
 import * as bootstrap from "bootstrap"
+import "@hotwired/turbo-rails"
 
 // Make jQuery available globally
 window.$ = window.jQuery = $

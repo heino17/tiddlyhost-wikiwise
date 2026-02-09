@@ -1,0 +1,44 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+fr:  
+  comments:
+    title_short: "Commentaires"
+    title_singular: "Commentaire"
+    title_plural: "Commentaires"
+    your_comment: "Votre commentaire"
+    your_comment_short: "Votre commentaire sur ce wiki"
+    create_button: "Enregistrer le commentaire"
+    update_button: "Mettre à jour le commentaire"
+    created: "Commentaire enregistré"
+    updated: "Commentaire mis à jour"
+    login_hint: "Veuillez vous connecter pour rédiger un commentaire."
+    login_hint_short: "Veuillez vous connecter pour commenter."
+    edited: "Modifié"
+    score_label: "Score"
+
+    delete_button: "Supprimer"
+    deleted: "Commentaire supprimé !"
+    not_your_comment: "Ce n'est pas votre commentaire !"
+    delete_confirm: "Vraiment supprimer ? Votre commentaire ne pourra pas être restauré !"
+    
+    show_all_button: "Afficher tous les %{count} commentaires "
+    
+    title_comments_for: "Commentaires pour le site"
+    delete_your_comment: "Supprimer votre commentaire"
+    back_to_previous_page: "Retour à la page précédente"
+    go_to_explore_view: "Aller à la page Explorer"
+  # voting wiki sites
+  votes:
+    average: "Évaluation"
+    count:
+      one: "Évaluation"
+      other: "Évaluations"
+    saved: "Évaluation enregistrée."
+    removed: "Votre évaluation a été supprimée."
+    login_hint: "Veuillez vous connecter pour évaluer."
+    no_ratings_yet_login: "Aucune évaluation pour le moment ! Veuillez vous connecter pour évaluer."
+    login_to_rate: "Connectez-vous pour donner votre avis."
+    my_rating:    "Ma note"
+    rate_now:     "Noter"
