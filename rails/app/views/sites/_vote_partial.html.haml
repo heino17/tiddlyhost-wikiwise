@@ -12,7 +12,7 @@
     - user_vote = site.site_votes.find_by(user: current_user)
 
     = form_with url: site_site_vote_path(site),
-               method: :post,
+               method: user_vote ? :patch : :post,
                data: { turbo_stream: true } do |f|
 
       %details.site-vote-details{ style: 'margin-top: 0rem;' }
@@ -28,9 +28,7 @@
           .d-flex.gap-1
             - (1..5).each do |val|
               - is_selected = user_vote&.value == val
-              %button.btn.btn-sm{ type: 'submit',
-                                  name: 'site_vote[value]',
-                                  value: val,
+              %button.btn.btn-sm{ type: 'submit', name: 'site_vote[value]', value: is_selected ? '' : val,
                                   class: (is_selected ? 'btn-primary' : 'btn-outline-secondary'),
                                   style: 'font-size: 0.8em; padding: 0.25rem 0.5rem;' }
                 ★

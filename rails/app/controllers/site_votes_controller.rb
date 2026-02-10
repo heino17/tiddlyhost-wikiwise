@@ -9,11 +9,11 @@ class SiteVotesController < ApplicationController
 
     if submitted_value.blank?
       @vote.destroy if @vote.persisted?
-      flash.now[:notice] = t('votes.removed')
+      message = t('votes.removed')
     else
       @vote.value = submitted_value.to_i
       @vote.save!
-      flash.now[:notice] = t('votes.saved')
+      message = t('votes.saved')
     end
 
     respond_to do |format|
@@ -32,7 +32,7 @@ class SiteVotesController < ApplicationController
       end
 
       format.html do
-        redirect_back fallback_location: hub_path, notice: flash[:notice]
+        redirect_back fallback_location: hub_path, notice: message
       end
 
       format.any { head :not_acceptable }
