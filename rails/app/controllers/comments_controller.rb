@@ -34,11 +34,11 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @site = @comment.site   # oder was immer @site bei dir ist
 
-    return head :forbidden unless @comment.user == current_user
+    return head :forbidden unless @comment.user == current_user|| user_is_admin?
 
     @comment.destroy
 
-    redirect_to hub_path(@comment.site), status: :see_other, notice: t('comments.deleted')
+    redirect_back_or_to hub_path, notice: t('comments.deleted'), status: :see_other
   end
 
   private

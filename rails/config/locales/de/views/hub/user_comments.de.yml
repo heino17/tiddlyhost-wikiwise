@@ -21,7 +21,7 @@ de:
     delete_button: "Löschen"
     deleted: "Kommentar gelöscht!"
     not_your_comment: "Das ist nicht dein Kommentar!"
-    delete_confirm: "Wirklich löschen? Dein Kommentar kann nicht wiederhergestellt werden!"
+    delete_confirm: "Wirklich löschen? Der Kommentar kann nicht wiederhergestellt werden!"
     
     show_all_button: "Alle %{count} Kommentare anzeigen"
     
@@ -29,7 +29,10 @@ de:
     delete_your_comment: "Deinen Kommentar löschen"
     back_to_previous_page: "🢤 Zurück zur vorherigen Seite"
     go_to_explore_view: "Zur Schaufenster-Seite 🢧"
-
+    
+    delete_as_admin: "Loeschen (Admin)"
+    delete_as_admin_confirm: "Kommentar als Admin loeschen? (Auch wenn der Kommentar nicht von Dir ist!)"
+  # voting wiki sites
   votes:
     average: "Bewertung"
     count:
