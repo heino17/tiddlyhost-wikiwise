@@ -11,7 +11,7 @@
 
       - if @comments.any?
         - @comments.each do |comment|
-          .card.mb-3
+          .card.mb-3{ id: "comment_#{comment.id}" }
             .card-body
               .d-flex.justify-content-between
                 %strong
@@ -32,11 +32,12 @@
                 - if user_signed_in? && (comment.user == current_user || user_is_admin?)
                   %br
                   %br
-                    = link_to t('comments.delete_button'), site_comment_path(@site, comment),
-                      method: :delete,
-                      data: { confirm: t('comments.delete_confirm'), turbo: false },
-                      class: 'btn btn-outline-danger btn-sm px-4 small ms-3 d-block text-center',
-                      style: 'font-size: 60%; text-decoration: none;'
+                    = link_to t('comments.delete_button'), 
+                              site_comment_path(@site, comment),
+                              method: :delete,
+                              data: { confirm: t('comments.delete_confirm'), turbo_method: :delete },
+                              class: 'btn btn-outline-danger btn-sm px-4 small ms-3 d-block text-center',
+                              style: 'font-size: 60%; text-decoration: none;'
                       
       - else
         %p.text-muted Keine Kommentare vorhanden.

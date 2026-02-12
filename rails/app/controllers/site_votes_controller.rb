@@ -1,3 +1,5 @@
+# app/controllers/site_votes_controller.rb
+
 class SiteVotesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_site
@@ -8,38 +10,46 @@ class SiteVotesController < ApplicationController
     submitted_value = params.dig(:site_vote, :value)
 
     if submitted_value.blank?
+      # Bewertung entfernen
       @vote.destroy if @vote.persisted?
-      message = t('votes.removed')
+      flash_message = t('votes.removed')
+      flash_type = "info"  # oder "warning"
     else
+      # Bewertung setzen oder ändern
       @vote.value = submitted_value.to_i
       @vote.save!
-      message = t('votes.saved')
+      flash_message = t('votes.saved')
+      flash_type = "success"
     end
 
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
+          # 1. Den gesamten Vote-Bereich aktualisieren (Sterne, Durchschnitt, Text)
           turbo_stream.replace(
             "site_vote_#{@site.id}",
-            partial: "sites/vote_partial",
+            partial: "sites/vote_partial",   # ← oder "site_votes/vote_partial" – je nachdem wo dein Partial liegt
             locals: { site: @site }
           ),
-          turbo_stream.replace(
-            "flash_messages",
-            partial: "shared/flash"
+
+          # 2. Flash-Nachricht **direkt über** dem Vote-Bereich einfügen
+          turbo_stream.prepend(
+            "site_vote_#{@site.id}",
+            "<div class='alert alert-#{flash_type} alert-dismissible fade show mb-2'>#{flash_message}<button type='button' class='btn-close' data-bs-dismiss='alert'></button></div>".html_safe
           )
         ]
       end
 
+      # Fallback für Nicht-Turbo-Clients (z. B. JS deaktiviert)
       format.html do
-        redirect_back fallback_location: hub_path, notice: message
+        redirect_back fallback_location: hub_path,
+                      notice: flash_message,
+                      status: :see_other
       end
-
-      format.any { head :not_acceptable }
     end
-
   end
 
+  # Falls du eine separate update-Action hast:
   def update
     create   # gleiche Logik wie create
   end

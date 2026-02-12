@@ -28,21 +28,11 @@
     </header>
 
     <!-- Flash-Nachrichten -->
-    <div class="container-fluid mt-3">
+    <div id="flash_messages">
       <% flash.each do |type, message| %>
-        <% next if type.to_s == "timedout" %> <!-- falls Devise o.ä. verwendet wird -->
-
-        <% css_class = case type.to_sym
-                       when :notice  then "success"
-                       when :alert   then "danger"
-                       when :error   then "danger"
-                       when :warning then "warning"
-                       else "info"
-                       end %>
-
-        <div class="alert alert-<%= css_class %> alert-dismissible fade show" role="alert">
+        <div class="alert alert-<%= type == :notice ? 'success' : 'success' %> alert-dismissible fade show" role="alert">
           <%= message %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
       <% end %>
     </div>
@@ -59,22 +49,6 @@
     </footer>
 
     <!-- Automatisches Ausblenden von Erfolgsmeldungen nach 3 Sekunden -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Nur alert-success (Erfolgsmeldungen) automatisch ausblenden
-        const successAlerts = document.querySelectorAll('.alert-success');
-
-        successAlerts.forEach(function (alert) {
-          setTimeout(function () {
-            // Bootstrap 5 Alert schließen (mit Fade-Animation)
-            const bsAlert = bootstrap.Alert.getOrCreateInstance(alert);
-            if (bsAlert) {
-              bsAlert.close();
-            }
-          }, 3000); // 3000 ms = 3 Sekunden
-        });
-      });
-    </script>
 
   </body>
 </html>
