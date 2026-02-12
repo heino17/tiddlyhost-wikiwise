@@ -1,6 +1,6 @@
 = render layout: 'form_wrapper', locals: { heading: heading } do
 
-  = form_for @site do |f|
+  = form_for @site, data: { turbo: false } do |f|
 
     - if @site.errors.any?
       = render layout: 'field_wrapper' do

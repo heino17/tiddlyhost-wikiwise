@@ -225,3 +225,26 @@ $(document).ready(function () {
     link.removeAttr('data-crawler-protect-href');
   });
 });
+
+// flash messeges
+document.addEventListener("turbo:load", autoHideFlash);
+document.addEventListener("DOMContentLoaded", autoHideFlash);
+
+function autoHideFlash() {
+  const alerts = document.querySelectorAll('.alert-flash');
+  if (!alerts.length) return;
+
+  alerts.forEach((alertNode) => {
+    // Warten (z.B. 4 Sekunden), dann schließen
+    const timeout = setTimeout(() => {
+      // Für Bootstrap 5:
+      const alert = bootstrap.Alert.getOrCreateInstance(alertNode);
+      alert.close();
+    }, 3000);
+
+    // Wenn der Nutzer vorher manuell schließt, Timeout abbrechen
+    alertNode.addEventListener('closed.bs.alert', () => {
+      clearTimeout(timeout);
+    });
+  });
+}
