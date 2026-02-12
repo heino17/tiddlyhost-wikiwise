@@ -1,5 +1,5 @@
-.bundle
-.bundle/config
+/.bundle
+/.bundle/config
 rails/vendor
 rails/tmp
 rails/log
