@@ -1,7 +1,7 @@
 = render layout: 'form_wrapper', locals: { heading: t('sign_up_page_heading'),
   intro_text: t('sign_up_page_ask_have_account') + " #{link_to t('shared_links_login'), new_user_session_path}."} do
 
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f|
 
     = render 'devise/shared/error_messages', resource: resource
 
