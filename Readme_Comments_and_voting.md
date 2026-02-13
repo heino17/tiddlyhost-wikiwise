@@ -1,4 +1,4 @@
-🇩🇪 Deutsch und Amerikanisch 🇺🇸
+🇩🇪 Deutsch und Amerikanisch 🇺🇸  
 German and American
 
 ### 🇩🇪 Kommentar- & Voting-System für Tiddlyhost-Wikis
