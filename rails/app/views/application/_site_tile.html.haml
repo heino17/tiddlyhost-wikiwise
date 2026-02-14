@@ -19,19 +19,19 @@
   - if clone_buttons
     -# Show the new style clone and download buttons
     .clone-download-buttons
-      = link_to "#{site.url}/download", class: 'btn btn-sm btn-light' do
+      = turbo_off_link_to "#{site.url}/download", class: 'btn btn-sm btn-light' do
         #{bi_icon('download', height: '1.2em', fill: '#777')}
         = t('hub_view_action_menu_download')
-      = link_to new_site_path(clone: site.name), class: 'btn btn-sm btn-light' do
+      = turbo_off_link_to new_site_path(clone: site.name), class: 'btn btn-sm btn-light' do
         #{bi_icon('files', height: '1.2em', fill: '#777')}
         = t('hub_view_action_menu_clone')
 
     - unless is_templates
       -# Same thing but it will be visible pre-hover
       .clone-download-buttons.mini-clone-download-buttons
-        = link_to "#{site.url}/download", class: 'btn btn-sm btn-light' do
+        = turbo_off_link_to "#{site.url}/download", class: 'btn btn-sm btn-light' do
           #{bi_icon('download', height: '1.2em', fill: '#777')}
-        = link_to new_site_path(clone: site.name), class: 'btn btn-sm btn-light' do
+        = turbo_off_link_to new_site_path(clone: site.name), class: 'btn btn-sm btn-light' do
           #{bi_icon('files', height: '1.2em', fill: '#777')}
 
   - else
