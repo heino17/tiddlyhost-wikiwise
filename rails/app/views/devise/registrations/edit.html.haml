@@ -1,6 +1,6 @@
-= render layout: 'form_wrapper', locals: { heading: t('user_update_account_heading'), data: { turbo: false }}." } do
+= render layout: 'form_wrapper', locals: { heading: t('user_update_account_heading'), data: { turbo: false } } do
 
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f|
 
     = render 'devise/shared/error_messages', resource: resource
 
@@ -76,4 +76,4 @@
 
   = render layout: 'field_wrapper' do
     = button_to t('user_delete_account_button_delete'), registration_path(resource_name), method: :delete, class: 'btn btn-danger',
-      data: { confirm: t('user_delete_account_popup_confirm') }
+      data: { confirm: t('user_delete_account_popup_confirm'), data: { turbo: false } }
