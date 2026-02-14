@@ -41,23 +41,5 @@
       <%= render 'layouts/footer' %>
     </footer>
 
-    <!-- Automatisches Ausblenden von Erfolgsmeldungen nach 3 Sekunden -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Nur alert-success (Erfolgsmeldungen) automatisch ausblenden
-        const successAlerts = document.querySelectorAll('.alert-success');
-
-        successAlerts.forEach(function (alert) {
-          setTimeout(function () {
-            // Bootstrap 5 Alert schließen (mit Fade-Animation)
-            const bsAlert = bootstrap.Alert.getOrCreateInstance(alert);
-            if (bsAlert) {
-              bsAlert.close();
-            }
-          }, 3000); // 3000 ms = 3 Sekunden
-        });
-      });
-    </script>
-
   </body>
 </html>

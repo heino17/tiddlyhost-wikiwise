@@ -1,6 +1,6 @@
 # https://stackoverflow.com/questions/44680975/custom-will-paginate-renderer
 
-require 'will_paginate/view_helpers/action_view'
+# require 'will_paginate/view_helpers/action_view'
 
 class BootstrapPaginateRenderer < WillPaginate::ActionView::LinkRenderer
   def container_attributes
@@ -13,10 +13,11 @@ class BootstrapPaginateRenderer < WillPaginate::ActionView::LinkRenderer
   end
 
   def page_number(page)
+    turbo_attr = 'data-turbo="false"'.html_safe  # ← NEU!
     if page == current_page
-      "<li class=\"page-item active\">#{link(page, page, rel: rel_value(page), class: 'page-link')}</li>"
+      "<li class=\"page-item active\" #{turbo_attr}>#{link(page, page, rel: rel_value(page), class: 'page-link')}</li>"
     else
-      "<li class=\"page-item\">#{link(page, page, rel: rel_value(page), class: 'page-link')}</li>"
+      "<li class=\"page-item\" #{turbo_attr}>#{link(page, page, rel: rel_value(page), class: 'page-link')}</li>"
     end
   end
 
@@ -33,10 +34,12 @@ class BootstrapPaginateRenderer < WillPaginate::ActionView::LinkRenderer
   end
 
   def previous_or_next_page(page, text)
+    turbo_attr = 'data-turbo="false"'.html_safe  # ← NEU!
     if page
-      "<li class=\"page-item\">#{link(text, page, class: 'page-link')}</li>"
+      "<li class=\"page-item\" #{turbo_attr}>#{link(text, page, class: 'page-link')}</li>"
     else
-      "<li class=\"page-item disabled\">#{link(text, page, class: 'page-link')}</li>"
+      "<li class=\"page-item disabled\" #{turbo_attr}>#{link(text, page, class: 'page-link')}</li>"
     end
   end
 end
+

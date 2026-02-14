@@ -43,21 +43,18 @@ module ApplicationHelper
 
   def nav_link_to(title, link, opts = {})
     is_active = current_page?(link) ||
-      # We redirect home to /sites when user is logged in
-      (current_page?(sites_path) && link == root_path) ||
-      # Highlight Hub link for all Hub pages
-      # FIXME: This is probably not going to be working, (but
-      # maybe it doesn't matter since the active class doesn't
-      # do much anyhow..?)
-      (controller_name == 'hub' && link == '/hub') ||
-      # Highlight Admin link for all Admin pages
-      (controller_name == 'admin' && link == '/admin')
+                (current_page?(sites_path) && link == root_path) ||
+                (controller_name == 'hub' && link == '/hub') ||
+                (controller_name == 'admin' && link == '/admin')
 
     icon = opts.delete(:icon)
     li_class = opts.delete(:li_class)
 
+    # Turbo komplett deaktivieren
+    turbo_opts = { data: { turbo: false } }.merge(opts)
+
     content_tag :li, class: ['nav-item', li_class] do
-      link_to link, opts.merge(class: "flex-column nav-link#{' active' if is_active}") do
+      link_to link, turbo_opts.merge(class: "flex-column nav-link#{' active' if is_active}") do
         safe_join([bi_icon(icon), title].compact)
       end
     end
@@ -65,8 +62,12 @@ module ApplicationHelper
 
   def tab_link_to(title, link, opts = {})
     is_active = current_page?(link)
+
+    # Turbo deaktivieren
+    turbo_opts = { data: { turbo: false } }.merge(opts)
+
     content_tag :li, class: 'nav-item' do
-      link_to link, opts.merge(class: "nav-link#{' active' if is_active}") do
+      link_to link, turbo_opts.merge(class: "nav-link#{' active' if is_active}") do
         title
       end
     end
@@ -185,11 +186,9 @@ module ApplicationHelper
       options = coll_or_options
       coll_or_options = nil
     end
-
     unless options[:renderer]
       options = options.merge renderer: BootstrapPaginateRenderer
     end
-
     super(*[coll_or_options, options].compact)
   end
 

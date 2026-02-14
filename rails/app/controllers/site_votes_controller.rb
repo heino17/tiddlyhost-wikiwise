@@ -24,18 +24,24 @@ class SiteVotesController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
+      flash.now[flash_type] = flash_message  # Globale Flash + lokale
         render turbo_stream: [
           # 1. Den gesamten Vote-Bereich aktualisieren (Sterne, Durchschnitt, Text)
           turbo_stream.replace(
             "site_vote_#{@site.id}",
-            partial: "sites/vote_partial",   # ← oder "site_votes/vote_partial" – je nachdem wo dein Partial liegt
+            partial: "sites/vote_partial",
             locals: { site: @site }
           ),
 
           # 2. Flash-Nachricht **direkt über** dem Vote-Bereich einfügen
           turbo_stream.prepend(
             "site_vote_#{@site.id}",
-            "<div class='alert alert-#{flash_type} alert-dismissible fade show mb-2'>#{flash_message}<button type='button' class='btn-close' data-bs-dismiss='alert'></button></div>".html_safe
+            "<div id='vote_flash_#{@site.id}' class='mt-2 mb-2'>" +
+              "<div class='alert alert-#{flash_type} alert-dismissible fade show alert-flash'>" +
+                "#{flash_message}" +
+                "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" +
+              "</div>" +
+            "</div>".html_safe
           )
         ]
       end

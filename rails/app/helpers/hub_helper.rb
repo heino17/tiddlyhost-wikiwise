@@ -7,11 +7,19 @@ module HubHelper
     if crawler_protect
       # Convert to actual URL string for the data attribute
       url_string = url_for(hub_tag_url(tag_name))
-      link_to('#', class: 'nav-link', rel: 'nofollow', 'data-crawler-protect-href': url_string) do
+    
+      link_to '#', 
+              class: 'nav-link', 
+              rel: 'nofollow', 
+              'data-crawler-protect-href': url_string,
+              data: { turbo: false } do
         bi_icon(:tag) + tag_name
       end
     else
-      hub_link_to(bi_icon(:tag) + tag_name, hub_tag_url(tag_name))
+      # Hier auch Turbo deaktivieren
+      hub_link_to(bi_icon(:tag) + tag_name, 
+                  hub_tag_url(tag_name),
+                  data: { turbo: false })
     end
   end
 

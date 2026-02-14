@@ -3,7 +3,7 @@
     %h4= t('signed_out_col1_heading')
     %p
       = t('signed_out_col1_text')
-      #{link_to(t('signed_out_linkto_explore'), '/explore')}.
+      #{turbo_off_link_to(t('signed_out_linkto_explore'), '/explore')}.
 
   .col
     %h4= t('signed_out_col2_heading')
@@ -17,8 +17,8 @@
 
 .rounded.mt-3.p-4.th-bg-jumbo.jumbotron{ style: "padding: 1.5em 1.5em 2em 1.5em" }
   %h3= t('get_started_heading')
-  = link_to new_user_registration_path, class: 'btn btn-lg btn-primary' do
+  = turbo_off_link_to new_user_registration_path, class: 'btn btn-lg btn-primary' do
     = t('get_started_button_signup')
   %span= t('get_started_divider')
-  = link_to new_user_session_path, class: 'btn btn-lg btn-primary' do
+  = turbo_off_link_to new_user_session_path, class: 'btn btn-lg btn-primary' do
     = t('get_started_button_login')

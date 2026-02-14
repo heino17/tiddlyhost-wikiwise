@@ -19139,6 +19139,38 @@
   window.Turbo = turbo_es2017_esm_exports;
   addEventListener("turbo:before-fetch-request", encodeMethodIntoRequestBody);
 
+  // app/javascript/flash_auto_dismiss.js
+  console.log("flash_auto_dismiss.js wurde geladen!");
+  function autoHideFlash(container = document) {
+    const alerts = container.querySelectorAll(".alert-flash:not([data-auto-hidden])");
+    alerts.forEach((alert2) => {
+      alert2.dataset.autoHidden = "true";
+      setTimeout(() => {
+        const bsAlert = bootstrap?.Alert?.getOrCreateInstance(alert2);
+        if (bsAlert) {
+          bsAlert.close();
+        } else {
+          alert2.classList.remove("show");
+          setTimeout(() => alert2.remove(), 800);
+        }
+      }, 3e3);
+    });
+  }
+  document.addEventListener("turbo:render", (event) => {
+    const newContent = event.detail.newBody || document.body;
+    autoHideFlash(newContent);
+  });
+  document.addEventListener("turbo:load", () => autoHideFlash());
+  document.addEventListener("DOMContentLoaded", () => autoHideFlash());
+  var observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length) {
+        autoHideFlash(mutation.target);
+      }
+    });
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
   // app/javascript/application.js
   window.$ = window.jQuery = import_jquery.default;
   window.bootstrap = bootstrap_esm_exports;

@@ -14,9 +14,9 @@
   %p.py-2
     = t('donations_page_logged_in_out_before').html_safe
     - if user_signed_in?
-      = link_to bi_icon('bag-check') + t('user_menu_item_subscription_plans'), '/subscription'
+      = turbo_off_link_to bi_icon('bag-check') + t('user_menu_item_subscription_plans'), '/subscription'
     - else
-      = link_to t('top_menu_pricing'), '/pricing'
+      = turbo_off_link_to t('top_menu_pricing'), '/pricing'
     = t('donations_page_logged_in_after').html_safe
     - if subscribed_already
       %sup.th-dim
@@ -35,10 +35,10 @@
 
     .donate-button.ms-2
       - if user_signed_in?
-        = link_to '/subscription' do
+        = turbo_off_link_to '/subscription' do
           = bi_icon('bag-check', style: 'margin-right: 3px;') + t('user_menu_item_subscription_plans')
       - else
-        = link_to '/pricing' do
+        = turbo_off_link_to '/pricing' do
           = bi_icon('bag-check', style: 'margin-right: 3px;') + t('top_menu_pricing')
 
 

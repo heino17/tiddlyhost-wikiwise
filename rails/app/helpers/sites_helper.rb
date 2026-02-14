@@ -125,14 +125,22 @@ module SitesHelper
     kind_logo(site, 'height: 1.2em; margin-right: 2px; margin-top: -2px;') + " #{site.kind_title} #{site.tw_version}" if site.tw_kind
   end
 
+  def turbo_off_link_to(*args, &block)
+    options = args.extract_options!
+    options[:data] ||= {}
+    options[:data][:turbo] = false
+    link_to(*args, options, &block)
+  end
+
   def hub_tag_links(site, crawler_protect: false)
     safe_join(site.tag_list.map do |tag_name|
       if crawler_protect
         # Convert to actual URL string for the data attribute
         url_string = url_for(hub_tag_url(tag_name))
-        link_to tag_name, '#', rel: 'nofollow', 'data-crawler-protect-href': url_string
+        turbo_off_link_to tag_name, '#', rel: 'nofollow', 
+                             'data-crawler-protect-href': url_string
       else
-        link_to tag_name, hub_tag_url(tag_name), rel: 'nofollow'
+        turbo_off_link_to tag_name, hub_tag_url(tag_name), rel: 'nofollow'
       end
     end, ' ')
   end
@@ -141,7 +149,7 @@ module SitesHelper
     safe_join(site.tag_list.map do |tag_name|
       # Use filter_link_url to get the URL but create our own link without dropdown-item classes
       url = filter_link_url(:tags, tag_name)
-      link_to tag_name, url, rel: 'nofollow'
+      turbo_off_link_to tag_name, hub_tag_url(tag_name), rel: 'nofollow'
     end, ' ')
   end
 

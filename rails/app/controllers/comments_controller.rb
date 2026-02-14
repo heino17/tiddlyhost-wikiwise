@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
             # 2. Flash-Nachricht direkt oben einfügen
             turbo_stream.prepend(
               "site_comments_#{@site.id}",
-              "<div class='alert alert-success alert-dismissible fade show mb-2' role='alert'>
+              "<div class='alert alert-success alert-dismissible fade show alert-flash mb-2' role='alert' style='font-size: 65%;'>
                  #{success_message}
                  <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
                </div>".html_safe
@@ -87,7 +87,7 @@ class CommentsController < ApplicationController
          # Flash-Nachricht oben einfügen
           turbo_stream.prepend(
             "site_comments_#{@comment.site.id}",
-            "<div class='alert alert-success alert-dismissible fade show mb-2' role='alert'>
+            "<div class='alert alert-success alert-dismissible fade show alert-flash mb-2' role='alert' style='font-size: 65%;'>
                #{t('comments.deleted')}
                <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
              </div>".html_safe

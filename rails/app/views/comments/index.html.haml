@@ -42,13 +42,13 @@
       - else
         %p.text-muted Keine Kommentare vorhanden.
 
-      -# Optional: Zurück-Link
-      - if request.referer && !request.referer.include?("/comments")
-        .mt-5.text-center
-          .d-inline-flex.gap-3.justify-content-center
+      -# Optional: Zurück-Buttons (mittig nebeneinander)
+      .mt-5.text-center
+        .d-inline-flex.gap-3.justify-content-center.flex-wrap
+          - if request.referer && !request.referer.include?("/comments")
             = link_to t('comments.back_to_previous_page'), request.referer,
               class: 'btn btn-outline-secondary px-4'
 
-      = link_to t('comments.go_to_explore_view'), hub_path,
-        title: t('comments.go_to_explore_view'),
-        class: 'btn btn-outline-secondary px-4'
+          = link_to t('comments.go_to_explore_view'), hub_path,
+            title: t('comments.go_to_explore_view'),
+            class: 'btn btn-outline-secondary px-4'
