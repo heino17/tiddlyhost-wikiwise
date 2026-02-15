@@ -20,6 +20,10 @@ fr:
   download_all: "Télécharger tout"
   #
   site_view_create_a_site_heading: "Créer un site"
+  site_view_create_a_site_created_flash: "Site créé avec succès."
+  site_view_upload_a_site_uploaded_flash: "Le téléchargement du fichier s'est terminé avec succès."
+  site_view_destroy_a_site_destroyed_flash: "Site supprimé avec succès."
+  
   site_view_clone_a_site_heading: "Cloner un site"
   # user home "Save history"-details
   site_view_save_history_for: "Enregistrer l'historique pour"
@@ -42,6 +46,7 @@ fr:
   site_view_edit_wiki_heading: "Paramètres pour"
   site_view_edit_wiki_name_label: "Nom"
   site_view_edit_wiki_name_text: "Lettres minuscules, chiffres et caractères '-' non en début ni en fin sont autorisés."
+  site_view_edit_wiki_updated_flash: "Site mis à jour avec succès."
   
   site_view_edit_wiki_show_more_types_label: "Type"
   site_view_edit_wiki_show_more_types: "Afficher plus de types"

@@ -20,6 +20,10 @@ es:
   download_all: "Descargar todo"
   #
   site_view_create_a_site_heading: "Crear un sitio"
+  site_view_create_a_site_created_flash: "Sitio creado correctamente."
+  site_view_upload_a_site_uploaded_flash: "La carga del archivo se ha completado correctamente."
+  site_view_destroy_a_site_destroyed_flash: "Sitio eliminado correctamente."
+  
   site_view_clone_a_site_heading: "Clonar un sitio"
   # user home "Save history"-details
   site_view_save_history_for: "Guardar historial para"
@@ -42,6 +46,7 @@ es:
   site_view_edit_wiki_heading: "Configuración para"
   site_view_edit_wiki_name_label: "Nombre"
   site_view_edit_wiki_name_text: "Se permiten letras minúsculas, números y guiones '-' no al inicio ni al final."
+  site_view_edit_wiki_updated_flash: "Sitio actualizado correctamente."
   
   site_view_edit_wiki_show_more_types_label: "Tipo"
   site_view_edit_wiki_show_more_types: "Mostrar más tipos"

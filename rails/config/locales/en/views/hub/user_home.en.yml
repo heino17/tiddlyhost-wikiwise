@@ -21,6 +21,9 @@ en:
   download_all: "Download all"
   #
   site_view_create_a_site_heading: "Create a site"
+  site_view_create_a_site_created_flash: "Site successfully created."
+  site_view_upload_a_site_uploaded_flash: "Upload to site was successfully completed."
+  site_view_destroy_a_site_destroyed_flash: "Site was successfully destroyed."
   site_view_clone_a_site_heading: "Clone a site"
   # user home "Save history"-details
   site_view_save_history_for: "Save history for"
@@ -42,10 +45,10 @@ en:
   site_view_save_history_pop_set_label: "Set label"
   site_view_save_history_pop_update: "Update"
   # user home actions menu "Settings"-details
-  # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Settings for"
   site_view_edit_wiki_name_label: "Name"
   site_view_edit_wiki_name_text: "Lower case letters, numbers, and non-leading, non-trailing '-' chars are allowed."
+  site_view_edit_wiki_updated_flash: "Site successfully updated."
   
   site_view_edit_wiki_show_more_types_label: "Type"
   site_view_edit_wiki_show_more_types: "Show more types"
