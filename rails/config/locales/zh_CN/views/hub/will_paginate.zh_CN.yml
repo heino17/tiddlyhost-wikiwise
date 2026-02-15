@@ -1,0 +1,38 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+zh_CN:
+  will_paginate:
+    site:
+      page_entries_info:
+        single_page:
+          zero: "未找到 <b>站点</b>"
+          one: "显示 1 个 <b>站点</b>"
+          other: "显示所有 %{count} 个站点"
+        single_page_html:
+          zero: "未找到 <b>站点</b>"
+          one: "显示 <b>1 个站点</b>"
+          other: "显示 <b>%{count} 个站点</b>"
+        multi_page: "站点 %{from} - %{to} 共 %{count} 个"
+        multi_page_html: "显示所有 <b>站点 %{from} - %{to}</b> 共 <b>%{count}</b> 个"
+    template:
+      page_entries_info:
+        single_page:
+          zero: "未找到模板"
+          one: "显示 1 个 <b>模板</b>"
+          other: "显示所有 %{count} 个模板"
+        single_page_html:
+          zero: "未找到 <b>模板</b>"
+          one: "显示 <b>1 个模板</b>"
+          other: "显示 <b>%{count} 个模板</b>"
+        multi_page: "模板 %{from} - %{to} 共 %{count} 个"
+        multi_page_html: "显示所有 <b>模板 %{from} - %{to}</b> 共 <b>%{count}</b> 个"
+    #
+    previous_label: "上一页"
+    previous_aria_label: "上一页"
+    next_label: "下一页"
+    next_aria_label: "下一页"
+    page_gap: "..."
+    container_aria_label: "页面导航"
+    page_aria_label: "页面 %{page}"

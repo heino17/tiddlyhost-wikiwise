@@ -1,0 +1,46 @@
+---
+zh_CN:
+  # Login page
+  log_in_page_heading: "登录"
+  log_in_page_ask_need_account: "需要账户？前往"
+  log_in_page_email_label: "邮箱"
+  log_in_page_password_label: "密码"
+  log_in_page_remember_me_label: "记住我"
+  log_in_page_submit_button: "登录"
+  # Page shared Links (devise)
+  shared_links_cancel: "取消"
+  shared_links_login: "登录"
+  shared_links_sign_up: "注册"
+  shared_links_forgot_password: "忘记密码？"
+  shared_links_resend_confirmation: "重新发送确认指示"
+  shared_links_resend_unlock: "重新发送解锁指示"
+  shared_links_signup_with: "使用...登录" # 尚未实现
+  # Sign up page
+  sign_up_page_heading: "注册"
+  sign_up_page_ask_have_account: "已有账户？前往"
+  sign_up_page_email_label: "邮箱"
+  sign_up_page_enter_email: "输入您的邮箱地址"
+  sign_up_page_name_label: "姓名"
+  sign_up_page_enter_name: "请输入您的姓名"
+  sign_up_page_username_label: "用户名"
+  sign_up_page_enter_username: "可选。选择 3 到 30 个字符的唯一用户名"
+  sign_up_page_password_label: "密码"
+  sign_up_page_password_hint: "最小字符数"
+  sign_up_page_password_confirm_label: "密码确认"
+  sign_up_page_password_confirm_hint: "重新输入密码以确认"
+  sign_up_page_submit_create: "创建账户"
+  # user forgot password
+  user_forgot_password_header: "忘记密码？"
+  user_forgot_password_intro_text: "输入您的邮箱地址以接收重置密码链接。"
+  user_forgot_password_email_label: "邮箱"
+  user_forgot_password_submit_button: "发送重置密码链接"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "重新发送确认指示"
+  user_resend_confirmation_intro_text: "输入您的邮箱地址以重新发送邮箱确认链接。"
+  user_resend_confirmation_email_label: "邮箱"
+  user_resend_confirmation_submit_button: "重新发送确认指示"
+  # user resend unlock instructions
+  user_resend_unlock_header: "重新发送解锁指示"
+  user_resend_unlock_intro_text: "输入您的邮箱地址以重新发送账户解锁链接。"
+  user_resend_unlock_email_label: "邮箱"
+  user_resend_unlock_submit_button: "重新发送解锁指示"

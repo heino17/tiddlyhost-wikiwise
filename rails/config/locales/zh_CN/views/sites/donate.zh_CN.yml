@@ -1,0 +1,20 @@
+---
+zh-CN:
+  # Donations & Sponsorships-Site
+  donations_page_heading: "捐赠与赞助"
+  donations_page_subheading: "<i><b>...支持我们的社区！</b></i>"
+  # Donations & Sponsorships text
+  donations_page_txt_1: "如果您觉得 Tiddlyhost 有用，请考虑捐赠或赞助。
+  捐赠或赞助将帮助覆盖托管成本，
+  并鼓励 Tiddlyhost 的持续支持和发展。"
+  donations_page_txt_2: "要捐赠或成为赞助者，请使用
+  <a href=\"https://www.paypal.com/\" target=\"_blank\">PayPal</a>,
+  <a href=\"https://github.com/sponsors\" target=\"_blank\">GitHub Sponsors</a>
+  或
+  <a href=\"https://www.buymeacoffee.com/\" target=\"_blank\">Buy Me a Coffee</a>。或点击下方按钮。"
+  donations_page_logged_in_out_before: "您现在也可以订阅 <b>Tiddlyhost Standard</b> 计划，该计划为您提供 Tiddlyhost 的额外功能，并支持 Tiddlyhost 的持续发展。
+  访问"
+  donations_page_logged_in_after: "以了解更多关于 Tiddlyhost 订阅计划的信息。"
+  donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
+  donations_page_buy_coffee_button_title: "Buy Me a Coffee"
+  donations_page_subscribed_already: "我看到您已经是订阅者。非常感谢！"

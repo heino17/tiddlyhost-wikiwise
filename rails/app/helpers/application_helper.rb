@@ -2,7 +2,7 @@ module ApplicationHelper
   include Recaptcha::Adapters::ViewMethods
   # Language switch for i18n
   def language_switcher_links
-    available_locales = [:en, :de, :es, :fr]  # Erweitere später auf [:en, :de, :fr] usw.
+    available_locales = [:en, :de, :es, :fr, :zh_CN]  # Erweitere später auf [:en, :de, :fr] usw.
     available_locales.map do |loc|
       link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{I18n.locale == loc ? 'active' : ''}"
     end.join(' | ').html_safe
@@ -14,6 +14,7 @@ module ApplicationHelper
     when :de then 'de'
     when :es then 'es'
     when :fr then 'fr'
+    when :zh_CN then 'cn'
     # Später einfach erweitern, z.B. when :es then 'es'
     else 'xx'  # Fallback: graue Platzhalter-Flagge oder leer
     end

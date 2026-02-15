@@ -1,0 +1,30 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+zh_CN:
+  # user_update_account
+  user_update_account_heading: "更新账户"
+  user_update_account_email_label: "邮箱"
+  user_update_account_email_text: "您的邮箱地址"
+  user_update_account_waiting_for_confimation: "当前正在等待邮箱地址确认："
+  user_update_account_name_label: "姓名"
+  user_update_account_name_text: "您的姓名"
+  user_update_account_username_label: "用户名"
+  user_update_account_username_text: "唯一用户名（可选）。将在探索页面上可点击。"
+  user_update_account_profile_image_label: "个人资料图片"
+  user_update_account_current_password_label: "当前密码。需要进行更改。"
+  user_update_account_current_password_text: "输入当前密码以确认更改"
+  user_update_account_new_password_label: "新密码"
+  user_update_account_new_password_leave_blank: "（如果不想更改，请留空）"
+  user_update_account_new_password_text: "最小字符数"
+  user_update_account_confirm_password_label: "新密码确认"
+  user_update_account_confirm_password_text: "重新输入新密码以确认"
+  user_update_account_button_submit: "更新"
+  user_update_account_button_cancel: "取消"
+  user_delete_account_heading: "删除账户"
+  user_delete_account_danger_text: "请谨慎操作。如果删除账户，您的站点也将立即删除。"
+  user_delete_account_button_delete: "删除账户"
+  user_delete_account_popup_confirm: "您确定要删除您的账户吗？"
+  user_update_account_use: "使用"
+  

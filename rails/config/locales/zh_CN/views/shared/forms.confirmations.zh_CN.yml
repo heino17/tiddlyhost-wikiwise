@@ -1,0 +1,23 @@
+---
+zh_CN:
+  # Account created
+  account_created_heading: "账户已创建"
+  account_created_thanks: "感谢注册！"
+
+  account_created_confirmation_send: "确认邮件已发送到您的邮箱地址。
+  要完成注册过程，请点击邮件中的确认链接。"
+
+  account_created_help_heading: "故障排除"
+
+  account_created_help_paragraph_1: "如果确认邮件未到达，它可能被分类为垃圾邮件。
+  检查您的垃圾邮件文件夹，或尝试将 'tiddlyhost@gmail.com' 添加到您的邮箱联系人，
+  然后使用"
+  account_created_help_paragraph_1_link: "此表单"
+  account_created_help_paragraph_1_2: "重新发送邮件。"
+
+  account_created_help_paragraph_2_1: "如果您仍无法收到确认链接，"
+  account_created_help_email_me: "给我发邮件"
+  account_created_help_email_me_subject: "Tiddlyhost 注册问题"
+  account_created_help_email_me_body: "我注册了，但没有收到确认邮件。
+  如果可能，请手动发送给我。"
+  account_created_help_paragraph_2_2: "我会看看是否能直接发送给您。"

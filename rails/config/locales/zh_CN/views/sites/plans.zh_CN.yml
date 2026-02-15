@@ -1,0 +1,28 @@
+---
+zh-CN:
+  # Plans-site
+  site_plans_title: "计划"
+  site_plans_free: "免费"
+  site_plans_standard: "标准"
+  site_plans_subscription_standard_period: "/月"
+  site_plans_premium: "高级"
+  site_plans_premium_someday: "某天"
+  site_plans_subscribe_button: "立即订阅"
+  # Pricing-site
+  site_pricing_title: "定价"
+  # pricing card
+  site_pricing_pricingcard_titel: "计划"
+  site_pricing_pricingcard_if_subscribed: "已订阅"
+  site_pricing_sign_up_submit_button: "注册"
+  # subscription-site
+  site_subscription_title: "订阅"
+  site_subscription_subscribe_button: "立即订阅"
+
+  site_plans_notloggedin_stripe_text: "注册以创建账户并免费使用 Tiddlyhost，无需信用卡。
+  要访问标准计划，请在注册后转到“订阅计划”页面。Tiddlyhost 订阅计费由 "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 是一个易用且高度可信的在线支付处理平台，
+  由严格的行业标准支持安全性与数据保护。"
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 是一个易用且高度可信的在线支付处理平台，
+  由严格的行业标准支持安全性与数据保护。"
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 是一个易用且高度可信的在线支付处理平台，
+  由严格的行业标准支持安全性与数据保护。"

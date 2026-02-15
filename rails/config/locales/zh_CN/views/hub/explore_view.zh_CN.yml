@@ -1,0 +1,78 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+zh_CN:
+  # explore-site
+  site_explore_title: "探索"
+  site_explore_explanation_text: "发现 Tiddlyhost 用户创建和分享的内容。"
+  # templates only switch
+  explore_view_templates_only: "仅模板"
+  explore_view_templates_only_tooltip: "模板是由 Tiddlyhost 用户创建的自定义“空”文件，并分享供他人使用。它们可能包含通用增强和自定义，或设计用于特定专业用途。"
+  # templates-site
+  site_templates_title: "模板"
+  site_templates_explanation_text: "模板是 TiddlyWiki 的有用或有趣的自定义版本，由 Tiddlyhost 用户创建，您可以复制并自行使用。点击“克隆”以在 Tiddlyhost 上使用模板创建站点，或点击“下载”以下载副本本地使用。"
+  # hub view - may be not good choosen
+  hub_view_all_sites: "所有站点"
+  hub_view_created_by_user: "由 Tiddlyhost 用户创建的站点"
+  hub_view_list_kind: "类型"
+  hub_view_list_show_all: "显示全部"
+  hub_view_list_sort_by: "按...排序"
+  hub_view_search_box: "搜索"
+  hub_view_list_sort_view_count: "浏览量"
+  hub_view_list_sort_clone_count: "克隆数"
+  hub_view_list_sort_recently_updated: "最近更新"
+  hub_view_list_sort_recently_created: "最近创建"
+  hub_view_list_sort_name_az: "名称 A-Z"
+  hub_view_list_sort_name_za: "名称 Z-A"
+  hub_view_list_sort_newer_version: "较新版本"
+  hub_view_list_sort_older_version: "较旧版本"
+  hub_view_list_sort_random: "随机"
+  hub_view_search_box_clear: "清除"
+  hub_view_access_searchable: "可搜索"
+  hub_view_access_template: "模板"
+  hub_view_action_menu_settings: "设置"
+  hub_view_action_menu_save_history: "保存历史"
+  hub_view_action_menu_view: "在新窗口中打开 Wiki"
+  hub_view_action_menu_view_safe_mode: "在安全模式下查看"
+  hub_view_action_menu_download: "下载"
+  hub_view_action_menu_clone: "克隆"
+  hub_view_action_menu_upload: "上传"
+  hub_view_action_menu_delete: "删除"
+  hub_view_action_menu_delete_realy: "您确定要删除吗"
+  hub_view_action_menu_more: "更多..."
+  #
+  # action menu upload form - insert line break and download link made in upload_form.html.haml
+  action_menu_upload_form_text: "这将删除您的站点内容，并用您现在上传的任何 TiddlyWiki 文件替换！ %{insert_line_break} 如果出现问题，您可能想先 %{download_copy_link} 下载站点副本。"
+  action_menu_upload_form_choose_file: "选择要上传的文件"
+  action_menu_upload_form_upload_file: "上传文件"
+  action_menu_upload_form_cancel: "取消"
+  action_menu_upload_form_confirmation_text_before: "您确定要用即将上传的 TiddlyWiki 文件替换站点"
+  action_menu_upload_form_confirmation_text_after: "吗？\n\n此操作无法撤销！"
+  #
+  #hub_view_show_per_page: "18" # 尚未实现
+  hub_view_table_actions: "操作"
+  #clones and views
+  hub:
+    clones:
+      one: "克隆"
+      other: "克隆"
+    views:
+      one: "浏览"
+      other: "浏览"
+    saved: "最后更新"
+  #
+  hub_view:
+    tagged_with:
+      site: { one: "标记为的站点", other: "标记为的站点" }
+      template: { one: "标记为的模板", other: "标记为的模板" }
+    created_by:
+      site: "由 Tiddlyhost 用户创建的站点"
+      template: "由 Tiddlyhost 用户创建的模板"
+    suffix:
+      tagged_with: "标记为"
+      matching: "匹配"
+    nav:
+      all_sites: "所有站点"
+      all_templates: "所有模板"
+  

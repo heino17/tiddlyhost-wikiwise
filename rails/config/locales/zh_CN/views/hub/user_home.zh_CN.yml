@@ -1,0 +1,119 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+zh_CN:
+  # user_home
+  # hub view - may be not good choosen
+  hub_view_sites_on_your: "您的站点位于"
+  hub_view_sites_on_your_explore_page: "探索页面"
+
+  your_sites: "您的站点"
+  click_create_below: "点击下方“创建”以创建您的第一个 TiddlyWiki 站点。"
+  showing_filtered_sites: "显示 %{filtered_count} 个 %{access} 站点，共 %{total_count} 个。"
+  clear_filter: "清除过滤器"
+  sites: "站点"
+  site: "站点"
+  storage_used: "%{bytes} 存储已使用。"
+  create: "创建"
+  create_from_template: "从模板创建"
+  claim_tiddlyspot_site: "认领 Tiddlyspot 站点"
+  download_all: "下载全部"
+  #
+  site_view_create_a_site_heading: "创建站点"
+  site_view_create_a_site_created_flash: "站点创建成功。"
+  site_view_upload_a_site_uploaded_flash: "上传到站点成功完成。"
+  site_view_destroy_a_site_destroyed_flash: "站点成功删除。"
+  site_view_clone_a_site_heading: "克隆站点"
+  # user home "Save history"-details
+  site_view_save_history_for: "保存历史记录为"
+  site_view_save_history_timestamp: "时间戳"
+  site_view_save_history_timestamp_tooltip: "时间显示为 UTC。"
+  site_view_save_history_saved: "已保存"
+  site_view_save_history_size: "大小"
+  site_view_save_history_size_tooltip: "压缩文件大小。"
+  site_view_save_history_checksum: "校验和"
+  site_view_save_history_checksum_tooltip: "相同的校验和表示相同的保存版本。"
+  site_view_save_history_label: "标签"
+  site_view_save_history_label_tooltip: "带有标签的保存版本在清理保存版本列表时优先于无标签版本。这允许您无限期保留重要版本。"
+  site_view_save_history_actions: "操作"
+  site_view_save_history_current_version: "当前版本"
+  site_view_save_history_older_versions: "旧版本"
+  site_view_save_history_no_older_versions: "未找到旧版本。"
+  site_view_save_history_pop_set_label: "设置标签"
+  site_view_save_history_pop_update: "更新"
+  # user home actions menu "Settings"-details
+  site_view_edit_wiki_heading: "设置用于"
+  site_view_edit_wiki_name_label: "名称"
+  site_view_edit_wiki_name_text: "允许小写字母、数字和“-”（不在开头或结尾）。"
+
+  site_view_edit_wiki_show_more_types_label: "类型"
+  site_view_edit_wiki_show_more_types: "显示更多类型"
+  site_view_edit_wiki_create_from_template: "从模板创建"
+  site_view_edit_wiki_create_from_template_tooltip: "您也可以通过选择社区创建的模板并克隆来创建站点。此链接将带您到可用模板列表。"
+
+  site_view_edit_wiki_tw5_description: "测试"
+
+  site_view_edit_wiki_clone_from: "从克隆"
+  site_view_edit_wiki_description_label: "描述"
+  site_view_edit_wiki_description_text: "可选。站点简短描述，在探索页面上对可搜索站点可见。"
+  site_view_edit_wiki_tag_list_label: "标签"
+  site_view_edit_wiki_tag_list_text: "可选。以逗号分隔的标签列表，在探索页面上对可搜索站点可见。"
+  site_view_save_history_button_create: "创建"
+  site_view_save_history_button_update: "更新"
+  site_view_save_history_button_cancel: "取消"
+  # Access chooser
+  site_view_edit_wiki_access_heading: "访问"
+  site_view_edit_wiki_access_private: "私有"
+  site_view_edit_wiki_access_public: "公开"
+  site_view_edit_wiki_access_hub_listed: "公开且可搜索"
+
+  site_view_edit_wiki_access_private_tooltip: "适合私人笔记和不想在互联网上可见的内容。"
+  site_view_edit_wiki_access_private_description_tspot_sites: "您的站点需要密码访问"
+  site_view_edit_wiki_access_private_description_else: "您的站点仅对您可见"
+
+  site_view_edit_wiki_access_public_tooltip: "适合您想与他人分享的内容。"
+  site_view_edit_wiki_access_public_description: "您的站点将在互联网上可见，并对任何人可见"
+
+  site_view_edit_wiki_access_hub_listed_tooltip: "适合展示有趣且维护良好的站点，以便人们发现。请注意，名称、描述和标签将在探索页面上可搜索。"
+  site_view_edit_wiki_access_hub_listed_description: "您的站点将在互联网上可见，并将被列出且在以下位置可搜索"
+  # Advanced settings
+  site_view_edit_wiki_advanced_settings_link: "显示高级设置"
+  site_view_edit_wiki_advanced_settings_heading: "高级设置"
+
+  site_view_edit_wiki_advanced_settings_allow_public_clone: "使此站点可用作模板，以便他人克隆"
+  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "适合展示有趣且维护良好的站点，以便人们发现。请注意，名称、描述和标签将在探索页面上可搜索。"
+
+  site_view_edit_wiki_advanced_settings_allow_public_iframe: "允许站点在 iframe 中加载"
+  site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "启用时，将抑制默认的 deny X-Frame-Options 标头。请注意，在 iframe 中加载的站点可能容易受到 clickjacking 攻击。"
+
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver: "对于 TiddlyWiki 5.2.3 及更高版本，使用旧版“upload”保存器"
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "默认情况下，对于 TiddlyWiki 5.2.3 及更高版本使用 put 保存器。如果您更喜欢为这些版本使用 upload 保存器，请选中此项。另见此 FAQ。"
+
+  site_view_edit_wiki_advanced_settings_prefer_put_saver: "对于 TiddlyWiki 5.2.2 及更低版本，使用“put”保存器"
+  site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "默认情况下，对于 TiddlyWiki 5.2.2 及更低版本使用 upload 保存器。如果您更喜欢为这些版本使用 put 保存器，请选中此项。另见此 FAQ。"
+
+  site_view_edit_wiki_advanced_settings_skip_etag_check: "保存时忽略“服务器上文件已更改”检查"
+  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "如果您认为“服务器上文件已更改”错误错误地阻止您保存，请选中此框。建议在需要时临时使用此选项，而不是永久设置。"
+
+  # filter and sort
+  site_view_filter_and_sort_kind: "类型："
+  site_view_filter_and_sort_kind_else: "类型"
+  site_view_filter_and_sort_kind_filter_tooltip: "站点类型过滤器："
+  #
+  site_view_filter_and_sort_access: "访问："
+  site_view_filter_and_sort_access_else: "访问"
+  site_view_filter_and_sort_access_filter_tooltip: "站点访问过滤器"
+  site_view_filter_and_sort_access_filter_drop_header: "站点访问过滤器："
+  #
+  site_view_filter_and_sort_sort: "排序："
+  site_view_filter_and_sort_sort_tooltip: "按...排序"
+  site_view_filter_and_sort_sort_drop_header: "按...排序"
+  #
+  site_view_filter_and_sort_view: "视图"
+  site_view_grid_list:
+    # 2 characters indented here
+    grid: "切换到网格视图"
+    list: "切换到列表视图"
+  #
+  site_view_filter_and_sort_show_all: "显示全部"

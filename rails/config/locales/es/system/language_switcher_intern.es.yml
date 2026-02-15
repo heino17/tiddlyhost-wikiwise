@@ -6,7 +6,8 @@ es:
     en: English
     de: Deutsch
     fr: Français
-    es: Español    
+    es: Español   
+    zh_CN: 中文
   #
   # Change language tooltip
   # I'll leave it international, the same for everyone

@@ -1,0 +1,99 @@
+---
+zh_CN:
+  admin:
+    tabs_header:
+      stats: "统计"
+      charts: "图表"
+      users: "用户"
+      sites: "站点"
+      tspot_sites: "Tspot 页面"
+      storage: "存储"
+      etc: "其他"
+      #
+    tab_stats:
+      tab_stats_header: "统计"
+      users: "用户"
+      subscriptions: "订阅"
+      sites: "站点"
+      site_views: "站点浏览量"
+      tspots: "Tspots"
+      tspot_views: "Tspot 浏览量"
+      storage: "存储"
+      activ_daily: "日活跃"
+      activ_weekly: "周活跃"
+      activ_monthly: "月活跃"
+      signed_in_once_users: "仅登录一次的用户"
+      never_signed_in_users: "从未登录的用户"
+      never_updated_sites: "从未更新的站点"
+      private_sites: "私有站点"
+      public_sites: "公开站点"
+      public_non_searchable_sites: "公开但不可搜索的站点"
+      public_searchable_sites: "公开可搜索的站点"
+      owned_tspots: "拥有的 Tspots"
+      saved_tspots: "已保存的 Tspots"
+      jobs_in_queue: "队列中的任务"
+      locked_since: "锁定时间"
+      running_now: "正在运行"
+      no_running_jobs: "无"
+      #
+    tab_users_table_headers:
+      th_id: "ID"
+      th_name: "姓名"
+      th_username: "用户名"
+      th_email: "邮箱"
+      th_av: "头像"          # Av → 头像 (üblich in chinesischen Tabellen)
+      th_type: "类型"
+      th_subscription: "订阅"
+      th_logins: "登录次数"
+      th_sites: "站点数"
+      th_tspot_sites: "Tspot 站点"
+      th_current_sign_in: "本次登录"
+      th_last_sign_in: "上次登录"
+      th_created: "创建时间"
+      th_confirmed: "已确认"
+      #
+    tab_sites_table_headers:
+      th_id: "ID"
+      th_name: "名称"
+      th_kind: "类型"
+      th_empty: "空"
+      th_clone: "克隆"
+      th_version: "版本"
+      th_description: "描述"
+      th_private: "私有？"
+      th_hub: "Hub？"
+      th_template: "模板？"
+      th_iframes: "IFrame？"
+      th_put: "Put？"
+      th_upload: "上传？"
+      th_views: "浏览量"
+      th_accesses: "访问次数"
+      th_saves: "保存次数"
+      th_clones: "克隆次数"
+      th_versions: "版本数"
+      th_owner: "拥有者"
+      th_raw: "原始"
+      th_storage: "存储"
+      th_last_access: "最后访问"
+      th_last_update: "最后更新"
+      th_created: "创建时间"
+      #
+    tab_storage_table_headers:
+      th_type: "类型"
+      th_service: "服务"
+      th_bucket: "Bucket"
+      th_files: "文件数"
+      th_bytes: "字节"
+      #
+    tab_etc:
+      raise_an_exception: "引发异常"
+      connection_pool_stats: "连接池统计"
+      # admin_helper.rb
+    pagination_showing_entries:
+      showing: "显示条目"
+      # 1
+      to: "至"
+      # ...
+      of: "共"
+      # ...
+      in_total: "条"
