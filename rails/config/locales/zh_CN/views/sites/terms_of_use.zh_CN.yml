@@ -3,7 +3,7 @@ zh-CN:
   terms_of_use_header: "Terms of Use"
   terms_of_use_text: "
     
-    ```/rails/config/locales/views/sites/terms_of_use.en.yml```
+    ```rails/config/locales/zh_CN/views/sites/terms_of_use.zh_CN.yml```
     
     # Tiddlyhost Terms of Use
 

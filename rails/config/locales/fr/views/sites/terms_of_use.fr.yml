@@ -3,7 +3,7 @@ en:
   terms_of_use_header: "Terms of Use"
   terms_of_use_text: "
     
-    ```/rails/config/locales/views/sites/terms_of_use.en.yml```
+    ```rails/config/locales/fr/views/sites/terms_of_use.fr.yml```
     
     # Tiddlyhost Terms of Use
 
