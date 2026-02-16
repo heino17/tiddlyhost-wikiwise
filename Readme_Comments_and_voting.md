@@ -3,7 +3,7 @@ German and American
 
 ### 🇩🇪 Kommentar- & Voting-System für Tiddlyhost-Wikis
 
-- **Kommentar-Funktion**
+- **Kommentar-Funktion (für Seiten/Wikis)**
   - Einzelner Kommentar pro User pro Site (Unique-Constraint)
   - Formular zum Erstellen / Editieren
   - Anzeige der letzten 3 Kommentare im Tile + „Alle Kommentare“-Link bei mehr als 3 Kommentaren
@@ -14,7 +14,7 @@ German and American
   - i18n-kompatible Texte & Pluralisierung
   - Turbo/Hotwire für live Updates ohne Reload
 
-- **Voting-System (für Sites/Wikis)**
+- **Voting-System (für Seiten/Wikis)**
   - Bewertung mit 1–5 Sternen (Durchschnittsberechnung)
   - Pro User nur eine Bewertung pro Site
   - Aufklappbare Stern-Buttons hinter einem Text-Link („Bewerten“ / „Meine Bewertung: X“)
@@ -34,7 +34,7 @@ German and American
   
 ### 🇺🇸 Comment & Voting System for Tiddlyhost Wikis
 
-- **Comment Function**
+- **Comment Function (for sites/wikis)**
   - One comment per user per site (unique constraint)
   - Form for creating/editing
   - Display of the last 3 comments in the tile + “All comments” link if there are more than 3 comments
