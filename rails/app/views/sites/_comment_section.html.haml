@@ -13,17 +13,24 @@
                   url: site_comments_path(site),
                   method: :post,
                   data: { turbo: true } do |f|
+
         .mb-1
           = f.text_area :body,
                         value: (comment_record.body || ''),
                         rows: 2,
-                        class: 'form-control form-control-sm',
+                        class: 'form-control form-control-sm comment-body-input',
                         style: 'margin-top: 0rem; font-size: 90%;',
-                        placeholder: t('comments.your_comment_short')
+                        placeholder: t('comments.your_comment_short'),
+                        required: true,
+                        'aria-describedby': 'comment-help'
+
         .mb-1
           = f.submit t(comment_record.persisted? ? 'comments.update_button' : 'comments.create_button'),
-                     class: 'btn btn-sm btn-outline-primary',
+                     class: 'btn btn-sm btn-outline-primary comment-submit-btn',
                      style: 'margin-top: 0rem; font-size: 100%;'
+
+        %small#comment-help.form-text.text-muted
+          = t('comments.comment_required_characters') || "Mindestens ein Zeichen erforderlich"
 
     - else
       .text-muted{ style: 'margin-bottom: 0.0rem; margin-top: 0.0rem;' }

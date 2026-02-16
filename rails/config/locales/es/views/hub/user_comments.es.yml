@@ -15,6 +15,7 @@ es:
     updated: "¡Comentario actualizado!"
     login_hint: "Inicia sesión para escribir un comentario."
     login_hint_short: "Inicia sesión para comentar."
+    comment_required_characters: "¡Se requiere al menos un carácter!"
     edited: "Editado"
     score_label: "Puntuación"
 

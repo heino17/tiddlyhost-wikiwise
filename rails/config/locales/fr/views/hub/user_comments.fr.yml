@@ -15,6 +15,7 @@ fr:
     updated: "Commentaire mis à jour"
     login_hint: "Veuillez vous connecter pour rédiger un commentaire."
     login_hint_short: "Veuillez vous connecter pour commenter."
+    comment_required_characters: "Au moins un caractère requis !"
     edited: "Modifié"
     score_label: "Score"
 

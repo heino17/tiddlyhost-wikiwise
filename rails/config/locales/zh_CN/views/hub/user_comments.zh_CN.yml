@@ -14,6 +14,7 @@ zh_CN:
     updated: "评论已更新"
     login_hint: "请登录以撰写评论。"
     login_hint_short: "请登录以评论。"
+    comment_required_characters: "至少需要一个字符！"
     edited: "已编辑"
     score_label: "分数"
 

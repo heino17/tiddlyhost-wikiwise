@@ -15,6 +15,7 @@ de:
     updated: "Kommentar aktualisiert!"
     login_hint: "Bitte melde dich an, um einen Kommentar zu schreiben."
     login_hint_short: "Bitte anmelden, um zu kommentieren."
+    comment_required_characters: "Mindestens ein Zeichen erforderlich!"
     edited: "bearbeitet"
     score_label: "Score"
     
@@ -27,11 +28,8 @@ de:
     
     title_comments_for: "Kommentare zur Seite"
     delete_your_comment: "Deinen Kommentar löschen"
-    back_to_previous_page: "🢤 Zurück zur vorherigen Seite"
-    go_to_explore_view: "Zur Schaufenster-Seite 🢧"
-    
-    delete_as_admin: "Loeschen (Admin)"
-    delete_as_admin_confirm: "Kommentar als Admin loeschen? (Auch wenn der Kommentar nicht von Dir ist!)"
+    back_to_previous_page: "Zurück zur vorherigen Seite"
+    go_to_explore_view: "Zur Schaufenster-Seite"
   # voting wiki sites
   votes:
     average: "Bewertung"

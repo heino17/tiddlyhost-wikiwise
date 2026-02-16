@@ -14,6 +14,7 @@ en:
     updated: "Comment updated"
     login_hint: "Please log in to write a comment."
     login_hint_short: "Please log in to comment."
+    comment_required_characters: "At least one character required!"
     edited: "edited"
     score_label: "Score"
 
@@ -26,8 +27,8 @@ en:
     
     title_comments_for: "Comments for site"
     delete_your_comment: "Delete your comment"
-    back_to_previous_page: "U+F27F Back to previous page"
-    go_to_explore_view: "Go to Explore page U+F280"
+    back_to_previous_page: "Back to previous page"
+    go_to_explore_view: "Go to Explore page"
   # voting wiki sites
   votes:
     average: "Rating"
