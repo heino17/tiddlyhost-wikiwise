@@ -1,6 +1,6 @@
 # Tiddlyhost-wikiwise
-## + rails I18n Sprach-Implementierung
-## + Kommentar- & Bewertung der Tiddlyhost-Wikis
+### + rails I18n Sprach-Implementierung
+### + Kommentar- & Bewertung der Tiddlyhost-Wikis
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇨🇳 zh-CN - Schalter in menu bar
 - funktioniert gut  
@@ -34,8 +34,8 @@ cd tiddlyhost-wikiwise
 ```
 
 # Tiddlyhost-wikiwise
-## + rails I18n language implementation
-## + Comment & Voting for Tiddlyhost Wikis
+### + rails I18n language implementation
+### + Comment & Voting for Tiddlyhost Wikis
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇨🇳 zh-CN - Switch in menu bar
 - works fine  
