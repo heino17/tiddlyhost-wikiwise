@@ -376,6 +376,9 @@ GEM
     tilt (2.7.0)
     timeout (0.6.0)
     tsort (0.2.0)
+    turbo-rails (2.0.23)
+      actionpack (>= 7.1.0)
+      railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.2.0)
@@ -449,6 +452,7 @@ DEPENDENCIES
   simplecov
   spicy-proton
   stripe (~> 18.0.0)
+  turbo-rails
   tzinfo-data
   validate_url
   web-console (>= 4.1.0)

@@ -1,7 +1,7 @@
 = render layout: 'form_wrapper', locals: { heading: t('log_in_page_heading'),
-  intro_text: t('log_in_page_ask_need_account')+ " #{link_to (t('shared_links_sign_up')), new_user_registration_path}." } do
+    intro_text: t('log_in_page_ask_need_account') + " #{link_to (t('shared_links_sign_up')), new_user_registration_path, data: { turbo: false }}." } do
 
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f|
 
     = render layout: 'field_wrapper' do
       = f.label t('log_in_page_email_label')

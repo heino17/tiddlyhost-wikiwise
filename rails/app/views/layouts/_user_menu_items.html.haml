@@ -2,7 +2,7 @@
   = t('user_menu_head_account')
   %br
   %b.ps-1
-    = link_to edit_user_registration_path do
+    = turbo_off_link_to edit_user_registration_path, data: { turbo: false } do
       - if current_user.use_avatar?
         = avatar_image(current_user, size: 14, style: 'margin-top: -2px;')
       - else
@@ -10,7 +10,7 @@
       = current_user.username_or_email
 
 %li
-  = link_to edit_user_registration_path, class: 'dropdown-item' do
+  = turbo_off_link_to edit_user_registration_path, data: { turbo: false }, class: 'dropdown-item' do
     = bi_icon('person-square', fill: "#444", style: "margin-left: 2px;")
     = t('user_menu_item_manage_account')
 
@@ -21,13 +21,13 @@
     = t('user_menu_head_plan')
     %br
     %b.ps-1
-      = link_to subscription_path, class: "plan-#{current_user.subscription_info.name}-fg" do
+      = turbo_off_link_to subscription_path, data: { turbo: false }, class: "plan-#{current_user.subscription_info.name}-fg" do
         - if current_user.subscribed?
           = bi_icon('check2-circle', style: "margin-left: 1px; margin-right: -2px;")
         = (t('site_title')+" #{current_user.subscription_info.name}")
 
   %li
-    = link_to subscription_path, class: 'dropdown-item' do
+    = turbo_off_link_to subscription_path, data: { turbo: false }, class: 'dropdown-item' do
       - if current_user.subscribed?
         = bi_icon('bag-check', style: "margin-left: 1px;")
         = t('user_menu_head_plan')
@@ -41,13 +41,13 @@
   = t('user_menu_head_sites')
   %br
   %b.ps-2
-    = link_to sites_path do
+    = turbo_off_link_to sites_path do
       #{current_user.all_sites.count} #{t('user_menu_item_counted_sites')}
       (#{nice_byte_count(current_user.total_storage_bytes)})
   %br
 
 %li
-  = link_to sites_path, class: 'dropdown-item' do
+  = turbo_off_link_to sites_path, class: 'dropdown-item' do
     = bi_icon('sliders')
     = t('user_menu_item_manage_sites')
 
@@ -55,6 +55,7 @@
 %li.dropdown-divider{ style: "margin-bottom: 1.5em;" }
 
 %li
-  = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
-    = bi_icon('box-arrow-left')
-    = t('user_menu_item_logout')
+  = form_with url: destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'd-inline' do |f|
+    %button.dropdown-item{ type: 'submit' }
+      = bi_icon('box-arrow-left')
+      = t('user_menu_item_logout')

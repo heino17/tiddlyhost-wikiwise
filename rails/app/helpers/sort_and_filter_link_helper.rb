@@ -45,7 +45,7 @@ module SortAndFilterLinkHelper
       klass = nil
     end
 
-    link_to(sort_link_url(new_sort_by), class: [klass, extra_klass].compact, rel: 'nofollow') do
+    turbo_off_link_to(sort_link_url(new_sort_by), class: [klass, extra_klass].compact, rel: 'nofollow') do
       link_title
     end
   end
@@ -61,11 +61,11 @@ module SortAndFilterLinkHelper
     if crawler_protect
       # Convert hash to actual URL string for the data attribute
       url_string = url_for(url)
-      link_to('#', class: [klass, sel], rel: 'nofollow', 'data-crawler-protect-href': url_string) do
+      turbo_off_link_to('#', class: [klass, sel], rel: 'nofollow', 'data-crawler-protect-href': url_string) do
         sort_options[new_sort_by][:title]
       end
     else
-      link_to(sort_options[new_sort_by][:title], url, class: [klass, sel], rel: 'nofollow')
+      turbo_off_link_to(sort_options[new_sort_by][:title], url, class: [klass, sel], rel: 'nofollow')
     end
   end
 
@@ -92,7 +92,7 @@ module SortAndFilterLinkHelper
     if crawler_protect
       # Convert hash to actual URL string for the data attribute
       url_string = url_for(url)
-      link_to('#', class: klass, rel: 'nofollow', 'data-crawler-protect-href': url_string) do
+      turbo_off_link_to('#', class: klass, rel: 'nofollow', 'data-crawler-protect-href': url_string) do
         if block_given?
           yield param_val, link_title
         else
@@ -100,7 +100,7 @@ module SortAndFilterLinkHelper
         end
       end
     else
-      link_to(url, class: klass, rel: 'nofollow') do
+      turbo_off_link_to(url, class: klass, rel: 'nofollow') do
         if block_given?
           yield param_val, link_title
         else

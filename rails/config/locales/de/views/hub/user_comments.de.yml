@@ -1,0 +1,45 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+de:  
+  comments:
+    title_short: "Kommentare"
+    title_singular: "Kommentar"
+    title_plural: "Kommentare"    
+    your_comment: "Dein Kommentar"
+    your_comment_short: "Dein Kommentar zu diesem Wiki"
+    create_button: "Kommentar speichern"
+    update_button: "Kommentar aktualisieren"
+    created: "Kommentar gespeichert!"
+    updated: "Kommentar aktualisiert!"
+    login_hint: "Bitte melde dich an, um einen Kommentar zu schreiben."
+    login_hint_short: "Bitte anmelden, um zu kommentieren."
+    comment_required_characters: "Mindestens ein Zeichen erforderlich!"
+    edited: "bearbeitet"
+    score_label: "Score"
+    
+    delete_button: "Löschen"
+    deleted: "Kommentar gelöscht!"
+    not_your_comment: "Das ist nicht dein Kommentar!"
+    delete_confirm: "Wirklich löschen? Der Kommentar kann nicht wiederhergestellt werden!"
+    
+    show_all_button: "Alle %{count} Kommentare anzeigen"
+    
+    title_comments_for: "Kommentare zur Seite"
+    delete_your_comment: "Deinen Kommentar löschen"
+    back_to_previous_page: "Zurück zur vorherigen Seite"
+    go_to_explore_view: "Zur Schaufenster-Seite"
+  # voting wiki sites
+  votes:
+    average: "Bewertung"
+    count:
+      one: "Bewertung"
+      other: "Bewertungen"
+    saved: "Deine Bewertung gespeichert."
+    removed: "Deine Bewertung wurde entfernt."
+    login_hint: "Bitte melde dich an, um zu bewerten."
+    no_ratings_yet_login: "Noch keine Bewertung! Bitte melde dich an, um zu bewerten."
+    login_to_rate: "Melde Dich an, um diese Seite zu bewerten."
+    my_rating:    "Meine Bewertung"
+    rate_now:     "Bewerten"

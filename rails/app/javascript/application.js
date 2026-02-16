@@ -8,6 +8,9 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import $ from "jquery"
 import * as bootstrap from "bootstrap"
+import "@hotwired/turbo-rails"
+import "./flash_auto_dismiss"
+import "./comment_textarea_validation"
 
 // Make jQuery available globally
 window.$ = window.jQuery = $

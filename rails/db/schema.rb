@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_11_23_200738) do
+ActiveRecord::Schema[7.2].define(version: 2026_02_08_130641) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,29 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_23_200738) do
     t.string "text"
     t.bigint "active_storage_attachments_id"
     t.index ["active_storage_attachments_id"], name: "index_attachment_labels_on_active_storage_attachments_id"
+  end
+
+  create_table "comment_votes", force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "value", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_comment_votes_on_comment_id"
+    t.index ["user_id", "comment_id"], name: "index_comment_votes_on_user_id_and_comment_id", unique: true
+    t.index ["user_id"], name: "index_comment_votes_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.bigint "user_id", null: false
+    t.text "body", null: false
+    t.datetime "edited_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_comments_on_site_id"
+    t.index ["user_id", "site_id"], name: "index_comments_on_user_id_and_site_id", unique: true
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -173,6 +196,17 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_23_200738) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "site_votes", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "value", default: 3, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_site_votes_on_site_id"
+    t.index ["user_id", "site_id"], name: "index_site_votes_on_user_id_and_site_id", unique: true
+    t.index ["user_id"], name: "index_site_votes_on_user_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.string "name"
     t.boolean "is_private", default: false
@@ -297,10 +331,16 @@ ActiveRecord::Schema[7.2].define(version: 2025_11_23_200738) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comment_votes", "comments"
+  add_foreign_key "comment_votes", "users"
+  add_foreign_key "comments", "sites"
+  add_foreign_key "comments", "users"
   add_foreign_key "pay_charges", "pay_customers", column: "customer_id"
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
+  add_foreign_key "site_votes", "sites"
+  add_foreign_key "site_votes", "users"
   add_foreign_key "sites", "empties"
   add_foreign_key "sites", "users"
   add_foreign_key "taggings", "tags"

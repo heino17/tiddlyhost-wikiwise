@@ -1,0 +1,12 @@
+#####################################################################
+# the following are changes that differ from original rails I18n-files
+---
+zh_CN:
+  # this one is missing
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      not_saved: "%{count} 个错误已被检测到！您的数据尚未被处理！"
+  #
+  # and the hole time block for "ago"
+  # end

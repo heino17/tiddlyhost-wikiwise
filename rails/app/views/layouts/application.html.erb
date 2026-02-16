@@ -26,15 +26,20 @@
     <header>
       <%= render 'layouts/header' %>
     </header>
+
+    <!-- Flash-Nachrichten -->
+    <%= render "layouts/flash" %>
+
     <main>
       <%= render 'layouts/banner_message' if Settings.banner_message %>
       <div class="container-fluid">
         <%= yield %>
       </div>
     </main>
+
     <footer>
       <%= render 'layouts/footer' %>
     </footer>
-  </body>
 
+  </body>
 </html>

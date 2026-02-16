@@ -1,0 +1,20 @@
+---
+zh_CN:
+  # About-site
+  site_heading_about: "关于 Tiddlyhost"
+  site_text_about: "在线使用
+  <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> 的最简单方式。 <p>由 Simon Baird 创建、维护和支持。"
+  site_text2_about: "如果您有问题，请 <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=\"_blank>在 GitHub 中报告问题</a>,
+  <a href=\"mailto:simon.baird@gmail.com\">给 Simon 发送邮件</a>, 或查看 <a href=\"/support\">支持</a> 以获取更多支持选项。"
+  about_links_support: "支持"
+  about_links_faq: "FAQ"
+  about_links_documentation: "文档"
+  about_links_blog: "博客"
+  about_links_x: "X"
+  about_links_terms: "使用条款"
+  about_links_privacy: "隐私政策"
+  about_links_source: "源代码"
+  about_links_license: "软件许可证"
+  about_links_donate: "捐赠与赞助"
+  about_hint_version: "版本："
+  about_hint_empty_versions: "空版本："

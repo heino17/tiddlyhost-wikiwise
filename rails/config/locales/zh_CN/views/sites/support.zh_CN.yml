@@ -1,0 +1,31 @@
+---
+zh_CN:
+  # Support-site
+  support_page_heading: "支持"
+  support_page_subheading: "Tiddlyhost 支持"
+  support_page_intro_txt: "如果您遇到 Tiddlyhost 问题或需要帮助，请使用以下选项之一："
+  support_page_report_to_github: "在 GitHub 中报告问题"
+  support_page_suggest_to_github: "在 GitHub 中建议功能"
+  support_page_send_email: "发送邮件"
+  # Tiddlyhost support text
+  support_page_tiddlyhost_support_txt: "您也可以浏览
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 中的现有问题，
+  查看是否已为您的常见问题提交了问题。另见
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> 和
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a>。
+  <br>(Tiddlyhost 的改进文档计划在未来实现。)"
+  # TiddlyWiki support text
+  support_page_tiddlywiki_subheading: "TiddlyWiki 支持"
+  support_page_tiddlywiki_support_txt: "关于 TiddlyWiki 有很多可用信息。提问的主要论坛是
+  <a href=\"https://talk.tiddlywiki.org/\" target=\"_blank\">Talk TiddlyWiki</a>,
+  但您可以通过
+  <a href=\"https://tiddlywiki.com/#Forums\" target=\"_blank\">TiddlyWiki 论坛</a> 和
+  <a href=\"https://tiddlywiki.com/#Community\" target=\"_blank\">TiddlyWiki 社区</a> 找到额外资源。
+  您也可以为 TiddlyWiki 提交问题
+  <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">在 GitHub 这里</a>。"
+  # Feather Wiki support text
+  support_page_featherwiki_subheading: "Feather Wiki 支持"
+  support_page_featherwiki_support_txt: "如果您需要 Feather Wiki 的帮助，或想报告 bug 或请求功能，最好的方式是
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">在 Codeberg 中提交问题</a>。
+  <br>现有的 Feather Wiki
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">问题在这里</a>。"

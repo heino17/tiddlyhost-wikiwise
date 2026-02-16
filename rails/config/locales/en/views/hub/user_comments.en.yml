@@ -1,0 +1,44 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+---
+en:  
+  comments:
+    title_short: "Comments"
+    title_singular: "Comment"
+    title_plural: "Comments"
+    your_comment: "Your comment"
+    your_comment_short: "Your comment on this wiki"
+    create_button: "Save comment"
+    update_button: "Update comment"
+    created: "Comment saved"
+    updated: "Comment updated"
+    login_hint: "Please log in to write a comment."
+    login_hint_short: "Please log in to comment."
+    comment_required_characters: "At least one character required!"
+    edited: "edited"
+    score_label: "Score"
+
+    delete_button: "Delete"
+    deleted: "Comment deleted!"
+    not_your_comment: "This is not your comment!"
+    delete_confirm: "Are you sure you want to delete this? Your comment cannot be recovered!"
+    
+    show_all_button: "Show all %{count} comments"
+    
+    title_comments_for: "Comments for site"
+    delete_your_comment: "Delete your comment"
+    back_to_previous_page: "Back to previous page"
+    go_to_explore_view: "Go to Explore page"
+  # voting wiki sites
+  votes:
+    average: "Rating"
+    count:
+      one: "Rating"
+      other: "Ratings"
+    saved: "Rating saved."
+    removed: "Your rating has been removed."
+    login_hint: "Please log in to rate."
+    no_ratings_yet_login: "No ratings yet! Please log in to rate."
+    login_to_rate: "Log in to submit your rating"
+    my_rating:    "My rating"
+    rate_now:     "Rate now"

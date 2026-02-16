@@ -1,0 +1,65 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+es:
+  devise:
+    confirmations:
+      confirmed: "Su dirección de correo electrónico ha sido confirmada exitosamente."
+      send_instructions: "En unos minutos recibirá un correo con instrucciones para confirmar su dirección de correo."
+      send_paranoid_instructions: "Si esta dirección de correo existe en nuestra base de datos, recibirá en breve instrucciones para confirmarla."
+    failure:
+      already_authenticated: "Ya has iniciado sesión."
+      inactive: "Tu cuenta aún no está activada."
+      invalid: "%{authentication_keys} o contraseña inválidos."
+      locked: "Tu cuenta está bloqueada."
+      last_attempt: "Te queda un intento antes de que se bloquee tu cuenta."
+      not_found_in_database: "%{authentication_keys} o contraseña inválidos."
+      timeout: "Tu sesión ha expirado. Por favor, inicia sesión nuevamente."
+      unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
+      unconfirmed: "Debes confirmar tu dirección de correo antes de continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrucciones de confirmación"
+      reset_password_instructions:
+        subject: "Instrucciones para restablecer la contraseña"
+      unlock_instructions:
+        subject: "Instrucciones para desbloquear"
+      email_changed:
+        subject: "Correo electrónico cambiado"
+      password_change:
+        subject: "Contraseña cambiada"
+    omniauth_callbacks:
+      failure: "No pudimos autenticarte desde %{kind} porque \"%{reason}\"."
+      success: "Autenticado exitosamente desde la cuenta de %{kind}."
+    passwords:
+      no_token: "No puedes acceder a esta página sin venir desde un correo de restablecimiento de contraseña. Asegúrate de usar la URL completa."
+      send_instructions: "En unos minutos recibirás un correo con instrucciones para restablecer tu contraseña."
+      send_paranoid_instructions: "Si esta dirección existe, recibirás en breve un enlace para recuperar tu contraseña."
+      updated: "Tu contraseña ha sido cambiada exitosamente. Ahora estás dentro."
+      updated_not_active: "Tu contraseña ha sido cambiada exitosamente."
+    registrations:
+      destroyed: "¡Adiós! Tu cuenta ha sido cancelada exitosamente."
+      signed_up: "¡Bienvenido! Te has registrado exitosamente."
+      signed_up_but_inactive: "Te has registrado exitosamente, pero no pudimos iniciarte sesión porque tu cuenta aún no está activada."
+      signed_up_but_locked: "Te has registrado exitosamente, pero no pudimos iniciarte sesión porque tu cuenta está bloqueada."
+      signed_up_but_unconfirmed: "Se envió un mensaje con un enlace de confirmación a tu correo. Por favor, sigue el enlace para activar tu cuenta."
+      update_needs_confirmation: "Tu cuenta fue actualizada exitosamente, pero necesitamos verificar tu nuevo correo. Revisa tu bandeja."
+      updated: "Tu cuenta ha sido actualizada exitosamente."
+      updated_but_not_signed_in: "Tu cuenta fue actualizada exitosamente, pero como cambiaste la contraseña, debes volver a iniciar sesión."
+    sessions:
+      signed_in: "Sesión iniciada exitosamente."
+      signed_out: "Sesión cerrada exitosamente."
+      already_signed_out: "Sesión cerrada exitosamente."
+    unlocks:
+      send_instructions: "En unos minutos recibirás un correo con instrucciones para desbloquear tu cuenta."
+      send_paranoid_instructions: "Si tu cuenta existe, recibirás en breve instrucciones para desbloquearla."
+      unlocked: "Tu cuenta ha sido desbloqueada exitosamente. Por favor, inicia sesión."
+  errors:
+    messages:
+      already_confirmed: "ya fue confirmada, por favor intenta iniciar sesión"
+      confirmation_period_expired: "debe confirmarse dentro de %{period}, solicita uno nuevo"
+      expired: "ha expirado, solicita uno nuevo"
+      not_found: "no encontrado"
+      not_locked: "no estaba bloqueada"
+      not_saved:
+        one: "1 error impidió guardar este %{resource}:"
+        other: "%{count} errores impidieron guardar este %{resource}:"

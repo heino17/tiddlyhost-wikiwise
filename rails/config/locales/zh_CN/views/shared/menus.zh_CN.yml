@@ -1,0 +1,25 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+zh_CN:
+  # Top Menu
+  top_menu_root: "首页"
+  top_menu_explore: "探索"
+  top_menu_templates: "模板"
+  top_menu_pricing: "定价"
+  top_menu_signup: "注册"
+  top_menu_log_in: "登录"
+  # User menu if loged in
+  user_menu_head_account: "账户"
+  user_menu_item_manage_account: "管理账户"
+  user_menu_head_plan: "计划"
+  user_menu_item_manage_subscription: "管理订阅"
+  user_menu_item_subscription_plans: "订阅计划"
+  user_menu_head_sites: "站点"
+  user_menu_item_counted_sites: "站点"
+  user_menu_item_manage_sites: "管理站点"
+  user_menu_item_logout: "登出"
+  # Burger menu
+  burger_menu_title: "您的账户"
+  burger_menu_create_site: "创建站点"

@@ -1,0 +1,44 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+---
+zh_CN:
+  comments:
+    title_short: "评论"
+    title_singular: "评论"
+    title_plural: "评论"
+    your_comment: "您的评论"
+    your_comment_short: "您对此 wiki 的评论"
+    create_button: "保存评论"
+    update_button: "更新评论"
+    created: "评论已保存"
+    updated: "评论已更新"
+    login_hint: "请登录以撰写评论。"
+    login_hint_short: "请登录以评论。"
+    comment_required_characters: "至少需要一个字符！"
+    edited: "已编辑"
+    score_label: "分数"
+
+    delete_button: "删除"
+    deleted: "评论已删除！"
+    not_your_comment: "这不是您的评论！"
+    delete_confirm: "您确定要删除此项吗？您的评论无法恢复！"
+
+    show_all_button: "显示所有 %{count} 条评论"
+
+    title_comments_for: "站点评论"
+    delete_your_comment: "删除您的评论"
+    back_to_previous_page: "U+F27F 返回上一页"
+    go_to_explore_view: "转到探索页面 U+F280"
+  # voting wiki sites
+  votes:
+    average: "评分"
+    count:
+      one: "评分"
+      other: "评分"
+    saved: "评分已保存。"
+    removed: "您的评分已移除。"
+    login_hint: "请登录以评分。"
+    no_ratings_yet_login: "尚未有评分！请登录以评分。"
+    login_to_rate: "登录以提交您的评分"
+    my_rating:    "我的评分"
+    rate_now:     "立即评分"

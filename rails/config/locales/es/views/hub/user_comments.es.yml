@@ -1,0 +1,45 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+es:  
+  comments:
+    title_short: "Comentarios"
+    title_singular: "Comentario"
+    title_plural: "Comentarios"
+    your_comment: "Tu comentario"
+    your_comment_short: "Tu comentario sobre esta wiki"
+    create_button: "Guardar comentario"
+    update_button: "Actualizar comentario"
+    created: "¡Comentario guardado!"
+    updated: "¡Comentario actualizado!"
+    login_hint: "Inicia sesión para escribir un comentario."
+    login_hint_short: "Inicia sesión para comentar."
+    comment_required_characters: "¡Se requiere al menos un carácter!"
+    edited: "Editado"
+    score_label: "Puntuación"
+
+    delete_button: "Eliminar"
+    deleted: "¡Comentario eliminado!"
+    not_your_comment: "¡Este no es tu comentario!"
+    delete_confirm: "¿De verdad quieres eliminarlo? ¡Tu comentario no se podrá recuperar!"
+    
+    show_all_button: "Mostrar todos los %{count} comentarios"
+    
+    title_comments_for: "Comentarios sobre el sitio"
+    delete_your_comment: "Eliminar tu comentario"
+    back_to_previous_page: "☜ Volver a la página anterior"
+    go_to_explore_view: "Ir a la página Explorar ☞"
+  # voting wiki sites
+  votes:
+    average: "Valoración"
+    count:
+      one: "Valoración"
+      other: "Valoraciones"
+    saved: "Valoración guardada"
+    removed: "Tu valoración ha sido eliminada"
+    login_hint: "Inicia sesión para valorar"
+    no_ratings_yet_login: "¡Aún no hay valoraciones! Inicia sesión para valorar"
+    login_to_rate: "Inicia sesión para enviar tu valoración"
+    my_rating:    "Mi calificación"
+    rate_now:     "Calificar ahora"

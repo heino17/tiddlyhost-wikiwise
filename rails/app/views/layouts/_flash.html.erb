@@ -1,0 +1,18 @@
+<div class="container-fluid mt-3">
+      <% flash.each do |type, message| %>
+        <% next if type.to_s == "timedout" %> <!-- falls Devise o.a. verwendet wird -->
+
+        <% css_class = case type.to_sym
+                       when :notice  then "success"
+                       when :alert   then "danger"
+                       when :error   then "danger"
+                       when :warning then "warning"
+                       else "info"
+                       end %>
+
+        <div class="alert alert-<%= css_class %> alert-dismissible fade show alert-flash" role="alert">
+          <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+    </div>

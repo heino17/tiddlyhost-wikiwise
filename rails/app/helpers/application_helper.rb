@@ -2,7 +2,7 @@ module ApplicationHelper
   include Recaptcha::Adapters::ViewMethods
   # Language switch for i18n
   def language_switcher_links
-    available_locales = [:en, :de, :es, :fr]  # Erweitere später auf [:en, :de, :fr] usw.
+    available_locales = [:en, :de, :es, :fr, :zh_CN]  # Erweitere später auf [:en, :de, :fr] usw.
     available_locales.map do |loc|
       link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{I18n.locale == loc ? 'active' : ''}"
     end.join(' | ').html_safe
@@ -14,6 +14,7 @@ module ApplicationHelper
     when :de then 'de'
     when :es then 'es'
     when :fr then 'fr'
+    when :zh_CN then 'cn'
     # Später einfach erweitern, z.B. when :es then 'es'
     else 'xx'  # Fallback: graue Platzhalter-Flagge oder leer
     end
@@ -43,21 +44,18 @@ module ApplicationHelper
 
   def nav_link_to(title, link, opts = {})
     is_active = current_page?(link) ||
-      # We redirect home to /sites when user is logged in
-      (current_page?(sites_path) && link == root_path) ||
-      # Highlight Hub link for all Hub pages
-      # FIXME: This is probably not going to be working, (but
-      # maybe it doesn't matter since the active class doesn't
-      # do much anyhow..?)
-      (controller_name == 'hub' && link == '/hub') ||
-      # Highlight Admin link for all Admin pages
-      (controller_name == 'admin' && link == '/admin')
+                (current_page?(sites_path) && link == root_path) ||
+                (controller_name == 'hub' && link == '/hub') ||
+                (controller_name == 'admin' && link == '/admin')
 
     icon = opts.delete(:icon)
     li_class = opts.delete(:li_class)
 
+    # Turbo komplett deaktivieren
+    turbo_opts = { data: { turbo: false } }.merge(opts)
+
     content_tag :li, class: ['nav-item', li_class] do
-      link_to link, opts.merge(class: "flex-column nav-link#{' active' if is_active}") do
+      link_to link, turbo_opts.merge(class: "flex-column nav-link#{' active' if is_active}") do
         safe_join([bi_icon(icon), title].compact)
       end
     end
@@ -65,8 +63,12 @@ module ApplicationHelper
 
   def tab_link_to(title, link, opts = {})
     is_active = current_page?(link)
+
+    # Turbo deaktivieren
+    turbo_opts = { data: { turbo: false } }.merge(opts)
+
     content_tag :li, class: 'nav-item' do
-      link_to link, opts.merge(class: "nav-link#{' active' if is_active}") do
+      link_to link, turbo_opts.merge(class: "nav-link#{' active' if is_active}") do
         title
       end
     end
@@ -185,11 +187,9 @@ module ApplicationHelper
       options = coll_or_options
       coll_or_options = nil
     end
-
     unless options[:renderer]
       options = options.merge renderer: BootstrapPaginateRenderer
     end
-
     super(*[coll_or_options, options].compact)
   end
 

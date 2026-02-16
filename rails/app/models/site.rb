@@ -1,6 +1,23 @@
 class Site < ApplicationRecord
   include SiteCommon
 
+  # Comment & Voting
+  has_many :comments, dependent: :destroy
+  has_many :site_votes, dependent: :destroy
+
+  # Für die Anzeige: Durchschnitt (für Sterne) oder Summe (für +1/-1)
+  def vote_score
+    return 0 if site_votes.empty?
+    # Für Sterne: site_votes.average(:value).round(1)  # z. B. 4.2
+    # Für +1/-1: site_votes.sum(:value)  # z. B. +12
+    site_votes.average(:value).round(1)  # Starte mit Sterne-Version
+  end
+
+  def vote_count
+    site_votes.count
+  end
+  # Comment & Voting end
+
   # The empty used when the site was created.
   # (It might not reflect what the site is now since the
   # user may have uploaded a different type of TiddlyWiki.)

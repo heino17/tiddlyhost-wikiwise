@@ -4,14 +4,14 @@
 .actions-menu-group
   - unless local_assigns[:menu_only]
     - if is_tspot
-      = link_to(edit_tspot_site_path(site), class: 'btn btn-light', title: 'Settings') { bi_icon('sliders', height: '1em') }
+      = link_to(edit_tspot_site_path(site), data: { turbo: false }, class: 'btn btn-light', title: 'Settings') { bi_icon('sliders', height: '1em') }
       = link_to(site.url, class: 'btn btn-light', target: site.long_name, title: 'View') { bi_icon('box-arrow-up-right', height: '1em') }
       = link_to(download_tspot_site_path(site), class: 'btn btn-light', title: 'Download') { bi_icon('download', height: '1em') }
     - else
-      = link_to(edit_site_path(site), class: 'btn btn-light', title: t('hub_view_action_menu_settings')) { bi_icon('sliders', height: '1em') }
+      = link_to(edit_site_path(site), data: { turbo: false }, class: 'btn btn-light', title: t('hub_view_action_menu_settings')) { bi_icon('sliders', height: '1em') }
       - if show_history_link?(site) && !local_assigns[:history_mode]
-        = link_to(history_site_path(site), class: 'btn btn-light', title: t('hub_view_action_menu_save_history')) { bi_icon('clock-history', height: '1em') }
-      = link_to(site.url, class: 'btn btn-light', target: site.long_name, title: t('hub_view_action_menu_view')) { bi_icon('box-arrow-up-right', height: '1em') }
+        = link_to(history_site_path(site), data: { turbo: false }, class: 'btn btn-light', title: t('hub_view_action_menu_save_history')) { bi_icon('clock-history', height: '1em') }
+      = link_to(site.url, data: { turbo: false }, class: 'btn btn-light', target: site.long_name, title: t('hub_view_action_menu_view')) { bi_icon('box-arrow-up-right', height: '1em') }
       = link_to(download_site_path(site), class: 'btn btn-light', title: t('hub_view_action_menu_download')) { bi_icon('download', height: '1em') }
 
   %button.btn.btn-light{ type: "button",
@@ -22,12 +22,12 @@
 
   .dropdown-menu.dropdown-menu-end
     - if is_tspot
-      = link_to(edit_tspot_site_path(site), class: 'dropdown-item') { bi_icon('sliders') + t('hub_view_action_menu_settings') }
+      = link_to(edit_tspot_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('sliders') + t('hub_view_action_menu_settings') }
       .dropdown-divider
 
       -# I want to only show this on the grid view, hence the menu_only check here
       - if !site.thumbnail.present? && local_assigns[:menu_only]
-        = link_to(create_thumbnail_tspot_site_path(site), class: 'dropdown-item', method: :post,
+        = link_to(create_thumbnail_tspot_site_path(site), data: { turbo: false }, class: 'dropdown-item', method: :post,
           data: { confirm: text_join("The thumbnail may take some time to generate.",
           "Click OK then wait a few moments and reload the page.") }) { bi_icon('camera') + 'Create thumbnail' }
 
@@ -36,9 +36,9 @@
       - if safe_mode_url = site.safe_mode_url
         = link_to(safe_mode_url, class: 'dropdown-item', target: '_blank') { bi_icon('life-preserver') + t('hub_view_action_menu_view_safe_mode') }
       .dropdown-divider
-      = link_to(change_password_tspot_site_path(site), class: 'dropdown-item') { bi_icon('person-check') + 'Change password' }
+      = link_to(change_password_tspot_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('person-check') + 'Change password' }
       .dropdown-divider
-      = link_to(disown_tspot_site_path(site), method: :post, class: 'dropdown-item',
+      = link_to(disown_tspot_site_path(site), data: { turbo: false }, method: :post, class: 'dropdown-item',
         data: { confirm: "Are you sure you want to give up ownership of '#{site.host}'?" }) { bi_icon('file-earmark-minus') + 'Disown' }
 
       .dropdown-divider
@@ -48,16 +48,16 @@
         "to delete '#{site.host}' forever?") }) { bi_icon('trash') + 'Delete' }
 
     - else
-      = link_to(edit_site_path(site), class: 'dropdown-item') { bi_icon('sliders') + t('hub_view_action_menu_settings') }
+      = link_to(edit_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('sliders') + t('hub_view_action_menu_settings') }
 
       - if show_history_link?(site) && !local_assigns[:history_mode]
-        = link_to(history_site_path(site), class: 'dropdown-item') { bi_icon('clock-history') + t('hub_view_action_menu_save_history') }
+        = link_to(history_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('clock-history') + t('hub_view_action_menu_save_history') }
 
       .dropdown-divider
 
       -# I want to only show this on the grid view, hence the menu_only check here
       - if !site.thumbnail.present? && local_assigns[:menu_only]
-        = link_to(create_thumbnail_site_path(site), class: 'dropdown-item', method: :post,
+        = link_to(create_thumbnail_site_path(site), data: { turbo: false }, class: 'dropdown-item', method: :post,
           data: { confirm: text_join("The thumbnail may take some time to generate.",
           "Click okay then wait a few moments and reload the page.") }) { bi_icon('camera') + 'Create thumbnail' }
         .dropdown-divider
@@ -86,8 +86,8 @@
 
       .dropdown-divider
 
-      = link_to(new_site_path(clone: site.name), class: 'dropdown-item') { bi_icon('files') + t('hub_view_action_menu_clone') }
-      = link_to(upload_form_site_path(site), class: 'dropdown-item') { bi_icon('upload') + t('hub_view_action_menu_upload') }
+      = link_to(new_site_path(clone: site.name), data: { turbo: false }, class: 'dropdown-item') { bi_icon('files') + t('hub_view_action_menu_clone') }
+      = link_to(upload_form_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('upload') + t('hub_view_action_menu_upload') }
 
       -# (Don't allow deleting the entire site from the history page)
       - unless local_assigns[:history_mode]

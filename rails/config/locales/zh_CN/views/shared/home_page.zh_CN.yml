@@ -1,0 +1,20 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+# From here Tiddlyhost for i18n
+#
+---
+zh_CN:
+  # Start Page Texts
+  signed_out_col1_heading: "您的专属 wiki，只需几秒钟"
+  signed_out_col1_text: "免费获取您自己的强大、可扩展的个人 wiki，只需几秒钟，无需安装。将它设为私有、公开，或在"
+  signed_out_col2_heading: "由 TiddlyWiki 驱动"
+  signed_out_col2_text: "Tiddlyhost 由 <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> 驱动，这是革命性的开源 JavaScript wiki。它还支持新的超轻量 <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> 和经典原版 <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>。"
+  signed_out_col3_heading: "Tiddlyspot 创建者的作品"
+  signed_out_col3_text: "Tiddlyhost 是 Tiddlyspot 的安全、现代、可靠继任者，其代码是 <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>开源</a>。在 <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> 或 <a href=\"about\">关于</a> 页面了解更多。"
+  signed_out_linkto_explore: "探索页面"
+  # Startpage Get started now - box
+  get_started_heading: "立即开始"
+  get_started_button_signup: "注册"
+  get_started_divider: "或"
+  get_started_button_login: "登录"

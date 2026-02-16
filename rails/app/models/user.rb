@@ -31,6 +31,11 @@ class User < ApplicationRecord
   has_many :sites, dependent: :destroy
   has_many :tspot_sites, dependent: :nullify
 
+  # Comment & Voting
+  has_many :comments, dependent: :destroy
+  has_many :comment_votes, dependent: :destroy
+  has_many :site_votes, dependent: :destroy
+
   def all_sites
     return sites unless Settings.tiddlyspot_enabled?
 

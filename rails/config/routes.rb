@@ -76,11 +76,14 @@ Rails.application.routes.draw do
     get 'subscription/success', to: 'subscription#success'
 
     resources :sites do
+      resources :comments, only: [:index, :create, :update, :destroy]
+      resource :site_vote, only: [:create, :update]
+      
       collection do
         get :view_toggle
         get :download_all
       end
-
+  
       member do
         get :download
         get :download_core_js

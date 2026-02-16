@@ -1,0 +1,69 @@
+%div{ id: "site_comments_#{site.id}" }
+
+  %details.site-comments{ style: 'font-size: 60%; margin-top: 0rem;' }
+    %summary.text-muted{ style: "cursor: pointer;" }
+      %strong
+        #{site.comments.count}
+        = site.comments.count == 1 ? t('comments.title_singular') : t('comments.title_plural')
+      #{bi_icon('feather', height: '1.2em', fill: '#777')}
+
+    - if user_signed_in?
+      - comment_record = site.comments.find_by(user: current_user) || Comment.new
+      = form_with model: comment_record,
+                  url: site_comments_path(site),
+                  method: :post,
+                  data: { turbo: true } do |f|
+
+        .mb-1
+          = f.text_area :body,
+                        value: (comment_record.body || ''),
+                        rows: 2,
+                        class: 'form-control form-control-sm comment-body-input',
+                        style: 'margin-top: 0rem; font-size: 90%;',
+                        placeholder: t('comments.your_comment_short'),
+                        required: true,
+                        'aria-describedby': 'comment-help'
+
+        .mb-1
+          = f.submit t(comment_record.persisted? ? 'comments.update_button' : 'comments.create_button'),
+                     class: 'btn btn-sm btn-outline-primary comment-submit-btn',
+                     style: 'margin-top: 0rem; font-size: 100%;'
+
+        %small#comment-help.form-text.text-muted
+          = t('comments.comment_required_characters') || "Mindestens ein Zeichen erforderlich"
+
+    - else
+      .text-muted{ style: 'margin-bottom: 0.0rem; margin-top: 0.0rem;' }
+        = t('comments.login_hint_short')
+
+    - site.comments.includes(:user).order(created_at: :desc).limit(3).each do |comment|
+      %div.comment-item{ style: 'border-top: 1px solid #eee; padding-top: 0.2rem; margin-top: 0.2rem; font-size: 90%; position: relative;' }
+        %span.text-muted
+          = comment.user.username.presence || comment.user.email
+          = ' · '
+          = l(comment.created_at, format: :long)
+          - if comment.edited_at.present?
+            %br
+            = "(#{t('comments.edited')}: #{l(comment.edited_at, format: :long)})"
+
+        %div
+          = simple_format(comment.body, {}, wrapper_tag: 'span')
+
+        %div.text-muted.d-flex.justify-content-between.align-items-center.mt-1
+          %span
+            / Score kommt später
+
+          - if user_signed_in? && comment.user == current_user
+            = link_to t('comments.delete_button'),
+                      site_comment_path(site, comment),
+                      method: :delete,
+                      data: { confirm: t('comments.delete_confirm') },
+                      class: 'btn btn-sm btn-link text-danger p-0',
+                      style: 'font-size: 90%; text-decoration: none;'
+
+    - if site.comments.count > 1
+      .text-center.mt-2
+        = link_to t('comments.show_all_button', count: site.comments.count),
+                  site_comments_path(site),
+                  class: 'btn btn-sm btn-outline-primary mt-2 d-block text-center',
+                  style: 'font-size: 100%;'
