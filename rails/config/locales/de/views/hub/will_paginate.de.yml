@@ -15,7 +15,7 @@ de:
           one: "Gezeigt wird <b>1 Seite</b>"
           other: "Gezeigt werden <b>%{count} Seiten</b>"
         multi_page: "Seite %{from} - %{to} von %{count} insgesamt"
-        multi_page_html: "Zeige alle <b>Seiten %{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
+        multi_page_html: "Zeige <b>Seiten %{from} - %{to}</b> von <b>%{count}</b> insgesamt" 
     template:
       page_entries_info:
         single_page:
@@ -27,7 +27,7 @@ de:
           one: "Gezeigt wird <b>1 von %{count} Vorlagen</b>"
           other: "Gezeigt werden <b>%{count} Vorlagen</b>"
         multi_page: "Vorlage %{from} - %{to} von %{count} insgesamt"
-        multi_page_html: "Zeige alle <b>Vorlagen %{from} - %{to}</b> von <b>%{count}</b> insgesamt"
+        multi_page_html: "Zeige <b>Vorlagen %{from} - %{to}</b> von <b>%{count}</b> insgesamt"
         #      
     previous_label: "Vorherige"
     previous_aria_label: "Vorherige Seite"
