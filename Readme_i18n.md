@@ -30,7 +30,7 @@
       -  gem 'i18n-js', '~> 4.2', '>= 4.2.4'
 
 - `config/application.rb`
-    - `config.i18n.available_locales = [:en, :de, :es , :fr]` 
+    - `config.i18n.available_locales = [:en, :de, :es , :fr, zh_CN]` 
       - (other or all country ISO codes possible)
     - `config.i18n.default_locale = :en`
       - (default when the page is loaded for the first time)
@@ -47,7 +47,7 @@
 
 - `config/locales/`
   - `rails i18n locales` (loaded as .yml from config/locales/, - makes it easier to make changes)
-  - `en.yml`, `de.yml`, `es.yml` & `fr.yml` (as startup files)
+  - `en.yml`, `de.yml`, `es.yml`, `fr.yml` & 'zh_CN.yml' (as startup files)
   - `Translations` in subfolders
 
 - `app/views/layouts/_header.html.haml`
@@ -101,7 +101,7 @@
     -  gem 'i18n-js', '~> 4.2', '>= 4.2.4'
 
   - `config/application.rb`
-    - `config.i18n.available_locales = [:en, :de, :es , :fr]` 
+    - `config.i18n.available_locales = [:en, :de, :es , :fr, zh_CN]` 
       - (weitere bzw. alle Länder-iso-codes möglich)
     - `config.i18n.default_locale = :en`
       - (Standard beim ersten Laden der Seite)
@@ -118,7 +118,7 @@
 
 - `config/locales/`
   - `rails i18n locales` (als .yml aus config/locales/ geladen, - erleichtert Eingriffe)
-  - `en.yml`, `de.yml`, `es.yml` & `fr.yml` (als Startdateien)
+  - `en.yml`, `de.yml`, `es.yml`, `fr.yml` & 'zh_CN.yml' (als Startdateien)
   - `Übersetzungen` in Unterordnern
 
 - `app/views/layouts/_header.html.haml`
