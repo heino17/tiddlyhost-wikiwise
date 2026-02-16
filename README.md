@@ -1,18 +1,18 @@
 # Tiddlyhost-wikiwise
 ## + rails I18n Sprach-Implementierung
+## + Kommentar- & Bewertung der Tiddlyhost-Wikis
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇨🇳 zh-CN - Schalter in menu bar
 - funktioniert gut  
 - weitere Sprachen einfach zu implementieren  
 - beachte die Ports!  
  
-...ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer in 4 Sprachen übersetzten Oberfläche,  
-durch Implementierung von I18n Sprachunterstützung.
-Siehe: [Readme_i18n.md](Readme_i18n.md)  
+...ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer 
+- in 5 Sprachen übersetzten Oberfläche,
+- durch Implementierung von I18n Sprachunterstützung. **Siehe: [Readme_i18n.md](Readme_i18n.md)**
+- Erweitert um Kommentar & Bewertung der Tiddlyhost-Wikis. **Siehe: [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**  
 
-Es ist für meine Server-Umgebung etwas angepasst, siehe [Readme-Anpassungen.md](Readme-Anpassungen.md),  
-ansonsten ist diese Kopie 1:1 + I18n  
-**Mehr darüber in [Readme_i18n.md](Readme_i18n.md)**  
+Es ist für meine Server-Umgebung etwas angepasst, **siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
 Ich dachte, es könnte das Interesse an der Software steigern, zum Beispiel bei deutschen, spanischen oder französischen Programmierern...  
 
@@ -35,17 +35,19 @@ cd tiddlyhost-wikiwise
 
 # Tiddlyhost-wikiwise
 ## + rails I18n language implementation
+## + Comment & Voting for Tiddlyhost Wikis
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇨🇳 zh-CN - Switch in menu bar
 - works fine  
 - more languages easy to implement  
 - note the ports!  
  
-...is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with an interface translated into 4 languages  
-through the implementation of I18n language support.  
-It has been slightly adapted for my server environment, see [Readme-Anpassungen.md](Readme-Anpassungen.md),  
-otherwise, this copy is 1:1 + I18n  
-**More about in [Readme_i18n.md](Readme_i18n.md)**  
+...is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with a 
+- interface translated into 5 languages,
+- through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
+- Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
+
+It has been slightly adapted for my server environment, **see [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
 I thought it might increase interest in the software, for example among German, Spanish, or French programmers...  
   
