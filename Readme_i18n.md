@@ -3,7 +3,7 @@
 # The fun factor
 ## # "Key findings":
 
-- Fully working language switch - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR switchable
+- Fully working language switch - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇨🇳 zh-CN switchable
 - Switch in menu bar, Text & Flags
 - with persistence via session cookie
 - Clean, lightweight option for future languages (it, pl, ru, gr, etc.)
@@ -18,6 +18,7 @@
       - host.domain/?locale=de
       - host.domain/?locale=es
       - host.domain/?locale=fr
+      - host.domain/?locale=zh_CN  
  
  - *I don't really need it, but it's fun, so I'll do it, right? :)*
 
@@ -74,7 +75,7 @@
 ## Der Spaßfaktor
 ## # "Schlüssel-Erkenntnisse":
 
-- Vollständig funktionsfähige Sprachumschaltung - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR umschaltbar
+- Vollständig funktionsfähige Sprachumschaltung - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇨🇳 zh-CN umschaltbar
 - Schalter in der Menüleiste, Text und Flaggen
 - mit Persistenz über Session-Cookie  
 - Saubere, leichtgewichtige Möglichkeit für zukünftige Sprachen (it, pl, ru, gr, …)
@@ -88,7 +89,8 @@
       - host.domain/?locale=en  
       - host.domain/?locale=de  
       - host.domain/?locale=es  
-      - host.domain/?locale=fr  
+      - host.domain/?locale=fr
+      - host.domain/?locale=zh_CN  
 
 - *Ich brauche es eigentlich nicht, aber es macht Spaß, also mach ich's, oder?. :)*
 
