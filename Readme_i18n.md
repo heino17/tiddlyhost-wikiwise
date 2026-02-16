@@ -13,7 +13,7 @@
 `<html data-theme-mode="<%= thememode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">`  
     - If your browser detects that the page is written in a language other than your preferred language, it will display an icon or button that allows you to translate the entire page into your language.  
     - The lang attribute with ISO language code (e.g., lang="de", lang="en") helps screen readers read the text aloud in the correct language, pronunciation, and intonation.
-    - Search engines can index 4 languages:
+    - Search engines can index 5 languages:
       - host.domain/?locale=en
       - host.domain/?locale=de
       - host.domain/?locale=es
@@ -85,7 +85,7 @@
 `<html data-theme-mode="<%= thememode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">`  
     - Wenn dein Browser erkennt, dass die Seite in einer anderen Sprache als deiner bevorzugten Sprache verfasst ist, zeigt er ein Symbol oder eine Schaltfläche an, mit der Du die Seite vollständig in deine Sprache übersetzen kannst.  
     - Das lang-Attribut mit ISO-Sprachcode (z. B. lang="de", lang="en") hilft Screenreadern, den Text in der richtigen Sprache, Aussprache und Betonung vorzulesen.
-    - Suchmaschinen können 4 Sprachen indexieren:
+    - Suchmaschinen können 5 Sprachen indexieren:
       - host.domain/?locale=en  
       - host.domain/?locale=de  
       - host.domain/?locale=es  
