@@ -58,7 +58,7 @@
   - replaced with t(“key”) and moved to translation files (.yml)
   - minor adjustments to the code for compatibility
   -  approximately 60 existing files edited (almost complete, the “Pricing” section is still missing)
-  -  80 language files created
+  -  100 language files created
 
 ### # Current status (January 2026):
 - Works stably with 0 errors in tests (with :en as default)
@@ -129,7 +129,7 @@
   - durch t("key") ersetzt und in Übersetzungsdateien (.yml) ausgelagert
   - kleine Anpassungen im Code für Kompatibilität
   -  ca. 60 vorhandene Dateien bearbeitet (fast vollständig, der "Pricing"-Teil fehlt noch)
-  -  80 Sprachdateien erstellt
+  -  100 Sprachdateien erstellt
 
 ### # Aktueller Status (Januar 2026):
 - Funktioniert stabil mit 0 Fehlern in den Tests (bei :en als Standard)
