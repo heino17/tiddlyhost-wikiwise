@@ -4,13 +4,11 @@
     = t('site_view_edit_wiki_show_more_types_label')
     = link_to t('site_view_edit_wiki_show_more_types'), "#", class: 'longer-link'
 
-  - @empties_for_select.each_with_index do |empty, i|
-
+  - @empties_for_select.each_with_index do |empty, _i|
     -# The first one is selected by default
     %div{ class: [empty == @site.empty ? 'selected' : '', empty.primary? ? '' : 'longer-only'] }
 
       = f.label :empty_id, empty.id, value: empty.id do
-
         = f.radio_button :empty_id, empty.id, class: 'me-1', style: "margin-left: -0.3em;"
 
         = logo_for_kind empty.kind

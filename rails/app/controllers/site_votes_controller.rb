@@ -13,7 +13,7 @@ class SiteVotesController < ApplicationController
       # Bewertung entfernen
       @vote.destroy if @vote.persisted?
       flash_message = t('votes.removed')
-      flash_type = "info"  # oder "warning"
+      flash_type = "info" # oder "warning"
     else
       # Bewertung setzen oder ändern
       @vote.value = submitted_value.to_i
@@ -24,7 +24,7 @@ class SiteVotesController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-      flash.now[flash_type] = flash_message  # Globale Flash + lokale
+        flash.now[flash_type] = flash_message # Globale Flash + lokale
         render turbo_stream: [
           # 1. Den gesamten Vote-Bereich aktualisieren (Sterne, Durchschnitt, Text)
           turbo_stream.replace(
@@ -36,10 +36,10 @@ class SiteVotesController < ApplicationController
           # 2. Flash-Nachricht **direkt über** dem Vote-Bereich einfügen
           turbo_stream.prepend(
             "site_vote_#{@site.id}",
-            "<div id='vote_flash_#{@site.id}' class='mt-2 mb-2'>" +
-              "<div class='alert alert-#{flash_type} alert-dismissible fade show alert-flash'>" +
-                "#{flash_message}" +
-                "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" +
+            "<div id='vote_flash_#{@site.id}' class='mt-2 mb-2'>" \
+              "<div class='alert alert-#{flash_type} alert-dismissible fade show alert-flash'>" \
+                "#{flash_message}" \
+                "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>" \
               "</div>" +
             "</div>".html_safe
           )
@@ -57,7 +57,7 @@ class SiteVotesController < ApplicationController
 
   # Falls du eine separate update-Action hast:
   def update
-    create   # gleiche Logik wie create
+    create # gleiche Logik wie create
   end
 
   private

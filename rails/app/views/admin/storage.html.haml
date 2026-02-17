@@ -14,8 +14,8 @@
 
   - attachment_names.each do |name|
     - attachment_service_names_for_attachment(name).each_with_index do |service_name, i|
-      - count = ActiveStorage::Blob.joins(:attachments).where(attachments: {name:}, service_name:).count
-      - bytes = ActiveStorage::Blob.joins(:attachments).where(attachments: {name:}, service_name:).sum(:byte_size)
+      - count = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).count
+      - bytes = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).sum(:byte_size)
 
       %tr
         %td= name if i == 0

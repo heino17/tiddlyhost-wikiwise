@@ -6,24 +6,24 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-  if params[:locale].present?
-    # User explicitly switched via link/dropdown/URL parameter → apply & remember
-    requested = params[:locale].to_sym
-    if I18n.available_locales.include?(requested)
-      I18n.locale = requested
-      session[:locale] = requested
+    if params[:locale].present?
+      # User explicitly switched via link/dropdown/URL parameter → apply & remember
+      requested = params[:locale].to_sym
+      if I18n.available_locales.include?(requested)
+        I18n.locale = requested
+        session[:locale] = requested
+      end
+    elsif session[:locale].present?
+      # If :locale is already present as saved choice → use
+      I18n.locale = session[:locale]
+    else
+      # Optional: → Do NOT use browser_language here!
+      #I18n.locale = I18n.default_locale
+      #
+      # Optional: ← only if you also want to save the default
+      #session[:locale] = I18n.default_locale
     end
-  elsif session[:locale].present?
-    # If :locale is already present as saved choice → use
-    I18n.locale = session[:locale]
-  else
-    # Optional: → Do NOT use browser_language here!
-    #I18n.locale = I18n.default_locale
-    #
-    # Optional: ← only if you also want to save the default
-    #session[:locale] = I18n.default_locale
   end
-end
 
   protected
 

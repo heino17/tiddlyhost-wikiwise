@@ -8,9 +8,10 @@ class Site < ApplicationRecord
   # Für die Anzeige: Durchschnitt (für Sterne) oder Summe (für +1/-1)
   def vote_score
     return 0 if site_votes.empty?
+
     # Für Sterne: site_votes.average(:value).round(1)  # z. B. 4.2
     # Für +1/-1: site_votes.sum(:value)  # z. B. +12
-    site_votes.average(:value).round(1)  # Starte mit Sterne-Version
+    site_votes.average(:value).round(1) # Starte mit Sterne-Version
   end
 
   def vote_count

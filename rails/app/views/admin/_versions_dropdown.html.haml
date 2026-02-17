@@ -1,8 +1,8 @@
 
 %a.dropdown-toggle{
-  "data-bs-toggle"=>"dropdown",
-  "aria-haspopup"=>"true",
-  "aria-expanded"=>"false" }
+  "data-bs-toggle" => "dropdown",
+  "aria-haspopup" => "true",
+  "aria-expanded" => "false"}
   = site.saved_version_count
 
 .dropdown-menu.dropdown-menu-end.th-text-90.px-3
@@ -11,7 +11,7 @@
       %div{ style: "width: 2em;" }
         = bi_icon('caret-right-fill', style: "opacity: 30%;") if i == 0
       %div{ style: "width: 1.5em;" }
-        #{i+1}.
+        #{i + 1}.
       %div{ style: "width: 16em;" }
         = link_to(blob.key, { action: :raw_download, type: site.class.name, id: site.id, blob_id: blob.id })
       %div{ style: "width: 4em;" }
