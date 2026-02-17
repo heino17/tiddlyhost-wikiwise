@@ -51,7 +51,8 @@ class UserSignupTest < CapybaraIntegrationTest
 
     # Logout
     # click_link I18n.t('user_menu_item_logout')
-    find("a[data-method='delete'][href='/users/sign_out']").click
+    # Logout-Button in der Dropdown-Form finden und klicken
+    find("form[action='/users/sign_out'] button[type='submit']").click
 
     # Confirm we are logged out
     assert page.has_css?('.jumbotron')
