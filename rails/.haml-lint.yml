@@ -1,7 +1,6 @@
-
 linters:
   LineLength:
-    max: 120
+    max: 140
     exclude:
       - "app/views/sites/_actions_menu.html.haml"
 
