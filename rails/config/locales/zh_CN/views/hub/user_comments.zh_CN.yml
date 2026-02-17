@@ -27,8 +27,8 @@ zh_CN:
 
     title_comments_for: "站点评论"
     delete_your_comment: "删除您的评论"
-    back_to_previous_page: "U+F27F 返回上一页"
-    go_to_explore_view: "转到探索页面 U+F280"
+    back_to_previous_page: "返回上一页"
+    go_to_explore_view: "转到探索页面"
   # voting wiki sites
   votes:
     average: "评分"
