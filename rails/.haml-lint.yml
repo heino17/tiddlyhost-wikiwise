@@ -1,15 +1,22 @@
+# Aktive Projekt-Konfiguration – bewusst gesetzte Regeln
+
 linters:
   LineLength:
-    max: 140
-    exclude:
-      - "app/views/sites/_actions_menu.html.haml"
+    max: 200            # Deine bewusste Erhöhung
 
   ViewLength:
     exclude:
-      # These are long
       - "app/views/home/privacy_policy.html.haml"
       - "app/views/home/terms_of_use.html.haml"
 
   InlineStyles:
-    # Allow inline styles for now anyway
-    enabled: false
+    enabled: false      # Erlaubt Inline-Styles vorerst
+
+  SpaceBeforeScript:
+    enabled: true       # Gute Praxis – behalten
+
+  SpaceInsideHashAttributes:
+    enabled: true       # Gute Praxis – behalten
+
+# Keine auskommentierten Blöcke mehr – die verursachen den nil-Crash
+# Wenn du später excludes für LineLength brauchst → als Array hinzufügen

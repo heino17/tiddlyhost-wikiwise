@@ -5,13 +5,12 @@
 # one by one as the lints are removed from the code base.
 # Note that changes in the inspected code, or installation of new
 # versions of Haml-Lint, may require this file to be generated again.
-
 # Keep this even though regenerating this file makes it go away
+
 inherits_from:
   - ".haml-lint.yml"
 
 linters:
-
   # Offense count: 44
   InstanceVariables:
     exclude:
