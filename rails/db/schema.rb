@@ -44,13 +44,13 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_08_130641) do
 
   create_table "attachment_labels", force: :cascade do |t|
     t.string "text"
-    t.bigint "active_storage_attachments_id"
+    t.bigint "active_storage_attachments_id", null: false
     t.index ["active_storage_attachments_id"], name: "index_attachment_labels_on_active_storage_attachments_id"
   end
 
   create_table "comment_votes", force: :cascade do |t|
-    t.bigint "comment_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "comment_id"
+    t.bigint "user_id"
     t.integer "value", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,9 +60,9 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_08_130641) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "site_id", null: false
-    t.bigint "user_id", null: false
-    t.text "body", null: false
+    t.bigint "site_id"
+    t.bigint "user_id"
+    t.text "body"
     t.datetime "edited_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -197,8 +197,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_08_130641) do
   end
 
   create_table "site_votes", force: :cascade do |t|
-    t.bigint "site_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "site_id"
+    t.bigint "user_id"
     t.integer "value", default: 3, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -320,7 +320,6 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_08_130641) do
     t.string "username", limit: 30
     t.boolean "use_libravatar", default: false
     t.string "alt_subscription"
-    t.string "theme_pref"
     t.json "preferences", default: {}
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
