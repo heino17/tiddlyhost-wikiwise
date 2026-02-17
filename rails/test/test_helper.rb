@@ -9,7 +9,6 @@ require 'rails/test_help'
 
 require 'capybara/rails'
 require 'capybara/minitest'
-require 'minitest/mock'
 require 'mocha/minitest'
 
 # Load test support modules
@@ -76,12 +75,6 @@ class ActionDispatch::IntegrationTest
 
   setup do
     host! Settings.url_defaults[:host]
-  end
-
-  def mock_helper
-    mock = Minitest::Mock.new
-    yield mock if block_given?
-    mock
   end
 end
 

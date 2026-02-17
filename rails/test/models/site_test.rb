@@ -296,20 +296,24 @@ class SiteTest < ActiveSupport::TestCase
     end
 
     # Main blob is missing, but no non-missing other blob was found
-    WithSavedContent.stub(:blob_exists_in_storage?, ->(_blob) { false }) do
-      assert_raises(RuntimeError, "No good blob found!") do
-        @site.reload.restore_missing_main_blob!
-      end
+    WithSavedContent.stubs(:blob_exists_in_storage?).returns(false)
+    assert_raises(RuntimeError, "No good blob found!") do
+      @site.reload.restore_missing_main_blob!
     end
+    WithSavedContent.unstub(:blob_exists_in_storage?)
 
     # Main blob missing, and there is an non-missing older blob available
-    WithSavedContent.stub(:blob_exists_in_storage?, ->(blob) { blob.id == old_blob.id }) do
-      @site.reload.restore_missing_main_blob!
+    # Set up general stub first, then specific stub for old_blob
+    WithSavedContent.stubs(:blob_exists_in_storage?).returns(false)
+    WithSavedContent.stubs(:blob_exists_in_storage?).with(old_blob).returns(true)
 
-      # Should have created a new version with the older content
-      assert_equal 3, @site.reload.saved_content_files.count
-      assert_equal 'older version', @site.file_download
-    end
+    @site.reload.restore_missing_main_blob!
+
+    # Should have created a new version with the older content
+    assert_equal 3, @site.reload.saved_content_files.count
+    assert_equal 'older version', @site.file_download
+
+    WithSavedContent.unstub(:blob_exists_in_storage?)
   end
 
   test 'tagging basic functionality' do
