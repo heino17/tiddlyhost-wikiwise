@@ -51,7 +51,7 @@ class UserSignupTest < CapybaraIntegrationTest
 
     # Logout
     # click_link I18n.t('user_menu_item_logout')
-    logout_text = I18n.t('user_menu_item_logout', default: 'Logout')
+    logout_text = I18n.t('user_menu_item_logout', default: 'Log out')
     click_link logout_text
 
     # Confirm we are logged out
