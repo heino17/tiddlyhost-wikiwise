@@ -1,8 +1,6 @@
 = render layout: 'form_wrapper', locals: { heading: t('user_resend_confirmation_header'),
   intro_text: t('user_resend_confirmation_intro_text') } do
-
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-
     = render 'devise/shared/error_messages', resource: resource
 
     = render layout: 'field_wrapper' do

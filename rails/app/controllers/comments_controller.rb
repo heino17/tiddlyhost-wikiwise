@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!  # falls Devise oder ähnliches benutzt wird
+  before_action :authenticate_user! # falls Devise oder ähnliches benutzt wird
   before_action :set_site
 
   def index
@@ -64,11 +64,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-  
+
     # Authorization
     return head :forbidden unless @comment.user == current_user || user_is_admin?
 
-    site = @comment.site   # merken, bevor wir löschen
+    @comment.site # merken, bevor wir löschen
     @comment.destroy
 
     respond_to do |format|
@@ -84,7 +84,7 @@ class CommentsController < ApplicationController
             locals: { site: @comment.site }
           ),
 
-         # Flash-Nachricht oben einfügen
+          # Flash-Nachricht oben einfügen
           turbo_stream.prepend(
             "site_comments_#{@comment.site.id}",
             "<div class='alert alert-success alert-dismissible fade show alert-flash mb-2' role='alert' style='font-size: 65%;'>

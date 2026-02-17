@@ -14,10 +14,10 @@
       = link_to(site.url, data: { turbo: false }, class: 'btn btn-light', target: site.long_name, title: t('hub_view_action_menu_view')) { bi_icon('box-arrow-up-right', height: '1em') }
       = link_to(download_site_path(site), class: 'btn btn-light', title: t('hub_view_action_menu_download')) { bi_icon('download', height: '1em') }
 
-  %button.btn.btn-light{ type: "button",
-    "data-bs-toggle"=>"dropdown", "aria-haspopup"=>"true", "aria-expanded"=>"false",
+  %button.btn.btn-light{type: "button",
+    "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false",
     style: ("border-color: transparent !important;" if local_assigns[:menu_only]),
-    title: (local_assigns[:menu_only] ? "Actions" : t('hub_view_action_menu_more')) }
+    title: (local_assigns[:menu_only] ? "Actions" : t('hub_view_action_menu_more'))}
     = bi_icon('three-dots', fill: '#212529')
 
   .dropdown-menu.dropdown-menu-end

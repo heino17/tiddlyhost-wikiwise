@@ -36,8 +36,8 @@ module AdminHelper
       records.offset + records.per_page :
       records.total_entries
 
-    "#{t('admin.pagination_showing_entries.showing')} #{records.offset + 1} 
-    #{t('admin.pagination_showing_entries.to')} #{last_item_index} 
+    "#{t('admin.pagination_showing_entries.showing')} #{records.offset + 1}
+    #{t('admin.pagination_showing_entries.to')} #{last_item_index}
     #{t('admin.pagination_showing_entries.of')} #{records.total_entries} #{t('admin.pagination_showing_entries.in_total')}"
   end
 

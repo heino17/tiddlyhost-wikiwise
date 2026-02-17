@@ -65,9 +65,9 @@
 
   -# some changes for i18n
 .d-inline-block.sites-menu
-  - next_mode_key = (list_mode_next == 'grid' ? 'grid' : 'list')
-  - title_text    = t("site_view_grid_list.#{list_mode_next}")
-  - button_text   = t("site_view_filter_and_sort_view")
+  - (list_mode_next == 'grid' ? 'grid' : 'list')
+  - t("site_view_grid_list.#{list_mode_next}")
+  - button_text = t("site_view_filter_and_sort_view")
 
   = link_to({ controller: :sites, action: :view_toggle }.merge(params.permit(:q, :kind, :access, :s, :tags)),
     class: "m-1 btn btn-sm",

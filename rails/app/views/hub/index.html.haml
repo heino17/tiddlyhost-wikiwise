@@ -10,7 +10,7 @@
   - else
     = @default_title
 
-  = render 'templates_switch', show_templates: @show_templates  
+  = render 'templates_switch', show_templates: @show_templates
 
 %p.small
   = @explanation_text
@@ -57,10 +57,10 @@
   %b= "#{search_text}"
 
   %span.sort-by
-    = link_to("#", class:'dropdown-toggle',
+    = link_to("#", class: 'dropdown-toggle',
       role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
       %span.pe-1
-        = t('hub_view_list_kind')+':'
+        = t('hub_view_list_kind') + ':'
       - if @kind_filter.present? && @kind_filter != "all"
         = logo_for_kind(@kind_filter, "margin-left: 2px; height: 1.3em; margin-top: -3px;")
       - else
@@ -73,10 +73,10 @@
           = title
 
   %span.sort-by
-    = link_to("#", class:'dropdown-toggle',
+    = link_to("#", class: 'dropdown-toggle',
       role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
       %span.pe-1
-        = t('hub_view_list_sort_by')+':'
+        = t('hub_view_list_sort_by') + ':'
       = sort_opt[:title]
     .dropdown-menu.hub-menu{ 'aria-labelledby': 'dropdownMenuLink' }
       - sort_options.keys.each do |k|

@@ -13,10 +13,9 @@
                   url: site_comments_path(site),
                   method: :post,
                   data: { turbo: true } do |f|
-
         .mb-1
           = f.text_area :body,
-                        value: (comment_record.body || ''),
+                        value: comment_record.body || '',
                         rows: 2,
                         class: 'form-control form-control-sm comment-body-input',
                         style: 'margin-top: 0rem; font-size: 90%;',

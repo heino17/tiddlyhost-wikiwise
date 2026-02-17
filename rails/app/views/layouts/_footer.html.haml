@@ -5,14 +5,14 @@
       %h6.text-muted= t('footer_version_header')
       %ul{ style: "padding-left: 0.5em; opacity: 70%;" }
         - unless Rails.env.production?
-          %li=t('footer_version_environment_title')+ ": #{Rails.env}"
+          %li=t('footer_version_environment_title') + ": #{Rails.env}"
         %li
-          = t('footer_version_version_title')+ ":"
+          = t('footer_version_version_title') + ":"
           = link_to '/about' do
             = "#{Settings.app_version}"
         - if feature_enabled?(:admin)
           %li
-            = t('footer_version_built_title')+ ":"
+            = t('footer_version_built_title') + ":"
             = "#{nice_timestamp(DateTime.parse(Settings.build_info['date']))}"
         %li &copy; 2021-#{Time.now.year} Simon Baird
 
@@ -88,7 +88,7 @@
         %li
           = link_to Settings.github_url, target: '_blank' do
             = bi_icon('gem')
-            = t('footer_host_info_source_code')            
+            = t('footer_host_info_source_code')
   -#
     .col.md-6
       %br

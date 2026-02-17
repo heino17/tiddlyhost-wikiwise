@@ -5,7 +5,7 @@
     .d-flex.align-items-center.gap-2
       = star_rating(site.vote_score)
       %span.text-muted
-        = sprintf("%.1f", site.vote_score)
+        = format("%.1f", site.vote_score)
         %small (#{site.vote_count})
 
   - if user_signed_in?
@@ -13,8 +13,7 @@
 
     = form_with url: site_site_vote_path(site),
                method: user_vote ? :patch : :post,
-               data: { turbo_stream: true } do |f|
-
+               data: { turbo_stream: true } do |_f|
       %details.site-vote-details{ style: 'margin-top: 0rem;' }
         %summary.text-primary.small{ style: 'cursor: pointer;' }
           - if user_vote
@@ -28,9 +27,9 @@
           .d-flex.gap-1
             - (1..5).each do |val|
               - is_selected = user_vote&.value == val
-              %button.btn.btn-sm{ type: 'submit', name: 'site_vote[value]', value: is_selected ? '' : val,
+              %button.btn.btn-sm{type: 'submit', name: 'site_vote[value]', value: is_selected ? '' : val,
                                   class: (is_selected ? 'btn-primary' : 'btn-outline-secondary'),
-                                  style: 'font-size: 0.8em; padding: 0.25rem 0.5rem;' }
+                                  style: 'font-size: 0.8em; padding: 0.25rem 0.5rem;'}
                 ★
 
   - else

@@ -6,10 +6,10 @@
       = image_tag(t('logo_path'), style: "height:32px;margin-left:12px;opacity:80%;", alt: t('logo_alt'))
 
     -# Burger button for phone screens
-    %button.navbar-toggler{ type: "button",
-      "data-bs-toggle"=>"collapse", "data-bs-target"=>"#navbarSupportedContent",
-      "aria-controls"=>"navbarSupportedContent",
-      "aria-expanded"=>"false", "aria-label"=>"Toggle navigation" }
+    %button.navbar-toggler{type: "button",
+      "data-bs-toggle" => "collapse", "data-bs-target" => "#navbarSupportedContent",
+      "aria-controls" => "navbarSupportedContent",
+      "aria-expanded" => "false", "aria-label" => "Toggle navigation"}
       %span.navbar-toggler-icon
 
     -# Nav bar content
@@ -30,40 +30,40 @@
           -# Sprachwechsler – Links auch deaktivieren
           %li.nav-item.dropdown
             - current_flag_code = flag_code_for(I18n.locale)
-            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: t('app_language_switch_tooltip'),
-              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true" }
+            %a.nav-link.dropdown-toggle{role: "button", href: "#", title: t('app_language_switch_tooltip'),
+              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true"}
               = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
               = t("languages.#{I18n.locale}")
 
             %ul.dropdown-menu.dropdown-menu-end
               - I18n.available_locales.each do |loc|
                 - flag_code = flag_code_for(loc)
-                - active = (I18n.locale == loc) ? 'active' : ''
+                - active = I18n.locale == loc ? 'active' : ''
                 %li
                   = link_to url_for(locale: loc), class: "dropdown-item #{active}", data: { turbo: false } do
                     = image_tag "flags/4x3/#{flag_code}.svg", width: 24, class: "me-2 align-text-bottom", alt: t("languages.#{loc}")
                     = t("languages.#{loc}")
-          
+
           -# NEU Buttons mit turbo: false
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
-            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block', 
+            style: "opacity: 90%;"), new_site_path, li_class: 'd-none d-sm-block',
             data: { turbo: false }, title: t('burger_menu_create_site')
 
           = nav_link_to bi_icon('plus', fill: "white", height: "1.9em", width: "1.9em",
             style: "opacity:90%; margin-left:-3px; margin-right:0px;") + content_tag(:span,
-            t('burger_menu_create_site')), new_site_path, li_class: 'd-block d-sm-none', 
+            t('burger_menu_create_site')), new_site_path, li_class: 'd-block d-sm-none',
             data: { turbo: false }, title: t('burger_menu_create_site')
 
           %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle#navbarDropdown{ role: "button", href: "#", title: t('burger_menu_title'),
-              "data-bs-toggle"=>"dropdown", "aria-expanded"=>"false", "aria-haspopup"=>"true" }
+            %a.nav-link.dropdown-toggle#navbarDropdown{role: "button", href: "#", title: t('burger_menu_title'),
+              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true"}
               - if current_user.use_avatar?
                 = avatar_image(current_user, size: 18, style: 'margin-top: -2px;')
               - else
                 = bi_icon('person-fill', fill: '#fff', style: 'margin-right: -1px;')
               = current_user.username_or_name
 
-            %ul.dropdown-menu.dropdown-menu-end.th-nav-menu{ 'aria-labelledby'=>'navbarDropdown' }
+            %ul.dropdown-menu.dropdown-menu-end.th-nav-menu{ 'aria-labelledby' => 'navbarDropdown' }
               = render 'layouts/user_menu_items'
 
       - else
@@ -82,15 +82,15 @@
           -# Sprachwechsler – Links auch deaktivieren
           %li.nav-item.dropdown
             - current_flag_code = flag_code_for(I18n.locale)
-            %a.nav-link.dropdown-toggle{ role: "button", href: "#", title: t('app_language_switch_tooltip'),
-              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true" }
+            %a.nav-link.dropdown-toggle{role: "button", href: "#", title: t('app_language_switch_tooltip'),
+              "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true"}
               = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
               = t("languages.#{I18n.locale}")
 
             %ul.dropdown-menu.dropdown-menu-end
               - I18n.available_locales.each do |loc|
                 - flag_code = flag_code_for(loc)
-                - active = (I18n.locale == loc) ? 'active' : ''
+                - active = I18n.locale == loc ? 'active' : ''
                 %li
                   = link_to url_for(locale: loc), class: "dropdown-item #{active}", data: { turbo: false } do
                     = image_tag "flags/4x3/#{flag_code}.svg", width: 24, class: "me-2 align-text-bottom", alt: t("languages.#{loc}")

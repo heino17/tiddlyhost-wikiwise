@@ -1,8 +1,6 @@
 = render layout: 'form_wrapper', locals: { heading: t('log_in_page_heading'),
-    intro_text: t('log_in_page_ask_need_account') + " #{link_to (t('shared_links_sign_up')), new_user_registration_path, data: { turbo: false }}." } do
-
+    intro_text: t('log_in_page_ask_need_account') + " #{link_to t('shared_links_sign_up'), new_user_registration_path, data: { turbo: false }}." } do
   = form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f|
-
     = render layout: 'field_wrapper' do
       = f.label t('log_in_page_email_label')
       = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
@@ -16,7 +14,7 @@
         -# Toggle password visiblity button
         .button.input-group-text.passwd-btn{
           style: text_join('cursor: pointer; background-color: transparent;',
-          'border-style: none; margin-left: -3.07em; z-index: 5; opacity: 0.3;') }
+          'border-style: none; margin-left: -3.07em; z-index: 5; opacity: 0.3;')}
           %span.passwd-btn-icon
             = bi_icon('eye')
           %span.passwd-btn-icon{ style: 'display: none;' }

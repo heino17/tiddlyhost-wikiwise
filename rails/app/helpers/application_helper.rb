@@ -1,24 +1,26 @@
 module ApplicationHelper
   include Recaptcha::Adapters::ViewMethods
+
   # Language switch for i18n
   def language_switcher_links
-    available_locales = [:en, :de, :es, :fr, :zh_CN]  # Erweitere später auf [:en, :de, :fr] usw.
+    available_locales = [:en, :de, :es, :fr, :zh_CN] # Erweitere später auf [:en, :de, :fr] usw.
     available_locales.map do |loc|
-      link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{I18n.locale == loc ? 'active' : ''}"
+      link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{'active' if I18n.locale == loc}"
     end.join(' | ').html_safe
   end
 
   def flag_code_for(locale)
     case locale.to_sym
-    when :en then 'gb'   # oder 'us' – deine Wahl!
+    when :en then 'gb' # oder 'us' – deine Wahl!
     when :de then 'de'
     when :es then 'es'
     when :fr then 'fr'
     when :zh_CN then 'cn'
     # Später einfach erweitern, z.B. when :es then 'es'
-    else 'xx'  # Fallback: graue Platzhalter-Flagge oder leer
+    else 'xx' # Fallback: graue Platzhalter-Flagge oder leer
     end
   end
+
   # Optional: wenn du keine t() für Sprachnamen hast, fallback zu humanisierten Namen
   def language_name(locale)
     t("languages.#{locale}", default: locale.to_s.upcase)
@@ -131,12 +133,12 @@ module ApplicationHelper
     return '-' unless timestamp
 
     content_tag :span, title: timestamp.to_s do
-      brief ? brief_time_ago_in_words(timestamp) : "#{time_ago_in_words(timestamp)}"
+      brief ? brief_time_ago_in_words(timestamp) : time_ago_in_words(timestamp).to_s
     end
   end
 
   def brief_time_ago_in_words(timestamp)
-    "#{time_ago_in_words(timestamp).sub(/^(about|less than) /, '')}"
+    time_ago_in_words(timestamp).sub(/^(about|less than) /, '').to_s
   end
 
   def nice_timespan(start_time, end_time, brief: false)

@@ -19171,6 +19171,34 @@
   });
   observer.observe(document.body, { childList: true, subtree: true });
 
+  // app/javascript/comment_textarea_validation.js
+  document.addEventListener("turbo:load", setupCommentFormValidation);
+  document.addEventListener("turbo:render", setupCommentFormValidation);
+  function setupCommentFormValidation() {
+    console.log("setupCommentFormValidation wurde aufgerufen!");
+    const forms2 = document.querySelectorAll('form[data-turbo="true"]');
+    console.log("Gefundene Formulare:", forms2.length);
+    forms2.forEach((form) => {
+      const textarea = form.querySelector(".comment-body-input");
+      const submitBtn = form.querySelector(".comment-submit-btn");
+      if (!textarea || !submitBtn) {
+        console.log("Textarea oder Button nicht gefunden in diesem Formular");
+        return;
+      }
+      console.log("Textarea und Button gefunden \u2013 starte Check");
+      const checkInput = () => {
+        const hasText = textarea.value.trim().length > 0;
+        console.log("Text vorhanden?", hasText, "Wert:", textarea.value.trim());
+        submitBtn.disabled = !hasText;
+      };
+      checkInput();
+      textarea.addEventListener("input", () => {
+        console.log("Input-Event gefeuert");
+        checkInput();
+      });
+    });
+  }
+
   // app/javascript/application.js
   window.$ = window.jQuery = import_jquery.default;
   window.bootstrap = bootstrap_esm_exports;

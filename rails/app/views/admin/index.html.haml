@@ -12,7 +12,7 @@
     = render 'stat_card', title: t('admin.tab_stats.tspots'),      count: @tspot_site_count, big: true
     = render 'stat_card', title: t('admin.tab_stats.tspot_views'), count: nice_view_count(@tspot_view_count), big: true
 
-  = render 'stat_card', title: t('admin.tab_stats.storage'),       count: nice_byte_count(@total_site_bytes, precision: 5), big: true
+  = render 'stat_card', title: t('admin.tab_stats.storage'), count: nice_byte_count(@total_site_bytes, precision: 5), big: true
   %br
 
   = render 'stat_card', title: t('admin.tab_stats.activ_daily'),          count: @active_daily, total: @user_count

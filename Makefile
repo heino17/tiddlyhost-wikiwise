@@ -752,3 +752,85 @@ pretty-colors: gource-image
 	  --filename-colour 555555 \
 	  --dir-colour 555555 \
 	  ;
+
+# Everything above this line is untouched!
+# ------------------------------------------------------------------------------
+# From here on, this is exclusively tiddlyhost-wikiwise territory!
+# Backup and update strategy
+# 
+# Ab hier ausschließlich tiddlyhost-wikiwise Bereich!
+# Backup- und Updatestrategie
+# ------------------------------------------------------------------------------
+# Branch-Management – Strategie A
+#   wikiwise-local-translation = Arbeitsbranch
+#   main                       = stabile/öffentliche Version
+# ------------------------------------------------------------------------------
+
+MY_WORK_BRANCH     ?= wikiwise-local-translation
+MY_PUBLIC_BRANCH   ?= main
+UPSTREAM_REMOTE    ?= upstream     # ← ändere das ggf. zu "origin" wenn du keinen upstream remote hast
+UPSTREAM_BRANCH    ?= origin        # oder main, devel – was du vom Original folgen möchtest
+
+git-push-work:
+	@echo "Push Arbeitsbranch → $(MY_WORK_BRANCH)"
+	git push origin $(MY_WORK_BRANCH)
+
+git-merge-work-into-public:
+	@echo "Merge $(MY_WORK_BRANCH) → $(MY_PUBLIC_BRANCH) (lokal)"
+	git checkout $(MY_PUBLIC_BRANCH)
+	git merge $(MY_WORK_BRANCH) --ff-only \
+	  && echo "→ Fast-forward Merge erfolgreich" \
+	  || (echo "⚠️  Merge nicht trivial – bitte manuell lösen (z.B. mit git merge oder rebase)" && false)
+	git push origin $(MY_PUBLIC_BRANCH)
+	git checkout $(MY_WORK_BRANCH)
+	@echo "→ Zurück auf Arbeitsbranch $(MY_WORK_BRANCH)"
+
+# Alles zusammen: update → commit → push work → merge → push public
+promote-to-public: deps-update-local-with-commit git-push-work git-merge-work-into-public
+	@echo ""
+	@echo "──────────────────────────────────────────────"
+	@echo "Fertig! Arbeitsbranch aktualisiert, gepusht und in $(MY_PUBLIC_BRANCH) gemergt."
+	@echo "Aktueller Stand:"
+	@git branch --show-current
+	@echo "──────────────────────────────────────────────"
+    
+# ------------------------------------------------------------------------------
+# Lokale Update-Targets – KEIN Push nach Docker Hub, alles nur lokal
+# ------------------------------------------------------------------------------
+
+deps-update-local: pull-ruby build-base bundle-update yarn-upgrade
+	@echo ""
+	@echo "Lokale Abhängigkeiten aktualisiert (kein Push, kein automatischer Commit)"
+	@echo ""
+	@git status --short | grep -E '(Gemfile.lock|yarn.lock|Dockerfile\.prod)' \
+	  && echo "" || echo "Keine Änderungen in Lockfiles oder Digest erkannt."
+	@echo "Nächste Schritte (wenn du zufrieden bist):"
+	@echo "  make test delint"
+	@echo "  git add Gemfile.lock yarn.lock docker/Dockerfile.prod"
+	@echo "  git commit -m 'chore: local deps + base image refresh'"
+	@echo ""
+	@$(MAKE) --no-print-directory bootstrap-email-sass-precompile test delint \
+	  || echo "⚠️  Tests oder Linting haben Fehler – bitte prüfen!"
+
+deps-update-local-with-commit: pull-ruby build-base bundle-update yarn-upgrade
+	@echo ""
+	@echo "Lokale Abhängigkeiten aktualisiert → automatischer Commit wenn nötig"
+	@echo ""
+	@CHANGES=$$(git diff --name-only -- Gemfile.lock yarn.lock docker/Dockerfile.prod); \
+	if [ -n "$$CHANGES" ]; then \
+		git add $$CHANGES && \
+		git commit -m "chore: update gems + yarn + local base image digest" \
+		           -m "Erzeugt mit 'make deps-update-local-with-commit'" && \
+		echo "→ Commit erstellt:" && git show --stat HEAD~1; \
+	else \
+		echo "Keine Änderungen → kein Commit nötig"; \
+	fi
+	@echo ""
+	@echo "Tests & Linting laufen jetzt:"
+	@$(MAKE) --no-print-directory bootstrap-email-sass-precompile test delint \
+	  || echo "⚠️  Tests oder Linting haben Fehler – bitte prüfen!"
+	@echo ""
+	@echo "Aktueller Branch-Status:"
+	@git branch --show-current
+	@git status --short
+    

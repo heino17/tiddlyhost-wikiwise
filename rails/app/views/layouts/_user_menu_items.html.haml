@@ -24,7 +24,7 @@
       = turbo_off_link_to subscription_path, data: { turbo: false }, class: "plan-#{current_user.subscription_info.name}-fg" do
         - if current_user.subscribed?
           = bi_icon('check2-circle', style: "margin-left: 1px; margin-right: -2px;")
-        = (t('site_title')+" #{current_user.subscription_info.name}")
+        = (t('site_title') + " #{current_user.subscription_info.name}")
 
   %li
     = turbo_off_link_to subscription_path, data: { turbo: false }, class: 'dropdown-item' do
@@ -51,11 +51,10 @@
     = bi_icon('sliders')
     = t('user_menu_item_manage_sites')
 
-
 %li.dropdown-divider{ style: "margin-bottom: 1.5em;" }
 
 %li
-  = form_with url: destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'd-inline' do |f|
+  = form_with url: destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'd-inline' do |_f|
     %button.dropdown-item{ type: 'submit' }
       = bi_icon('box-arrow-left')
       = t('user_menu_item_logout')

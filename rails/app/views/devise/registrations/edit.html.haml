@@ -1,7 +1,5 @@
 = render layout: 'form_wrapper', locals: { heading: t('user_update_account_heading'), data: { turbo: false } } do
-
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f|
-
     = render 'devise/shared/error_messages', resource: resource
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
@@ -68,7 +66,6 @@
   &nbsp;
 
 = render layout: 'form_wrapper', locals: { heading: t('user_delete_account_heading') } do
-
   = render layout: 'field_wrapper' do
     .form-text{ style: 'padding:1em;' }
       = bi_icon 'exclamation-triangle', class: 'warning', height: '2em', width: '2em'

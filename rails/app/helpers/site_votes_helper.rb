@@ -23,9 +23,8 @@ module SiteVotesHelper
     when :notice   then "success"
     when :alert    then "danger"
     when :error    then "danger"
-    when :warning  then "warning"
+    when :warning  then "danger"
     else "info"
     end
   end
-
 end

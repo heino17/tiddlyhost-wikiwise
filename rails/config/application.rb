@@ -44,7 +44,7 @@ module App
     # Configuration for the application, engines, and railties goes here.
     # Optional: erlaube nur bestimmte Sprachen (gut für die Zukunft)
     # config.i18n.available_locales = [:en, :de, :fr]
-    config.i18n.available_locales = [:en, :de, :es , :fr, :zh_CN]
+    config.i18n.available_locales = [:en, :de, :es, :fr, :zh_CN]
     # ← and set the default on first page load
     config.i18n.default_locale = :en
     #

@@ -42,4 +42,3 @@ class BootstrapPaginateRenderer < WillPaginate::ActionView::LinkRenderer
     end
   end
 end
-
