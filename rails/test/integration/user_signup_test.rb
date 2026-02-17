@@ -51,7 +51,7 @@ class UserSignupTest < CapybaraIntegrationTest
 
     # Logout
     # click_link I18n.t('user_menu_item_logout')
-    click_link "Logout", exact: false
+    click_link "Log out", exact: false
 
     # Confirm we are logged out
     assert page.has_css?('.jumbotron')
