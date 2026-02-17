@@ -46,9 +46,9 @@
       .mt-5.text-center
         .d-inline-flex.gap-3.justify-content-center.flex-wrap
           - if request.referer && !request.referer.include?("/comments")
-            = link_to "\u{1F844} #{t('comments.back_to_previous_page')}", request.referer,
+            = turbo_off_link_to "\u{1F844} #{t('comments.back_to_previous_page')}", request.referer,
               class: 'btn btn-outline-secondary px-4'
 
-          = link_to "#{t('comments.go_to_explore_view')} \u{1F846}", hub_path,
+          = turbo_off_link_to "#{t('comments.go_to_explore_view')} \u{1F846}", hub_path,
             title: t('comments.go_to_explore_view'),
             class: 'btn btn-outline-secondary px-4'
