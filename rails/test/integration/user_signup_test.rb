@@ -51,7 +51,7 @@ class UserSignupTest < CapybaraIntegrationTest
 
     # Logout
     # click_link I18n.t('user_menu_item_logout')
-    find("a[href='/users/sign_out'][data-method='delete']").click
+    find("a[data-turbo-method='delete'][href='/users/sign_out']").click
 
     # Confirm we are logged out
     assert page.has_css?('.jumbotron')
