@@ -1,13 +1,16 @@
 :ruby
-  a = filter_params[key]['1'][:title]
-  b = filter_params[key]['0'][:title]
-  { a => '1', b => '0' }
+  # Hole die Optionen für diesen Filter-Key
+  options = filter_params[key]
 
-  # Most have just two options, but there's one with three
-  # Todo: Make this nicer
-  if filter_params[key]['2']
-    c = filter_params[key]['2'][:title]
-    { c => '2', a => '1', b => '0' }
+  # Baue Hash: Titel => Wert
+  filter_options = {
+    options['1'][:title] => '1',
+    options['0'][:title] => '0'
+  }
+
+  # Falls es eine dritte Option gibt (z. B. '2')
+  if options['2']
+    filter_options[options['2'][:title]] = '2'
   end
 
-= render 'radio_filter_multi_links', param: key, values:
+= render 'radio_filter_multi_links', param: key, values: filter_options
