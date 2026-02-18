@@ -1,82 +1,74 @@
-//
-// Configuration for Mend Renovate
-// https://developer.mend.io/
-//
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-
-  // Basis: Best Practices + monatliche Updates + schöne Titel
-  "extends": [
-    "config:best-practices",
-    ":semanticPrefixChore",
-    "schedule:monthly"              // nur 1× im Monat PRs → überschaubar
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:best-practices',
+    ':semanticPrefixChore',
+    'schedule:monthly',
   ],
-
-  // Dein Haupt-Branch ist wikiwise-local-translation
-  // Your main branch is wikiwise-local-translation
-  // Open PRs against wikiwise-local-translation branch instead of main
-  "baseBranches": ["wikiwise-local-translation"],
-
-  // Dashboard schön machen
-  // Make Dashboard nice
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "⬆️ Wikiwise Dependency Dashboard",
-
-  // ───────────────────────────────────────────────
-  // Package Rules – sehr konservativ & sicher
-  // Package rules – very conservative & secure
-  // ───────────────────────────────────────────────
-
-  "packageRules": [
-    // 1. Ruby/Bundler – nur Patch + Pin + Digest (sehr sicher)
-    // 1. Ruby/Bundler – only patch + pin + digest (very secure)
+  baseBranchPatterns: [
+    'wikiwise-local-translation',
+  ],
+  dependencyDashboard: true,
+  dependencyDashboardTitle: '⬆️ Wikiwise Dependency Dashboard',
+  packageRules: [
     {
-      "matchManagers": ["bundler"],
-      "matchUpdateTypes": ["patch", "pin", "digest"],
-      "groupName": "ruby patch + pin updates",
-      "automerge": true,
-      "automergeType": "branch"
+      matchManagers: [
+        'bundler',
+      ],
+      matchUpdateTypes: [
+        'patch',
+        'pin',
+        'digest',
+      ],
+      groupName: 'ruby patch + pin updates',
+      automerge: true,
+      automergeType: 'branch',
     },
-
-    // Minor nur manuell prüfen (kein automerge)
-    // Check minor manually only (no automerge)
     {
-      "matchManagers": ["bundler"],
-      "matchUpdateTypes": ["minor"],
-      "groupName": "ruby minor updates",
-      "automerge": false
+      matchManagers: [
+        'bundler',
+      ],
+      matchUpdateTypes: [
+        'minor',
+      ],
+      groupName: 'ruby minor updates',
+      automerge: false,
     },
-
-    // Major komplett aus (Rails-Upgrade etc. immer manuell!)
-    // Major completely off (always do Rails upgrades etc. manually!)
     {
-      "matchManagers": ["bundler"],
-      "matchUpdateTypes": ["major"],
-      "enabled": false
+      matchManagers: [
+        'bundler',
+      ],
+      matchUpdateTypes: [
+        'major',
+      ],
+      enabled: false,
     },
-
-    // Yarn – du machst das ja eh meist manuell → aus
-    // Yarn – you usually do this manually anyway → off
     {
-      "matchManagers": ["yarn"],
-      "enabled": false
+      matchManagers: [
+        'yarn',
+      ],
+      enabled: false,
     },
-
-    // Docker – Digest-Pinning wichtig!
-    // Docker – Digest pinning is important!
     {
-      "matchDatasources": ["docker"],
-      "pinDigests": true,
-      "matchUpdateTypes": ["patch", "pin", "digest"],
-      "automerge": true
+      matchDatasources: [
+        'docker',
+      ],
+      pinDigests: true,
+      matchUpdateTypes: [
+        'patch',
+        'pin',
+        'digest',
+      ],
+      automerge: true,
     },
-
-    // Dein eigenes Base-Image NIE von Renovate anrühren lassen
-    // Never let Renovate touch your own base image
     {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["sbaird/tiddlyhost-base"],
-      "enabled": false
-    }
-  ]
+      matchDatasources: [
+        'docker',
+      ],
+      matchPackageNames: [
+        'sbaird/tiddlyhost-base',
+      ],
+      enabled: false,
+    },
+  ],
 }
