@@ -8,6 +8,9 @@
   baseBranchPatterns: [
     'wikiwise-local-translation',
   ],
+  ignoreBranches: [
+    'main',
+  ],
   dependencyDashboard: true,
   dependencyDashboardTitle: '⬆️ Wikiwise Dependency Dashboard',
   packageRules: [
