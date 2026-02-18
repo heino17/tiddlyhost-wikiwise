@@ -776,13 +776,12 @@ git-push-work:
 	git push origin $(MY_WORK_BRANCH)
 
 git-merge-work-into-public:
-	@echo "Merge $(MY_WORK_BRANCH) → $(MY_PUBLIC_BRANCH) (lokal)"
+	@echo "Überschreibe $(MY_PUBLIC_BRANCH) mit aktuellem Stand von $(MY_WORK_BRANCH) (lokal)"
 	git checkout $(MY_PUBLIC_BRANCH)
-	git merge $(MY_WORK_BRANCH) --ff-only \
-	  && echo "→ Fast-forward Merge erfolgreich" \
-	  || (echo "⚠️  Merge nicht trivial – bitte manuell lösen (z.B. mit git merge oder rebase)" && false)
-	git push origin $(MY_PUBLIC_BRANCH)
+	git reset --hard $(MY_WORK_BRANCH)
+	git push origin $(MY_PUBLIC_BRANCH) --force-with-lease
 	git checkout $(MY_WORK_BRANCH)
+	@echo "→ $(MY_PUBLIC_BRANCH) ist jetzt identisch mit $(MY_WORK_BRANCH) und wurde gepusht"
 	@echo "→ Zurück auf Arbeitsbranch $(MY_WORK_BRANCH)"
 
 # Alles zusammen: update → commit → push work → merge → push public
