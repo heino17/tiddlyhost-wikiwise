@@ -48,8 +48,7 @@
         %div
           = simple_format(comment.body, {}, wrapper_tag: 'span')
 
-          text-muted.d-flex.justify-content-between.align-items-center.mt-1
-          %span
+          %span.text-muted.d-flex.justify-content-between.align-items-center.mt-1
             / Score kommt später
 
           - if user_signed_in? && comment.user == current_user
