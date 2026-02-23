@@ -1,7 +1,8 @@
 // flash_auto_dismiss.js – Ausblenden aller .alert-flash nach 3 Sekunden (auch Turbo-Streams)
-console.log("flash_auto_dismiss.js wurde geladen!");
 
 function autoHideFlash(container = document) {
+  console.log("flash_auto_dismiss.js wurde geladen!");
+
   const alerts = container.querySelectorAll('.alert-flash:not([data-auto-hidden])');
 
   alerts.forEach(alert => {

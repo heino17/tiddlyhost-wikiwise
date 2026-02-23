@@ -19140,8 +19140,8 @@
   addEventListener("turbo:before-fetch-request", encodeMethodIntoRequestBody);
 
   // app/javascript/flash_auto_dismiss.js
-  console.log("flash_auto_dismiss.js wurde geladen!");
   function autoHideFlash(container = document) {
+    console.log("flash_auto_dismiss.js wurde geladen!");
     const alerts = container.querySelectorAll(".alert-flash:not([data-auto-hidden])");
     alerts.forEach((alert2) => {
       alert2.dataset.autoHidden = "true";
@@ -19172,32 +19172,38 @@
   observer.observe(document.body, { childList: true, subtree: true });
 
   // app/javascript/comment_textarea_validation.js
-  document.addEventListener("turbo:load", setupCommentFormValidation);
-  document.addEventListener("turbo:render", setupCommentFormValidation);
-  function setupCommentFormValidation() {
-    console.log("setupCommentFormValidation wurde aufgerufen!");
-    const forms2 = document.querySelectorAll('form[data-turbo="true"]');
-    console.log("Gefundene Formulare:", forms2.length);
-    forms2.forEach((form) => {
-      const textarea = form.querySelector(".comment-body-input");
-      const submitBtn = form.querySelector(".comment-submit-btn");
-      if (!textarea || !submitBtn) {
-        console.log("Textarea oder Button nicht gefunden in diesem Formular");
-        return;
+  function initCommentCounter(container = document) {
+    container.querySelectorAll(".comment-body-input").forEach((textarea) => {
+      if (textarea.dataset.counterInitialized) return;
+      textarea.dataset.counterInitialized = "true";
+      const form = textarea.closest("form");
+      if (!form) return;
+      const progressBar = form.querySelector("#comment-progress-bar");
+      const countDisplay = form.querySelector("#current-count");
+      if (!progressBar || !countDisplay) return;
+      const MAX = 1500;
+      function updateCounter() {
+        const len = textarea.value.length;
+        const percent = Math.min(len / MAX * 100, 100);
+        progressBar.style.width = `${percent}%`;
+        if (len < 769) {
+          progressBar.className = "progress-bar bg-success";
+        } else if (len < 1107) {
+          progressBar.className = "progress-bar bg-warning";
+        } else {
+          progressBar.className = "progress-bar bg-danger";
+        }
+        countDisplay.textContent = `${len} / ${MAX}`;
+        countDisplay.className = len > MAX * 0.95 ? "text-danger fw-bold" : "text-muted";
       }
-      console.log("Textarea und Button gefunden \u2013 starte Check");
-      const checkInput = () => {
-        const hasText = textarea.value.trim().length > 0;
-        console.log("Text vorhanden?", hasText, "Wert:", textarea.value.trim());
-        submitBtn.disabled = !hasText;
-      };
-      checkInput();
-      textarea.addEventListener("input", () => {
-        console.log("Input-Event gefeuert");
-        checkInput();
-      });
+      textarea.addEventListener("input", updateCounter);
+      updateCounter();
     });
   }
+  document.addEventListener("turbo:load", () => initCommentCounter());
+  document.addEventListener("turbo:render", (event) => {
+    initCommentCounter(document);
+  });
 
   // app/javascript/application.js
   window.$ = window.jQuery = import_jquery.default;
