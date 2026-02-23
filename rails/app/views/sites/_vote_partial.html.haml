@@ -1,10 +1,10 @@
 -# Votes für diese Site
-%div.site-votes{ id: "site_vote_#{site.id}", style: 'font-size: 60%; margin-top: 0rem;' }
+%div.site-votes{ id: "site_vote_#{site.id}", style: 'font-size: 0.7rem; margin-left: 5px;' }
 
   - if site.vote_count > 0
     .d-flex.align-items-center.gap-2
       = star_rating(site.vote_score)
-      %span.text-muted
+      %span.text-muted{ style: 'font-size: 0.6rem; cursor: pointer; opacity: 0.8;' }
         = format("%.1f", site.vote_score)
         %small (#{site.vote_count})
 
@@ -15,11 +15,13 @@
                method: user_vote ? :patch : :post,
                data: { turbo_stream: true } do |_f|
       %details.site-vote-details{ style: 'margin-top: 0rem;' }
-        %summary.text-primary.small{ style: 'cursor: pointer;' }
+        %summary.small{ style: 'font-size: 0.7rem; cursor: pointer; margin-left: 3px;' }
           - if user_vote
-            = t('votes.my_rating')
-            = ': '
-            #{user_vote.value} ★
+            %small{ style: 'font-size: 90%; color: #5a8ee2; font-weight: 600; cursor: pointer; opacity: 0.8;' }
+              = t('votes.my_rating')+ (':')
+            %small{ style: 'font-size: 90%; color: gray; font-weight: 600; cursor: pointer; opacity: 0.8;' }
+              #{user_vote.value} 
+            %small{ style: 'color: #f59e0b; font-size: 1.0em;' } ★
           - else
             = t('votes.rate_now')
 
@@ -28,9 +30,9 @@
             - (1..5).each do |val|
               - is_selected = user_vote&.value == val
               %button.btn.btn-sm{type: 'submit', name: 'site_vote[value]', value: is_selected ? '' : val,
-                                  class: (is_selected ? 'btn-primary' : 'btn-outline-secondary'),
-                                  style: 'font-size: 0.8em; padding: 0.25rem 0.5rem;'}
-                ★
+                                  class: (is_selected ? 'btn btn-success' : 'btn btn-outline-success'),
+                                  style: 'font-size: 0.8em; padding: 0.25rem 0.5rem;' }
+                ⭐
 
   - else
     .text-muted.small

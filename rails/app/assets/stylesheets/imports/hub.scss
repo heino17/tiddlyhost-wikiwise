@@ -1,4 +1,3 @@
-
 h1 {
     svg.bi {
         opacity: 40%;
@@ -77,15 +76,16 @@ h1 {
 }
 
 .site-tile-owner {
-    opacity: 60%;
+    opacity: 100%;
 
     a {
         text-decoration: none;
+        color: #488bc9;
     }
 
     span.views {
         margin-left: 0.1em;
-        color: #999;
+        color: #7b7b7b;
         font-size: 70%;
     }
 

@@ -11,6 +11,7 @@ import * as bootstrap from "bootstrap"
 import "@hotwired/turbo-rails"
 import "./flash_auto_dismiss"
 import "./comment_textarea_validation"
+import "./controllers"
 
 // Make jQuery available globally
 window.$ = window.jQuery = $
