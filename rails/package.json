@@ -6,6 +6,7 @@
     "build:watch": "yarn build --watch"
   },
   "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.23",
     "@popperjs/core": "^2.11.0",
     "@rails/activestorage": "^7.0.0",

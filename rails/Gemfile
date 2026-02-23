@@ -151,3 +151,5 @@ gem 'rails-i18n'
 gem 'i18n-js', '~> 4.2', '>= 4.2.4'
 
 gem "turbo-rails"
+
+gem "stimulus-rails", "~> 1.3"
