@@ -3,7 +3,7 @@
 %div{ id: "site_comments_#{site.id}" }
   %details.site-comments{ style: 'font-size: 0.8rem; cursor: pointer;  opacity: 0.8;  margin-left: 8px;' }
     %summary.small
-      %small{ style: 'font-size: 0.65rem; color: #5a8ee2; font-weight: 600;' }
+      %small{ style: 'font-size: 0.60rem; color: #5a8ee2; font-weight: 600;' }
         #{site.comments.count}
         = site.comments.count == 1 ? t('comments.title_singular') : t('comments.title_plural')
       #{bi_icon('feather', height: '1.2em', fill: '#777')}
@@ -69,6 +69,7 @@
           - truncated = comment.body.truncate(150, separator: ' ', omission: '…')
           = simple_format(truncated, {}, wrapper_tag: 'span')
           - if comment.body.length > 150
+            %br
             %small.text-muted= " (#{comment.body.length} Zeichen)"
 
         %span.text-muted.d-flex.justify-content-between.align-items-center.mt-1
