@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def flag_code_for(locale)
     case locale.to_sym
-    when :en then 'gb' # oder 'us' – deine Wahl!
+    when :en then 'us' # oder 'us' – deine Wahl!
     when :de then 'de'
     when :es then 'es'
     when :fr then 'fr'
