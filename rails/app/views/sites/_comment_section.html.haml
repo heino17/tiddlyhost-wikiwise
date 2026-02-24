@@ -1,4 +1,5 @@
 -# Comments für diese Site
+-# https://colorzilla.com/gradient-editor/#1e5799+0,badbc7+0,fdffd8+55,fdffd8+58,ffd8d8+100
 %div{ id: "site_comments_#{site.id}" }
   %details.site-comments{ style: 'font-size: 0.8rem; cursor: pointer;  opacity: 0.8;  margin-left: 8px;' }
     %summary.small
@@ -27,7 +28,10 @@
                         'aria-describedby': 'comment-help comment-progress',
                         data: { comment_counter_target: 'textarea' }
 
-          .progress.mt-1{ style: 'height: 6px; background-color: rgba(25, 135, 84, 15%);' }
+          .progress.mt-1{ style: 
+                          'height: 6px; 
+                          background: linear-gradient(to right,  #1e5799 0%,#badbc7 0%,#fdffd8 55%,#fdffd8 58%,#ffd8d8 100%);
+' }
             .progress-bar#comment-progress-bar{ 
               role: 'progressbar', 
               style: 'width: 0%; transition: width 0.3s ease;',
