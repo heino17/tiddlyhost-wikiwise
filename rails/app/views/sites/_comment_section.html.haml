@@ -1,9 +1,9 @@
 -# Comments für diese Site
 -# https://colorzilla.com/gradient-editor/#1e5799+0,badbc7+0,fdffd8+55,fdffd8+58,ffd8d8+100
 %div{ id: "site_comments_#{site.id}" }
-  %details.site-comments{ style: 'font-size: 0.8rem; cursor: pointer;  opacity: 0.8;  margin-left: 8px;' }
+  %details.site-comments{ style: 'font-size: 0.8rem; cursor: pointer;  opacity: 0.85;  margin-left: 8px;' }
     %summary.small
-      %small{ style: 'font-size: 0.60rem; color: #5a8ee2; font-weight: 600;' }
+      %small{ style: 'font-size: 0.65rem; color: #5a8ee2; font-weight: 600;' }
         #{site.comments.count}
         = site.comments.count == 1 ? t('comments.title_singular') : t('comments.title_plural')
       #{bi_icon('feather', height: '1.2em', fill: '#777')}

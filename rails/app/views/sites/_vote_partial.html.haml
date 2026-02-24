@@ -4,7 +4,7 @@
   - if site.vote_count > 0
     .d-flex.align-items-center.gap-2
       = star_rating(site.vote_score)
-      %span.text-muted{ style: 'font-size: 0.6rem; cursor: pointer; opacity: 0.8;' }
+      %span.text-muted{ style: 'font-size: 0.6rem; cursor: pointer; opacity: 0.9;' }
         = format("%.1f", site.vote_score)
         %small (#{site.vote_count})
 
@@ -26,12 +26,12 @@
             = t('votes.rate_now')
 
         .mt-1
-          .d-flex.gap-1
+          .d-flex.gap-1{ style: 'padding-left: 2px;' }
             - (1..5).each do |val|
               - is_selected = user_vote&.value == val
               %button.btn.btn-sm{type: 'submit', name: 'site_vote[value]', value: is_selected ? '' : val,
                                   class: (is_selected ? 'btn btn-success' : 'btn btn-outline-success'),
-                                  style: 'font-size: 0.8em; padding: 0.25rem 0.5rem;' }
+                                  style: 'font-size: 0.8em; padding: 0.2rem 0.3rem;' }
                 ⭐
 
   - else
