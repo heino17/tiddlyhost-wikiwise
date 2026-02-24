@@ -52,7 +52,7 @@
                      style: 'margin-top: 0rem; font-size: 100%;'
 
     - else
-      .text-muted{ style: 'margin-bottom: 0.0rem; margin-top: 0.0rem;' }
+      .text-muted{ style: 'font-size: 0.8em; margin-bottom: 0.0rem; margin-top: 0.0rem;' }
         = t('comments.login_hint_short')
 
     - site.comments.includes(:user).order(created_at: :desc).limit(3).each do |comment|
