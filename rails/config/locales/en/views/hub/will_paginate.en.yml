@@ -15,7 +15,7 @@ en:
           one: "Showing <b>1 site</b>"
           other: "Showing <b>%{count} sites</b>"
         multi_page: "Site %{from} - %{to} of %{count} in total"
-        multi_page_html: "Showing all <b>sites %{from} - %{to}</b> of <b>%{count}</b> in total" 
+        multi_page_html: "Showing <b>sites %{from} - %{to}</b> of <b>%{count}</b> in total" 
     template:
       page_entries_info:
         single_page:
@@ -27,7 +27,7 @@ en:
           one: "Showing <b>1 template</b>"
           other: "Showing <b>%{count} templates</b>"
         multi_page: "Template %{from} - %{to} of %{count} in total"
-        multi_page_html: "Showing all <b>templates %{from} - %{to}</b> of <b>%{count}</b> in total"  
+        multi_page_html: "Showing <b>templates %{from} - %{to}</b> of <b>%{count}</b> in total"  
     #      
     previous_label: "Previous"
     previous_aria_label: "Previous page"
