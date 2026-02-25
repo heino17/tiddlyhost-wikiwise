@@ -1,0 +1,28 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ja:
+  footer_version_header: "バージョン"
+  footer_version_environment_title: "環境"
+  footer_version_version_title: "バージョン"
+  footer_version_built_title: "ビルド" # admin のみ
+    
+  footer_about_header: "について"
+  footer_about_faq: "ドキュメント"
+  footer_about_blog: "ブログ"
+  footer_about_link_to_blog: "https://tiddlyspot.blogspot.com/"
+  footer_about_x: "X"
+  footer_about_link_to_x: "https://x.com/tiddlyhost"
+  
+  footer_support_header: "サポート"
+  footer_support_report_issue: "問題を報告"
+  footer_support_suggest_feature: "機能を提案"
+  footer_support_send_email: "メールを送信"
+  footer_support_donate: "寄付/スポンサー"
+  
+  footer_host_info_header: "Tiddlyhost"
+  footer_host_info_terms_of_use: "利用規約"
+  footer_host_info_privacy_policy: "プライバシーポリシー"
+  footer_host_info_software_license: "ソフトウェアライセンス"
+  footer_host_info_source_code: "ソースコード"

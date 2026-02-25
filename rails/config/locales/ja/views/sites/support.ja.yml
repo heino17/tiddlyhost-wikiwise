@@ -1,0 +1,30 @@
+---
+ja:
+  # Support-site
+  support_page_heading: "サポート"
+  support_page_subheading: "Tiddlyhost サポート"
+  support_page_intro_txt: "Tiddlyhost で問題が発生した場合や何かお手伝いが必要な場合は、以下のいずれかの方法をご利用ください："
+  support_page_report_to_github: "GitHub で問題を報告"
+  support_page_suggest_to_github: "GitHub で機能を提案"
+  support_page_send_email: "メールを送信"
+  # Tiddlyhost support text
+  support_page_tiddlyhost_support_txt: "既存の問題を 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 
+  で確認すると、あなたの問題に対する既存の報告があるかもしれません。また 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> や 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a> 
+  もご覧ください。<br>(Tiddlyhost のドキュメント改善は今後予定されています。)"
+  # TiddlyWiki support text
+  support_page_tiddlywiki_subheading: "TiddlyWiki サポート"
+  support_page_tiddlywiki_support_txt: "TiddlyWiki に関する情報は非常に多くあります。質問をする主な場は 
+  <a href=\"https://talk.tiddlywiki.org/\" target=\"_blank\">Talk TiddlyWiki</a> ですが、 
+  <a href=\"https://tiddlywiki.com/#Forums\" target=\"_blank\">TiddlyWiki フォーラム</a> や 
+  <a href=\"https://tiddlywiki.com/#Community\" target=\"_blank\">TiddlyWiki コミュニティ</a> 
+  でも追加のリソースが見つかります。TiddlyWiki の問題を報告する場合は 
+  <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">GitHub こちら</a> からどうぞ。"
+  # Feather Wiki support text
+  support_page_featherwiki_subheading: "Feather Wiki サポート"
+  support_page_featherwiki_support_txt: "Feather Wiki の使い方でお困りの場合やバグ報告・機能リクエストがある場合は、 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">Codeberg で issue を登録</a> するのが最も良い方法です。<br>
+  既存の Feather Wiki の 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">issue はこちら</a>。"

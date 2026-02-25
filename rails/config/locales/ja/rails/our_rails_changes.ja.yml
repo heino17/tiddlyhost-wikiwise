@@ -1,0 +1,59 @@
+#####################################################################
+# the following are changes that differ from original rails I18n-files
+---
+ja:
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      not_saved: "%{count}件のエラーが検出されました！データはまだ処理されていません！"
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: "約%{count}時間前"
+        other: "約%{count}時間前"
+      about_x_months:
+        one: "約%{count}ヶ月前"
+        other: "約%{count}ヶ月前"
+      about_x_years:
+        one: "約%{count}年前"
+        other: "約%{count}年前"
+      almost_x_years:
+        one: "ほぼ%{count}年前"
+        other: "ほぼ%{count}年前"
+      half_a_minute: "30秒前"
+      less_than_x_seconds:
+        one: "%{count}秒未満前"
+        other: "%{count}秒未満前"
+      less_than_x_minutes:
+        one: "1分未満前"
+        other: "%{count}分未満前"
+      over_x_years:
+        one: "%{count}年以上前"
+        other: "%{count}年以上前"
+      x_seconds:
+        one: "%{count}秒前"
+        other: "%{count}秒前"
+      x_minutes:
+        one: "%{count}分前"
+        other: "%{count}分前"
+      x_days:
+        one: "%{count}日前"
+        other: "%{count}日前"
+      x_months:
+        one: "%{count}ヶ月前"
+        other: "%{count}ヶ月前"
+      x_years:
+        one: "%{count}年前"
+        other: "%{count}年前"
+    prompts:
+      second: "秒"
+      minute: "分"
+      hour: "時間"
+      day: "日"
+      month: "月"
+      year: "年"
+    relative:
+      future: "%{time}後"
+      past: "%{time}前"
+  # end

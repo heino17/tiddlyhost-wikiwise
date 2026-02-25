@@ -1,0 +1,100 @@
+# admin page
+---
+ja:
+  admin:
+    tabs_header:
+      stats: "統計"
+      charts: "グラフ"
+      users: "ユーザー"
+      sites: "サイト"
+      tspot_sites: "Tspot ページ"
+      storage: "ストレージ"
+      etc: "その他"
+      #
+    tab_stats:
+      tab_stats_header: "統計"
+      users: "ユーザー"
+      subscriptions: "サブスクリプション"
+      sites: "サイト"
+      site_views: "サイト閲覧数"
+      tspots: "Tspots"
+      tspot_views: "Tspot 閲覧数"
+      storage: "ストレージ"
+      activ_daily: "日間アクティブ"
+      activ_weekly: "週間アクティブ"
+      activ_monthly: "月間アクティブ"
+      signed_in_once_users: "1回のみログインしたユーザー"
+      never_signed_in_users: "一度もログインしていないユーザー"
+      never_updated_sites: "更新されていないサイト"
+      private_sites: "非公開サイト"
+      public_sites: "公開サイト"
+      public_non_searchable_sites: "公開だが検索不可のサイト"
+      public_searchable_sites: "公開かつ検索可能なサイト"
+      owned_tspots: "所有 Tspots"
+      saved_tspots: "保存済み Tspots"
+      jobs_in_queue: "キュー中のジョブ"
+      locked_since: "ロック開始"
+      running_now: "現在実行中"
+      no_running_jobs: "なし"
+      #
+    tab_users_table_headers:
+      th_id: "ID"
+      th_name: "名前"
+      th_username: "ユーザー名"
+      th_email: "メール"
+      th_av: "Av"  # 略して "Av" のまま、または "头像" に変えても可だが短く
+      th_type: "タイプ"
+      th_subscription: "サブスク"
+      th_logins: "ログイン回数"
+      th_sites: "サイト数"
+      th_tspot_sites: "Tspot サイト"
+      th_current_sign_in: "今回のログイン"
+      th_last_sign_in: "最終ログイン"
+      th_created: "作成日"
+      th_confirmed: "確認済み"
+      #
+    tab_sites_table_headers:
+      th_id: "ID"
+      th_name: "名前"
+      th_kind: "種類"
+      th_empty: "空"
+      th_clone: "クローン"
+      th_version: "バージョン"
+      th_description: "説明"
+      th_private: "非公開？"
+      th_hub: "Hub？"
+      th_template: "テンプレート？"
+      th_iframes: "IFrame？"
+      th_put: "Put？"
+      th_upload: "アップロード？"
+      th_views: "閲覧数"
+      th_accesses: "アクセス数"
+      th_saves: "保存数"
+      th_clones: "クローン数"
+      th_versions: "バージョン数"
+      th_owner: "所有者"
+      th_raw: "生データ"
+      th_storage: "ストレージ"
+      th_last_access: "最終アクセス"
+      th_last_update: "最終更新"
+      th_created: "作成日"
+      #
+    tab_storage_table_headers:
+      th_type: "タイプ"
+      th_service: "サービス"
+      th_bucket: "バケット"
+      th_files: "ファイル数"
+      th_bytes: "バイト"
+      #
+    tab_etc:
+      raise_an_exception: "例外を発生させる"
+      connection_pool_stats: "接続プール統計"
+      # admin_helper.rb
+    pagination_showing_entries:
+      showing: "表示中"
+      # 1
+      to: "から"
+      # ...
+      of: "の"
+      # ...
+      in_total: "件"

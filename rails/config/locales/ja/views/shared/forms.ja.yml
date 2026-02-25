@@ -1,0 +1,47 @@
+---
+ja:
+  # Login page
+  log_in_page_heading: "ログイン"
+  log_in_page_ask_need_account: "アカウントが必要ですか？こちらへ"
+  log_in_page_email_label: "メール"
+  log_in_page_password_label: "パスワード"
+  log_in_page_remember_me_label: "次回から自動ログイン"
+  log_in_page_submit_button: "ログイン"  
+  # Page shared Links (devise)
+  shared_links_cancel: "キャンセル"
+  shared_links_login: "ログイン"
+  shared_links_sign_up: "登録"
+  shared_links_forgot_password: "パスワードをお忘れですか？"
+  shared_links_resend_confirmation: "確認指示を再送信"
+  shared_links_resend_unlock: "解鎖指示を再送信"
+  shared_links_signup_with: "でログイン" # 尚未实现
+  # Sign up page
+  sign_up_page_heading: "登録"
+  sign_up_page_ask_have_account: "すでにアカウントをお持ちですか？こちらへ"
+  sign_up_page_email_label: "メール"
+  sign_up_page_enter_email: "メールアドレスを入力してください"
+  sign_up_page_name_label: "名前"
+  sign_up_page_enter_name: "名前を入力してください"
+  sign_up_page_username_label: "ユーザー名"
+  sign_up_page_enter_username: "任意。3〜30文字のユニークなユーザー名を選択してください"
+  sign_up_page_password_label: "パスワード"
+  sign_up_page_password_hint: "文字以上"
+  sign_up_page_password_confirm_label: "パスワード確認"
+  sign_up_page_password_confirm_hint: "パスワードを再入力して確認してください"
+  sign_up_page_submit_create: "アカウントを作成"
+  # user forgot password
+  user_forgot_password_header: "パスワードをお忘れですか？"
+  user_forgot_password_intro_text: "パスワード再設定リンクを受け取るためにメールアドレスを入力してください。"
+  user_forgot_password_email_label: "メール"
+  user_forgot_password_submit_button: "パスワード再設定リンクを送信"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "確認指示を再送信"
+  user_resend_confirmation_intro_text: "メール確認リンクを再送信するためにメールアドレスを入力してください。"
+  user_resend_confirmation_email_label: "メール"
+  user_resend_confirmation_submit_button: "確認指示を再送信"
+  # user resend unlock instructions
+  user_resend_unlock_header: "解鎖指示を再送信"
+  user_resend_unlock_intro_text: "アカウント解鎖リンクを再送信するためにメールアドレスを入力してください。"
+  user_resend_unlock_email_label: "メール"
+  user_resend_unlock_submit_button: "解鎖指示を再送信"
+  

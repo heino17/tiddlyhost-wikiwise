@@ -1,0 +1,81 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ja:
+  # explore-site
+  site_explore_title: "探索"
+  site_explore_explanation_text: "Tiddlyhost ユーザーが作成・共有したコンテンツを発見しましょう。"
+  # templates only switch
+  explore_view_templates_only: "テンプレートのみ"
+  explore_view_templates_only_tooltip: "テンプレートは Tiddlyhost ユーザーが作成したカスタマイズ済みの「空の」ファイルで、他の人が利用できるように共有されています。  
+  汎用的な機能強化やカスタマイズが含まれている場合もあれば、特定の専門用途向けに設計されている場合もあります。"
+  # templates-site
+  site_templates_title: "テンプレート"
+  site_templates_explanation_text: "テンプレートは Tiddlyhost ユーザーが作成した、便利または興味深いカスタマイズ版の TiddlyWiki です。  
+  コピーして自分で利用できます。「クローン」をクリックすると Tiddlyhost 上にテンプレートを使ったサイトを作成でき、「ダウンロード」をクリックするとローカルで使うコピーを取得できます。"
+  # hub view
+  hub_view_all_sites: "すべてのサイト"
+  hub_view_created_by_user: "Tiddlyhost ユーザーによる作成サイト"
+  hub_view_list_kind: "種類"
+  hub_view_list_show_all: "すべて表示"
+  hub_view_list_sort_by: "並べ替え"
+  hub_view_search_box: "検索"
+  hub_view_list_sort_view_count: "閲覧数"
+  hub_view_list_sort_clone_count: "クローン数"
+  hub_view_list_sort_recently_updated: "最近更新"
+  hub_view_list_sort_recently_created: "最近作成"
+  hub_view_list_sort_name_az: "名前 A-Z"
+  hub_view_list_sort_name_za: "名前 Z-A"
+  hub_view_list_sort_newer_version: "新しいバージョン"
+  hub_view_list_sort_older_version: "古いバージョン"
+  hub_view_list_sort_random: "ランダム"
+  hub_view_search_box_clear: "クリア"
+  hub_view_access_searchable: "検索可能"
+  hub_view_access_template: "テンプレート"
+  hub_view_action_menu_settings: "設定"
+  hub_view_action_menu_save_history: "履歴を保存"
+  hub_view_action_menu_view: "新しいウィンドウで Wiki を開く"
+  hub_view_action_menu_view_safe_mode: "セーフモードで表示"
+  hub_view_action_menu_download: "ダウンロード"
+  hub_view_action_menu_clone: "クローン"
+  hub_view_action_menu_upload: "アップロード"
+  hub_view_action_menu_delete: "削除"
+  hub_view_action_menu_delete_realy: "本当に削除しますか"
+  hub_view_action_menu_more: "もっと..."
+  # hub_view_action_menu_upload_form
+  action_menu_upload_form_title: "サイトにアップロード"
+  action_menu_upload_form_warning_hint: "慎重に進めてください！"
+  action_menu_upload_form_text: "これによりサイトの内容がすべて削除され、今アップロードする TiddlyWiki ファイルに置き換わります！  
+  %{insert_line_break} 万が一に備えて、まず %{download_copy_link} しておくことをおすすめします。"
+  action_menu_upload_form_choose_file: "アップロードするファイルを選択"
+  action_menu_upload_form_upload_file: "ファイルをアップロード"
+  action_menu_upload_form_cancel: "キャンセル"
+  action_menu_upload_form_confirmation_text_before: "本当にサイト"
+  action_menu_upload_form_confirmation_text_after: "をこれからアップロードする TiddlyWiki ファイルで置き換えますか？\n\nこの操作は元に戻せません！"
+  #
+  hub_view_table_actions: "操作"
+  # clones and views
+  hub:
+    clones:
+      one: "クローン"
+      other: "クローン"
+    views:
+      one: "閲覧"
+      other: "閲覧"
+    saved: "最終更新"
+  #
+  hub_view:
+    tagged_with:
+      site: { one: "タグ付きサイト", other: "タグ付きサイト" }
+      template: { one: "タグ付きテンプレート", other: "タグ付きテンプレート" }
+    created_by:
+      site: "Tiddlyhost ユーザーによる作成サイト"
+      template: "Tiddlyhost ユーザーによる作成テンプレート"
+    suffix:
+      tagged_with: "タグ："
+      matching: "一致"
+    nav:
+      all_sites: "すべてのサイト"
+      all_templates: "すべてのテンプレート"
+  

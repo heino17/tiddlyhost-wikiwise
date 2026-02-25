@@ -1,0 +1,19 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+# From here Tiddlyhost for i18n
+#
+---
+ja:
+  site_title: "Tiddlyhost - 日本語"
+  iso_language_code: "ja"
+  
+  # Test in footer
+  test: "Hello World"
+  test_ok: "(en.yml working!)"
+  # Logo
+  logo_link_title: "Tiddlyhost"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
+  

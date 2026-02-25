@@ -1,0 +1,21 @@
+---
+ja:
+  # Donations & Sponsorships-Site
+  donations_page_heading: "寄付・スポンサー"
+  donations_page_subheading: "<i><b>...コミュニティをサポートしてください！</b></i>"
+  # Donations & Sponsorships text
+  donations_page_txt_1: "Tiddlyhost がお役に立てているなら、ぜひ寄付またはスポンサーシップをご検討ください。  
+  寄付やスポンサーシップはホスティング費用をカバーし、Tiddlyhost の継続的なサポートと開発を後押しします。"
+  donations_page_txt_2: "寄付またはスポンサーになるには、 
+  <a href=\"https://www.paypal.com/\" target=\"_blank\">PayPal</a>、 
+  <a href=\"https://github.com/sponsors\" target=\"_blank\">GitHub Sponsors</a> 
+  または
+  <a href=\"https://www.buymeacoffee.com/\" target=\"_blank\">Buy Me a Coffee</a> をご利用ください。  
+  または下のボタンをクリックしてください。"
+  donations_page_logged_in_out_before: "<b>Tiddlyhost Standard</b> プランに今すぐ購読することもできます。このプランでは Tiddlyhost の追加機能を利用できるだけでなく、  
+  Tiddlyhost の継続的な開発も支援できます。詳細は"
+  donations_page_logged_in_after: "で Tiddlyhost の購読プランをご確認ください。"
+  donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
+  donations_page_buy_coffee_button_title: "Buy Me a Coffee"
+  donations_page_subscribed_already: "すでに購読者ですね。ありがとうございます！"
+  

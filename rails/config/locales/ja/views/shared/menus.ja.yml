@@ -1,0 +1,25 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ja:
+  # Top Menu
+  top_menu_root: "ホーム"
+  top_menu_explore: "探索"
+  top_menu_templates: "テンプレート"
+  top_menu_pricing: "料金"
+  top_menu_signup: "登録"
+  top_menu_log_in: "ログイン"
+  # User menu if logged in
+  user_menu_head_account: "アカウント"
+  user_menu_item_manage_account: "アカウント管理"
+  user_menu_head_plan: "プラン"
+  user_menu_item_manage_subscription: "サブスクリプション管理"
+  user_menu_item_subscription_plans: "サブスクリプションプラン"
+  user_menu_head_sites: "サイト"
+  user_menu_item_counted_sites: "サイト"
+  user_menu_item_manage_sites: "サイト管理"
+  user_menu_item_logout: "ログアウト"
+  # Burger menu
+  burger_menu_title: "あなたのアカウント"
+  burger_menu_create_site: "サイトを作成"

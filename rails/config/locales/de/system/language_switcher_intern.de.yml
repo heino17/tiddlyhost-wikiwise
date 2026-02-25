@@ -6,8 +6,9 @@ de:
     en: American
     de: Deutsch
     fr: Français
-    es: Español     
-    zh_CN: 中文  
+    es: Español
+    ja: 日本語
+    zh_CN: 中文
   #
   # „Sprache ändern“ Tooltip
   # Ich lasse es international, für alle gleich

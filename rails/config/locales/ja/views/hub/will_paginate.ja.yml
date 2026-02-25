@@ -1,0 +1,37 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ja:
+  will_paginate:
+    site:
+      page_entries_info:
+        single_page:
+          zero: "<b>サイト</b> が見つかりませんでした"
+          one: "1 件の <b>サイト</b> を表示"
+          other: "すべての %{count} 件のサイトを表示"
+        single_page_html:
+          zero: "<b>サイト</b> が見つかりませんでした"
+          one: "<b>1 件のサイト</b> を表示"
+          other: "<b>%{count} 件のサイト</b> を表示"
+        multi_page: "サイト %{from} - %{to} / %{count} 件"
+        multi_page_html: "<b>サイト %{from} - %{to}</b> を <b>%{count}</b> 件中表示"
+    template:
+      page_entries_info:
+        single_page:
+          zero: "テンプレートが見つかりませんでした"
+          one: "1 件の <b>テンプレート</b> を表示"
+          other: "すべての %{count} 件のテンプレートを表示"
+        single_page_html:
+          zero: "<b>テンプレート</b> が見つかりませんでした"
+          one: "<b>1 件のテンプレート</b> を表示"
+          other: "<b>%{count} 件のテンプレート</b> を表示"
+        multi_page: "テンプレート %{from} - %{to} / %{count} 件"
+        multi_page_html: "<b>テンプレート %{from} - %{to}</b> を <b>%{count}</b> 件中表示"
+    previous_label: "前へ"
+    previous_aria_label: "前のページ"
+    next_label: "次へ"
+    next_aria_label: "次のページ"
+    page_gap: "..."
+    container_aria_label: "ページナビゲーション"
+    page_aria_label: "ページ %{page}"

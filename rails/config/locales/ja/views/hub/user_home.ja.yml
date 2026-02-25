@@ -1,0 +1,127 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ja:
+  # hub view
+  hub_view_sites_on_your: "あなたのサイトは"
+  hub_view_sites_on_your_explore_page: "探索ページにあります"
+  
+  your_sites: "あなたのサイト"
+  click_create_below: "下の「作成」をクリックして、最初の TiddlyWiki サイトを作成してください。"
+  showing_filtered_sites: "%{total_count} 件中 %{filtered_count} 件の %{access} サイトを表示中。"
+  clear_filter: "フィルターをクリア"
+  sites: "サイト"
+  site: "サイト"
+  storage_used: "%{bytes} のストレージを使用中。"
+  create: "作成"
+  create_from_template: "テンプレートから作成"
+  claim_tiddlyspot_site: "Tiddlyspot サイトを請求"
+  download_all: "すべてダウンロード"
+  #
+  site_view_create_a_site_heading: "サイトを作成"
+  site_view_create_a_site_created_flash: "サイトの作成が完了しました。"
+  site_view_upload_a_site_uploaded_flash: "サイトへのアップロードが完了しました。"
+  site_view_destroy_a_site_destroyed_flash: "サイトを正常に削除しました。"
+  site_view_clone_a_site_heading: "サイトをクローン"
+  # user home "Save history"-details
+  site_view_save_history_for: "履歴を保存"
+  site_view_save_history_timestamp: "タイムスタンプ"
+  site_view_save_history_timestamp_tooltip: "時間は UTC で表示されます。"
+  site_view_save_history_saved: "保存済み"
+  site_view_save_history_size: "サイズ"
+  site_view_save_history_size_tooltip: "圧縮ファイルのサイズです。"
+  site_view_save_history_checksum: "チェックサム"
+  site_view_save_history_checksum_tooltip: "チェックサムが同じ場合は保存バージョンが同一であることを示します。"
+  site_view_save_history_label: "ラベル"
+  site_view_save_history_label_tooltip: "ラベル付きの保存バージョンは、保存バージョン一覧の整理時にラベルなしのものより優先されます。  
+  これにより重要なバージョンを無期限に保持できます。"
+  site_view_save_history_actions: "操作"
+  site_view_save_history_current_version: "現在のバージョン"
+  site_view_save_history_older_versions: "古いバージョン"
+  site_view_save_history_no_older_versions: "古いバージョンが見つかりませんでした。"
+  site_view_save_history_pop_set_label: "ラベルを設定"
+  site_view_save_history_pop_update: "更新"
+  # user home actions menu "Settings"-details
+  site_view_edit_wiki_heading: "設定"
+  site_view_edit_wiki_name_label: "名前"
+  site_view_edit_wiki_name_text: "小文字、数字、先頭・末尾以外での「-」が使用可能です。"
+  site_view_edit_wiki_updated_flash: "サイトを正常に更新しました。"
+  
+  site_view_edit_wiki_show_more_types_label: "種類"
+  site_view_edit_wiki_show_more_types: "さらに種類を表示"
+  site_view_edit_wiki_create_from_template: "テンプレートから作成"
+  site_view_edit_wiki_create_from_template_tooltip: "コミュニティが作成したテンプレートを選択してクローンすることでサイトを作成できます。  
+  このリンクから利用可能なテンプレート一覧に移動します。"
+  
+  site_view_edit_wiki_tw5_description: "テスト"
+  
+  site_view_edit_wiki_clone_from: "クローン元"
+  site_view_edit_wiki_description_label: "説明"
+  site_view_edit_wiki_description_text: "任意。サイトの簡単な説明。探索ページで検索可能なサイトに表示されます。"
+  site_view_edit_wiki_tag_list_label: "タグ"
+  site_view_edit_wiki_tag_list_text: "任意。カンマ区切りのタグリスト。探索ページで検索可能なサイトに表示されます。"
+  site_view_save_history_button_create: "作成"
+  site_view_save_history_button_update: "更新"
+  site_view_save_history_button_cancel: "キャンセル"  
+  # Access chooser
+  site_view_edit_wiki_access_heading: "アクセス"
+  site_view_edit_wiki_access_private: "非公開"
+  site_view_edit_wiki_access_public: "公開"  
+  site_view_edit_wiki_access_hub_listed: "公開＆検索可能"
+  
+  site_view_edit_wiki_access_private_tooltip: "インターネット上で公開したくないプライベートなメモやコンテンツに最適です。"
+  site_view_edit_wiki_access_private_description_tspot_sites: "サイトにアクセスするにはパスワードが必要です"
+  site_view_edit_wiki_access_private_description_else: "あなただけがアクセス可能です"
+  
+  site_view_edit_wiki_access_public_tooltip: "他の人と共有したいコンテンツに最適です。"
+  site_view_edit_wiki_access_public_description: "サイトはインターネット上で誰でも閲覧可能です"
+  
+  site_view_edit_wiki_access_hub_listed_tooltip: "興味深い・よく管理されたサイトを他の人に発見してもらうのに最適です。  
+  名前・説明・タグは探索ページで検索対象となります。"
+  site_view_edit_wiki_access_hub_listed_description: "サイトはインターネット上でアクセス可能で、以下の場所でも一覧表示・検索可能です"
+  # Advanced settings
+  site_view_edit_wiki_advanced_settings_link: "詳細設定を表示"
+  site_view_edit_wiki_advanced_settings_heading: "詳細設定"
+  
+  site_view_edit_wiki_advanced_settings_allow_public_clone: "このサイトをテンプレートとして公開し、他者がクローンできるようにする"
+  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "興味深い・よく管理されたサイトを他の人に発見してもらうのに最適です。  
+  名前・説明・タグは探索ページで検索対象となります。"
+  
+  site_view_edit_wiki_advanced_settings_allow_public_iframe: "サイトを iframe 内で読み込めるようにする"
+  site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "有効にすると、デフォルトの X-Frame-Options deny ヘッダーが抑制されます。  
+  iframe 内で読み込まれるサイトは <a href=\"https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B8%E3%83%A3%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0\" target=\"_blank\">クリックジャッキング</a> 攻撃に脆弱になる可能性があります。"
+  
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver: "TiddlyWiki 5.2.3 以降で従来の「upload」セーバーを使用"
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "デフォルトでは TiddlyWiki 5.2.3 以降で put セーバーが使用されます。  
+  こちらを好む場合はチェックしてください。詳細は <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">この FAQ</a> を参照。"
+  
+  site_view_edit_wiki_advanced_settings_prefer_put_saver: "TiddlyWiki 5.2.2 以前で「put」セーバーを使用"
+  site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "デフォルトでは TiddlyWiki 5.2.2 以前で upload セーバーが使用されます。  
+  こちらを好む場合はチェックしてください。詳細は <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">この FAQ</a> を参照。"
+  
+  site_view_edit_wiki_advanced_settings_skip_etag_check: "保存時に「サーバー上でファイルが変更されました」のチェックを無視"
+  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "「サーバー上でファイルが変更されました」のエラーが誤って保存を妨げていると思われる場合はチェックしてください。  
+  必要な時だけ一時的に使用することをおすすめします。"
+  
+  # filter and sort
+  site_view_filter_and_sort_kind: "種類："
+  site_view_filter_and_sort_kind_else: "種類"
+  site_view_filter_and_sort_kind_filter_tooltip: "サイト種類フィルター："
+  #
+  site_view_filter_and_sort_access: "アクセス："
+  site_view_filter_and_sort_access_else: "アクセス"
+  site_view_filter_and_sort_access_filter_tooltip: "サイトアクセスフィルター"
+  site_view_filter_and_sort_access_filter_drop_header: "サイトアクセスフィルター："
+  #
+  site_view_filter_and_sort_sort: "並び替え："
+  site_view_filter_and_sort_sort_tooltip: "並び替え基準"
+  site_view_filter_and_sort_sort_drop_header: "並び替え基準"
+  #
+  site_view_filter_and_sort_view: "表示"
+  site_view_grid_list:
+    grid: "グリッド表示に切り替え"
+    list: "リスト表示に切り替え"
+  #
+  site_view_filter_and_sort_show_all: "すべて表示"
+  

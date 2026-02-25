@@ -1,7 +1,7 @@
 # Everyone should be able to read the label in their own language!
 # no need to change
 ---
-es:
+ja:
   languages:
     en: American
     de: Deutsch

@@ -1,0 +1,44 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+---
+ja:
+  comments:
+    title_short: "コメント"
+    title_singular: "コメント"
+    title_plural: "コメント"
+    your_comment: "あなたのコメント"
+    your_comment_short: "この wiki へのあなたのコメント"
+    create_button: "コメントを保存"
+    update_button: "コメントを更新"
+    created: "コメントを保存しました"
+    updated: "コメントを更新しました"
+    login_hint: "コメントを書くにはログインしてください。"
+    login_hint_short: "コメントするにはログインしてください。"
+    comment_required_characters: "1文字以上入力してください！"
+    edited: "編集済み"
+    score_label: "スコア"
+
+    delete_button: "削除"
+    deleted: "コメントを削除しました！"
+    not_your_comment: "これはあなたのコメントではありません！"
+    delete_confirm: "本当に削除しますか？コメントは復元できません！"
+    
+    show_all_button: "すべての %{count} 件のコメントを表示"
+    
+    title_comments_for: "サイトへのコメント"
+    delete_your_comment: "あなたのコメントを削除"
+    back_to_previous_page: "前のページに戻る"
+    go_to_explore_view: "探索ページへ移動"
+  # voting wiki sites
+  votes:
+    average: "評価"
+    count:
+      one: "評価"
+      other: "評価"
+    saved: "評価を保存しました。"
+    removed: "あなたの評価を削除しました。"
+    login_hint: "評価するにはログインしてください。"
+    no_ratings_yet_login: "まだ評価がありません！ログインして評価してください。"
+    login_to_rate: "ログインして評価を送信"
+    my_rating:    "私の評価"
+    rate_now:     "今すぐ評価"

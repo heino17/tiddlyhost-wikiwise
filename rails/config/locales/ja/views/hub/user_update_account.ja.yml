@@ -1,0 +1,29 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ja:
+  user_update_account_heading: "アカウントを更新"
+  user_update_account_email_label: "メール"
+  user_update_account_email_text: "あなたのメールアドレス"
+  user_update_account_waiting_for_confimation: "現在、メールアドレスの確認を待っています："
+  user_update_account_name_label: "名前"
+  user_update_account_name_text: "あなたの名前"
+  user_update_account_username_label: "ユーザー名"
+  user_update_account_username_text: "ユニークなユーザー名（任意）。探索ページでクリック可能になります。"
+  user_update_account_profile_image_label: "プロフィール画像"
+  user_update_account_current_password_label: "現在のパスワード。変更には必要です。"
+  user_update_account_current_password_text: "変更を確認するために現在のパスワードを入力してください"
+  user_update_account_new_password_label: "新しいパスワード"
+  user_update_account_new_password_leave_blank: "（変更しない場合は空のままにしてください）"
+  user_update_account_new_password_text: "文字以上"
+  user_update_account_confirm_password_label: "新しいパスワードの確認"
+  user_update_account_confirm_password_text: "新しいパスワードを再入力して確認してください"
+  user_update_account_button_submit: "更新"
+  user_update_account_button_cancel: "キャンセル"
+  user_delete_account_heading: "アカウントを削除"
+  user_delete_account_danger_text: "慎重に進めてください。アカウントを削除するとサイトも即座に削除されます。"
+  user_delete_account_button_delete: "アカウントを削除"
+  user_delete_account_popup_confirm: "本当にアカウントを削除しますか？"   
+  user_update_account_use: "使用"
+  

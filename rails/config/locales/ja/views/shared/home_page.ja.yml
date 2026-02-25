@@ -1,0 +1,24 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+# From here Tiddlyhost for i18n
+#
+---
+ja:
+  # Start Page Texts
+  signed_out_col1_heading: "数秒であなただけの wiki"  
+  signed_out_col1_text: "インストール不要で、数秒で強力かつ拡張可能な個人用 wiki を無料で手に入れられます。  
+  プライベート・公開・または以下で紹介することも可能です："  
+  signed_out_col2_heading: "TiddlyWiki によって駆動"  
+  signed_out_col2_text: "Tiddlyhost は <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> を基盤としています。  
+  これは革新的なオープンソース JavaScript wiki です。また、新しい超軽量 <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> や  
+  クラシックなオリジナル <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a> にも対応しています。"  
+  signed_out_col3_heading: "Tiddlyspot の作成者による"  
+  signed_out_col3_text: "Tiddlyhost は Tiddlyspot の安全・現代的・信頼性の高い後継であり、コードは <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>オープンソース</a> です。  
+  詳細は <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> または <a href=\"about\">About</a> ページをご覧ください。"
+  signed_out_linkto_explore: "探索ページ"
+  # Startpage Get started now - box
+  get_started_heading: "今すぐ始める"
+  get_started_button_signup: "登録"
+  get_started_divider: "または"
+  get_started_button_login: "ログイン"

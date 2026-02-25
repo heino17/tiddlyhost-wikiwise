@@ -1,0 +1,23 @@
+---
+ja:
+  # Account created
+  account_created_heading: "アカウントを作成しました"
+  account_created_thanks: "登録ありがとうございます！"
+  
+  account_created_confirmation_send: "確認メールをメールアドレスに送信しました。  
+  登録を完了するには、メール内の確認リンクをクリックしてください。"
+  
+  account_created_help_heading: "トラブルシューティング"
+  
+  account_created_help_paragraph_1: "確認メールが届かない場合、spam に分類されている可能性があります。  
+  spam フォルダを確認するか、'tiddlyhost@gmail.com' を連絡先に追加して、  
+  次に" 
+  account_created_help_paragraph_1_link: "このフォーム"
+  account_created_help_paragraph_1_2: "を使用してメールを再送信してください。" 
+  
+  account_created_help_paragraph_2_1: "それでも確認リンクが届かない場合、"
+  account_created_help_email_me: "私にメールを送信"
+  account_created_help_email_me_subject: "Tiddlyhost 登録の問題"
+  account_created_help_email_me_body: "登録しましたが、確認メールが届きませんでした。  
+  可能であれば手動で送信してください。"
+  account_created_help_paragraph_2_2: "してください。直接送信できるか確認します。"
