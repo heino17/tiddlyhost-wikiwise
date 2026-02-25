@@ -106,15 +106,31 @@ class TspotSitesController < ApplicationController
     redirect_to sites_url, notice: 'Site not found' unless @site
   end
 
+  UPDATEABLE_PARAMS = %i[
+    name
+    description
+    is_private
+    is_searchable
+    tag_list
+    allow_in_iframe
+    redirect_to_site_id
+    redirect_to_url
+  ]
+
   def site_params_for_update
     params.
       require(:tspot_site).
-      permit(:name, :description, :is_private, :is_searchable, :tag_list, :allow_in_iframe, :redirect_to_site_id, :redirect_to_url)
+      permit(*UPDATEABLE_PARAMS)
   end
+
+  UPDATEABLE_PARAMS_ON_CHANGE_PASS = %i[
+    password
+    password_confirmation
+  ]
 
   def site_params_for_change_password
     params.
       require(:tspot_site).
-      permit(:password, :password_confirmation)
+      permit(*UPDATEABLE_PARAMS_ON_CHANGE_PASS)
   end
 end
