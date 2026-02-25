@@ -51,14 +51,13 @@ class TiddlywikiControllerTest < ActionDispatch::IntegrationTest
 
   test 'text/:title.tid' do
     [
-      {
-        url: '/text/Foo.tid',
-        tid: <<-EOT.strip_heredoc
-          title: Foo
+      url: '/text/Foo.tid',
+      tid: <<-EOT.strip_heredoc
+        title: Foo
 
-          Bar
-        EOT
-      }
+        Bar
+      EOT
+
     ].each do |query|
       assert_expected_tid(**query)
     end
