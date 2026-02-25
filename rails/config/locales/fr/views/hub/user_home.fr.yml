@@ -47,6 +47,7 @@ fr:
   site_view_edit_wiki_name_label: "Nom"
   site_view_edit_wiki_name_text: "Lettres minuscules, chiffres et caractères '-' non en début ni en fin sont autorisés."
   site_view_edit_wiki_updated_flash: "Site mis à jour avec succès."
+  site_view_edit_wiki_site_not_found_flash: "Site non trouvé."
   
   site_view_edit_wiki_show_more_types_label: "Type"
   site_view_edit_wiki_show_more_types: "Afficher plus de types"

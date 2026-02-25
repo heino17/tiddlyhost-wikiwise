@@ -47,6 +47,7 @@ ja:
   site_view_edit_wiki_name_label: "名前"
   site_view_edit_wiki_name_text: "小文字、数字、先頭・末尾以外での「-」が使用可能です。"
   site_view_edit_wiki_updated_flash: "サイトを正常に更新しました。"
+  site_view_edit_wiki_site_not_found_flash: "サイトが見つかりませんでした。"
   
   site_view_edit_wiki_show_more_types_label: "種類"
   site_view_edit_wiki_show_more_types: "さらに種類を表示"

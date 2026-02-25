@@ -41,8 +41,10 @@ zh_CN:
   hub_view_action_menu_delete: "删除"
   hub_view_action_menu_delete_realy: "您确定要删除吗"
   hub_view_action_menu_more: "更多..."
-  #
   # action menu upload form - insert line break and download link made in upload_form.html.haml
+  action_menu_upload_form_title: "「上传到站点」"
+  action_menu_upload_form_warning_hint: "「请谨慎操作！」"
+  # -> insert_line_break and download link made in upload_form.html.haml
   action_menu_upload_form_text: "这将删除您的站点内容，并用您现在上传的任何 TiddlyWiki 文件替换！ %{insert_line_break} 如果出现问题，您可能想先 %{download_copy_link} 下载站点副本。"
   action_menu_upload_form_choose_file: "选择要上传的文件"
   action_menu_upload_form_upload_file: "上传文件"

@@ -47,6 +47,7 @@ es:
   site_view_edit_wiki_name_label: "Nombre"
   site_view_edit_wiki_name_text: "Se permiten letras minúsculas, números y guiones '-' no al inicio ni al final."
   site_view_edit_wiki_updated_flash: "Sitio actualizado correctamente."
+  site_view_edit_wiki_site_not_found_flash: "Sitio no encontrado."
   
   site_view_edit_wiki_show_more_types_label: "Tipo"
   site_view_edit_wiki_show_more_types: "Mostrar más tipos"

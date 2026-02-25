@@ -50,6 +50,7 @@ de:
   site_view_edit_wiki_name_label: "Name"
   site_view_edit_wiki_name_text: "Kleinbuchstaben, Zahlen und nicht am Anfang oder Ende stehende Bindestriche/Minuszeichen sind zulässig."
   site_view_edit_wiki_updated_flash: "Seite erfolgreich aktualisiert."
+  site_view_edit_wiki_site_not_found_flash: "Seite nicht gefunden."
   
   site_view_edit_wiki_show_more_types_label: "Typ"
   site_view_edit_wiki_show_more_types: "Zeige mehr Typen"

@@ -128,7 +128,7 @@ class SitesController < ApplicationController
           @site_to_clone.increment_clone_count
         end
 
-        format.html { redirect_to sites_url }
+        format.html { redirect_to sites_url, notice: I18n.t('site_view_create_a_site_created_flash') }
         # format.json { render :show, status: :created, location: @site }
       else
         format.html { render :new }
@@ -142,7 +142,7 @@ class SitesController < ApplicationController
   def update
     respond_to do |format|
       if @site.update(site_params_for_update)
-        format.html { redirect_to sites_url, notice: 'Site was successfully updated.' }
+        format.html { redirect_to sites_url, notice: I18n.t('site_view_edit_wiki_updated_flash') }
         # format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
@@ -159,7 +159,7 @@ class SitesController < ApplicationController
       if @site.content_upload(new_content)
         @site.increment_save_count
 
-        format.html { redirect_to sites_url, notice: 'Upload to site was successfully completed.' }
+        format.html { redirect_to sites_url, notice: I18n.t('site_view_upload_a_site_uploaded_flash') }
         # format.json { render :show, status: :ok, location: @site }
       else
         format.html { render :edit }
@@ -173,7 +173,7 @@ class SitesController < ApplicationController
   def destroy
     @site.destroy
     respond_to do |format|
-      format.html { redirect_to sites_url, notice: 'Site was successfully destroyed.' }
+      format.html { redirect_to sites_url, notice: I18n.t('site_view_destroy_a_site_destroyed_flash') }
       # format.json { head :no_content }
     end
   end
@@ -182,7 +182,13 @@ class SitesController < ApplicationController
 
   def set_site
     @site = current_user.sites.find(params[:id])
-    redirect_to sites_url, notice: 'Site not found' unless @site
+    redirect_to sites_url, notice: I18n.t('will_paginate.site.page_entries_info.single_page.zero') unless @site
+  end
+
+  def set_site
+    @site = current_user.sites.find_by!(id: params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to sites_url, alert: t("site_view_edit_wiki_site_not_found_flash") and return
   end
 
   def set_sites
