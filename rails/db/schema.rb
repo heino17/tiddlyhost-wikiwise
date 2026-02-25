@@ -231,6 +231,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_08_130641) do
     t.integer "clone_count", default: 0
     t.string "storage_service"
     t.boolean "skip_etag_check", default: false
+    t.boolean "disable_download_url", default: false
     t.index ["cloned_from_id"], name: "index_sites_on_cloned_from_id"
     t.index ["empty_id"], name: "index_sites_on_empty_id"
     t.index ["name"], name: "index_sites_on_name", unique: true

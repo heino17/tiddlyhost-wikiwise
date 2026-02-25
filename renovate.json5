@@ -24,7 +24,7 @@
         'digest',
       ],
       groupName: 'ruby patch + pin updates',
-      automerge: true,
+      automerge: false,
       automergeType: 'branch',
     },
     {
@@ -62,7 +62,7 @@
         'pin',
         'digest',
       ],
-      automerge: true,
+      automerge: false,
     },
     {
       matchDatasources: [

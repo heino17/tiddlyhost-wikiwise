@@ -1,44 +1,27 @@
 /bin/sh: 1: [[: not found
 docker compose run --rm app bash -c 'bin/rails test:all'
- Container th_cache Running 
- Container th_db Running 
- Container tiddlyhost-wikiwise-app-run-d23744d299fa Creating 
- Container tiddlyhost-wikiwise-app-run-d23744d299fa Created 
+[+]  2/2t 2/22
+✔ Container th_cache Running                                                                                                                                                                       0.0s
+✔ Container th_db    Running                                                                                                                                                                       0.0s
+Container tiddlyhost-wikiwise-app-run-008ea60d1abe Creating
+Container tiddlyhost-wikiwise-app-run-008ea60d1abe Created
 yarn install v1.22.22
 [1/4] Resolving packages...
 success Already up-to-date.
-Done in 0.17s.
+Done in 0.21s.
 yarn run v1.22.22
 $ esbuild app/javascript/application.js --bundle --sourcemap --format=iife --outdir=app/assets/builds --public-path=/assets $([ "$RAILS_ENV" = "production" ] && echo '--minify' || echo '')
 
-  app/assets/builds/application.js      699.0kb
-  app/assets/builds/application.js.map    1.2mb
+app/assets/builds/application.js      783.7kb
+app/assets/builds/application.js.map    1.4mb
 
-Done in 0.35s.
-Running 177 tests in parallel using 6 processes
-Run options: --seed 13621
+Done in 0.29s.
+Running 186 tests in parallel using 6 processes
+Run options: --seed 63759
 
 # Running:
 
-........./opt/app/app/views/sites/_actions_menu.html.haml:30: warning: key :data is duplicated and overwritten on line 30
-/opt/app/app/views/sites/_actions_menu.html.haml:41: warning: key :data is duplicated and overwritten on line 41
-/opt/app/app/views/sites/_actions_menu.html.haml:60: warning: key :data is duplicated and overwritten on line 60
-/opt/app/app/views/sites/_actions_menu.html.haml:30: warning: key :data is duplicated and overwritten on line 30
-/opt/app/app/views/sites/_actions_menu.html.haml:41: warning: key :data is duplicated and overwritten on line 41
-/opt/app/app/views/sites/_actions_menu.html.haml:60: warning: key :data is duplicated and overwritten on line 60
-/opt/app/app/views/sites/_actions_menu.html.haml:30: warning: key :data is duplicated and overwritten on line 30
-/opt/app/app/views/sites/_actions_menu.html.haml:41: warning: key :data is duplicated and overwritten on line 41
-/opt/app/app/views/sites/_actions_menu.html.haml:60: warning: key :data is duplicated and overwritten on line 60
-/opt/app/app/views/sites/_actions_menu.html.haml:30: warning: key :data is duplicated and overwritten on line 30
-/opt/app/app/views/sites/_actions_menu.html.haml:41: warning: key :data is duplicated and overwritten on line 41
-/opt/app/app/views/sites/_actions_menu.html.haml:60: warning: key :data is duplicated and overwritten on line 60
-................................................................................................/opt/app/app/views/sites/_actions_menu.html.haml:30: warning: key :data is duplicated and overwritten on line 30
-/opt/app/app/views/sites/_actions_menu.html.haml:41: warning: key :data is duplicated and overwritten on line 41
-/opt/app/app/views/sites/_actions_menu.html.haml:60: warning: key :data is duplicated and overwritten on line 60
-............................./opt/app/app/views/sites/_actions_menu.html.haml:30: warning: key :data is duplicated and overwritten on line 30
-/opt/app/app/views/sites/_actions_menu.html.haml:41: warning: key :data is duplicated and overwritten on line 41
-/opt/app/app/views/sites/_actions_menu.html.haml:60: warning: key :data is duplicated and overwritten on line 60
-...........................................
+..........................................................................................................................................................................................
 
-Finished in 52.849454s, 3.3491 runs/s, 52.2995 assertions/s.
-177 runs, 2764 assertions, 0 failures, 0 errors, 0 skips
+Finished in 45.073298s, 4.1266 runs/s, 61.8992 assertions/s.
+186 runs, 2790 assertions, 0 failures, 0 errors, 0 skips
