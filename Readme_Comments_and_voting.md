@@ -6,11 +6,12 @@ German and American
 - **Kommentar-Funktion (für Seiten/Wikis)**
   - Einzelner Kommentar pro User pro Site (Unique-Constraint)
   - Formular zum Erstellen / Editieren
-  - Anzeige der letzten 3 Kommentare im Tile + „Alle Kommentare“-Link bei mehr als 3 Kommentaren
+  - Anzeige der letzten 2 Kommentare im Tile + „Alle Kommentare“-Link bei mehr als 2 Kommentaren
   - Vollständige Kommentar-Liste auf separater Index-Seite
   - Löschen eigener Kommentare
   - Admin kann jeden Kommentar löschen
   - Aufklappbarer Bereich mit `<details>`-Tag
+  - Textfeld mit Buchstaben-Zähler 0/1500, + Fortschrittsbalken grün, gelb, rot
   - i18n-kompatible Texte & Pluralisierung
   - Turbo/Hotwire für live Updates ohne Reload
 
@@ -37,11 +38,12 @@ German and American
 - **Comment Function (for sites/wikis)**
   - One comment per user per site (unique constraint)
   - Form for creating/editing
-  - Display of the last 3 comments in the tile + “All comments” link if there are more than 3 comments
+  - Display of the last 2 comments in the tile + “All comments” link if there are more than 2 comments
   - Complete comment list on separate index page
   - Delete your own comments
   - Admin can delete any comment
   - Expandable area with `<details>` tag
+  - Text field with letter counter 0/1500, + progress bar green, yellow, red
   - i18n-compatible texts & pluralization
   - Turbo/Hotwire for live Updates without reload
 
