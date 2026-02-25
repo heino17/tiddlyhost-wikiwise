@@ -181,11 +181,6 @@ class SitesController < ApplicationController
   private
 
   def set_site
-    @site = current_user.sites.find(params[:id])
-    redirect_to sites_url, notice: I18n.t('will_paginate.site.page_entries_info.single_page.zero') unless @site
-  end
-
-  def set_site
     @site = current_user.sites.find_by!(id: params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to sites_url, alert: t("site_view_edit_wiki_site_not_found_flash") and return
