@@ -3,22 +3,24 @@
 # The fun factor
 ## # "Key findings":
 
-- Fully working language switch - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇨🇳 zh-CN switchable
+- Fully working language switch - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN switchable
 - Switch in menu bar, Text & Flags
 - with persistence via session cookie
-- Clean, lightweight option for future languages (it, pl, ru, gr, etc.)
+- Clean, lightweight option for future languages (it, pl, ti, no, ...)
 - First page view reliably starts in English (:en as default, can be changed)
 - Browser language is considered a suggestion, not automatically adopted (can be changed)
 - HTML ISO language codes change according to language  
 `<html data-theme-mode="<%= thememode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">`  
     - If your browser detects that the page is written in a language other than your preferred language, it will display an icon or button that allows you to translate the entire page into your language.  
     - The lang attribute with ISO language code (e.g., lang="de", lang="en") helps screen readers read the text aloud in the correct language, pronunciation, and intonation.
-    - Search engines can index 6 languages:
+    - Search engines can index 8 languages:
       - host.domain/?locale=en
       - host.domain/?locale=de
+      - host.domain/?locale=ru
       - host.domain/?locale=es
       - host.domain/?locale=fr
       - host.domain/?locale=ja
+      - host.domain/?locale=ko
       - host.domain/?locale=zh_CN  
  
  - *I don't really need it, but it's fun, so I'll do it, right? :)*
@@ -31,7 +33,7 @@
       -  gem 'i18n-js', '~> 4.2', '>= 4.2.4'
 
 - `config/application.rb`
-    - `config.i18n.available_locales = [:en, :de, :es , :fr, ja, zh_CN]` 
+    - `config.i18n.available_locales = [:en, :de, ru, :es, :fr, ja, ko, zh_CN]` 
       - (other or all country ISO codes possible)
     - `config.i18n.default_locale = :en`
       - (default when the page is loaded for the first time)
@@ -48,7 +50,7 @@
 
 - `config/locales/`
   - `rails i18n locales` (loaded as .yml from config/locales/, - makes it easier to make changes)
-  - `en.yml`, `de.yml`, `es.yml`, `fr.yml`, `ja.yml` & 'zh_CN.yml' (as startup files)
+  - `en.yml`, `de.yml`, `ru.yml`, `es.yml`, `fr.yml`, `ja.yml`, `ko.yml` & 'zh_CN.yml' (as startup files)
   - `Translations` in subfolders
 
 - `app/views/layouts/_header.html.haml`
@@ -59,9 +61,9 @@
   - replaced with t(“key”) and moved to translation files (.yml)
   - minor adjustments to the code for compatibility
   -  approximately 60 existing files edited (almost complete, the “Pricing” section is still missing)
-  -  120 language files created
+  -  160 language files created
 
-### # Current status (January 2026):
+### # Current status (February 2026):
 - Works stably with 0 errors in tests (with :en as default)
 - 96% of UI texts and words already translated (.yml language files still need to be organized...)
 - Very good basis for additional languages available
@@ -76,22 +78,24 @@
 ## Der Spaßfaktor
 ## # "Schlüssel-Erkenntnisse":
 
-- Vollständig funktionsfähige Sprachumschaltung - 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇨🇳 zh-CN umschaltbar
+- Vollständig funktionsfähige Sprachumschaltung - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN umschaltbar
 - Schalter in der Menüleiste, Text und Flaggen
 - mit Persistenz über Session-Cookie  
-- Saubere, leichtgewichtige Möglichkeit für zukünftige Sprachen (it, pl, ru, gr, …)
+- Saubere, leichtgewichtige Möglichkeit für zukünftige Sprachen (it, pl,  ti, no, …)
 - Erster Seitenaufruf startet zuverlässig auf Englisch (:en als Default, kann geändert werden)
 - Browser-Sprache wird als Vorschlag betrachtet, nicht automatisch übernommen (Änderung möglich)
 - HTML-ISO-Sprachcodes wechseln nach Sprache  
 `<html data-theme-mode="<%= thememode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">`  
     - Wenn dein Browser erkennt, dass die Seite in einer anderen Sprache als deiner bevorzugten Sprache verfasst ist, zeigt er ein Symbol oder eine Schaltfläche an, mit der Du die Seite vollständig in deine Sprache übersetzen kannst.  
     - Das lang-Attribut mit ISO-Sprachcode (z. B. lang="de", lang="en") hilft Screenreadern, den Text in der richtigen Sprache, Aussprache und Betonung vorzulesen.
-    - Suchmaschinen können 6 Sprachen indexieren:
+    - Suchmaschinen können 8 Sprachen indexieren:
       - host.domain/?locale=en  
-      - host.domain/?locale=de  
+      - host.domain/?locale=de
+      - host.domain/?locale=ru  
       - host.domain/?locale=es  
       - host.domain/?locale=fr
       - host.domain/?locale=ja
+      - host.domain/?locale=ko
       - host.domain/?locale=zh_CN  
 
 - *Ich brauche es eigentlich nicht, aber es macht Spaß, also mach ich's, oder?. :)*
@@ -103,7 +107,7 @@
     -  gem 'i18n-js', '~> 4.2', '>= 4.2.4'
 
   - `config/application.rb`
-    - `config.i18n.available_locales = [:en, :de, :es , :fr, :ja, zh_CN]` 
+    - `config.i18n.available_locales = [:en, :de, ru, :es, :fr, ja, ko, zh_CN]` 
       - (weitere bzw. alle Länder-iso-codes möglich)
     - `config.i18n.default_locale = :en`
       - (Standard beim ersten Laden der Seite)
@@ -120,7 +124,7 @@
 
 - `config/locales/`
   - `rails i18n locales` (als .yml aus config/locales/ geladen, - erleichtert Eingriffe)
-  - `en.yml`, `de.yml`, `es.yml`, `fr.yml`, `ja.yml` & 'zh_CN.yml' (als Startdateien)
+  - `en.yml`, `de.yml`, `ru.yml`, `es.yml`, `fr.yml`, `ja.yml`, `ko.yml` & 'zh_CN.yml' (als Startdateien)
   - `Übersetzungen` in Unterordnern
 
 - `app/views/layouts/_header.html.haml`
@@ -131,9 +135,9 @@
   - durch t("key") ersetzt und in Übersetzungsdateien (.yml) ausgelagert
   - kleine Anpassungen im Code für Kompatibilität
   -  ca. 60 vorhandene Dateien bearbeitet (fast vollständig, der "Pricing"-Teil fehlt noch)
-  -  120 Sprachdateien erstellt
+  -  160 Sprachdateien erstellt
 
-### # Aktueller Status (Januar 2026):
+### # Aktueller Status (Februar 2026):
 - Funktioniert stabil mit 0 Fehlern in den Tests (bei :en als Standard)
 - 96% der UI-Texte und Worte bereits übersetzt (.yml-Sprachdateien sind noch zu ordnen...)
 - Sehr gute Basis für weitere Sprachen vorhanden
