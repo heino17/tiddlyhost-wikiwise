@@ -2,13 +2,13 @@
 ## + rails I18n Sprach-Implementierung
 ## + Kommentar- & Bewertung der Tiddlyhost-Wikis
 
-- 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇨🇳 zh-CN - Schalter in menu bar
+- 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
 - funktioniert gut  
 - weitere Sprachen einfach zu implementieren  
 - beachte die Ports!  
  
 ...ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer 
-- in 6 Sprachen übersetzten Oberfläche,
+- in 8 Sprachen übersetzten Oberfläche,
 - durch Implementierung von I18n Sprachunterstützung. **Siehe: [Readme_i18n.md](Readme_i18n.md)**
 - Erweitert um Kommentar & Bewertung der Tiddlyhost-Wikis. **Siehe: [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**  
 
@@ -37,13 +37,13 @@ cd tiddlyhost-wikiwise
 ## + rails I18n language implementation
 ## + Comment & Voting for Tiddlyhost Wikis
 
-- 🇬🇧 EN, 🇩🇪 DE, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇨🇳 zh-CN - Switch in menu bar
+- 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
 - works fine  
 - more languages easy to implement  
 - note the ports!  
  
 ...is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with a 
-- interface translated into 6 languages,
+- interface translated into 8 languages,
 - through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
 - Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
 
