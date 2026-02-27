@@ -1,0 +1,21 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+---
+ko:
+  # Start Page Texts
+  signed_out_col1_heading: "몇 초 만에 나만의 위키"  
+  signed_out_col1_text: "설치 없이 몇 초 만에 강력하고 확장 가능한 개인 위키를 무료로 만들 수 있습니다.  
+  비공개, 공개, 또는 아래에서 공유도 가능합니다."  
+  signed_out_col2_heading: "TiddlyWiki 기반"  
+  signed_out_col2_text: "Tiddlyhost는 <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a>로 구동됩니다.  
+  이는 혁신적인 오픈소스 JavaScript 위키입니다. 새로운 초경량 <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a>와  
+  클래식 오리지널 <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a>도 지원합니다."  
+  signed_out_col3_heading: "Tiddlyspot 제작자 작품"  
+  signed_out_col3_text: "Tiddlyhost는 Tiddlyspot의 안전하고 현대적이며 신뢰할 수 있는 후속작이며, 코드가 <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>오픈소스</a>입니다.  
+  자세한 내용은 <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> 또는 <a href=\"about\">소개</a> 페이지를 확인하세요."
+  signed_out_linkto_explore: "탐색 페이지"
+  # Startpage Get started now - box
+  get_started_heading: "지금 시작하기"
+  get_started_button_signup: "회원가입"
+  get_started_divider: "또는"
+  get_started_button_login: "로그인"

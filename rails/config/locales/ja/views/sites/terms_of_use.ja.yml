@@ -1,6 +1,6 @@
 ---
 ja:
-  terms_of_use_header: "Terms of Use"
+  terms_of_use_header: "利用規約"
   terms_of_use_text: "
     
     ```rails/config/locales/ja/views/sites/terms_of_use.ja.yml```

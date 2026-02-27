@@ -1,0 +1,99 @@
+---
+ru:
+  admin:
+    tabs_header:
+      stats: "Статистика"
+      charts: "Графики"
+      users: "Пользователи"
+      sites: "Сайты"
+      tspot_sites: "Страницы Tspot"
+      storage: "Хранилище"
+      etc: "Прочее"
+      #
+    tab_stats:
+      tab_stats_header: "Статистика"
+      users: "Пользователи"
+      subscriptions: "Подписки"
+      sites: "Сайты"
+      site_views: "Просмотры сайтов"
+      tspots: "Tspots"
+      tspot_views: "Просмотры Tspot"
+      storage: "Хранилище"
+      activ_daily: "Активны ежедневно"
+      activ_weekly: "Активны еженедельно"
+      activ_monthly: "Активны ежемесячно"
+      signed_in_once_users: "Вошли один раз"
+      never_signed_in_users: "Никогда не входили"
+      never_updated_sites: "Никогда не обновлялись"
+      private_sites: "Приватные сайты"
+      public_sites: "Публичные сайты"
+      public_non_searchable_sites: "Публичные, но не ищутся"
+      public_searchable_sites: "Публичные и ищутся"
+      owned_tspots: "Собственные Tspots"
+      saved_tspots: "Сохранённые Tspots"
+      jobs_in_queue: "Задания в очереди"
+      locked_since: "Заблокировано с"
+      running_now: "Выполняется сейчас"
+      no_running_jobs: "Нет"
+      #
+    tab_users_table_headers:
+      th_id: "ID"
+      th_name: "Имя"
+      th_username: "Имя пользователя"
+      th_email: "Эл. почта"
+      th_av: "Аватар"          # Av → Аватар (üblich in Tabellen)
+      th_type: "Тип"
+      th_subscription: "Подписка"
+      th_logins: "Входы"
+      th_sites: "Сайты"
+      th_tspot_sites: "Сайты Tspot"
+      th_current_sign_in: "Текущий вход"
+      th_last_sign_in: "Последний вход"
+      th_created: "Создано"
+      th_confirmed: "Подтверждено"
+      #
+    tab_sites_table_headers:
+      th_id: "ID"
+      th_name: "Имя"
+      th_kind: "Вид"
+      th_empty: "Пустой"
+      th_clone: "Клон"
+      th_version: "Версия"
+      th_description: "Описание"
+      th_private: "Приватный?"
+      th_hub: "Hub?"
+      th_template: "Шаблон?"
+      th_iframes: "IFrame?"
+      th_put: "Put?"
+      th_upload: "Загрузка?"
+      th_views: "Просмотры"
+      th_accesses: "Доступы"
+      th_saves: "Сохранения"
+      th_clones: "Клоны"
+      th_versions: "Версии"
+      th_owner: "Владелец"
+      th_raw: "Сырой"
+      th_storage: "Хранилище"
+      th_last_access: "Последний доступ"
+      th_last_update: "Последнее обновление"
+      th_created: "Создано"
+      #
+    tab_storage_table_headers:
+      th_type: "Тип"
+      th_service: "Сервис"
+      th_bucket: "Бакет"
+      th_files: "Файлы"
+      th_bytes: "Байты"
+      #
+    tab_etc:
+      raise_an_exception: "Вызвать исключение"
+      connection_pool_stats: "Статистика пула соединений"
+      # admin_helper.rb
+    pagination_showing_entries:
+      showing: "Отображено записей"
+      # 1
+      to: "до"
+      # ...
+      of: "из"
+      # ...
+      in_total: "всего."

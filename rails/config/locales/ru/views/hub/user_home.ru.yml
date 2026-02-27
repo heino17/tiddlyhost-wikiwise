@@ -1,0 +1,128 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ru:
+  # hub view
+  hub_view_sites_on_your: "Сайты на вашей"
+  hub_view_sites_on_your_explore_page: "странице Исследования"
+  
+  your_sites: "Ваши сайты"
+  click_create_below: "Нажмите 'Создать' ниже, чтобы создать ваш первый сайт TiddlyWiki."
+  showing_filtered_sites: "Отображено %{filtered_count} %{access} сайтов из %{total_count} всего."
+  clear_filter: "Очистить фильтр"
+  sites: "Сайты"
+  site: "Сайт"
+  storage_used: "%{bytes} хранилища использовано."
+  create: "Создать"
+  create_from_template: "Создать из шаблона"
+  claim_tiddlyspot_site: "Запросить сайт Tiddlyspot"
+  download_all: "Скачать все"
+  #
+  site_view_create_a_site_heading: "Создать сайт"
+  site_view_create_a_site_created_flash: "Сайт успешно создан."
+  site_view_upload_a_site_uploaded_flash: "Загрузка на сайт успешно завершена."
+  site_view_destroy_a_site_destroyed_flash: "Сайт успешно удалён."
+  site_view_clone_a_site_heading: "Клонировать сайт"
+  # user home "Save history"-details
+  site_view_save_history_for: "Сохранить историю для"
+  site_view_save_history_timestamp: "Метка времени"
+  site_view_save_history_timestamp_tooltip: "Время показано в UTC."
+  site_view_save_history_saved: "Сохранено"
+  site_view_save_history_size: "Размер"
+  site_view_save_history_size_tooltip: "Размер сжатого файла."
+  site_view_save_history_checksum: "Контрольная сумма"
+  site_view_save_history_checksum_tooltip: "Одинаковые контрольные суммы указывают на идентичные сохранённые версии."
+  site_view_save_history_label: "Метка"
+  site_view_save_history_label_tooltip: "Сохранённые версии с метками имеют приоритет над версиями без меток при очистке списка сохранений.  
+  Это позволяет хранить важные версии неограниченно."
+  site_view_save_history_actions: "Действия"
+  site_view_save_history_current_version: "Текущая версия"
+  site_view_save_history_older_versions: "Старые версии"
+  site_view_save_history_no_older_versions: "Старые версии не найдены."
+  site_view_save_history_pop_set_label: "Установить метку"
+  site_view_save_history_pop_update: "Обновить"
+  # user home actions menu "Settings"-details
+  site_view_edit_wiki_heading: "Настройки для"
+  site_view_edit_wiki_name_label: "Имя"
+  site_view_edit_wiki_name_text: "Разрешены строчные буквы, цифры и '-' (не в начале и не в конце)."
+  site_view_edit_wiki_updated_flash: "Сайт успешно обновлён."
+  
+  site_view_edit_wiki_show_more_types_label: "Тип"
+  site_view_edit_wiki_show_more_types: "Показать больше типов"
+  site_view_edit_wiki_create_from_template: "Создать из шаблона"
+  site_view_edit_wiki_create_from_template_tooltip: "Вы также можете создать сайт, выбрав шаблон из сообщества и клонировав его.  
+  Эта ссылка ведёт к списку доступных шаблонов."
+  
+  site_view_edit_wiki_tw5_description: "Тест"
+  
+  site_view_edit_wiki_clone_from: "Клон с"
+  site_view_edit_wiki_description_label: "Описание"
+  site_view_edit_wiki_description_text: "Опционально. Краткое описание сайта, видимое на странице Исследования для поисковых сайтов."
+  site_view_edit_wiki_tag_list_label: "Теги"
+  site_view_edit_wiki_tag_list_text: "Опционально. Список тегов через запятую, видимый на странице Исследования для поисковых сайтов."
+  site_view_save_history_button_create: "Создать"
+  site_view_save_history_button_update: "Обновить"
+  site_view_save_history_button_cancel: "Отмена"  
+  # Access chooser
+  site_view_edit_wiki_access_heading: "Доступ"
+  site_view_edit_wiki_access_private: "Приватный"
+  site_view_edit_wiki_access_public: "Публичный"  
+  site_view_edit_wiki_access_hub_listed: "Публичный и поисковый"
+  
+  site_view_edit_wiki_access_private_tooltip: "Идеально для личных заметок и контента, который вы не хотите делать видимым в интернете."
+  site_view_edit_wiki_access_private_description_tspot_sites: "Для доступа к сайту потребуется пароль"
+  site_view_edit_wiki_access_private_description_else: "Сайт доступен только вам"
+  
+  site_view_edit_wiki_access_public_tooltip: "Идеально для контента, который вы хотите поделить с другими."
+  site_view_edit_wiki_access_public_description: "Сайт будет доступен в интернете и видим для всех"
+  
+  site_view_edit_wiki_access_hub_listed_tooltip: "Идеально для показа интересных и хорошо поддерживаемых сайтов, чтобы люди их находили.  
+  Обратите внимание, что имя, описание и теги будут поисковыми на странице Исследования."
+  site_view_edit_wiki_access_hub_listed_description: "Сайт будет доступен в интернете, а также перечислен и поисковый на"
+  # Advanced settings
+  site_view_edit_wiki_advanced_settings_link: "Показать дополнительные настройки"
+  site_view_edit_wiki_advanced_settings_heading: "Дополнительные настройки"
+  
+  site_view_edit_wiki_advanced_settings_allow_public_clone: "Сделать этот сайт шаблоном для клонирования другими"
+  site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Идеально для показа интересных и хорошо поддерживаемых сайтов, чтобы люди их находили.  
+  Обратите внимание, что имя, описание и теги будут поисковыми на странице Исследования."
+  
+  site_view_edit_wiki_advanced_settings_allow_public_iframe: "Разрешить загрузку сайта в iframe"
+  site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "При включении подавляется заголовок deny X-Frame-Options по умолчанию.  
+  Обратите внимание, что сайты, загружаемые в iframe, могут быть уязвимы к атакам clickjacking."
+  
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver: "Использовать устаревший saver 'upload' для TiddlyWiki 5.2.3 и выше"
+  site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "По умолчанию используется saver put для TiddlyWiki 5.2.3 и выше.  
+  Отметьте, если предпочитаете saver upload для этих версий. См. также эту FAQ:  
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">эта FAQ</a>."
+  
+  site_view_edit_wiki_advanced_settings_prefer_put_saver: "Использовать saver 'put' для TiddlyWiki 5.2.2 и ниже"
+  site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "По умолчанию используется saver upload для TiddlyWiki 5.2.2 и ниже.  
+  Отметьте, если предпочитаете saver put для этих версий. См. также эту FAQ:  
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">эта FAQ</a>."
+  
+  site_view_edit_wiki_advanced_settings_skip_etag_check: "Игнорировать проверку 'файл изменён на сервере' при сохранении"
+  site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Отметьте эту галочку, если считаете, что ошибка 'файл изменён на сервере' неправильно препятствует сохранению.  
+  Рекомендуется использовать эту опцию временно, когда нужно, а не оставлять включённой постоянно."
+  
+  # filter and sort
+  site_view_filter_and_sort_kind: "Вид:"
+  site_view_filter_and_sort_kind_else: "Вид"
+  site_view_filter_and_sort_kind_filter_tooltip: "Фильтр по виду сайта:"
+  #
+  site_view_filter_and_sort_access: "Доступ:"
+  site_view_filter_and_sort_access_else: "Доступ"
+  site_view_filter_and_sort_access_filter_tooltip: "Фильтр по доступу к сайту"
+  site_view_filter_and_sort_access_filter_drop_header: "Фильтр по доступу к сайту:"
+  #
+  site_view_filter_and_sort_sort: "Сортировка:"
+  site_view_filter_and_sort_sort_tooltip: "Сортировать по"
+  site_view_filter_and_sort_sort_drop_header: "сортировать по"
+  #
+  site_view_filter_and_sort_view: "Вид"
+  site_view_grid_list:
+    grid: "Переключить на сетку"
+    list: "Переключить на список"
+  #
+  site_view_filter_and_sort_show_all: "показать все"

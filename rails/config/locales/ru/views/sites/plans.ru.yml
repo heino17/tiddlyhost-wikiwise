@@ -1,0 +1,28 @@
+---
+ru:
+  # Plans-site
+  site_plans_title: "Планы"
+  site_plans_free: "Бесплатный"
+  site_plans_standard: "Стандартный"
+  site_plans_subscription_standard_period: "/мес"
+  site_plans_premium: "Премиум"
+  site_plans_premium_someday: "Скоро"
+  site_plans_subscribe_button: "Подписаться сейчас"
+  # Pricing-site
+  site_pricing_title: "Цены"
+  # pricing card
+  site_pricing_pricingcard_titel: "План"
+  site_pricing_pricingcard_if_subscribed: "Подписан"
+  site_pricing_sign_up_submit_button: "Регистрация"
+  # subscription-site
+  site_subscription_title: "Подписка"
+  site_subscription_subscribe_button: "Подписаться сейчас"
+  
+  site_plans_notloggedin_stripe_text: "Зарегистрируйтесь, чтобы создать учётную запись и использовать Tiddlyhost бесплатно без кредитной карты.  
+  Для доступа к Стандартному плану перейдите на страницу \"Планы подписки\" после регистрации. Обработка подписок Tiddlyhost осуществляется через "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> — это простая в использовании и высоко надёжная платформа для онлайн-платежей,  
+  подкреплённая строгими отраслевыми стандартами безопасности и защиты данных."
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> — это простая в использовании и высоко надёжная платформа для онлайн-платежей,  
+  подкреплённая строгими отраслевыми стандартами безопасности и защиты данных."
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> — это простая в использовании и высоко надёжная платформа для онлайн-платежей,  
+  подкреплённая строгими отраслевыми стандартами безопасности и защиты данных."

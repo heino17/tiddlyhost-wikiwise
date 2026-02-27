@@ -1,0 +1,9 @@
+#####################################################################
+# the following are changes that differ from original rails I18n-files
+---
+ko:
+  # this one is missing
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      not_saved: "%{count} 개의 오류가 감지되었습니다! 귀하의 데이터는 아직 처리되지 않았습니다!"

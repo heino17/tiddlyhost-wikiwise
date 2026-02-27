@@ -10,6 +10,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <%= favicon_link_tag asset_path('favicon.ico') %>
+  
+    <% if I18n.locale == :ko %>
+      <%= preload_link_tag '/assets/SourceHanSerifKR-VF.otf.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' %>
+    <% elsif I18n.locale == :ja %>
+      <%= preload_link_tag '/assets/SourceHanSerifJP-VF.otf.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' %>
+    <% elsif I18n.locale == :zh_CN %>
+      <%= preload_link_tag '/assets/SourceHanSerifCN-VF.otf.woff2', as: 'font', type: 'font/woff2', crossorigin: 'anonymous' %>
+    <% end %>
 
     <% if @need_stripe_js %>
       <script src="https://js.stripe.com/v3/"></script>
@@ -22,11 +30,12 @@
     <% end %>
   </head>
 
-  <body>
+  <body class="locale-<%= I18n.locale.to_s.tr('_', '-') %>">
+    
     <header>
       <%= render 'layouts/header' %>
     </header>
-
+  
     <!-- Flash-Nachrichten -->
     <%= render "layouts/flash" %>
 

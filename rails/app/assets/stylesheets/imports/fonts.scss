@@ -1,0 +1,53 @@
+/* 1. Latein + Kyrillisch (Fallback für alle Sprachen) */
+@font-face {
+  font-family: 'Verdana';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Japanisch – Hina Mincho */
+@font-face {
+  font-family: 'Hina Mincho';
+  src: url('/assets/SourceHanSerifJP-VF.otf.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 3. Koreanisch – Song Myung */
+@font-face {
+  font-family: 'Song Myung';
+  src: url('/assets/SourceHanSerifKR-VF.otf.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 4. Chinesisch – Ma Shan Zheng woff2, truetype, opentype*/
+@font-face {
+  font-family: 'Ma Shan Zheng';
+  src: url('/assets/SourceHanSerifCN-VF.otf.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Erzwinge Schrift für ALLE Elemente in den Locale-Klassen */
+body.locale-ko {
+  font-family: 'Song Myung', sans-serif !important;
+  font-size: 1.0em;
+  line-height: 1.6 !important;
+}
+
+body.locale-ja {
+  font-family: 'Hina Mincho', sans-serif !important;
+  font-size: 1.0em;
+  line-height: 1.6 !important;
+}
+
+body.locale-zh-CN {
+  font-family: 'Ma Shan Zheng', sans-serif !important;
+  font-size: 1.0em;
+  line-height: 1.6 !important;
+}

@@ -1,0 +1,47 @@
+---
+ko:
+  # Login page
+  log_in_page_heading: "로그인"
+  log_in_page_ask_need_account: "계정이 없으신가요? 이동 →"
+  log_in_page_email_label: "이메일"
+  log_in_page_password_label: "비밀번호"
+  log_in_page_remember_me_label: "자동 로그인"
+  log_in_page_submit_button: "로그인"  
+  # Page shared Links (devise)
+  shared_links_cancel: "취소"
+  shared_links_login: "로그인"
+  shared_links_sign_up: "회원가입"
+  shared_links_forgot_password: "비밀번호를 잊으셨나요?"
+  shared_links_resend_confirmation: "확인 메일 재전송"
+  shared_links_resend_unlock: "잠금 해제 메일 재전송"
+  shared_links_signup_with: "다음으로 로그인" # 아직 구현 안 됨
+  # Sign up page
+  sign_up_page_heading: "회원가입"
+  sign_up_page_ask_have_account: "이미 계정이 있으신가요? 이동 →"
+  sign_up_page_email_label: "이메일"
+  sign_up_page_enter_email: "이메일 주소를 입력하세요"
+  sign_up_page_name_label: "이름"
+  sign_up_page_enter_name: "이름을 입력해주세요"
+  sign_up_page_username_label: "사용자 이름"
+  sign_up_page_enter_username: "선택. 3~30자 고유 사용자 이름 선택"
+  sign_up_page_password_label: "비밀번호"
+  sign_up_page_password_hint: "자 이상"
+  sign_up_page_password_confirm_label: "비밀번호 확인"
+  sign_up_page_password_confirm_hint: "비밀번호를 다시 입력해 확인"
+  sign_up_page_submit_create: "계정 생성"
+  # user forgot password
+  user_forgot_password_header: "비밀번호를 잊으셨나요?"
+  user_forgot_password_intro_text: "비밀번호 재설정 링크를 받으려면 이메일 주소를 입력해주세요."
+  user_forgot_password_email_label: "이메일"
+  user_forgot_password_submit_button: "비밀번호 재설정 링크 전송"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "확인 메일 재전송"
+  user_resend_confirmation_intro_text: "이메일 확인 링크를 재전송하려면 이메일 주소를 입력해주세요."
+  user_resend_confirmation_email_label: "이메일"
+  user_resend_confirmation_submit_button: "확인 메일 재전송"
+  # user resend unlock instructions
+  user_resend_unlock_header: "잠금 해제 메일 재전송"
+  user_resend_unlock_intro_text: "계정 잠금 해제 링크를 재전송하려면 이메일 주소를 입력해주세요."
+  user_resend_unlock_email_label: "이메일"
+  user_resend_unlock_submit_button: "잠금 해제 메일 재전송"
+  

@@ -1,0 +1,79 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ru:
+  # explore-site
+  site_explore_title: "Исследование"
+  site_explore_explanation_text: "Откройте для себя контент, созданный и поделённый пользователями Tiddlyhost."
+  # templates only switch
+  explore_view_templates_only: "Только шаблоны"
+  explore_view_templates_only_tooltip: "Шаблоны — это кастомизированные 'пустышки', созданные пользователями Tiddlyhost и поделённые для использования другими.  
+  Они могут содержать общие улучшения и кастомизации или быть предназначены для конкретной специализированной цели."
+  # templates-site
+  site_templates_title: "Шаблоны"
+  site_templates_explanation_text: "Шаблоны — это полезные или интересные кастомизированные версии TiddlyWiki, созданные пользователями Tiddlyhost, которые вы можете скопировать и использовать сами.  
+  Нажмите 'Клон', чтобы создать сайт на Tiddlyhost с использованием шаблона, или 'Скачать', чтобы скачать копию для локального использования."
+  # hub view
+  hub_view_all_sites: "Все сайты"
+  hub_view_created_by_user: "Сайты, созданные пользователем Tiddlyhost"
+  hub_view_list_kind: "Вид"
+  hub_view_list_show_all: "показать все"
+  hub_view_list_sort_by: "сортировать по"
+  hub_view_search_box: "Поиск"
+  hub_view_list_sort_view_count: "число просмотров"
+  hub_view_list_sort_clone_count: "число клонов"
+  hub_view_list_sort_recently_updated: "недавно обновлённые"
+  hub_view_list_sort_recently_created: "недавно созданные"
+  hub_view_list_sort_name_az: "имя A-Z"
+  hub_view_list_sort_name_za: "имя Z-A"
+  hub_view_list_sort_newer_version: "новая версия"
+  hub_view_list_sort_older_version: "старая версия"
+  hub_view_list_sort_random: "случайно"
+  hub_view_search_box_clear: "Очистить"
+  hub_view_access_searchable: "Поисковый"
+  hub_view_access_template: "Шаблон"
+  hub_view_action_menu_settings: "Настройки"
+  hub_view_action_menu_save_history: "Сохранить историю"
+  hub_view_action_menu_view: "Открыть Wiki в новом окне"
+  hub_view_action_menu_view_safe_mode: "Просмотреть в безопасном режиме"
+  hub_view_action_menu_download: "Скачать"
+  hub_view_action_menu_clone: "Клон"
+  hub_view_action_menu_upload: "Загрузить"
+  hub_view_action_menu_delete: "Удалить"
+  hub_view_action_menu_delete_realy: "Вы уверены, что хотите удалить"
+  hub_view_action_menu_more: "Ещё..."
+  #
+  # action menu upload form - insert line break and download link made in upload_form.html.haml
+  action_menu_upload_form_text: "Это удалит содержимое вашего сайта и заменит его любым файлом TiddlyWiki, который вы загрузите сейчас! %{insert_line_break} Возможно, стоит сначала %{download_copy_link} скачать копию сайта на случай проблем."
+  action_menu_upload_form_choose_file: "Выберите файл для загрузки"
+  action_menu_upload_form_upload_file: "Загрузить файл"
+  action_menu_upload_form_cancel: "Отмена"
+  action_menu_upload_form_confirmation_text_before: "Вы уверены, что хотите заменить сайт"
+  action_menu_upload_form_confirmation_text_after: "файлом TiddlyWiki, который вы собираетесь загрузить? \n\nЭта операция не может быть отменена!"
+  #
+  #hub_view_show_per_page: "18" # ещё не реализовано
+  hub_view_table_actions: "Действия"
+  # clones and views
+  hub:
+    clones:
+      one: "Клон"
+      other: "Клоны"
+    views:
+      one: "Просмотр"
+      other: "Просмотры"
+    saved: "Последнее обновление"
+  #
+  hub_view:
+    tagged_with:
+      site: { one: "Сайт с тегом", other: "Сайты с тегом" }
+      template: { one: "Шаблон с тегом", other: "Шаблоны с тегом" }
+    created_by:
+      site: "Сайты, созданные пользователем Tiddlyhost"
+      template: "Шаблоны, созданные пользователем Tiddlyhost"
+    suffix:
+      tagged_with: "с тегом"
+      matching: "соответствующие"
+    nav:
+      all_sites: "Все сайты"
+      all_templates: "Все шаблоны"

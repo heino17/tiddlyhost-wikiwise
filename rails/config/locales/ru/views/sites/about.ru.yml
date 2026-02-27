@@ -1,0 +1,20 @@
+---
+ru:
+  # About-site
+  site_heading_about: "О Tiddlyhost"
+  site_text_about: "Самый простой способ использовать 
+  <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> онлайн. <p>Создано, поддерживается и обеспечивается Simon Baird."
+  site_text2_about: "Если у вас проблемы, пожалуйста <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>сообщите об issue в GitHub</a>, 
+  <a href=\"mailto:simon.baird@gmail.com\">отправьте email Simon</a>, или посмотрите <a href=\"/support\">Поддержка</a> для других вариантов."
+  about_links_support: "Поддержка"
+  about_links_faq: "FAQ"
+  about_links_documentation: "Документация"
+  about_links_blog: "Блог"
+  about_links_x: "X"
+  about_links_terms: "Условия использования"
+  about_links_privacy: "Политика конфиденциальности"
+  about_links_source: "Исходный код"
+  about_links_license: "Лицензия ПО"
+  about_links_donate: "Пожертвования и спонсорство"
+  about_hint_version: "Версия:"
+  about_hint_empty_versions: "Пустые версии:"

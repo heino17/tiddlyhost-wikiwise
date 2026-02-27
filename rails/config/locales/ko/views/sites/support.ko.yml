@@ -1,0 +1,30 @@
+---
+ko:
+  # Support-site
+  support_page_heading: "지원"
+  support_page_subheading: "Tiddlyhost 지원"
+  support_page_intro_txt: "Tiddlyhost에 문제가 있거나 도움이 필요하시면 아래 옵션 중 하나를 이용해주세요:"
+  support_page_report_to_github: "GitHub에서 문제 보고"
+  support_page_suggest_to_github: "GitHub에서 기능 제안"
+  support_page_send_email: "이메일 보내기"
+  # Tiddlyhost support text
+  support_page_tiddlyhost_support_txt: "기존 이슈를 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a>에서 확인해보세요.  
+  이미 보고된 문제가 있을 수 있습니다. 또한 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a>와 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a>도 참고해주세요.  
+  <br>(Tiddlyhost 문서 개선은 향후 계획 중입니다.)"
+  # TiddlyWiki support text
+  support_page_tiddlywiki_subheading: "TiddlyWiki 지원"
+  support_page_tiddlywiki_support_txt: "TiddlyWiki 관련 정보는 매우 많습니다. 질문은 주로 
+  <a href=\"https://talk.tiddlywiki.org/\" target=\"_blank\">Talk TiddlyWiki</a>에서 하시면 되고,  
+  추가 자료는 <a href=\"https://tiddlywiki.com/#Forums\" target=\"_blank\">TiddlyWiki 포럼</a>과 
+  <a href=\"https://tiddlywiki.com/#Community\" target=\"_blank\">TiddlyWiki 커뮤니티</a>에서 찾을 수 있습니다.  
+  TiddlyWiki 이슈는 <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">GitHub 여기</a>에서 보고해주세요."
+  # Feather Wiki support text
+  support_page_featherwiki_subheading: "Feather Wiki 지원"
+  support_page_featherwiki_support_txt: "Feather Wiki 사용에 도움이 필요하거나 버그 보고·기능 요청이 있으시면  
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">Codeberg에서 이슈 등록</a>이 가장 좋습니다.  
+  <br>기존 Feather Wiki 이슈는 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">여기</a>에서 확인 가능합니다."
+  

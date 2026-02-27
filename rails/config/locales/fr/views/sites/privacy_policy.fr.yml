@@ -1,6 +1,6 @@
 ---
-en:
-  privacy_policy_header: "Privacy Policy"
+fr:
+  privacy_policy_header: "Politique de confidentialité"
   privacy_policy_text: "
   
     ```rails/config/locales/fr/views/sites/privacy_policy.fr.yml```

@@ -1,0 +1,44 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+---
+ru:
+  comments:
+    title_short: "Комментарии"
+    title_singular: "Комментарий"
+    title_plural: "Комментарии"
+    your_comment: "Ваш комментарий"
+    your_comment_short: "Ваш комментарий к этому wiki"
+    create_button: "Сохранить комментарий"
+    update_button: "Обновить комментарий"
+    created: "Комментарий сохранён"
+    updated: "Комментарий обновлён"
+    login_hint: "Пожалуйста, войдите, чтобы написать комментарий."
+    login_hint_short: "Пожалуйста, войдите, чтобы комментировать."
+    comment_required_characters: "Требуется минимум один символ!"
+    edited: "отредактировано"
+    score_label: "Оценка"
+
+    delete_button: "Удалить"
+    deleted: "Комментарий удалён!"
+    not_your_comment: "Это не ваш комментарий!"
+    delete_confirm: "Вы уверены, что хотите удалить? Комментарий не восстановить!"
+    
+    show_all_button: "Показать все %{count} комментариев"
+    
+    title_comments_for: "Комментарии к сайту"
+    delete_your_comment: "Удалить ваш комментарий"
+    back_to_previous_page: "Назад на предыдущую страницу"
+    go_to_explore_view: "Перейти на страницу Исследование"
+  # voting wiki sites
+  votes:
+    average: "Рейтинг"
+    count:
+      one: "Рейтинг"
+      other: "Рейтинги"
+    saved: "Рейтинг сохранён."
+    removed: "Ваш рейтинг удалён."
+    login_hint: "Пожалуйста, войдите, чтобы оценить."
+    no_ratings_yet_login: "Рейтингов ещё нет! Войдите, чтобы оценить."
+    login_to_rate: "Войдите, чтобы отправить рейтинг"
+    my_rating:    "Мой рейтинг"
+    rate_now:     "Оценить сейчас"

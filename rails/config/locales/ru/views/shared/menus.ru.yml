@@ -1,0 +1,25 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ru:
+  # Top Menu
+  top_menu_root: "Главная"
+  top_menu_explore: "Исследовать"
+  top_menu_templates: "Шаблоны"
+  top_menu_pricing: "Цены"
+  top_menu_signup: "Регистрация"
+  top_menu_log_in: "Войти"
+  # User menu if logged in
+  user_menu_head_account: "Учётная запись"
+  user_menu_item_manage_account: "Управление учётной записью"
+  user_menu_head_plan: "План"
+  user_menu_item_manage_subscription: "Управление подпиской"
+  user_menu_item_subscription_plans: "Планы подписки"
+  user_menu_head_sites: "Сайты"
+  user_menu_item_counted_sites: "сайтов"
+  user_menu_item_manage_sites: "Управление сайтами"
+  user_menu_item_logout: "Выйти"
+  # Burger menu
+  burger_menu_title: "Ваша учётная запись"
+  burger_menu_create_site: "Создать сайт"

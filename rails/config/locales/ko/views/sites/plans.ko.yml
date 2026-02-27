@@ -1,0 +1,29 @@
+---
+ko:
+  # Plans-site
+  site_plans_title: "플랜"
+  site_plans_free: "무료"
+  site_plans_standard: "스탠다드"
+  site_plans_subscription_standard_period: "/월"
+  site_plans_premium: "프리미엄"
+  site_plans_premium_someday: "곧 공개"
+  site_plans_subscribe_button: "지금 구독"
+  # Pricing-site
+  site_pricing_title: "가격"
+  # pricing card
+  site_pricing_pricingcard_titel: "플랜"
+  site_pricing_pricingcard_if_subscribed: "구독 중"
+  site_pricing_sign_up_submit_button: "회원가입"
+  # subscription-site
+  site_subscription_title: "구독"
+  site_subscription_subscribe_button: "지금 구독"
+  
+  site_plans_notloggedin_stripe_text: "회원가입 후 신용카드 없이 Tiddlyhost를 무료로 이용할 수 있습니다.  
+  스탠다드 플랜은 가입 후 '구독 플랜' 페이지에서 확인하세요. Tiddlyhost 구독 결제는 "
+  site_plans_notloggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a>는 사용이 간편하고 신뢰도가 높은 온라인 결제 플랫폼으로,  
+  보안과 데이터 보호에 대한 엄격한 산업 표준을 준수합니다."
+  site_plans_loggedin_stripe_text: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a>는 사용이 간편하고 신뢰도가 높은 온라인 결제 플랫폼으로,  
+  보안과 데이터 보호에 대한 엄격한 산업 표준을 준수합니다."
+  site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a>는 사용이 간편하고 신뢰도가 높은 온라인 결제 플랫폼으로,  
+  보안과 데이터 보호에 대한 엄격한 산업 표준을 준수합니다."
+  

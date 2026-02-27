@@ -1,0 +1,37 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ru:
+  will_paginate:
+    site:
+      page_entries_info:
+        single_page:
+          zero: "<b>сайт</b> не найден"
+          one: "Показан 1 <b>сайт</b>"
+          other: "Показаны все %{count} сайтов"
+        single_page_html:
+          zero: "<b>сайт</b> не найден"
+          one: "Показан <b>1 сайт</b>"
+          other: "Показаны <b>%{count} сайтов</b>"
+        multi_page: "Сайт %{from} - %{to} из %{count} всего"
+        multi_page_html: "Показаны <b>сайты %{from} - %{to}</b> из <b>%{count}</b> всего"
+    template:
+      page_entries_info:
+        single_page:
+          zero: "Шаблон не найден"
+          one: "Показан 1 <b>шаблон</b>"
+          other: "Показаны все %{count} шаблонов"
+        single_page_html:
+          zero: "<b>шаблон</b> не найден"
+          one: "Показан <b>1 шаблон</b>"
+          other: "Показаны <b>%{count} шаблонов</b>"
+        multi_page: "Шаблон %{from} - %{to} из %{count} всего"
+        multi_page_html: "Показаны <b>шаблоны %{from} - %{to}</b> из <b>%{count}</b> всего"
+    previous_label: "Назад"
+    previous_aria_label: "Предыдущая страница"
+    next_label: "Далее"
+    next_aria_label: "Следующая страница"
+    page_gap: "..."
+    container_aria_label: "Навигация по страницам"
+    page_aria_label: "Страница %{page}"

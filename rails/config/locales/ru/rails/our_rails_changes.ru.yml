@@ -1,0 +1,9 @@
+#####################################################################
+# the following are changes that differ from original rails I18n-files
+---
+ru:
+  # this one is missing
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      not_saved: "Обнаружено %{count} ошибок! Ваши данные ещё не обработаны!"

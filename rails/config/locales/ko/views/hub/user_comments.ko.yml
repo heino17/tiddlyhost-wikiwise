@@ -1,0 +1,43 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+ko:
+  comments:
+    title_short: "댓글"
+    title_singular: "댓글"
+    title_plural: "댓글"
+    your_comment: "내 댓글"
+    your_comment_short: "이 위키에 대한 내 댓글"
+    create_button: "댓글 저장"
+    update_button: "댓글 수정"
+    created: "댓글이 저장되었습니다"
+    updated: "댓글이 수정되었습니다"
+    login_hint: "댓글을 쓰려면 로그인해주세요."
+    login_hint_short: "댓글을 쓰려면 로그인해주세요."
+    comment_required_characters: "최소 1자 이상 입력해주세요!"
+    edited: "수정됨"
+    score_label: "점수"
+
+    delete_button: "삭제"
+    deleted: "댓글이 삭제되었습니다!"
+    not_your_comment: "이 댓글은 당신의 것이 아닙니다!"
+    delete_confirm: "정말 삭제하시겠습니까? 댓글은 복구할 수 없습니다!"
+    
+    show_all_button: "전체 %{count}개 댓글 보기"
+    
+    title_comments_for: "사이트 댓글"
+    delete_your_comment: "내 댓글 삭제"
+    back_to_previous_page: "이전 페이지로 돌아가기"
+    go_to_explore_view: "탐색 페이지로 이동"
+  # voting wiki sites
+  votes:
+    average: "평점"
+    count:
+      one: "평점"
+      other: "평점"
+    saved: "평점이 저장되었습니다."
+    removed: "평점이 삭제되었습니다."
+    login_hint: "평점을 매기려면 로그인해주세요."
+    no_ratings_yet_login: "아직 평점이 없습니다! 로그인해서 평가해주세요."
+    login_to_rate: "로그인 후 평점 주기"
+    my_rating:    "내 평점"
+    rate_now:     "지금 평가하기"

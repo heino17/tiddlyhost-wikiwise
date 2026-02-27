@@ -1,0 +1,23 @@
+---
+ru:
+  # Account created
+  account_created_heading: "Учётная запись создана"
+  account_created_thanks: "Спасибо за регистрацию!"
+  
+  account_created_confirmation_send: "На ваш адрес электронной почты отправлено подтверждение.  
+  Чтобы завершить регистрацию, нажмите на ссылку подтверждения в письме."
+  
+  account_created_help_heading: "Устранение неисправностей"
+  
+  account_created_help_paragraph_1: "Если письмо подтверждения не пришло, оно могло быть отнесено к спаму.  
+  Проверьте папку спама или добавьте 'tiddlyhost@gmail.com' в контакты,  
+  а затем используйте" 
+  account_created_help_paragraph_1_link: "эту форму"
+  account_created_help_paragraph_1_2: "для повторной отправки письма." 
+  
+  account_created_help_paragraph_2_1: "Если вы всё ещё не можете получить ссылку подтверждения,"
+  account_created_help_email_me: "напишите мне"
+  account_created_help_email_me_subject: "Проблемы с регистрацией в Tiddlyhost"
+  account_created_help_email_me_body: "Я зарегистрировался, но не получил письмо подтверждения.  
+  Пожалуйста, отправьте его вручную, если можете."
+  account_created_help_paragraph_2_2: "и я посмотрю, могу ли отправить его вам напрямую."

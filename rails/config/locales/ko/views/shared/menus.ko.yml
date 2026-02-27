@@ -1,0 +1,25 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ko:
+  # Top Menu
+  top_menu_root: "홈"
+  top_menu_explore: "탐색"
+  top_menu_templates: "템플릿"
+  top_menu_pricing: "가격"
+  top_menu_signup: "가입"
+  top_menu_log_in: "로그인"
+  # User menu if logged in
+  user_menu_head_account: "계정"
+  user_menu_item_manage_account: "계정 관리"
+  user_menu_head_plan: "플랜"
+  user_menu_item_manage_subscription: "구독 관리"
+  user_menu_item_subscription_plans: "구독 플랜"
+  user_menu_head_sites: "사이트"
+  user_menu_item_counted_sites: "사이트"
+  user_menu_item_manage_sites: "사이트 관리"
+  user_menu_item_logout: "로그아웃"
+  # Burger menu
+  burger_menu_title: "내 계정"
+  burger_menu_create_site: "사이트 생성"

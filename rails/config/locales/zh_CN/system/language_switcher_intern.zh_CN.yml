@@ -5,9 +5,11 @@ zh_CN:
   languages:
     en: American
     de: Deutsch
+    ru: Русский
     fr: Français
     es: Español
     ja: 日本語
+    ko: 한국어
     zh_CN: 中文
   #
   # Change language tooltip

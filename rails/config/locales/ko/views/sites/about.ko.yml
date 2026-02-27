@@ -1,0 +1,20 @@
+---
+ko:
+  # About-site
+  site_heading_about: "Tiddlyhost 소개"
+  site_text_about: "온라인에서 
+  <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a>를 가장 쉽게 사용할 수 있는 방법입니다. <p>Simon Baird가 제작·유지보수·지원합니다."
+  site_text2_about: "문제가 있으시면 <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>GitHub에 이슈 등록</a>하거나, 
+  <a href=\"mailto:simon.baird@gmail.com\">Simon에게 이메일</a>을 보내주세요. 또는 <a href=\"/support\">지원</a> 페이지에서 추가 옵션을 확인하세요."
+  about_links_support: "지원"
+  about_links_faq: "FAQ"
+  about_links_documentation: "문서"
+  about_links_blog: "블로그"
+  about_links_x: "X"
+  about_links_terms: "이용 약관"
+  about_links_privacy: "개인정보 처리방침"
+  about_links_source: "소스 코드"
+  about_links_license: "소프트웨어 라이선스"
+  about_links_donate: "기부 & 스폰서십"
+  about_hint_version: "버전:"
+  about_hint_empty_versions: "빈 버전:"

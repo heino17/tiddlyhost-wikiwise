@@ -1,0 +1,30 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ko:
+  # user_update_account
+  user_update_account_heading: "계정 업데이트"
+  user_update_account_email_label: "이메일"
+  user_update_account_email_text: "이메일 주소"
+  user_update_account_waiting_for_confimation: "이메일 주소 확인 대기 중:"
+  user_update_account_name_label: "이름"
+  user_update_account_name_text: "이름"
+  user_update_account_username_label: "사용자 이름"
+  user_update_account_username_text: "고유 사용자 이름 (선택). 탐색 페이지에서 클릭 가능."
+  user_update_account_profile_image_label: "프로필 이미지"
+  user_update_account_current_password_label: "현재 비밀번호. 변경 필요."
+  user_update_account_current_password_text: "변경 확인을 위해 현재 비밀번호 입력"
+  user_update_account_new_password_label: "새 비밀번호"
+  user_update_account_new_password_leave_blank: "(변경 안 함 시 공백)"
+  user_update_account_new_password_text: "최소 문자 수"
+  user_update_account_confirm_password_label: "새 비밀번호 확인"
+  user_update_account_confirm_password_text: "새 비밀번호 재입력 확인"
+  user_update_account_button_submit: "업데이트"
+  user_update_account_button_cancel: "취소"
+  user_delete_account_heading: "계정 삭제"
+  user_delete_account_danger_text: "주의. 계정 삭제 시 사이트도 즉시 삭제됨."
+  user_delete_account_button_delete: "계정 삭제"
+  user_delete_account_popup_confirm: "계정 삭제하시겠습니까?"   
+  user_update_account_use: "사용"
+  

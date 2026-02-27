@@ -1,0 +1,69 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+ko:
+  devise:
+    confirmations:
+      confirmed: "이메일 주소가 성공적으로 확인되었습니다."
+      send_instructions: "몇 분 후에 이메일 주소 확인 방법을 안내하는 메일을 받게 됩니다."
+      send_paranoid_instructions: "데이터베이스에 해당 이메일 주소가 존재하는 경우, 몇 분 후에 이메일 주소 확인 방법을 안내하는 메일을 받게 됩니다."
+    failure:
+      already_authenticated: "이미 로그인되어 있습니다."
+      inactive: "아직 계정이 활성화되지 않았습니다."
+      invalid: "%{authentication_keys} 또는 비밀번호가 올바르지 않습니다."
+      locked: "계정이 잠겨 있습니다."
+      last_attempt: "한 번 더 시도할 수 있습니다. 그 후 계정이 잠깁니다."
+      not_found_in_database: "%{authentication_keys} 또는 비밀번호가 올바르지 않습니다."
+      timeout: "세션이 만료되었습니다. 계속하려면 다시 로그인해주세요."
+      unauthenticated: "계속하려면 로그인하거나 회원가입을 해주세요."
+      unconfirmed: "계속하려면 이메일 주소를 먼저 확인해야 합니다."
+    mailer:
+      confirmation_instructions:
+        subject: "계정 확인 안내"
+      reset_password_instructions:
+        subject: "비밀번호 재설정 안내"
+      unlock_instructions:
+        subject: "계정 잠금 해제 안내"
+      email_changed:
+        subject: "이메일 주소 변경됨"
+      password_change:
+        subject: "비밀번호 변경됨"
+    omniauth_callbacks:
+      failure: "%{kind}에서 인증할 수 없습니다. 이유: \"%{reason}\""
+      success: "%{kind} 계정으로 성공적으로 인증되었습니다."
+    passwords:
+      no_token: "비밀번호 재설정 메일에서 온 링크를 통해서만 이 페이지를 방문할 수 있습니다.  
+      비밀번호 재설정 메일에서 왔다면 제공된 전체 URL을 사용했는지 확인해주세요."
+      send_instructions: "몇 분 후에 비밀번호 재설정 방법을 안내하는 메일을 받게 됩니다."
+      send_paranoid_instructions: "데이터베이스에 해당 이메일 주소가 존재하는 경우, 몇 분 후에 비밀번호 복구 링크를 메일로 받게 됩니다."
+      updated: "비밀번호가 성공적으로 변경되었습니다. 지금 로그인되어 있습니다."
+      updated_not_active: "비밀번호가 성공적으로 변경되었습니다."
+    registrations:
+      destroyed: "안녕히 가세요! 계정이 성공적으로 삭제되었습니다. 곧 다시 만나요!"
+      signed_up: "환영합니다! 회원가입이 완료되었습니다."
+      signed_up_but_inactive: "회원가입이 완료되었습니다. 하지만 계정이 아직 활성화되지 않아 로그인할 수 없습니다."
+      signed_up_but_locked: "회원가입이 완료되었습니다. 하지만 계정이 잠겨 있어 로그인할 수 없습니다."
+      signed_up_but_unconfirmed: "확인 링크가 포함된 메일을 이메일 주소로 보냈습니다.  
+      링크를 클릭하여 계정을 활성화해주세요."
+      update_needs_confirmation: "계정 정보가 성공적으로 업데이트되었습니다.  
+      새 이메일 주소를 확인해야 합니다. 메일을 확인하고 확인 링크를 클릭해주세요."
+      updated: "계정 정보가 성공적으로 업데이트되었습니다."
+      updated_but_not_signed_in: "계정 정보가 성공적으로 업데이트되었습니다.  
+      하지만 비밀번호가 변경되었으므로 다시 로그인해야 합니다."
+    sessions:
+      signed_in: "로그인되었습니다."
+      signed_out: "로그아웃되었습니다."
+      already_signed_out: "로그아웃되었습니다."
+    unlocks:
+      send_instructions: "몇 분 후에 계정 잠금 해제 방법을 안내하는 메일을 받게 됩니다."
+      send_paranoid_instructions: "계정이 존재하는 경우, 몇 분 후에 잠금 해제 방법을 안내하는 메일을 받게 됩니다."
+      unlocked: "계정 잠금이 해제되었습니다. 계속하려면 로그인해주세요."
+  errors:
+    messages:
+      already_confirmed: "이미 확인되었습니다. 로그인해 보세요."
+      confirmation_period_expired: "%{period} 이내에 확인해야 합니다. 새로 요청해주세요."
+      expired: "만료되었습니다. 새로 요청해주세요."
+      not_found: "찾을 수 없습니다."
+      not_locked: "잠겨 있지 않습니다."
+      not_saved:
+        one: "1개의 오류로 인해 이 %{resource}를 저장할 수 없습니다:"
+        other: "%{count}개의 오류로 인해 이 %{resource}를 저장할 수 없습니다:"

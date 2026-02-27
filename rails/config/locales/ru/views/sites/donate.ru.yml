@@ -1,0 +1,20 @@
+---
+ru:
+  # Donations & Sponsorships-Site
+  donations_page_heading: "Пожертвования и спонсорство"
+  donations_page_subheading: "<i><b>...поддержите наше сообщество!</b></i>"
+  # Donations & Sponsorships text
+  donations_page_txt_1: "Если Tiddlyhost полезен для вас, пожалуйста, рассмотрите пожертвование или спонсорство.  
+  Пожертвование или спонсорство поможет покрыть расходы на хостинг  
+  и стимулирует дальнейшую поддержку и развитие Tiddlyhost."
+  donations_page_txt_2: "Чтобы сделать пожертвование или стать спонсором, используйте 
+  <a href=\"https://www.paypal.com/\" target=\"_blank\">PayPal</a>, 
+  <a href=\"https://github.com/sponsors\" target=\"_blank\">GitHub Sponsors</a> 
+  или
+  <a href=\"https://www.buymeacoffee.com/\" target=\"_blank\">Buy Me a Coffee</a>. Или нажмите на кнопки ниже."
+  donations_page_logged_in_out_before: "Вы также можете подписаться на план <b>Tiddlyhost Standard</b>, который даёт доступ к дополнительным функциям Tiddlyhost и поддерживает его дальнейшее развитие.  
+  Посетите"
+  donations_page_logged_in_after: "чтобы узнать больше о планах подписки Tiddlyhost."
+  donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
+  donations_page_buy_coffee_button_title: "Buy Me a Coffee"
+  donations_page_subscribed_already: "Я вижу, вы уже подписчик. Большое спасибо!"

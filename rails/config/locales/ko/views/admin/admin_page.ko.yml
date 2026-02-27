@@ -1,0 +1,100 @@
+# admin page
+---
+ko:
+  admin:
+    tabs_header:
+      stats: "통계"
+      charts: "차트"
+      users: "사용자"
+      sites: "사이트"
+      tspot_sites: "Tspot 페이지"
+      storage: "스토리지"
+      etc: "기타"
+      #
+    tab_stats:
+      tab_stats_header: "통계"
+      users: "사용자"
+      subscriptions: "구독"
+      sites: "사이트"
+      site_views: "사이트 조회수"
+      tspots: "Tspots"
+      tspot_views: "Tspot 조회수"
+      storage: "스토리지"
+      activ_daily: "일일 활성"
+      activ_weekly: "주간 활성"
+      activ_monthly: "월간 활성"
+      signed_in_once_users: "한 번만 로그인한 사용자"
+      never_signed_in_users: "한 번도 로그인하지 않은 사용자"
+      never_updated_sites: "업데이트되지 않은 사이트"
+      private_sites: "비공개 사이트"
+      public_sites: "공개 사이트"
+      public_non_searchable_sites: "공개지만 검색 불가 사이트"
+      public_searchable_sites: "공개 및 검색 가능 사이트"
+      owned_tspots: "소유 Tspots"
+      saved_tspots: "저장된 Tspots"
+      jobs_in_queue: "대기 중인 작업"
+      locked_since: "잠금 시작"
+      running_now: "현재 실행 중"
+      no_running_jobs: "없음"
+      #
+    tab_users_table_headers:
+      th_id: "ID"
+      th_name: "이름"
+      th_username: "사용자 이름"
+      th_email: "이메일"
+      th_av: "아바타"           # Av → 아바타 (Avatar, üblich in Tabellen)
+      th_type: "유형"
+      th_subscription: "구독"
+      th_logins: "로그인 횟수"
+      th_sites: "사이트 수"
+      th_tspot_sites: "Tspot 사이트"
+      th_current_sign_in: "이번 로그인"
+      th_last_sign_in: "마지막 로그인"
+      th_created: "생성일"
+      th_confirmed: "확인됨"
+      #
+    tab_sites_table_headers:
+      th_id: "ID"
+      th_name: "이름"
+      th_kind: "유형"
+      th_empty: "비어 있음"
+      th_clone: "복제"
+      th_version: "버전"
+      th_description: "설명"
+      th_private: "비공개?"
+      th_hub: "허브?"
+      th_template: "템플릿?"
+      th_iframes: "IFrame?"
+      th_put: "Put?"
+      th_upload: "업로드?"
+      th_views: "조회수"
+      th_accesses: "접근 횟수"
+      th_saves: "저장 횟수"
+      th_clones: "복제 횟수"
+      th_versions: "버전 수"
+      th_owner: "소유자"
+      th_raw: "원본"
+      th_storage: "스토리지"
+      th_last_access: "마지막 접근"
+      th_last_update: "마지막 업데이트"
+      th_created: "생성일"
+      #
+    tab_storage_table_headers:
+      th_type: "유형"
+      th_service: "서비스"
+      th_bucket: "버킷"
+      th_files: "파일 수"
+      th_bytes: "바이트"
+      #
+    tab_etc:
+      raise_an_exception: "예외 발생시키기"
+      connection_pool_stats: "연결 풀 통계"
+      # admin_helper.rb
+    pagination_showing_entries:
+      showing: "항목 표시"
+      # 1
+      to: "부터"
+      # ...
+      of: "중"
+      # ...
+      in_total: "건"

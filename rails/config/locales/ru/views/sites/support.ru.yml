@@ -1,0 +1,31 @@
+---
+ru:
+  # Support-site
+  support_page_heading: "Поддержка"
+  support_page_subheading: "Поддержка Tiddlyhost"
+  support_page_intro_txt: "Если у вас проблемы с Tiddlyhost или нужна помощь, пожалуйста, используйте один из следующих вариантов:"
+  support_page_report_to_github: "Сообщить об issue в GitHub"
+  support_page_suggest_to_github: "Предложить функцию в GitHub"
+  support_page_send_email: "Отправить email"
+  # Tiddlyhost support text
+  support_page_tiddlyhost_support_txt: "Вы также можете просмотреть существующие issue в 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a>, 
+  чтобы увидеть, есть ли уже issue по вашей проблеме. См. также 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> и 
+  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a>.  
+  <br>(Улучшение документации Tiddlyhost запланировано на будущее.)"
+  # TiddlyWiki support text
+  support_page_tiddlywiki_subheading: "Поддержка TiddlyWiki"
+  support_page_tiddlywiki_support_txt: "Информации о TiddlyWiki очень много. Основной форум для вопросов — 
+  <a href=\"https://talk.tiddlywiki.org/\" target=\"_blank\">Talk TiddlyWiki</a>, 
+  но вы можете найти дополнительные ресурсы через 
+  <a href=\"https://tiddlywiki.com/#Forums\" target=\"_blank\">Форумы TiddlyWiki</a> и 
+  <a href=\"https://tiddlywiki.com/#Community\" target=\"_blank\">Сообщество TiddlyWiki</a>.  
+  Вы также можете сообщать о проблемах TiddlyWiki 
+  <a href=\"https://github.com/Jermolene/TiddlyWiki5/issues\" target=\"_blank\">в GitHub здесь</a>."
+  # Feather Wiki support text
+  support_page_featherwiki_subheading: "Поддержка Feather Wiki"
+  support_page_featherwiki_support_txt: "Если нужна помощь с Feather Wiki, или вы хотите сообщить о баге или запросить функцию, лучший способ — 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues/new/choose\" target=\"_blank\">зарегистрировать issue в Codeberg</a>.  
+  <br>Существующие issue Feather Wiki 
+  <a href=\"https://codeberg.org/Alamantus/FeatherWiki/issues\" target=\"_blank\">здесь</a>."

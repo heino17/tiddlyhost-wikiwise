@@ -1,0 +1,29 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ru:
+  # user_update_account
+  user_update_account_heading: "Обновить учётную запись"
+  user_update_account_email_label: "электронная почта"
+  user_update_account_email_text: "Ваш адрес электронной почты"
+  user_update_account_waiting_for_confimation: "Ожидается подтверждение адреса электронной почты:"
+  user_update_account_name_label: "Имя"
+  user_update_account_name_text: "Ваше имя"
+  user_update_account_username_label: "Имя пользователя"
+  user_update_account_username_text: "Уникальное имя пользователя (необязательно). Будет кликабельным на странице Исследования."
+  user_update_account_profile_image_label: "Изображение профиля"
+  user_update_account_current_password_label: "Текущий пароль. Требуется для внесения изменений."
+  user_update_account_current_password_text: "Введите текущий пароль для подтверждения изменений"
+  user_update_account_new_password_label: "Новый пароль"
+  user_update_account_new_password_leave_blank: "(оставьте пустым, если не хотите менять)"
+  user_update_account_new_password_text: "символов минимум"
+  user_update_account_confirm_password_label: "Подтверждение нового пароля"
+  user_update_account_confirm_password_text: "Повторите новый пароль для подтверждения"
+  user_update_account_button_submit: "Обновить"
+  user_update_account_button_cancel: "Отмена"
+  user_delete_account_heading: "Удалить учётную запись"
+  user_delete_account_danger_text: "Будьте осторожны. При удалении учётной записи ваши сайты также будут немедленно удалены."
+  user_delete_account_button_delete: "Удалить учётную запись"
+  user_delete_account_popup_confirm: "Вы уверены, что хотите удалить учётную запись?"   
+  user_update_account_use: "Использовать"

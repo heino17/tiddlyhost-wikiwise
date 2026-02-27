@@ -1,0 +1,37 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ko:
+  will_paginate:
+    site:
+      page_entries_info:
+        single_page:
+          zero: "<b>사이트</b> 찾을 수 없음"
+          one: "1 개 <b>사이트</b> 표시"
+          other: "모든 %{count} 개 사이트 표시"
+        single_page_html:
+          zero: "<b>사이트</b> 찾을 수 없음"
+          one: "<b>1 개 사이트</b> 표시"
+          other: "<b>%{count} 개 사이트</b> 표시"
+        multi_page: "사이트 %{from} - %{to} / 총 %{count} 개"
+        multi_page_html: "<b>사이트 %{from} - %{to}</b> / 총 <b>%{count}</b> 개 표시"
+    template:
+      page_entries_info:
+        single_page:
+          zero: "템플릿 찾을 수 없음"
+          one: "1 개 <b>템플릿</b> 표시"
+          other: "모든 %{count} 개 템플릿 표시"
+        single_page_html:
+          zero: "<b>템플릿</b> 찾을 수 없음"
+          one: "<b>1 개 템플릿</b> 표시"
+          other: "<b>%{count} 개 템플릿</b> 표시"
+        multi_page: "템플릿 %{from} - %{to} / 총 %{count} 개"
+        multi_page_html: "<b>템플릿 %{from} - %{to}</b> / 총 <b>%{count}</b> 개 표시"
+    previous_label: "이전"
+    previous_aria_label: "이전 페이지"
+    next_label: "다음"
+    next_aria_label: "다음 페이지"
+    page_gap: "..."
+    container_aria_label: "페이지 네비게이션"
+    page_aria_label: "페이지 %{page}"

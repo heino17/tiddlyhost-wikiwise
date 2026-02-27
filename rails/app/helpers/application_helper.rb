@@ -3,7 +3,7 @@ module ApplicationHelper
 
   # Language switch for i18n
   def language_switcher_links
-    available_locales = [:en, :de, :es, :fr, :ja, :zh_CN] # Erweitere später auf [:en, :de, :fr] usw.
+    available_locales = [:en, :de, :ru, :es, :fr, :ja, :ko, :zh_CN] # Erweitere später auf [:en, :de, :fr] usw.
     available_locales.map do |loc|
       link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{'active' if I18n.locale == loc}"
     end.join(' | ').html_safe
@@ -13,9 +13,11 @@ module ApplicationHelper
     case locale.to_sym
     when :en then 'us' # oder 'us' – deine Wahl!
     when :de then 'de'
+    when :ru then 'ru'
     when :es then 'es'
     when :fr then 'fr'
     when :ja then 'ja'
+    when :ko then 'ko'
     when :zh_CN then 'cn'
     # Später einfach erweitern, z.B. when :es then 'es'
     else 'xx' # Fallback: graue Platzhalter-Flagge oder leer

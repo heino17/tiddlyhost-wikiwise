@@ -1,6 +1,6 @@
 ---
 zh_CN:
-  terms_of_use_header: "Terms of Use"
+  terms_of_use_header: "使用条款"
   terms_of_use_text: "
     
     ```rails/config/locales/zh_CN/views/sites/terms_of_use.zh_CN.yml```

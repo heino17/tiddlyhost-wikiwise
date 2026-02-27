@@ -1,6 +1,6 @@
 ---
 zh_CN:
-  privacy_policy_header: "Privacy Policy"
+  privacy_policy_header: "隐私政策"
   privacy_policy_text: "
   
     ```rails/config/locales/zh_CN/views/sites/privacy_policy.zh_CN.yml```

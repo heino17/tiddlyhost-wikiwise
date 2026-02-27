@@ -1,0 +1,23 @@
+---
+ko:
+  # Account created
+  account_created_heading: "계정 생성됨"
+  account_created_thanks: "가입해 주셔서 감사합니다!"
+  
+  account_created_confirmation_send: "이메일 주소로 확인 메일이 발송되었습니다.  
+  가입 절차를 완료하려면 메일의 확인 링크를 클릭하세요."
+  
+  account_created_help_heading: "문제 해결"
+  
+  account_created_help_paragraph_1: "확인 메일이 도착하지 않았다면 스팸으로 분류되었을 수 있습니다.  
+  스팸 폴더를 확인하거나 'tiddlyhost@gmail.com'을 연락처에 추가한 후" 
+  account_created_help_paragraph_1_link: "이 양식"
+  account_created_help_paragraph_1_2: "을 사용해 메일을 재발송하세요." 
+  
+  account_created_help_paragraph_2_1: "여전히 확인 링크를 받지 못했다면,"
+  account_created_help_email_me: "이메일 보내기"
+  account_created_help_email_me_subject: "Tiddlyhost 가입 문제"
+  account_created_help_email_me_body: "가입했는데 확인 메일이 도착하지 않았습니다.  
+  가능하다면 직접 보내주세요."
+  account_created_help_paragraph_2_2: "하세요. 직접 보내드릴 수 있는지 확인하겠습니다."
+  

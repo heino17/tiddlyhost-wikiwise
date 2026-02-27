@@ -1,0 +1,46 @@
+---
+ru:
+  # Login page
+  log_in_page_heading: "Войти"
+  log_in_page_ask_need_account: "Нужна учётная запись? Перейдите к"
+  log_in_page_email_label: "Эл. почта"
+  log_in_page_password_label: "Пароль"
+  log_in_page_remember_me_label: "Запомнить меня"
+  log_in_page_submit_button: "Войти"  
+  # Page shared Links (devise)
+  shared_links_cancel: "Отмена"
+  shared_links_login: "Вход"
+  shared_links_sign_up: "Регистрация"
+  shared_links_forgot_password: "Забыли пароль?"
+  shared_links_resend_confirmation: "Повторно отправить инструкции по подтверждению"
+  shared_links_resend_unlock: "Повторно отправить инструкции по разблокировке"
+  shared_links_signup_with: "Войти через" # ещё не реализовано
+  # Sign up page
+  sign_up_page_heading: "Регистрация"
+  sign_up_page_ask_have_account: "Уже есть учётная запись? Перейдите к"
+  sign_up_page_email_label: "Эл. почта"
+  sign_up_page_enter_email: "Введите адрес электронной почты"
+  sign_up_page_name_label: "имя"
+  sign_up_page_enter_name: "Пожалуйста, введите ваше имя"
+  sign_up_page_username_label: "имя пользователя"
+  sign_up_page_enter_username: "Необязательно. Выберите уникальное имя пользователя от 3 до 30 символов"
+  sign_up_page_password_label: "пароль"
+  sign_up_page_password_hint: "символов минимум"
+  sign_up_page_password_confirm_label: "подтверждение пароля"
+  sign_up_page_password_confirm_hint: "Повторите пароль для подтверждения"
+  sign_up_page_submit_create: "Создать учётную запись"
+  # user forgot password
+  user_forgot_password_header: "Забыли пароль?"
+  user_forgot_password_intro_text: "Введите адрес электронной почты, чтобы получить ссылку на сброс пароля."
+  user_forgot_password_email_label: "эл. почта"
+  user_forgot_password_submit_button: "Отправить ссылку на сброс пароля"
+  # user Resend confirmation instructions
+  user_resend_confirmation_header: "Повторно отправить инструкции по подтверждению"
+  user_resend_confirmation_intro_text: "Введите адрес электронной почты, чтобы повторно отправить ссылку на подтверждение."
+  user_resend_confirmation_email_label: "эл. почта"
+  user_resend_confirmation_submit_button: "Повторно отправить инструкции по подтверждению"
+  # user resend unlock instructions
+  user_resend_unlock_header: "Повторно отправить инструкции по разблокировке"
+  user_resend_unlock_intro_text: "Введите адрес электронной почты, чтобы повторно отправить ссылку на разблокировку учётной записи."
+  user_resend_unlock_email_label: "эл. почта"
+  user_resend_unlock_submit_button: "Повторно отправить инструкции по разблокировке"

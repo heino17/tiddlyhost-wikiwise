@@ -1,6 +1,6 @@
 ---
 es:
-  terms_of_use_header: "Terms of Use"
+  terms_of_use_header: "Condiciones de uso"
   terms_of_use_text: "
     
     ```rails/config/locales/es/views/sites/terms_of_use.es.yml```
