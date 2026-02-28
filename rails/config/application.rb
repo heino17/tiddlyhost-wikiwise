@@ -30,11 +30,11 @@ module App
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     # Todo: Should be updated soon
-    config.load_defaults 6.1
+    config.load_defaults 7.2
 
     # https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#new-activesupport-cache-serialization-format
     # Todo: Should be removed carefully
-    config.active_support.cache_format_version = 7.0
+    #config.active_support.cache_format_version = 7.0
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
