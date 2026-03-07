@@ -115,6 +115,7 @@ GEM
       sass-embedded (~> 1.55)
     brakeman (8.0.4)
       racc
+    brotli (0.7.0)
     builder (3.3.0)
     byebug (13.0.0)
       reline (>= 0.6.0)
@@ -243,6 +244,10 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
+    pagy (43.3.1)
+      json
+      uri
+      yaml
     parallel (1.27.0)
     parser (3.3.10.2)
       ast (~> 2.4.1)
@@ -393,6 +398,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
+    uri (1.0.4)
     useragent (0.16.11)
     validate_url (1.0.15)
       activemodel (>= 3.0.0)
@@ -412,6 +418,7 @@ GEM
     will_paginate (4.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yaml (0.4.0)
     zeitwerk (2.7.5)
 
 PLATFORMS
@@ -423,6 +430,7 @@ DEPENDENCIES
   bootsnap
   bootstrap-email
   brakeman
+  brotli
   byebug
   capybara (>= 3.26)
   charlock_holmes
@@ -447,6 +455,7 @@ DEPENDENCIES
   net-pop
   net-smtp
   ostruct
+  pagy
   pay (~> 11.4.0)
   pg (~> 1.1)
   puma (~> 7.0)
