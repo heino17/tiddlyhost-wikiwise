@@ -833,3 +833,98 @@ deps-update-local-with-commit: pull-ruby build-base bundle-update yarn-upgrade
 	@git branch --show-current
 	@git status --short
     
+# ──────────────────────────────────────────────
+# Lokale Datenbank-Backups (dev Umgebung)
+# ──────────────────────────────────────────────
+# LOCAL_BACKUP_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../tiddlyhost-local-backups/db
+# LOCAL_BACKUP_DIR ?= $(shell pwd)/../tiddlyhost-local-backups/db
+LOCAL_BACKUP_DIR ?= ../tiddlyhost-local-backups/db
+TIMESTAMP := $(shell date +%Y-%m-%d_%H%M%S)
+DB_SERVICE     ?= db
+DB_USER        ?= postgres
+DB_NAME        ?= app_development
+
+local-db-backup-dir:
+	mkdir -p "$(LOCAL_BACKUP_DIR)"
+
+# ──────────────────────────────────────────────
+local-db-backup: local-db-backup-dir
+	@echo "→ Erstelle PostgreSQL-Dump: $(DB_NAME) @ $(DB_SERVICE)"
+	@if ! docker compose ps --services --filter status=running | grep -q '^$(DB_SERVICE)$$'; then \
+		echo "Fehler: $(DB_SERVICE)-Container läuft nicht → 'make start'"; \
+		exit 1; \
+	fi
+	@docker compose exec -T $(DB_SERVICE) pg_dump \
+	  -U $(DB_USER) \
+	  $(DB_NAME) \
+	  | gzip > $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz
+	@echo ""
+	@echo "Fertig! Backup:"
+	@ls -lh $(LOCAL_BACKUP_DIR)/*.gz | tail -n 1
+	@echo ""
+	@du -sh $(LOCAL_BACKUP_DIR)
+
+# ──────────────────────────────────────────────
+# Wenn Du Datenbanknamen oder User ändern möchtest
+# oder prüfen willst, ob der Container läuft
+local-db-backup-safe: local-db-backup-dir
+	@echo "→ Sicherheitsabfrage PostgreSQL-Dump: $(DB_NAME) @ $(DB_SERVICE)"
+	@if ! docker compose ps --services --filter status=running | grep -q '^$(DB_SERVICE)$$'; then \
+		echo "Fehler: $(DB_SERVICE)-Container läuft nicht → bitte 'make start' ausführen"; \
+		exit 1; \
+	fi
+	@echo ""
+	@echo "ACHTUNG: Es wird ein neues Backup erstellt."
+	@read -p "Fortfahren? (j/N): " confirm && [ "$$confirm" = "j" ] || [ "$$confirm" = "J" ] || (echo "Abgebrochen."; exit 1)
+	@echo ""
+	@docker compose exec -T $(DB_SERVICE) pg_dump \
+	  -U $(DB_USER) \
+	  --format=plain \
+	  --no-owner --no-privileges \
+	  $(DB_NAME) \
+	  | gzip > $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz
+	@echo ""
+	@echo "Backup erfolgreich erstellt:"
+	@ls -lh $(LOCAL_BACKUP_DIR)/*.gz | tail -n 1
+	@echo ""
+	@du -sh $(LOCAL_BACKUP_DIR)
+
+# ──────────────────────────────────────────────
+# Backup + kurze Info über Inhalt
+local-db-backup-info: local-db-backup
+	@if [ ! -f $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz ]; then \
+		echo "Kein Backup in dieser Sekunde erstellt → bitte zuerst 'make local-db-backup' ausführen"; \
+		exit 1; \
+	fi
+	@echo ""
+	@echo "══════════════════════════════════════════════════════════════"
+	@echo "Info zum gerade erstellten Backup:"
+	@echo "══════════════════════════════════════════════════════════════"
+	@echo "Datei     : $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz"
+	@ls -lh $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz
+	@echo ""
+	@echo "Größe gesamt Ordner:"
+	@du -sh $(LOCAL_BACKUP_DIR)
+	@echo ""
+	@echo "Letzte 15 Zeilen (Ende der Tabellenliste):"
+	@echo "--------------------------------------------------------------"
+	@zcat $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz | tail -n 35 | grep -E '^--|CREATE TABLE|INSERT INTO' | tail -n 15 || echo "(keine passenden Zeilen gefunden)"
+	@echo "--------------------------------------------------------------"
+	@echo ""
+	@echo "Erste paar Tabellen (Anfang):"
+	@zcat $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz | grep -m 8 '^-- Name:.*Type: TABLE' | sed 's/-- Name:/  • /'
+	@echo ""
+	@echo "Tipp: Mit 'zless' oder 'zcat | less' das Backup anschauen"
+    
+# ──────────────────────────────────────────────
+# Eine Datenbank wiederherstellen
+# Restore eines ganz bestimmten Backups (edit <name of backup file here> in rails/scripts/force-restore-special-db.sh)
+# Then run:  rails/scripts/force-restore-special-db.sh
+
+# show all backups
+debug-newest:
+	@echo "Suche in: $(LOCAL_BACKUP_DIR)"
+	@ls -la $(LOCAL_BACKUP_DIR) || echo "Ordner nicht gefunden"
+	@echo ""
+	@echo "Pattern-Suche:"
+	@ls -t $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_*.sql.gz 2>/dev/null | head -n 1 || echo "Keine Treffer"
