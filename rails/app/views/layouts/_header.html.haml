@@ -74,7 +74,9 @@
           = nav_link_to t('top_menu_explore'), '/explore', data: { turbo: false }
           = nav_link_to t('top_menu_templates'), '/templates?t=1', data: { turbo: false }
           = nav_link_to t('top_menu_pricing'), '/pricing', data: { turbo: false }
-          = nav_link_to t('top_menu_signup'), new_user_registration_path, data: { turbo: false }
+          
+          - if Settings::Features.registration_enabled? == true
+            = nav_link_to t('top_menu_signup'), new_user_registration_path, data: { turbo: false }
 
         %ul.navbar-nav.mb-auto
           = theme_mode_cycle_link

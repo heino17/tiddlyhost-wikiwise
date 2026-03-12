@@ -8,6 +8,23 @@ ja:
   site_title: "Tiddlyhost - 日本語"
   iso_language_code: "ja"
   
+  # if registration is switched off
+  registration_not_possible: "アカウント作成はできません！"
+  # startpage introduction block
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: "は Tiddlyhost-com のテストインストールです。
+  Railsアプリケーションで TiddlyWiki サイトを作成・ホスティングします。<br>
+  Simon Baird がデザインし、<a href=\"https://tiddlyhost.com\" target=\"_blank\">https://tiddlyhost.com</a> で展開される予定です。
+  <br><br>
+  ここで表示されているアプリケーションは、7つの追加言語に翻訳されたコピーです。
+  <br>
+  開発中で、断続的に稼働するホームサーバーで動作しています。
+  <br>
+  この多言語バージョンの詳細は GitHub にあります：<br>
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
+  <br><br>
+  <u><b>ここではアカウント作成はできません！</b></u>"
+
   # Test in footer
   test: "Hello World"
   test_ok: "(en.yml working!)"

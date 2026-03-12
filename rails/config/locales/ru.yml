@@ -8,6 +8,23 @@ ru:
   site_title: "Tiddlyhost - Русский"
   iso_language_code: "ru"
   
+  # if registration is switched off
+  registration_not_possible: "Создание учётной записи невозможно!"
+  # startpage introduction block
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: "— это тестовая установка Tiddlyhost-com,
+  приложение на Rails для создания и хостинга сайтов TiddlyWiki. <br>
+  Разработано Simon Baird для развёртывания на <a href=\"https://tiddlyhost.com\" target=\"_blank\">https://tiddlyhost.com</a>
+  <br><br>
+  Видимое здесь приложение — это копия с переводом на 7 дополнительных языков,
+  <br>
+  находится в разработке и работает на домашнем сервере, доступном не всегда.
+  <br>
+  Подробности этой многоязычной версии можно найти на GitHub:<br>
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
+  <br><br>
+  <u><b>Создание учётной записи здесь невозможно!</b></u>"
+  
   # Test in footer
   test: "Hello World"
   test_ok: "(ru.yml working!)"

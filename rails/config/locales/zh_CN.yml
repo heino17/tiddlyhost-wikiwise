@@ -6,7 +6,24 @@
 ---
 zh_CN:  
   site_title: "Tiddlyhost - 汉语"
-  iso_language_code: "zh-CN"    
+  iso_language_code: "zh-CN"
+  
+  # if registration is switched off
+  registration_not_possible: "无法创建账户！"
+  # startpage introduction block
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: "是 Tiddlyhost-com 的测试安装，
+  一个用于创建和托管 TiddlyWiki 网站的 Rails 应用。<br>
+  由 Simon Baird 设计，将部署在 <a href=\"https://tiddlyhost.com\" target=\"_blank\">https://tiddlyhost.com</a>
+  <br><br>
+  这里显示的应用是带有 7 种额外语言翻译的副本，
+  <br>
+  处于开发中，并在偶尔可访问的家用服务器上运行。
+  <br>
+  此多语言版本的详细信息可在 GitHub 上找到：<br>
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
+  <br><br>
+  <u><b>此处无法创建账户！</b></u>"
   
   # Test in footer
   test: "Hallo Welt"

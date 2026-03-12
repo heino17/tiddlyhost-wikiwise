@@ -4,10 +4,27 @@
 # From here Tiddlyhost for i18n
 # 
 ---
-de:  
+de:
   site_title: "Tiddlyhost - Deutsch"
-  iso_language_code: "de"    
+  iso_language_code: "de"
   
+  # if registration is switched off
+  registration_not_possible: "Konto erstellen nicht möglich!"
+  # startpage introduction block
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: "ist eine Tiddlyhost-com TestInstallation, 
+  einer Rails-Anwendung zum Erstellen und Hosten von TiddlyWiki-Websites. <br>
+  Entworfen von Simon Baird, für die Bereitstellung auf <a href=\"https://tiddlyhost.com\" target=\"_blank\">https://tiddlyhost.com</a>
+  <br><br>
+  Die hier sichtbare Anwendung bildet eine Kopie mit Übersetzung in 7 weitere Sprachen ab, 
+  <br>
+  ist in Entwicklung und wird auf einem sporadisch erreichbaren Home-Server betrieben.
+  <br>
+  Details zu dieser mehrsprachigen Version sind auf github zu finden:<br>
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
+  <br><br>
+  <u><b>Das Erstellen eines Kontos ist hier nicht möglich!</b></u>"
+
   # Test in footer
   test: "Hallo Welt"
   test_ok: "(de.yml working!)"

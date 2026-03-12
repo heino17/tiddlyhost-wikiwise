@@ -6,7 +6,24 @@
 ---
 fr:  
   site_title: "Tiddlyhost - Français"
-  iso_language_code: "fr"    
+  iso_language_code: "fr"
+  
+  # if registration is switched off
+  registration_not_possible: "Création de compte impossible !"
+  # startpage introduction block
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: "est une installation de test de Tiddlyhost-com,
+  une application Rails pour créer et héberger des sites TiddlyWiki. <br>
+  Conçue par Simon Baird, pour être déployée sur <a href=\"https://tiddlyhost.com\" target=\"_blank\">https://tiddlyhost.com</a>
+  <br><br>
+  L'application visible ici est une copie traduite dans 7 langues supplémentaires,
+  <br>
+  elle est en développement et fonctionne sur un serveur domestique disponible de manière sporadique.
+  <br>
+  Les détails de cette version multilingue sont disponibles sur GitHub :<br>
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
+  <br><br>
+  <u><b>La création de compte est impossible ici !</b></u>"
   
   # Test in footer
   test: "Bonjour tout le monde"

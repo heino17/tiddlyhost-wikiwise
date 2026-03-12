@@ -1,3 +1,12 @@
+- if Settings::Features.startpage_introduction_block_enabled?
+    
+  .row{ style: "border-color: rgba(0, 124, 14, 0.7); border-style: solid; border-width: thin !important; border-radius: 7px; padding: 0 0 10px; margin-bottom: 30px;"}
+  
+    %div{ style: "font-size: 1.5em; text-align: center;" }
+      = t('startpage_introduction_block_title').html_safe
+    %div{ style: "font-size: 0.9em; text-align: center; padding-bottom: 0px; margin-bottom: 0px;" }
+      = t('startpage_introduction_block').html_safe
+
 .row.blurb
   .col
     %h4= t('signed_out_col1_heading')
@@ -17,8 +26,10 @@
 
 .rounded.mt-3.p-4.th-bg-jumbo.jumbotron{ style: "padding: 1.5em 1.5em 2em 1.5em" }
   %h3= t('get_started_heading')
-  = turbo_off_link_to new_user_registration_path, class: 'btn btn-lg btn-primary' do
-    = t('get_started_button_signup')
-  %span= t('get_started_divider')
   = turbo_off_link_to new_user_session_path, class: 'btn btn-lg btn-primary' do
     = t('get_started_button_login')
+    
+  - if Settings::Features.registration_enabled?
+    %span= t('get_started_divider')
+    = turbo_off_link_to new_user_registration_path, class: 'btn btn-lg btn-primary' do
+      = t('get_started_button_signup')
