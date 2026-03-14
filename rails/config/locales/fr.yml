@@ -4,9 +4,15 @@
 # From here Tiddlyhost for i18n
 # 
 ---
-fr:  
+fr:
   site_title: "Tiddlyhost - Français"
   iso_language_code: "fr"
+  
+  # Logo
+  logo_link_title: "Tiddlyhost - local"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
   
   # if registration is switched off
   registration_not_possible: "Création de compte impossible !"
@@ -24,13 +30,12 @@ fr:
   <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
   <br><br>
   <u><b>La création de compte est impossible ici !</b></u>"
+  # special imprint page
+  contact_header: "Contact"
+  email_label: "Courriel:"
+  source: "Source:"
   
   # Test in footer
   test: "Bonjour tout le monde"
   test_ok: "(de.yml working!)"
-  # Logo
-  logo_link_title: "Tiddlyhost - local"
-  logo_image_tag: "logo.svg"
-  logo_path: "logo.svg"
-  logo_alt: "logo.svg"  
   

@@ -8,6 +8,11 @@ ko:
   site_title: "Tiddlyhost - 한국어"
   iso_language_code: "ko"
   
+  # Logo
+  logo_link_title: "Tiddlyhost"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
   
   registration_not_possible: "계정 생성 불가능!"
 
@@ -24,13 +29,11 @@ ko:
   <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
   <br><br>
   <u><b>여기서는 계정 생성이 불가능합니다!</b></u>"
+  # special imprint page
+  contact_header: "연락처"
+  email_label: "이메일:"
+  source: "출처:"
   
   # Test in footer
   test: "Hello World"
   test_ok: "(ko.yml working!)"
-  # Logo
-  logo_link_title: "Tiddlyhost"
-  logo_image_tag: "logo.svg"
-  logo_path: "logo.svg"
-  logo_alt: "logo.svg"
-  

@@ -7,7 +7,13 @@
 ja:
   site_title: "Tiddlyhost - 日本語"
   iso_language_code: "ja"
-  
+
+  # Logo
+  logo_link_title: "Tiddlyhost"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
+
   # if registration is switched off
   registration_not_possible: "アカウント作成はできません！"
   # startpage introduction block
@@ -24,13 +30,11 @@ ja:
   <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
   <br><br>
   <u><b>ここではアカウント作成はできません！</b></u>"
+  # special imprint page
+  contact_header: "お問い合わせ"
+  email_label: "メール:"
+  source: "出典:"
 
   # Test in footer
   test: "Hello World"
   test_ok: "(en.yml working!)"
-  # Logo
-  logo_link_title: "Tiddlyhost"
-  logo_image_tag: "logo.svg"
-  logo_path: "logo.svg"
-  logo_alt: "logo.svg"
-  

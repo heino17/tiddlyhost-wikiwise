@@ -4,10 +4,16 @@
 # From here Tiddlyhost for i18n
 #
 ---
-zh_CN:  
+zh_CN:
   site_title: "Tiddlyhost - 汉语"
   iso_language_code: "zh-CN"
-  
+
+  # Logo
+  logo_link_title: "Tiddlyhost - local"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
+
   # if registration is switched off
   registration_not_possible: "无法创建账户！"
   # startpage introduction block
@@ -24,12 +30,11 @@ zh_CN:
   <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
   <br><br>
   <u><b>此处无法创建账户！</b></u>"
-  
+  # special imprint page
+  contact_header: "联系方式"
+  email_label: "邮箱:"
+  source: "来源:"
+
   # Test in footer
   test: "Hallo Welt"
   test_ok: "(zh_CN.yml working!)"
-  # Logo
-  logo_link_title: "Tiddlyhost - local"
-  logo_image_tag: "logo.svg"
-  logo_path: "logo.svg"
-  logo_alt: "logo.svg"  

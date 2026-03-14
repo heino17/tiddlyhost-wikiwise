@@ -29,6 +29,9 @@ class HomeController < ApplicationController
   def terms_of_use
   end
 
+  def imprint
+  end
+
   def favicon
     send_favicon('favicon.ico')
   end

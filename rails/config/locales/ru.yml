@@ -24,6 +24,10 @@ ru:
   <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
   <br><br>
   <u><b>Создание учётной записи здесь невозможно!</b></u>"
+  # special imprint page
+  contact_header: "Контакты"
+  email_label: "Эл. почта:"
+  source: "Источник:"
   
   # Test in footer
   test: "Hello World"

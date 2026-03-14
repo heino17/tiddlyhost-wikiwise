@@ -8,6 +8,12 @@ en:
   site_title: "Tiddlyhost"
   iso_language_code: "en"
   
+  # Logo
+  logo_link_title: "Tiddlyhost"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
+  
   # if registration is switched off
   registration_not_possible: "Account creation not possible!"
   # startpage introduction block
@@ -24,13 +30,11 @@ en:
   <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
   <br><br>
   <u><b>Creating an account is not possible here!</b></u>"
+  # special imprint page
+  contact_header: "Contact"
+  email_label: "eMail:"
+  source: "Source:"
   
   # Test in footer
   test: "Hello World"
-  test_ok: "(en.yml working!)"
-  # Logo
-  logo_link_title: "Tiddlyhost"
-  logo_image_tag: "logo.svg"
-  logo_path: "logo.svg"
-  logo_alt: "logo.svg"
-  
+  test_ok: "(en.yml working!)"  

@@ -50,6 +50,8 @@ Rails.application.routes.draw do
     get 'terms-of-use', to: 'home#terms_of_use'
     get 'favicon.ico', to: 'home#favicon'
 
+    get 'imprint', to: 'home#imprint'
+
     get 'admin', to: 'admin#index'
 
     get 'admin/charts'

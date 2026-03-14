@@ -88,7 +88,18 @@
         %li
           = link_to Settings.github_url, target: '_blank' do
             = bi_icon('gem')
-            = t('footer_host_info_source_code')
+            = t('footer_host_info_source_code')            
+    
+    - if Settings::Features.special_imprint_enabled? == true
+      .col.md-6
+        %br
+        <center>
+        %h6.text-muted ❤️ WikiWise.de
+        %ul      
+          %li
+            = link_to '/imprint' do
+              = bi_icon('file-earmark-text')
+              = I18n.t('footer_imprint')
   -#
     .col.md-6
       %br
