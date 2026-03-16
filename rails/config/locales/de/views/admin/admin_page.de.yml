@@ -1,4 +1,3 @@
----
 de:
   admin:
     tabs_header:
@@ -52,6 +51,37 @@ de:
       th_created: "Erstellt"
       th_confirmed: "Bestätigt"
       #
+    radio_filter:
+      filter_row_prefix: "Filter"
+      filter_all: "alle"
+      owned:
+        yes: "besessen"
+        no:  "nicht besessen"
+      saved:
+        yes: "gespeichert"
+        no:  "nicht gespeichert"
+      private_yes: "privat"
+      private_no:  "öffentlich"
+      hub_yes: "im Hub"
+      hub_no:  "nicht im Hub"
+      template_yes: "Vorlage"
+      template_no:  "keine Vorlage"
+      no_stub:
+        yes: "kein Stub"
+        no:  "Stub"
+      new_pass:
+        yes: "neues Passwort"
+        no:  "altes Passwort"
+      deleted:
+        yes: "gelöscht"
+        no:  "nicht gelöscht"
+      signedin_yes: "eingeloggt"
+      signedin_no:  "nie eingeloggt"
+      subscription:
+        current: "aktuell"
+        any:     "beliebiger Status"
+        none:    "kein Abo"
+        #
     tab_sites_table_headers:
       th_id: "Id"
       th_name: "Name"
@@ -97,4 +127,4 @@ de:
       of: "von"
       # ...
       in_total: "insgesamt."
-      
+    

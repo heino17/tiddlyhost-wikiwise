@@ -53,6 +53,37 @@ ko:
       th_created: "생성일"
       th_confirmed: "확인됨"
       #
+    radio_filter:
+      filter_row_prefix: "필터"
+      filter_all: "전체"
+      owned:
+        yes: "소유"
+        no:  "미소유"
+      saved:
+        yes: "저장됨"
+        no:  "미저장"
+      private_yes: "비공개"
+      private_no:  "공개"
+      hub_yes: "허브 내"
+      hub_no:  "허브 외"
+      template_yes: "템플릿"
+      template_no:  "비템플릿"
+      no_stub:
+        yes: "비스텁"
+        no:  "스텁"
+      new_pass:
+        yes: "새 비밀번호"
+        no:  "이전 비밀번호"
+      deleted:
+        yes: "삭제됨"
+        no:  "미삭제"
+      signedin_yes: "로그인함"
+      signedin_no:  "로그인 안 함"
+      subscription:
+        current: "현재"
+        any:     "모든 상태"
+        none:    "구독 없음"
+        #
     tab_sites_table_headers:
       th_id: "ID"
       th_name: "이름"

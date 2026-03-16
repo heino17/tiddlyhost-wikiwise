@@ -52,6 +52,37 @@ ru:
       th_created: "Создано"
       th_confirmed: "Подтверждено"
       #
+    radio_filter:
+      filter_row_prefix: "Фильтр"
+      filter_all: "все"
+      owned:
+        yes: "принадлежит"
+        no:  "не принадлежит"
+      saved:
+        yes: "сохранён"
+        no:  "не сохранён"
+      private_yes: "приватный"
+      private_no:  "публичный"
+      hub_yes: "в хабе"
+      hub_no:  "не в хабе"
+      template_yes: "шаблон"
+      template_no:  "не шаблон"
+      no_stub:
+        yes: "не заглушка"
+        no:  "заглушка"
+      new_pass:
+        yes: "новый пароль"
+        no:  "старый пароль"
+      deleted:
+        yes: "удалён"
+        no:  "не удалён"
+      signedin_yes: "вошёл"
+      signedin_no:  "никогда не входил"
+      subscription:
+        current: "активная"
+        any:     "любой статус"
+        none:    "без подписки"
+      #
     tab_sites_table_headers:
       th_id: "ID"
       th_name: "Имя"

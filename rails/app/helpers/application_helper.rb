@@ -56,7 +56,7 @@ module ApplicationHelper
     icon = opts.delete(:icon)
     li_class = opts.delete(:li_class)
 
-    # Turbo komplett deaktivieren
+    # Turbo true/false
     turbo_opts = { data: { turbo: false } }.merge(opts)
 
     content_tag :li, class: ['nav-item', li_class] do
@@ -70,7 +70,7 @@ module ApplicationHelper
     is_active = current_page?(link)
 
     # Turbo true/false
-    turbo_opts = { data: { turbo: true } }.merge(opts)
+    turbo_opts = { data: { turbo: false } }.merge(opts)
 
     content_tag :li, class: 'nav-item' do
       link_to link, turbo_opts.merge(class: "nav-link#{' active' if is_active}") do

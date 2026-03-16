@@ -142,70 +142,58 @@ class AdminController < ApplicationController
 
   def filter_params
     {
-    owned: {
-      '1' => { title: 'owned', filter: ->(r) { r.where.not(user_id: nil) } },
-      '0' => { title: 'unowned', filter: ->(r) { r.where(user_id: nil) } },
-    },
-
-    saved: {
-      '1' => { title: 'saved', filter: ->(r) { r.where.not(save_count: 0) } },
-      '0' => { title: 'unsaved', filter: ->(r) { r.where(save_count: 0) } },
-    },
-
-    private: {
-      '1' => { title: 'private', filter: ->(r) { r.where.not(is_private: false) } },
-      '0' => { title: 'public', filter: ->(r) { r.where(is_private: false) } },
-    },
-
-    hub: {
-      '1' => { title: 'hub', filter: ->(r) { r.where.not(is_searchable: false) } },
-      '0' => { title: 'non-hub', filter: ->(r) { r.where(is_searchable: false) } },
-    },
-
-    template: {
-      '1' => { title: 'template', filter: ->(r) { r.where.not(allow_public_clone: false) } },
-      '0' => { title: 'non-template', filter: ->(r) { r.where(allow_public_clone: false) } },
-    },
-
-    no_stub: {
-      '1' => { title: 'non-stub', filter: lambda(&:no_stubs) },
-      '0' => { title: 'stub', filter: lambda(&:stubs) },
-    },
-
-    new_pass: {
-      '1' => { title: 'new passwd', filter: ->(r) { r.where.not(password_digest: nil) } },
-      '0' => { title: 'legacy passwd', filter: ->(r) { r.where(password_digest: nil) } },
-    },
-
-    deleted: {
-      '1' => { title: 'deleted', filter: ->(r) { r.where.not(deleted: false) } },
-      '0' => { title: 'not deleted', filter: ->(r) { r.where(deleted: false) } },
-    },
-
-    kind: {
-      filter: ->(r, kind) { r.where(tw_kind: kind) },
-    },
-
-    user: {
-      # See filter_by_user_maybe below
-    },
-
-    q: {
-      filter: ->(r, search) { r.admin_search_for(search) },
-    },
-
-    signedin: {
-      '1' => { title: 'signed in', filter: ->(r) { r.where('sign_in_count > 0') } },
-      '0' => { title: 'never signed in', filter: ->(r) { r.where('sign_in_count = 0') } },
-    },
-
-    subscription: {
-      '2' => { title: 'current', filter: ->(r) { r.where("pay_subscriptions.status = 'active' OR NOT alt_subscription IS NULL") } },
-      '1' => { title: 'any status', filter: ->(r) { r.where.not('pay_subscriptions.id IS NULL') } },
-      '0' => { title: 'no subscription', filter: ->(r) { r.where('pay_subscriptions.id IS NULL and alt_subscription IS NULL') } },
-    },
-
-    }   # oder FILTER_PARAMS, falls du die alte Konstante noch hast
+      owned: {
+        '1' => { title: I18n.t('admin.radio_filter.owned.yes'),     filter: ->(r) { r.where.not(user_id: nil) } },
+        '0' => { title: I18n.t('admin.radio_filter.owned.no'),      filter: ->(r) { r.where(user_id: nil) } },
+      },
+      saved: {
+        '1' => { title: I18n.t('admin.radio_filter.saved.yes'),      filter: ->(r) { r.where.not(save_count: 0) } },
+        '0' => { title: I18n.t('admin.radio_filter.saved.no'),       filter: ->(r) { r.where(save_count: 0) } },
+      },
+      private: {
+        '1' => { title: I18n.t('admin.radio_filter.private_yes'),    filter: ->(r) { r.where.not(is_private: false) } },
+        '0' => { title: I18n.t('admin.radio_filter.private_no'),     filter: ->(r) { r.where(is_private: false) } },
+      },
+      hub: {
+        '1' => { title: I18n.t('admin.radio_filter.hub_yes'),        filter: ->(r) { r.where.not(is_searchable: false) } },
+        '0' => { title: I18n.t('admin.radio_filter.hub_no'),         filter: ->(r) { r.where(is_searchable: false) } },
+      },
+      template: {
+        '1' => { title: I18n.t('admin.radio_filter.template_yes'),   filter: ->(r) { r.where.not(allow_public_clone: false) } },
+        '0' => { title: I18n.t('admin.radio_filter.template_no'),    filter: ->(r) { r.where(allow_public_clone: false) } },
+      },
+      no_stub: {
+        '1' => { title: I18n.t('admin.radio_filter.no_stub.yes'),    filter: lambda(&:no_stubs) },
+        '0' => { title: I18n.t('admin.radio_filter.no_stub.no'),     filter: lambda(&:stubs) },
+      },
+      new_pass: {
+        '1' => { title: I18n.t('admin.radio_filter.new_pass.yes'),   filter: ->(r) { r.where.not(password_digest: nil) } },
+        '0' => { title: I18n.t('admin.radio_filter.new_pass.no'),    filter: ->(r) { r.where(password_digest: nil) } },
+      },
+      deleted: {
+        '1' => { title: I18n.t('admin.radio_filter.deleted.yes'),    filter: ->(r) { r.where.not(deleted: false) } },
+        '0' => { title: I18n.t('admin.radio_filter.deleted.no'),     filter: ->(r) { r.where(deleted: false) } },
+      },
+      kind: {
+        filter: ->(r, kind) { r.where(tw_kind: kind) },
+        # Hier kein title, weil es dynamisch pro Kind ist (oder du fügst einen Gruppen-Titel hinzu)
+      },
+      user: {
+        # See filter_by_user_maybe below
+      },
+      q: {
+        filter: ->(r, search) { r.admin_search_for(search) },
+      },
+      signedin: {
+        '1' => { title: I18n.t('admin.radio_filter.signedin_yes'),   filter: ->(r) { r.where('sign_in_count > 0') } },
+        '0' => { title: I18n.t('admin.radio_filter.signedin_no'),    filter: ->(r) { r.where('sign_in_count = 0') } },
+      },
+      subscription: {
+        '2' => { title: I18n.t('admin.radio_filter.subscription.current'), filter: ->(r) { r.where("pay_subscriptions.status = 'active' OR NOT alt_subscription IS NULL") } },
+        '1' => { title: I18n.t('admin.radio_filter.subscription.any'),     filter: ->(r) { r.where.not('pay_subscriptions.id IS NULL') } },
+        '0' => { title: I18n.t('admin.radio_filter.subscription.none'),    filter: ->(r) { r.where('pay_subscriptions.id IS NULL and alt_subscription IS NULL') } },
+      },
+    }
   end
 
   private

@@ -52,6 +52,37 @@ zh_CN:
       th_created: "创建时间"
       th_confirmed: "已确认"
       #
+    radio_filter:
+      filter_row_prefix: "筛选"
+      filter_all: "全部"
+      owned:
+        yes: "已拥有"
+        no:  "未拥有"
+      saved:
+        yes: "已保存"
+        no:  "未保存"
+      private_yes: "私密"
+      private_no:  "公开"
+      hub_yes: "在 Hub 中"
+      hub_no:  "不在 Hub 中"
+      template_yes: "模板"
+      template_no:  "非模板"
+      no_stub:
+        yes: "非存根"
+        no:  "存根"
+      new_pass:
+        yes: "新密码"
+        no:  "旧密码"
+      deleted:
+        yes: "已删除"
+        no:  "未删除"
+      signedin_yes: "已登录"
+      signedin_no:  "从未登录"
+      subscription:
+        current: "当前"
+        any:     "任意状态"
+        none:    "无订阅"
+        #
     tab_sites_table_headers:
       th_id: "ID"
       th_name: "名称"

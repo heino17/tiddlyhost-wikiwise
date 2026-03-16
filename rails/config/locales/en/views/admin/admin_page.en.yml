@@ -51,6 +51,42 @@ en:
       th_last_sign_in: "Last sign in"
       th_created: "Created"
       th_confirmed: "Confirmed"
+
+    radio_filter:
+      filter_row_prefix: "Filter"
+      filter_all: "all"
+      owned:
+        yes: "owned"
+        no:  "unowned"
+      saved:
+        yes: "saved"
+        no:  "unsaved"
+        
+      private_yes: "private"
+      private_no:  "public"
+      
+      hub_yes: "hub"
+      hub_no:  "non-hub"
+      
+      template_yes: "template"
+      template_no:  "non-template"
+      
+      no_stub:
+        yes: "non-stub"
+        no:  "stub"
+      new_pass:
+        yes: "new passwd"
+        no:  "legacy passwd"
+      deleted:
+        yes: "deleted"
+        no:  "not deleted"
+      signedin_yes: "signed in"
+      signedin_no:  "never signed in"
+      
+      subscription:
+        current: "current"
+        any:     "any status"
+        none:    "no subscription"
       #
     tab_sites_table_headers:
       th_id: "Id"

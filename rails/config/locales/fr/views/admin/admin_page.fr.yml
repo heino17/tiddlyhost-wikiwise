@@ -52,6 +52,37 @@ fr:
       th_created: "Créé"
       th_confirmed: "Confirmé"
       #
+    radio_filter:
+      filter_row_prefix: "Filtre"
+      filter_all: "tous"
+      owned:
+        yes: "possédé"
+        no:  "non possédé"
+      saved:
+        yes: "enregistré"
+        no:  "non enregistré"
+      private_yes: "privé"
+      private_no:  "public"
+      hub_yes: "dans le hub"
+      hub_no:  "hors hub"
+      template_yes: "modèle"
+      template_no:  "non modèle"
+      no_stub:
+        yes: "non stub"
+        no:  "stub"
+      new_pass:
+        yes: "nouveau mot de passe"
+        no:  "ancien mot de passe"
+      deleted:
+        yes: "supprimé"
+        no:  "non supprimé"
+      signedin_yes: "connecté"
+      signedin_no:  "jamais connecté"
+      subscription:
+        current: "actif"
+        any:     "tout statut"
+        none:    "sans abonnement"
+      #
     tab_sites_table_headers:
       th_id: "Id"
       th_name: "Nom"

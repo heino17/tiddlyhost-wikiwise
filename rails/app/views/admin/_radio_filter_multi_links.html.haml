@@ -2,4 +2,4 @@
   - values = values.zip(values).to_h if values.is_a?(Array)
   - values.each do |k, v|
     = filter_radio_link(k, param, v)
-  = filter_radio_link('all', param)
+  = filter_radio_link(I18n.t('admin.radio_filter.filter_all'), param)

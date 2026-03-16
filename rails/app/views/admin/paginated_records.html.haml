@@ -10,7 +10,8 @@
 
 - unless @user && action_name == "users"
   .admin-filter
-    .group Filter:
+    .group 
+      = I18n.t('admin.radio_filter.filter_row_prefix') + ": "
     = render "#{action_name}_filter"
     = render 'search_box'
 

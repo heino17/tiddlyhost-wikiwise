@@ -53,6 +53,37 @@ ja:
       th_created: "作成日"
       th_confirmed: "確認済み"
       #
+    radio_filter:
+      filter_row_prefix: "フィルター"
+      filter_all: "すべて"
+      owned:
+        yes: "所有"
+        no:  "未所有"
+      saved:
+        yes: "保存済み"
+        no:  "未保存"
+      private_yes: "非公開"
+      private_no:  "公開"
+      hub_yes: "ハブ内"
+      hub_no:  "ハブ外"
+      template_yes: "テンプレート"
+      template_no:  "非テンプレート"
+      no_stub:
+        yes: "非スタブ"
+        no:  "スタブ"
+      new_pass:
+        yes: "新規パスワード"
+        no:  "旧パスワード"
+      deleted:
+        yes: "削除済み"
+        no:  "未削除"
+      signedin_yes: "ログイン済み"
+      signedin_no:  "未ログイン"
+      subscription:
+        current: "有効"
+        any:     "任意のステータス"
+        none:    "未購読"
+        #
     tab_sites_table_headers:
       th_id: "ID"
       th_name: "名前"
