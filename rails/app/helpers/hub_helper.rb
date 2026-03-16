@@ -30,4 +30,18 @@ module HubHelper
       ("#{t('hub.saved')}: #{brief_time_ago_in_words(hub_site.blob_created_at)}" if hub_site.blob_created_at && hub_site.save_count > 0)
     ].compact.join(', ')
   end
+  
+  def sort_titles
+    {
+      compressed: t('sites_sort_compressed'),
+      kind:       t('sites_sort_kind'),
+      name:       t('sites_sort_name'),
+      updated:    t('sites_sort_updated'),
+      version:    t('sites_sort_version'),
+      access:     t('sites_sort_access'),
+      views:      t('sites_sort_views'),
+      size:       t('sites_sort_size'),
+      origin:     t('sites_sort_origin'),
+    }
+  end
 end

@@ -31,25 +31,63 @@ module SortAndFilterLinkHelper
   #
   # Todo: link title could be found in sort_options[_][:title]
   # if we pass in the param_val
-  def sort_link(link_title, default_sort_dir = :desc, extra_klass = nil)
-    # Derive the param value from the title
-    param_val = link_title.downcase.gsub(/[^a-z]/, '')
-
+  def sort_link(link_title, *args)
+    # Default-Werte
+    default_sort_dir   = :desc
+    extra_klass        = nil
+    internal_sort_key  = nil
+  
+    # Argumente parsen
+    args.each do |arg|
+      case arg
+      when Symbol
+        default_sort_dir = arg if [:asc, :desc].include?(arg)
+      when String
+        if extra_klass.nil?
+          extra_klass = arg if arg.start_with?('dropdown-') || arg.start_with?('btn-') || arg.include?(' ')
+        else
+          internal_sort_key = arg
+        end
+      when Hash
+        # Falls du später mal Optionen als Hash übergeben möchtest
+        default_sort_dir = arg[:dir] if arg[:dir]
+        extra_klass      = arg[:class] if arg[:class]
+        internal_sort_key = arg[:key] if arg[:key]
+      end
+    end
+  
+    # Wenn kein expliziter internal_sort_key übergeben wurde:
+    # Versuche, ihn aus dem Übersetzungs-Key abzuleiten
+    if internal_sort_key.nil? && link_title.is_a?(String) && link_title.start_with?("translation missing")
+      # Fehlerfall – Key nicht gefunden
+      internal_sort_key = "unknown"
+    elsif internal_sort_key.nil?
+      # Versuch, aus t('sites.sort.xxx') → 'xxx' abzuleiten
+      # Das funktioniert nur, wenn du konsistent t('sites.sort.____') verwendest
+      if link_title =~ /sites\.sort\.([a-z_]+)/
+        internal_sort_key = $1
+      else
+        # Fallback: aus dem angezeigten Text (wie früher)
+        internal_sort_key = link_title.downcase.gsub(/[^a-z]/, '')
+      end
+    end
+  
+    param_val = internal_sort_key
+  
+    # ────────────────────────────────────────────────
+    # Rest der Logik bleibt fast gleich
     if sort_by == param_val
-      # We're already sorting by this field, so provide a toggle direction link
       new_sort_by = flipped_sort_by
       klass = sort_css_class
     else
-      # Clicking will select a new sort value
       new_sort_by = sort_val_with_suffix(param_val, sort_desc: default_sort_dir == :desc)
       klass = nil
     end
-
+  
     turbo_off_link_to(sort_link_url(new_sort_by), class: [klass, extra_klass].compact, rel: 'nofollow') do
       link_title
     end
   end
-
   #
   # Used in the hub
   # This one does not provide the asc/desc flipping
@@ -169,6 +207,11 @@ module SortAndFilterLinkHelper
     sort_desc? ? 'sort-up' : 'sort-down'
   end
 
+  def current_sort_title
+    opt = sort_opt   # kommt aus dem Helper – liefert { title: ..., field: ... }
+    opt ? opt[:title] : t('site_view_filter_and_sort_default_sort')
+  end
+
   #--------------------------------------------------------
   # For url preparation
   #
@@ -222,11 +265,11 @@ module SortAndFilterLinkHelper
   end
 
   def filter_params
-    get_controller.class::FILTER_PARAMS
+    get_controller.send(:filter_params)
   end
 
   def sort_options
-    get_controller.class::SORT_OPTIONS
+    get_controller.send(:sort_options)
   end
 
   def sort_null_always_last_vals

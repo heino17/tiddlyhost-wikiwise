@@ -69,8 +69,8 @@ module ApplicationHelper
   def tab_link_to(title, link, opts = {})
     is_active = current_page?(link)
 
-    # Turbo deaktivieren
-    turbo_opts = { data: { turbo: false } }.merge(opts)
+    # Turbo true/false
+    turbo_opts = { data: { turbo: true } }.merge(opts)
 
     content_tag :li, class: 'nav-item' do
       link_to link, turbo_opts.merge(class: "nav-link#{' active' if is_active}") do

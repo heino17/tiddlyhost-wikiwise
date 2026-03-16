@@ -77,4 +77,26 @@ ko:
     nav:
       all_sites: "전체 사이트"
       all_templates: "전체 템플릿"
-  
+  # first level needed here !
+  sites_sort_compressed: "압축 크기"
+  sites_sort_kind:       "종류"
+  sites_sort_name:       "이름"
+  sites_sort_updated:    "마지막 업데이트"
+  sites_sort_version:    "버전"
+  sites_sort_access:     "접근"
+  sites_sort_views:      "조회수"
+  sites_sort_size:       "크기"
+  sites_sort_origin:     "출처"
+  site_filter:
+    access:
+      hub:     "검색 가능"
+      public:  "공개"
+      private: "비공개"
+    kind:
+      tw:      "TiddlyWiki (모두)"
+      tw5:     "TiddlyWiki (독립형)"
+      tw5x:    "TiddlyWiki (외부 코어)"
+      classic: "TiddlyWiki Classic"
+      feather: "Feather Wiki"
+      featherx: "Feather Wiki (외부 JavaScript)"
+      sitelet: "siteleteer"

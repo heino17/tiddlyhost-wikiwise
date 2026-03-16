@@ -77,3 +77,26 @@ ru:
     nav:
       all_sites: "Все сайты"
       all_templates: "Все шаблоны"
+  # first level needed here !
+  sites_sort_compressed: "Сжатый размер"
+  sites_sort_kind:       "Тип"
+  sites_sort_name:       "Название"
+  sites_sort_updated:    "Последнее обновление"
+  sites_sort_version:    "Версия"
+  sites_sort_access:     "Доступ"
+  sites_sort_views:      "Просмотры"
+  sites_sort_size:       "Размер"
+  sites_sort_origin:     "Источник"
+  site_filter:
+    access:
+      hub:     "Доступно для поиска"
+      public:  "Публичный"
+      private: "Приватный"
+    kind:
+      tw:      "TiddlyWiki (все)"
+      tw5:     "TiddlyWiki (самодостаточный)"
+      tw5x:    "TiddlyWiki (внешний core)"
+      classic: "TiddlyWiki Classic"
+      feather: "Feather Wiki"
+      featherx: "Feather Wiki (внешний JavaScript)"
+      sitelet: "siteleteer"

@@ -117,6 +117,7 @@ en:
   site_view_filter_and_sort_kind: "Kind:"
   site_view_filter_and_sort_kind_else: "Kind"
   site_view_filter_and_sort_kind_filter_tooltip: "Site kind filter:"
+  site_view_filter_and_sort_kind_filter_drop_header: "Filter by page kind:"
   #
   site_view_filter_and_sort_access: "Access:"
   site_view_filter_and_sort_access_else: "Access"

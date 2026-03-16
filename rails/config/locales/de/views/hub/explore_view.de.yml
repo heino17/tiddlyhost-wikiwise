@@ -29,8 +29,8 @@ de:
   hub_view_list_sort_recently_created: "Gerade erstellt"
   hub_view_list_sort_name_az: "Name a-z"
   hub_view_list_sort_name_za: "Name z-a"
-  hub_view_list_sort_newer_version: "Aufrufe"
-  hub_view_list_sort_older_version: "Aufrufe"
+  hub_view_list_sort_newer_version: "Ältere Version"
+  hub_view_list_sort_older_version: "Neuere Version"
   hub_view_list_sort_random: "Zufällig"
   hub_view_search_box: "Suche"
   hub_view_search_box_clear: "Löschen"
@@ -83,4 +83,27 @@ de:
     nav:
       all_sites: "Alle Seiten"
       all_templates: "Alle Vorlagen"
-  
+  # first level needed here !
+  sites_sort_name:    "Name"
+  sites_sort_kind:    "Typ"
+  sites_sort_version: "Version"
+  sites_sort_access:  "Zugang"
+  sites_sort_views:   "Aufrufe"
+  sites_sort_size:    "Größe"
+  sites_sort_updated: "Aktualisierung"
+  sites_sort_origin:  "Herkunft"
+  sites_sort_compressed: "Komprimierte Größe"
+
+  site_filter:
+    access:
+      hub:     "Suchbar"
+      public:  "Öffentlich"
+      private: "Privat"
+    kind:
+      tw:      "TiddlyWiki (alle)"
+      tw5:     "TiddlyWiki (selbstständig)"
+      tw5x:    "TiddlyWiki (externer Core)"
+      classic: "TiddlyWiki Classic"
+      feather: "Feather Wiki"
+      featherx: "Feather Wiki (externes JavaScript)"
+      sitelet: "siteleteer"

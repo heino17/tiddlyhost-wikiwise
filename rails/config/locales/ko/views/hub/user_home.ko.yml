@@ -110,6 +110,7 @@ ko:
   site_view_filter_and_sort_kind: "유형:"
   site_view_filter_and_sort_kind_else: "유형"
   site_view_filter_and_sort_kind_filter_tooltip: "사이트 유형 필터:"
+  site_view_filter_and_sort_kind_filter_drop_header: "페이지 종류별로 필터링:"
   #
   site_view_filter_and_sort_access: "접근:"
   site_view_filter_and_sort_access_else: "접근"

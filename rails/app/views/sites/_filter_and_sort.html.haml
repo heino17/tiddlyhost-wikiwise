@@ -48,20 +48,22 @@
 .d-inline-block.sites-menu
   = link_to("#", class: 'ms-2 btn btn-sm dropdown-toggle', title: t('site_view_filter_and_sort_sort_tooltip'),
     role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
-    = t('site_view_filter_and_sort_sort') + " #{sort_by}"
+    = t('site_view_filter_and_sort_sort') + " #{sort_titles[sort_by.to_sym] || sort_by}"
     = bi_icon(sort_bi_icon, fill: '#666', style: "margin-right: -2px;")
   .dropdown-menu.dropdown-menu-end{ 'aria-labelledby': 'dropdownMenuLink' }
     .dropdown-item-text.th-text-smaller.th-dim.m-0.pt-0.pb-2
       = t('site_view_filter_and_sort_sort_drop_header')
-    = sort_link 'name',    :asc,  'dropdown-item'
-    = sort_link 'kind',    :desc, 'dropdown-item'
-    = sort_link 'version', :desc, 'dropdown-item'
-    = sort_link 'access',  :asc,  'dropdown-item'
-    = sort_link 'views',   :desc, 'dropdown-item'
-    = sort_link 'size',    :desc, 'dropdown-item'
-    = sort_link 'updated', :desc, 'dropdown-item'
+
+    = sort_link t('sites_sort_name'),    :asc,  'dropdown-item', 'name'
+    = sort_link t('sites_sort_kind'),    :desc, 'dropdown-item', 'kind'
+    = sort_link t('sites_sort_version'), :desc, 'dropdown-item', 'version'
+    = sort_link t('sites_sort_access'),  :asc,  'dropdown-item', 'access'
+    = sort_link t('sites_sort_views'),   :desc, 'dropdown-item', 'views'
+    = sort_link t('sites_sort_size'),    :desc, 'dropdown-item', 'size'
+    = sort_link t('sites_sort_updated'), :desc, 'dropdown-item', 'updated'
+    
     - if sites.any?(&:is_tspot?)
-      = sort_link 'origin', :asc, 'dropdown-item'
+      = sort_link t('sites.sort.origin'), :asc, 'dropdown-item', 'origin'
 
   -# some changes for i18n
 .d-inline-block.sites-menu

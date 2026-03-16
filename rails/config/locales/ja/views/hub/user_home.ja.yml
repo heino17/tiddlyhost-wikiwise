@@ -109,6 +109,7 @@ ja:
   site_view_filter_and_sort_kind: "種類："
   site_view_filter_and_sort_kind_else: "種類"
   site_view_filter_and_sort_kind_filter_tooltip: "サイト種類フィルター："
+  site_view_filter_and_sort_kind_filter_drop_header: "ページの種類で絞り込む:"
   #
   site_view_filter_and_sort_access: "アクセス："
   site_view_filter_and_sort_access_else: "アクセス"

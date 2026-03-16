@@ -77,4 +77,26 @@ zh_CN:
     nav:
       all_sites: "所有站点"
       all_templates: "所有模板"
-  
+  # first level needed here !
+  sites_sort_compressed: "压缩大小"
+  sites_sort_kind:       "类型"
+  sites_sort_name:       "名称"
+  sites_sort_updated:    "最后更新"
+  sites_sort_version:    "版本"
+  sites_sort_access:     "访问权限"
+  sites_sort_views:      "浏览量"
+  sites_sort_size:       "大小"
+  sites_sort_origin:     "来源"
+  site_filter:
+    access:
+      hub:     "可搜索"
+      public:  "公开"
+      private: "私密"
+    kind:
+      tw:      "TiddlyWiki（全部）"
+      tw5:     "TiddlyWiki（自包含）"
+      tw5x:    "TiddlyWiki（外部核心）"
+      classic: "TiddlyWiki Classic"
+      feather: "Feather Wiki"
+      featherx: "Feather Wiki（外部 JavaScript）"
+      sitelet: "siteleteer"

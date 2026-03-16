@@ -30,27 +30,23 @@ class HubController < ApplicationController
 
   include SortAndFilterLinkHelper
 
-  FILTER_PARAMS = {
-    # The hub filtering logic is done manually not by SortAndFilterLinkHelper
-    # so that's why these are empty. We just need the keys to exist so the link
-    # helpers can see them.
-    q: {}, # text search
-    t: {}, # template filter
-    k: { 'tw' => 'TiddlyWiki (any)' }.merge(SiteCommon::KINDS).to_a.to_h { |k, v| [k.to_sym, { title: v }] }
-  }.freeze
-
-  # We don't do asc/desc sorting for the hub
-  SORT_OPTIONS = {
-    v: { title: 'view count', field: 'view_count DESC' },
-    cl: { title: 'clone count', field: 'clone_count DESC' },
-    u: { title: 'recently updated', field: 'blob_created_at DESC NULLS LAST' },
-    c: { title: 'recently created', field: 'created_at DESC NULLS LAST' },
-    a: { title: 'name a-z', field: 'name ASC' },
-    z: { title: 'name z-a', field: 'name DESC' },
-    nv: { title: 'newer version', field: 'tw_version_trimmed DESC NULLS LAST' },
-    ov: { title: 'older version', field: 'tw_version_trimmed ASC NULLS LAST' },
-    r: { title: 'random', field: 'rand_sort' },
-  }.freeze
+  def filter_params
+    {
+      # The hub filtering logic is done manually not by SortAndFilterLinkHelper
+      # so that's why these are empty. We just need the keys to exist so the link
+      # helpers can see them.
+      q: {}, # text search
+      t: {}, # template filter
+  
+      k: {
+        tw: { title: I18n.t('site_filter.kind.tw') }   # "TiddlyWiki (any)"
+      }.merge(
+        SiteCommon::KINDS.to_a.to_h do |k, _v|
+          [k.to_sym, { title: I18n.t("site_filter.kind.#{k}") }]
+        end
+      )
+    }
+  end
 
   private
 
@@ -65,7 +61,7 @@ class HubController < ApplicationController
       Rails.logger.info "Cache miss for #{cache_key}"
       HubQuery.most_used_tags(for_templates: show_templates).first(TAGS_COUNT)
     end
-  end
+  end  
 
   def render_hub
     # Show a few popular tags in the tab bar.
@@ -110,6 +106,19 @@ class HubController < ApplicationController
     @show_templates ? :cl : :v
   end
 
+  def sort_options
+    {
+      v:  { title: I18n.t('hub_view_list_sort_view_count'),     field: 'view_count DESC' },
+      cl: { title: I18n.t('hub_view_list_sort_clone_count'),     field: 'clone_count DESC' },
+      u:  { title: I18n.t('hub_view_list_sort_recently_updated'), field: 'blob_created_at DESC NULLS LAST' },
+      c:  { title: I18n.t('hub_view_list_sort_recently_created'), field: 'created_at DESC NULLS LAST' },
+      a:  { title: I18n.t('hub_view_list_sort_name_az'),         field: 'name ASC' },
+      z:  { title: I18n.t('hub_view_list_sort_name_za'),         field: 'name DESC' },
+      nv: { title: I18n.t('hub_view_list_sort_newer_version'),   field: 'tw_version_trimmed DESC NULLS LAST' },
+      ov: { title: I18n.t('hub_view_list_sort_older_version'),   field: 'tw_version_trimmed ASC NULLS LAST' },
+      r:  { title: I18n.t('hub_view_list_sort_random'),          field: 'rand_sort' },
+    }
+  end
   # Flip between controllers based on whether we're looking at
   # "templates only" or everything. Probably won't need this
   # when/if we stop using the ?t=1 url param and update some links

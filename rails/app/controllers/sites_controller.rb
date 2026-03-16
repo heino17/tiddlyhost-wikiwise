@@ -10,36 +10,40 @@ class SitesController < ApplicationController
   include SiteHistory
   include ZipDownloadAll
 
-  SORT_OPTIONS = {
-    compressed: 'size',
-    kind: 'tw_kind',
-    name: 'name',
-    updated: 'blob_created_at',
-    version: %w[tw_kind tw_version],
-    access: %w[not_searchable is_private],
-    views: 'view_count',
-    size: 'raw_byte_size',
-    origin: 'type,id',
-  }.freeze
+  def sort_options
+    {
+      compressed: 'size',
+      kind:       'tw_kind',
+      name:       'name',
+      updated:    'blob_created_at',
+      version:    %w[tw_kind tw_version],
+      access:     %w[not_searchable is_private],
+      views:      'view_count',
+      size:       'raw_byte_size',
+      origin:     'type,id',
+    }
+  end
 
   DEFAULT_SORT = :updated_desc
 
-  FILTER_PARAMS = {
-    # Fixme maybe: These filters could probably be moved into the db query
-    access: {
-      hub: { filter: ->(s) { s.select(&:hub_listed?) }, title: 'searchable' },
-      public: { filter: ->(s) { s.select(&:is_public?).reject(&:hub_listed?) } },
-      private: { filter: ->(s) { s.select(&:is_private?) } },
-    },
-    kind: SiteCommon::KINDS.to_a.to_h { |k, v| [k.to_sym,
-      { filter: ->(ss) { ss.select { |s| s.tw_kind == k.to_s } }, title: v }
-    ]},
-    # So this gets included in sort_filter_param_keys. The search_text
-    # filtering is done separately in set_sites. (Fixme: It's confusing.)
-    q: {},
-    # Tag filtering - filter is called with (sites, tag_name)
-    tags: { filter: ->(sites, tag_name) { sites.select { |s| s.tag_list.include?(tag_name) } } },
-  }.freeze
+  def filter_params
+    {
+      # Fixme maybe: These filters could probably be moved into the db query
+      access: {
+        hub:    { filter: ->(s) { s.select(&:hub_listed?) },    title: I18n.t('site_filter.access.hub')    },
+        public: { filter: ->(s) { s.select(&:is_public?).reject(&:hub_listed?) }, title: I18n.t('site_filter.access.public') },
+        private:{ filter: ->(s) { s.select(&:is_private?) },    title: I18n.t('site_filter.access.private') }
+      },
+      kind: SiteCommon::KINDS.to_a.to_h { |k, v| [k.to_sym,
+        { filter: ->(ss) { ss.select { |s| s.tw_kind == k.to_s } }, title: I18n.t("site_filter.kind.#{k}") }
+      ]},
+      # So this gets included in sort_filter_param_keys. The search_text
+      # filtering is done separately in set_sites. (Fixme: It's confusing.)
+      q: {},
+      # Tag filtering - filter is called with (sites, tag_name)
+      tags: { filter: ->(sites, tag_name) { sites.select { |s| s.tag_list.include?(tag_name) } } },
+    }
+  end
 
   NULL_ALWAYS_LAST = %w[
     version

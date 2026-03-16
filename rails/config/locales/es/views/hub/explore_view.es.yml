@@ -78,3 +78,27 @@ es:
     nav:
       all_sites: "Todos los sitios"
       all_templates: "Todas las plantillas"
+  # first level needed here !    
+  sites_sort_compressed: "Tamaño comprimido"
+  sites_sort_kind:       "Tipo"
+  sites_sort_name:       "Nombre"
+  sites_sort_updated:    "Última actualización"
+  sites_sort_version:    "Versión"
+  sites_sort_access:     "Acceso"
+  sites_sort_views:      "Vistas"
+  sites_sort_size:       "Tamaño"
+  sites_sort_origin:     "Origen"
+  
+  site_filter:
+    access:
+      hub:     "Buscable"
+      public:  "Público"
+      private: "Privado"
+    kind:
+      tw:      "TiddlyWiki (todos)"
+      tw5:     "TiddlyWiki (autónomo)"
+      tw5x:    "TiddlyWiki (núcleo externo)"
+      classic: "TiddlyWiki Classic"
+      feather: "Feather Wiki"
+      featherx: "Feather Wiki (JavaScript externo)"
+      sitelet: "siteleteer"

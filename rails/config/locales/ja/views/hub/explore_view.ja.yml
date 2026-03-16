@@ -78,4 +78,26 @@ ja:
     nav:
       all_sites: "すべてのサイト"
       all_templates: "すべてのテンプレート"
-  
+  # first level needed here !
+  sites_sort_compressed: "圧縮サイズ"
+  sites_sort_kind:       "種類"
+  sites_sort_name:       "名前"
+  sites_sort_updated:    "最終更新"
+  sites_sort_version:    "バージョン"
+  sites_sort_access:     "アクセス"
+  sites_sort_views:      "閲覧数"
+  sites_sort_size:       "サイズ"
+  sites_sort_origin:     "起源"
+  site_filter:
+    access:
+      hub:     "検索可能"
+      public:  "公開"
+      private: "非公開"
+    kind:
+      tw:      "TiddlyWiki (すべて)"
+      tw5:     "TiddlyWiki (自己完結型)"
+      tw5x:    "TiddlyWiki (外部コア)"
+      classic: "TiddlyWiki Classic"
+      feather: "Feather Wiki"
+      featherx: "Feather Wiki (外部JavaScript)"
+      sitelet: "siteleteer"

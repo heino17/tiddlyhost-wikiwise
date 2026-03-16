@@ -49,48 +49,6 @@ class AdminController < ApplicationController
 
   include SortAndFilterLinkHelper
 
-  SORT_OPTIONS = {
-    accesses: 'access_count',
-    clone: 'cloned_from_id',
-    clones: 'clone_count',
-    created: 'created_at',
-    confirmed: 'confirmed_at',
-    createdip: 'created_ip',
-    currentsignin: 'current_sign_in_at',
-    description: "NULLIF(sites.description, '')",
-    email: 'email',
-    # Fixme: this one doesn't work
-    #empty: 'empties.name',
-    av: ['use_gravatar', 'use_libravatar'],
-    id: 'id',
-    iframes: 'allow_in_iframe',
-    kind: 'tw_kind',
-    lastaccess: 'accessed_at',
-    lastsignin: 'last_sign_in_at',
-    lastupdate: 'updated_at',
-    logins: 'sign_in_count',
-    name: 'name',
-    owner: 'COALESCE(users.username, users.email)',
-    type: 'user_type_id',
-    # There's probably only one of these but it needs
-    # to be an aggregate due to the group by user.id
-    subscr: ['MAX(pay_subscriptions.status)', 'MAX(pay_subscriptions.id)'],
-    private: 'is_private',
-    put: 'prefer_put_saver',
-    saves: 'save_count',
-    hub: 'is_searchable',
-    raw: 'raw_byte_size',
-    sites: 'COUNT(sites.id)',
-    storage: 'storage_service',
-    template: 'allow_public_clone',
-    tspotsites: 'COUNT(tspot_sites.id)',
-    upload: 'prefer_upload_saver',
-    username: "NULLIF(username, '')",
-    version: 'tw_version',
-    versions: 'COUNT(active_storage_blobs.id)',
-    views: 'view_count',
-  }.freeze
-
   NULL_ALWAYS_LAST = %w[
     username
     description
@@ -101,7 +59,89 @@ class AdminController < ApplicationController
     subscr
   ].freeze
 
-  FILTER_PARAMS = {
+  def users
+    render_records User.left_joins(:sites, :tspot_sites).join_subscriptions.group(:id)
+  end
+
+  def sites
+    render_records Site.left_joins(:user, :empty).with_blobs_for_query.group(:id)
+  end
+
+  def tspot_sites
+    render_records TspotSite.left_joins(:user).with_blobs_for_query.group(:id)
+  end
+
+  def etc
+  end
+
+  def raw_download
+    klass = params[:type] == 'TspotSite' ? TspotSite : Site
+    site = klass.find(params[:id])
+    blob_id = params[:blob_id]
+
+    raw_html = site.file_download(blob_id)
+    download_filename = "raw_#{klass.name.underscore}_#{site.id}_#{blob_id}_#{site.name}"
+    download_html_content(raw_html, download_filename)
+  end
+
+  def boom
+    raise 'Boom!'
+  end
+
+  def pool_stats
+    render json: ActiveRecord::Base.connection.pool.stat.to_json
+  end
+
+  def charts
+    @chart_data = chart_data(params[:chart])
+  end
+
+  def storage
+  end
+
+  def sort_options
+    {
+      accesses:     'access_count',
+      clone:        'cloned_from_id',
+      clones:       'clone_count',
+      created:      'created_at',
+      confirmed:    'confirmed_at',
+      createdip:    'created_ip',
+      currentsignin:'current_sign_in_at',
+      description:  "NULLIF(sites.description, '')",
+      email:        'email',
+      #empty:       'empties.name',   # auskommentiert lassen
+      av:           ['use_gravatar', 'use_libravatar'],
+      id:           'id',
+      iframes:      'allow_in_iframe',
+      kind:         'tw_kind',
+      lastaccess:   'accessed_at',
+      lastsignin:   'last_sign_in_at',
+      lastupdate:   'updated_at',
+      logins:       'sign_in_count',
+      name:         'name',
+      owner:        'COALESCE(users.username, users.email)',
+      type:         'user_type_id',
+      subscr:       ['MAX(pay_subscriptions.status)', 'MAX(pay_subscriptions.id)'],
+      private:      'is_private',
+      put:          'prefer_put_saver',
+      saves:        'save_count',
+      hub:          'is_searchable',
+      raw:          'raw_byte_size',
+      sites:        'COUNT(sites.id)',
+      storage:      'storage_service',
+      template:     'allow_public_clone',
+      tspotsites:   'COUNT(tspot_sites.id)',
+      upload:       'prefer_upload_saver',
+      username:     "NULLIF(username, '')",
+      version:      'tw_version',
+      versions:     'COUNT(active_storage_blobs.id)',
+      views:        'view_count',
+    }
+  end
+
+  def filter_params
+    {
     owned: {
       '1' => { title: 'owned', filter: ->(r) { r.where.not(user_id: nil) } },
       '0' => { title: 'unowned', filter: ->(r) { r.where(user_id: nil) } },
@@ -165,46 +205,7 @@ class AdminController < ApplicationController
       '0' => { title: 'no subscription', filter: ->(r) { r.where('pay_subscriptions.id IS NULL and alt_subscription IS NULL') } },
     },
 
-  }.freeze
-
-  def users
-    render_records User.left_joins(:sites, :tspot_sites).join_subscriptions.group(:id)
-  end
-
-  def sites
-    render_records Site.left_joins(:user, :empty).with_blobs_for_query.group(:id)
-  end
-
-  def tspot_sites
-    render_records TspotSite.left_joins(:user).with_blobs_for_query.group(:id)
-  end
-
-  def etc
-  end
-
-  def raw_download
-    klass = params[:type] == 'TspotSite' ? TspotSite : Site
-    site = klass.find(params[:id])
-    blob_id = params[:blob_id]
-
-    raw_html = site.file_download(blob_id)
-    download_filename = "raw_#{klass.name.underscore}_#{site.id}_#{blob_id}_#{site.name}"
-    download_html_content(raw_html, download_filename)
-  end
-
-  def boom
-    raise 'Boom!'
-  end
-
-  def pool_stats
-    render json: ActiveRecord::Base.connection.pool.stat.to_json
-  end
-
-  def charts
-    @chart_data = chart_data(params[:chart])
-  end
-
-  def storage
+    }   # oder FILTER_PARAMS, falls du die alte Konstante noch hast
   end
 
   private

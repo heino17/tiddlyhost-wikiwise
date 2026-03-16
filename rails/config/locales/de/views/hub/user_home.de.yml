@@ -125,7 +125,7 @@ de:
   site_view_filter_and_sort_access_filter_tooltip: "Nach Zugänglichkeit filtern"
   site_view_filter_and_sort_access_filter_drop_header: "Filtern nach Zugang:"
   #
-  site_view_filter_and_sort_sort: "Sortierung:"
+  site_view_filter_and_sort_sort: "Sortiert nach:"
   site_view_filter_and_sort_sort_tooltip: "Sortieren nach"
   site_view_filter_and_sort_sort_drop_header: "Sortieren nach:"
   #

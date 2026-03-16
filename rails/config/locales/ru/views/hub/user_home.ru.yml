@@ -110,6 +110,7 @@ ru:
   site_view_filter_and_sort_kind: "Вид:"
   site_view_filter_and_sort_kind_else: "Вид"
   site_view_filter_and_sort_kind_filter_tooltip: "Фильтр по виду сайта:"
+  site_view_filter_and_sort_kind_filter_drop_header: "Фильтр по типу страницы:"
   #
   site_view_filter_and_sort_access: "Доступ:"
   site_view_filter_and_sort_access_else: "Доступ"
@@ -126,3 +127,4 @@ ru:
     list: "Переключить на список"
   #
   site_view_filter_and_sort_show_all: "показать все"
+  

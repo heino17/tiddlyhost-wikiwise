@@ -102,6 +102,7 @@ zh_CN:
   site_view_filter_and_sort_kind: "类型："
   site_view_filter_and_sort_kind_else: "类型"
   site_view_filter_and_sort_kind_filter_tooltip: "站点类型过滤器："
+  site_view_filter_and_sort_kind_filter_drop_header: "按页面类型筛选:"
   #
   site_view_filter_and_sort_access: "访问："
   site_view_filter_and_sort_access_else: "访问"
