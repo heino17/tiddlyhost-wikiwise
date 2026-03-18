@@ -54,7 +54,14 @@ ja:
   action_menu_upload_form_confirmation_text_before: "本当にサイト"
   action_menu_upload_form_confirmation_text_after: "をこれからアップロードする TiddlyWiki ファイルで置き換えますか？\n\nこの操作は元に戻せません！"
   #
-  hub_view_table_actions: "操作"
+  hub_view_table_header_name: "名前"
+  hub_view_table_header_kind: "種類"
+  hub_view_table_header_version: "バージョン"
+  hub_view_table_header_access: "アクセス"
+  hub_view_table_header_views: "閲覧数"
+  hub_view_table_header_size: "サイズ"
+  hub_view_table_header_updated: "更新日時"
+  hub_view_table_header_actions: "操作"
   # clones and views
   hub:
     clones:

@@ -53,7 +53,14 @@ ru:
   action_menu_upload_form_confirmation_text_after: "файлом TiddlyWiki, который вы собираетесь загрузить? \n\nЭта операция не может быть отменена!"
   #
   #hub_view_show_per_page: "18" # ещё не реализовано
-  hub_view_table_actions: "Действия"
+  hub_view_table_header_name: "Имя"
+  hub_view_table_header_kind: "Тип"
+  hub_view_table_header_version: "Версия"
+  hub_view_table_header_access: "Доступ"
+  hub_view_table_header_views: "Просмотры"
+  hub_view_table_header_size: "Размер"
+  hub_view_table_header_updated: "Обновлено"
+  hub_view_table_header_actions: "Действия"
   # clones and views
   hub:
     clones:

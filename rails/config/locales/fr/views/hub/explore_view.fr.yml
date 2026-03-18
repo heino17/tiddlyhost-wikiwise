@@ -55,7 +55,14 @@ fr:
   
   #
   #hub_view_show_per_page: "18" # pas encore implémenté
-  hub_view_table_actions: "Actions"
+  hub_view_table_header_name: "Nom"
+  hub_view_table_header_kind: "Type"
+  hub_view_table_header_version: "Version"
+  hub_view_table_header_access: "Accès"
+  hub_view_table_header_views: "Vues"
+  hub_view_table_header_size: "Taille"
+  hub_view_table_header_updated: "Mis à jour"
+  hub_view_table_header_actions: "Actions"
   # clones and views
   hub:
     clones:

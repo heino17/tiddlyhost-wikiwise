@@ -1,15 +1,19 @@
 %table.sites.table.table-striped.mt-4
 
   %thead
-    %th= sort_link 'Name', :asc
+    %th= sort_link t('hub_view_table_header_name'),    'name',    :asc
     %th
-    %th= sort_link 'Kind'
-    %th= sort_link 'Version'
-    %th= sort_link 'Access', :asc
-    %th= sort_link 'Views'
-    %th= sort_link 'Size'
-    %th= sort_link 'Updated'
-    %th= t('hub_view_table_actions')
+    %th= sort_link t('hub_view_table_header_kind'),    'kind'
+    %th= sort_link t('hub_view_table_header_version'), 'version'
+    %th{ style: "text-align: left; padding-left: 13px;" }
+      = sort_link t('hub_view_table_header_access'),  'access',  :asc
+    %th{ style: "text-align: center; padding-left: 0px;" }
+      = sort_link t('hub_view_table_header_views'),   'views'
+    %th= sort_link t('hub_view_table_header_size'),    'size'
+    %th{ style: "text-align: left; padding-left: 13px;" }
+      = sort_link t('hub_view_table_header_updated'), 'updated'
+    %th{ style: "text-align: left; padding-left: 25px;" }
+      = t('hub_view_table_header_actions')
 
   %tbody
     - @filtered_sites.each do |site|
@@ -22,7 +26,7 @@
           - unless site.tag_list.empty?
             .site-tags= home_tag_links(site)
 
-        %td{ style: "text-align: right; padding: 0.3em 1em;" }
+        %td{ style: "text-align: right; padding: 0.3em 0.5em;" }
           - thumbnail = site.thumbnail_with_fallback
           - if thumbnail.present?
             = link_to site.url, target: site.long_name do
@@ -38,7 +42,6 @@
             .text-muted -
 
         %td.small.smaller
-          -# extended for i18n
           - if site.access_private?
             = t('site_view_edit_wiki_access_private')
           - elsif site.access_public?

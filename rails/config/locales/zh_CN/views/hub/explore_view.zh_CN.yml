@@ -53,7 +53,14 @@ zh_CN:
   action_menu_upload_form_confirmation_text_after: "吗？\n\n此操作无法撤销！"
   #
   #hub_view_show_per_page: "18" # 尚未实现
-  hub_view_table_actions: "操作"
+  hub_view_table_header_name: "名称"
+  hub_view_table_header_kind: "类型"
+  hub_view_table_header_version: "版本"
+  hub_view_table_header_access: "访问"
+  hub_view_table_header_views: "浏览量"
+  hub_view_table_header_size: "大小"
+  hub_view_table_header_updated: "更新时间"
+  hub_view_table_header_actions: "操作"
   #clones and views
   hub:
     clones:

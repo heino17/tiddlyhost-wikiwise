@@ -59,7 +59,14 @@ de:
   action_menu_upload_form_confirmation_text_after: "durch Hochladen dieser Datei überschreiben möchtest? \n\nDieser Vorgang kann nicht rückgängig gemacht werden!"
   #
   #hub_view_show_per_page: "18" # not yet implemented
-  hub_view_table_actions: "Aktionen"
+  hub_view_table_header_name: "Name"
+  hub_view_table_header_kind: "Art"
+  hub_view_table_header_version: "Version"
+  hub_view_table_header_access: "Zugang"
+  hub_view_table_header_views: "Aufrufe"
+  hub_view_table_header_size: "Größe"
+  hub_view_table_header_updated: "Zuletzt geändert"
+  hub_view_table_header_actions: "Aktionen"
   #clones and views
   hub:
     clones:

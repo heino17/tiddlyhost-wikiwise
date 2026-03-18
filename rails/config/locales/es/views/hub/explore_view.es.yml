@@ -54,7 +54,14 @@ es:
   action_menu_upload_form_confirmation_text_after: "con el archivo TiddlyWiki que está a punto de cargar? \n\n¡Esta operación no se puede deshacer!"
   #
   #hub_view_show_per_page: "18" # aún no implementado
-  hub_view_table_actions: "Acciones"
+  hub_view_table_header_name: "Nombre"
+  hub_view_table_header_kind: "Tipo"
+  hub_view_table_header_version: "Versión"
+  hub_view_table_header_access: "Acceso"
+  hub_view_table_header_views: "Vistas"
+  hub_view_table_header_size: "Tamaño"
+  hub_view_table_header_updated: "Actualizado"
+  hub_view_table_header_actions: "Acciones"
   # clones and views
   hub:
     clones:
