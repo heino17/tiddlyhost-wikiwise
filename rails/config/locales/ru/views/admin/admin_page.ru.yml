@@ -53,7 +53,7 @@ ru:
       th_confirmed: "Подтверждено"
       #
     radio_filter:
-      filter_row_prefix: "Фильтр"
+      filter_row_prefix: "Фильтры"
       filter_all: "все"
       owned:
         yes: "принадлежит"

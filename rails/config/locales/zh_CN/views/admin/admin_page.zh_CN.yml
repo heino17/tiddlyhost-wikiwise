@@ -53,7 +53,7 @@ zh_CN:
       th_confirmed: "已确认"
       #
     radio_filter:
-      filter_row_prefix: "筛选"
+      filter_row_prefix: "筛选器"
       filter_all: "全部"
       owned:
         yes: "已拥有"

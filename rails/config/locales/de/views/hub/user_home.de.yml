@@ -43,7 +43,15 @@ de:
   site_view_save_history_older_versions: "Ältere Versionen"
   site_view_save_history_no_older_versions: "Keine älteren Versionen gefunden."
   site_view_save_history_pop_set_label: "Label beschriften"
+  site_view_save_history_pop_label_info: "Label für Version"
   site_view_save_history_pop_update: "Aktualisieren"
+  site_view_save_history_older_versions_actions_view: "Ansehen"
+  site_view_save_history_older_versions_actions_download: "Herunterladen"
+  site_view_save_history_older_versions_actions_restore: "Als aktuelle Version wiederherstellen"
+  site_view_save_history_older_versions_actions_discard: "Verwerfen"
+  site_view_save_history_older_versions_actions_upgrade: "Tarif upgraden"
+  site_view_save_history_older_versions_actions_restore_alert: "Bist du sicher, dass du den aktuellen Inhalt der Seite durch diese ältere Version ersetzen möchtest?"
+  site_view_save_history_older_versions_actions_discard_alert: "Bist du sicher, dass du diese gespeicherte Version verwerfen möchtest?"
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Einstellungen für"

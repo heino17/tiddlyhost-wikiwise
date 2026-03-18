@@ -53,7 +53,7 @@ fr:
       th_confirmed: "Confirmé"
       #
     radio_filter:
-      filter_row_prefix: "Filtre"
+      filter_row_prefix: "Filtres"
       filter_all: "tous"
       owned:
         yes: "possédé"

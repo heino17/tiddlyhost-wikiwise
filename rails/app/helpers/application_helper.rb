@@ -210,8 +210,18 @@ module ApplicationHelper
   }.freeze
 
   def link_content(key)
-    bi_icon_args, text = SHARED_LINK_CONTENT[key]
-    bi_icon(*Array.wrap(bi_icon_args)) + text
+    icon, text_key = case key
+                     when :view    then ['box-arrow-up-right', 'site_view_save_history_older_versions_actions_view']
+                     when :download then ['download', 'site_view_save_history_older_versions_actions_download']
+                     when :restore then ['file-earmark-arrow-up', 'site_view_save_history_older_versions_actions_restore']
+                     when :discard then ['trash', 'site_view_save_history_older_versions_actions_discard']
+                     when :upgrade then [['stars', { class: 'red-icon' }], 'site_view_save_history_older_versions_actions_upgrade']
+                     else [nil, nil]
+                     end
+  
+    return "" unless text_key
+  
+    bi_icon(*Array.wrap(icon)) + t(text_key)
   end
 
   # Silly helper to avoid long lines in haml due to very long strings in function

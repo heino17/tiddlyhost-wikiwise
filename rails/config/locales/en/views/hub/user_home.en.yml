@@ -43,7 +43,16 @@ en:
   site_view_save_history_older_versions: "Older versions"
   site_view_save_history_no_older_versions: "No older versions found."
   site_view_save_history_pop_set_label: "Set label"
+  site_view_save_history_pop_label_info: "Label for version"
   site_view_save_history_pop_update: "Update"
+  site_view_save_history_older_versions_actions_view: "View"
+  site_view_save_history_older_versions_actions_download: "Download"
+  site_view_save_history_older_versions_actions_restore: "Restore as current version"
+  site_view_save_history_older_versions_actions_discard: "Discard"
+  site_view_save_history_older_versions_actions_upgrade: "Upgrade plan"
+  site_view_save_history_older_versions_actions_restore_alert: "Are you sure you want to replace the site's current content with this older version?"
+  site_view_save_history_older_versions_actions_discard_alert: "Are you sure you want to discard this saved version?"
+  
   # user home actions menu "Settings"-details
   site_view_edit_wiki_heading: "Settings for"
   site_view_edit_wiki_name_label: "Name"

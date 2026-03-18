@@ -15,12 +15,12 @@
 
     = link_to(link_content(:restore), restore_version_site_path(@site, f.blob_id),
       class: 'dropdown-item', method: :post,
-      data: { confirm: "Are you sure you want to replace the site's current content with this older version?" })
+      data: { confirm: I18n.t('site_view_save_history_older_versions_actions_restore_alert') })
     .dropdown-divider
 
     = link_to(link_content(:discard), discard_version_site_path(@site, f.blob_id),
       class: 'dropdown-item', method: :post,
-      data: { confirm: "Are you sure you want to discard this saved version?" })
+      data: { confirm: I18n.t('site_view_save_history_older_versions_actions_discard_alert') })
 
   - else
     -#
