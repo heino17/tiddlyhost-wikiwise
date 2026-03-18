@@ -94,6 +94,8 @@ zh_CN:
   site_view_edit_wiki_advanced_settings_allow_public_clone: "使此站点可用作模板，以便他人克隆"
   site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "适合展示有趣且维护良好的站点，以便人们发现。请注意，名称、描述和标签将在探索页面上可搜索。"
 
+  site_view_edit_wiki_advanced_settings_disable_public_download_url: "禁用公开下载链接"
+  site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip: "禁用<a href=\"download\">下载链接</a>，使其他用户更难下载你公开站点的完整副本。"
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "允许站点在 iframe 中加载"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "启用时，将抑制默认的 deny X-Frame-Options 标头。请注意，在 iframe 中加载的站点可能容易受到 clickjacking 攻击。"
 

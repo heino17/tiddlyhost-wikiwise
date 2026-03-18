@@ -96,6 +96,9 @@ ru:
   site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Идеально для показа интересных и хорошо поддерживаемых сайтов, чтобы люди их находили.  
   Обратите внимание, что имя, описание и теги будут поисковыми на странице Исследования."
   
+  site_view_edit_wiki_advanced_settings_disable_public_download_url: "Отключить публичную ссылку на скачивание"
+  site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip: "Отключите <a href=\"download\">ссылку на скачивание</a>, 
+  чтобы пользователям было менее удобно загружать полную копию вашего публичного сайта."
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "Разрешить загрузку сайта в iframe"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "При включении подавляется заголовок deny X-Frame-Options по умолчанию.  
   Обратите внимание, что сайты, загружаемые в iframe, могут быть уязвимы к атакам clickjacking."

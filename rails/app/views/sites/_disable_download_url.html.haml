@@ -2,8 +2,7 @@
   .form-check.enable-tooltips
     = f.check_box :disable_download_url, class: 'form-check-input'
     = f.label :disable_download_url, class: 'form-check-label' do
-      Disable public download url
+      = t('site_view_edit_wiki_advanced_settings_disable_public_download_url').html_safe
 
       = render 'popover_help',
-        html_content: "Disable the <a href=\"#{site.download_url}\">download url</a> to |
-          make it less convenient for users to download a full copy of your public site." |
+        html_content: t('site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip').html_safe

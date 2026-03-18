@@ -97,6 +97,9 @@ ja:
   site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "興味深い・よく管理されたサイトを他の人に発見してもらうのに最適です。  
   名前・説明・タグは探索ページで検索対象となります。"
   
+  site_view_edit_wiki_advanced_settings_disable_public_download_url: "公開ダウンロードURLを無効化"
+  site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip: "<a href=\"download\">ダウンロードURL</a>
+  を無効にすることで、ユーザーが公開サイトの完全なコピーをダウンロードしにくくなります。"
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "サイトを iframe 内で読み込めるようにする"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "有効にすると、デフォルトの X-Frame-Options deny ヘッダーが抑制されます。  
   iframe 内で読み込まれるサイトは <a href=\"https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%83%E3%82%AF%E3%82%B8%E3%83%A3%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0\" target=\"_blank\">クリックジャッキング</a> 攻撃に脆弱になる可能性があります。"

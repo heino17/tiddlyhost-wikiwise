@@ -101,6 +101,9 @@ en:
   Note that the name, description and tags will 
   be searchable on the Explore page."
   
+  site_view_edit_wiki_advanced_settings_disable_public_download_url: "Disable public download url"
+  site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip: "Disable the <a href=\"download\">download url</a> to 
+  make it less convenient for users to download a full copy of your public site."
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "Allow site to be loaded inside an iframe"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "When this is set the default 
   <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options\" target=\"_blank\">X-Frame-Options</a> 

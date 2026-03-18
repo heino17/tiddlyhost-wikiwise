@@ -96,6 +96,9 @@ ko:
   site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "흥미롭고 잘 관리된 사이트를 보여주기 적합.  
   이름, 설명, 태그는 탐색 페이지에서 검색 가능."
   
+  site_view_edit_wiki_advanced_settings_disable_public_download_url: "공개 다운로드 URL 비활성화"
+  site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip: "<a href=\"download\">다운로드 URL</a>
+  을 비활성화하여 사용자가 공개 사이트의 전체 복사본을 다운로드하기 어렵게 만듭니다."
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "iframe 내 사이트 로드 허용"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "활성화 시 기본 deny X-Frame-Options 헤더 억제.  
   iframe 로드 사이트는 클릭재킹 공격에 취약할 수 있음."

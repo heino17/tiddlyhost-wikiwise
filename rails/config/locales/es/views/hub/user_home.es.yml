@@ -94,6 +94,9 @@ es:
   site_view_edit_wiki_advanced_settings_allow_public_clone: "Hacer este sitio disponible como plantilla para que otros lo clonen"
   site_view_edit_wiki_advanced_settings_allow_public_clone_tooltip: "Ideal para mostrar sitios interesantes y bien mantenidos para que la gente los descubra. Nota que el nombre, descripción y etiquetas serán buscables en la página Explorar."
   
+  site_view_edit_wiki_advanced_settings_disable_public_download_url: "Desactivar URL de descarga pública"
+  site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip: "Desactiva la <a href=\"download\">URL de descarga</a> 
+  para que sea menos conveniente para los usuarios descargar una copia completa de tu sitio público."
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "Permitir que el sitio se cargue dentro de un iframe"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "Cuando esto está activado, se suprime el encabezado X-Frame-Options deny por defecto. Ten en cuenta que los sitios cargados en iframes pueden ser vulnerables a ataques de clickjacking."
   

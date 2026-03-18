@@ -89,7 +89,8 @@ de:
   site_view_edit_wiki_access_public_tooltip: "Am besten geeignet für Inhalte, die Du mit anderen teilen möchtest."
   site_view_edit_wiki_access_public_description: "Deine Seite wird im Internet zugänglich sein und von jedem angesehen werden können."
   
-  site_view_edit_wiki_access_hub_listed_tooltip: "Am besten geeignet, um interessante, gut gepflegte Websites zu präsentieren, die andere entdecken können. Beachte, dass der Name, die Beschreibung und die Tags auf der „Schaufenster“-Seite durchsuchbar sind."
+  site_view_edit_wiki_access_hub_listed_tooltip: "Am besten geeignet, um interessante, gut gepflegte Websites zu präsentieren, die andere entdecken können. 
+  Beachte, dass der Name, die Beschreibung und die Tags auf der „Schaufenster“-Seite durchsuchbar sind."
   site_view_edit_wiki_access_hub_listed_description: "Deine Seite wird im Internet zugänglich sein und auch aufgeführt und durchsuchbar sein auf der"
   # Advanced settings
   site_view_edit_wiki_advanced_settings_link: "Erweiterte Einstellungen"
@@ -101,6 +102,8 @@ de:
   Öffentliche und durchsuchbare Seiten, für die diese Option aktiviert ist, werden auf der Seite 
   <a href=\"/templates?t=1\" target=\"_blank\">Vorlagen</a> gelistet."
   
+  site_view_edit_wiki_advanced_settings_disable_public_download_url: "Öffentliche Download-URL deaktivieren"
+  site_view_edit_wiki_advanced_settings_disable_public_download_url_tooltip: "Deaktiviere die <a href=\"download\">Download-URL</a>, damit es für Nutzer schwieriger wird, eine vollständige Kopie deiner öffentlichen Seite herunterzuladen."
   site_view_edit_wiki_advanced_settings_allow_public_iframe: "Erlaube das Laden Deiner Seite in einem iframe"
   site_view_edit_wiki_advanced_settings_allow_public_iframe_tooltip: "Wenn diese Option aktiviert ist, wird der Standard-Header 
   <a  href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options\"  target=\"_blank\">X-Frame-Options</a> 
