@@ -7,8 +7,8 @@
 - weitere Sprachen einfach zu implementieren  
 - beachte die Ports!  
  
-...ist eine Kopie von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer 
-- in 8 Sprachen übersetzten Oberfläche,
+...ist ein Fork von [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) mit einer 
+- in 7 weitere Sprachen übersetzten Oberfläche,
 - durch Implementierung von I18n Sprachunterstützung. **Siehe: [Readme_i18n.md](Readme_i18n.md)**
 - Erweitert um Kommentar & Bewertung der Tiddlyhost-Wikis. **Siehe: [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**  
 
@@ -42,8 +42,8 @@ cd tiddlyhost-wikiwise
 - more languages easy to implement  
 - note the ports!  
  
-...is a copy of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with a 
-- interface translated into 8 languages,
+...is a fork of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with a 
+- interface translated into 7 additional languages,
 - through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
 - Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
 
