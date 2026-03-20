@@ -1,5 +1,5 @@
 ## German part
-scroll down gor english part
+scroll down for english part
 
 # Anpassungen für Tiddlyhost-wikiwise
 - Das ist im Grunde das woran ich denken muss, um tiddlyhost.local im Browser aufrufen zu können.
@@ -112,8 +112,9 @@ SSL_MODE: self_signed
 
 
 ### Impressum - Seite (speziell für die Darstellung in Europa)
-- Die Impressum-Seite gibt es in diesem Branch nicht, hier nur zu meiner Erinnerung
+- Als Übung des Erstellens einer neuen Seite ist eine Impressum-Seite für Europäer entstanden
 /rails/app/views/home/impressum.html.haml
+  - die Anzeige des Impressum-Links kann per "Schalter", einer Definition in der rails/lib/settings/features.rb, aktiviert werden
 Als kleine Spielerei sind die Adresse und die E-Mail-Adresse in Unicode verschlüsselt,
 sodass Datensammler die Daten nur als Zahlen und nicht als Klartext lesen können...
  
@@ -233,8 +234,9 @@ SSL_MODE: self_signed
 
 
 ### Imprint - page (especially for presentation in Europe)
-- The imprint page does not exist in this branch, here only for my memory
+- As an exercise in creating a new page, a legal notice page for Europeans has been created
 /rails/app/views/home/impressum.html.haml
+  - The legal notice link can be enabled via a “switch”, a definition in rails/lib/settings/features.rb
 As a small gimmick, the address and email address is encoded in Unicode,
 so data collectors read the data only as numbers, not plain text...
  
