@@ -1,3 +1,10 @@
+**Original Work & Modifications**
+
+**Tiddlyhost** (original): Copyright (c) 2021-2025, Simon Baird  
+**Modifications and extensions** Copyright (c) 2026, heino17 (tiddlyhost-wikiwise)
+
+---
+
 Tiddyhost
 ---------
 
