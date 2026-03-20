@@ -26,3 +26,19 @@ zh_CN:
   由严格的行业标准支持安全性与数据保护。"
   site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> 是一个易用且高度可信的在线支付处理平台，
   由严格的行业标准支持安全性与数据保护。"
+  
+  plans:
+    free:
+      features:
+        - 공개 및 비공개 TiddlyWiki & Feather Wiki 사이트 생성
+        - Explore 페이지에서 창작물을 다른 사람들과 공유
+    standard:
+      features:
+        - 청구된 Tiddlyspot 사이트를 임의의 URL로 리디렉션
+        - <b>저장 기록</b> 기능으로 사이트의 이전 버전 보기 및 복원
+    premium:
+      features:
+        - 사용자 지정 도메인 이름
+        - 외부 호스팅 이미지 및 PDF
+        
+    site_plans_fallback_missing_plan: "支付系统未设置"

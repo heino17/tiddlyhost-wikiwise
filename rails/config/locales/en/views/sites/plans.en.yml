@@ -27,3 +27,18 @@ en:
   site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> is an easy to use and highly trusted platform for online payment handling, 
   backed by strict industry standards for security and data protection."
   
+  plans:
+    free:
+      features:
+        - Create public and private TiddlyWiki & Feather Wiki sites
+        - Share your creations with others via the Explore page
+    standard:
+      features:
+        - Redirect claimed Tiddlyspot sites to any url
+        - View and recover previous versions of your sites with the <b>save history</b> feature
+    premium:
+      features:
+        - Custom domain names
+        - Externally hosted images and PDFs
+        
+    site_plans_fallback_missing_plan: "Payment system not set up"

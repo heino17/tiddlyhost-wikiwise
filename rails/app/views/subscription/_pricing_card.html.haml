@@ -1,5 +1,5 @@
 -# plan is expected to be :free, :standard, or :premium
-- features = feature_descriptions_for(plan)
+- features = t("plans.#{plan}.features", default: [])
 - product = Settings.stripe_product(plan)
 
 -# Determine if this is the current subscription
@@ -9,8 +9,10 @@
   .plan-card.card.mb-4.rounded-3.d-flex{ style: "height: 100%;" }
     .card-header.py-3.text-white.bg-gradient{ class: "plan-#{product.name}" }
       %h4.my-0.fw-normal
-        = product.name
-        = I18n.t('site_pricing_pricingcard_titel')
+        - if product['name'] == 'Missing'
+          = t('plans.site_plans_fallback_missing_plan')   # "Zahlungen nicht eingerichtet"
+        - else
+          = "#{product['name']} #{t('site_pricing_pricingcard_titel')}"
     .card-body.mx-3.pb-4.d-flex.flex-column
       %h1.card-title.pricing-card-title
         = "$#{product.price}"

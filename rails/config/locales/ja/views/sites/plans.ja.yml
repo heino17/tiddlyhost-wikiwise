@@ -26,3 +26,19 @@ ja:
   セキュリティとデータ保護に関する厳格な業界基準に裏付けられています。"
   site_plans_loggedin_stripe_tooltip: "<a href=\"https://stripe.com/\" target=\"_blank\">Stripe</a> は使いやすく信頼性の高いオンライン決済プラットフォームで、 
   セキュリティとデータ保護に関する厳格な業界基準に裏付けられています。"
+  
+  plans:
+    free:
+      features:
+        - 公開および非公開のTiddlyWiki・Feather Wikiサイトを作成
+        - Exploreページを通じて創作物を他の人と共有
+    standard:
+      features:
+        - 請求済みのTiddlyspotサイトを任意のURLにリダイレクト
+        - <b>保存履歴</b>機能でサイトの以前のバージョンを閲覧・復元
+    premium:
+      features:
+        - カスタムドメイン名
+        - 外部ホストされた画像とPDF
+        
+    site_plans_fallback_missing_plan: "決済システムが設定されていません"
