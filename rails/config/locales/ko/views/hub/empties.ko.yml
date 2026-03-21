@@ -1,0 +1,34 @@
+ko:
+  empties:
+    1:
+      title: "TiddlyWiki (독립형)"
+      description: "내부 코어 JavaScript를 갖춘 유명한 맞춤형 개인 위키 및 비선형 노트북."
+      tooltip: "내부 코어 플러그인을 사용하면 사이트 크기가 커지고 로딩 및 저장 속도가 느려지지만, 다운로드한 TiddlyWiki 파일은 인터넷 연결 없이도 오프라인에서 사용 가능합니다."
+    2:
+      title: "TiddlyWiki Classic"
+      description: "2012년 'TiddlyWiki5' 재작성 이전의 원본 TiddlyWiki 버전."
+      tooltip: "작은 커뮤니티에서 여전히 사용 및 개발 중입니다. Tiddlyhost에서 완벽히 지원됩니다."
+    3:
+      title: "TW5 JSON-Store-Test (Pre-Merge)"
+      description: "테스트 전용 — 자세한 내용은 https://github.com/simonbaird/tiddlyhost/issues/161 참조"
+      tooltip: "병합 전 실험적 형식 — 일반 사용에는 적합하지 않습니다."
+    4:
+      title: "TiddlyWiki 프리릴리스 빌드"
+      description: "TiddlyWiki의 최신 나이틀리 빌드(잠재적으로 불안정)."
+      tooltip: "버그나 미완성 기능이 있을 수 있어 심각한 사용에는 권장하지 않습니다. 테스트나 다음 버전 미리보기에 사용하세요."
+    5:
+      title: "Feather Wiki"
+      description: "Markdown과 WYSIWYG를 모두 지원하는 현대적이고 가벼운 싱글페이지 위키."
+      tooltip: "Feather Wiki는 매우 작습니다(약 50KB)만 확장 가능하며 태그, 사용자 스타일, 게시 모드 등을 지원합니다."
+    6:
+      title: "TiddlyWiki (외부 코어)"
+      description: "외부 코어 JavaScript를 갖춘 유명한 맞춤형 개인 위키 및 비선형 노트북."
+      tooltip: "외부 호스팅 코어로 사이트가 작아지고 로딩 및 저장이 빨라지지만, 다운로드한 파일은 인터넷 연결 없이는 작동하지 않습니다."
+    20:
+      title: "Feather Wiki (외부 코어)"
+      description: "Feather Wiki의 Feathers & Bones 버전. 실험적인 기술 미리보기. 주의해서 사용하세요."
+      tooltip: "외부 JavaScript로 초기 HTML 파일은 616바이트에 불과합니다. 현재 Feather Wiki의 커스텀 빌드가 필요합니다."
+    21:
+      title: "Siteleteer"
+      description: "Feather Wiki 제작자의 더 가볍고 단순한 싱글페이지 위키."
+      tooltip: "작동 방식을 확인하려면 페이지의 깔끔하고 매우 읽기 쉬운 소스 코드를 보세요. Siteleteer의 커스텀 빌드가 필요합니다."

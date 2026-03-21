@@ -1,0 +1,34 @@
+es:
+  empties:
+    1:
+      title: "TiddlyWiki (autónomo)"
+      description: "El famoso wiki personal personalizable y cuaderno no lineal con núcleo JavaScript interno."
+      tooltip: "Con un plugin de núcleo interno el sitio será más grande, la carga y el guardado más lentos, pero el archivo TiddlyWiki descargado funcionará sin conexión incluso sin acceso a internet."
+    2:
+      title: "TiddlyWiki Classic"
+      description: "La versión original de TiddlyWiki antes de la reescritura de 2012 a «TiddlyWiki5»."
+      tooltip: "Todavía utilizada y desarrollada por una pequeña comunidad. Totalmente soportada en Tiddlyhost."
+    3:
+      title: "TW5 JSON-Store-Test (Pre-Merge)"
+      description: "Solo para pruebas — ver https://github.com/simonbaird/tiddlyhost/issues/161"
+      tooltip: "Formato experimental antes del merge — no destinado al uso normal."
+    4:
+      title: "TiddlyWiki Pre-Release build"
+      description: "La compilación nocturna más reciente potencialmente inestable de TiddlyWiki."
+      tooltip: "No recomendada para uso serio ya que puede tener errores o funciones nuevas incompletas. Úsala para probar o previsualizar la próxima versión de TiddlyWiki."
+    5:
+      title: "Feather Wiki"
+      description: "Un wiki de página única moderno y ligero con soporte para Markdown y WYSIWYG."
+      tooltip: "Feather Wiki es muy pequeño (alrededor de 50 KB) pero extensible, soporta etiquetas, estilos personalizados, modo de publicación y más."
+    6:
+      title: "TiddlyWiki (núcleo externo)"
+      description: "El famoso wiki personal personalizable y cuaderno no lineal con núcleo JavaScript externo."
+      tooltip: "Con el núcleo alojado externamente el sitio será más pequeño, la carga y el guardado más rápidos, pero el archivo TiddlyWiki descargado no funcionará sin acceso a internet."
+    20:
+      title: "Feather Wiki (núcleo externo)"
+      description: "Variante Feathers & Bones de Feather Wiki. Vista previa técnica experimental. Usar con precaución."
+      tooltip: "Con JavaScript externo, el archivo HTML inicial es de solo 616 bytes. Requiere una compilación personalizada de Feather Wiki."
+    21:
+      title: "Siteleteer"
+      description: "Wiki de una sola página aún más ligera y simple del creador de Feather Wiki."
+      tooltip: "Para ver cómo funciona, mira el código fuente limpio y muy legible de la página. Requiere una compilación personalizada de Siteleteer."

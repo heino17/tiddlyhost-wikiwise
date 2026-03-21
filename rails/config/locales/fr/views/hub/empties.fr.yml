@@ -1,0 +1,34 @@
+fr:
+  empties:
+    1:
+      title: "TiddlyWiki (autonome)"
+      description: "Le célèbre wiki personnel personnalisable et carnet non linéaire avec noyau JavaScript interne."
+      tooltip: "Avec un plugin de noyau interne, le site sera plus gros, le chargement et l'enregistrement plus lents, mais le fichier TiddlyWiki téléchargé fonctionnera hors ligne même sans accès internet."
+    2:
+      title: "TiddlyWiki Classic"
+      description: "La version originale de TiddlyWiki avant la réécriture en « TiddlyWiki5 » en 2012."
+      tooltip: "Toujours utilisée et développée par une petite communauté. Entièrement prise en charge sur Tiddlyhost."
+    3:
+      title: "TW5 JSON-Store-Test (Pre-Merge)"
+      description: "Uniquement pour tests — voir https://github.com/simonbaird/tiddlyhost/issues/161"
+      tooltip: "Format expérimental avant le merge — non destiné à une utilisation normale."
+    4:
+      title: "TiddlyWiki Pre-Release build"
+      description: "La dernière compilation nocturne potentiellement instable de TiddlyWiki."
+      tooltip: "Non recommandée pour une utilisation sérieuse car elle peut contenir des bugs ou des fonctionnalités nouvelles incomplètes. Utilisez-la pour tester ou prévisualiser la prochaine version de TiddlyWiki."
+    5:
+      title: "Feather Wiki"
+      description: "Un wiki monopage moderne et léger avec support Markdown et WYSIWYG."
+      tooltip: "Feather Wiki est très petit (environ 50 Ko) mais extensible, prend en charge les tags, les styles personnalisés, le mode publication et plus encore."
+    6:
+      title: "TiddlyWiki (noyau externe)"
+      description: "Le célèbre wiki personnel personnalisable et carnet non linéaire avec noyau JavaScript externe."
+      tooltip: "Avec le noyau hébergé en externe, le site sera plus petit, le chargement et l'enregistrement plus rapides, mais le fichier TiddlyWiki téléchargé ne fonctionnera pas sans accès internet."
+    20:
+      title: "Feather Wiki (noyau externe)"
+      description: "Variante Feathers & Bones de Feather Wiki. Aperçu technique expérimental. À utiliser avec prudence."
+      tooltip: "Avec JavaScript externe, le fichier HTML initial ne fait que 616 octets. Nécessite une compilation personnalisée de Feather Wiki."
+    21:
+      title: "Siteleteer"
+      description: "Wiki monopage encore plus léger et simple du créateur de Feather Wiki."
+      tooltip: "Pour voir comment ça fonctionne, regardez le code source propre et très lisible de la page. Nécessite une compilation personnalisée de Siteleteer."

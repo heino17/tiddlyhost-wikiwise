@@ -1,0 +1,34 @@
+ja:
+  empties:
+    1:
+      title: "TiddlyWiki（スタンドアロン）"
+      description: "内部コアJavaScriptを備えた有名なカスタマイズ可能な個人用Wikiおよび非線形ノートブック。"
+      tooltip: "内部コアプラグインを使用するとサイトサイズが大きくなり、読み込みと保存が遅くなりますが、ダウンロードしたTiddlyWikiファイルはインターネット接続なしでもオフラインで使用可能です。"
+    2:
+      title: "TiddlyWiki Classic"
+      description: "2012年の「TiddlyWiki5」リライト以前のオリジナル版TiddlyWiki。"
+      tooltip: "小規模なコミュニティで今も使用・開発されています。Tiddlyhostで完全にサポートされています。"
+    3:
+      title: "TW5 JSON-Store-Test（Pre-Merge）"
+      description: "テスト専用 — 詳細は https://github.com/simonbaird/tiddlyhost/issues/161 を参照"
+      tooltip: "マージ前の実験的フォーマット — 通常利用には適していません。"
+    4:
+      title: "TiddlyWiki プレリリースビルド"
+      description: "TiddlyWikiの最新ナイトリービルド（潜在的に不安定）。"
+      tooltip: "バグや未完成の新機能が含まれる可能性があるため、本格的な使用にはおすすめしません。テストや次期バージョンのプレビューに使用してください。"
+    5:
+      title: "Feather Wiki"
+      description: "MarkdownとWYSIWYGの両方をサポートするモダンで軽量なシングルページWiki。"
+      tooltip: "Feather Wikiは非常に軽量（約50KB）ですが、タグ、カスタムスタイル、公開モードなどに対応し拡張可能です。"
+    6:
+      title: "TiddlyWiki（外部コア）"
+      description: "外部コアJavaScriptを備えた有名なカスタマイズ可能な個人用Wikiおよび非線形ノートブック。"
+      tooltip: "外部ホストのコアプラグインによりサイトが小さくなり、読み込みと保存が速くなりますが、ダウンロードしたTiddlyWikiファイルはインターネット接続なしでは動作しません。"
+    20:
+      title: "Feather Wiki（外部コア）"
+      description: "Feather WikiのFeathers & Bones版。実験的な技術プレビュー。慎重に使用してください。"
+      tooltip: "外部JavaScriptにより初期HTMLファイルは616バイトのみ。現在、Feather Wikiのカスタムビルドが必要です。"
+    21:
+      title: "Siteleteer"
+      description: "Feather Wikiの作者による、さらに軽量でシンプルなシングルページWiki。"
+      tooltip: "仕組みを確認するには、ページのクリーンで非常に読みやすいソースコードを見てください。Siteleteerのカスタムビルドが必要です。"

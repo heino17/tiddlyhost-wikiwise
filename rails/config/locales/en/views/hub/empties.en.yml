@@ -1,0 +1,37 @@
+# This file isn't really necessary, since the original English `rails/db/seeds/empties.yml` serves as a fallback anyway.
+# But I'm leaving it here for the sake of completeness.
+en:
+  empties:
+    1:
+      title: "TiddlyWiki (self-contained)"
+      description: "The famous customizable personal wiki and non-linear notebook, with internal core javascript."
+      tooltip: "With an internal core plugin the site will be larger, loading and saving will be slower, but the downloaded TiddlyWiki file will be usable offline even without internet access."
+    2:
+      title: "TiddlyWiki Classic"
+      description: "The original version of TiddlyWiki from before the 2012 \"TiddlyWiki5\" rewrite."
+      tooltip: "Still used and developed by a small community. Fully supported on Tiddlyhost."
+    3:
+      title: "TW5 JSON-Store-Test (Pre-Merge)"
+      description: "For testing purposes only – see https://github.com/simonbaird/tiddlyhost/issues/161"
+      tooltip: "Experimentelles Format vor dem Merge – nicht für normale Nutzung gedacht."
+    4:
+      title: "TiddlyWiki Pre-Release-Build"
+      description: "The potentially unstable latest nightly build of TiddlyWiki."
+      tooltip: "Not recommended for serious use since it might have bugs or incomplete new features. Use this to test or preview the next version of TiddlyWiki."
+    5:
+      title: "Feather Wiki"
+      description: "A modern and light-weight single-page wiki with support for both Markdown and WYSIWYG."
+      tooltip: "Feather Wiki is very small (around 50 KB) but it's extensible, supports tagging, custom styles, publish mode, and more."
+    6:
+      title: "TiddlyWiki (externer Core)"
+      description: "The famous customizable personal wiki and non-linear notebook, with external core javascript."
+      tooltip: "With the core plugin hosted externally the site will be smaller, loading and saving will be faster, but the downloaded TiddlyWiki file won't work without internet access."
+      
+    20:
+      title: "Feather Wiki (externer Core)"
+      description: "Feathers & Bones version of Feather Wiki. Experimental tech-preview. Use with caution."
+      tooltip: "With external javascript the initial html file is just 616 bytes. Currently requires a custom build of Feather Wiki."
+    21:
+      title: "Siteleteer"
+      description: "An even lighter and simpler single-page wiki from the creator of Feather Wiki."
+      tooltip: "To see how it works, view the clean and very readable page source. Requires a custom build of siteleteer."

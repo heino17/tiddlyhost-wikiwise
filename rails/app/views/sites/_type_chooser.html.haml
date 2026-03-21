@@ -14,15 +14,15 @@
         = logo_for_kind empty.kind
 
         .title
-          = empty.title
+          = t("empties.#{empty.id}.title", default: empty.title)
 
         %small.text-muted{ style: "font-size: 80%;" }
           (#{empty.tiddlywiki_version})
 
-        = render 'popover_help', html_content: empty.long_tooltip
+        = render 'popover_help', html_content: t("empties.#{empty.id}.tooltip", default: empty.tooltip)
 
         .description
-          = empty.description
+          = t("empties.#{empty.id}.description", default: empty.description)
 
   .no-hover.longer-only.ms-3.small
     = link_to t('site_view_edit_wiki_create_from_template'), "/hub?t=1"
