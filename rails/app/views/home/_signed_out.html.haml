@@ -29,7 +29,7 @@
   = turbo_off_link_to new_user_session_path, class: 'btn btn-lg btn-primary' do
     = t('get_started_button_login')
     
-  - if Settings::Features.registration_enabled?
+  - if Settings::Features.registration_enabled? == true
     %span= t('get_started_divider')
     = turbo_off_link_to new_user_registration_path, class: 'btn btn-lg btn-primary' do
       = t('get_started_button_signup')

@@ -9,6 +9,7 @@ ja:
       sites: "サイト"
       tspot_sites: "Tspot ページ"
       storage: "ストレージ"
+      settings: "設定"
       etc: "その他"
       #
     tab_stats:
@@ -129,3 +130,27 @@ ja:
       of: "の"
       # ...
       in_total: "件"
+      #
+    tab_settings_title: "設定"
+    tab_settings:
+      aktivate: "有効化"
+      save: "保存"
+      cancel: "キャンセル"
+      settings_saved: "設定を保存しました！"
+    # rails/app/controllers/admin_controller.rb
+    # def settings
+    startpage_introduction_block_enabled:
+      label: "ホーム: 導入ブロックを表示"
+      description: "ホームページに大きな導入テキストを表示します"
+    special_imprint_enabled:
+      label: "特別なインプリントページを有効"
+      description: "フッターに追加のインプリントリンクを使用"
+    registration_enabled:
+      label: "登録を許可"
+      description: "新規ユーザーがアカウントを作成可能"
+    comments_enabled:
+      label: "コメント有効"
+      description: "ユーザーがウィキにコメントを書けます"
+    wiki_votes_enabled:
+      label: "ウィキ投票有効"
+      description: "ユーザーがウィキを星で評価可能"

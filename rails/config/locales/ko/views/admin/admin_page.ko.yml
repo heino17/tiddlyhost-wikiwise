@@ -9,6 +9,7 @@ ko:
       sites: "사이트"
       tspot_sites: "Tspot 페이지"
       storage: "스토리지"
+      settings: "설정"
       etc: "기타"
       #
     tab_stats:
@@ -129,3 +130,27 @@ ko:
       of: "중"
       # ...
       in_total: "건"
+      #
+    tab_settings_title: "설정"
+    tab_settings:
+      aktivate: "활성화"
+      save: "저장"
+      cancel: "취소"
+      settings_saved: "설정이 저장되었습니다!"
+    # rails/app/controllers/admin_controller.rb
+    # def settings
+    startpage_introduction_block_enabled:
+      label: "홈페이지: 소개 블록 보기"
+      description: "홈페이지에 큰 소개 텍스트를 표시합니다"
+    special_imprint_enabled:
+      label: "특별 각인 페이지 활성화"
+      description: "푸터에 추가 각인 링크 사용"
+    registration_enabled:
+      label: "등록 허용"
+      description: "신규 사용자가 계정을 생성할 수 있습니다"
+    comments_enabled:
+      label: "댓글 활성화"
+      description: "사용자가 위키에 댓글을 작성할 수 있습니다"
+    wiki_votes_enabled:
+      label: "위키 투표 활성화"
+      description: "사용자가 위키를 별점으로 평가할 수 있습니다"

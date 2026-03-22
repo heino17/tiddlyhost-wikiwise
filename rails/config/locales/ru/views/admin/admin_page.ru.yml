@@ -8,6 +8,7 @@ ru:
       sites: "Сайты"
       tspot_sites: "Страницы Tspot"
       storage: "Хранилище"
+      settings: "Настройки"
       etc: "Прочее"
       #
     tab_stats:
@@ -61,12 +62,16 @@ ru:
       saved:
         yes: "сохранён"
         no:  "не сохранён"
+        
       private_yes: "приватный"
       private_no:  "публичный"
+      
       hub_yes: "в хабе"
       hub_no:  "не в хабе"
+      
       template_yes: "шаблон"
       template_no:  "не шаблон"
+      
       no_stub:
         yes: "не заглушка"
         no:  "заглушка"
@@ -78,6 +83,7 @@ ru:
         no:  "не удалён"
       signedin_yes: "вошёл"
       signedin_no:  "никогда не входил"
+      
       subscription:
         current: "активная"
         any:     "любой статус"
@@ -128,3 +134,27 @@ ru:
       of: "из"
       # ...
       in_total: "всего."
+      #
+    tab_settings_title: "Настройки"
+    tab_settings:
+      aktivate: "Активировать"
+      save: "Сохранить"
+      cancel: "Отмена"
+      settings_saved: "Настройки сохранены!"
+    # rails/app/controllers/admin_controller.rb
+    # def settings
+    startpage_introduction_block_enabled:
+      label: "Главная страница: Показывать вводный блок"
+      description: "Отображает большой вводный текст на главной странице"
+    special_imprint_enabled:
+      label: "Специальная страница Impressum активна"
+      description: "Использует дополнительную ссылку Impressum в футере"
+    registration_enabled:
+      label: "Разрешить регистрацию"
+      description: "Новые пользователи могут создавать аккаунт"
+    comments_enabled:
+      label: "Комментарии активны"
+      description: "Пользователи могут писать комментарии к вики"
+    wiki_votes_enabled:
+      label: "Голосование за вики активно"
+      description: "Пользователи могут оценивать вики звёздами"

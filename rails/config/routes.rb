@@ -59,6 +59,8 @@ Rails.application.routes.draw do
     get 'admin/users'
     get 'admin/sites'
     get 'admin/tspot_sites'
+    get 'admin/settings'
+    patch 'admin/settings', to: 'admin#update_settings'
     get 'admin/etc'
 
     get 'admin/raw_download'
@@ -80,6 +82,7 @@ Rails.application.routes.draw do
     resources :sites do
       resources :comments, only: [:index, :create, :update, :destroy]
       resource :site_vote, only: [:create, :update]
+      resource :settings, only: [:edit, :update]
 
       collection do
         get :view_toggle

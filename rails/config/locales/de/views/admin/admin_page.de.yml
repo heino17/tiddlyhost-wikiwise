@@ -7,6 +7,7 @@ de:
       sites: "Seiten"
       tspot_sites: "Tspot Seiten"
       storage: "Speicher"
+      settings: "Einstellungen"
       etc: "Etc."
       #
     tab_stats:
@@ -127,4 +128,28 @@ de:
       of: "von"
       # ...
       in_total: "insgesamt."
-    
+      #
+    tab_settings_title: "Einstellungen"
+    tab_settings:
+      aktivate: "Aktivieren"
+      save: "Speichern"
+      cancel: "Abbrechen"
+      settings_saved: "Einstellungen gespeichert!"
+    # rails/app/controllers/admin_controller.rb
+    # def settings
+    startpage_introduction_block_enabled:
+      label: "Startseite: Einführungs-Block anzeigen"
+      description: "Zeigt den großen Intro-Text auf der Startseite"
+    special_imprint_enabled:
+      label: "Spezielle Impressum-Seite aktiv"
+      description: "Verwendet einen zusätzlichen Impressum-Link in der Fußzeile"
+    registration_enabled:
+      label: "Registrierung erlauben"
+      description: "Neue Nutzer dürfen ein Konto erstellen"
+    comments_enabled:
+      label: "Kommentare aktiv"
+      description: "Nutzer können Kommentare zu Wikis schreiben"
+    wiki_votes_enabled:
+      label: "Wiki-Bewertungen (Votes) aktiv"
+      description: "Nutzer können Wikis mit Sternen bewerten"
+      

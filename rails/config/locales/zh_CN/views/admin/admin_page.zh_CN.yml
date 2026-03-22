@@ -8,6 +8,7 @@ zh_CN:
       sites: "站点"
       tspot_sites: "Tspot 页面"
       storage: "存储"
+      settings: "设置"
       etc: "其他"
       #
     tab_stats:
@@ -128,3 +129,27 @@ zh_CN:
       of: "共"
       # ...
       in_total: "条"
+      #
+    tab_settings_title: "设置"
+    tab_settings:
+      aktivate: "激活"
+      save: "保存"
+      cancel: "取消"
+      settings_saved: "设置已保存！"
+    # rails/app/controllers/admin_controller.rb
+    # def settings
+    startpage_introduction_block_enabled:
+      label: "首页：显示介绍块"
+      description: "在首页显示大型介绍文本"
+    special_imprint_enabled:
+      label: "特殊印记页面激活"
+      description: "在页脚使用额外的印记链接"
+    registration_enabled:
+      label: "允许注册"
+      description: "新用户可以创建账户"
+    comments_enabled:
+      label: "评论激活"
+      description: "用户可以在维基上撰写评论"
+    wiki_votes_enabled:
+      label: "维基投票激活"
+      description: "用户可以用星星对维基进行评分"

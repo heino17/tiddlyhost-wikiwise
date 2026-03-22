@@ -1,4 +1,5 @@
 module Settings::Features
+  require_dependency 'setting'
   module_function
 
   def admin_enabled?(user)
@@ -22,35 +23,22 @@ module Settings::Features
   end
 
   def startpage_introduction_block_enabled?
-    # Variante A – schnell & hartcodiert zum Testen
-    false   # true / false
-
-    # Variante B – später aus DB (empfohlen)
-    # GlobalSetting.startpage_introduction_block_enabled?   # oder Setting[:startpage_introduction_block_enabled]
-
-    # Variante C – aus Rails config (deploy nötig bei Änderung)
-    # Rails.application.config.x.startpage_introduction_block_enabled || false
+    Setting.enabled?(:startpage_introduction_block_enabled, default: true)
   end
 
   def special_imprint_enabled?
-    # Variante A – schnell & hartcodiert zum Testen
-    false   # true / false
-
-    # Variante B – später aus DB (empfohlen)
-    # GlobalSetting.special_imprint_enabled?   # oder Setting[:special_imprint_enabled]
-
-    # Variante C – aus Rails config (deploy nötig bei Änderung)
-    # Rails.application.config.x.special_imprint_enabled || false
+    Setting.enabled?(:special_imprint_enabled, default: true)
   end
 
   def registration_enabled?
-    # Variante A – schnell & hartcodiert zum Testen
-    true   # true / false
+    Setting.enabled?(:registration_enabled, default: false)
+  end
 
-    # Variante B – später aus DB (empfohlen)
-    # GlobalSetting.registration_enabled?   # oder Setting[:registration_enabled]
+  def comments_enabled?
+    Setting.enabled?(:comments_enabled, default: true)
+  end
 
-    # Variante C – aus Rails config (deploy nötig bei Änderung)
-    # Rails.application.config.x.registration_enabled || false
+  def wiki_votes_enabled?
+    Setting.enabled?(:wiki_votes_enabled, default: true)
   end
 end

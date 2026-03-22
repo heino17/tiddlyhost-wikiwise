@@ -8,6 +8,7 @@ en:
       sites: "Sites"
       tspot_sites: "Tspot Seiten"
       storage: "Storage"
+      settings: "Settings"
       etc: "Etc"
       #
     tab_stats:
@@ -133,4 +134,28 @@ en:
       of: "of"
       # ...
       in_total: "in total."
+      #
+    tab_settings_title: "Settings"
+    tab_settings:
+      aktivate: "Activate"
+      save: "Save"
+      cancel: "Cancel"
+      settings_saved: "Settings saved!"
+    # rails/app/controllers/admin_controller.rb
+    # def settings
+    startpage_introduction_block_enabled:
+      label: "Home: View Introductory Block"
+      description: "Shows the large intro text on the home page"
+    special_imprint_enabled:
+      label: "Special imprint page active"
+      description: "Uses an additional imprint link in footer"
+    registration_enabled:
+      label: "Allow registration"
+      description: "New users are allowed to create an account"
+    comments_enabled:
+      label: "Comments active"
+      description: "Users can write a comment on wikis"
+    wiki_votes_enabled:
+      label: "Wiki votes active"
+      description: "Users can rate wikis with stars"
       

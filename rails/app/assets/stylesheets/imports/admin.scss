@@ -1,4 +1,3 @@
-
 .stats {
     margin-left: 1rem;
     .card {
@@ -163,4 +162,9 @@
     .search {
         margin-left: 0px;
     }
+}
+
+.form-check-input.form-switch:checked {
+  background-color: #198754 !important;
+  border-color: #198754 !important;
 }

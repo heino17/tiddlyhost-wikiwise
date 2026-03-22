@@ -8,6 +8,7 @@ es:
       sites: "Sitios"
       tspot_sites: "Páginas Tspot"
       storage: "Almacenamiento"
+      settings: "Configuración"
       etc: "Etc"
       #
     tab_stats:
@@ -128,3 +129,27 @@ es:
       of: "de"
       # ...
       in_total: "en total."
+      #
+    tab_settings_title: "Configuración"
+    tab_settings:
+      aktivate: "Activar"
+      save: "Guardar"
+      cancel: "Cancelar"
+      settings_saved: "¡Configuración guardada!"
+    # rails/app/controllers/admin_controller.rb
+    # def settings
+    startpage_introduction_block_enabled:
+      label: "Página de inicio: Mostrar bloque introductorio"
+      description: "Muestra el gran texto introductorio en la página de inicio"
+    special_imprint_enabled:
+      label: "Página de aviso legal especial activa"
+      description: "Usa un enlace adicional de aviso legal en el pie de página"
+    registration_enabled:
+      label: "Permitir registro"
+      description: "Nuevos usuarios pueden crear una cuenta"
+    comments_enabled:
+      label: "Comentarios activos"
+      description: "Los usuarios pueden escribir comentarios en wikis"
+    wiki_votes_enabled:
+      label: "Votaciones de wiki activas"
+      description: "Los usuarios pueden calificar wikis con estrellas"

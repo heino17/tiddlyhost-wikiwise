@@ -1,6 +1,7 @@
 require 'csv'
 
 class AdminController < ApplicationController
+  before_action :require_admin_user!
   include AdminChartData
 
   before_action :authenticate_user!
@@ -69,6 +70,46 @@ class AdminController < ApplicationController
 
   def tspot_sites
     render_records TspotSite.left_joins(:user).with_blobs_for_query.group(:id)
+  end
+
+  def settings
+    # neue Eintr?ge einfach hier hinzuf?gen + Default angeben
+    keys_with_defaults = [
+      { key: :startpage_introduction_block_enabled, default: false  },
+      { key: :special_imprint_enabled,              default: false  },
+      { key: :registration_enabled,                 default: true },
+      { key: :comments_enabled,                     default: true  },
+      { key: :wiki_votes_enabled,                   default: true  },      
+    ]
+  
+    @settings = keys_with_defaults.map do |item|
+      {
+        key:        item[:key],
+        label:      t("admin.#{item[:key]}.label"),
+        description:t("admin.#{item[:key]}.description"),
+        default:    item[:default]
+      }
+    end
+  end
+
+  def update_settings
+    params.require(:settings).permit!.each do |key, val|
+      Setting.set_enabled(key, val)
+    end
+  
+    respond_to do |format|
+      format.turbo_stream do
+        flash.now[:notice] = t("admin.tab_settings.settings_saved")   # oder "Einstellungen gespeichert!"
+        render turbo_stream: turbo_stream.replace("flash", partial: "layouts/flash")
+      end
+  
+      format.html do
+        redirect_to admin_settings_path, notice: t("admin.tab_settings.settings_saved")
+      end
+    end
+  rescue => e
+    flash.now[:alert] = "Fehler: #{e.message}"
+    render :settings, status: :unprocessable_entity
   end
 
   def etc

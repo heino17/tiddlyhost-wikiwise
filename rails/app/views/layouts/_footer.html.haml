@@ -90,7 +90,7 @@
             = bi_icon('gem')
             = t('footer_host_info_source_code')            
     
-    - if Settings::Features.special_imprint_enabled? == true
+    - if Settings::Features.special_imprint_enabled?
       .col.md-6
         %br
         <center>
@@ -100,11 +100,11 @@
             = link_to '/imprint' do
               = bi_icon('file-earmark-text')
               = I18n.t('footer_imprint')
-  -#
-    .col.md-6
-      %br
-      <center>      
-      %ul
-        %b= t('test')
+    -#
+      .col.md-6
         %br
-        = t('test_ok')
+        <center>      
+        %ul
+          %b= t('test')
+          %br
+          = t('test_ok')
