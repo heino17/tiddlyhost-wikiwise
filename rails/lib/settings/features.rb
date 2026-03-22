@@ -23,15 +23,15 @@ module Settings::Features
   end
 
   def startpage_introduction_block_enabled?
-    Setting.enabled?(:startpage_introduction_block_enabled, default: true)
+    Setting.enabled?(:startpage_introduction_block_enabled, default: false)
   end
 
   def special_imprint_enabled?
-    Setting.enabled?(:special_imprint_enabled, default: true)
+    Setting.enabled?(:special_imprint_enabled, default: false)
   end
 
   def registration_enabled?
-    Setting.enabled?(:registration_enabled, default: false)
+    Setting.enabled?(:registration_enabled, default: true)
   end
 
   def comments_enabled?
