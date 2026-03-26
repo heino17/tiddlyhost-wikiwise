@@ -158,3 +158,6 @@ ru:
     wiki_votes_enabled:
       label: "Голосование за вики активно"
       description: "Пользователи могут оценивать вики звёздами"
+    subscriptions_enabled:
+        label: "Подписки / Stripe-интеграция активна"
+        description: "Включает платежи, премиум-планы и расширенные функции через Stripe"

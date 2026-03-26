@@ -15,7 +15,7 @@ module Settings::Features
   end
 
   def subscriptions_enabled?(_user = nil)
-    true
+    Setting.enabled?(:subscriptions_enabled, default: true)
   end
 
   def redirect_tspot_to_url_enabled?(user)

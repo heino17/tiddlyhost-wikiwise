@@ -153,3 +153,6 @@ fr:
     wiki_votes_enabled:
       label: "Votes wiki actifs"
       description: "Les utilisateurs peuvent noter les wikis avec des étoiles"
+    subscriptions_enabled:
+        label: "Abonnements / Intégration Stripe active"
+        description: "Active les paiements, les plans premium et les fonctionnalités avancées via Stripe"

@@ -154,3 +154,6 @@ ja:
     wiki_votes_enabled:
       label: "ウィキ投票有効"
       description: "ユーザーがウィキを星で評価可能"
+    subscriptions_enabled:
+        label: "サブスクリプション / Stripe連携 有効"
+        description: "Stripe経由の支払い、プレミアムプランおよび高度な機能を有効にします"

@@ -73,13 +73,14 @@ class AdminController < ApplicationController
   end
 
   def settings
-    # neue Eintr?ge einfach hier hinzuf?gen + Default angeben
+    # neue Einträge einfach hier hinzufügen + Default angeben
     keys_with_defaults = [
       { key: :startpage_introduction_block_enabled, default: false  },
       { key: :special_imprint_enabled,              default: false  },
-      { key: :registration_enabled,                 default: true },
+      { key: :wiki_votes_enabled,                   default: true  },
       { key: :comments_enabled,                     default: true  },
-      { key: :wiki_votes_enabled,                   default: true  },      
+      { key: :registration_enabled,                 default: true },
+      { key: :subscriptions_enabled,                default: true },
     ]
   
     @settings = keys_with_defaults.map do |item|

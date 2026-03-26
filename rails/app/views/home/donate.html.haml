@@ -12,12 +12,15 @@
     = t('donations_page_txt_2').html_safe
 
   %p.py-2
-    = t('donations_page_logged_in_out_before').html_safe
-    - if user_signed_in?
+    - if Settings::Features.subscriptions_enabled? == true
+      = t('donations_page_logged_in_out_before').html_safe
+    - if Settings::Features.subscriptions_enabled? == true
       = turbo_off_link_to bi_icon('bag-check') + t('user_menu_item_subscription_plans'), '/subscription'
     - else
-      = turbo_off_link_to t('top_menu_pricing'), '/pricing'
-    = t('donations_page_logged_in_after').html_safe
+      - if Settings::Features.subscriptions_enabled? == true && user_signed_in?
+        = turbo_off_link_to t('top_menu_pricing'), '/pricing'
+    - if Settings::Features.subscriptions_enabled? == true
+      = t('donations_page_logged_in_after').html_safe
     - if subscribed_already
       %sup.th-dim
         &dagger;
@@ -34,12 +37,13 @@
         = image_tag "coffee.svg", style: "width: 120px;"
 
     .donate-button.ms-2
-      - if user_signed_in?
+      - if Settings::Features.subscriptions_enabled? == true && user_signed_in?
         = turbo_off_link_to '/subscription' do
           = bi_icon('bag-check', style: 'margin-right: 3px;') + t('user_menu_item_subscription_plans')
       - else
-        = turbo_off_link_to '/pricing' do
-          = bi_icon('bag-check', style: 'margin-right: 3px;') + t('top_menu_pricing')
+        - if Settings::Features.subscriptions_enabled? == true
+          = turbo_off_link_to '/pricing' do
+            = bi_icon('bag-check', style: 'margin-right: 3px;') + t('top_menu_pricing')
 
   - if subscribed_already
     %p.py-4.th-text-small.th-dim
