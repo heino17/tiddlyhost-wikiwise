@@ -22,22 +22,25 @@ DOCKER_PUSH_REPO ?= $(DOCKER_PUSH_ORG)/tiddlyhost
 DOCKER_PUSH_REPO_BASE ?= $(DOCKER_PUSH_REPO)-base
 
 #----------------------------------------------------------
+# Ruby Base Image Handling
+#----------------------------------------------------------
 
-# The idea here is that I want to pin the base image in Dockerfile.base
-# for reproducibility but also have an easy way to keep it updated when
-# a new version is available.
-#
 RUBY_VER=3.4
 RUBY_TAG=$(RUBY_VER)-slim
 
-# Set it to plain for detailed build output
-ifdef PROGRESS
-  PROGRESS_OPT=--progress $(PROGRESS)
-endif
+# Steuere, ob der Digest automatisch gepinnt werden soll
+# Standard: false → kein Skopeo nötig, schneller für lokale Entwicklung
+PIN_DIGEST_ENABLED ?= false
 
 pull-ruby:
 	$(D) pull ruby:$(RUBY_TAG)
-	NO_COMMIT=1 bin/pin-digest.sh docker.io/library/ruby:$(RUBY_TAG) docker/Dockerfile.base "Newer ruby base image pulled from docker hub"
+	@if [ "$(PIN_DIGEST_ENABLED)" = "true" ]; then \
+		echo "→ Pinning digest with skopeo..."; \
+		NO_COMMIT=1 bin/pin-digest.sh docker.io/library/ruby:$(RUBY_TAG) docker/Dockerfile.base "Newer ruby base image pulled from docker hub"; \
+	else \
+		echo "→ Ruby-Image gezogen (Digest-Pinning deaktiviert – PIN_DIGEST_ENABLED=false)"; \
+		echo "  Hinweis: Wenn du Digest-Pinning nutzen möchtest, setze PIN_DIGEST_ENABLED=true"; \
+	fi
 
 # Build base docker image
 # (The build args are important here, the build will fail without them)
@@ -48,23 +51,13 @@ build-base:
 fast-build-base:
 	$(DC) $(PROGRESS_OPT) build --build-arg USER_ID=$(USER_ID) --build-arg GROUP_ID=$(GROUP_ID) app
 
+# Build + Push Base Image (nur für den Original-Entwickler relevant)
 build-push-base: cleanup build-base push-base
-	NO_COMMIT=1 bin/pin-digest.sh $(DOCKER_PUSH_REPO_BASE):latest docker/Dockerfile.prod "Tiddlyhost base image rebuilt"
-
-# To set up your environment right after doing a git clone
-# Beware: This command runs `rails db:setup` which will clear out your local database
-DB_VOL_MOUNT=docker/postgresql-data/data16
-APP_VOL_MOUNTS=docker/bundle docker/node_modules docker/log docker/config docker/secrets docker/dotcache
-rails-init: build-info js-math download-empty-prerelease gzip-core-js-files
-	mkdir -p $(DB_VOL_MOUNT) $(APP_VOL_MOUNTS)
-	$(DC) run --rm app bash -c "bin/bundle install && bin/rails yarn:install && bin/rails db:setup"
-
-# Identical to the above but with an extra chown command since the user id in
-# the container doesn't match the local user id when running in GitHub workflow
-rails-init-ci:
-	mkdir -p $(DB_VOL_MOUNT) $(APP_VOL_MOUNTS)
-	sudo chown $(USER_ID):$(GROUP_ID) -R rails $(APP_VOL_MOUNTS)
-	$(DC) run --rm app bash -c "bin/bundle install && bin/rails yarn:install && bin/rails db:setup"
+	@if [ "$(PIN_DIGEST_ENABLED)" = "true" ]; then \
+		NO_COMMIT=1 bin/pin-digest.sh $(DOCKER_PUSH_REPO_BASE):latest docker/Dockerfile.prod "Tiddlyhost base image rebuilt"; \
+	else \
+		echo "→ Base-Image gebaut und gepusht (Digest-Pinning deaktiviert)"; \
+	fi
 
 #----------------------------------------------------------
 
@@ -799,17 +792,11 @@ promote-to-public: deps-update-local-with-commit git-push-work git-merge-work-in
 
 deps-update-local: pull-ruby build-base bundle-update yarn-upgrade
 	@echo ""
-	@echo "Lokale Abhängigkeiten aktualisiert (kein Push, kein automatischer Commit)"
+	@echo "✅ Lokale Abhängigkeiten aktualisiert (kein Push, kein automatischer Commit)"
+	@echo "   Digest-Pinning: $(if $(filter true,$(PIN_DIGEST_ENABLED)),aktiviert,deaktiviert)"
 	@echo ""
-	@git status --short | grep -E '(Gemfile.lock|yarn.lock|Dockerfile\.prod)' \
-	  && echo "" || echo "Keine Änderungen in Lockfiles oder Digest erkannt."
-	@echo "Nächste Schritte (wenn du zufrieden bist):"
-	@echo "  make test delint"
-	@echo "  git add Gemfile.lock yarn.lock docker/Dockerfile.prod"
-	@echo "  git commit -m 'chore: local deps + base image refresh'"
-	@echo ""
-	@$(MAKE) --no-print-directory bootstrap-email-sass-precompile test delint \
-	  || echo "⚠️  Tests oder Linting haben Fehler – bitte prüfen!"
+	@git status --short | grep -E '(Gemfile.lock|yarn.lock|Dockerfile)' || echo "Keine Änderungen erkannt."
+	$(MAKE) bootstrap-email-sass-precompile test delint || echo "⚠️  Tests oder Linting haben Probleme – bitte prüfen!"
 
 deps-update-local-with-commit: pull-ruby build-base bundle-update yarn-upgrade
 	@echo ""
