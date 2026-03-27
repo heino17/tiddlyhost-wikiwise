@@ -154,8 +154,9 @@ zh_CN:
       label: "维基投票激活"
       description: "用户可以用星星对维基进行评分"
     subscriptions_enabled:
-        label: "订阅 / Stripe 集成激活"
-        description: "通过 Stripe 启用支付、高级计划和高级功能"
+      label: "订阅 / Stripe 集成激活"
+      description: "通过 Stripe 启用支付、高级计划和高级功能"
     hub_per_page:
-        label: "Hub/Explore 中每页显示的 Wiki 数量"
-        description: "默认每页显示多少个 Wiki？(1–51)"
+      label: "Hub/Explore 中每页显示的 Wiki 数量"
+      description: "默认每页显示多少个 Wiki？(1–51)"
+      wikis_per_page: "每页 Wiki 数量"

@@ -158,4 +158,5 @@ de:
     hub_per_page:
       label: "Anzahl Wikis pro Seite im Hub/Explore"
       description: "Wie viele Wikis sollen standardmäßig auf einer Seite angezeigt werden? (1–51)"
+      wikis_per_page: "Wikis pro Seite"
       

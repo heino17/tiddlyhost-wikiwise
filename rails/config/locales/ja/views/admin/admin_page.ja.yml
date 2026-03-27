@@ -160,3 +160,4 @@ ja:
     hub_per_page:
         label: "Hub/Exploreでの1ページあたりのウィキ数"
         description: "1ページあたりデフォルトで何個のウィキを表示しますか？ (1–51)"
+        wikis_per_page: "ページあたりのウィキ数"

@@ -159,3 +159,4 @@ es:
     hub_per_page:
         label: "Número de wikis por página en Hub/Explore"
         description: "Cuántos wikis se deben mostrar por página de forma predeterminada? (1–51)"
+        wikis_per_page: "Wikis por página"
