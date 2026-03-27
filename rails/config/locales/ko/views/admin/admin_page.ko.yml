@@ -157,3 +157,6 @@ ko:
     subscriptions_enabled:
         label: "구독 / Stripe 연동 활성화"
         description: "Stripe를 통한 결제, 프리미엄 플랜 및 고급 기능을 활성화합니다"
+    hub_per_page:
+        label: "Hub/Explore에서 페이지당 위키 수"
+        description: "한 페이지에 기본적으로 몇 개의 위키를 표시할까요? (1–51)"

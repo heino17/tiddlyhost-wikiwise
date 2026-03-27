@@ -73,43 +73,27 @@ class AdminController < ApplicationController
   end
 
   def settings
-    # neue Einträge einfach hier hinzufügen + Default angeben
-    keys_with_defaults = [
-      { key: :startpage_introduction_block_enabled, default: false  },
-      { key: :special_imprint_enabled,              default: false  },
-      { key: :wiki_votes_enabled,                   default: true  },
-      { key: :comments_enabled,                     default: true  },
-      { key: :registration_enabled,                 default: true },
-      { key: :subscriptions_enabled,                default: true },
-    ]
-  
-    @settings = keys_with_defaults.map do |item|
-      {
-        key:        item[:key],
-        label:      t("admin.#{item[:key]}.label"),
-        description:t("admin.#{item[:key]}.description"),
-        default:    item[:default]
-      }
-    end
+    load_settings
   end
 
   def update_settings
-    params.require(:settings).permit!.each do |key, val|
-      Setting.set_enabled(key, val)
-    end
+    load_settings   # ← wichtig! lädt @settings neu
   
-    respond_to do |format|
-      format.turbo_stream do
-        flash.now[:notice] = t("admin.tab_settings.settings_saved")   # oder "Einstellungen gespeichert!"
-        render turbo_stream: turbo_stream.replace("flash", partial: "layouts/flash")
-      end
+    params[:settings]&.each do |key, val|
+      key_sym = key.to_sym
+      config = @settings.find { |s| s[:key] == key_sym }
   
-      format.html do
-        redirect_to admin_settings_path, notice: t("admin.tab_settings.settings_saved")
+      if config && config[:type] == :boolean
+        Setting.set_enabled(key, val)
+      else
+        Setting.set_value(key, val)
       end
     end
+  
+    redirect_to admin_settings_path, notice: t("admin.tab_settings.settings_saved")
   rescue => e
-    flash.now[:alert] = "Fehler: #{e.message}"
+    flash.now[:alert] = "Fehler beim Speichern: #{e.message}"
+    load_settings   # erneut laden für das erneute Rendering
     render :settings, status: :unprocessable_entity
   end
 
@@ -282,5 +266,38 @@ class AdminController < ApplicationController
 
   def enable_chart_js
     @need_chart_js = true
+  end
+
+  def settings_config
+    [
+      { key: :startpage_introduction_block_enabled, default: true,  type: :boolean },
+      { key: :special_imprint_enabled,              default: true,  type: :boolean },
+      { key: :registration_enabled,                 default: false, type: :boolean },
+      { key: :comments_enabled,                     default: true,  type: :boolean },
+      { key: :wiki_votes_enabled,                   default: true,  type: :boolean },
+      { key: :subscriptions_enabled,                default: true,  type: :boolean },
+      { key: :hub_per_page,                         default: 18,     type: :integer, min: 1, max: 51 }
+    ]
+  end
+  
+  def load_settings
+    @settings = settings_config.map do |cfg|
+      if cfg[:type] == :boolean
+        current_value = Setting.enabled?(cfg[:key], default: cfg[:default])
+      else
+        current_value = Setting.value_for(cfg[:key], default: cfg[:default])
+      end
+  
+      {
+        key:           cfg[:key],
+        label:         t("admin.#{cfg[:key]}.label"),
+        description:   t("admin.#{cfg[:key]}.description"),
+        default:       cfg[:default],
+        type:          cfg[:type],
+        min:           cfg[:min],
+        max:           cfg[:max],
+        current_value: current_value
+      }
+    end
   end
 end

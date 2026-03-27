@@ -161,3 +161,6 @@ en:
     subscriptions_enabled:
       label: "Subscriptions / Stripe integration active"
       description: "Enables payments, premium plans, and advanced features via Stripe"
+    hub_per_page:
+      label: "Number of wikis per page in Hub/Explore"
+      description: "How many wikis should be shown per page by default? (1–51)"

@@ -84,7 +84,7 @@
 
   = render 'search_box'
 
-.hub{ class: ("clone-button-on-hover" unless @show_templates) }
+.hub.d-flex.flex-wrap.justify-content-center.gap-3{ class: ("clone-button-on-hover" unless @show_templates) }
   - @sites.each do |site|
     = render 'site_tile', site: site, mode: 'hub'
 

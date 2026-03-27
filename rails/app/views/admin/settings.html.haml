@@ -2,22 +2,31 @@
 
 = render 'tabs'
 
-.row{ style: "border-color: rgba(0, 124, 14, 0.7); border-style: solid; border-width: thin !important; border-radius: 7px; padding: 0 0 10px; margin-bottom: 0px;"}
+.row{ style: "font-size: 0.8em; border-color: rgba(0, 124, 14, 0.7); border-style: solid; border-width: thin !important; border-radius: 7px; padding: 0 0 10px; margin-bottom: 0px;"}
+
   = form_with url: admin_settings_path, method: :patch, data: { turbo: false } do |f|
     - @settings.each do |setting|
-      - current_value = Setting.enabled?(setting[:key], default: setting[:default])
-      .setting-row.mt-4{ style: "border-width: 1px; border-color: #ff0000; font-size: 0.8em; margin-bottom: -15px;" }
-        %b= setting[:label]  
-        %br
-        = setting[:description]
-      
-        .form-check.form-switch
-          = hidden_field_tag "settings[#{setting[:key]}]", "0"
-          = check_box_tag "settings[#{setting[:key]}]", "1", current_value,
-              class: "form-check-input",
-              id:    "setting_#{setting[:key]}"
-          = label_tag "setting_#{setting[:key]}", I18n.t('admin.tab_settings.aktivate'), class: "form-check-label"
+      .setting-row.mt-4
+        %h6= setting[:label]
+        %p.text-muted= setting[:description]
+  
+        - if setting[:type] == :boolean
+          .form-check.form-switch
+            = hidden_field_tag "settings[#{setting[:key]}]", "0"
+            = check_box_tag "settings[#{setting[:key]}]", "1", setting[:current_value],
+                class: "form-check-input", 
+                id: "setting_#{setting[:key]}"
+            = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
+  
+        - elsif setting[:type] == :integer
+          .input-group.w-25
+            = number_field_tag "settings[#{setting[:key]}]", 
+                               setting[:current_value],
+                               min: setting[:min] || 1,
+                               max: setting[:max] || 100,
+                               class: "form-control"
+            .input-group-text= t('admin.tab_settings.per_page_suffix', default: ' pro Seite')
   
     .actions.mt-5
-      = f.submit I18n.t('admin.tab_settings.save'), class: "btn btn-primary"
-      = turbo_off_link_to I18n.t('admin.tab_settings.cancel'), admin_path, class: "btn btn-outline-secondary ms-2"
+      = f.submit t('admin.tab_settings.save'), class: "btn btn-primary"
+      = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn btn-outline-secondary ms-2"

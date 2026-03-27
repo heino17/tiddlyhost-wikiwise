@@ -157,3 +157,6 @@ ja:
     subscriptions_enabled:
         label: "サブスクリプション / Stripe連携 有効"
         description: "Stripe経由の支払い、プレミアムプランおよび高度な機能を有効にします"
+    hub_per_page:
+        label: "Hub/Exploreでの1ページあたりのウィキ数"
+        description: "1ページあたりデフォルトで何個のウィキを表示しますか？ (1–51)"
