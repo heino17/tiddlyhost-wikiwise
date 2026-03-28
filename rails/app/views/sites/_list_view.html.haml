@@ -1,17 +1,17 @@
 %table.sites.table.table-striped.mt-4
 
   %thead
-    %th= sort_link t('hub_view_table_header_name'),    'name',    :asc
+    %th= sort_link t('hub_view_table_header_name'),    :asc,  'dropdown-item', 'name'
     %th
-    %th= sort_link t('hub_view_table_header_kind'),    'kind'
-    %th= sort_link t('hub_view_table_header_version'), 'version'
+    %th= sort_link t('hub_view_table_header_kind'),    :desc, 'dropdown-item', 'kind'
+    %th= sort_link t('hub_view_table_header_version'), :desc, 'dropdown-item', 'version'
     %th{ style: "text-align: left; padding-left: 13px;" }
-      = sort_link t('hub_view_table_header_access'),  'access',  :asc
+      = sort_link t('hub_view_table_header_access'),  :asc,  'dropdown-item', 'access'
     %th{ style: "text-align: center; padding-left: 0px;" }
-      = sort_link t('hub_view_table_header_views'),   'views'
-    %th= sort_link t('hub_view_table_header_size'),    'size'
+      = sort_link t('hub_view_table_header_views'),   :desc, 'dropdown-item', 'views'
+    %th= sort_link t('hub_view_table_header_size'),    :desc, 'dropdown-item', 'size'
     %th{ style: "text-align: left; padding-left: 13px;" }
-      = sort_link t('hub_view_table_header_updated'), 'updated'
+      = sort_link t('hub_view_table_header_updated'), :desc, 'dropdown-item', 'updated'
     %th{ style: "text-align: left; padding-left: 25px;" }
       = t('hub_view_table_header_actions')
 
