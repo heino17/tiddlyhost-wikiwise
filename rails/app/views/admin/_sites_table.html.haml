@@ -1,36 +1,36 @@
 %thead
   %tr
-    %th= sort_link t('admin.tab_sites_table_headers.th_id'), :asc
-    %th= sort_link t('admin.tab_sites_table_headers.th_name'), :asc
+    %th= sort_link t('admin.tab_sites_table_headers.th_id'),        key: 'id',        default_dir: :asc
+    %th= sort_link t('admin.tab_sites_table_headers.th_name'),      key: 'name',      default_dir: :asc
     %th
     - unless params[:kind]
-      %th= sort_link t('admin.tab_sites_table_headers.th_kind')
+      %th= sort_link t('admin.tab_sites_table_headers.th_kind'),    key: 'kind'
     %th= t('admin.tab_sites_table_headers.th_empty')
-    %th= sort_link t('admin.tab_sites_table_headers.th_clone')
-    %th= sort_link t('admin.tab_sites_table_headers.th_version')
-    %th= sort_link t('admin.tab_sites_table_headers.th_description'), :asc
+    %th= sort_link t('admin.tab_sites_table_headers.th_clone'),     key: 'clone'
+    %th= sort_link t('admin.tab_sites_table_headers.th_version'),   key: 'version'
+    %th= sort_link t('admin.tab_sites_table_headers.th_description'), key: 'description', default_dir: :asc
     - unless params[:private]
-      %th= sort_link t('admin.tab_sites_table_headers.th_private')
+      %th= sort_link t('admin.tab_sites_table_headers.th_private'), key: 'private'
     - unless params[:hub]
-      %th= sort_link t('admin.tab_sites_table_headers.th_hub')
+      %th= sort_link t('admin.tab_sites_table_headers.th_hub'),     key: 'hub'
     - unless params[:template]
-      %th= sort_link t('admin.tab_sites_table_headers.th_template')
-    %th= sort_link t('admin.tab_sites_table_headers.th_iframes')
-    %th= sort_link t('admin.tab_sites_table_headers.th_put')
-    %th= sort_link t('admin.tab_sites_table_headers.th_upload')
-    %th= sort_link t('admin.tab_sites_table_headers.th_views')
-    %th= sort_link t('admin.tab_sites_table_headers.th_accesses')
-    %th= sort_link t('admin.tab_sites_table_headers.th_saves')
-    %th= sort_link t('admin.tab_sites_table_headers.th_clones')
-    %th= sort_link t('admin.tab_sites_table_headers.th_versions')
+      %th= sort_link t('admin.tab_sites_table_headers.th_template'),key: 'template'
+    %th= sort_link t('admin.tab_sites_table_headers.th_iframes'),   key: 'iframes'
+    %th= sort_link t('admin.tab_sites_table_headers.th_put'),       key: 'put'
+    %th= sort_link t('admin.tab_sites_table_headers.th_upload'),    key: 'upload'
+    %th= sort_link t('admin.tab_sites_table_headers.th_views'),     key: 'views'
+    %th= sort_link t('admin.tab_sites_table_headers.th_accesses'),  key: 'accesses'
+    %th= sort_link t('admin.tab_sites_table_headers.th_saves'),     key: 'saves'
+    %th= sort_link t('admin.tab_sites_table_headers.th_clones'),    key: 'clones'
+    %th= sort_link t('admin.tab_sites_table_headers.th_versions'),  key: 'versions'
     - unless specific_user
-      %th= sort_link t('admin.tab_sites_table_headers.th_owner')
-    %th= sort_link t('admin.tab_sites_table_headers.th_raw')
+      %th= sort_link t('admin.tab_sites_table_headers.th_owner'),   key: 'owner'
+    %th= sort_link t('admin.tab_sites_table_headers.th_raw'),       key: 'raw'
     %th= 'Blob'
-    %th= sort_link t('admin.tab_sites_table_headers.th_storage'), :asc
-    %th= sort_link t('admin.tab_sites_table_headers.th_last_access')
-    %th= sort_link t('admin.tab_sites_table_headers.th_last_update')
-    %th= sort_link t('admin.tab_sites_table_headers.th_created')
+    %th= sort_link t('admin.tab_sites_table_headers.th_storage'),   key: 'storage', default_dir: :asc
+    %th= sort_link t('admin.tab_sites_table_headers.th_last_access'), key: 'last_access'
+    %th= sort_link t('admin.tab_sites_table_headers.th_last_update'), key: 'last_update'
+    %th= sort_link t('admin.tab_sites_table_headers.th_created'),   key: 'created'
 
 %tbody
   - records.each do |site|

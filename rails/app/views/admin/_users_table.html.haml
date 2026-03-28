@@ -1,20 +1,20 @@
 %thead
   %tr
-    %th= sort_link t('admin.tab_users_table_headers.th_id'), :asc
-    %th= sort_link t('admin.tab_users_table_headers.th_name'), :asc
-    %th= sort_link t('admin.tab_users_table_headers.th_username'), :asc
-    %th= sort_link t('admin.tab_users_table_headers.th_email'), :asc
-    %th= sort_link t('admin.tab_users_table_headers.th_av')
-    %th= sort_link t('admin.tab_users_table_headers.th_type')
-    %th= sort_link t('admin.tab_users_table_headers.th_subscription'), :asc
-    %th= sort_link t('admin.tab_users_table_headers.th_logins')
-    %th= sort_link t('admin.tab_users_table_headers.th_sites')
+    %th= sort_link t('admin.tab_users_table_headers.th_id'),          key: 'id',        default_dir: :asc
+    %th= sort_link t('admin.tab_users_table_headers.th_name'),        key: 'name',      default_dir: :asc
+    %th= sort_link t('admin.tab_users_table_headers.th_username'),    key: 'username',  default_dir: :asc
+    %th= sort_link t('admin.tab_users_table_headers.th_email'),       key: 'email',     default_dir: :asc
+    %th= sort_link t('admin.tab_users_table_headers.th_av'),          key: 'av'
+    %th= sort_link t('admin.tab_users_table_headers.th_type'),        key: 'type'
+    %th= sort_link t('admin.tab_users_table_headers.th_subscription'),key: 'subscription', default_dir: :asc
+    %th= sort_link t('admin.tab_users_table_headers.th_logins'),      key: 'logins'
+    %th= sort_link t('admin.tab_users_table_headers.th_sites'),       key: 'sites'
     - if Settings.tiddlyspot_enabled?
-      %th= sort_link t('admin.tab_users_table_headers.th_tspot_sites')
-    %th= sort_link t('admin.tab_users_table_headers.th_current_sign_in')
-    %th= sort_link t('admin.tab_users_table_headers.th_last_sign_in')
-    %th= sort_link t('admin.tab_users_table_headers.th_created')
-    %th= sort_link t('admin.tab_users_table_headers.th_confirmed')
+      %th= sort_link t('admin.tab_users_table_headers.th_tspot_sites'), key: 'tspot_sites'
+    %th= sort_link t('admin.tab_users_table_headers.th_current_sign_in'), key: 'current_sign_in'
+    %th= sort_link t('admin.tab_users_table_headers.th_last_sign_in'),    key: 'last_sign_in'
+    %th= sort_link t('admin.tab_users_table_headers.th_created'),         key: 'created'
+    %th= sort_link t('admin.tab_users_table_headers.th_confirmed'),       key: 'confirmed'
 
 %tbody
   - records.each do |user|

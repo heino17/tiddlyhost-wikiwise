@@ -31,51 +31,41 @@ module SortAndFilterLinkHelper
   #
   # Todo: link title could be found in sort_options[_][:title]
   # if we pass in the param_val
-  def sort_link(link_title, *args)
-    # Default-Werte
-    default_sort_dir   = :desc
-    extra_klass        = nil
-    internal_sort_key  = nil
+  #
+  # Erweiterte Version: unterstützt sowohl alte als auch neue Syntax
+  #
+  def sort_link(link_title, *args, key: nil, default_dir: nil)
+    # ── Neue klare Syntax mit Keyword-Argument ──
+    if key.present?
+      internal_sort_key = key.to_s
+      default_sort_dir  = default_dir || :desc
+      extra_klass       = args.first if args.first.is_a?(String)
+    else
+      # ── Alte Syntax (für Abwärtskompatibilität) ──
+      default_sort_dir  = :desc
+      extra_klass       = nil
+      internal_sort_key = nil
   
-    # Argumente parsen
-    args.each do |arg|
-      case arg
-      when Symbol
-        default_sort_dir = arg if [:asc, :desc].include?(arg)
-      when String
-        if extra_klass.nil?
-          extra_klass = arg if arg.start_with?('dropdown-') || arg.start_with?('btn-') || arg.include?(' ')
-        else
-          internal_sort_key = arg
+      args.each do |arg|
+        case arg
+        when Symbol
+          default_sort_dir = arg if [:asc, :desc].include?(arg)
+        when String
+          if extra_klass.nil?
+            extra_klass = arg
+          else
+            internal_sort_key = arg
+          end
         end
-      when Hash
-        # Falls du später mal Optionen als Hash übergeben möchtest
-        default_sort_dir = arg[:dir] if arg[:dir]
-        extra_klass      = arg[:class] if arg[:class]
-        internal_sort_key = arg[:key] if arg[:key]
       end
-    end
   
-    # Wenn kein expliziter internal_sort_key übergeben wurde:
-    # Versuche, ihn aus dem Übersetzungs-Key abzuleiten
-    if internal_sort_key.nil? && link_title.is_a?(String) && link_title.start_with?("translation missing")
-      # Fehlerfall – Key nicht gefunden
-      internal_sort_key = "unknown"
-    elsif internal_sort_key.nil?
-      # Versuch, aus t('sites.sort.xxx') → 'xxx' abzuleiten
-      # Das funktioniert nur, wenn du konsistent t('sites.sort.____') verwendest
-      if link_title =~ /sites\.sort\.([a-z_]+)/
-        internal_sort_key = $1
-      else
-        # Fallback: aus dem angezeigten Text (wie früher)
-        internal_sort_key = link_title.downcase.gsub(/[^a-z]/, '')
-      end
+      # Fallback, falls kein Schlüssel explizit übergeben wurde
+      internal_sort_key ||= link_title.to_s.downcase.gsub(/[^a-z0-9_]/, '')
     end
   
     param_val = internal_sort_key
   
-    # ────────────────────────────────────────────────
-    # Rest der Logik bleibt fast gleich
+    # Rest der Logik (unverändert)
     if sort_by == param_val
       new_sort_by = flipped_sort_by
       klass = sort_css_class
