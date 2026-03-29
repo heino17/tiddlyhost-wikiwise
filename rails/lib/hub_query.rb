@@ -29,15 +29,9 @@ module HubQuery
       ])
   end
 
-  def self.paginated_sites(page:, per_page:, sort_by:, tag:, user:, search:, templates_only: false, kind: nil, for_hub: true, extra_fields_in_select: [])
+    def self.paginated_sites(page:, per_page:, sort_by:, tag:, user:, search:, templates_only: false, kind: nil, for_hub: true, extra_fields_in_select: [])
     # Work with two separate queries, one for each model
     qs = [
-      #
-      # The blob joins can create multiple rows per site since there might
-      # be multiple attachments. The distinct collapses them down to one row
-      # per site, and the `blob_created_at DESC` (hopefully) means the row with
-      # the newest blob is the one that is kept, which is exactly what is needed.
-      #
       Site.with_blobs_for_query.not_deleted.select(
         'DISTINCT ON (type, id) ' \
         "'Site' AS type",
@@ -50,11 +44,13 @@ module HubQuery
         :clone_count,
         'active_storage_blobs.created_at AS blob_created_at',
         'RANDOM() AS rand_sort',
-        # Trim off Feather Wiki name prefixes for sorting, e.g. Warbler_
         "REGEXP_REPLACE(tw_version, '^[A-Za-z]+_', '') as tw_version_trimmed",
+        :votes_count,          # ← neu
+        :vote_score,
+        :comments_count,       # ← neu
         *extra_fields_in_select
       ),
-
+  
       TspotSite.with_blobs_for_query.not_deleted.select(
         'DISTINCT ON (type, id) ' \
         "'TspotSite' AS type",
@@ -67,41 +63,42 @@ module HubQuery
         '0 AS clone_count',
         'CASE WHEN save_count = 0 THEN NULL ELSE active_storage_blobs.created_at END AS blob_created_at',
         'RANDOM() AS rand_sort',
-        # Trim off Feather Wiki name prefixes for sorting, e.g. Warbler_
         "REGEXP_REPLACE(tw_version, '^[A-Za-z]+_', '') as tw_version_trimmed",
+        '0 AS votes_count',     # ← neu
+        '0.0 AS vote_score',
+        '0 AS comments_count',  # ← neu
         *extra_fields_in_select
       ),
     ]
-
+  
     # Apply filters
     qs.map!(&:for_hub) if for_hub
     qs.map!(&:templates_only) if templates_only
     qs.map! { |q| q.tagged_with(tag) } if tag.present?
     qs.map! { |q| q.where(user_id: user.id) } if user.present?
     qs.map! { |q| q.search_for(search) } if search.present?
-
+  
     kind = ['tw5', 'tw5x'] if kind == 'tw'
     qs.map! { |q| q.where(tw_kind: kind) } if kind.present?
-
-    # The idea here is the row selected by the DISTINCT ON should be
-    # the most recent one, i.e. with the newest blob_created_at.
-    # 1, 2 here means the first two columns, i.e. type and id.
+  
+    # DISTINCT ON Order (neueste Blob-Version)
     qs.map! { |q| q.order('1, 2, blob_created_at DESC') }
-
+  
     # Return paginated collection
     WillPaginate::Collection.create(page || 1, per_page) do |pager|
       # Combine the two queries with a union and apply the sorting
-      full_query_sql = qs.map(&:to_sql).map { |q| "( #{q} )" }.join(' UNION ') + "ORDER BY #{sort_by}, 1, 2 DESC"
-
+      full_query_sql = qs.map(&:to_sql).map { |q| "( #{q} )" }.join(' UNION ') +
+                       " ORDER BY #{sort_by}, 1, 2 DESC"
+  
       # For paginated results
       paged_query_sql = "#{full_query_sql} LIMIT #{pager.per_page} OFFSET #{pager.offset}"
-
+  
       # Returns a mix of Site & TspotSite records
       results = ActiveRecord::Base.connection.execute(paged_query_sql).pluck('type', 'id').map do |s_type, s_id|
         const_get(s_type).find(s_id)
       end
       pager.replace(results)
-
+  
       # Find the total result count
       result_count = ActiveRecord::Base.count_by_sql("select count(*) from (#{full_query_sql}) as foo")
       pager.total_entries = result_count

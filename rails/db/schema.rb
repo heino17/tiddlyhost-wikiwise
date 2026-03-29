@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_03_22_111943) do
+ActiveRecord::Schema[7.2].define(version: 2026_03_29_133024) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -241,10 +241,16 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_22_111943) do
     t.string "storage_service"
     t.boolean "skip_etag_check", default: false
     t.boolean "disable_download_url", default: false
+    t.integer "votes_count", default: 0, null: false
+    t.integer "comments_count", default: 0, null: false
+    t.decimal "vote_score", precision: 3, scale: 1, default: "0.0"
     t.index ["cloned_from_id"], name: "index_sites_on_cloned_from_id"
+    t.index ["comments_count"], name: "index_sites_on_comments_count"
     t.index ["empty_id"], name: "index_sites_on_empty_id"
     t.index ["name"], name: "index_sites_on_name", unique: true
     t.index ["user_id"], name: "index_sites_on_user_id"
+    t.index ["vote_score"], name: "index_sites_on_vote_score"
+    t.index ["votes_count"], name: "index_sites_on_votes_count"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -296,6 +302,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_22_111943) do
     t.bigint "redirect_to_site_id"
     t.string "redirect_to_url"
     t.string "storage_service"
+    t.decimal "vote_score"
     t.index ["name"], name: "index_tspot_sites_on_name", unique: true
     t.index ["user_id"], name: "index_tspot_sites_on_user_id"
   end

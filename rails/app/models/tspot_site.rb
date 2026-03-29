@@ -158,4 +158,12 @@ class TspotSite < ApplicationRecord
   def keep_count
     Settings.keep_counts[:tiddlyspot]
   end
+
+  # Required for voting functionality
+  def update_vote_score
+    new_score = site_votes.average(:value)&.round(1) || 0.0
+    update_column(:vote_score, new_score)
+  end
+  
+  after_commit :update_vote_score, on: [:create, :update, :destroy]
 end

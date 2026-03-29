@@ -17,6 +17,13 @@ class Site < ApplicationRecord
   def vote_count
     site_votes.count
   end
+
+  def update_vote_score
+    new_score = site_votes.average(:value)&.round(1) || 0.0
+    update_column(:vote_score, new_score)
+  end
+  # Einfacher, robuster Callback:
+  after_commit :update_vote_score, on: [:create, :update, :destroy]
   # Comment & Voting end
 
   # The empty used when the site was created.
