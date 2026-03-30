@@ -26,7 +26,11 @@ German and American
   - Turbo/Hotwire für live Updates ohne Reload
 
 - **UX- & Design**
-  - Flash-Nachrichten mit Auto-Ausblenden nach 3 Sekunden
+  - ⭐ Flash-Meldungen, die nach 3 Sekunden automatisch ausgeblendet werden
+  - ⭐ Nach „vote_score“ sortieren (5,0 → 2,7)
+  - 💬 Kommentare nach „comments_count“ sortiert
+  - 💬 Sortierung nach Kommentaren oder Bewertungen nur, wenn diese Optionen aktiviert sind
+  - 🔧 Der Zähler speichert „vote_score“ als Datenbankfeld
 
 - **Offene / zukünftige Themen**
   - Admin-Übersicht & Lösch-Log (optional)
@@ -58,7 +62,11 @@ German and American
   - Turbo/Hotwire for live Updates without reload
 
 - **UX & design**
-  - Flash messages with auto-hide after 3 seconds
+  - ⭐ Flash messages with auto-hide after 3 seconds
+  - ⭐ Explore sorted by vote_score (5.0 → 2.7)
+  - 💬 Comments sorted by comments_count
+  - 💬 Sort by comments or votes only if these options are enabled
+  - 🔧 Counter caches + vote_score as a DB field
 
 - **Open/future topics**
   - Admin overview & deletion log (optional)
