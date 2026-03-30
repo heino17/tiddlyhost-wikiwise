@@ -11,6 +11,8 @@
 - in 7 weitere Sprachen übersetzten Oberfläche,
 - durch Implementierung von I18n Sprachunterstützung. **Siehe: [Readme_i18n.md](Readme_i18n.md)**
 - Erweitert um Kommentar & Bewertung der Tiddlyhost-Wikis. **Siehe: [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**  
+- Der Admin-Bereich wurde um eine Registrierkarte/Tab erweitert  
+  für direkten Zugriff auf einige Funktionen **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
 
 Es ist für meine Server-Umgebung etwas angepasst, **siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
@@ -46,6 +48,8 @@ cd tiddlyhost-wikiwise
 - interface translated into 7 additional languages,
 - through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
 - Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
+- A new tab has been added to the admin area  
+  for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
 
 It has been slightly adapted for my server environment, **see [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
