@@ -161,8 +161,14 @@ class TspotSite < ApplicationRecord
 
   # Required for voting functionality
   def update_vote_score
-    new_score = site_votes.average(:value)&.round(1) || 0.0
+    if respond_to?(:site_votes) && site_votes.loaded?
+      new_score = site_votes.average(:value)&.round(1) || 0.0
+    else
+      new_score = 0.0
+    end
     update_column(:vote_score, new_score)
+  rescue
+    update_column(:vote_score, 0.0)  # ← Fallback
   end
   
   after_commit :update_vote_score, on: [:create, :update, :destroy]

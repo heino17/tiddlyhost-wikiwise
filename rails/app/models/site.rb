@@ -19,6 +19,7 @@ class Site < ApplicationRecord
   end
 
   def update_vote_score
+    return if destroyed?
     new_score = site_votes.average(:value)&.round(1) || 0.0
     update_column(:vote_score, new_score)
   end
