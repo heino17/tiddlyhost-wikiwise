@@ -2,10 +2,16 @@
 # the following are changes that differ from original rails I18n-files
 ---
 es:
-  # this one is missing
+  activerecord:
+    attributes:
+      site:
+        tag_list: "Lista de etiquetas"
   errors:
     format: "%{attribute} %{message}"
     messages:
+      attention:
+        one: "¡Atención! Tus datos aún no han sido procesados!"
+        other: "¡Se encontraron %{count} errores! Tus datos aún no han sido procesados!"  
       not_saved: "¡Se han detectado %{count} errores! ¡Sus datos aún no se han procesado!"
   #
   # and the hole time block for "ago"/"hace"

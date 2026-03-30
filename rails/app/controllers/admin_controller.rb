@@ -276,7 +276,8 @@ class AdminController < ApplicationController
       { key: :comments_enabled,                     default: true,  type: :boolean },
       { key: :wiki_votes_enabled,                   default: true,  type: :boolean },
       { key: :subscriptions_enabled,                default: true,  type: :boolean },
-      { key: :hub_per_page,                         default: 18,     type: :integer, min: 1, max: 51 }
+      { key: :hub_per_page,                         default: 18,     type: :integer, min: 1, max: 51 },
+      { key: :max_tags_per_site, default: 7, type: :integer, min: 1, max: 17 }
     ]
   end
   
@@ -296,7 +297,8 @@ class AdminController < ApplicationController
         type:          cfg[:type],
         min:           cfg[:min],
         max:           cfg[:max],
-        current_value: current_value
+        current_value: current_value,
+        suffix:        t("admin.#{cfg[:key]}.prefix", default: "")
       }
     end
   end

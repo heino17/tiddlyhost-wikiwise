@@ -2,8 +2,14 @@
 # the following are changes that differ from original rails I18n-files
 ---
 ru:
-  # this one is missing
+  activerecord:
+    attributes:
+      site:
+        tag_list: "Список тегов"
   errors:
     format: "%{attribute} %{message}"
     messages:
+      attention:
+        one: "Внимание! Ваши данные ещё не были обработаны!"
+        other: "Обнаружено %{count} ошибок! Ваши данные ещё не были обработаны!"
       not_saved: "Обнаружено %{count} ошибок! Ваши данные ещё не обработаны!"

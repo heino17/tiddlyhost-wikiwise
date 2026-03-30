@@ -2,9 +2,16 @@
 # the following are changes that differ from original rails I18n-files
 ---
 ja:
+  activerecord:
+    attributes:
+      site:
+        tag_list: "タグ一覧"
   errors:
     format: "%{attribute}%{message}"
     messages:
+      attention:
+        one: "注意！データはまだ処理されていません！"
+        other: "%{count}個のエラーが検出されました！データはまだ処理されていません！"
       not_saved: "%{count}件のエラーが検出されました！データはまだ処理されていません！"
 
   datetime:

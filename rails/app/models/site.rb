@@ -219,9 +219,28 @@ class Site < ApplicationRecord
     Settings.keep_counts[:free]
   end
 
+  validates :tag_list, 
+    length: {
+      maximum: -> { Setting.value_for(:max_tags_per_site, default: 7) },
+      message: ->(record, data) {
+        I18n.t(
+          "admin.max_tags_per_site.too_many",
+          count: Setting.value_for(:max_tags_per_site, default: 7)
+        )
+      }
+    }
+
+  # Optional: Automatisches Kürzen auf die erlaubte Anzahl (netter UX)
+  # before_validation :limit_tags
+
   private
 
   def site_history_enabled?
     Settings.feature_enabled?(:site_history, user)
   end
+
+  # def limit_tags
+  #   max = Setting.value_for(:max_tags_per_site, default: 7)
+  #   self.tag_list = tag_list.first(max) if tag_list.size > max
+  # end
 end

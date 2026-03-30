@@ -154,9 +154,18 @@ es:
       label: "Votaciones de wiki activas"
       description: "Los usuarios pueden calificar wikis con estrellas"
     subscriptions_enabled:
-        label: "Suscripciones / Integración de Stripe activa"
-        description: "Habilita pagos, planes premium y funciones avanzadas a través de Stripe"
+      label: "Suscripciones / Integración de Stripe activa"
+      description: "Habilita pagos, planes premium y funciones avanzadas a través de Stripe"
+    #
     hub_per_page:
-        label: "Número de wikis por página en Hub/Explore"
-        description: "Cuántos wikis se deben mostrar por página de forma predeterminada? (1–51)"
-        wikis_per_page: "Wikis por página"
+      prefix: "Wikis"
+      label: "Número de wikis por página en Hub/Explore"
+      description: "Cuántos wikis se deben mostrar por página de forma predeterminada? (1–51)"
+    max_tags_per_site:
+      prefix: "Etiquetas"
+      label: "Número máximo de etiquetas por wiki"
+      description: "Cuántas etiquetas puede tener un wiki como máximo? (recomendado: 5–10)"
+      too_many: "puede tener un máximo de %{count} etiquetas"
+    #
+    suffix_per_page: "por página"
+        

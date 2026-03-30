@@ -2,10 +2,16 @@
 # the following are changes that differ from original rails I18n-files
 ---
 de:
-  # this one is missing
+  activerecord:
+    attributes:
+      site:
+        tag_list: "Tag-Liste"
   errors:
     format: "%{attribute} %{message}"
     messages:
+      attention: 
+        one: "Achtung! Deine Daten wurden noch nicht verabeitet!"
+        other: "Es wurden %{count} Fehler festgestellt! Deine Daten wurden noch nicht verabeitet!"
       not_saved: "Es wurden %{count} Fehler festgestellt! Deine Daten wurden noch nicht verabeitet!"
   # and the hole time block for "her"
   datetime:

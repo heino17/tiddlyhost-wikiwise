@@ -2,10 +2,16 @@
 # the following are changes that differ from original rails I18n-files
 ---
 zh_CN:
-  # this one is missing
+  activerecord:
+    attributes:
+      site:
+        tag_list: "标签列表"
   errors:
     format: "%{attribute} %{message}"
     messages:
+      attention:
+        one: "注意！您的数据尚未被处理！"
+        other: "发现了 %{count} 个错误！您的数据尚未被处理！"
       not_saved: "%{count} 个错误已被检测到！您的数据尚未被处理！"
   #
   # and the hole time block for "ago"

@@ -2,10 +2,16 @@
 # the following are changes that differ from original rails I18n-files
 ---
 fr:
-  # this one is missing
+  activerecord:
+    attributes:
+      site:
+        tag_list: "Liste de tags"
   errors:
     format: "%{attribute} %{message}"
     messages:
+      attention:
+        one: "Attention ! Vos données n'ont pas encore été traitées !"
+        other: "%{count} erreurs ont été détectées ! Vos données n'ont pas encore été traitées !"
       not_saved: "%{count} erreurs ont été détectées ! Vos données n'ont pas encore été traitées !"
   #
   # and the hole time block for "ago"/"il y a"

@@ -156,7 +156,15 @@ fr:
     subscriptions_enabled:
         label: "Abonnements / Intégration Stripe active"
         description: "Active les paiements, les plans premium et les fonctionnalités avancées via Stripe"
+    #
     hub_per_page:
+        prefix: "Wikis"
         label: "Nombre de wikis par page dans Hub/Explore"
         description: "Combien de wikis doivent être affichés par page par défaut ? (1–51)"
-        wikis_per_page: "Wikis par page"
+    max_tags_per_site:
+      prefix: "Tags"
+      label: "Nombre maximum de tags par wiki"
+      description: "Combien de tags un wiki peut-il avoir au maximum ? (recommandé : 5–10)"
+      too_many: "ne peut avoir plus de %{count} tags"
+    #
+    suffix_per_page: "par page"

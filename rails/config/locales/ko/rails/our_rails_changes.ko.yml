@@ -2,8 +2,14 @@
 # the following are changes that differ from original rails I18n-files
 ---
 ko:
-  # this one is missing
+  activerecord:
+    attributes:
+      site:
+        tag_list: "태그 목록"
   errors:
     format: "%{attribute} %{message}"
     messages:
+      attention:
+        one: "주의! 데이터가 아직 처리되지 않았습니다!"
+        other: "%{count}개의 오류가 발견되었습니다! 데이터가 아직 처리되지 않았습니다!"    
       not_saved: "%{count} 개의 오류가 감지되었습니다! 귀하의 데이터는 아직 처리되지 않았습니다!"

@@ -155,9 +155,17 @@ ja:
       label: "ウィキ投票有効"
       description: "ユーザーがウィキを星で評価可能"
     subscriptions_enabled:
-        label: "サブスクリプション / Stripe連携 有効"
-        description: "Stripe経由の支払い、プレミアムプランおよび高度な機能を有効にします"
+      label: "サブスクリプション / Stripe連携 有効"
+      description: "Stripe経由の支払い、プレミアムプランおよび高度な機能を有効にします"
+    #
     hub_per_page:
-        label: "Hub/Exploreでの1ページあたりのウィキ数"
-        description: "1ページあたりデフォルトで何個のウィキを表示しますか？ (1–51)"
-        wikis_per_page: "ページあたりのウィキ数"
+      prefix: "「ウィキ」"
+      label: "Hub/Exploreでの1ページあたりのウィキ数"
+      description: "1ページあたりデフォルトで何個のウィキを表示しますか？ (1–51)"
+    max_tags_per_site:
+      prefix: "タグ"
+      label: "ウィキあたりの最大タグ数"
+      description: "1つのウィキに最大でいくつのタグを設定できますか？（推奨：5–10）"
+      too_many: "は最大%{count}個のタグまでです"
+    #
+    suffix_per_page: "ページあたり"    

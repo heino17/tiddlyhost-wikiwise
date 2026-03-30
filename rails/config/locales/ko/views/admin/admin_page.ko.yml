@@ -155,9 +155,17 @@ ko:
       label: "위키 투표 활성화"
       description: "사용자가 위키를 별점으로 평가할 수 있습니다"
     subscriptions_enabled:
-        label: "구독 / Stripe 연동 활성화"
-        description: "Stripe를 통한 결제, 프리미엄 플랜 및 고급 기능을 활성화합니다"
+      label: "구독 / Stripe 연동 활성화"
+      description: "Stripe를 통한 결제, 프리미엄 플랜 및 고급 기능을 활성화합니다"
+    #
     hub_per_page:
-        label: "Hub/Explore에서 페이지당 위키 수"
-        description: "한 페이지에 기본적으로 몇 개의 위키를 표시할까요? (1–51)"
-        wikis_per_page: "페이지당 위키 수"
+      prefix: "위키"
+      label: "Hub/Explore에서 페이지당 위키 수"
+      description: "한 페이지에 기본적으로 몇 개의 위키를 표시할까요? (1–51)"
+    max_tags_per_site:
+      prefix: "태그"
+      label: "위키당 최대 태그 수"
+      description: "하나의 위키에 최대 몇 개의 태그를 사용할 수 있나요? (권장: 5–10)"
+      too_many: "는 최대 %{count}개의 태그까지만 사용할 수 있습니다"
+    #
+    suffix_per_page: "페이지당"

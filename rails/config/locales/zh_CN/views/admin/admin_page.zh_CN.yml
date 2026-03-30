@@ -156,7 +156,15 @@ zh_CN:
     subscriptions_enabled:
       label: "订阅 / Stripe 集成激活"
       description: "通过 Stripe 启用支付、高级计划和高级功能"
+    #
     hub_per_page:
+      prefix: "维基"
       label: "Hub/Explore 中每页显示的 Wiki 数量"
       description: "默认每页显示多少个 Wiki？(1–51)"
-      wikis_per_page: "每页 Wiki 数量"
+    max_tags_per_site:
+      prefix: "标签"
+      label: "每个 Wiki 的最大标签数量"
+      description: "单个 Wiki 最多可以有多少个标签？（推荐：5–10）"
+      too_many: "最多只能有 %{count} 个标签"
+    #
+    suffix_per_page: "每页"

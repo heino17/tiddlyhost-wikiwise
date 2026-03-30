@@ -1,11 +1,14 @@
 = render layout: 'form_wrapper', locals: { heading: heading } do
 
   = form_for @site, data: { turbo: false } do |f|
-
+  
     - if @site.errors.any?
       = render layout: 'field_wrapper' do
         .alert.alert-danger
-          %p #{pluralize(@site.errors.count, "error")} prevented this site from being saved:
+          %p
+            = t("errors.messages.attention", 
+                 count: @site.errors.count, 
+                 model: t("site"))
           %ul
             - @site.errors.full_messages.each do |message|
               %li= message

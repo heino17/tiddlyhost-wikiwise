@@ -25,8 +25,10 @@
                                min: setting[:min] || 1,
                                max: setting[:max] || 100,
                                class: "form-control"
-            .input-group-text{ style: "font-size: 1.0em; font-weight: normal;"}
-              = t('admin.tab_settings.per_page_suffix', default: t('admin.hub_per_page.wikis_per_page'))
+        
+            .input-group-text{ style: "font-size: 1.0em; font-weight: normal;" }
+              = t("admin.#{setting[:key]}.prefix")
+              = t('admin.suffix_per_page')
   
     .actions.mt-5
       = f.submit t('admin.tab_settings.save'), class: "btn btn-primary"
