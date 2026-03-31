@@ -1,5 +1,19 @@
 MAKEFLAGS+=--no-print-directory
 
+# ==============================================================================
+# Tiddlyhost Wikiwise Fork – angepasste Makefile
+#
+# Dies ist die angepasste Makefile für den tiddlyhost-wikiwise Fork.
+# Sie enthält zusätzliche lokale Targets (deps-update-local*, lokale DB-Backups,
+# Branch-Management etc.) neben den Original-Targets von Simon Baird.
+#
+# Original: https://github.com/simonbaird/tiddlyhost
+# Wikiwise-Fork: https://github.com/heino17/tiddlyhost-wikiwise
+#
+# This is a customized Makefile for the tiddlyhost-wikiwise fork with
+# additional local development targets.
+# ==============================================================================
+
 # Show a list of available tasks
 _help:
 	@echo Available tasks:
@@ -25,21 +39,33 @@ DOCKER_PUSH_REPO_BASE ?= $(DOCKER_PUSH_REPO)-base
 # Ruby Base Image Handling
 #----------------------------------------------------------
 
+# The idea here is that I want to pin the base image in Dockerfile.base
+# for reproducibility but also have an easy way to keep it updated when
+# a new version is available.
+#
+# Steuere, ob der Digest automatisch gepinnt werden soll
+# Standard: false → kein Skopeo nötig, schneller für lokale Entwicklung
+# Control whether the digest should be pinned automatically
+# Default: false → no Skopeo required, faster for local development
+PIN_DIGEST_ENABLED ?= false
+
 RUBY_VER=3.4
 RUBY_TAG=$(RUBY_VER)-slim
 
-# Steuere, ob der Digest automatisch gepinnt werden soll
-# Standard: false → kein Skopeo nötig, schneller für lokale Entwicklung
-PIN_DIGEST_ENABLED ?= false
+# Set it to plain for detailed build output
+ifdef PROGRESS
+  PROGRESS_OPT=--progress $(PROGRESS)
+endif
 
+# Includes the original, but adapted for better local usability
 pull-ruby:
 	$(D) pull ruby:$(RUBY_TAG)
 	@if [ "$(PIN_DIGEST_ENABLED)" = "true" ]; then \
 		echo "→ Pinning digest with skopeo..."; \
 		NO_COMMIT=1 bin/pin-digest.sh docker.io/library/ruby:$(RUBY_TAG) docker/Dockerfile.base "Newer ruby base image pulled from docker hub"; \
 	else \
-		echo "→ Ruby-Image gezogen (Digest-Pinning deaktiviert – PIN_DIGEST_ENABLED=false)"; \
-		echo "  Hinweis: Wenn du Digest-Pinning nutzen möchtest, setze PIN_DIGEST_ENABLED=true"; \
+		echo "→ Ruby image pulled (digest pinning disabled – PIN_DIGEST_ENABLED=false)"; \
+		echo "  Note: If you want to use digest pinning, set PIN_DIGEST_ENABLED=true"; \
 	fi
 
 # Build base docker image
@@ -51,13 +77,29 @@ build-base:
 fast-build-base:
 	$(DC) $(PROGRESS_OPT) build --build-arg USER_ID=$(USER_ID) --build-arg GROUP_ID=$(GROUP_ID) app
 
-# Build + Push Base Image (nur für den Original-Entwickler relevant)
+# Build + Push Base Image (relevant only to the original developer)
+# Includes the original, but adapted for better local usability
 build-push-base: cleanup build-base push-base
 	@if [ "$(PIN_DIGEST_ENABLED)" = "true" ]; then \
 		NO_COMMIT=1 bin/pin-digest.sh $(DOCKER_PUSH_REPO_BASE):latest docker/Dockerfile.prod "Tiddlyhost base image rebuilt"; \
 	else \
 		echo "→ Base-Image gebaut und gepusht (Digest-Pinning deaktiviert)"; \
 	fi
+
+# To set up your environment right after doing a git clone
+# Beware: This command runs `rails db:setup` which will clear out your local database
+DB_VOL_MOUNT=docker/postgresql-data/data16
+APP_VOL_MOUNTS=docker/bundle docker/node_modules docker/log docker/config docker/secrets docker/dotcache
+rails-init: build-info js-math download-empty-prerelease gzip-core-js-files
+	mkdir -p $(DB_VOL_MOUNT) $(APP_VOL_MOUNTS)
+	$(DC) run --rm app bash -c "bin/bundle install && bin/rails yarn:install && bin/rails db:setup"
+
+# Identical to the above but with an extra chown command since the user id in
+# the container doesn't match the local user id when running in GitHub workflow
+rails-init-ci:
+	mkdir -p $(DB_VOL_MOUNT) $(APP_VOL_MOUNTS)
+	sudo chown $(USER_ID):$(GROUP_ID) -R rails $(APP_VOL_MOUNTS)
+	$(DC) run --rm app bash -c "bin/bundle install && bin/rails yarn:install && bin/rails db:setup"
 
 #----------------------------------------------------------
 
@@ -746,11 +788,10 @@ pretty-colors: gource-image
 	  --dir-colour 555555 \
 	  ;
 
-# Everything above this line is untouched!
 # ------------------------------------------------------------------------------
 # From here on, this is exclusively tiddlyhost-wikiwise territory!
 # Backup and update strategy
-# 
+#
 # Ab hier ausschließlich tiddlyhost-wikiwise Bereich!
 # Backup- und Updatestrategie
 # ------------------------------------------------------------------------------
@@ -785,7 +826,7 @@ promote-to-public: deps-update-local-with-commit git-push-work git-merge-work-in
 	@echo "Aktueller Stand:"
 	@git branch --show-current
 	@echo "──────────────────────────────────────────────"
-    
+
 # ------------------------------------------------------------------------------
 # Lokale Update-Targets – KEIN Push nach Docker Hub, alles nur lokal
 # ------------------------------------------------------------------------------
@@ -819,12 +860,10 @@ deps-update-local-with-commit: pull-ruby build-base bundle-update yarn-upgrade
 	@echo "Aktueller Branch-Status:"
 	@git branch --show-current
 	@git status --short
-    
+
 # ──────────────────────────────────────────────
 # Lokale Datenbank-Backups (dev Umgebung)
 # ──────────────────────────────────────────────
-# LOCAL_BACKUP_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../tiddlyhost-local-backups/db
-# LOCAL_BACKUP_DIR ?= $(shell pwd)/../tiddlyhost-local-backups/db
 LOCAL_BACKUP_DIR ?= ../tiddlyhost-local-backups/db
 TIMESTAMP := $(shell date +%Y-%m-%d_%H%M%S)
 DB_SERVICE     ?= db
@@ -834,7 +873,6 @@ DB_NAME        ?= app_development
 local-db-backup-dir:
 	mkdir -p "$(LOCAL_BACKUP_DIR)"
 
-# ──────────────────────────────────────────────
 local-db-backup: local-db-backup-dir
 	@echo "→ Erstelle PostgreSQL-Dump: $(DB_NAME) @ $(DB_SERVICE)"
 	@if ! docker compose ps --services --filter status=running | grep -q '^$(DB_SERVICE)$$'; then \
@@ -851,9 +889,6 @@ local-db-backup: local-db-backup-dir
 	@echo ""
 	@du -sh $(LOCAL_BACKUP_DIR)
 
-# ──────────────────────────────────────────────
-# Wenn Du Datenbanknamen oder User ändern möchtest
-# oder prüfen willst, ob der Container läuft
 local-db-backup-safe: local-db-backup-dir
 	@echo "→ Sicherheitsabfrage PostgreSQL-Dump: $(DB_NAME) @ $(DB_SERVICE)"
 	@if ! docker compose ps --services --filter status=running | grep -q '^$(DB_SERVICE)$$'; then \
@@ -876,8 +911,6 @@ local-db-backup-safe: local-db-backup-dir
 	@echo ""
 	@du -sh $(LOCAL_BACKUP_DIR)
 
-# ──────────────────────────────────────────────
-# Backup + kurze Info über Inhalt
 local-db-backup-info: local-db-backup
 	@if [ ! -f $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz ]; then \
 		echo "Kein Backup in dieser Sekunde erstellt → bitte zuerst 'make local-db-backup' ausführen"; \
@@ -902,13 +935,7 @@ local-db-backup-info: local-db-backup
 	@zcat $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz | grep -m 8 '^-- Name:.*Type: TABLE' | sed 's/-- Name:/  • /'
 	@echo ""
 	@echo "Tipp: Mit 'zless' oder 'zcat | less' das Backup anschauen"
-    
-# ──────────────────────────────────────────────
-# Eine Datenbank wiederherstellen
-# Restore eines ganz bestimmten Backups (edit <name of backup file here> in rails/scripts/force-restore-special-db.sh)
-# Then run:  rails/scripts/force-restore-special-db.sh
 
-# show all backups
 debug-newest:
 	@echo "Suche in: $(LOCAL_BACKUP_DIR)"
 	@ls -la $(LOCAL_BACKUP_DIR) || echo "Ordner nicht gefunden"
