@@ -864,6 +864,8 @@ deps-update-local-with-commit: pull-ruby build-base bundle-update yarn-upgrade
 # ──────────────────────────────────────────────
 # Lokale Datenbank-Backups (dev Umgebung)
 # ──────────────────────────────────────────────
+# LOCAL_BACKUP_DIR := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))/../tiddlyhost-local-backups/db
+# LOCAL_BACKUP_DIR ?= $(shell pwd)/../tiddlyhost-local-backups/db
 LOCAL_BACKUP_DIR ?= ../tiddlyhost-local-backups/db
 TIMESTAMP := $(shell date +%Y-%m-%d_%H%M%S)
 DB_SERVICE     ?= db
@@ -873,6 +875,7 @@ DB_NAME        ?= app_development
 local-db-backup-dir:
 	mkdir -p "$(LOCAL_BACKUP_DIR)"
 
+# ──────────────────────────────────────────────
 local-db-backup: local-db-backup-dir
 	@echo "→ Erstelle PostgreSQL-Dump: $(DB_NAME) @ $(DB_SERVICE)"
 	@if ! docker compose ps --services --filter status=running | grep -q '^$(DB_SERVICE)$$'; then \
@@ -889,6 +892,9 @@ local-db-backup: local-db-backup-dir
 	@echo ""
 	@du -sh $(LOCAL_BACKUP_DIR)
 
+# ──────────────────────────────────────────────
+# Wenn Du Datenbanknamen oder User ändern möchtest
+# oder prüfen willst, ob der Container läuft
 local-db-backup-safe: local-db-backup-dir
 	@echo "→ Sicherheitsabfrage PostgreSQL-Dump: $(DB_NAME) @ $(DB_SERVICE)"
 	@if ! docker compose ps --services --filter status=running | grep -q '^$(DB_SERVICE)$$'; then \
@@ -911,6 +917,8 @@ local-db-backup-safe: local-db-backup-dir
 	@echo ""
 	@du -sh $(LOCAL_BACKUP_DIR)
 
+# ──────────────────────────────────────────────
+# Backup + kurze Info über Inhalt
 local-db-backup-info: local-db-backup
 	@if [ ! -f $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_$(TIMESTAMP).sql.gz ]; then \
 		echo "Kein Backup in dieser Sekunde erstellt → bitte zuerst 'make local-db-backup' ausführen"; \
@@ -936,6 +944,12 @@ local-db-backup-info: local-db-backup
 	@echo ""
 	@echo "Tipp: Mit 'zless' oder 'zcat | less' das Backup anschauen"
 
+# ──────────────────────────────────────────────
+# Eine Datenbank wiederherstellen
+# Restore eines ganz bestimmten Backups (edit <name of backup file here> in rails/scripts/force-restore-special-db.sh)
+# Then run:  rails/scripts/force-restore-special-db.sh
+
+# show all backups
 debug-newest:
 	@echo "Suche in: $(LOCAL_BACKUP_DIR)"
 	@ls -la $(LOCAL_BACKUP_DIR) || echo "Ordner nicht gefunden"
