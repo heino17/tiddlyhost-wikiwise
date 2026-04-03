@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_03_29_133024) do
+ActiveRecord::Schema[7.2].define(version: 2026_04_01_193249) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -205,6 +205,15 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_29_133024) do
     t.index ["key"], name: "index_settings_on_key", unique: true
   end
 
+  create_table "shoutbox_messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "message", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_shoutbox_messages_on_created_at"
+    t.index ["user_id"], name: "index_shoutbox_messages_on_user_id"
+  end
+
   create_table "site_votes", force: :cascade do |t|
     t.bigint "site_id"
     t.bigint "user_id"
@@ -355,6 +364,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_29_133024) do
   add_foreign_key "pay_charges", "pay_subscriptions", column: "subscription_id"
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
+  add_foreign_key "shoutbox_messages", "users"
   add_foreign_key "site_votes", "sites"
   add_foreign_key "site_votes", "users"
   add_foreign_key "sites", "empties"

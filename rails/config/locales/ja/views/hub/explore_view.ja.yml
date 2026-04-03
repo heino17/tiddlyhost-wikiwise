@@ -65,6 +65,17 @@ ja:
   hub_view_table_header_size: "サイズ"
   hub_view_table_header_updated: "更新日時"
   hub_view_table_header_actions: "操作"
+  #
+  shoutbox_toggler_icon: "🥕"
+  shoutbox_toggler_text: "Shoutbox をオン/オフ"
+  shoutbox_hint_text: "メッセージを読む・書くにはログインが必要です！"
+  shoutbox_title_icon: "📢"
+  shoutbox_title: "シャウトボックス"
+  shoutbox_counter_suffix: "件のメッセージ"
+  shoutbox_send_button: "送信"
+  shoutbox_input_placeholder: "何か書いてください... (最大120文字)"
+  shoutbox_admin_delete_button: "削除"
+  shoutbox_admin_delete_button_confirm: "本当に削除しますか？"
   # clones and views
   hub:
     clones:

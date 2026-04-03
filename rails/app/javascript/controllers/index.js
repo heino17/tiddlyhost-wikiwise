@@ -10,5 +10,11 @@ application.register("comment-counter", CommentCounterController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import ShoutboxController from "./shoutbox_controller"
+application.register("shoutbox", ShoutboxController)
+
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)
+
 import TestController from "./test_controller"
 application.register("test", TestController)

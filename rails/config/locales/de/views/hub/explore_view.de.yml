@@ -61,7 +61,6 @@ de:
   action_menu_upload_form_confirmation_text_before: "Bist Du sicher, dass du die Seite"
   action_menu_upload_form_confirmation_text_after: "durch Hochladen dieser Datei überschreiben möchtest? \n\nDieser Vorgang kann nicht rückgängig gemacht werden!"
   #
-  #hub_view_show_per_page: "18" # not yet implemented
   hub_view_table_header_name: "Name"
   hub_view_table_header_kind: "Art"
   hub_view_table_header_version: "Version"
@@ -70,6 +69,17 @@ de:
   hub_view_table_header_size: "Größe"
   hub_view_table_header_updated: "Zuletzt geändert"
   hub_view_table_header_actions: "Aktionen"
+  #
+  shoutbox_toggler_icon: "🥕"
+  shoutbox_toggler_text: "Shoutbox ein- / ausschalten"
+  shoutbox_hint_text: "Du musst Dich anmelden, um Nachrichten lesen oder schreiben zu können!"
+  shoutbox_title_icon: "📢"
+  shoutbox_title: "Shoutbox"
+  shoutbox_counter_suffix: "Nachrichten"
+  shoutbox_send_button: "Senden"
+  shoutbox_input_placeholder: "Schreib etwas... (max. 120 Zeichen)"
+  shoutbox_admin_delete_button: "Löschen"
+  shoutbox_admin_delete_button_confirm: "Wirklich löschen?"
   #clones and views
   hub:
     clones:

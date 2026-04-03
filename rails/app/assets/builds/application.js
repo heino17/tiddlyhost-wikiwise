@@ -19789,13 +19789,13 @@
     }
   };
   function add(map, key, value) {
-    fetch(map, key).add(value);
+    fetch2(map, key).add(value);
   }
   function del(map, key, value) {
-    fetch(map, key).delete(value);
+    fetch2(map, key).delete(value);
     prune(map, key);
   }
-  function fetch(map, key) {
+  function fetch2(map, key) {
     let values = map.get(key);
     if (!values) {
       values = /* @__PURE__ */ new Set();
@@ -21692,6 +21692,52 @@
     }
   };
 
+  // app/javascript/controllers/shoutbox_controller.js
+  var shoutbox_controller_default = class extends Controller {
+    static targets = ["panel", "messages", "input"];
+    toggle() {
+      const body = this.bodyTarget;
+      const isHidden = body.style.display === "none";
+      body.style.display = isHidden ? "block" : "none";
+      if (isHidden) {
+        const header = document.getElementById("shoutbox-header");
+        const y = header.getBoundingClientRect().top + window.scrollY - 20;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+    submit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const input = this.inputTarget;
+      if (input.value.trim() === "") return;
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "text/vnd.turbo-stream.html" }
+      }).then((response) => {
+        if (response.ok) {
+          input.value = "";
+        }
+      });
+    }
+  };
+
+  // app/javascript/controllers/sidebar_controller.js
+  var sidebar_controller_default = class extends Controller {
+    static targets = ["grid", "button"];
+    connect() {
+      const hidden = localStorage.getItem("sidebarHidden") === "true";
+      if (hidden) {
+        this.gridTarget.classList.add("sidebar-hidden");
+      }
+    }
+    toggle() {
+      this.gridTarget.classList.toggle("sidebar-hidden");
+      const isHidden = this.gridTarget.classList.contains("sidebar-hidden");
+      localStorage.setItem("sidebarHidden", isHidden);
+    }
+  };
+
   // app/javascript/controllers/test_controller.js
   var test_controller_default = class extends Controller {
     connect() {
@@ -21703,6 +21749,8 @@
   // app/javascript/controllers/index.js
   application.register("comment-counter", comment_counter_controller_default);
   application.register("hello", hello_controller_default);
+  application.register("shoutbox", shoutbox_controller_default);
+  application.register("sidebar", sidebar_controller_default);
   application.register("test", test_controller_default);
 
   // app/javascript/application.js

@@ -64,6 +64,17 @@ zh_CN:
   hub_view_table_header_size: "大小"
   hub_view_table_header_updated: "更新时间"
   hub_view_table_header_actions: "操作"
+  #
+  shoutbox_toggler_icon: "🥕"
+  shoutbox_toggler_text: "打开 / 关闭 Shoutbox"
+  shoutbox_hint_text: "您必须登录才能阅读或发送消息！"
+  shoutbox_title_icon: "📢"
+  shoutbox_title: "喊话箱"
+  shoutbox_counter_suffix: "条消息"
+  shoutbox_send_button: "发送"
+  shoutbox_input_placeholder: "写点什么吧... (最多120个字符)"
+  shoutbox_admin_delete_button: "删除"
+  shoutbox_admin_delete_button_confirm: "确定要删除吗？"
   #clones and views
   hub:
     clones:

@@ -64,6 +64,17 @@ ru:
   hub_view_table_header_size: "Размер"
   hub_view_table_header_updated: "Обновлено"
   hub_view_table_header_actions: "Действия"
+  #
+  shoutbox_toggler_icon: "🥕"
+  shoutbox_toggler_text: "Включить / выключить Shoutbox"
+  shoutbox_hint_text: "Вы должны войти в аккаунт, чтобы читать и писать сообщения!"
+  shoutbox_title_icon: "📢"
+  shoutbox_title: "Шаутбокс"
+  shoutbox_counter_suffix: "сообщений"
+  shoutbox_send_button: "Отправить"
+  shoutbox_input_placeholder: "Напишите что-нибудь... (макс. 120 символов)"
+  shoutbox_admin_delete_button: "Удалить"
+  shoutbox_admin_delete_button_confirm: "Действительно удалить?"
   # clones and views
   hub:
     clones:

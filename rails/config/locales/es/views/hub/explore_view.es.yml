@@ -65,6 +65,17 @@ es:
   hub_view_table_header_size: "Tamaño"
   hub_view_table_header_updated: "Actualizado"
   hub_view_table_header_actions: "Acciones"
+  #
+  shoutbox_toggler_icon: "🥕"
+  shoutbox_toggler_text: "Activar / desactivar Shoutbox"
+  shoutbox_hint_text: "Debes iniciar sesión para leer o escribir mensajes!"
+  shoutbox_title_icon: "📢"
+  shoutbox_title: "Shoutbox"
+  shoutbox_counter_suffix: "mensajes"
+  shoutbox_send_button: "Enviar"
+  shoutbox_input_placeholder: "Escribe algo... (máx. 120 caracteres)"
+  shoutbox_admin_delete_button: "Eliminar"
+  shoutbox_admin_delete_button_confirm: "¿Realmente eliminar?"
   # clones and views
   hub:
     clones:

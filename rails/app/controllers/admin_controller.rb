@@ -275,6 +275,7 @@ class AdminController < ApplicationController
       { key: :registration_enabled,                 default: false, type: :boolean },
       { key: :comments_enabled,                     default: true,  type: :boolean },
       { key: :wiki_votes_enabled,                   default: true,  type: :boolean },
+      { key: :shoutbox_enabled,                     default: true,  type: :boolean },
       { key: :subscriptions_enabled,                default: true,  type: :boolean },
       { key: :hub_per_page,                         default: 18,     type: :integer, min: 1, max: 51 },
       { key: :max_tags_per_site, default: 7, type: :integer, min: 1, max: 17 }

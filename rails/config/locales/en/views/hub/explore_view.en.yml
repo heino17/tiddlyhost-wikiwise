@@ -70,6 +70,17 @@ en:
   hub_view_table_header_size: "Size"
   hub_view_table_header_updated: "Updated"
   hub_view_table_header_actions: "Actions"
+  #
+  shoutbox_toggler_icon: "🥕"
+  shoutbox_toggler_text: "Toggle Shoutbox"
+  shoutbox_hint_text: "You must be logged in to read or write messages!"
+  shoutbox_title_icon: "📢"
+  shoutbox_title: "Shoutbox"
+  shoutbox_counter_suffix: "messages"
+  shoutbox_send_button: "Send"
+  shoutbox_input_placeholder: "Write something... (max. 120 characters)"
+  shoutbox_admin_delete_button: "Delete"
+  shoutbox_admin_delete_button_confirm: "Really delete?"
   #clones and views
   hub:
     clones:

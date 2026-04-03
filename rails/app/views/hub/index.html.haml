@@ -84,8 +84,55 @@
 
   = render 'search_box'
 
-.hub.d-flex.flex-wrap.justify-content-center.gap-3{ class: ("clone-button-on-hover" unless @show_templates) }
-  - @sites.each do |site|
-    = render 'site_tile', site: site, mode: 'hub'
-
+/ --- Stimulus-Wrapper um Button + Grid ---
+- if Settings::Features.shoutbox_enabled?
+  .wrapper{ data: { controller: "sidebar" } }
+  
+    %button.sidebar-toggle.btn.btn-outline-primary.btn-sm{
+      title: t('shoutbox_toggler_text'),
+      data: { action: "sidebar#toggle", sidebar_target: "button" }
+    }
+      %span{ data: { sidebar_target: "icon" } }
+        = I18n.t('shoutbox_toggler_icon')
+  
+    .hub-grid.d-grid.responsive-grid{ data: { sidebar_target: "grid" } }
+  
+      .hub.d-flex.flex-wrap.justify-content-center.gap-3{ class: ("clone-button-on-hover" unless @show_templates) }
+        - @sites.each do |site|
+          = render 'site_tile', site: site, mode: 'hub'
+      - if Settings::Features.shoutbox_enabled? && user_signed_in?
+        .sidebar
+          = render 'layouts/shoutbox'
+      -else
+        .sidebar
+          = render 'layouts/shoutbox_hint'
+          
+- else 
+  - if Settings::Features.shoutbox_enabled? && user_signed_in?
+    .wrapper{ data: { controller: "sidebar" } }
+    
+      %button.sidebar-toggle.btn.btn-outline-primary.btn-sm{
+        title: t('shoutbox_toggler_text'),
+        data: { action: "sidebar#toggle", sidebar_target: "button" }
+      }
+        %span{ data: { sidebar_target: "icon" } }
+          = I18n.t('shoutbox_toggler_icon')
+    
+      .hub-grid.d-grid.responsive-grid{ data: { sidebar_target: "grid" } }
+    
+        .hub.d-flex.flex-wrap.justify-content-center.gap-3{ class: ("clone-button-on-hover" unless @show_templates) }
+          - @sites.each do |site|
+            = render 'site_tile', site: site, mode: 'hub'
+        - if Settings::Features.shoutbox_enabled? && user_signed_in?
+          .sidebar
+            = render 'layouts/shoutbox'
+        -else
+          .sidebar
+            = render 'layouts/shoutbox_hint'
+            
+  - else
+    .hub.d-flex.flex-wrap.justify-content-center.gap-3{ class: ("clone-button-on-hover" unless @show_templates) }
+      - @sites.each do |site|
+        = render 'site_tile', site: site, mode: 'hub'
+          
 = will_paginate(@sites)

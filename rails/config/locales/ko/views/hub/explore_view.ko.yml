@@ -64,6 +64,17 @@ ko:
   hub_view_table_header_size: "크기"
   hub_view_table_header_updated: "업데이트됨"
   hub_view_table_header_actions: "작업"
+  #
+  shoutbox_toggler_icon: "🥕"
+  shoutbox_toggler_text: "Shoutbox 켜기 / 끄기"
+  shoutbox_hint_text: "메시지를 읽거나 쓰려면 로그인해야 합니다!"
+  shoutbox_title_icon: "📢"
+  shoutbox_title: "샤우트박스"
+  shoutbox_counter_suffix: "개의 메시지"
+  shoutbox_send_button: "보내기"
+  shoutbox_input_placeholder: "무언가를 작성하세요... (최대 120자)"
+  shoutbox_admin_delete_button: "삭제"
+  shoutbox_admin_delete_button_confirm: "정말 삭제하시겠습니까?"
   # clones and views
   hub:
     clones:

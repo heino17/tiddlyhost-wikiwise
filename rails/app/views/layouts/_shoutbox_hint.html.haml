@@ -1,0 +1,14 @@
+.shoutbox-widget{ id: "shoutbox-widget", data: { controller: "shoutbox" } }
+  .shoutbox-header.d-flex.align-items-center.justify-content-between.p-3.border-bottom{ 
+        data: { action: "click->shoutbox#toggle" }, 
+        style: "cursor: pointer; background-color: rgba(64, 140, 253, 0.5); border-radius: 6px 6px 0 0;" }
+  
+    %span
+      = t('shoutbox_title_icon') 
+
+      = t('shoutbox_title')
+    %span.badge.bg-primary#shoutbox_count{ data: { shoutbox_target: "count" } }
+      = ShoutboxMessage.count 
+      = I18n.t('shoutbox_counter_suffix')
+  %span{ style: "font-size: 0.8em;"}
+    = I18n.t('shoutbox_hint_text')

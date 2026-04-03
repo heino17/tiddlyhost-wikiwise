@@ -41,4 +41,8 @@ module Settings::Features
   def wiki_votes_enabled?
     Setting.enabled?(:wiki_votes_enabled, default: true)
   end
+
+  def shoutbox_enabled?
+    Setting.enabled?(:shoutbox_enabled, default: true)
+  end
 end

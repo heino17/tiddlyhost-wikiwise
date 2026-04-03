@@ -1,0 +1,9 @@
+<%= turbo_stream.prepend "shoutbox_messages",
+      partial: "layouts/shoutbox_message",
+      locals: { msg: @message } %>
+
+<%= turbo_stream.update "shoutbox_count" do %>
+  <%= ShoutboxMessage.count %>
+<% end %>
+
+<%= turbo_stream.update "shoutbox-form-input", "" %>

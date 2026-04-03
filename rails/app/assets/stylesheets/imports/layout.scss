@@ -374,3 +374,81 @@ $hilight_bg_color: #d5e0f9;
         fill: var(--bs-yellow);
     }
 }
+
+/* Shoutbox */
+/* Standard: Sidebar sichtbar */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1rem;
+  transition: grid-template-columns 0.3s ease;
+}
+
+/* Sidebar ausgeblendet */
+.responsive-grid.sidebar-hidden {
+  grid-template-columns: 1fr 0px;
+}
+
+.responsive-grid.sidebar-hidden .sidebar {
+  opacity: 0;
+  pointer-events: none;
+  display: none !important;
+}
+
+/* Mobile: sowieso einspaltig */
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Toggle Button */
+.sidebar {
+  position: relative;
+//  z-index: 11;
+//  top: 177px;
+//  position: fixed;
+//  background: #FFF;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 100px;
+  right: 0.5rem;
+
+  z-index: 10;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+  opacity: 1;
+}
+.sidebar-toggle i {
+  transition: transform 0.25s ease;
+}
+
+.responsive-grid.sidebar-hidden + .sidebar-toggle i {
+  transform: rotate(180deg);
+}
+.btn-xs {
+  padding: 0.1rem 0.25rem;
+  font-size: 0.65rem;
+  line-height: 1;
+}
+.shoutbox-text {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.fade-out {
+  animation: fadeOut 0.4s ease forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; height: 0; margin: 0; padding: 0; }
+}

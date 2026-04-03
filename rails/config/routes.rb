@@ -78,6 +78,8 @@ Rails.application.routes.draw do
     get 'subscription', to: 'subscription#show'
     get 'subscription/plans', to: 'subscription#plans'
     get 'subscription/success', to: 'subscription#success'
+  
+    resources :shoutbox_messages, only: [:index, :create, :update, :destroy]
 
     resources :sites do
       resources :comments, only: [:index, :create, :update, :destroy]
