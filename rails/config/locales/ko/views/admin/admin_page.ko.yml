@@ -154,6 +154,9 @@ ko:
     wiki_votes_enabled:
       label: "위키 투표 활성화"
       description: "사용자가 위키를 별점으로 평가할 수 있습니다"
+    shoutbox_enabled:
+      label: "Shoutbox 활성화"
+      description: "로그인한 사용자들을 위한 글로벌 샤우트박스 (위키 오른쪽에 표시)"
     subscriptions_enabled:
       label: "구독 / Stripe 연동 활성화"
       description: "Stripe를 통한 결제, 프리미엄 플랜 및 고급 기능을 활성화합니다"

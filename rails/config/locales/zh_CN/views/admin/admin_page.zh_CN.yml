@@ -153,6 +153,9 @@ zh_CN:
     wiki_votes_enabled:
       label: "维基投票激活"
       description: "用户可以用星星对维基进行评分"
+    shoutbox_enabled:
+      label: "Shoutbox 활성화"
+      description: "로그인한 사용자들을 위한 글로벌 샤우트박스 (위키 오른쪽에 표시)"
     subscriptions_enabled:
       label: "订阅 / Stripe 集成激活"
       description: "通过 Stripe 启用支付、高级计划和高级功能"

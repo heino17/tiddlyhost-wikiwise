@@ -158,6 +158,9 @@ en:
     wiki_votes_enabled:
       label: "Wiki votes active"
       description: "Users can rate wikis with stars"
+    shoutbox_enabled:
+      label: "Enable Shoutbox"
+      description: "Global shoutbox for logged-in users (on the right side next to the wikis)"
     subscriptions_enabled:
       label: "Subscriptions / Stripe integration active"
       description: "Enables payments, premium plans, and advanced features via Stripe"
