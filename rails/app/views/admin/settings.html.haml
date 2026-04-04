@@ -28,7 +28,7 @@
         
             .input-group-text{ style: "font-size: 1.0em; font-weight: normal;" }
               = t("admin.#{setting[:key]}.prefix")
-              = t('admin.suffix_per_page')
+              = t("admin.#{setting[:key]}.suffix")
   
     .actions.mt-5
       = f.submit t('admin.tab_settings.save'), class: "btn btn-primary"

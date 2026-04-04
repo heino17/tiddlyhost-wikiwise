@@ -50,7 +50,12 @@ ja:
   site_view_save_history_older_versions_actions_upgrade: "プランをアップグレード"
   site_view_save_history_older_versions_actions_restore_alert: "サイトの現在の内容をこの古いバージョンで置き換えてもよろしいですか？"
   site_view_save_history_older_versions_actions_discard_alert: "この保存されたバージョンを破棄してもよろしいですか？"
+  
+  site_view_save_history_upgrade_notice: "Tiddlyhostはサブスクライバー向けに最大%{count}個のバージョンを保存・提供します。この機能を利用するには、"
+  site_view_save_history_upgrade_link_text: "今すぐプランをアップグレード"
+  site_view_save_history_keep_note: "注意：最新の%{count}バージョンだけが保持されます。それ以上になると、最も古いラベルなしの保存バージョンが自動的に削除されます。"
   # user home actions menu "Settings"-details
+  # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "設定"
   site_view_edit_wiki_name_label: "名前"
   site_view_edit_wiki_name_text: "小文字、数字、先頭・末尾以外での「-」が使用可能です。"

@@ -174,5 +174,18 @@ ru:
       label: "Максимальное количество тегов на вики"
       description: "Сколько тегов может иметь одна вики? (рекомендуется: 5–10)"
       too_many: "может иметь максимум %{count} тегов"
-    #
-    suffix_per_page: "на странице"
+    keep_count_free:
+      prefix: "Версии"
+      suffix: "на аккаунт"
+      label: "Макс. версий (Free-план)"
+      description: "Сколько версий могут максимально сохранять Free-пользователи?"
+    keep_count_standard:
+      prefix: "Версии"
+      suffix: "на аккаунт"
+      label: "Макс. версий (Standard-план)"
+      description: "Сколько версий могут максимально сохранять Standard-пользователи?"
+    keep_count_tiddlyspot:
+      prefix: "Версии"
+      suffix: "на аккаунт"
+      label: "Макс. версий (Tiddlyspot-сайты)"
+      description: "Сколько версий могут максимально сохранять Tiddlyspot-сайты?"

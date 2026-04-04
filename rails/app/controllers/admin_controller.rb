@@ -278,7 +278,10 @@ class AdminController < ApplicationController
       { key: :shoutbox_enabled,                     default: true,  type: :boolean },
       { key: :subscriptions_enabled,                default: true,  type: :boolean },
       { key: :hub_per_page,                         default: 18,     type: :integer, min: 1, max: 51 },
-      { key: :max_tags_per_site, default: 7, type: :integer, min: 1, max: 17 }
+      { key: :max_tags_per_site, default: 7, type: :integer, min: 1, max: 17 },
+      { key: :keep_count_free,       default: 4,  type: :integer, min: 1,  max: 100 },
+      { key: :keep_count_standard,   default: 100,type: :integer, min: 1, max: 100 },
+      { key: :keep_count_tiddlyspot, default: 4,  type: :integer, min: 1,  max: 100 }
     ]
   end
   

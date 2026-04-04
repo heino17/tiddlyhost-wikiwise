@@ -76,17 +76,13 @@
   - if !feature_enabled?(:site_history)
     .p-4
       %i
-        Tiddlyhost will save and provide access to up to #{Settings.keep_counts[:standard]}
-        saved versions for Tiddlyhost subscribers.
-        = link_to("Upgrade your plan", "/subscription")
-        to access this feature.
-
+        = t('site_view_save_history_upgrade_notice', count: Setting.value_for(:keep_count_standard, default: 100))
+        = link_to t('site_view_save_history_upgrade_link_text'), "/subscription"
+  
   - elsif @saved_version_count > @keep_count - 10
     .p-3.text-muted.small
       %i
-        Note that only the newest #{@keep_count} versions will be kept. Once there
-        are more than #{@keep_count}, the oldest unlabeled saved versions will be
-        removed.
+        = t('site_view_save_history_keep_note', count: @keep_count)
 
 -# Will be opened by the edit link in the history_label partial
 = render 'modal_wrapper', title: t('site_view_save_history_pop_set_label'), cancel: t('site_view_save_history_button_cancel'), submit: t('site_view_save_history_pop_update')

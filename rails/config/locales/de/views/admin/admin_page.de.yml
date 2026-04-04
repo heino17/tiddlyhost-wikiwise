@@ -161,13 +161,28 @@ de:
     # 
     hub_per_page:
       prefix: "Wikis"
+      suffix: "pro Seite"
       label: "Anzahl Wikis pro Seite im Hub/Explore"
       description: "Wie viele Wikis sollen standardmäßig auf einer Seite angezeigt werden? (1–51)"
     max_tags_per_site:
       prefix: "Tags"
+      suffix: "pro Seite"
       label: "Maximale Anzahl Tags pro Wiki"
       description: "Wie viele Tags darf ein Wiki maximal haben? (empfohlen: 5–10)"
       too_many: "darf maximal %{count} Tags haben"
-    #
-    suffix_per_page: "pro Seite"
+    keep_count_free:
+      prefix: "Versionen"
+      suffix: "pro Account"
+      label: "Max. Versionen (Free-Plan)"
+      description: "Wie viele Versionen sollen Free-User maximal speichern können?"
+    keep_count_standard:
+      prefix: "Versionen"
+      suffix: "pro Account"
+      label: "Max. Versionen (Standard-Plan)"
+      description: "Wie viele Versionen sollen Standard-User maximal speichern können?"
+    keep_count_tiddlyspot:
+      prefix: "Versionen"
+      suffix: "pro Account"
+      label: "Max. Versionen (Tiddlyspot-Sites)"
+      description: "Wie viele Versionen sollen Tiddlyspot-Sites maximal speichern können?"
       

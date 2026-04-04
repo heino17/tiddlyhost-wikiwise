@@ -169,5 +169,18 @@ fr:
       label: "Nombre maximum de tags par wiki"
       description: "Combien de tags un wiki peut-il avoir au maximum ? (recommandé : 5–10)"
       too_many: "ne peut avoir plus de %{count} tags"
-    #
-    suffix_per_page: "par page"
+    keep_count_free:
+      prefix: "Versions"
+      suffix: "par compte"
+      label: "Max. versions (Plan Free)"
+      description: "Combien de versions les utilisateurs Free peuvent-ils sauvegarder au maximum ?"
+    keep_count_standard:
+      prefix: "Versions"
+      suffix: "par compte"
+      label: "Max. versions (Plan Standard)"
+      description: "Combien de versions les utilisateurs Standard peuvent-ils sauvegarder au maximum ?"
+    keep_count_tiddlyspot:
+      prefix: "Versions"
+      suffix: "par compte"
+      label: "Max. versions (Sites Tiddlyspot)"
+      description: "Combien de versions les sites Tiddlyspot peuvent-ils sauvegarder au maximum ?"

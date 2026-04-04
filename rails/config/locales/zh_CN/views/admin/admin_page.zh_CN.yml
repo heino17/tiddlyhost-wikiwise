@@ -169,5 +169,18 @@ zh_CN:
       label: "每个 Wiki 的最大标签数量"
       description: "单个 Wiki 最多可以有多少个标签？（推荐：5–10）"
       too_many: "最多只能有 %{count} 个标签"
-    #
-    suffix_per_page: "每页"
+    keep_count_free:
+      prefix: "版本"
+      suffix: "每个账户"
+      label: "最大版本数 (Free 计划)"
+      description: "Free 用户最多可以保存多少个版本？"
+    keep_count_standard:
+      prefix: "版本"
+      suffix: "每个账户"
+      label: "最大版本数 (Standard 计划)"
+      description: "Standard 用户最多可以保存多少个版本？"
+    keep_count_tiddlyspot:
+      prefix: "版本"
+      suffix: "每个账户"
+      label: "最大版本数 (Tiddlyspot 站点)"
+      description: "Tiddlyspot 站点最多可以保存多少个版本？"

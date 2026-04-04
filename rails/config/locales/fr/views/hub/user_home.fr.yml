@@ -50,7 +50,12 @@ fr:
   site_view_save_history_older_versions_actions_upgrade: "Mettre à niveau le plan"
   site_view_save_history_older_versions_actions_restore_alert: "Êtes-vous sûr de vouloir remplacer le contenu actuel du site par cette ancienne version ?"
   site_view_save_history_older_versions_actions_discard_alert: "Êtes-vous sûr de vouloir supprimer cette version enregistrée ?"
+  
+  site_view_save_history_upgrade_notice: "Tiddlyhost enregistrera et donnera accès à jusqu'à %{count} versions pour les abonnés. Pour accéder à cette fonctionnalité, "
+  site_view_save_history_upgrade_link_text: "mettez à niveau votre plan maintenant"
+  site_view_save_history_keep_note: "Note : Seules les %{count} versions les plus récentes seront conservées. Lorsqu'il y en aura plus, les versions enregistrées les plus anciennes sans label seront automatiquement supprimées."
   # user home actions menu "Settings"-details
+  # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Paramètres pour"
   site_view_edit_wiki_name_label: "Nom"
   site_view_edit_wiki_name_text: "Lettres minuscules, chiffres et caractères '-' non en début ni en fin sont autorisés."

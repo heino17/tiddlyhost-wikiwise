@@ -50,7 +50,12 @@ zh_CN:
   site_view_save_history_older_versions_actions_upgrade: "升级计划"
   site_view_save_history_older_versions_actions_restore_alert: "您确定要用这个旧版本替换站点当前的内容吗？"
   site_view_save_history_older_versions_actions_discard_alert: "您确定要丢弃这个已保存的版本吗？"
+  
+  site_view_save_history_upgrade_notice: "Tiddlyhost 将为订阅用户保存并提供最多 %{count} 个版本。要使用此功能，"
+  site_view_save_history_upgrade_link_text: "立即升级您的计划"
+  site_view_save_history_keep_note: "注意：仅保留最新的 %{count} 个版本。当超过此数量时，最旧的未标记保存版本将被自动删除。"
   # user home actions menu "Settings"-details
+  # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "设置用于"
   site_view_edit_wiki_name_label: "名称"
   site_view_edit_wiki_name_text: "允许小写字母、数字和“-”（不在开头或结尾）。"

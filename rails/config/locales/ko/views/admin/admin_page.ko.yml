@@ -170,5 +170,18 @@ ko:
       label: "위키당 최대 태그 수"
       description: "하나의 위키에 최대 몇 개의 태그를 사용할 수 있나요? (권장: 5–10)"
       too_many: "는 최대 %{count}개의 태그까지만 사용할 수 있습니다"
-    #
-    suffix_per_page: "페이지당"
+    keep_count_free:
+      prefix: "버전"
+      suffix: "계정당"
+      label: "최대 버전 수 (Free 플랜)"
+      description: "Free 사용자는 최대 몇 개의 버전을 저장할 수 있나요?"
+    keep_count_standard:
+      prefix: "버전"
+      suffix: "계정당"
+      label: "최대 버전 수 (Standard 플랜)"
+      description: "Standard 사용자는 최대 몇 개의 버전을 저장할 수 있나요?"
+    keep_count_tiddlyspot:
+      prefix: "버전"
+      suffix: "계정당"
+      label: "최대 버전 수 (Tiddlyspot 사이트)"
+      description: "Tiddlyspot 사이트는 최대 몇 개의 버전을 저장할 수 있나요?"

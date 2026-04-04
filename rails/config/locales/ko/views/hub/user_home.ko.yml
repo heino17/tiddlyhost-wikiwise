@@ -50,7 +50,12 @@ ko:
   site_view_save_history_older_versions_actions_upgrade: "플랜 업그레이드"
   site_view_save_history_older_versions_actions_restore_alert: "사이트의 현재 내용을 이 이전 버전으로 바꾸시겠습니까?"
   site_view_save_history_older_versions_actions_discard_alert: "이 저장된 버전을 폐기하시겠습니까?"
+  
+  site_view_save_history_upgrade_notice: "Tiddlyhost는 구독자를 위해 최대 %{count}개의 버전을 저장하고 제공합니다. 이 기능을 사용하려면 "
+  site_view_save_history_upgrade_link_text: "지금 플랜 업그레이드"
+  site_view_save_history_keep_note: "참고: 최신 %{count}개의 버전만 유지됩니다. 그 이상이 되면 가장 오래된 라벨이 없는 저장 버전이 자동으로 삭제됩니다."
   # user home actions menu "Settings"-details
+  # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "설정"
   site_view_edit_wiki_name_label: "이름"
   site_view_edit_wiki_name_text: "소문자, 숫자, 시작/끝 제외 '-' 허용."

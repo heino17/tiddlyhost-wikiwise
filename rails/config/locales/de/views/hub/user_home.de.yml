@@ -52,6 +52,10 @@ de:
   site_view_save_history_older_versions_actions_upgrade: "Tarif upgraden"
   site_view_save_history_older_versions_actions_restore_alert: "Bist du sicher, dass du den aktuellen Inhalt der Seite durch diese ältere Version ersetzen möchtest?"
   site_view_save_history_older_versions_actions_discard_alert: "Bist du sicher, dass du diese gespeicherte Version verwerfen möchtest?"
+  
+  site_view_save_history_upgrade_notice: "Tiddlyhost speichert und stellt bis zu %{count} Versionen für Abonnenten zur Verfügung. Um auf diese Funktion zuzugreifen, "
+  site_view_save_history_upgrade_link_text: "jetzt upgraden"
+  site_view_save_history_keep_note: "Hinweis: Es werden nur die neuesten %{count} Versionen behalten. Sobald es mehr gibt, werden die ältesten unmarkierten Versionen automatisch gelöscht."
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Einstellungen für"

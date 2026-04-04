@@ -213,10 +213,19 @@ class Site < ApplicationRecord
   # a few. Users won't be able to see them (for now at least), but would
   # be nice if the save history is not entirely empty after subscribing.
   # See also app/jobs/prune_attachments_job.
+  # Wie viele Versionen eines Wikis sollen behalten werden?
   def keep_count
-    return Settings.keep_counts[:standard] if site_history_enabled?
+    if is_tspot?
+      Setting.value_for(:keep_count_tiddlyspot, default: 4)
+    elsif site_history_enabled?
+      Setting.value_for(:keep_count_standard, default: 100)
+    else
+      Setting.value_for(:keep_count_free, default: 4)
+    end
+  end
 
-    Settings.keep_counts[:free]
+  def keep_count_for_tiddlyspot
+    Setting.value_for(:keep_count_tiddlyspot, default: 4)
   end
 
   validates :tag_list, 

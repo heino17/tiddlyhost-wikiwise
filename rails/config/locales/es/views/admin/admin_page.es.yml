@@ -169,6 +169,19 @@ es:
       label: "Número máximo de etiquetas por wiki"
       description: "Cuántas etiquetas puede tener un wiki como máximo? (recomendado: 5–10)"
       too_many: "puede tener un máximo de %{count} etiquetas"
-    #
-    suffix_per_page: "por página"
+    keep_count_free:
+      prefix: "Versiones"
+      suffix: "por cuenta"
+      label: "Máx. versiones (Plan Free)"
+      description: "¿Cuántas versiones pueden guardar como máximo los usuarios Free?"
+    keep_count_standard:
+      prefix: "Versiones"
+      suffix: "por cuenta"
+      label: "Máx. versiones (Plan Standard)"
+      description: "¿Cuántas versiones pueden guardar como máximo los usuarios Standard?"
+    keep_count_tiddlyspot:
+      prefix: "Versiones"
+      suffix: "por cuenta"
+      label: "Máx. versiones (Sitios Tiddlyspot)"
+      description: "¿Cuántas versiones pueden guardar como máximo los sitios Tiddlyspot?"
         

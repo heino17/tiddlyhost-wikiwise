@@ -50,7 +50,12 @@ ru:
   site_view_save_history_older_versions_actions_upgrade: "Обновить тариф"
   site_view_save_history_older_versions_actions_restore_alert: "Вы уверены, что хотите заменить текущее содержимое сайта этой старой версией?"
   site_view_save_history_older_versions_actions_discard_alert: "Вы уверены, что хотите удалить эту сохранённую версию?"
+  
+  site_view_save_history_upgrade_notice: "Tiddlyhost сохраняет и предоставляет доступ к %{count} версиям для подписчиков. Чтобы получить доступ к этой функции, "
+  site_view_save_history_upgrade_link_text: "обновите ваш план сейчас"
+  site_view_save_history_keep_note: "Примечание: Сохраняются только последние %{count} версий. Как только их станет больше, самые старые немаркированные версии будут автоматически удалены."
   # user home actions menu "Settings"-details
+  # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Настройки для"
   site_view_edit_wiki_name_label: "Имя"
   site_view_edit_wiki_name_text: "Разрешены строчные буквы, цифры и '-' (не в начале и не в конце)."

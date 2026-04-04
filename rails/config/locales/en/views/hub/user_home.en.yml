@@ -53,6 +53,9 @@ en:
   site_view_save_history_older_versions_actions_restore_alert: "Are you sure you want to replace the site's current content with this older version?"
   site_view_save_history_older_versions_actions_discard_alert: "Are you sure you want to discard this saved version?"
   
+  site_view_save_history_upgrade_notice: "Tiddlyhost will save and provide access to up to %{count} versions for subscribers. To access this feature, "
+  site_view_save_history_upgrade_link_text: "upgrade your plan now"
+  site_view_save_history_keep_note: "Note: Only the newest %{count} versions will be kept. Once there are more, the oldest unlabeled saved versions will be automatically removed."
   # user home actions menu "Settings"-details
   site_view_edit_wiki_heading: "Settings for"
   site_view_edit_wiki_name_label: "Name"

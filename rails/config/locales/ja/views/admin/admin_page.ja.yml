@@ -170,5 +170,18 @@ ja:
       label: "ウィキあたりの最大タグ数"
       description: "1つのウィキに最大でいくつのタグを設定できますか？（推奨：5–10）"
       too_many: "は最大%{count}個のタグまでです"
-    #
-    suffix_per_page: "ページあたり"    
+    keep_count_free:
+      prefix: "バージョン"
+      suffix: "アカウントあたり"
+      label: "最大バージョン数 (Freeプラン)"
+      description: "Freeユーザーは最大で何バージョン保存できますか？"
+    keep_count_standard:
+      prefix: "バージョン"
+      suffix: "アカウントあたり"
+      label: "最大バージョン数 (Standardプラン)"
+      description: "Standardユーザーは最大で何バージョン保存できますか？"
+    keep_count_tiddlyspot:
+      prefix: "バージョン"
+      suffix: "アカウントあたり"
+      label: "最大バージョン数 (Tiddlyspotサイト)"
+      description: "Tiddlyspotサイトは最大で何バージョン保存できますか？"

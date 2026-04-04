@@ -156,21 +156,30 @@ module WithSavedContent
 
   def prune_attachments_now
     if user&.feature_enabled?(:site_history)
-      # When the site history feature is enabled we pay attention to whether
-      # the saved versions have labels. Revisions with a label will be kept
-      # in preference to revisions without a label
-      ordered_files = saved_content_files.
-        left_outer_joins(:attachment_label).
-        order(Arel.sql('attachment_labels.text IS NULL ASC')).
-        order('created_at DESC')
+      # Wenn Site History aktiviert ist → Standard-Plan-Limit verwenden
+      keep = Setting.value_for(:keep_count_standard, default: 100)
+
+      # Revisions mit Label haben Vorrang
+      ordered_files = saved_content_files
+        .left_outer_joins(:attachment_label)
+        .order(Arel.sql('attachment_labels.text IS NULL ASC'))
+        .order('created_at DESC')
     else
-      # Otherwise it's just based on the timestamp
-      ordered_files = saved_content_files.
-        order('created_at DESC')
+      # Normaler Modus → Free-Plan-Limit verwenden
+      keep = Setting.value_for(:keep_count_free, default: 4)
+
+      ordered_files = saved_content_files
+        .order('created_at DESC')
     end
 
-    # Keep so many and purge the rest
-    ordered_files.offset(keep_count).each(&:purge)
+    # Alte Versionen löschen
+    ordered_files.offset(keep).each(&:purge)
+  end
+
+  # Speziell für TspotSites
+  def prune_attachments_for_tspot
+    keep = Setting.value_for(:keep_count_tiddlyspot, default: 4)
+    saved_content_files.order('created_at DESC').offset(keep).each(&:purge)
   end
 
   #---------------------------------------------------------------------------
