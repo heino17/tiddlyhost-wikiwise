@@ -1,6 +1,7 @@
-# Tiddlyhost-wikiwise
-## + rails I18n Sprach-Implementierung
-## + Kommentar- & Bewertung der Tiddlyhost-Wikis
+# Tiddlyhost-wikiwise  
+**+ rails I18n Sprach-Implementierung**  
+**+ Kommentar- & Bewertung der Wikis/Seiten**  
+**+ Shoutbox-Mini-Chat-Widget**  
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
 - funktioniert gut  
@@ -13,6 +14,7 @@
 - Erweitert um Kommentar & Bewertung der Tiddlyhost-Wikis. **Siehe: [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**  
 - Der Admin-Bereich wurde um eine Registrierkarte/Tab erweitert  
   für direkten Zugriff auf einige Funktionen **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
+- Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 
 Es ist für meine Server-Umgebung etwas angepasst, **siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
@@ -35,9 +37,10 @@ git clone https://github.com/heino17/tiddlyhost-wikiwise.git
 cd tiddlyhost-wikiwise
 ```
 
-# Tiddlyhost-wikiwise
-## + rails I18n language implementation
-## + Comment & Voting for Tiddlyhost Wikis
+# Tiddlyhost-wikiwise  
+**+ rails I18n language implementation**  
+**+ Comment & Voting for Wikis/Sites**  
+**+ Shoutbox-Mini-Chat-Widget**  
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
 - works fine  
@@ -48,8 +51,8 @@ cd tiddlyhost-wikiwise
 - interface translated into 7 additional languages,
 - through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
 - Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
-- A new tab has been added to the admin area  
-  for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
+- A new tab has been added to the admin area for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
+- Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 
 It has been slightly adapted for my server environment, **see [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
