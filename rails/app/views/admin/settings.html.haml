@@ -1,35 +1,32 @@
-%h2= t("admin.tab_settings_title")
+%h2= t("admin.tabs_header.settings")
 
 = render 'tabs'
+= render 'settings_tabs'
 
-.row{ style: "font-size: 0.8em; border-color: rgba(0, 124, 14, 0.7); border-style: solid; border-width: thin !important; border-radius: 7px; padding: 0 0 10px; margin-bottom: 0px;"}
+= form_with url: admin_settings_path, method: :patch, data: { turbo: false, controller: "settings-tab", active_tab: params[:active_tab] || 'general' } do |f|
+            
+  .tab-content.mt-4
+    #general.tab-pane.fade.show.active{ role: "tabpanel" }
+      - @settings.select { |s| s[:group] == 'general' }.each do |setting|
+        = render 'setting_row', setting: setting
 
-  = form_with url: admin_settings_path, method: :patch, data: { turbo: false } do |f|
-    - @settings.each do |setting|
-      .setting-row.mt-4
-        %h6= setting[:label]
-        %p.text-muted= setting[:description]
-  
-        - if setting[:type] == :boolean
-          .form-check.form-switch
-            = hidden_field_tag "settings[#{setting[:key]}]", "0"
-            = check_box_tag "settings[#{setting[:key]}]", "1", setting[:current_value],
-                class: "form-check-input", 
-                id: "setting_#{setting[:key]}"
-            = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
-  
-        - elsif setting[:type] == :integer
-          .input-group.w-25
-            = number_field_tag "settings[#{setting[:key]}]", 
-                               setting[:current_value],
-                               min: setting[:min] || 1,
-                               max: setting[:max] || 100,
-                               class: "form-control"
-        
-            .input-group-text{ style: "font-size: 1.0em; font-weight: normal;" }
-              = t("admin.#{setting[:key]}.prefix")
-              = t("admin.#{setting[:key]}.suffix")
-  
-    .actions.mt-5
-      = f.submit t('admin.tab_settings.save'), class: "btn btn-primary"
-      = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn btn-outline-secondary ms-2"
+    #community.tab-pane.fade{ role: "tabpanel" }
+      - @settings.select { |s| s[:group] == 'community' }.each do |setting|
+        = render 'setting_row', setting: setting
+
+    #hub.tab-pane.fade{ role: "tabpanel" }
+      - @settings.select { |s| s[:group] == 'hub' }.each do |setting|
+        = render 'setting_row', setting: setting
+
+    #subscription.tab-pane.fade{ role: "tabpanel" }
+      - @settings.select { |s| s[:group] == 'subscription' }.each do |setting|
+        = render 'setting_row', setting: setting
+
+    #storage.tab-pane.fade{ role: "tabpanel" }
+      - @settings.select { |s| s[:group] == 'storage' }.each do |setting|
+        = render 'setting_row', setting: setting
+
+  .actions.mt-5
+    = f.hidden_field :active_tab, id: "active_tab_field", value: params[:active_tab] || 'general'
+    = f.submit t('admin.tab_settings.save'), class: "btn btn-primary"
+    = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn btn-outline-secondary ms-2"

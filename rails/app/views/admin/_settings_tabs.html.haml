@@ -1,0 +1,11 @@
+%ul.nav.nav-tabs.mb-4#settingsTabs
+  %li.nav-item
+    = link_to t('admin.tab_settings_subtab.general'), "#general", class: "nav-link active", data: { bs_toggle: "tab", tab_name: "general" }
+  %li.nav-item
+    = link_to t('admin.tab_settings_subtab.community'), "#community", class: "nav-link", data: { bs_toggle: "tab", tab_name: "community" }
+  %li.nav-item
+    = link_to t('admin.tab_settings_subtab.hub'), "#hub", class: "nav-link", data: { bs_toggle: "tab", tab_name: "hub" }
+  %li.nav-item
+    = link_to t('admin.tab_settings_subtab.subscription'), "#subscription", class: "nav-link", data: { bs_toggle: "tab", tab_name: "subscription" }
+  %li.nav-item
+    = link_to t('admin.tab_settings_subtab.storage'), "#storage", class: "nav-link", data: { bs_toggle: "tab", tab_name: "storage" }

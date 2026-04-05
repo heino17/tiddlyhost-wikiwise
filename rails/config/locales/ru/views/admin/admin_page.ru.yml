@@ -141,6 +141,12 @@ ru:
       save: "Сохранить"
       cancel: "Отмена"
       settings_saved: "Настройки сохранены!"
+    tab_settings_subtab:
+      general: "Общие"
+      community: "Сообщество"
+      hub: "Хаб и отображение"
+      subscription: "Подписки"
+      storage: "Хранение и версии"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

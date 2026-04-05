@@ -137,6 +137,12 @@ ja:
       save: "保存"
       cancel: "キャンセル"
       settings_saved: "設定を保存しました！"
+    tab_settings_subtab:
+      general: "一般"
+      community: "コミュニティ"
+      hub: "ハブと表示"
+      subscription: "サブスクリプション"
+      storage: "ストレージとバージョン"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

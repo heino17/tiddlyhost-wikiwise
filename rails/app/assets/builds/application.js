@@ -21746,12 +21746,44 @@
     }
   };
 
+  // app/javascript/controllers/settings_tab_controller.js
+  var settings_tab_controller_default = class extends Controller {
+    connect() {
+      this.waitForBootstrap();
+      this.registerTabClickHandler();
+    }
+    waitForBootstrap() {
+      if (typeof bootstrap !== "undefined" && bootstrap.Tab) {
+        this.restoreActiveTab();
+      } else {
+        setTimeout(() => this.waitForBootstrap(), 50);
+      }
+    }
+    restoreActiveTab() {
+      const activeTab = this.element.dataset.activeTab || "general";
+      const tabLink = document.querySelector(`#settingsTabs a[href="#${activeTab}"]`);
+      if (tabLink) {
+        new bootstrap.Tab(tabLink).show();
+      }
+    }
+    registerTabClickHandler() {
+      document.querySelectorAll("#settingsTabs a[data-tab-name]").forEach((link) => {
+        link.addEventListener("shown.bs.tab", (event) => {
+          const tabName = event.target.dataset.tabName;
+          const hiddenField = document.getElementById("active_tab_field");
+          if (hiddenField) hiddenField.value = tabName;
+        });
+      });
+    }
+  };
+
   // app/javascript/controllers/index.js
   application.register("comment-counter", comment_counter_controller_default);
   application.register("hello", hello_controller_default);
   application.register("shoutbox", shoutbox_controller_default);
   application.register("sidebar", sidebar_controller_default);
   application.register("test", test_controller_default);
+  application.register("settings-tab", settings_tab_controller_default);
 
   // app/javascript/application.js
   window.$ = window.jQuery = import_jquery.default;

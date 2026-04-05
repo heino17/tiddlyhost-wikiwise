@@ -77,7 +77,7 @@ class AdminController < ApplicationController
   end
 
   def update_settings
-    load_settings   # ← wichtig! lädt @settings neu
+    load_settings
   
     params[:settings]&.each do |key, val|
       key_sym = key.to_sym
@@ -90,10 +90,14 @@ class AdminController < ApplicationController
       end
     end
   
-    redirect_to admin_settings_path, notice: t("admin.tab_settings.settings_saved")
+    # Aktiven Tab merken und beim Redirect wieder setzen
+    active_tab = params[:active_tab].presence || 'general'
+  
+    redirect_to admin_settings_path(active_tab: active_tab), 
+                notice: t("admin.tab_settings.settings_saved")
   rescue => e
     flash.now[:alert] = "Fehler beim Speichern: #{e.message}"
-    load_settings   # erneut laden für das erneute Rendering
+    load_settings
     render :settings, status: :unprocessable_entity
   end
 
@@ -270,18 +274,27 @@ class AdminController < ApplicationController
 
   def settings_config
     [
-      { key: :startpage_introduction_block_enabled, default: true,  type: :boolean },
-      { key: :special_imprint_enabled,              default: true,  type: :boolean },
-      { key: :registration_enabled,                 default: false, type: :boolean },
-      { key: :comments_enabled,                     default: true,  type: :boolean },
-      { key: :wiki_votes_enabled,                   default: true,  type: :boolean },
-      { key: :shoutbox_enabled,                     default: true,  type: :boolean },
-      { key: :subscriptions_enabled,                default: true,  type: :boolean },
-      { key: :hub_per_page,                         default: 18,     type: :integer, min: 1, max: 51 },
-      { key: :max_tags_per_site, default: 7, type: :integer, min: 1, max: 17 },
-      { key: :keep_count_free,       default: 4,  type: :integer, min: 1,  max: 100 },
-      { key: :keep_count_standard,   default: 100,type: :integer, min: 1, max: 100 },
-      { key: :keep_count_tiddlyspot, default: 4,  type: :integer, min: 1,  max: 100 }
+      # === Allgemein ===
+      { key: :startpage_introduction_block_enabled, group: 'general', default: true,  type: :boolean },
+      { key: :special_imprint_enabled,              group: 'general', default: true,  type: :boolean },
+      { key: :registration_enabled,                 group: 'general', default: false, type: :boolean },
+  
+      # === Community ===
+      { key: :comments_enabled,                     group: 'community', default: true,  type: :boolean },
+      { key: :wiki_votes_enabled,                   group: 'community', default: true,  type: :boolean },
+      { key: :shoutbox_enabled,                     group: 'community', default: true,  type: :boolean },
+  
+      # === Hub & Darstellung ===
+      { key: :hub_per_page,                         group: 'hub',       default: 18,    type: :integer, min: 3, max: 50 },
+  
+      # === Abonnements ===
+      { key: :subscriptions_enabled,                group: 'subscription', default: true, type: :boolean },
+      { key: :max_tags_per_site,                    group: 'subscription', default: 7,     type: :integer, min: 1, max: 15 },
+  
+      # === Speicher & Versionen ===
+      { key: :keep_count_free,                      group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
+      { key: :keep_count_standard,                  group: 'storage', default: 100, type: :integer, min: 10, max: 500 },
+      { key: :keep_count_tiddlyspot,                group: 'storage', default: 4,   type: :integer, min: 1, max: 100 }
     ]
   end
   
@@ -295,6 +308,7 @@ class AdminController < ApplicationController
   
       {
         key:           cfg[:key],
+        group:         cfg[:group],
         label:         t("admin.#{cfg[:key]}.label"),
         description:   t("admin.#{cfg[:key]}.description"),
         default:       cfg[:default],
@@ -302,7 +316,7 @@ class AdminController < ApplicationController
         min:           cfg[:min],
         max:           cfg[:max],
         current_value: current_value,
-        suffix:        t("admin.#{cfg[:key]}.prefix", default: "")
+        suffix:        t("admin.#{cfg[:key]}.suffix", default: "")
       }
     end
   end

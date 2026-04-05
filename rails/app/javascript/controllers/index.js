@@ -18,3 +18,6 @@ application.register("sidebar", SidebarController)
 
 import TestController from "./test_controller"
 application.register("test", TestController)
+
+import SettingsTabController from "./settings_tab_controller"
+application.register("settings-tab", SettingsTabController)

@@ -141,6 +141,12 @@ en:
       save: "Save"
       cancel: "Cancel"
       settings_saved: "Settings saved!"
+    tab_settings_subtab:
+      general: "General"
+      community: "Community"
+      hub: "Hub & Display"
+      subscription: "Subscriptions"
+      storage: "Storage & Versions"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

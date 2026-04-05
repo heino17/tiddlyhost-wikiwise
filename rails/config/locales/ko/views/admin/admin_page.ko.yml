@@ -137,6 +137,12 @@ ko:
       save: "저장"
       cancel: "취소"
       settings_saved: "설정이 저장되었습니다!"
+    tab_settings_subtab:
+      general: "일반"
+      community: "커뮤니티"
+      hub: "허브 및 표시"
+      subscription: "구독"
+      storage: "저장소 및 버전"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

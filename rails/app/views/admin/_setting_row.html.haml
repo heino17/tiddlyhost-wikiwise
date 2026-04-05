@@ -1,0 +1,22 @@
+.setting-row.mt-4
+  %h6= setting[:label]
+  %p.text-muted.small= setting[:description]
+
+  - if setting[:type] == :boolean
+    .form-check.form-switch
+      = hidden_field_tag "settings[#{setting[:key]}]", "0"
+      = check_box_tag "settings[#{setting[:key]}]", "1", setting[:current_value],
+          class: "form-check-input", 
+          id: "setting_#{setting[:key]}"
+      = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
+
+  - elsif setting[:type] == :integer
+    .input-group.w-25
+      = number_field_tag "settings[#{setting[:key]}]", 
+                         setting[:current_value],
+                         min: setting[:min] || 1,
+                         max: setting[:max] || 100,
+                         class: "form-control"
+
+      .input-group-text
+        = setting[:suffix].presence || t('admin.tab_settings.per_page_suffix', default: "per account")

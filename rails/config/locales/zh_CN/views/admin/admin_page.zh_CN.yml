@@ -136,6 +136,12 @@ zh_CN:
       save: "保存"
       cancel: "取消"
       settings_saved: "设置已保存！"
+    tab_settings_subtab:
+      general: "常规"
+      community: "社区"
+      hub: "Hub 与显示"
+      subscription: "订阅"
+      storage: "存储与版本"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:
