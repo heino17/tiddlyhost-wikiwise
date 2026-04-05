@@ -21720,6 +21720,12 @@
         }
       });
     }
+    scrollToTop() {
+      const messagesContainer = this.formTarget.closest(".shoutbox").querySelector(".messages") || document.querySelector(".shoutbox .messages");
+      if (messagesContainer) {
+        messagesContainer.scrollTop = 0;
+      }
+    }
   };
 
   // app/javascript/controllers/sidebar_controller.js

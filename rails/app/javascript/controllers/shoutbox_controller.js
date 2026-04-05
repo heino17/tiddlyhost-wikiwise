@@ -34,4 +34,13 @@ export default class extends Controller {
       }
     })
   }
+
+  scrollToTop() {
+    const messagesContainer = this.formTarget.closest('.shoutbox').querySelector('.messages') || 
+                              document.querySelector('.shoutbox .messages')
+    
+    if (messagesContainer) {
+      messagesContainer.scrollTop = 0
+    }
+  }
 }

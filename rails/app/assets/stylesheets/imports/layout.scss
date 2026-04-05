@@ -377,11 +377,19 @@ $hilight_bg_color: #d5e0f9;
 
 /* Shoutbox */
 /* Standard: Sidebar sichtbar */
+.sidebar {
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  width: 300px;
+  opacity: 1;
+  margin-left: 0rem;
+}
+
 .responsive-grid {
   display: grid;
   grid-template-columns: 1fr 300px;
-  gap: 1rem;
-  transition: grid-template-columns 0.3s ease;
+  // gap: 1rem;
+  transition: grid-template-columns 0.2s ease-in-out;   /* langsamer + smoother */
 }
 
 /* Sidebar ausgeblendet */
@@ -390,9 +398,15 @@ $hilight_bg_color: #d5e0f9;
 }
 
 .responsive-grid.sidebar-hidden .sidebar {
+  width: 0;
   opacity: 0;
-  pointer-events: none;
-  display: none !important;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.responsive-grid:not(.sidebar-hidden) .sidebar {
+  transition-duration: 0.2s;
 }
 
 /* Mobile: sowieso einspaltig */
@@ -402,16 +416,6 @@ $hilight_bg_color: #d5e0f9;
   }
 }
 /* Toggle Button */
-.sidebar {
-  position: relative;
-//  z-index: 11;
-//  top: 177px;
-//  position: fixed;
-//  background: #FFF;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
 .sidebar-toggle {
   position: fixed;
   top: 100px;
@@ -429,7 +433,7 @@ $hilight_bg_color: #d5e0f9;
   opacity: 1;
 }
 .sidebar-toggle i {
-  transition: transform 0.25s ease;
+  transition: transform 0.4s ease-in-out;
 }
 
 .responsive-grid.sidebar-hidden + .sidebar-toggle i {
@@ -451,4 +455,38 @@ $hilight_bg_color: #d5e0f9;
 @keyframes fadeOut {
   from { opacity: 1; }
   to   { opacity: 0; height: 0; margin: 0; padding: 0; }
+}
+/* === Mobile: Shoutbox als Bottom Sheet === */
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;           /* Wikis bleiben einspaltig */
+  }
+
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    max-height: 70vh;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-top: 1px solid var(--bs-border-color);
+    box-shadow: 0 -8px 25px -4px rgba(0, 0, 0, 0.3);   /* schönerer Schatten */
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    transform: translateY(100%);
+    // transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+    transition: all 0.5s ease-in-out;
+    z-index: 1050;
+    overflow-y: auto;
+  }
+
+  .responsive-grid.sidebar-hidden .sidebar {
+    transform: translateY(100%);
+  }
+
+  .responsive-grid:not(.sidebar-hidden) .sidebar {
+    transform: translateY(0);
+  }
 }

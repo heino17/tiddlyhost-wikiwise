@@ -14,7 +14,7 @@
 
       %span.badge.bg-primary#shoutbox_count{ data: { shoutbox_target: "count" } }
         = ShoutboxMessage.count 
-        = I18n.t('shoutbox_counter_suffix')
+        = t('shoutbox_counter_suffix')
 
     .shoutbox-body.border.border-top-0.p-3{ 
       data: { shoutbox_target: "body" }, 
@@ -28,7 +28,7 @@
     .shoutbox-input
       = form_with model: ShoutboxMessage.new,
           url: shoutbox_messages_path,
-          data: { turbo_frame: "_top", action: "shoutbox#resetForm", shoutbox_target: "form" } do |f|
+          data: { turbo_frame: "_top", controller: "shoutbox", shoutbox_target: "form", action: "shoutbox#resetForm, turbo:submit-end->shoutbox#scrollToTop" } do |f|
 
         .input-group
           = f.text_field :message, 
