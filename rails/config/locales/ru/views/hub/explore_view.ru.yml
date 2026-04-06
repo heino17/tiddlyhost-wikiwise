@@ -46,16 +46,25 @@ ru:
   hub_view_action_menu_delete: "Удалить"
   hub_view_action_menu_delete_realy: "Вы уверены, что хотите удалить"
   hub_view_action_menu_more: "Ещё..."
-  #
-  # action menu upload form - insert line break and download link made in upload_form.html.haml
+  # action menu upload form
+  action_menu_upload_form_title: "Загрузить на страницу:"
+  action_menu_upload_form_warning_hint: "Будьте осторожны!"
+  # insert line break and download link made in upload_form.html.haml
   action_menu_upload_form_text: "Это удалит содержимое вашего сайта и заменит его любым файлом TiddlyWiki, который вы загрузите сейчас! %{insert_line_break} Возможно, стоит сначала %{download_copy_link} скачать копию сайта на случай проблем."
   action_menu_upload_form_choose_file: "Выберите файл для загрузки"
   action_menu_upload_form_upload_file: "Загрузить файл"
   action_menu_upload_form_cancel: "Отмена"
   action_menu_upload_form_confirmation_text_before: "Вы уверены, что хотите заменить сайт"
   action_menu_upload_form_confirmation_text_after: "файлом TiddlyWiki, который вы собираетесь загрузить? \n\nЭта операция не может быть отменена!"
+  action_menu_upload_form_upload_button_prefix: "Загрузить файл"
+  
+  action_menu_upload_form_storage_hint:
+    title: "Примечание по размеру хранилища"
+    text: "Максимально допустимый размер вашего вики составляет:"
+    limits: "Текущие лимиты:"
+    free: "Free:"
+    standard: "Standard:"
   #
-  #hub_view_show_per_page: "18" # ещё не реализовано
   hub_view_table_header_name: "Имя"
   hub_view_table_header_kind: "Тип"
   hub_view_table_header_version: "Версия"

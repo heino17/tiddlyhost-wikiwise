@@ -173,10 +173,12 @@ ru:
       #
     hub_per_page:
       prefix: "Вики"
+      suffix: "на странице"
       label: "Количество вики на странице в Hub/Explore"
       description: "Сколько вики должно отображаться на одной странице по умолчанию? (1–51)"
     max_tags_per_site:
       prefix: "Теги"
+      suffix: "на странице"
       label: "Максимальное количество тегов на вики"
       description: "Сколько тегов может иметь одна вики? (рекомендуется: 5–10)"
       too_many: "может иметь максимум %{count} тегов"
@@ -193,5 +195,21 @@ ru:
     keep_count_tiddlyspot:
       prefix: "Версии"
       suffix: "на аккаунт"
-      label: "Макс. версий (Tiddlyspot-сайты)"
-      description: "Сколько версий могут максимально сохранять Tiddlyspot-сайты?"
+      label: "Макс. количество версий (Premium-Pan)"
+      description: "Какое максимальное количество версий должны иметь возможность сохранять пользователи Premium?"
+    max_site_size_free_mb:
+      label: "Макс. размер хранилища на вики (Free-план)"
+      description: "Максимальный общий размер вики для Free-пользователей в МБ"
+      suffix: "МБ"
+    max_site_size_standard_mb:
+      label: "Макс. размер хранилища на вики (Standard-план)"
+      description: "Максимальный общий размер вики для Standard-пользователей в МБ"
+      suffix: "МБ"
+    max_site_size_premium_mb:
+      label: "Макс. размер хранилища на вики (Premium-план)"
+      description: "Максимальный общий размер вики для Premium-пользователей в МБ"
+      suffix: "МБ"
+    max_upload_size_mb:
+      label: "Максимальный размер одного загрузки"
+      description: "Максимальный размер файла, который пользователь может загрузить за один раз (в МБ)"
+      suffix: "МБ"

@@ -242,6 +242,9 @@ class Site < ApplicationRecord
   # Optional: Automatisches Kürzen auf die erlaubte Anzahl (netter UX)
   # before_validation :limit_tags
 
+  # Für Speichergrößen-Limits
+  validate :site_size_within_limit
+
   private
 
   def site_history_enabled?
@@ -252,4 +255,22 @@ class Site < ApplicationRecord
   #   max = Setting.value_for(:max_tags_per_site, default: 7)
   #   self.tag_list = tag_list.first(max) if tag_list.size > max
   # end
+
+  def site_size_within_limit
+    return unless saved_content_files.attached?
+
+    max_allowed_mb = if is_tspot?
+                       Setting.value_for(:max_site_size_tiddlyspot_mb, default: 100)
+                     elsif user&.feature_enabled?(:site_history)
+                       Setting.value_for(:max_site_size_standard_mb, default: 500)
+                     else
+                       Setting.value_for(:max_site_size_free_mb, default: 50)
+                     end
+
+    current_size_mb = (raw_byte_size || 0) / 1.megabyte.to_f
+
+    if current_size_mb > max_allowed_mb
+      errors.add(:base, "Dieses Wiki würde die Speichergrenze von #{max_allowed_mb} MB überschreiten (aktuell: #{current_size_mb.round(1)} MB). Bitte lösche ältere Versionen oder upgrade deinen Plan.")
+    end
+  end
 end

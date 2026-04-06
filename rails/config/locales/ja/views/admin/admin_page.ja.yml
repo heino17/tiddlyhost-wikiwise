@@ -169,10 +169,12 @@ ja:
     #
     hub_per_page:
       prefix: "「ウィキ」"
+      suffix: "ページあたり"
       label: "Hub/Exploreでの1ページあたりのウィキ数"
       description: "1ページあたりデフォルトで何個のウィキを表示しますか？ (1–51)"
     max_tags_per_site:
       prefix: "タグ"
+      suffix: "ページあたり"
       label: "ウィキあたりの最大タグ数"
       description: "1つのウィキに最大でいくつのタグを設定できますか？（推奨：5–10）"
       too_many: "は最大%{count}個のタグまでです"
@@ -189,5 +191,21 @@ ja:
     keep_count_tiddlyspot:
       prefix: "バージョン"
       suffix: "アカウントあたり"
-      label: "最大バージョン数 (Tiddlyspotサイト)"
-      description: "Tiddlyspotサイトは最大で何バージョン保存できますか？"
+      label: "「最大バージョン数 (プレミアムプラン)」"
+      description: "「プレミアムユーザーは最大で何個のバージョンを保存できるようにしますか？」"
+    max_site_size_free_mb:
+      label: "Wikiあたりの最大ストレージサイズ（Freeプラン）"
+      description: "FreeユーザーのWikiの最大合計サイズ（MB）"
+      suffix: "MB"
+    max_site_size_standard_mb:
+      label: "Wikiあたりの最大ストレージサイズ（Standardプラン）"
+      description: "StandardユーザーのWikiの最大合計サイズ（MB）"
+      suffix: "MB"
+    max_site_size_premium_mb:
+      label: "Wikiあたりの最大ストレージサイズ（Premiumプラン）"
+      description: "PremiumユーザーのWikiの最大合計サイズ（MB）"
+      suffix: "MB"
+    max_upload_size_mb:
+      label: "1回のアップロードの最大サイズ"
+      description: "ユーザーが一度にアップロードできる最大ファイルサイズ（MB）"
+      suffix: "MB"

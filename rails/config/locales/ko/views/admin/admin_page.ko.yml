@@ -169,10 +169,12 @@ ko:
     #
     hub_per_page:
       prefix: "위키"
+      suffix: "개/페이지"
       label: "Hub/Explore에서 페이지당 위키 수"
       description: "한 페이지에 기본적으로 몇 개의 위키를 표시할까요? (1–51)"
     max_tags_per_site:
       prefix: "태그"
+      suffix: "개/페이지"
       label: "위키당 최대 태그 수"
       description: "하나의 위키에 최대 몇 개의 태그를 사용할 수 있나요? (권장: 5–10)"
       too_many: "는 최대 %{count}개의 태그까지만 사용할 수 있습니다"
@@ -189,5 +191,21 @@ ko:
     keep_count_tiddlyspot:
       prefix: "버전"
       suffix: "계정당"
-      label: "최대 버전 수 (Tiddlyspot 사이트)"
-      description: "Tiddlyspot 사이트는 최대 몇 개의 버전을 저장할 수 있나요?"
+      label: "최대 버전 수 (프리미엄 플랜)"
+      description: "프리미엄 사용자가 저장할 수 있는 최대 버전 수는 몇 개인가요?"
+    max_site_size_free_mb:
+      label: "Wiki당 최대 저장소 크기 (Free 플랜)"
+      description: "Free 사용자의 Wiki 최대 총 크기 (MB)"
+      suffix: "MB"
+    max_site_size_standard_mb:
+      label: "Wiki당 최대 저장소 크기 (Standard 플랜)"
+      description: "Standard 사용자의 Wiki 최대 총 크기 (MB)"
+      suffix: "MB"
+    max_site_size_premium_mb:
+      label: "Wiki당 최대 저장소 크기 (Premium 플랜)"
+      description: "Premium 사용자의 Wiki 최대 총 크기 (MB)"
+      suffix: "MB"
+    max_upload_size_mb:
+      label: "단일 업로드 최대 크기"
+      description: "사용자가 한 번에 업로드할 수 있는 최대 파일 크기 (MB)"
+      suffix: "MB"

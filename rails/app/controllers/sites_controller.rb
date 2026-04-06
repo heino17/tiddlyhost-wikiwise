@@ -158,18 +158,38 @@ class SitesController < ApplicationController
   # PATCH/PUT /sites/1/upload
   # PATCH/PUT /sites/1/upload.json
   def upload
-    respond_to do |format|
-      new_content = params[:site][:tiddlywiki_file].read
-      if @site.content_upload(new_content)
-        @site.increment_save_count
-
-        format.html { redirect_to sites_url, notice: I18n.t('site_view_upload_a_site_uploaded_flash') }
-        # format.json { render :show, status: :ok, location: @site }
-      else
-        format.html { render :edit }
-        # format.json { render json: @site.errors, status: :unprocessable_entity }
-      end
+    @site = Site.find(params[:id])
+  
+    # Für den Hinweis auf der Upload-Form (bei Fehlern)
+    @max_allowed_mb = if @site.is_tspot?
+                        Setting.value_for(:max_site_size_tiddlyspot_mb, default: 100)
+                      elsif @site.user&.subscribed?
+                        Setting.value_for(:max_site_size_standard_mb, default: 500)
+                      else
+                        Setting.value_for(:max_site_size_free_mb, default: 50)
+                      end
+  
+    if @site.update(WithSavedContent.attachment_params(params[:site][:tiddlywiki_file].read, @site))
+      redirect_to sites_path, 
+                  notice: "Datei erfolgreich hochgeladen.", 
+                  status: :see_other
+    else
+      flash.now[:alert] = @site.errors.full_messages.to_sentence
+      render :upload_form, status: :unprocessable_entity
     end
+  end
+
+  def upload_form
+    @site = Site.find(params[:id])
+  
+    # Maximale erlaubte Größe für diesen User/Wiki berechnen
+    @max_allowed_mb = if @site.is_tspot?
+                        Setting.value_for(:max_site_size_tiddlyspot_mb, default: 100)
+                      elsif @site.user&.subscribed?
+                        Setting.value_for(:max_site_size_standard_mb, default: 500)
+                      else
+                        Setting.value_for(:max_site_size_free_mb, default: 50)
+                      end
   end
 
   # DELETE /sites/1

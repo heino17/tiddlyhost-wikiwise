@@ -1,12 +1,36 @@
 = render layout: 'form_wrapper', locals: { heading: I18n.t('action_menu_upload_form_title') + " '#{@site.name}'" } do
-  = form_for(@site, url: { action: :upload, id: @site.id }) do |f|
+  %span{ data: { upload_prefix: I18n.t('action_menu_upload_form_upload_button_prefix') } }
+  - max_allowed = if @site.is_tspot?
+    Setting.value_for(:max_site_size_tiddlyspot_mb, default: 100)
+    elsif @site.user&.subscribed?
+    Setting.value_for(:max_site_size_standard_mb, default: 500)
+    else
+    Setting.value_for(:max_site_size_free_mb, default: 50)
+    end
+
+  .alert.alert-info.mb-4
+    %strong= t('action_menu_upload_form_storage_hint.title')
+  
+    %p.mb-1
+      = t('action_menu_upload_form_storage_hint.text', max: @max_allowed_mb)
+      %strong #{@max_allowed_mb} MB
+  
+    .small.text-muted
+      %strong= t('action_menu_upload_form_storage_hint.limits')
+      %br
+      = t('action_menu_upload_form_storage_hint.free')
+      %strong= " #{Setting.value_for(:max_site_size_free_mb, default: 50)} MB • "
+      = t('action_menu_upload_form_storage_hint.standard')
+      %strong= " #{Setting.value_for(:max_site_size_standard_mb, default: 500)} MB "
+
+  = form_for(@site, url: { action: :upload, id: @site.id }, data: { turbo: false }) do |f|
+
     = render layout: 'field_wrapper', locals: { pb: 'pb-4' } do
       %b.small.text-danger
         %big
           = bi_icon('exclamation-triangle', fill: '#dc3545', style: 'margin-right: -2px;')
         = I18n.t('action_menu_upload_form_warning_hint')
 
-      -# changed the way the link is embedded in the text (with a customizable line break)
       .small
         - line_break = content_tag(:span, '', class: 'd-block', style: 'height: 0.5em; margin: 0.0em 0;')
         - download_link = link_to(download_site_path(@site)) { bi_icon('download') + I18n.t('hub_view_action_menu_download') }
@@ -18,18 +42,9 @@
       %label.btn.btn-secondary{ for: 'site_tiddlywiki_file' }
         = I18n.t('action_menu_upload_form_choose_file')
 
-      -#
-        It is hidden for cosmetic reasons. Clicking the label
-        above activates the file select dialog.
-
       = f.file_field(:tiddlywiki_file, style: 'display: none;')
 
-      - confirmation_text = ["#{I18n.t('action_menu_upload_form_confirmation_text_before')} '#{@site.name}',
-        #{I18n.t('action_menu_upload_form_confirmation_text_after')}"].join("\n")
-
-      -#
-        Also hidden to begin with but will be shown once a file is selected.
-        See the code in app/javascript/packs/application.js.
+      - confirmation_text = I18n.t('action_menu_upload_form_confirmation_text_before') + " '#{@site.name}' " + I18n.t('action_menu_upload_form_confirmation_text_after')
 
       = f.submit("Upload", data: { confirm: confirmation_text }, id: 'upload-submit',
         style: 'display: none; margin-left: 1em;', class: "form-submit btn btn-primary")

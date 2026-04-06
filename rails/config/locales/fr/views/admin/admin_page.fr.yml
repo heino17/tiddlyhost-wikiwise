@@ -168,10 +168,12 @@ fr:
     #
     hub_per_page:
       prefix: "Wikis"
+      suffix: "par page"
       label: "Nombre de wikis par page dans Hub/Explore"
       description: "Combien de wikis doivent être affichés par page par défaut ? (1–51)"
     max_tags_per_site:
       prefix: "Tags"
+      suffix: "par page"
       label: "Nombre maximum de tags par wiki"
       description: "Combien de tags un wiki peut-il avoir au maximum ? (recommandé : 5–10)"
       too_many: "ne peut avoir plus de %{count} tags"
@@ -188,5 +190,21 @@ fr:
     keep_count_tiddlyspot:
       prefix: "Versions"
       suffix: "par compte"
-      label: "Max. versions (Sites Tiddlyspot)"
-      description: "Combien de versions les sites Tiddlyspot peuvent-ils sauvegarder au maximum ?"
+      label: "Nombre maximal de versions (Premium)"
+      description: "Combien de versions les utilisateurs Premium peuvent-ils enregistrer au maximum ?"
+    max_site_size_free_mb:
+      label: "Taille maximale de stockage par wiki (Plan Free)"
+      description: "Taille totale maximale d'un wiki pour les utilisateurs Free en Mo"
+      suffix: "Mo"
+    max_site_size_standard_mb:
+      label: "Taille maximale de stockage par wiki (Plan Standard)"
+      description: "Taille totale maximale d'un wiki pour les utilisateurs Standard en Mo"
+      suffix: "Mo"
+    max_site_size_premium_mb:
+      label: "Taille maximale de stockage par wiki (Plan Premium)"
+      description: "Taille totale maximale d'un wiki pour les utilisateurs Premium en Mo"
+      suffix: "Mo"
+    max_upload_size_mb:
+      label: "Taille maximale d'un seul téléversement"
+      description: "Taille maximale de fichier qu'un utilisateur peut téléverser en une fois (en Mo)"
+      suffix: "Mo"

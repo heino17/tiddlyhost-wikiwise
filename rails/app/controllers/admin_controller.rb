@@ -285,16 +285,24 @@ class AdminController < ApplicationController
       { key: :shoutbox_enabled,                     group: 'community', default: true,  type: :boolean },
   
       # === Hub & Darstellung ===
-      { key: :hub_per_page,                         group: 'hub',       default: 18,    type: :integer, min: 3, max: 50 },
+      { key: :hub_per_page,                         group: 'hub',       default: 18,    type: :integer, min: 1, max: 50 },
   
       # === Abonnements ===
       { key: :subscriptions_enabled,                group: 'subscription', default: true, type: :boolean },
-      { key: :max_tags_per_site,                    group: 'subscription', default: 7,     type: :integer, min: 1, max: 15 },
+      { key: :max_tags_per_site,                    group: 'subscription', default: 7,     type: :integer, min: 0, max: 15 },
   
       # === Speicher & Versionen ===
       { key: :keep_count_free,                      group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
-      { key: :keep_count_standard,                  group: 'storage', default: 100, type: :integer, min: 10, max: 500 },
-      { key: :keep_count_tiddlyspot,                group: 'storage', default: 4,   type: :integer, min: 1, max: 100 }
+      { key: :keep_count_standard,                  group: 'storage', default: 100, type: :integer, min: 1, max: 500 },
+      { key: :keep_count_tiddlyspot,                group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
+    
+      # === Site-Größen-Limits pro Plan
+      { key: :max_site_size_free_mb,     group: 'storage',   default: 20,  type: :integer, min: 0, max: 200 },
+      { key: :max_site_size_standard_mb, group: 'storage',   default: 100, type: :integer, min: 0, max: 1000 },
+      { key: :max_site_size_premium_mb,  group: 'storage',   default: 500,type: :integer, min: 0, max: 5000 },
+    
+      # === Globales Limit für einzelne Uploads
+      { key: :max_upload_size_mb,        group: 'storage',   default: 100, type: :integer, min: 0, max: 500 }
     ]
   end
   

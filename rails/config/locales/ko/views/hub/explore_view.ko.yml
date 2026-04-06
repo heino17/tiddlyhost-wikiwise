@@ -55,7 +55,14 @@ ko:
   action_menu_upload_form_cancel: "취소"
   action_menu_upload_form_confirmation_text_before: "정말 사이트"
   action_menu_upload_form_confirmation_text_after: "를 지금 업로드할 TiddlyWiki 파일로 바꾸시겠습니까?\n\n이 작업은 되돌릴 수 없습니다!"
-  #
+  action_menu_upload_form_upload_button_prefix: "파일 업로드"
+  
+  action_menu_upload_form_storage_hint:
+    title: "저장소 크기 안내"
+    text: "이 Wiki의 최대 허용 크기는 다음과 같습니다:"
+    limits: "현재 제한:"
+    free: "Free:"
+    standard: "Standard:"
   hub_view_table_header_name: "이름"
   hub_view_table_header_kind: "종류"
   hub_view_table_header_version: "버전"

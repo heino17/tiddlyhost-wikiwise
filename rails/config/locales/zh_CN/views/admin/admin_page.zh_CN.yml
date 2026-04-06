@@ -168,10 +168,12 @@ zh_CN:
     #
     hub_per_page:
       prefix: "维基"
+      suffix: "每页"
       label: "Hub/Explore 中每页显示的 Wiki 数量"
       description: "默认每页显示多少个 Wiki？(1–51)"
     max_tags_per_site:
       prefix: "标签"
+      suffix: "每页"
       label: "每个 Wiki 的最大标签数量"
       description: "单个 Wiki 最多可以有多少个标签？（推荐：5–10）"
       too_many: "最多只能有 %{count} 个标签"
@@ -188,5 +190,21 @@ zh_CN:
     keep_count_tiddlyspot:
       prefix: "版本"
       suffix: "每个账户"
-      label: "最大版本数 (Tiddlyspot 站点)"
-      description: "Tiddlyspot 站点最多可以保存多少个版本？"
+      label: "最大版本数（高级版）"
+      description: "高级用户最多可以保存多少个版本？"
+    max_site_size_free_mb:
+      label: "每个 Wiki 的最大存储大小 (Free 计划)"
+      description: "Free 用户的 Wiki 最大总大小（MB）"
+      suffix: "MB"
+    max_site_size_standard_mb:
+      label: "每个 Wiki 的最大存储大小 (Standard 计划)"
+      description: "Standard 用户的 Wiki 最大总大小（MB）"
+      suffix: "MB"
+    max_site_size_premium_mb:
+      label: "每个 Wiki 的最大存储大小 (Premium 计划)"
+      description: "Premium 用户的 Wiki 最大总大小（MB）"
+      suffix: "MB"
+    max_upload_size_mb:
+      label: "单个上传的最大大小"
+      description: "用户一次可以上传的最大文件大小（MB）"
+      suffix: "MB"

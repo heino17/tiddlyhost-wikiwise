@@ -178,17 +178,32 @@ de:
       too_many: "darf maximal %{count} Tags haben"
     keep_count_free:
       prefix: "Versionen"
-      suffix: "pro Account"
+      suffix: "pro Konto"
       label: "Max. Versionen (Free-Plan)"
       description: "Wie viele Versionen sollen Free-User maximal speichern können?"
     keep_count_standard:
       prefix: "Versionen"
-      suffix: "pro Account"
+      suffix: "pro Konto"
       label: "Max. Versionen (Standard-Plan)"
       description: "Wie viele Versionen sollen Standard-User maximal speichern können?"
     keep_count_tiddlyspot:
       prefix: "Versionen"
-      suffix: "pro Account"
-      label: "Max. Versionen (Tiddlyspot-Sites)"
-      description: "Wie viele Versionen sollen Tiddlyspot-Sites maximal speichern können?"
-      
+      suffix: "pro Konto"
+      label: "Max. Versionen (Premium-Pan)"
+      description: "Wie viele Versionen sollen Premium-User maximal speichern können?"
+    max_site_size_free_mb:
+      label: "Max. Speichergröße pro Wiki (Free-Plan)"
+      description: "Maximale Gesamtgröße eines Wikis für Free-User in MB"
+      suffix: "MB"
+    max_site_size_standard_mb:
+      label: "Max. Speichergröße pro Wiki (Standard-Plan)"
+      description: "Maximale Gesamtgröße eines Wikis für Standard-User in MB"
+      suffix: "MB"
+    max_site_size_premium_mb:
+      label: "Max. Speichergröße pro Wiki (Premium-Plan)"
+      description: "Maximale Gesamtgröße eines Wikis für Premium-User in MB"
+      suffix: "MB"    
+    max_upload_size_mb:
+      label: "Maximale Größe eines einzelnen Uploads"
+      description: "Maximale Dateigröße, die ein User auf einmal hochladen darf (in MB)"
+      suffix: "MB"

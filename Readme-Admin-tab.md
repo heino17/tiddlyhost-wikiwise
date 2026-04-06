@@ -22,7 +22,12 @@ German and American
 - Tab  
   - Max. Versionen (Free-Plan) _Zahlenfeld und +/-_
   - Max. Versionen (Standard-Plan) _Zahlenfeld und +/-_
-  - Max. Versionen (Tiddlyspot-Sites)
+  - Max. Versionen (Premium-Plan) _Zahlenfeld und +/-_
+  - Max. Speichergröße pro Wiki (Free-Plan) _Zahlenfeld und +/-_
+  - Max. Speichergröße pro Wiki (Standard-Plan) _Zahlenfeld und +/-_
+  - Max. Speichergröße pro Wiki (Premium-Plan) _Zahlenfeld und +/-_
+  - Maximale Größe eines einzelnen Uploads _Zahlenfeld und +/-_
+  
 
 i18n-Unterstützung für alle neuen Admin-Texte und Fehlermeldungen  
 Verbesserte Tabellenköpfe in den Admin-Listen (Sites & Users) mit korrekter Mehrsprachigkeit  
@@ -50,7 +55,10 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
 - Tab  
   - Max. versions (Free plan) _Number field and +/-_
   - Max. versions (Standard plan) _Number field and +/-_
-  - Max. versions (Tiddlyspot sites)
+  - Max. versions (Premium plan) _number field and +/-_
+  - Max. storage size per wiki (Free Plan) _number field and +/-_
+  - Max. storage size per wiki (Standard Plan) _number field and +/-_
+  - Max. storage size per wiki (Premium Plan) _number field and +/-_
 
 i18n support for all new admin texts and error messages  
 Improved table headers in the admin lists (Sites & Users) with proper multilingual support  

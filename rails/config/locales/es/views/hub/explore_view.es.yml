@@ -55,7 +55,14 @@ es:
   action_menu_upload_form_cancel: "Cancelar"
   action_menu_upload_form_confirmation_text_before: "¿Está seguro de que desea reemplazar el sitio"
   action_menu_upload_form_confirmation_text_after: "con el archivo TiddlyWiki que está a punto de cargar? \n\n¡Esta operación no se puede deshacer!"
-  #
+  action_menu_upload_form_upload_button_prefix: "Subir archivo"
+  
+  action_menu_upload_form_storage_hint:
+    title: "Nota sobre el tamaño de almacenamiento"
+    text: "El tamaño máximo permitido de tu wiki es:"
+    limits: "Límites actuales:"
+    free: "Free:"
+    standard: "Standard:"
   #hub_view_show_per_page: "18" # aún no implementado
   hub_view_table_header_name: "Nombre"
   hub_view_table_header_kind: "Tipo"

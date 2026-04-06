@@ -21870,7 +21870,8 @@
     });
     (0, import_jquery.default)("#site_tiddlywiki_file").on("change", function() {
       var fileName = (0, import_jquery.default)(this).get(0).files.item(0).name;
-      (0, import_jquery.default)("#upload-submit").prop("value", 'Upload file "' + fileName + '"').show();
+      var prefix = (0, import_jquery.default)("[data-upload-prefix]").data("upload-prefix") || "Upload file";
+      (0, import_jquery.default)("#upload-submit").prop("value", prefix + ' "' + fileName + '"').show();
     });
     (0, import_jquery.default)("#search_box").each(function() {
       var search_box = (0, import_jquery.default)(this);
