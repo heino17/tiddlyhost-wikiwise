@@ -171,10 +171,10 @@ class SitesController < ApplicationController
   
     if @site.update(WithSavedContent.attachment_params(params[:site][:tiddlywiki_file].read, @site))
       redirect_to sites_path, 
-                  notice: "Datei erfolgreich hochgeladen.", 
+                  notice: t('action_menu_upload_form_success'), 
                   status: :see_other
     else
-      flash.now[:alert] = @site.errors.full_messages.to_sentence
+      flash[:alert] = @site.errors.full_messages.to_sentence
       render :upload_form, status: :unprocessable_entity
     end
   end

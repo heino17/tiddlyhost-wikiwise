@@ -285,15 +285,16 @@ class AdminController < ApplicationController
       { key: :shoutbox_enabled,                     group: 'community', default: true,  type: :boolean },
   
       # === Hub & Darstellung ===
-      { key: :hub_per_page,                         group: 'hub',       default: 18,    type: :integer, min: 1, max: 50 },
+      { key: :hub_per_page,                         group: 'hub',       default: 17,    type: :integer, min: 1, max: 51 },
   
       # === Abonnements ===
       { key: :subscriptions_enabled,                group: 'subscription', default: true, type: :boolean },
-      { key: :max_tags_per_site,                    group: 'subscription', default: 7,     type: :integer, min: 0, max: 15 },
+      { key: :max_tags_per_site,                    group: 'subscription', default: 17,     type: :integer, min: 0, max: 17 },
   
       # === Speicher & Versionen ===
       { key: :keep_count_free,                      group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
-      { key: :keep_count_standard,                  group: 'storage', default: 100, type: :integer, min: 1, max: 500 },
+      { key: :keep_count_standard,                  group: 'storage', default: 8, type: :integer, min: 1, max: 100 },
+      { key: :keep_count_premium,                   group: 'storage', default: 17, type: :integer, min: 1, max: 100 },
       { key: :keep_count_tiddlyspot,                group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
     
       # === Site-Größen-Limits pro Plan
@@ -301,8 +302,10 @@ class AdminController < ApplicationController
       { key: :max_site_size_standard_mb, group: 'storage',   default: 100, type: :integer, min: 0, max: 1000 },
       { key: :max_site_size_premium_mb,  group: 'storage',   default: 500,type: :integer, min: 0, max: 5000 },
     
-      # === Globales Limit für einzelne Uploads
-      { key: :max_upload_size_mb,        group: 'storage',   default: 100, type: :integer, min: 0, max: 500 }
+      # Account-weites Speicherlimit (Gesamtgröße aller Wikis eines Users)
+      { key: :max_account_storage_free_mb,      group: 'storage', default: 40,  type: :integer, min: 1, max: 10000 },
+      { key: :max_account_storage_standard_mb,  group: 'storage', default: 400, type: :integer, min: 1, max: 10000 },
+      { key: :max_account_storage_premium_mb,   group: 'storage', default: 4000, type: :integer, min: 1, max: 10000 },
     ]
   end
   

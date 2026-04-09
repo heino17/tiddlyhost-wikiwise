@@ -58,12 +58,18 @@ ru:
   action_menu_upload_form_confirmation_text_after: "файлом TiddlyWiki, который вы собираетесь загрузить? \n\nЭта операция не может быть отменена!"
   action_menu_upload_form_upload_button_prefix: "Загрузить файл"
   
+  action_menu_upload_form_success: "Файл успешно загружен."
+  action_menu_upload_site_size_exceeded: "Этот вики превысит допустимый размер."
+  action_menu_upload_form_site_size_exceeded: "Этот файл превысит допустимый размер загрузки %{limit} МБ на вики! (Размер файла: %{current} МБ)."
+  action_menu_upload_form_account_storage_exceeded: "Загрузка этого файла превысит лимит хранилища вашего аккаунта в %{limit} МБ! (Сейчас %{current} МБ + новая версия %{new} МБ)."
+  
   action_menu_upload_form_storage_hint:
     title: "Примечание по размеру хранилища"
     text: "Максимально допустимый размер вашего вики составляет:"
     limits: "Текущие лимиты:"
     free: "Free:"
     standard: "Standard:"
+    premium: "Premium:"
   #
   hub_view_table_header_name: "Имя"
   hub_view_table_header_kind: "Тип"

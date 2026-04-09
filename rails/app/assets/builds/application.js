@@ -19142,7 +19142,7 @@
   // app/javascript/flash_auto_dismiss.js
   function autoHideFlash(container = document) {
     console.log("flash_auto_dismiss.js wurde geladen!");
-    const alerts = container.querySelectorAll(".alert-flash:not([data-auto-hidden])");
+    const alerts = container.querySelectorAll(".alert-flash:not([data-auto-hidden]):not([data-auto-dismiss])");
     alerts.forEach((alert2) => {
       alert2.dataset.autoHidden = "true";
       setTimeout(() => {

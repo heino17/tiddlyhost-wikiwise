@@ -57,12 +57,19 @@ ko:
   action_menu_upload_form_confirmation_text_after: "를 지금 업로드할 TiddlyWiki 파일로 바꾸시겠습니까?\n\n이 작업은 되돌릴 수 없습니다!"
   action_menu_upload_form_upload_button_prefix: "파일 업로드"
   
+  action_menu_upload_form_success: "파일 업로드 성공."
+  action_menu_upload_site_size_exceeded: "이 Wiki는 허용된 크기 제한을 초과합니다."
+  action_menu_upload_form_site_size_exceeded: "이 파일은 Wiki당 허용된 업로드 크기 %{limit} MB를 초과합니다! (이 파일 크기: %{current} MB)"
+  action_menu_upload_form_account_storage_exceeded: "이 파일을 업로드하면 계정의 %{limit} MB 저장소 제한을 초과합니다! (현재 %{current} MB + 새 버전 %{new} MB)"
+  
   action_menu_upload_form_storage_hint:
     title: "저장소 크기 안내"
     text: "이 Wiki의 최대 허용 크기는 다음과 같습니다:"
     limits: "현재 제한:"
     free: "Free:"
     standard: "Standard:"
+    premium: "Premium:"
+  #
   hub_view_table_header_name: "이름"
   hub_view_table_header_kind: "종류"
   hub_view_table_header_version: "버전"

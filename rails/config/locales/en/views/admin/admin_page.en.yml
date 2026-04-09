@@ -182,6 +182,7 @@ en:
       label: "Maximum number of tags per wiki"
       description: "How many tags may a single wiki have at most? (recommended: 5–10)"
       too_many: "may have a maximum of %{count} tags"
+    # neu bearbeiten am 09.04.2026
     keep_count_free:
       prefix: "Versions"
       suffix: "per account"
@@ -192,11 +193,16 @@ en:
       suffix: "per account"
       label: "Max. versions (Standard plan)"
       description: "How many versions should Standard users be allowed to save at most?"
+    keep_count_premium:
+      prefix: "Versions"
+      suffix: "per account"
+      label: "Max. Versionen (Premium-Plan)"
+      description: "How many versions should Standard users be allowed to save at most?"
     keep_count_tiddlyspot:
       prefix: "Versions"
       suffix: "per account"
-      label: "Max. versions (Premium plan)"
-      description: "How many versions should Premium users be allowed to save at most?"
+      label: "Max. versions (TiddlySpot-Site)"
+      description: "What is the maximum number of versions of a Tiddlyspot site that can be saved?"
     max_site_size_free_mb:
       label: "Max. storage size per wiki (Free plan)"
       description: "Maximum total size of a wiki for Free users in MB"

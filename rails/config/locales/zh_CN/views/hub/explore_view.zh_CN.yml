@@ -57,12 +57,18 @@ zh_CN:
   action_menu_upload_form_upload_button_prefix: "上传文件"
   action_menu_upload_form_upload_button_prefix: "上传文件"
   
+  action_menu_upload_form_success: "文件上传成功。"
+  action_menu_upload_site_size_exceeded: "此 Wiki 将超出允许的大小限制。"
+  action_menu_upload_form_site_size_exceeded: "此文件将超出每个 Wiki 的允许上传大小 %{limit} MB！（此文件大小：%{current} MB）"
+  action_menu_upload_form_account_storage_exceeded: "上传此文件将超出您账户的 %{limit} MB 存储限制！（当前 %{current} MB + 新版本 %{new} MB）"
+  
   action_menu_upload_form_storage_hint:
     title: "存储大小提示"
     text: "您的 Wiki 的最大允许大小为："
     limits: "当前限制："
     free: "Free："
     standard: "Standard："
+    premium: "Premium:"
   #
   hub_view_table_header_name: "名称"
   hub_view_table_header_kind: "类型"

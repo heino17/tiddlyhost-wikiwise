@@ -50,12 +50,17 @@ fr:
   # -> insert_line_break and download link made in upload_form.html.haml
   action_menu_upload_form_text: "Cela supprimera le contenu de votre site et le remplacera par le fichier TiddlyWiki que vous téléchargez maintenant ! 
   %{insert_line_break} Vous pouvez d'abord %{download_copy_link} une copie de votre site au cas où quelque chose tournerait mal."
-  action_menu_upload_form_choose_file: "Choisissez le fichier à télécharger"
+  action_menu_upload_form_choose_file: "Sélectionnez le fichier que vous souhaitez téléverser"
   action_menu_upload_form_upload_file: "Télécharger le fichier"
   action_menu_upload_form_cancel: "Annuler"
   action_menu_upload_form_confirmation_text_before: "Êtes-vous sûr de vouloir remplacer le site"
   action_menu_upload_form_confirmation_text_after: "par le fichier TiddlyWiki que vous êtes sur le point de télécharger ? \n\nCette opération ne peut pas être annulée !"
   action_menu_upload_form_upload_button_prefix: "Téléverser le fichier"
+  
+  action_menu_upload_form_success: "Fichier téléversé avec succès."
+  action_menu_upload_site_size_exceeded: "Ce wiki dépasserait la taille maximale autorisée."
+  action_menu_upload_form_site_size_exceeded: "Ce fichier dépasserait la taille de téléversement autorisée de %{limit} Mo par wiki ! (Ce fichier fait %{current} Mo)."
+  action_menu_upload_form_account_storage_exceeded: "Téléverser ce fichier dépasserait la limite de stockage de %{limit} Mo de votre compte ! (Actuellement %{current} Mo + nouvelle version %{new} Mo)."
   
   action_menu_upload_form_storage_hint:
     title: "Note sur la taille de stockage"
@@ -63,6 +68,7 @@ fr:
     limits: "Limites actuelles :"
     free: "Free :"
     standard: "Standard :"
+    premium: "Premium:"
   #
   hub_view_table_header_name: "Nom"
   hub_view_table_header_kind: "Type"

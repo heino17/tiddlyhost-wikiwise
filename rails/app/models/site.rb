@@ -214,11 +214,15 @@ class Site < ApplicationRecord
   # be nice if the save history is not entirely empty after subscribing.
   # See also app/jobs/prune_attachments_job.
   # Wie viele Versionen eines Wikis sollen behalten werden?
+  
+  # === keep_count (Versions-History) ===
   def keep_count
     if is_tspot?
       Setting.value_for(:keep_count_tiddlyspot, default: 4)
-    elsif site_history_enabled?
-      Setting.value_for(:keep_count_standard, default: 100)
+    elsif user&.subscribed? && user.respond_to?(:premium?) && user.premium?
+      Setting.value_for(:keep_count_premium, default: 17)
+    elsif user&.subscribed?
+      Setting.value_for(:keep_count_standard, default: 8)
     else
       Setting.value_for(:keep_count_free, default: 4)
     end
@@ -244,6 +248,7 @@ class Site < ApplicationRecord
 
   # Für Speichergrößen-Limits
   validate :site_size_within_limit
+    validate :account_storage_within_limit
 
   private
 
@@ -256,21 +261,51 @@ class Site < ApplicationRecord
   #   self.tag_list = tag_list.first(max) if tag_list.size > max
   # end
 
+  # === Pro-Wiki Größenlimit ===
   def site_size_within_limit
-    return unless saved_content_files.attached?
+    return unless saved_content_files.attached? && user.present?
 
     max_allowed_mb = if is_tspot?
-                       Setting.value_for(:max_site_size_tiddlyspot_mb, default: 100)
-                     elsif user&.feature_enabled?(:site_history)
-                       Setting.value_for(:max_site_size_standard_mb, default: 500)
+                       Setting.value_for(:max_site_size_free_mb, default: 20)
+                     elsif user.subscribed? && user.respond_to?(:premium?) && user.premium?
+                       Setting.value_for(:max_site_size_premium_mb, default: 100)
+                     elsif user.subscribed?
+                       Setting.value_for(:max_site_size_standard_mb, default: 20)
                      else
-                       Setting.value_for(:max_site_size_free_mb, default: 50)
+                       Setting.value_for(:max_site_size_free_mb, default: 20)
                      end
 
     current_size_mb = (raw_byte_size || 0) / 1.megabyte.to_f
 
     if current_size_mb > max_allowed_mb
-      errors.add(:base, "Dieses Wiki würde die Speichergrenze von #{max_allowed_mb} MB überschreiten (aktuell: #{current_size_mb.round(1)} MB). Bitte lösche ältere Versionen oder upgrade deinen Plan.")
+            errors.add(:base, I18n.t("action_menu_upload_form_site_size_exceeded",
+                               limit: max_allowed_mb,
+                               current: current_size_mb.round(1)))
+    end
+  end
+
+  # === Account-weites Gesamtlimit ===
+  def account_storage_within_limit  
+    return unless saved_content_files.attached? && user.present?
+
+    new_size_mb      = (raw_byte_size || 0) / 1.megabyte.to_f
+    current_total_mb = user.total_storage_bytes / 1.megabyte.to_f
+
+    max_allowed_mb = if is_tspot?
+                       Setting.value_for(:max_account_storage_free_mb, default: 40)
+                     elsif user.subscribed? && user.respond_to?(:premium?) && user.premium?
+                       Setting.value_for(:max_account_storage_premium_mb, default: 4000)
+                     elsif user.subscribed?
+                       Setting.value_for(:max_account_storage_standard_mb, default: 400)
+                     else
+                       Setting.value_for(:max_account_storage_free_mb, default: 40)
+                     end
+
+    if current_total_mb + new_size_mb > max_allowed_mb
+            errors.add(:base, I18n.t("action_menu_upload_form_account_storage_exceeded",
+                               limit: max_allowed_mb,
+                               current: current_total_mb.round(1),
+                               new: new_size_mb.round(1)))
     end
   end
 end

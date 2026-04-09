@@ -176,21 +176,27 @@ de:
       label: "Maximale Anzahl Tags pro Wiki"
       description: "Wie viele Tags darf ein Wiki maximal haben? (empfohlen: 5–10)"
       too_many: "darf maximal %{count} Tags haben"
+    # neu bearbeiten am 09.04.2026
     keep_count_free:
       prefix: "Versionen"
       suffix: "pro Konto"
       label: "Max. Versionen (Free-Plan)"
-      description: "Wie viele Versionen sollen Free-User maximal speichern können?"
+      description: "Wie viele Versionen sollen Free-Plan-User maximal speichern können?"
     keep_count_standard:
       prefix: "Versionen"
       suffix: "pro Konto"
       label: "Max. Versionen (Standard-Plan)"
-      description: "Wie viele Versionen sollen Standard-User maximal speichern können?"
+      description: "Wie viele Versionen sollen Standard-Plan User maximal speichern können?"
+    keep_count_premium:
+      prefix: "Versionen"
+      suffix: "pro Konto"
+      label: "Max. Versionen (Premium-Plan)"
+      description: "Wie viele Versionen sollen Premium-Plan-User maximal speichern können?"
     keep_count_tiddlyspot:
       prefix: "Versionen"
       suffix: "pro Konto"
-      label: "Max. Versionen (Premium-Pan)"
-      description: "Wie viele Versionen sollen Premium-User maximal speichern können?"
+      label: "Max. Versionen (TiddlySpot-Site)"
+      description: "Wie viele Versionen einer Tiddlyspot-Seite dürfen maximal gespeichern werden?"
     max_site_size_free_mb:
       label: "Max. Speichergröße pro Wiki (Free-Plan)"
       description: "Maximale Gesamtgröße eines Wikis für Free-User in MB"
@@ -203,7 +209,18 @@ de:
       label: "Max. Speichergröße pro Wiki (Premium-Plan)"
       description: "Maximale Gesamtgröße eines Wikis für Premium-User in MB"
       suffix: "MB"    
-    max_upload_size_mb:
-      label: "Maximale Größe eines einzelnen Uploads"
-      description: "Maximale Dateigröße, die ein User auf einmal hochladen darf (in MB)"
+    max_account_storage_free_mb:
+      label: "Maximaler Speicher eines Free-Kontos"
+      description: "Maximales Speicherkontingent, das einem Free-Konto zur Verfügung steht (in MB)"
+      suffix: "MB"    
+      account_storage_exceeded: "Dein Account hat die Speichergrenze von %{limit} MB überschritten (aktuell %{current} MB + neue Version %{new} MB). Bitte lösche ältere Wikis oder upgrade deinen Plan."
+    max_account_storage_standard_mb:
+      label: "Maximaler Speicher eines Standard-Kontos"
+      description: "Maximales Speicherkontingent, das einem Standard-Konto zur Verfügung steht (in MB)"
+      suffix: "MB" 
+      account_storage_exceeded: "Dein Account hat die Speichergrenze von %{limit} MB überschritten (aktuell %{current} MB + neue Version %{new} MB). Bitte lösche ältere Wikis oder upgrade deinen Plan."
+    max_account_storage_premium_mb:
+      label: "Maximaler Speicher eines Premium-Kontos"
+      description: "Maximales Speicherkontingent, das einem Premium-Konto zur Verfügung steht (in MB)"
       suffix: "MB"
+      account_storage_exceeded: "Dein Account hat die Speichergrenze von %{limit} MB überschritten (aktuell %{current} MB + neue Version %{new} MB). Bitte lösche ältere Wikis oder upgrade deinen Plan."

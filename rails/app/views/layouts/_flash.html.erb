@@ -10,7 +10,9 @@
                        else "info"
                        end %>
 
-        <div class="alert alert-<%= css_class %> alert-dismissible fade show alert-flash" role="alert">
+        <div class="alert alert-<%= css_class %> alert-dismissible fade show alert-flash" 
+             role="alert"
+             <%= 'data-auto-dismiss="false"' if [:alert, :error].include?(type.to_sym) %>>
           <%= message %>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

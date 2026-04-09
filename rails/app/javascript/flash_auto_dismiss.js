@@ -3,7 +3,7 @@
 function autoHideFlash(container = document) {
   console.log("flash_auto_dismiss.js wurde geladen!");
 
-  const alerts = container.querySelectorAll('.alert-flash:not([data-auto-hidden])');
+  const alerts = container.querySelectorAll('.alert-flash:not([data-auto-hidden]):not([data-auto-dismiss])');
 
   alerts.forEach(alert => {
     alert.dataset.autoHidden = 'true';  // verhindert Mehrfach-Timer

@@ -62,12 +62,18 @@ de:
   action_menu_upload_form_confirmation_text_after: "durch Hochladen dieser Datei überschreiben möchtest? \n\nDieser Vorgang kann nicht rückgängig gemacht werden!"
   action_menu_upload_form_upload_button_prefix: "Datei hochladen"
   
+  action_menu_upload_form_success: "Datei erfolgreich hochgeladen."
+  action_menu_upload_site_size_exceeded: "Datei erfolgreich hochgeladen."
+  action_menu_upload_form_site_size_exceeded: "Dieses Datei würde die erlaubte Hochladegröße von %{limit} MB für einzelne Wikis überschreiten! (Diese Datei ist: %{current} MB) groß!"
+  action_menu_upload_form_account_storage_exceeded: "Das Hochladen dieser Datei würde die %{limit} MB Speichergrenze deines Kontos überschreiten! (aktuell %{current} MB + neue Version %{new} MB)."
+  
   action_menu_upload_form_storage_hint:
     title: "Hinweis zur Speichergröße"
     text: "Zulässige Größe Deines Wiki beträgt maximal:"
     limits: "Aktuelle Grenzen:"
     free: "Free:"
     standard: "Standard:"
+    premium: "Premium:"
   #
   hub_view_table_header_name: "Name"
   hub_view_table_header_kind: "Art"

@@ -58,12 +58,18 @@ ja:
   action_menu_upload_form_confirmation_text_after: "をこれからアップロードする TiddlyWiki ファイルで置き換えますか？\n\nこの操作は元に戻せません！"
   action_menu_upload_form_upload_button_prefix: "ファイルをアップロード"
   
+  action_menu_upload_form_success: "ファイルのアップロードに成功しました。"
+  action_menu_upload_site_size_exceeded: "このWikiは許可されたサイズ制限を超えます。"
+  action_menu_upload_form_site_size_exceeded: "このファイルはWikiあたりのアップロード制限 %{limit} MB を超えます！（このファイルのサイズ: %{current} MB）"
+  action_menu_upload_form_account_storage_exceeded: "このファイルをアップロードすると、アカウントの %{limit} MB ストレージ制限を超えます！（現在 %{current} MB + 新しいバージョン %{new} MB）"
+  
   action_menu_upload_form_storage_hint:
     title: "ストレージサイズに関する注意"
     text: "このWikiの最大許容サイズは次のとおりです："
     limits: "現在の制限："
     free: "Free："
     standard: "Standard："
+    premium: "Premium:"
   #
   hub_view_table_header_name: "名前"
   hub_view_table_header_kind: "種類"
