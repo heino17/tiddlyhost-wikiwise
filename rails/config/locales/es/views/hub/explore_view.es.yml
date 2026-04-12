@@ -64,8 +64,11 @@ es:
   
   action_menu_upload_form_storage_hint:
     title: "Nota sobre el tamaño de almacenamiento"
-    text: "El tamaño máximo permitido de tu wiki es:"
-    limits: "Límites actuales:"
+    text: "El tamaño máximo de subida por wiki es:"
+    suffix: "MB"
+    limits: "Límites actuales de almacenamiento por planes:"
+    limit_currently: "Tu cuenta ocupa actualmente"
+    mb_of_mb_devider: "de"
     free: "Free:"
     standard: "Standard:"
     premium: "Premium:"

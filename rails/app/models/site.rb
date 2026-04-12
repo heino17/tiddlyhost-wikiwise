@@ -262,7 +262,9 @@ class Site < ApplicationRecord
   # end
 
   # === Pro-Wiki Größenlimit ===
-  def site_size_within_limit
+  def site_size_within_limit  
+    return if user&.is_admin?
+  
     return unless saved_content_files.attached? && user.present?
 
     max_allowed_mb = if is_tspot?
@@ -285,11 +287,17 @@ class Site < ApplicationRecord
   end
 
   # === Account-weites Gesamtlimit ===
-  def account_storage_within_limit  
-    return unless saved_content_files.attached? && user.present?
+  def account_storage_within_limit
+    return if user&.is_admin? || user.nil?
+    return unless saved_content_files.attached? && raw_byte_size.present?
 
-    new_size_mb      = (raw_byte_size || 0) / 1.megabyte.to_f
-    current_total_mb = user.total_storage_bytes / 1.megabyte.to_f
+    new_size_mb      = raw_byte_size / 1.megabyte.to_f
+
+    # Alte Größe dieses Wikis abziehen (falls es sich um ein Update handelt)
+    old_size_mb = raw_byte_size_was.to_i / 1.megabyte.to_f
+
+    previous_total_mb = user.total_storage_bytes / 1.megabyte.to_f
+    effective_total_mb = previous_total_mb - old_size_mb + new_size_mb
 
     max_allowed_mb = if is_tspot?
                        Setting.value_for(:max_account_storage_free_mb, default: 40)
@@ -301,11 +309,11 @@ class Site < ApplicationRecord
                        Setting.value_for(:max_account_storage_free_mb, default: 40)
                      end
 
-    if current_total_mb + new_size_mb > max_allowed_mb
-            errors.add(:base, I18n.t("action_menu_upload_form_account_storage_exceeded",
-                               limit: max_allowed_mb,
-                               current: current_total_mb.round(1),
-                               new: new_size_mb.round(1)))
+    if effective_total_mb > max_allowed_mb
+      errors.add(:base, I18n.t("action_menu_upload_form_account_storage_exceeded",
+                               limit:   max_allowed_mb,
+                               current: previous_total_mb.round(1),
+                               new:     new_size_mb.round(1)))
     end
   end
 end

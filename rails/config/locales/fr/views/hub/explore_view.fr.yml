@@ -64,10 +64,13 @@ fr:
   
   action_menu_upload_form_storage_hint:
     title: "Note sur la taille de stockage"
-    text: "La taille maximale autorisée de votre wiki est :"
-    limits: "Limites actuelles :"
-    free: "Free :"
-    standard: "Standard :"
+    text: "La taille maximale de téléversement par wiki est :"
+    suffix: "Mo"
+    limits: "Limites de stockage actuelles par plan :"
+    limit_currently: "Votre compte utilise actuellement"
+    mb_of_mb_devider: "sur"
+    free: "Free:"
+    standard: "Standard:"
     premium: "Premium:"
   #
   hub_view_table_header_name: "Nom"

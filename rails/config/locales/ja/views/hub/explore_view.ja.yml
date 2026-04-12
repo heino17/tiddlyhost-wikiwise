@@ -65,10 +65,13 @@ ja:
   
   action_menu_upload_form_storage_hint:
     title: "ストレージサイズに関する注意"
-    text: "このWikiの最大許容サイズは次のとおりです："
-    limits: "現在の制限："
-    free: "Free："
-    standard: "Standard："
+    text: "Wikiあたりの最大アップロードサイズは次のとおりです："
+    suffix: "MB"
+    limits: "プラン別の現在のストレージ制限："
+    limit_currently: "現在アカウントが使用している容量"
+    mb_of_mb_devider: "／"
+    free: "Free:"
+    standard: "Standard:"
     premium: "Premium:"
   #
   hub_view_table_header_name: "名前"

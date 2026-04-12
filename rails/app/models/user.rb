@@ -107,7 +107,8 @@ class User < ApplicationRecord
   end
 
   def total_storage_bytes
-    site_blobs.sum(:byte_size)
+    sites.sum(:raw_byte_size) + tspot_sites.sum(:raw_byte_size)
+    # site_blobs.sum(:byte_size)
   end
 
   def has_user_type?(user_type_name)

@@ -68,9 +68,12 @@ en:
   action_menu_upload_form_account_storage_exceeded: "Uploading this file would exceed your account's %{limit} MB storage limit! (Currently %{current} MB + new version %{new} MB)."
   
   action_menu_upload_form_storage_hint:
-    title: "Storage size note"
-    text: "The maximum allowed size of your wiki is:"
-    limits: "Current limits:"
+    title: "Storage size note:"
+    text: "The maximum upload size per wiki is:"
+    suffix: "MB"
+    limits: "Current storage limits for plans:"
+    limit_currently: "Your account currently uses:"
+    mb_of_mb_devider: "of"
     free: "Free:"
     standard: "Standard:"
     premium: "Premium:"

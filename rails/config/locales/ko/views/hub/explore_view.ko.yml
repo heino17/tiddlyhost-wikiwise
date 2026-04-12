@@ -64,8 +64,11 @@ ko:
   
   action_menu_upload_form_storage_hint:
     title: "저장소 크기 안내"
-    text: "이 Wiki의 최대 허용 크기는 다음과 같습니다:"
-    limits: "현재 제한:"
+    text: "Wiki당 최대 업로드 크기는 다음과 같습니다:"
+    suffix: "MB"
+    limits: "플랜별 현재 저장소 제한:"
+    limit_currently: "현재 계정이 사용 중인 용량"
+    mb_of_mb_devider: "중"
     free: "Free:"
     standard: "Standard:"
     premium: "Premium:"

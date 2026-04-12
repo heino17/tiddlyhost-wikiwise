@@ -65,8 +65,11 @@ ru:
   
   action_menu_upload_form_storage_hint:
     title: "Примечание по размеру хранилища"
-    text: "Максимально допустимый размер вашего вики составляет:"
-    limits: "Текущие лимиты:"
+    text: "Максимальный размер загрузки одного вики составляет:"
+    suffix: "МБ"
+    limits: "Текущие лимиты хранилища по планам:"
+    limit_currently: "Ваш аккаунт занимает сейчас"
+    mb_of_mb_devider: "из"
     free: "Free:"
     standard: "Standard:"
     premium: "Premium:"

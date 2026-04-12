@@ -104,10 +104,6 @@ class SitesController < ApplicationController
   def edit
   end
 
-  # GET /sites/1/upload_form
-  def upload_form
-  end
-
   # POST /sites
   # POST /sites.json
   def create
@@ -155,41 +151,69 @@ class SitesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sites/1/upload
-  # PATCH/PUT /sites/1/upload.json
-  def upload
+    # GET /sites/1/upload_form
+    def upload_form
     @site = Site.find(params[:id])
-  
-    # Für den Hinweis auf der Upload-Form (bei Fehlern)
+
+    @current_mb = @site.user&.total_storage_bytes.to_i / 1.megabyte.to_f || 0
+
     @max_allowed_mb = if @site.is_tspot?
-                        Setting.value_for(:max_site_size_tiddlyspot_mb, default: 100)
+                        Setting.value_for(:max_account_storage_free_mb, default: 40)
+                      elsif @site.user&.subscribed? && @site.user.respond_to?(:premium?) && @site.user.premium?
+                        Setting.value_for(:max_account_storage_premium_mb, default: 4000)
                       elsif @site.user&.subscribed?
-                        Setting.value_for(:max_site_size_standard_mb, default: 500)
+                        Setting.value_for(:max_account_storage_standard_mb, default: 400)
                       else
-                        Setting.value_for(:max_site_size_free_mb, default: 50)
+                        Setting.value_for(:max_account_storage_free_mb, default: 40)
                       end
-  
-    if @site.update(WithSavedContent.attachment_params(params[:site][:tiddlywiki_file].read, @site))
-      redirect_to sites_path, 
-                  notice: t('action_menu_upload_form_success'), 
-                  status: :see_other
-    else
-      flash[:alert] = @site.errors.full_messages.to_sentence
-      render :upload_form, status: :unprocessable_entity
-    end
+
+    @remaining_mb = [@max_allowed_mb - @current_mb, 0].max
+
+    @max_site_mb = if @site.is_tspot?
+                     Setting.value_for(:max_site_size_free_mb, default: 20)
+                   elsif @site.user&.subscribed? && @site.user.respond_to?(:premium?) && @site.user.premium?
+                     Setting.value_for(:max_site_size_premium_mb, default: 500)
+                   elsif @site.user&.subscribed?
+                     Setting.value_for(:max_site_size_standard_mb, default: 100)
+                   else
+                     Setting.value_for(:max_site_size_free_mb, default: 20)
+                   end
   end
 
-  def upload_form
+  def upload
     @site = Site.find(params[:id])
-  
-    # Maximale erlaubte Größe für diesen User/Wiki berechnen
+
+    # Dieselben Variablen wie oben berechnen (für den Fehlerfall)
+    @current_mb = @site.user&.total_storage_bytes.to_i / 1.megabyte.to_f || 0
+
     @max_allowed_mb = if @site.is_tspot?
-                        Setting.value_for(:max_site_size_tiddlyspot_mb, default: 100)
+                        Setting.value_for(:max_account_storage_free_mb, default: 40)
+                      elsif @site.user&.subscribed? && @site.user.respond_to?(:premium?) && @site.user.premium?
+                        Setting.value_for(:max_account_storage_premium_mb, default: 4000)
                       elsif @site.user&.subscribed?
-                        Setting.value_for(:max_site_size_standard_mb, default: 500)
+                        Setting.value_for(:max_account_storage_standard_mb, default: 400)
                       else
-                        Setting.value_for(:max_site_size_free_mb, default: 50)
+                        Setting.value_for(:max_account_storage_free_mb, default: 40)
                       end
+
+    @remaining_mb = [@max_allowed_mb - @current_mb, 0].max
+
+    @max_site_mb = if @site.is_tspot?
+                     Setting.value_for(:max_site_size_free_mb, default: 20)
+                   elsif @site.user&.subscribed? && @site.user.respond_to?(:premium?) && @site.user.premium?
+                     Setting.value_for(:max_site_size_premium_mb, default: 500)
+                   elsif @site.user&.subscribed?
+                     Setting.value_for(:max_site_size_standard_mb, default: 100)
+                   else
+                     Setting.value_for(:max_site_size_free_mb, default: 20)
+                   end
+
+    if @site.update(WithSavedContent.attachment_params(params[:site][:tiddlywiki_file].read, @site))
+      redirect_to sites_path, notice: "Datei erfolgreich hochgeladen."
+    else
+      flash.now[:alert] = @site.errors.full_messages.to_sentence
+      render :upload_form, status: :unprocessable_entity
+    end
   end
 
   # DELETE /sites/1

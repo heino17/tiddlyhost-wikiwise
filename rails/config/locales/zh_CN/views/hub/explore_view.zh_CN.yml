@@ -64,10 +64,13 @@ zh_CN:
   
   action_menu_upload_form_storage_hint:
     title: "存储大小提示"
-    text: "您的 Wiki 的最大允许大小为："
-    limits: "当前限制："
-    free: "Free："
-    standard: "Standard："
+    text: "每个 Wiki 的最大上传大小为："
+    suffix: "MB"
+    limits: "各计划当前存储限制："
+    limit_currently: "您的账户当前占用"
+    mb_of_mb_devider: "共"
+    free: "Free:"
+    standard: "Standard:"
     premium: "Premium:"
   #
   hub_view_table_header_name: "名称"

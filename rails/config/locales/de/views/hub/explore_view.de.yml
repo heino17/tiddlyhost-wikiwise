@@ -68,9 +68,12 @@ de:
   action_menu_upload_form_account_storage_exceeded: "Das Hochladen dieser Datei würde die %{limit} MB Speichergrenze deines Kontos überschreiten! (aktuell %{current} MB + neue Version %{new} MB)."
   
   action_menu_upload_form_storage_hint:
-    title: "Hinweis zur Speichergröße"
-    text: "Zulässige Größe Deines Wiki beträgt maximal:"
-    limits: "Aktuelle Grenzen:"
+    title: "Hinweis zur Speichergröße:"
+    text: "Die max. Uploadgröße eines Wikis beträgt:"
+    suffix: "MB"
+    limits: "Aktuelle Speichergrenzen für Abos:"
+    limit_currently: "Dein Konto belegt aktuell"
+    mb_of_mb_devider: "von"
     free: "Free:"
     standard: "Standard:"
     premium: "Premium:"

@@ -11,29 +11,32 @@
     end
 
   .alert.alert-info.mb-4
-    %strong= t('action_menu_upload_form_storage_hint.title')
-    
-    - current_mb = @site.user.total_storage_bytes / 1.megabyte.to_f
-    - remaining_mb = @max_allowed_mb - current_mb
-  
-    %p.mb-1
-      = t('action_menu_upload_form_storage_hint.text', max: @max_allowed_mb)
-      %strong #{@max_allowed_mb} MB
-      
+    %strong
+      = t('action_menu_upload_form_storage_hint.title')
+
     %p.mb-2
-    Noch 
-    %strong #{remaining_mb.round(1)} MB
-    frei von #{@max_allowed_mb} MB
-  
-    .small.text-muted
+      = t('action_menu_upload_form_storage_hint.text')
+      %strong #{@max_site_mb}
+      %strong= t('action_menu_upload_form_storage_hint.suffix')
+
+    .small.text-muted.mt-2
       %strong= t('action_menu_upload_form_storage_hint.limits')
       %br
       = t('action_menu_upload_form_storage_hint.free')
-      %strong= " #{Setting.value_for(:max_site_size_free_mb, default: 20)} MB • "
+      %strong= " #{Setting.value_for(:max_account_storage_free_mb, default: 40)} MB • "
       = t('action_menu_upload_form_storage_hint.standard')
-      %strong= " #{Setting.value_for(:max_site_size_standard_mb, default: 40)} MB "
+      %strong= " #{Setting.value_for(:max_account_storage_standard_mb, default: 400)} MB • "
       = t('action_menu_upload_form_storage_hint.premium')
-      %strong= " #{Setting.value_for(:max_site_size_premium_mb, default: 100)} MB "
+      %strong= " #{Setting.value_for(:max_account_storage_premium_mb, default: 4000)} MB "
+
+      .mt-3.pt-2.border-top
+        = t('action_menu_upload_form_storage_hint.limit_currently')
+        %strong #{@current_mb.to_f.round(1)}
+        %strong= t('action_menu_upload_form_storage_hint.suffix')
+        = t('action_menu_upload_form_storage_hint.mb_of_mb_devider')
+        %strong= " #{@max_allowed_mb} "
+        %strong= t('action_menu_upload_form_storage_hint.suffix')
+
 
   = form_for(@site, url: { action: :upload, id: @site.id }, data: { turbo: false }) do |f|
 
@@ -58,7 +61,7 @@
 
       - confirmation_text = I18n.t('action_menu_upload_form_confirmation_text_before') + " '#{@site.name}' " + I18n.t('action_menu_upload_form_confirmation_text_after')
 
-      = f.submit("Upload", data: { confirm: confirmation_text }, id: 'upload-submit',
+      = f.submit(t('hub_view_action_menu_upload'), data: { confirm: confirmation_text }, id: 'upload-submit',
         style: 'display: none; margin-left: 1em;', class: "form-submit btn btn-primary")
 
       = link_to I18n.t('action_menu_upload_form_cancel'), sites_url, style: 'margin-left: 1em;'
