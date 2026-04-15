@@ -1,6 +1,25 @@
-.setting-row.mt-4
-  %h6= setting[:label]
-  %p.text-muted.small= setting[:description]
+.setting-row.mt-3
+  %h6
+    - if setting[:group] == 'locales'
+      - loc = setting[:key].to_s.sub("locale_enabled_", "").to_sym
+      = flag_emoji_for(loc)
+      = " "
+
+    = setting[:label]
+
+    - if setting[:group] == 'locales'
+      - loc = setting[:key].to_s.sub("locale_enabled_", "").to_sym
+      - current_default = Setting.string_for(:default_locale, default: "en").to_sym
+
+      - if loc == I18n.locale
+        %span.badge.bg-info.ms-2
+          = t('admin.locale_language_badge_current')
+
+      - if loc == current_default
+        %span.badge.bg-primary.ms-2
+          = t('admin.locale_language_badge_default')
+
+  %p.text-muted.small
 
   - if setting[:type] == :boolean
     .form-check.form-switch

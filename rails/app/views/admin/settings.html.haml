@@ -25,6 +25,13 @@
     #storage.tab-pane.fade{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'storage' }.each do |setting|
         = render 'setting_row', setting: setting
+        
+    #locales.tab-pane.fade{ role: "tabpanel" }
+
+      = render 'default_locale_row'
+
+      - @settings.select { |s| s[:group] == 'locales' && s[:key] != :default_locale }.each do |setting|
+        = render 'setting_row', setting: setting
 
   .actions.mt-5
     = f.hidden_field :active_tab, id: "active_tab_field", value: params[:active_tab] || 'general'

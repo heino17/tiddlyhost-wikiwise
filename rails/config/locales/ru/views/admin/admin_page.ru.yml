@@ -147,6 +147,33 @@ ru:
       hub: "Хаб и отображение"
       subscription: "Подписки"
       storage: "Хранение и версии"
+      locales: "Языки"
+
+    locale_language_default: "Язык по умолчанию"
+    locale_language_description: "Используется, если не выбран другой язык."
+    locale_language_badge_default: "По умолчанию"
+    locale_language_badge_current: "Текущий"
+    locale_enable_languages: "Сделать следующие языки доступными во всем приложении:"
+    locale_enabled_de:
+      label: "Активировать немецкий"
+    locale_enabled_en:
+      label: "Активировать английский"
+    locale_enabled_ru:
+      label: "Активировать русский"
+    locale_enabled_es:
+      label: "Активировать испанский"
+    locale_enabled_fr:
+      label: "Активировать французский"
+    locale_enabled_ja:
+      label: "Активировать японский"
+    locale_enabled_ko:
+      label: "Активировать корейский"
+    locale_enabled_zh_CN:
+      label: "Активировать китайский (упрощенный)"
+    locales_hint_messages:
+      cannot_disable_current_locale: "Вы не можете отключить текущий используемый язык!"
+      cannot_disable_default_locale: "Вы не можете отключить язык по умолчанию!"
+      cannot_disable_all_locales: "Должен остаться активным хотя бы один язык!"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

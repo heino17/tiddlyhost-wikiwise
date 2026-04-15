@@ -143,6 +143,33 @@ ja:
       hub: "ハブと表示"
       subscription: "サブスクリプション"
       storage: "ストレージとバージョン"
+      locales: "言語"
+
+    locale_language_default: "デフォルト言語"
+    locale_language_description: "他の言語が選択されていない場合に使用されます。"
+    locale_language_badge_default: "デフォルト"
+    locale_language_badge_current: "現在"
+    locale_enable_languages: "以下の言語をアプリケーション全体で利用可能にする："
+    locale_enabled_de:
+      label: "ドイツ語を有効化"
+    locale_enabled_en:
+      label: "英語を有効化"
+    locale_enabled_ru:
+      label: "ロシア語を有効化"
+    locale_enabled_es:
+      label: "スペイン語を有効化"
+    locale_enabled_fr:
+      label: "フランス語を有効化"
+    locale_enabled_ja:
+      label: "日本語を有効化"
+    locale_enabled_ko:
+      label: "韓国語を有効化"
+    locale_enabled_zh_CN:
+      label: "簡体字中国語を有効化"
+    locales_hint_messages:
+      cannot_disable_current_locale: "現在使用中の言語を無効にすることはできません！"
+      cannot_disable_default_locale: "デフォルト言語を無効にすることはできません！"
+      cannot_disable_all_locales: "少なくとも1つの言語を有効にしておく必要があります！"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

@@ -141,6 +141,33 @@ de:
       hub: "Hub & Darstellung"
       subscription: "Abonnements"
       storage: "Speicher & Versionen"
+      locales: "Sprachen"
+
+    locale_language_default: "Standardsprache"
+    locale_language_description: "Wird verwendet, wenn keine andere Sprache gewählt wurde."
+    locale_language_badge_default: "Standard"
+    locale_language_badge_current: "Aktuell"
+    locale_enable_languages: "Sprachen in der gesamten Anwendung verfügbar machen:"
+    locale_enabled_de:
+      label: "Deutsch aktivieren"
+    locale_enabled_en:
+      label: "Amerikanisch aktivieren"
+    locale_enabled_ru:
+      label: "Russisch aktivieren"
+    locale_enabled_es:
+      label: "Spanisch aktivieren"
+    locale_enabled_fr:
+      label: "Französisch aktivieren"
+    locale_enabled_ja:
+      label: "Japanisch aktivieren"
+    locale_enabled_ko:
+      label: "Koreanisch aktivieren"
+    locale_enabled_zh_CN:
+      label: "Chinesisch (vereinfacht) aktivieren"
+    locales_hint_messages:
+      cannot_disable_current_locale: "Du kannst die aktuell verwendete Sprache nicht deaktivieren!"
+      cannot_disable_default_locale: "Du kannst die Standardsprache nicht deaktivieren!"
+      cannot_disable_all_locales: "Mindestens eine Sprache muss aktiviert bleiben!"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

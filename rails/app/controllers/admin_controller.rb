@@ -79,10 +79,45 @@ class AdminController < ApplicationController
   def update_settings
     load_settings
   
+    # --- 1. Alle Locale-Keys sammeln ---
+    locale_keys = available_locales.keys.map { |loc| "locale_enabled_#{loc}" }
+  
+    # --- 2. Prüfen: Wird die aktuelle Sprache deaktiviert? ---
+    current_locale_key = "locale_enabled_#{I18n.locale}"
+    if params[:settings][current_locale_key] == "0"
+      flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_current_locale')
+      return redirect_to admin_settings_path(active_tab: "locales")
+    end
+  
+    # --- 3. Prüfen: Wird die Default-Sprache deaktiviert? ---
+    default_locale = Setting.string_for(:default_locale, default: "en").to_sym
+    default_locale_key = "locale_enabled_#{default_locale}"
+  
+    if params[:settings][default_locale_key] == "0"
+      flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_default_locale')
+      return redirect_to admin_settings_path(active_tab: "locales")
+    end
+  
+    # --- 4. Prüfen: Werden ALLE Sprachen deaktiviert? ---
+    disabled_count = locale_keys.count { |k| params[:settings][k] == "0" }
+  
+    if disabled_count == locale_keys.size
+      flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_all_locales')
+      return redirect_to admin_settings_path(active_tab: "locales")
+    end
+  
+    # --- 5. Wenn alles OK → speichern ---
     params[:settings]&.each do |key, val|
+      # --- Sonderfall: Default-Locale als String speichern ---
+      if key == "default_locale"
+        Setting.set_string(:default_locale, val)
+        next
+      end
+    
+      # --- Normale Settings ---
       key_sym = key.to_sym
       config = @settings.find { |s| s[:key] == key_sym }
-  
+    
       if config && config[:type] == :boolean
         Setting.set_enabled(key, val)
       else
@@ -90,11 +125,11 @@ class AdminController < ApplicationController
       end
     end
   
-    # Aktiven Tab merken und beim Redirect wieder setzen
     active_tab = params[:active_tab].presence || 'general'
   
-    redirect_to admin_settings_path(active_tab: active_tab), 
+    redirect_to admin_settings_path(active_tab: active_tab),
                 notice: t("admin.tab_settings.settings_saved")
+  
   rescue => e
     flash.now[:alert] = "Fehler beim Speichern: #{e.message}"
     load_settings
@@ -306,6 +341,20 @@ class AdminController < ApplicationController
       { key: :max_account_storage_free_mb,      group: 'storage', default: 40,  type: :integer, min: 1, max: 10000 },
       { key: :max_account_storage_standard_mb,  group: 'storage', default: 400, type: :integer, min: 1, max: 10000 },
       { key: :max_account_storage_premium_mb,   group: 'storage', default: 4000, type: :integer, min: 1, max: 10000 },
+    
+      # === Sprachen (dynamisch erzeugt) ===
+      { key: :default_locale, group: 'locales', default: :en, type: :string, label: "Standardsprache", description: "Sprache, die als Standard verwendet wird" },
+
+      *available_locales.map { |locale, name|
+        {
+          key:        "locale_enabled_#{locale}".to_sym,
+          group:      'locales',
+          default:    true,
+          type:       :boolean,
+          label:      "#{name} aktivieren",
+          description: "Sprache #{name} in der gesamten Anwendung verfügbar machen"
+        }
+      }
     ]
   end
   

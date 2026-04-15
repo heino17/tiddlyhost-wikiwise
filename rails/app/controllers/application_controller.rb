@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :redirect_www_requests
   before_action :permit_devise_params, if: :devise_controller?
   before_action :set_locale
+  before_action :apply_enabled_locales
 
   private
 
@@ -111,4 +112,33 @@ class ApplicationController < ActionController::Base
     'navbar-prod' if request.domain =~ /(tiddlyspot|tiddlyhost)\.com$/
   end
   helper_method :navbar_prod
+
+  # Zentrale Definition aller verfügbaren Sprachen
+  def available_locales
+    {
+      en:     "American",
+      de:     "Deutsch",
+      ru:     "Русский",
+      es:     "Español",
+      fr:     "Français",
+      ja:     "日本語",
+      ko:     "한국어",
+      zh_CN:  "简体中文"
+    }
+  end
+  helper_method :available_locales   # macht die Methode auch in Views verfügbar
+
+  def enabled_locales
+    locales = available_locales.select do |loc, _|
+      Setting.enabled?("locale_enabled_#{loc}", default: true)
+    end
+  
+    locales.presence || { I18n.default_locale => available_locales[I18n.default_locale] }
+  end
+  helper_method :enabled_locales
+
+  def apply_enabled_locales
+    I18n.available_locales = enabled_locales.keys
+  end
+
 end

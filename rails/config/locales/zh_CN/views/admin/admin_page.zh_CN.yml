@@ -142,6 +142,33 @@ zh_CN:
       hub: "Hub 与显示"
       subscription: "订阅"
       storage: "存储与版本"
+      locales: "语言"
+
+    locale_language_default: "默认语言"
+    locale_language_description: "未选择其他语言时使用。"
+    locale_language_badge_default: "默认"
+    locale_language_badge_current: "当前"
+    locale_enable_languages: "在整个应用程序中启用以下语言："
+    locale_enabled_de:
+      label: "启用德语"
+    locale_enabled_en:
+      label: "启用英语"
+    locale_enabled_ru:
+      label: "启用俄语"
+    locale_enabled_es:
+      label: "启用西班牙语"
+    locale_enabled_fr:
+      label: "启用法语"
+    locale_enabled_ja:
+      label: "启用日语"
+    locale_enabled_ko:
+      label: "启用韩语"
+    locale_enabled_zh_CN:
+      label: "启用简体中文"
+    locales_hint_messages:
+      cannot_disable_current_locale: "无法禁用当前使用的语言！"
+      cannot_disable_default_locale: "无法禁用默认语言！"
+      cannot_disable_all_locales: "必须至少保留一种语言处于启用状态！"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

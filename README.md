@@ -1,10 +1,13 @@
-# Tiddlyhost-wikiwise  
+# 🇩🇪 Tiddlyhost-wikiwise  
 **+ rails I18n Sprach-Implementierung**  
 **+ Kommentar- & Bewertung der Wikis/Seiten**  
 **+ Shoutbox-Mini-Chat-Widget**  
+**+ Erweiterter Admin-Bereich für Einstellungen**  
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
-- funktioniert gut  
+
+- macht Spaß! :)  
+- Sprachen einzeln an- und ausschalten
 - weitere Sprachen einfach zu implementieren  
 - beachte die Ports!  
  
@@ -37,13 +40,16 @@ git clone https://github.com/heino17/tiddlyhost-wikiwise.git
 cd tiddlyhost-wikiwise
 ```
 
-# Tiddlyhost-wikiwise  
+# 🇬🇧 Tiddlyhost-wikiwise  
 **+ rails I18n language implementation**  
 **+ Comment & Voting for Wikis/Sites**  
 **+ Shoutbox-Mini-Chat-Widget**  
+**+ Advanced Admin Panel for Settings**    
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
-- works fine  
+
+- It's fun! :)  
+- Activate and deactivate languages individually  
 - more languages easy to implement  
 - note the ports!  
  

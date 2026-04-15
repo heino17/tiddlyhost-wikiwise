@@ -143,6 +143,33 @@ ko:
       hub: "허브 및 표시"
       subscription: "구독"
       storage: "저장소 및 버전"
+      locales: "언어"
+
+    locale_language_default: "기본 언어"
+    locale_language_description: "다른 언어가 선택되지 않은 경우 사용됩니다."
+    locale_language_badge_default: "기본"
+    locale_language_badge_current: "현재"
+    locale_enable_languages: "다음 언어를 전체 애플리케이션에서 사용할 수 있게 합니다:"
+    locale_enabled_de:
+      label: "독일어 활성화"
+    locale_enabled_en:
+      label: "영어 활성화"
+    locale_enabled_ru:
+      label: "러시아어 활성화"
+    locale_enabled_es:
+      label: "스페인어 활성화"
+    locale_enabled_fr:
+      label: "프랑스어 활성화"
+    locale_enabled_ja:
+      label: "일본어 활성화"
+    locale_enabled_ko:
+      label: "한국어 활성화"
+    locale_enabled_zh_CN:
+      label: "중국어(간체) 활성화"
+    locales_hint_messages:
+      cannot_disable_current_locale: "현재 사용 중인 언어를 비활성화할 수 없습니다!"
+      cannot_disable_default_locale: "기본 언어를 비활성화할 수 없습니다!"
+      cannot_disable_all_locales: "최소 하나의 언어는 활성화되어 있어야 합니다!"
     # rails/app/controllers/admin_controller.rb
     # def settings
     startpage_introduction_block_enabled:

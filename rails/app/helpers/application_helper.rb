@@ -2,16 +2,17 @@ module ApplicationHelper
   include Recaptcha::Adapters::ViewMethods
 
   # Language switch for i18n
+  # Language switcher
   def language_switcher_links
-    available_locales = [:en, :de, :ru, :es, :fr, :ja, :ko, :zh_CN] # Erweitere später auf [:en, :de, :fr] usw.
-    available_locales.map do |loc|
-      link_to loc.to_s.upcase, params.merge(locale: loc), class: "nav-link #{'active' if I18n.locale == loc}"
+    available_locales.keys.map do |loc|
+      link_to loc.to_s.upcase, params.merge(locale: loc), 
+              class: "nav-link #{'active' if I18n.locale == loc}"
     end.join(' | ').html_safe
   end
 
   def flag_code_for(locale)
     case locale.to_sym
-    when :en then 'us' # oder 'us' – deine Wahl!
+    when :en then 'us'
     when :de then 'de'
     when :ru then 'ru'
     when :es then 'es'
@@ -19,12 +20,25 @@ module ApplicationHelper
     when :ja then 'ja'
     when :ko then 'ko'
     when :zh_CN then 'cn'
-    # Später einfach erweitern, z.B. when :es then 'es'
-    else 'xx' # Fallback: graue Platzhalter-Flagge oder leer
+    else 'xx'
     end
   end
 
-  # Optional: wenn du keine t() für Sprachnamen hast, fallback zu humanisierten Namen
+  # Gibt eine echte Flagge als Emoji zurück
+  def flag_emoji_for(locale)
+    case locale.to_sym
+    when :de     then "🇩🇪"
+    when :en     then "🇺🇸"   # oder 🇺🇸 – deine Wahl
+    when :ru     then "🇷🇺"
+    when :es     then "🇪🇸"
+    when :fr     then "🇫🇷"
+    when :ja     then "🇯🇵"
+    when :ko     then "🇰🇷"
+    when :zh_CN  then "🇨🇳"
+    else "🌍"
+    end
+  end
+
   def language_name(locale)
     t("languages.#{locale}", default: locale.to_s.upcase)
   end

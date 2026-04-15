@@ -36,7 +36,7 @@
               = t("languages.#{I18n.locale}")
 
             %ul.dropdown-menu.dropdown-menu-end
-              - I18n.available_locales.each do |loc|
+              - enabled_locales.each_key do |loc|
                 - flag_code = flag_code_for(loc)
                 - active = I18n.locale == loc ? 'active' : ''
                 %li
@@ -90,7 +90,7 @@
               = t("languages.#{I18n.locale}")
 
             %ul.dropdown-menu.dropdown-menu-end
-              - I18n.available_locales.each do |loc|
+              - enabled_locales.each_key do |loc|
                 - flag_code = flag_code_for(loc)
                 - active = I18n.locale == loc ? 'active' : ''
                 %li
