@@ -39,7 +39,7 @@ German and American
   - Schild für Markierung der Standardsprache
   - Schild für Markierung der aktuell verwendeten Sprache
     - (Standardsprache, aktuelle Sprache, oder alle gleichzeitig deaktivieren wird verhindert! (Flash-Meldungen ))
-    - (Es ist möglich, systemweit nur eine einzige Sprache zu verwenden, oder alle gleichzeitig deaktivieren wird verhindert! (Flash-Meldungen ))
+    - (Es ist möglich, systemweit nur eine einzige Sprache zu verwenden)
     - (Wenn nur eine systemweite Sprache vorhanden ist, wird in der Kopfzeile kein Sprachauswahlmenü angezeigt.)
 
 - So fügst du eine neue Sprache hinzu: **Siehe: [readme_add_new_language.md](readme_add_new_language.md)**
