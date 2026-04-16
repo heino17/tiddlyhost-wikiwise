@@ -39,7 +39,7 @@ German and American
   - Schild für Markierung der Standardsprache
   - Schild für Markierung der aktuell verwendeten Sprache
     - (Standardsprache, aktuelle Sprache, oder alle gleichzeitig deaktivieren wird verhindert! (Flash-Meldungen ))
-    - (Es ist möglich, systemweit nur eine einzige Sprache zu verwenden)
+    - (Es ist möglich, systemweit nur eine einzige Sprache zu verwenden.)
     - (Wenn nur eine systemweite Sprache vorhanden ist, wird in der Kopfzeile kein Sprachauswahlmenü angezeigt.)
 
 - So fügst du eine neue Sprache hinzu: **Siehe: [readme_add_new_language.md](readme_add_new_language.md)**
@@ -88,7 +88,7 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
   - Icon to indicate the currently selected language
     - (Disabling the default language, the current language, or all at once is prevented! (Flash messages))  
     - (It's possible to use a single language only, system wide.)  
-    - (If there is only one system-wide language, there is no language selection menu in header)  
+    - (If there is only one system-wide language, there is no language selection menu in header.)  
   
 - To add a new language: **See: [readme_add_new_language.md](readme_add_new_language.md)**
 
