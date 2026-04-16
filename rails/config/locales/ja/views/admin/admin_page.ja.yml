@@ -151,21 +151,31 @@ ja:
     locale_language_badge_current: "現在"
     locale_enable_languages: "以下の言語をアプリケーション全体で利用可能にする："
     locale_enabled_de:
+      # descriptions could be "Make the German language available throughout the application"
+      # But I leave it blank, saves space in view
       label: "ドイツ語を有効化"
+      description: ""
     locale_enabled_en:
       label: "英語を有効化"
+      description: ""
     locale_enabled_ru:
       label: "ロシア語を有効化"
+      description: ""
     locale_enabled_es:
       label: "スペイン語を有効化"
+      description: ""
     locale_enabled_fr:
       label: "フランス語を有効化"
+      description: ""
     locale_enabled_ja:
       label: "日本語を有効化"
+      description: ""
     locale_enabled_ko:
       label: "韓国語を有効化"
+      description: ""
     locale_enabled_zh_CN:
       label: "簡体字中国語を有効化"
+      description: ""
     locales_hint_messages:
       cannot_disable_current_locale: "現在使用中の言語を無効にすることはできません！"
       cannot_disable_default_locale: "デフォルト言語を無効にすることはできません！"

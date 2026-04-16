@@ -155,21 +155,31 @@ ru:
     locale_language_badge_current: "Текущий"
     locale_enable_languages: "Сделать следующие языки доступными во всем приложении:"
     locale_enabled_de:
+      # descriptions could be "Make the German language available throughout the application"
+      # But I leave it blank, saves space in view
       label: "Активировать немецкий"
+      description: ""
     locale_enabled_en:
       label: "Активировать английский"
+      description: ""
     locale_enabled_ru:
       label: "Активировать русский"
+      description: ""
     locale_enabled_es:
       label: "Активировать испанский"
+      description: ""
     locale_enabled_fr:
       label: "Активировать французский"
+      description: ""
     locale_enabled_ja:
       label: "Активировать японский"
+      description: ""
     locale_enabled_ko:
       label: "Активировать корейский"
+      description: ""
     locale_enabled_zh_CN:
       label: "Активировать китайский (упрощенный)"
+      description: ""
     locales_hint_messages:
       cannot_disable_current_locale: "Вы не можете отключить текущий используемый язык!"
       cannot_disable_default_locale: "Вы не можете отключить язык по умолчанию!"

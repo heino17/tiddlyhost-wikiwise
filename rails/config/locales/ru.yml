@@ -8,6 +8,12 @@ ru:
   site_title: "Tiddlyhost - Русский"
   iso_language_code: "ru"
   
+  # Logo
+  logo_link_title: "Tiddlyhost"
+  logo_image_tag: "logo.svg"
+  logo_path: "logo.svg"
+  logo_alt: "logo.svg"
+    
   # if registration is switched off
   registration_not_possible: "Создание учётной записи невозможно!"
   # startpage introduction block
@@ -32,9 +38,3 @@ ru:
   # Test in footer
   test: "Hello World"
   test_ok: "(ru.yml working!)"
-  # Logo
-  logo_link_title: "Tiddlyhost"
-  logo_image_tag: "logo.svg"
-  logo_path: "logo.svg"
-  logo_alt: "logo.svg"
-  

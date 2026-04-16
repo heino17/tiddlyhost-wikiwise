@@ -150,21 +150,31 @@ zh_CN:
     locale_language_badge_current: "当前"
     locale_enable_languages: "在整个应用程序中启用以下语言："
     locale_enabled_de:
+      # descriptions could be "Make the German language available throughout the application"
+      # But I leave it blank, saves space in view
       label: "启用德语"
+      description: ""
     locale_enabled_en:
       label: "启用英语"
+      description: ""
     locale_enabled_ru:
       label: "启用俄语"
+      description: ""
     locale_enabled_es:
       label: "启用西班牙语"
+      description: ""
     locale_enabled_fr:
       label: "启用法语"
+      description: ""
     locale_enabled_ja:
       label: "启用日语"
+      description: ""
     locale_enabled_ko:
       label: "启用韩语"
+      description: ""
     locale_enabled_zh_CN:
       label: "启用简体中文"
+      description: ""
     locales_hint_messages:
       cannot_disable_current_locale: "无法禁用当前使用的语言！"
       cannot_disable_default_locale: "无法禁用默认语言！"

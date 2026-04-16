@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :redirect_www_requests
   before_action :permit_devise_params, if: :devise_controller?
-  before_action :set_locale
-  before_action :apply_enabled_locales
+  before_action :set_locale, :apply_enabled_locales  # Zuerst set_locale!
 
   private
 
@@ -138,7 +137,9 @@ class ApplicationController < ActionController::Base
   helper_method :enabled_locales
 
   def apply_enabled_locales
-    I18n.available_locales = enabled_locales.keys
+    enabled = enabled_locales.keys
+    default_locale = Setting.string_for('defaultlocale', default: 'en') # oder 'en', je nach Einstellung
+    I18n.available_locales = (enabled + [default_locale.to_sym]).uniq
   end
 
 end

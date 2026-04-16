@@ -151,21 +151,31 @@ ko:
     locale_language_badge_current: "현재"
     locale_enable_languages: "다음 언어를 전체 애플리케이션에서 사용할 수 있게 합니다:"
     locale_enabled_de:
+      # descriptions could be "Make the German language available throughout the application"
+      # But I leave it blank, saves space in view
       label: "독일어 활성화"
+      description: ""
     locale_enabled_en:
       label: "영어 활성화"
+      description: ""
     locale_enabled_ru:
       label: "러시아어 활성화"
+      description: ""
     locale_enabled_es:
       label: "스페인어 활성화"
+      description: ""
     locale_enabled_fr:
       label: "프랑스어 활성화"
+      description: ""
     locale_enabled_ja:
       label: "일본어 활성화"
+      description: ""
     locale_enabled_ko:
       label: "한국어 활성화"
+      description: ""
     locale_enabled_zh_CN:
       label: "중국어(간체) 활성화"
+      description: ""
     locales_hint_messages:
       cannot_disable_current_locale: "현재 사용 중인 언어를 비활성화할 수 없습니다!"
       cannot_disable_default_locale: "기본 언어를 비활성화할 수 없습니다!"

@@ -19,13 +19,13 @@
         %span.badge.bg-primary.ms-2
           = t('admin.locale_language_badge_default')
 
-  %p.text-muted.small
+  %p.text-muted.small= setting[:description]
 
   - if setting[:type] == :boolean
     .form-check.form-switch
       = hidden_field_tag "settings[#{setting[:key]}]", "0"
       = check_box_tag "settings[#{setting[:key]}]", "1", setting[:current_value],
-          class: "form-check-input", 
+          class: "form-check-input",
           id: "setting_#{setting[:key]}"
       = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
 

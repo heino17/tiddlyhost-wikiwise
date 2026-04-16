@@ -149,21 +149,31 @@ de:
     locale_language_badge_current: "Aktuell"
     locale_enable_languages: "Sprachen in der gesamten Anwendung verfügbar machen:"
     locale_enabled_de:
+      # descriptions could be "Make the German language available throughout the application"
+      # But I leave it blank, saves space in view
       label: "Deutsch aktivieren"
+      description: ""
     locale_enabled_en:
       label: "Amerikanisch aktivieren"
+      description: ""
     locale_enabled_ru:
       label: "Russisch aktivieren"
+      description: ""
     locale_enabled_es:
       label: "Spanisch aktivieren"
+      description: ""
     locale_enabled_fr:
       label: "Französisch aktivieren"
+      description: ""
     locale_enabled_ja:
       label: "Japanisch aktivieren"
+      description: ""
     locale_enabled_ko:
       label: "Koreanisch aktivieren"
+      description: ""
     locale_enabled_zh_CN:
       label: "Chinesisch (vereinfacht) aktivieren"
+      description: ""
     locales_hint_messages:
       cannot_disable_current_locale: "Du kannst die aktuell verwendete Sprache nicht deaktivieren!"
       cannot_disable_default_locale: "Du kannst die Standardsprache nicht deaktivieren!"
