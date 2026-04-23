@@ -15,11 +15,13 @@ German and American
   - Wiki-Bewertungen _ein-/ausschalten_
   - Shoutbox _ein-/ausschalten_
 - Tab Hub & Darstellung  
+  - Standard-Theme beim ersten Besuch (Dropdown) _hell/dunkel/auto_
   - Anzahl der Wikis pro Seite in der Hub/Explore-Ansicht _Zahlenfeld und +/-_
+  - Banner-Nachricht aktivieren, einstellen _Schalter, Dropdown, Textfeld_ 
 - Tab Abonnements  
   - Stripe-Abonnements-Funktion _ein-/ausschalten_
   - Maximale Anzahl erlaubter Tags pro Seite/Wiki _Zahlenfeld und +/-_
-- Tab Speicher & Versionen  
+- Tab Speicher & Versionen (Standard-Plan, Premium-Plan nur sichtbar, wenn Abos aktiv)
   - Max. Versionen (Free-Plan) _Zahlenfeld und +/-_
   - Max. Versionen (Standard-Plan) _Zahlenfeld und +/-_
   - Max. Versionen (Premium-Plan) _Zahlenfeld und +/-_
@@ -34,7 +36,7 @@ German and American
   - Max. Speichergröße eines Kontos (Premium-Plan) _Zahlenfeld und +/-_
 - Tab Sprachen  
   - Auflistung der aller Sprachen, für systemweites aktivieren/deaktivieren
-  - Standardsprache wählen (Dropdown) _umschalten_
+  - Standardsprache wählen _Dropdown_umschalten_
   - Je Sprache ein Schalter _ein-/ausschalten_
   - Schild für Markierung der Standardsprache
   - Schild für Markierung der aktuell verwendeten Sprache
@@ -63,11 +65,13 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
   - Wiki ratings _enable/disable_
   - Shoutbox _enable/disable_
 - Tab Hub & Display  
-  - Number of wikis per page in Hub/Explore view _number field and +/-_
+  - Default theme on first visit (dropdown) _light/dark/auto_
+  - Number of wikis per page in the Hub/Explore view _number field and +/-_
+  - Enable and configure banner message _toggle, dropdown, text field_ 
 - Tab Subscriptions  
   - Stripe subscription feature _enable/disable_
   - Maximum number of tags allowed per page/wiki _number field and +/-_
-- Tab Storage & Versions   
+- Tab Storage & Versions (Standard Plan; Premium Plan: visible only if subscriptions are active)
   - Max. versions (Free plan) _Number field and +/-_
   - Max. versions (Standard plan) _Number field and +/-_
   - Max. versions (Premium plan) _number field and +/-_
