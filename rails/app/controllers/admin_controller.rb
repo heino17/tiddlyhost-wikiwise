@@ -402,4 +402,8 @@ class AdminController < ApplicationController
       }
     end
   end
+
+  def comments_list
+    @comments = Comment.order(created_at: :desc)
+  end
 end

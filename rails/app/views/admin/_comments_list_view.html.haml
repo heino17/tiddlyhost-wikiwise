@@ -1,0 +1,37 @@
+%table.table.text-muted{ style: 'font-size: 85%; justify-content: center;' }
+  %thead
+    %tr
+      %th= t('admin.tab_view_comments.tab_comments_th_wiki')
+      %th= t('admin.tab_view_comments.tab_comments_th_user')
+      %th= t('admin.tab_view_comments.tab_comments_th_comment')
+      %th= t('admin.tab_view_comments.tab_comments_th_date')
+      %th= t('admin.tab_view_comments.tab_comments_th_action')
+  %tbody
+    - Comment.order(created_at: :desc).each do |comment|
+      %tr{ id: dom_id(comment) }
+        %td
+          = link_to (raw("#{comment.site&.name}")),
+            (comment.site.url.presence || comment.site),
+            target: "_blank",
+            rel: "noopener",
+            title: t('admin.tab_view_comments.tab_comments_view_open_wiki')
+
+        %td= comment.user.username
+        
+        %td.shoutbox-text
+          = link_to truncate(comment.body, length: 117),
+            site_comments_path(comment.site),
+            title: comment.body,
+            target: :blank            
+          = "⮺"
+
+        %td= l(comment.created_at, format: :short)
+        
+        %td
+          - if user_signed_in? && user_is_admin?
+            = link_to '🗑️',
+              admin_comments_view_path(comment),
+              method: :delete,
+              data: { confirm: t('comments.delete_confirm') },
+              class: "btn btn-sm btn-outline-danger",
+              title: t('comments.delete_button')

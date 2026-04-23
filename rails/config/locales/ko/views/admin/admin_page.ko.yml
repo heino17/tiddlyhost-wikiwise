@@ -10,6 +10,7 @@ ko:
       tspot_sites: "Tspot 페이지"
       storage: "스토리지"
       settings: "설정"
+      comments: "댓글 보기"
       etc: "기타"
       #
     tab_stats:
@@ -118,6 +119,14 @@ ko:
       th_files: "파일 수"
       th_bytes: "바이트"
       #
+    tab_view_comments:
+      tab_comments_view_header: "모든 댓글"
+      tab_comments_th_wiki: "위키"
+      tab_comments_th_user: "사용자"
+      tab_comments_th_comment: "댓글"
+      tab_comments_th_date: "날짜"
+      tab_comments_th_action: "작업"
+      tab_comments_view_open_wiki: "위키 열기"
     tab_etc:
       raise_an_exception: "예외 발생시키기"
       connection_pool_stats: "연결 풀 통계"

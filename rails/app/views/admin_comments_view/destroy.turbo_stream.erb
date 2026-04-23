@@ -1,0 +1,8 @@
+<%= turbo_stream.remove dom_id(@comment) %>
+
+<%= turbo_stream.prepend "flash" do %>
+  <div class="alert alert-success alert-dismissible fade show alert-flash mb-2" role="alert">
+    <%= t('comments.deleted') %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+<% end %>

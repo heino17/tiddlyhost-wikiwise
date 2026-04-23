@@ -10,6 +10,7 @@ ja:
       tspot_sites: "Tspot ページ"
       storage: "ストレージ"
       settings: "設定"
+      comments: "コメントを見る"
       etc: "その他"
       #
     tab_stats:
@@ -118,6 +119,14 @@ ja:
       th_files: "ファイル数"
       th_bytes: "バイト"
       #
+    tab_view_comments:
+      tab_comments_view_header: "すべてのコメント"
+      tab_comments_th_wiki: "Wiki"
+      tab_comments_th_user: "ユーザー"
+      tab_comments_th_comment: "コメント"
+      tab_comments_th_date: "日付"
+      tab_comments_th_action: "操作"
+      tab_comments_view_open_wiki: "Wiki を開く"
     tab_etc:
       raise_an_exception: "例外を発生させる"
       connection_pool_stats: "接続プール統計"

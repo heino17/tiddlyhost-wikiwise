@@ -446,7 +446,7 @@ $hilight_bg_color: #d5e0f9;
 }
 .shoutbox-text {
   word-break: break-word;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 .fade-out {
   animation: fadeOut 0.4s ease forwards;

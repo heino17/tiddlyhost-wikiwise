@@ -9,6 +9,7 @@ en:
       tspot_sites: "Tspot Seiten"
       storage: "Storage"
       settings: "Settings"
+      comments: "View comments"
       etc: "Etc"
       #
     tab_stats:
@@ -122,6 +123,14 @@ en:
       th_files: "Files"
       th_bytes: "Bytes"
       #
+    tab_view_comments:
+      tab_comments_view_header: "All comments"
+      tab_comments_th_wiki: "Wiki"
+      tab_comments_th_user: "User"
+      tab_comments_th_comment: "Comment"
+      tab_comments_th_date: "Date"
+      tab_comments_th_action: "Actions"
+      tab_comments_view_open_wiki: "Open wiki"
     tab_etc:
       raise_an_exception: "Raise an exception"
       connection_pool_stats: "Connection pool stats"

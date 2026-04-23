@@ -61,6 +61,7 @@ Rails.application.routes.draw do
     get 'admin/tspot_sites'
     get 'admin/settings'
     patch 'admin/settings', to: 'admin#update_settings'
+    get 'admin/comments_list'
     get 'admin/etc'
 
     get 'admin/raw_download'
@@ -113,6 +114,8 @@ Rails.application.routes.draw do
     end
   
     post 'banner/dismiss', to: 'banner#dismiss'
+  
+    delete "admin/comments_view/:id", to: "admin_comments_view#destroy", as: :admin_comments_view
 
     if Settings.tiddlyspot_enabled?
 

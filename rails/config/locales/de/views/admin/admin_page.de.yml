@@ -8,6 +8,7 @@ de:
       tspot_sites: "Tspot Seiten"
       storage: "Speicher"
       settings: "Einstellungen"
+      comments: "Kommentare lesen"
       etc: "Etc."
       #
     tab_stats:
@@ -116,6 +117,14 @@ de:
       th_files: "Dateien"
       th_bytes: "Im Speicher"
       #
+    tab_view_comments: 
+      tab_comments_view_header: "Alle Kommentare"
+      tab_comments_th_wiki: "Wiki"
+      tab_comments_th_user: "Benutzer"
+      tab_comments_th_comment: "Kommentar"
+      tab_comments_th_date: "Datum"
+      tab_comments_th_action: "Aktionen"
+      tab_comments_view_open_wiki: "Wiki öffnen"
     tab_etc:
       raise_an_exception: "Eine Ausnahme auslösen"
       connection_pool_stats: "Verbindungs-Pool-Statistiken"

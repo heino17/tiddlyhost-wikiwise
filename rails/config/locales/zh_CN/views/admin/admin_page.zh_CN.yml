@@ -9,6 +9,7 @@ zh_CN:
       tspot_sites: "Tspot 页面"
       storage: "存储"
       settings: "设置"
+      comments: "查看评论"
       etc: "其他"
       #
     tab_stats:
@@ -117,6 +118,14 @@ zh_CN:
       th_files: "文件数"
       th_bytes: "字节"
       #
+    tab_view_comments:
+      tab_comments_view_header: "所有评论"
+      tab_comments_th_wiki: "Wiki"
+      tab_comments_th_user: "用户"
+      tab_comments_th_comment: "评论"
+      tab_comments_th_date: "日期"
+      tab_comments_th_action: "操作"
+      tab_comments_view_open_wiki: "打开 Wiki"
     tab_etc:
       raise_an_exception: "引发异常"
       connection_pool_stats: "连接池统计"

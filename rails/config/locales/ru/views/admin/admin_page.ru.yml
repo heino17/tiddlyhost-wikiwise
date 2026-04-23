@@ -9,6 +9,7 @@ ru:
       tspot_sites: "Страницы Tspot"
       storage: "Хранилище"
       settings: "Настройки"
+      comments: "Просмотр комментариев"
       etc: "Прочее"
       #
     tab_stats:
@@ -122,6 +123,14 @@ ru:
       th_files: "Файлы"
       th_bytes: "Байты"
       #
+    tab_view_comments:
+      tab_comments_view_header: "Все комментарии"
+      tab_comments_th_wiki: "Вики"
+      tab_comments_th_user: "Пользователь"
+      tab_comments_th_comment: "Комментарий"
+      tab_comments_th_date: "Дата"
+      tab_comments_th_action: "Действия"
+      tab_comments_view_open_wiki: "Открыть вики"
     tab_etc:
       raise_an_exception: "Вызвать исключение"
       connection_pool_stats: "Статистика пула соединений"
