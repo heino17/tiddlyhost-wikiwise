@@ -1,4 +1,20 @@
-.alert.alert-warning.banner-message
-  - if icon = Settings.banner_message[:icon]
-    = bi_icon icon, style: 'margin-right: 0px;'
-  = Settings.banner_message[:html].html_safe
+- if Setting.enabled?(:banner_message_enabled)
+
+  - visibility = Setting.string_for(:banner_message_visibility, default: 'all').to_s.strip
+
+  - if (visibility == 'all') || (visibility == 'logged_in' && user_signed_in?) || (visibility == 'logged_out' && !user_signed_in?)
+
+    - message_html = Setting.string_for(:banner_message_html).presence
+
+    - if message_html && !session[:banner_dismissed]
+      .alert.alert-warning.banner-message.mb-4.d-flex.align-items-center.fade.show{
+        role: 'alert',
+        data: { controller: "banner" }
+      }
+        = message_html.html_safe
+
+        %button.btn-close.ms-auto{ 
+          type: "button", 
+          data: { action: "banner#dismiss" }, 
+          aria: { label: "Schließen" } 
+        }

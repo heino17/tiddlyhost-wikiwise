@@ -39,3 +39,56 @@
 
       .input-group-text
         = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
+
+  - elsif setting[:type] == :text
+    .trix-container.mb-3
+      %trix-toolbar{ id: "toolbar_#{setting[:key]}" }
+        .trix-button-row
+          %button{ type: "button", 
+                   class: "trix-button", 
+                   "data-trix-attribute": "heading1", 
+                   title: t('admin.banner_message_editor.heading1') }
+            %span 🅗¹
+          %button{ type: "button", 
+                   class: "trix-button", 
+                   "data-trix-attribute": "bold", 
+                   title: t('admin.banner_message_editor.bold') }
+            %span 🅱️
+          %button{ type: "button", 
+                   class: "trix-button", 
+                   "data-trix-attribute": "italic", 
+                   title: t('admin.banner_message_editor.italic') }
+            %span 𝑰
+          %button{ type: "button", 
+                   class: "trix-button", 
+                   "data-trix-attribute": "strike", 
+                   title: t('admin.banner_message_editor.strikethrough') }
+            %span S̶
+          %button{ type: "button", 
+                   class: "trix-button", 
+                   "data-trix-action": "undo", 
+                   title: t('admin.banner_message_editor.undo') }
+            %span ⟲
+          %button{ type: "button", 
+                   class: "trix-button", 
+                   "data-trix-action": "redo", 
+                   title: t('admin.banner_message_editor.redo') }
+            %span ⟳
+  
+      = hidden_field_tag "settings[#{setting[:key]}]", 
+                         setting[:raw_value] || setting[:current_value], 
+                         id: "settings_#{setting[:key]}_input"
+      
+      %trix-editor{ input: "settings_#{setting[:key]}_input",
+                    toolbar: "toolbar_#{setting[:key]}",
+                    class: "trix-content form-control border rounded p-3",
+                    style: "min-height: 150px;" }
+      
+      = label_tag "settings_#{setting[:key]}_label", setting[:label], class: "form-label mt-2"
+
+  - elsif setting[:type] == :select
+    - options = setting[:options].map { |opt| [t("admin.#{setting[:key]}.#{opt}", default: opt.to_s.humanize), opt] }
+
+    = select_tag "settings[#{setting[:key]}]",
+                 options_for_select(options, setting[:raw_value] || setting[:current_value]),
+                 class: "form-select w-auto"

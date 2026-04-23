@@ -219,7 +219,7 @@ en:
       label: "Maximum number of tags per wiki"
       description: "How many tags may a single wiki have at most? (recommended: 5–10)"
       too_many: "may have a maximum of %{count} tags"
-    # neu bearbeiten am 09.04.2026
+    #
     keep_count_free:
       prefix: "Versions"
       suffix: "per account"
@@ -242,17 +242,53 @@ en:
       description: "What is the maximum number of versions of a Tiddlyspot site that can be saved?"
     max_site_size_free_mb:
       label: "Max. storage size per wiki (Free plan)"
-      description: "Maximum total size of a wiki for Free users in MB"
+      description: "Maximum total size of a wiki for Free users (in MB)"
       suffix: "MB"
     max_site_size_standard_mb:
       label: "Max. storage size per wiki (Standard plan)"
-      description: "Maximum total size of a wiki for Standard users in MB"
+      description: "Maximum total size of a wiki for Standard users (in MB)"
       suffix: "MB"
     max_site_size_premium_mb:
       label: "Max. storage size per wiki (Premium plan)"
-      description: "Maximum total size of a wiki for Premium users in MB"
+      description: "Maximum total size of a wiki for Premium users (in MB)"
       suffix: "MB"
-    max_upload_size_mb:
-      label: "Maximum size of a single upload"
-      description: "Maximum file size a user can upload at once (in MB)"
+    max_account_storage_free_mb:
+      label: "Maximum storage for Free accounts"
+      description: "Maximum total storage available for a Free account (in MB)"
       suffix: "MB"
+      account_storage_exceeded: "Your account has exceeded the storage limit of %{limit} MB (currently %{current} MB + new version %{new} MB). Please delete older wikis or upgrade your plan."
+    max_account_storage_standard_mb:
+      label: "Maximum storage for Standard accounts"
+      description: "Maximum total storage available for a Standard account (in MB)"
+      suffix: "MB"
+      account_storage_exceeded: "Your account has exceeded the storage limit of %{limit} MB (currently %{current} MB + new version %{new} MB). Please delete older wikis or upgrade your plan."
+    max_account_storage_premium_mb:
+      label: "Maximum storage for Premium accounts"
+      description: "Maximum total storage available for a Premium account (in MB)"
+      suffix: "MB"
+      account_storage_exceeded: "Your account has exceeded the storage limit of %{limit} MB (currently %{current} MB + new version %{new} MB). Please delete older wikis or upgrade your plan."
+    banner_message_enabled:
+      label: "Enable banner message"
+      description: "Shows a warning or info banner at the top of all pages"
+    banner_message_html:
+      label: "Banner message content"
+      description: "HTML content of the banner (supports links, bold text, etc.)"
+    banner_message_visibility:
+      label: "Banner visibility"
+      description: "Who should see the banner?"
+      all: "Everyone (including not logged in)"
+      logged_in: "Only logged-in users"
+      logged_out: "Only when not logged in"
+    banner_message_editor:
+      heading1: "Heading 1"
+      bold: "Bold"
+      italic: "Italic"
+      strikethrough: "Strikethrough"
+      undo: "Undo"
+      redo: "Redo"
+    default_theme_mode:
+      label: "Default theme on first visit"
+      description: "Which theme should be loaded by default when a user visits the site for the first time?"
+      light: "Light"
+      dark: "Dark"
+      auto: "Auto (follows browser system setting)"

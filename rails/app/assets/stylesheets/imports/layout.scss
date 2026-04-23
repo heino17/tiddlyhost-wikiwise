@@ -490,3 +490,54 @@ $hilight_bg_color: #d5e0f9;
     transform: translateY(0);
   }
 }
+
+/* Banner messages -Trix Toolbar */
+trix-toolbar .trix-button {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  margin: 3px 2px;
+  font-size: 1.3rem;
+}
+
+/* Hover + Dark Mode */
+trix-toolbar .trix-button:hover::before {
+  color: #0d6efd;
+}
+
+[data-bs-theme="dark"] trix-toolbar .trix-button {
+  background-color: #343a40;
+  border: 1px solid #198754;
+  border-radius: 8px;
+}
+[data-bs-theme="dark"] trix-toolbar .trix-button::before {
+  color: #adb5bd;
+}
+[data-bs-theme="dark"] trix-toolbar .trix-button:hover::before {
+  color: #6ea8fe;
+}
+
+/* Toolbar umbrechen */
+trix-toolbar {
+  flex-wrap: wrap !important;
+  gap: 4px;
+  padding-bottom: 10px;
+}
+/* Banner messages -Trix Editor */
+trix-editor {
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fafafa;
+  min-height: 140px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+}
+[data-bs-theme="dark"] trix-editor {
+  background: #212529;
+  border: 1px solid #198754;
+  border-radius: 8px;
+}

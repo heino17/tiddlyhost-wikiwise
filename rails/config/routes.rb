@@ -111,6 +111,8 @@ Rails.application.routes.draw do
         patch 'version_label/:blob_id', action: 'version_label_update', as: :version_label_update
       end
     end
+  
+    post 'banner/dismiss', to: 'banner#dismiss'
 
     if Settings.tiddlyspot_enabled?
 

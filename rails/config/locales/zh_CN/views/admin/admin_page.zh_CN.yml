@@ -224,6 +224,11 @@ zh_CN:
       suffix: "每个账户"
       label: "最大版本数 (Standard 计划)"
       description: "Standard 用户最多可以保存多少个版本？"
+    keep_count_premium:
+      prefix: "版本"
+      suffix: "每个账户"
+      label: "最大版本数 (Premium 计划)"
+      description: "Premium 计划用户最多可以保存多少个版本？"
     keep_count_tiddlyspot:
       prefix: "版本"
       suffix: "每个账户"
@@ -241,7 +246,43 @@ zh_CN:
       label: "每个 Wiki 的最大存储大小 (Premium 计划)"
       description: "Premium 用户的 Wiki 最大总大小（MB）"
       suffix: "MB"
-    max_upload_size_mb:
-      label: "单个上传的最大大小"
-      description: "用户一次可以上传的最大文件大小（MB）"
+    max_account_storage_free_mb:
+      label: "Free 账户最大存储空间"
+      description: "Free 账户可用的最大总存储容量（MB）"
       suffix: "MB"
+      account_storage_exceeded: "您的账户已超过 %{limit} MB 的存储限制（当前 %{current} MB + 新版本 %{new} MB）。请删除旧 Wiki 或升级您的计划。"
+    max_account_storage_standard_mb:
+      label: "Standard 账户最大存储空间"
+      description: "Standard 账户可用的最大总存储容量（MB）"
+      suffix: "MB"
+      account_storage_exceeded: "您的账户已超过 %{limit} MB 的存储限制（当前 %{current} MB + 新版本 %{new} MB）。请删除旧 Wiki 或升级您的计划。"
+    max_account_storage_premium_mb:
+      label: "Premium 账户最大存储空间"
+      description: "Premium 账户可用的最大总存储容量（MB）"
+      suffix: "MB"
+      account_storage_exceeded: "您的账户已超过 %{limit} MB 的存储限制（当前 %{current} MB + 新版本 %{new} MB）。请删除旧 Wiki 或升级您的计划。"
+    banner_message_enabled:
+      label: "启用横幅消息"
+      description: "在所有页面顶部显示警告或信息横幅"
+    banner_message_html:
+      label: "横幅消息内容"
+      description: "横幅的 HTML 内容（支持链接、粗体等）"
+    banner_message_visibility:
+      label: "横幅通知显示范围"
+      description: "横幅通知应该显示给谁？"
+      all: "所有人（包括未登录用户）"
+      logged_in: "仅登录用户"
+      logged_out: "仅未登录用户"
+    banner_message_editor:
+      heading1: "标题 1"
+      bold: "加粗"
+      italic: "斜体"
+      strikethrough: "删除线"
+      undo: "撤销"
+      redo: "重做"
+    default_theme_mode:
+      label: "首次访问默认主题"
+      description: "用户首次访问网站时应加载哪个主题？"
+      light: "浅色"
+      dark: "深色"
+      auto: "自动（跟随浏览器系统设置）"

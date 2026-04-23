@@ -40,7 +40,13 @@
     <%= render "layouts/flash" %>
 
     <main>
-      <%= render 'layouts/banner_message' if Settings.banner_message %>
+      <% Rails.logger.debug "Banner enabled? #{Setting.enabled?(:banner_message_enabled)}" %>
+      <% Rails.logger.debug "Visibility: #{Setting.value_for(:banner_message_visibility)}" %>
+      <% Rails.logger.debug "HTML present? #{Setting.value_for(:banner_message_html).present?}" %>
+      
+      <% if Setting.enabled?(:banner_message_enabled) %>
+        <%= render partial: 'layouts/banner_message' %>
+      <% end %>
       <div class="container-fluid">
         <%= yield %>
       </div>

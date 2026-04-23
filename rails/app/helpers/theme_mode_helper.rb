@@ -1,7 +1,25 @@
 module ThemeModeHelper
   MODES = %w[auto light dark]
 
-  DEFAULT_MODE = MODES.first
+  def default_mode
+    mode = Setting.string_for(:default_theme_mode, default: "auto")
+    return mode if mode.in?(MODES)
+  
+    "auto"
+  end
+
+  def theme_mode(mode = nil)
+    mode ||= current_user&.theme_mode_pref
+    mode ||= cookies[:theme_mode]
+    mode ||= default_mode
+    return mode if mode.in?(MODES)
+  
+    default_mode
+  end
+
+  def next_theme_mode(mode = nil)
+    CycleHelper.cycle_next(theme_mode(mode), MODES)
+  end
 
   TITLES = {
     "auto" => "Auto",
@@ -14,18 +32,6 @@ module ThemeModeHelper
     "light" => "sun",
     "dark" => "moon-stars",
   }
-
-  def theme_mode(mode = nil)
-    mode ||= current_user&.theme_mode_pref
-    mode ||= cookies[:theme_mode]
-    return mode if mode.in? MODES
-
-    DEFAULT_MODE
-  end
-
-  def next_theme_mode(mode = nil)
-    CycleHelper.cycle_next(theme_mode(mode), MODES)
-  end
 
   def theme_title(cookie_value = nil)
     TITLES[theme_mode(cookie_value)]

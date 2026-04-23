@@ -215,6 +215,7 @@ ja:
       label: "ウィキあたりの最大タグ数"
       description: "1つのウィキに最大でいくつのタグを設定できますか？（推奨：5–10）"
       too_many: "は最大%{count}個のタグまでです"
+    #
     keep_count_free:
       prefix: "バージョン"
       suffix: "アカウントあたり"
@@ -225,6 +226,11 @@ ja:
       suffix: "アカウントあたり"
       label: "最大バージョン数 (Standardプラン)"
       description: "Standardユーザーは最大で何バージョン保存できますか？"
+    keep_count_premium:
+      prefix: "バージョン"
+      suffix: "アカウントあたり"
+      label: "最大バージョン数 (Premiumプラン)"
+      description: "Premiumプラン利用者は最大で何バージョン保存できますか？"
     keep_count_tiddlyspot:
       prefix: "バージョン"
       suffix: "アカウントあたり"
@@ -242,7 +248,43 @@ ja:
       label: "Wikiあたりの最大ストレージサイズ（Premiumプラン）"
       description: "PremiumユーザーのWikiの最大合計サイズ（MB）"
       suffix: "MB"
-    max_upload_size_mb:
-      label: "1回のアップロードの最大サイズ"
-      description: "ユーザーが一度にアップロードできる最大ファイルサイズ（MB）"
+    max_account_storage_free_mb:
+      label: "Freeアカウントの最大ストレージ"
+      description: "Freeアカウントで利用可能な最大総ストレージ容量（MB）"
       suffix: "MB"
+      account_storage_exceeded: "アカウントが%{limit} MBのストレージ制限を超えました（現在%{current} MB + 新しいバージョン%{new} MB）。古いWikiを削除するか、プランをアップグレードしてください。"
+    max_account_storage_standard_mb:
+      label: "Standardアカウントの最大ストレージ"
+      description: "Standardアカウントで利用可能な最大総ストレージ容量（MB）"
+      suffix: "MB"
+      account_storage_exceeded: "アカウントが%{limit} MBのストレージ制限を超えました（現在%{current} MB + 新しいバージョン%{new} MB）。古いWikiを削除するか、プランをアップグレードしてください。"
+    max_account_storage_premium_mb:
+      label: "Premiumアカウントの最大ストレージ"
+      description: "Premiumアカウントで利用可能な最大総ストレージ容量（MB）"
+      suffix: "MB"
+      account_storage_exceeded: "アカウントが%{limit} MBのストレージ制限を超えました（現在%{current} MB + 新しいバージョン%{new} MB）。古いWikiを削除するか、プランをアップグレードしてください。"
+    banner_message_enabled:
+      label: "バナーメッセージを有効化"
+      description: "すべてのページの上部に警告または情報バナーを表示します"
+    banner_message_html:
+      label: "バナーメッセージの内容"
+      description: "バナーのHTML内容（リンクや太字などをサポート）"
+    banner_message_visibility:
+      label: "バナーの表示範囲"
+      description: "バナーを誰に表示しますか？"
+      all: "全員（未ログインも含む）"
+      logged_in: "ログインしているユーザーのみ"
+      logged_out: "未ログインの時のみ"
+    banner_message_editor:
+      heading1: "見出し 1"
+      bold: "太字"
+      italic: "斜体"
+      strikethrough: "取り消し線"
+      undo: "元に戻す"
+      redo: "やり直す"
+    default_theme_mode:
+      label: "初回訪問時のデフォルトテーマ"
+      description: "ユーザーが初めてサイトにアクセスしたときにどのテーマを読み込みますか？"
+      light: "ライト"
+      dark: "ダーク"
+      auto: "自動（ブラウザのシステム設定に従う）"

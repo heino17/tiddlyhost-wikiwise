@@ -45,4 +45,12 @@ module Settings::Features
   def shoutbox_enabled?
     Setting.enabled?(:shoutbox_enabled, default: true)
   end
+
+  def banner_message_enabled?
+    Setting.enabled?(:banner_message_enabled, default: false)
+  end
+
+  def default_theme_mode?
+    Setting.enabled?(:default_theme_mode, default: light)
+  end
 end

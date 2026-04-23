@@ -12,6 +12,7 @@ import "@hotwired/turbo-rails"
 import "./flash_auto_dismiss"
 import "./comment_textarea_validation"
 import "./controllers"
+import "trix"
 
 // Make jQuery available globally
 window.$ = window.jQuery = $

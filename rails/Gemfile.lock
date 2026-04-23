@@ -81,8 +81,8 @@ GEM
       public_suffix (>= 2.0.2, < 8.0)
     ast (2.4.3)
     aws-eventstream (1.4.0)
-    aws-partitions (1.1237.0)
-    aws-sdk-core (3.244.0)
+    aws-partitions (1.1240.0)
+    aws-sdk-core (3.245.0)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
       aws-sigv4 (~> 1.9)
@@ -102,7 +102,7 @@ GEM
     base64 (0.3.0)
     bcrypt (3.1.22)
     benchmark (0.5.0)
-    bigdecimal (4.1.1)
+    bigdecimal (4.1.2)
     bindata (2.5.1)
     bindex (0.8.1)
     bootsnap (1.23.0)
@@ -157,7 +157,7 @@ GEM
       devise (>= 4.3.0)
     docile (1.4.1)
     drb (2.2.3)
-    erb (6.0.2)
+    erb (6.0.4)
     erubi (1.13.1)
     exception_notification (5.0.1)
       actionmailer (>= 7.1, < 9)
@@ -194,7 +194,7 @@ GEM
       glob (>= 0.4.0)
       i18n
     io-console (0.8.2)
-    irb (1.17.0)
+    irb (1.18.0)
       pp (>= 0.6.0)
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
@@ -205,7 +205,7 @@ GEM
     jmespath (1.6.2)
     jsbundling-rails (1.3.1)
       railties (>= 6.0.0)
-    json (2.19.3)
+    json (2.19.4)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -239,7 +239,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
-    pagy (43.5.0)
+    pagy (43.5.1)
       json
       uri
       yaml
@@ -308,7 +308,7 @@ GEM
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
-    rake (13.3.1)
+    rake (13.4.2)
     rdoc (7.2.0)
       erb
       psych (>= 4.0.0)
@@ -352,7 +352,7 @@ GEM
       sprockets-rails
       tilt
     securerandom (0.4.1)
-    selenium-webdriver (4.42.0)
+    selenium-webdriver (4.43.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -383,6 +383,8 @@ GEM
     thor (1.5.0)
     tilt (2.7.0)
     timeout (0.6.1)
+    trix (0.10.1)
+      rails
     tsort (0.2.0)
     turbo-rails (2.0.23)
       actionpack (>= 7.1.0)
@@ -465,6 +467,7 @@ DEPENDENCIES
   spicy-proton
   stimulus-rails (~> 1.3)
   stripe (~> 18.0.0)
+  trix
   turbo-rails
   tzinfo-data
   validate_url

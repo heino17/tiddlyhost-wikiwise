@@ -107,21 +107,27 @@ class AdminController < ApplicationController
     end
   
     # --- 5. Wenn alles OK → speichern ---
-    params[:settings]&.each do |key, val|
-      # --- Sonderfall: Default-Locale als String speichern ---
-      if key == "default_locale"
+    # 5. Speichern – erweitert für :text
+    params[:settings]&.each do |key_str, val|
+      if key_str == "default_locale"
         Setting.set_string(:default_locale, val)
         next
       end
     
-      # --- Normale Settings ---
-      key_sym = key.to_sym
-      config = @settings.find { |s| s[:key] == key_sym }
+      key_sym = key_str.to_sym
+      config = settings_config.find { |s| s[:key] == key_sym }  # Direkt aus config, nicht @settings
     
-      if config && config[:type] == :boolean
-        Setting.set_enabled(key, val)
+      Rails.logger.info "#{key_sym}: val=#{val}, config=#{config&.dig(:type)}"  # Temp-Log
+    
+      if config
+        case config[:type]
+        when :boolean
+          Setting.set_enabled(key_sym, val == "1")
+        when :integer, :select, :text
+          Setting.set_value(key_sym, val.to_s.strip)
+        end
       else
-        Setting.set_value(key, val)
+        Rails.logger.warn "Unknown setting skipped: #{key_sym}"
       end
     end
   
@@ -320,7 +326,12 @@ class AdminController < ApplicationController
       { key: :shoutbox_enabled,                     group: 'community', default: true,  type: :boolean },
   
       # === Hub & Darstellung ===
+      { key: :default_theme_mode,                   group: 'hub', default: 'light',  type: :select, options: ['light', 'dark', 'auto'] },
       { key: :hub_per_page,                         group: 'hub',       default: 17,    type: :integer, min: 1, max: 51 },
+      # === Banner Message ===
+      { key: :banner_message_enabled,     group: 'hub', default: true, type: :boolean },
+      { key: :banner_message_visibility,  group: 'hub', default: 'all',  type: :select, options: ['all', 'logged_in', 'logged_out'] },
+      { key: :banner_message_html,        group: 'hub', default: "",     type: :text },
   
       # === Abonnements ===
       { key: :subscriptions_enabled,                group: 'subscription', default: true, type: :boolean },
@@ -359,7 +370,17 @@ class AdminController < ApplicationController
   end
   
   def load_settings
-    @settings = settings_config.map do |cfg|
+    config = settings_config.dup   # dup damit wir das Original nicht verändern
+
+    # ── Filter: Standard- und Premium-Einstellungen ausblenden, wenn Abos aus sind ──
+    unless Setting.enabled?(:subscriptions_enabled)
+      config.reject! do |cfg|
+        key = cfg[:key].to_s
+        key.include?("_standard") || key.include?("_premium")
+      end
+    end
+  
+    @settings = config.map do |cfg|
       if cfg[:type] == :boolean
         current_value = Setting.enabled?(cfg[:key], default: cfg[:default])
       else
@@ -369,6 +390,7 @@ class AdminController < ApplicationController
       {
         key:           cfg[:key],
         group:         cfg[:group],
+        options:       cfg[:options],
         label:         t("admin.#{cfg[:key]}.label"),
         description:   t("admin.#{cfg[:key]}.description"),
         default:       cfg[:default],
@@ -376,7 +398,7 @@ class AdminController < ApplicationController
         min:           cfg[:min],
         max:           cfg[:max],
         current_value: current_value,
-        suffix:        t("admin.#{cfg[:key]}.suffix", default: "")
+        raw_value:   Setting.find_by(key: cfg[:key])&.value.presence || cfg[:default].to_s
       }
     end
   end

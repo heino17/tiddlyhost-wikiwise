@@ -225,6 +225,11 @@ ko:
       suffix: "계정당"
       label: "최대 버전 수 (Standard 플랜)"
       description: "Standard 사용자는 최대 몇 개의 버전을 저장할 수 있나요?"
+    keep_count_premium:
+      prefix: "버전"
+      suffix: "계정당"
+      label: "최대 버전 수 (Premium 플랜)"
+      description: "Premium 플랜 사용자는 최대 몇 개의 버전을 저장할 수 있나요?"
     keep_count_tiddlyspot:
       prefix: "버전"
       suffix: "계정당"
@@ -242,7 +247,43 @@ ko:
       label: "Wiki당 최대 저장소 크기 (Premium 플랜)"
       description: "Premium 사용자의 Wiki 최대 총 크기 (MB)"
       suffix: "MB"
-    max_upload_size_mb:
-      label: "단일 업로드 최대 크기"
-      description: "사용자가 한 번에 업로드할 수 있는 최대 파일 크기 (MB)"
+    max_account_storage_free_mb:
+      label: "Free 계정 최대 저장소"
+      description: "Free 계정에 제공되는 최대 총 저장소 용량 (MB)"
       suffix: "MB"
+      account_storage_exceeded: "계정이 %{limit} MB 저장소 제한을 초과했습니다 (현재 %{current} MB + 새 버전 %{new} MB). 오래된 Wiki를 삭제하거나 플랜을 업그레이드하세요."
+    max_account_storage_standard_mb:
+      label: "Standard 계정 최대 저장소"
+      description: "Standard 계정에 제공되는 최대 총 저장소 용량 (MB)"
+      suffix: "MB"
+      account_storage_exceeded: "계정이 %{limit} MB 저장소 제한을 초과했습니다 (현재 %{current} MB + 새 버전 %{new} MB). 오래된 Wiki를 삭제하거나 플랜을 업그레이드하세요."
+    max_account_storage_premium_mb:
+      label: "Premium 계정 최대 저장소"
+      description: "Premium 계정에 제공되는 최대 총 저장소 용량 (MB)"
+      suffix: "MB"
+      account_storage_exceeded: "계정이 %{limit} MB 저장소 제한을 초과했습니다 (현재 %{current} MB + 새 버전 %{new} MB). 오래된 Wiki를 삭제하거나 플랜을 업그레이드하세요."
+    banner_message_enabled:
+      label: "배너 메시지 활성화"
+      description: "모든 페이지 상단에 경고 또는 정보 배너를 표시합니다"
+    banner_message_html:
+      label: "배너 메시지 내용"
+      description: "배너의 HTML 내용 (링크, 굵은 글씨 등 지원)"
+    banner_message_visibility:
+      label: "배너 표시 범위"
+      description: "배너를 누구에게 표시할까요?"
+      all: "모두 (로그인하지 않은 사용자 포함)"
+      logged_in: "로그인한 사용자만"
+      logged_out: "로그인하지 않은 경우만"
+    banner_message_editor:
+      heading1: "제목 1"
+      bold: "굵게"
+      italic: "기울임"
+      strikethrough: "취소선"
+      undo: "실행 취소"
+      redo: "다시 실행"
+    default_theme_mode:
+      label: "첫 방문 시 기본 테마"
+      description: "사용자가 처음 사이트를 방문할 때 어떤 테마를 기본으로 로드할까요?"
+      light: "밝은 테마"
+      dark: "어두운 테마"
+      auto: "자동 (브라우저 시스템 설정 따름)"
