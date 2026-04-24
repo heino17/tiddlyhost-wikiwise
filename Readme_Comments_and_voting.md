@@ -24,6 +24,14 @@ German and American
   - Anzeige von Durchschnitt + Anzahl Bewertungen
   - i18n-Texte für Hinweise & Buttons
   - Turbo/Hotwire für live Updates ohne Reload
+  
+- **Registerkarte 'Kommentare anzeigen' im Admin-Bereich**
+  - ⭐ Eine separate Registerkarte/Seite zum Anzeigen aller Kommentare
+  - ⭐ Der Administrator kann alle Kommentare einsehen und einzelne Kommentare löschen
+  - ⭐ Sofortiges Anzeigen des gesamten Kommentars beim Bewegen des Mauszeigers über die Vorschau der Nachricht
+  - ⭐ Link zum Öffnen und Anzeigen des Wikis sowie Link zu allen Kommentaren für dieses spezifische Wiki
+  - ⭐ Löschen per Turbo: Der Kommentar wird entfernt, ohne die Seite neu zu laden
+  - ⭐ Alarm-Popup-Warnung vorm löschen und Flashmeldung nach erfolgreichem löschen
 
 - **UX- & Design**
   - ⭐ Flash-Meldungen, die nach 3 Sekunden automatisch ausgeblendet werden
@@ -33,8 +41,7 @@ German and American
   - 🔧 Der Zähler speichert „vote_score“ als Datenbankfeld
 
 - **Offene / zukünftige Themen**
-  - Admin-Übersicht & Lösch-Log (optional)
-  - Kommentar-Voting (wurde vorerst ausgesetzt)
+  - ...
   
   
 ### 🇺🇸 Comment & Voting System for Tiddlyhost Wikis
@@ -60,6 +67,14 @@ German and American
   - Display of average + number of ratings
   - i18n texts for notes & buttons
   - Turbo/Hotwire for live Updates without reload
+  
+- **'View comments' tab in Admin-area**
+  - ⭐ A separate Admin-tab/page for viewing all comments 
+  - ⭐ Admin can check out all comments and delete individual ones
+  - ⭐ Instant reading of entire comment when hovering over the preview of the message.
+  - ⭐ Link to open and view the wiki, and link to all comments for that specific wiki
+  - ⭐ Delete via Turbo: Comment is removed without reloading the page
+  - ⭐ A pop-up warning before deletion and a flash notification after successful deletion
 
 - **UX & design**
   - ⭐ Flash messages with auto-hide after 3 seconds
@@ -69,5 +84,4 @@ German and American
   - 🔧 Counter caches + vote_score as a DB field
 
 - **Open/future topics**
-  - Admin overview & deletion log (optional)
-  - Comment voting (suspended for the time being)
+  - ...

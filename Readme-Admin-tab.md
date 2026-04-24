@@ -1,9 +1,13 @@
 🇩🇪 Deutsch und Amerikanisch 🇺🇸  
-German and American
-
-### 🇩🇪 Admin-Bereich - Einstellungen-Tab
-**Der Admin-Bereich wurde um einen neuen Tab mit 5 Untertabs erweitert, der direkten Zugriff auf verschiedene Einstellungen bietet:**
-
+German and American  
+  
+### 🇩🇪 
+### Admin-Bereich - "Kommentare lesen"-Tab
+**Der Admin-Bereich wurde um einen neuen Tab "Kommentare lesen" erweitert.**
+- ⭐ Admin kann alle Kommentare anzeigen und einzelne Kommentare löschen
+### Admin-Bereich - Einstellungen-Tab
+- ⭐ Der Admin-Bereich wurde um einen neuen Tab mit 5 Untertabs erweitert, der direkten Zugriff auf verschiedene Einstellungen bietet:  
+  
 **Einstellungen-Tab mit Schaltern und Zahleneingaben**  
 ### Globale Steuerung folgender Features:  
 - Tab Allgemein  
@@ -51,9 +55,12 @@ Verbesserte Tabellenköpfe in den Admin-Listen (Sites & Users) mit korrekter Meh
 
 Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.  
 
-### 🇺🇸 Admin Area - Settings tab
-**The admin area has been expanded to include a new tab with 5 sub tabs, providing direct access to several settings:**  
-
+### 🇺🇸  
+### Admin Area - “Read Comments” tab
+- ⭐ Admins can view all comments and delete individual comments
+### Admin Area - Settings tab
+- ⭐ The admin area has been expanded to include a new tab with 5 sub tabs, providing direct access to several settings:**  
+  
 **Settings tab with toggles and input fields**  
 ### Global control of the following features:  
 - Tab General  
