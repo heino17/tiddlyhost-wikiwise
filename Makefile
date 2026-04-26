@@ -956,3 +956,45 @@ debug-newest:
 	@echo ""
 	@echo "Pattern-Suche:"
 	@ls -t $(LOCAL_BACKUP_DIR)/tiddlyhost_dev_*.sql.gz 2>/dev/null | head -n 1 || echo "Keine Treffer"
+    
+# -------------------------------------------------
+# Backup des Base-Images mit Git-Commit-Tag
+# Speichert das Image als .tar im Verzeichnis ../build-backups/
+# -------------------------------------------------
+
+# Erstellt das Backup-Verzeichnis falls es nicht existiert
+ensure-backup-dir:
+	@mkdir -p ../build-backups
+
+# Haupt-Target: make save-image
+save-image: ensure-backup-dir
+	@echo "→ Hole aktuellen Git-Commit-Hash..."
+	$(eval GIT_SHORT := $(shell git rev-parse --short HEAD))
+	$(eval GIT_DATE := $(shell date +%Y%m%d-%H%M))
+	$(eval BACKUP_TAG := wikiwise-base-$(GIT_DATE)-$(GIT_SHORT))
+	$(eval BACKUP_FILE := ../build-backups/$(BACKUP_TAG).tar)
+
+	@echo "→ Tagging Image mit: $(BACKUP_TAG)"
+	@docker tag docker.io/sbaird/tiddlyhost-base:latest $(BACKUP_TAG)
+
+	@echo "→ Speichere Image als $(BACKUP_FILE) ..."
+	@docker save $(BACKUP_TAG) -o $(BACKUP_FILE)
+
+	@echo ""
+	@echo "✅ Backup erfolgreich erstellt!"
+	@echo "   Datei: $(BACKUP_FILE)"
+	@echo "   Tag:   $(BACKUP_TAG)"
+	@echo "   Größe: $$(du -h $(BACKUP_FILE) | cut -f1)"
+	@echo ""
+	@echo "Tipp: Später wiederherstellen mit:"
+	@echo "      docker load -i $(BACKUP_FILE)"
+    
+# Nur das Image mit Git-Tag taggen (ohne zu speichern)
+tag-base:
+	$(eval GIT_SHORT := $(shell git rev-parse --short HEAD))
+	@docker tag docker.io/sbaird/tiddlyhost-base:latest wikiwise-base:$(GIT_SHORT)
+	@echo "→ Image getaggt als wikiwise-base:$(GIT_SHORT)"
+
+# Alle alten Backups auflisten
+list-backups:
+	@ls -lh ../build-backups/ 2>/dev/null || echo "Noch keine Backups vorhanden."
