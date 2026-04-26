@@ -1,5 +1,4 @@
-/* Slide-Down/Up Animation für Flash-Meldungen */
-.alert-flash {
+.alert.banner-message {
   overflow: hidden;
   max-height: 0;
   padding-top: 0;
@@ -8,14 +7,13 @@
   margin-bottom: 0;
   opacity: 0;
 
-  /* Einblenden (Slide-Down) */
+  /* Einblenden */
   &.showing {
     transition:
-      max-height 0.5s ease-out,
-      padding 0.5s ease-out,
-      margin 0.5s ease-out,
-      opacity 0.3s ease-out;
-
+      max-height 1.3s ease-out,
+      padding 1.3s ease-out,
+      margin 1.3s ease-out,
+      opacity 1.3s ease-out;
     max-height: 200px;
     padding-top: var(--flash-pt, 0.75rem);
     padding-bottom: var(--flash-pb, 0.75rem);
@@ -24,19 +22,18 @@
     opacity: 1;
   }
 
-  /* Ausblenden (Slide-Up) – LANGSAMER */
+  /* Ausblenden */
   &.closing {
     transition:
-      max-height 0.9s ease-out,
-      padding 0.4s ease-out,
-      margin 0.8s ease-out,
-      opacity 0.4s ease-out;
-
+       max-height 0.8s ease-out,
+      padding 0.5s ease-out,
+      margin 0.5s ease-out,
+      opacity 0.5s ease-out;
     max-height: 0;
     padding-top: 0;
     padding-bottom: 0;
     margin-top: 0;
-    margin-bottom: -50px;
+    margin-bottom: 0px;
     opacity: 0;
   }
 }

@@ -10,6 +10,7 @@ import $ from "jquery"
 import * as bootstrap from "bootstrap"
 import "@hotwired/turbo-rails"
 import "./flash_auto_dismiss"
+import "./banner_dismiss";
 import "./comment_textarea_validation"
 import "./controllers"
 import "trix"

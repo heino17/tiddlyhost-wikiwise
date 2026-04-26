@@ -1,44 +1,45 @@
-// flash_auto_dismiss.js – Ausblenden aller .alert-flash nach 3 Sekunden (auch Turbo-Streams)
+// flash_auto_dismiss.js – Slide-Down/Up Version
 
 function autoHideFlash(container = document) {
-  console.log("flash_auto_dismiss.js wurde geladen!");
-
-  const alerts = container.querySelectorAll('.alert-flash:not([data-auto-hidden]):not([data-auto-dismiss])');
+  const alerts = container.querySelectorAll(
+    '.alert-flash:not([data-auto-hidden]):not([data-auto-dismiss])'
+  );
 
   alerts.forEach(alert => {
-    alert.dataset.autoHidden = 'true';  // verhindert Mehrfach-Timer
+    alert.dataset.autoHidden = 'true';
 
+    // Sofort Slide-Down starten
+    requestAnimationFrame(() => {
+      alert.classList.add('showing');
+    });
+
+    // Nach 3 Sekunden Slide-Up starten
     setTimeout(() => {
-      // Bootstrap-Animation nutzen, falls vorhanden
-      const bsAlert = bootstrap?.Alert?.getOrCreateInstance(alert);
-      if (bsAlert) {
-        bsAlert.close();
-      } else {
-        // Fallback: CSS-Transition + Remove
-        alert.classList.remove('show');
-        setTimeout(() => alert.remove(), 800); // passt zur 0.8s Transition
-      }
+      alert.classList.remove('showing');
+      alert.classList.add('closing');
+
+      // Nach der Animation entfernen
+      setTimeout(() => alert.remove(), 400);
     }, 3000);
   });
 }
 
-// Bei jedem Turbo-Update den neuen Inhalt prüfen
+// Turbo-Events
 document.addEventListener('turbo:render', (event) => {
-  // event.detail.newBody ist der neu gerenderte Teil
   const newContent = event.detail.newBody || document.body;
   autoHideFlash(newContent);
 });
 
-// Sicherheitshalber auch beim ersten Laden
 document.addEventListener('turbo:load', () => autoHideFlash());
 document.addEventListener('DOMContentLoaded', () => autoHideFlash());
 
-// Optional: MutationObserver als Fallback (sehr robust)
+// Fallback: MutationObserver
 const observer = new MutationObserver(mutations => {
-  mutations.forEach(mutation => {
+  for (const mutation of mutations) {
     if (mutation.addedNodes.length) {
       autoHideFlash(mutation.target);
     }
-  });
+  }
 });
+
 observer.observe(document.body, { childList: true, subtree: true });

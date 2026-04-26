@@ -19141,18 +19141,18 @@
 
   // app/javascript/flash_auto_dismiss.js
   function autoHideFlash(container = document) {
-    console.log("flash_auto_dismiss.js wurde geladen!");
-    const alerts = container.querySelectorAll(".alert-flash:not([data-auto-hidden]):not([data-auto-dismiss])");
+    const alerts = container.querySelectorAll(
+      ".alert-flash:not([data-auto-hidden]):not([data-auto-dismiss])"
+    );
     alerts.forEach((alert2) => {
       alert2.dataset.autoHidden = "true";
+      requestAnimationFrame(() => {
+        alert2.classList.add("showing");
+      });
       setTimeout(() => {
-        const bsAlert = bootstrap?.Alert?.getOrCreateInstance(alert2);
-        if (bsAlert) {
-          bsAlert.close();
-        } else {
-          alert2.classList.remove("show");
-          setTimeout(() => alert2.remove(), 800);
-        }
+        alert2.classList.remove("showing");
+        alert2.classList.add("closing");
+        setTimeout(() => alert2.remove(), 400);
       }, 3e3);
     });
   }
@@ -19163,13 +19163,42 @@
   document.addEventListener("turbo:load", () => autoHideFlash());
   document.addEventListener("DOMContentLoaded", () => autoHideFlash());
   var observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
+    for (const mutation of mutations) {
       if (mutation.addedNodes.length) {
         autoHideFlash(mutation.target);
       }
-    });
+    }
   });
   observer.observe(document.body, { childList: true, subtree: true });
+
+  // app/javascript/banner_dismiss.js
+  document.addEventListener("turbo:load", () => {
+    document.querySelectorAll(".banner-message[data-banner]").forEach((banner) => {
+      setTimeout(() => {
+        banner.classList.add("showing");
+      }, 40);
+    });
+    document.addEventListener("click", (e2) => {
+      const closeBtn = e2.target.closest(".banner-message .btn-close");
+      if (!closeBtn) return;
+      const banner = closeBtn.closest(".banner-message");
+      if (!banner) return;
+      e2.preventDefault();
+      banner.classList.remove("showing");
+      banner.classList.add("closing");
+      setBannerDismissedCookie(7);
+      setTimeout(() => {
+        banner.remove();
+      }, 800);
+    });
+  });
+  function setBannerDismissedCookie(days) {
+    const expiresDate = /* @__PURE__ */ new Date();
+    expiresDate.setDate(expiresDate.getDate() + days);
+    const expires = expiresDate.toUTCString();
+    const value = Date.now() + days * 864e5;
+    document.cookie = `banner_dismissed_until=${value}; expires=${expires}; path=/; SameSite=Lax`;
+  }
 
   // app/javascript/comment_textarea_validation.js
   function initCommentCounter(container = document) {
@@ -21783,27 +21812,6 @@
     }
   };
 
-  // app/javascript/controllers/banner_controller.js
-  var banner_controller_default = class extends Controller {
-    connect() {
-      console.log("\u2705 Banner controller wurde geladen!");
-    }
-    dismiss() {
-      console.log("\u2705 Dismiss wurde geklickt!");
-      this.element.classList.remove("show");
-      fetch("/banner/dismiss", {
-        method: "POST",
-        headers: {
-          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-          "Content-Type": "application/json"
-        }
-      });
-      setTimeout(() => {
-        this.element.remove();
-      }, 800);
-    }
-  };
-
   // app/javascript/controllers/index.js
   application.register("comment-counter", comment_counter_controller_default);
   application.register("hello", hello_controller_default);
@@ -21811,7 +21819,6 @@
   application.register("sidebar", sidebar_controller_default);
   application.register("test", test_controller_default);
   application.register("settings-tab", settings_tab_controller_default);
-  application.register("banner", banner_controller_default);
 
   // node_modules/trix/dist/trix.esm.min.js
   var t = "2.1.18";

@@ -1,20 +1,19 @@
 - if Setting.enabled?(:banner_message_enabled)
-
   - visibility = Setting.string_for(:banner_message_visibility, default: 'all').to_s.strip
-
   - if (visibility == 'all') || (visibility == 'logged_in' && user_signed_in?) || (visibility == 'logged_out' && !user_signed_in?)
-
     - message_html = Setting.string_for(:banner_message_html).presence
+    
+    -# Cookie-Prüfung: Banner nur anzeigen, wenn nicht ausgeblendet
+    - banner_dismissed_until = cookies[:banner_dismissed_until].to_i
+    - if message_html && (banner_dismissed_until.zero? || banner_dismissed_until < Time.current.to_i)
 
-    - if message_html && !session[:banner_dismissed]
-      .alert.alert-warning.banner-message.mb-4.d-flex.align-items-center.fade.show{
-        role: 'alert',
-        data: { controller: "banner" }
+      .alert.alert-warning.banner-message.mb-4.d-flex.align-items-center{ 
+        role: "alert",
+        data: { banner: "true" }
       }
         = message_html.html_safe
 
-        %button.btn-close.ms-auto{ 
-          type: "button", 
-          data: { action: "banner#dismiss" }, 
-          aria: { label: "Schließen" } 
+        %button.btn-close.ms-auto{
+          type: "button",
+          aria: { label: "Schließen" }
         }

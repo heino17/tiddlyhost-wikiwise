@@ -21,6 +21,3 @@ application.register("test", TestController)
 
 import SettingsTabController from "./settings_tab_controller"
 application.register("settings-tab", SettingsTabController)
-
-import BannerController from "./banner_controller"
-application.register("banner", BannerController)
