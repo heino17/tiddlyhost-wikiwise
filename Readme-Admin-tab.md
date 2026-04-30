@@ -20,6 +20,7 @@ German and American
   - Shoutbox _ein-/ausschalten_
 - Tab Hub & Darstellung  
   - Standard-Theme beim ersten Besuch (Dropdown) _hell/dunkel/auto_
+  - Maximale Breite des Frontends _Inputfeld_
   - Anzahl der Wikis pro Seite in der Hub/Explore-Ansicht _Zahlenfeld und +/-_
   - Banner-Nachricht aktivieren, einstellen _Schalter, Dropdown, Textfeld_ 
 - Tab Abonnements  
@@ -73,14 +74,15 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
   - Shoutbox _enable/disable_
 - Tab Hub & Display  
   - Default theme on first visit (dropdown) _light/dark/auto_
+  - Maximum frontend width _input field_
   - Number of wikis per page in the Hub/Explore view _number field and +/-_
   - Enable and configure banner message _toggle, dropdown, text field_ 
 - Tab Subscriptions  
   - Stripe subscription feature _enable/disable_
   - Maximum number of tags allowed per page/wiki _number field and +/-_
 - Tab Storage & Versions (Standard Plan; Premium Plan: visible only if subscriptions are active)
-  - Max. versions (Free plan) _Number field and +/-_
-  - Max. versions (Standard plan) _Number field and +/-_
+  - Max. versions (Free plan) _number field and +/-_
+  - Max. versions (Standard plan) _number field and +/-_
   - Max. versions (Premium plan) _number field and +/-_
   - Max. versions (Tiddlyspot) _number field and +/-_
   

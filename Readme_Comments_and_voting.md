@@ -6,7 +6,7 @@ German and American
 - **Kommentar-Funktion (für Seiten/Wikis)**
   - Einzelner Kommentar pro User pro Site (Unique-Constraint)
   - Formular zum Erstellen / Editieren
-  - Anzeige der letzten 2 Kommentare im Tile + „Alle Kommentare“-Link bei mehr als 2 Kommentaren
+  - Anzeige der letzten 2 Kommentare im Tile + „Alle Kommentare“-Link ab dem 1. Kommentar
   - Vollständige Kommentar-Liste auf separater Index-Seite
   - Löschen eigener Kommentare
   - Admin kann jeden Kommentar löschen
@@ -49,7 +49,7 @@ German and American
 - **Comment Function (for sites/wikis)**
   - One comment per user per site (unique constraint)
   - Form for creating/editing
-  - Display of the last 2 comments in the tile + “All comments” link if there are more than 2 comments
+  - Display of the last 2 comments in the tile + “All comments” link starting with the 1. comment
   - Complete comment list on separate index page
   - Delete your own comments
   - Admin can delete any comment

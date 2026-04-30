@@ -23,7 +23,9 @@ en:
     not_your_comment: "This is not your comment!"
     delete_confirm: "Are you sure you want to delete this? Your comment cannot be recovered!"
     
-    show_all_button: "Show all %{count} comments"
+    show_all_button:
+      one: "Show 1 comment"
+      other: "Show all %{count} comments"
     
     title_comments_for: "Comments for site"
     delete_your_comment: "Delete your comment"

@@ -23,7 +23,9 @@ ja:
     not_your_comment: "これはあなたのコメントではありません！"
     delete_confirm: "本当に削除しますか？コメントは復元できません！"
     
-    show_all_button: "すべての %{count} 件のコメントを表示"
+    show_all_button:
+      one: "コメント 1 件を表示"
+      other: "%{count} 件のコメントをすべて表示"
     
     title_comments_for: "サイトへのコメント"
     delete_your_comment: "あなたのコメントを削除"

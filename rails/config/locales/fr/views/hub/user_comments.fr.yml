@@ -24,7 +24,9 @@ fr:
     not_your_comment: "Ce n'est pas votre commentaire !"
     delete_confirm: "Vraiment supprimer ? Votre commentaire ne pourra pas être restauré !"
     
-    show_all_button: "Afficher tous les %{count} commentaires "
+    show_all_button:
+      one: "Afficher 1 commentaire"
+      other: "Afficher les %{count} commentaires"
     
     title_comments_for: "Commentaires pour le site"
     delete_your_comment: "Supprimer votre commentaire"

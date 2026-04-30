@@ -23,7 +23,9 @@ ru:
     not_your_comment: "Это не ваш комментарий!"
     delete_confirm: "Вы уверены, что хотите удалить? Комментарий не восстановить!"
     
-    show_all_button: "Показать все %{count} комментариев"
+    show_all_button:
+      one: "Показать 1 комментарий"
+      other: "Показать все комментарии (%{count})"
     
     title_comments_for: "Комментарии к сайту"
     delete_your_comment: "Удалить ваш комментарий"

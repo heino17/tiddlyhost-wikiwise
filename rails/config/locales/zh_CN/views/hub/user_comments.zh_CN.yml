@@ -23,7 +23,9 @@ zh_CN:
     not_your_comment: "这不是您的评论！"
     delete_confirm: "您确定要删除此项吗？您的评论无法恢复！"
 
-    show_all_button: "显示所有 %{count} 条评论"
+    show_all_button:
+      one: "显示 1 条评论"
+      other: "显示全部 %{count} 条评论"
 
     title_comments_for: "站点评论"
     delete_your_comment: "删除您的评论"

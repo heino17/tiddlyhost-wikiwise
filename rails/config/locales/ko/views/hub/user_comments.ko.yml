@@ -22,7 +22,9 @@ ko:
     not_your_comment: "이 댓글은 당신의 것이 아닙니다!"
     delete_confirm: "정말 삭제하시겠습니까? 댓글은 복구할 수 없습니다!"
     
-    show_all_button: "전체 %{count}개 댓글 보기"
+    show_all_button:
+      one: "댓글 1개 보기"
+      other: "댓글 %{count}개 모두 보기"
     
     title_comments_for: "사이트 댓글"
     delete_your_comment: "내 댓글 삭제"

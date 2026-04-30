@@ -24,7 +24,9 @@ es:
     not_your_comment: "¡Este no es tu comentario!"
     delete_confirm: "¿De verdad quieres eliminarlo? ¡Tu comentario no se podrá recuperar!"
     
-    show_all_button: "Mostrar todos los %{count} comentarios"
+    show_all_button:
+      one: "Mostrar 1 comentario"
+      other: "Mostrar los %{count} comentarios"
     
     title_comments_for: "Comentarios sobre el sitio"
     delete_your_comment: "Eliminar tu comentario"
