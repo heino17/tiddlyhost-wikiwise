@@ -1,0 +1,245 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+# Multi language file for startpage introduction block
+# en, de, ru, es, fr, ja, ko, zh_CN
+---
+en:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    is a test and development installation of the fork <strong>Tiddlyhost-Wikiwise</strong>,
+    based on <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a>,
+    a Rails application developed by Simon Baird for creating and hosting TiddlyWiki sites.
+
+    <br><br>
+
+    It has been extended with several useful features:
+    support for 8 languages (easily expandable through i18n), a comment and rating system for wikis,
+    and a shoutbox as a small community chat.
+
+    In the admin area, 32 switches for 15 different functions are available in addition to the original.
+
+    <br>
+    Tiddlyhost-Wikiwise is still under active development and runs on a
+    home server that is only sporadically reachable.
+
+    <br><br>
+
+    In this demo, the original footer has been retained; some links lead to Simon Baird or his accounts!
+
+    <br>
+    More information about Tiddlyhost-Wikiwise and the source code can be found on GitHub:<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+
+    <br><br>
+    <u><b>Creating an account is not possible on this test installation!</b></u>
+
+de:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    ist eine Test- und Entwicklungs-Installation des Forks <strong>Tiddlyhost-Wikiwise</strong> 
+    basierend auf <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a>, 
+    einer von Simon Baird entwickelten Rails-Anwendung zum Erstellen und Hosten von TiddlyWiki-Seiten.
+    
+    <br><br>
+    
+    Es wurde um mehrere nützliche Funktionen erweitert: 
+    Unterstützung für 8 Sprachen (durch i18n leicht erweiterbar), Kommentar- und Bewertungsfunktion für Wikis 
+    sowie eine Shoutbox als kleiner Community-Chat.
+    
+    Im Admin-Bereich stehen zusätzlich zum Original 32 Schalter für 15 verschiedene Funktionen zur Verfügung.
+    
+    <br>
+    Tiddlyhost-Wikiwise befindet sich weiterhin in aktiver Entwicklung und läuft auf einem 
+    sporadisch erreichbaren Home-Server.
+    
+    <br><br>
+    
+    In der vorliegenden Demo wurde der Original-Footer beibehalten, einige Links führen zu Simon Baird bzw. dessen Accounts!
+    
+    <br>
+    Mehr Informationen zu Tiddlyhost-Wikiwise und den Quellcode findest du auf GitHub:<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+    
+    <br><br>
+    <u><b>Das Erstellen eines Kontos ist auf dieser Testinstallation nicht möglich!</b></u>
+
+ru:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    является тестовой и разработческой установкой форка <strong>Tiddlyhost-Wikiwise</strong>,
+    основанного на <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a>,
+    Rails‑приложении, созданном Саймоном Бэрдом для создания и размещения TiddlyWiki‑страниц.
+
+    <br><br>
+
+    Проект был расширен несколькими полезными функциями:
+    поддержкой 8 языков (легко расширяемой через i18n), системой комментариев и оценок для вики,
+    а также небольшой shoutbox‑чатом для сообщества.
+
+    В админ‑панели доступны 32 переключателя для 15 различных функций, дополнительно к оригиналу.
+
+    <br>
+    Tiddlyhost-Wikiwise находится в активной разработке и работает на
+    домашнем сервере, который доступен лишь время от времени.
+
+    <br><br>
+
+    В этой демо‑версии сохранён оригинальный футер; некоторые ссылки ведут к Саймону Бэрду или его аккаунтам!
+
+    <br>
+    Дополнительная информация о Tiddlyhost-Wikiwise и исходный код доступны на GitHub:<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+
+    <br><br>
+    <u><b>Создание учётной записи на этой тестовой установке невозможно!</b></u>
+
+es:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    es una instalación de prueba y desarrollo del fork <strong>Tiddlyhost-Wikiwise</strong>,
+    basada en <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a>,
+    una aplicación Rails desarrollada por Simon Baird para crear y alojar sitios TiddlyWiki.
+
+    <br><br>
+
+    Se ha ampliado con varias funciones útiles:
+    soporte para 8 idiomas (fácilmente ampliable mediante i18n), sistema de comentarios y valoraciones para wikis,
+    y una shoutbox como pequeño chat comunitario.
+
+    En el área de administración hay disponibles 32 interruptores para 15 funciones diferentes, además del original.
+
+    <br>
+    Tiddlyhost-Wikiwise sigue en desarrollo activo y se ejecuta en un
+    servidor doméstico accesible solo de forma esporádica.
+
+    <br><br>
+
+    En esta demo se ha mantenido el pie de página original; algunos enlaces llevan a Simon Baird o a sus cuentas.
+
+    <br>
+    Más información sobre Tiddlyhost-Wikiwise y el código fuente en GitHub:<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+
+    <br><br>
+    <u><b>¡No es posible crear una cuenta en esta instalación de prueba!</b></u>
+
+fr:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    est une installation de test et de développement du fork <strong>Tiddlyhost-Wikiwise</strong>,
+    basée sur <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a>,
+    une application Rails développée par Simon Baird pour créer et héberger des sites TiddlyWiki.
+
+    <br><br>
+
+    Elle a été enrichie de plusieurs fonctionnalités utiles :
+    prise en charge de 8 langues (facilement extensible via i18n), système de commentaires et d’évaluations pour les wikis,
+    ainsi qu’une shoutbox servant de petit chat communautaire.
+
+    Dans la zone d’administration, 32 commutateurs pour 15 fonctions différentes sont disponibles en plus de l’original.
+
+    <br>
+    Tiddlyhost-Wikiwise est toujours en développement actif et fonctionne sur un
+    serveur domestique accessible seulement de manière sporadique.
+
+    <br><br>
+
+    Dans cette démo, le pied de page original a été conservé ; certains liens mènent à Simon Baird ou à ses comptes.
+
+    <br>
+    Plus d’informations sur Tiddlyhost-Wikiwise et le code source sont disponibles sur GitHub :<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+
+    <br><br>
+    <u><b>La création d’un compte n’est pas possible sur cette installation de test !</b></u>
+
+ja:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    は、フォーク版 <strong>Tiddlyhost-Wikiwise</strong> のテストおよび開発用インストールです。
+    これは <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a> を基にしており、
+    Simon Baird によって開発された、TiddlyWiki サイトを作成・ホストするための Rails アプリケーションです。
+
+    <br><br>
+
+    このインストールには、いくつかの便利な機能が追加されています。
+    8 言語のサポート（i18n により容易に拡張可能）、Wiki のコメント・評価機能、
+    そして小さなコミュニティチャットとしての Shoutbox です。
+
+    管理画面には、オリジナルに加えて 15 種類の機能に対応する 32 個のスイッチがあります。
+
+    <br>
+    Tiddlyhost-Wikiwise は現在も開発中であり、
+    時折しかアクセスできない自宅サーバー上で動作しています。
+
+    <br><br>
+
+    このデモではオリジナルのフッターが保持されており、一部のリンクは Simon Baird またはそのアカウントに繋がっています。
+
+    <br>
+    Tiddlyhost-Wikiwise の詳細およびソースコードは GitHub にあります：<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+
+    <br><br>
+    <u><b>このテストインストールではアカウントを作成できません！</b></u>
+
+ko:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    는 포크 버전 <strong>Tiddlyhost-Wikiwise</strong> 의 테스트 및 개발용 설치입니다.
+    이는 <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a> 를 기반으로 하며,
+    Simon Baird 가 개발한 TiddlyWiki 사이트 생성 및 호스팅용 Rails 애플리케이션입니다.
+
+    <br><br>
+
+    이 설치에는 여러 유용한 기능이 추가되었습니다:
+    8개 언어 지원(i18n으로 쉽게 확장 가능), 위키 댓글 및 평가 기능,
+    그리고 작은 커뮤니티 채팅인 Shoutbox 등이 포함됩니다.
+
+    관리자 영역에는 원본에 더해 15가지 기능을 위한 32개의 스위치가 제공됩니다.
+
+    <br>
+    Tiddlyhost-Wikiwise 는 현재도 활발히 개발 중이며,
+    간헐적으로만 접속 가능한 홈 서버에서 실행되고 있습니다.
+
+    <br><br>
+
+    이 데모에서는 원본 푸터가 유지되어 있으며, 일부 링크는 Simon Baird 또는 그의 계정으로 연결됩니다.
+
+    <br>
+    Tiddlyhost-Wikiwise 및 소스 코드는 GitHub에서 확인할 수 있습니다:<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+
+    <br><br>
+    <u><b>이 테스트 설치에서는 계정을 생성할 수 없습니다!</b></u>
+
+zh_CN:
+  startpage_introduction_block_title: "Wikiwise"
+  startpage_introduction_block: |
+    是 <strong>Tiddlyhost-Wikiwise</strong> 分支的测试与开发安装，
+    基于 <a href="https://tiddlyhost.com" target="_blank">Tiddlyhost</a>，
+    这是由 Simon Baird 开发的用于创建和托管 TiddlyWiki 网站的 Rails 应用。
+
+    <br><br>
+
+    本安装扩展了多项实用功能：
+    支持 8 种语言（可通过 i18n 轻松扩展）、Wiki 的评论与评分功能，
+    以及作为小型社区聊天的 Shoutbox。
+
+    管理后台相比原版新增了 32 个开关，用于 15 项不同功能。
+
+    <br>
+    Tiddlyhost-Wikiwise 仍在积极开发中，
+    并运行在一个偶尔才能访问的家庭服务器上。
+
+    <br><br>
+
+    本演示保留了原始页脚，其中一些链接指向 Simon Baird 或其账户。
+
+    <br>
+    更多关于 Tiddlyhost-Wikiwise 的信息和源代码可在 GitHub 查看：<br>
+    <a href="https://github.com/heino17/tiddlyhost-wikiwise" target="_blank">https://github.com/heino17/tiddlyhost-wikiwise</a>
+
+    <br><br>
+    <u><b>此测试安装无法创建账户！</b></u>

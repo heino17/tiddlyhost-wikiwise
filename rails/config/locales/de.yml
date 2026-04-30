@@ -5,31 +5,18 @@
 # 
 ---
 de:
-  site_title: "Tiddlyhost - Deutsch"
+  site_title: "Tiddlyhost-Wikiwise - Deutsch"
   iso_language_code: "de"
   
   # Logo
-  logo_link_title: "Tiddlyhost - local"
+  logo_link_title: "Tiddlyhost-Wikiwise - local"
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
   logo_alt: "logo.svg"  
   
   # if registration is switched off
   registration_not_possible: "Konto erstellen nicht möglich!"
-  # startpage introduction block
-  startpage_introduction_block_title: "Wikiwise"
-  startpage_introduction_block: "ist eine Tiddlyhost-com TestInstallation, 
-  einer Rails-Anwendung zum Erstellen und Hosten von TiddlyWiki-Websites. <br>
-  Entworfen von Simon Baird, für die Bereitstellung auf <a href=\"https://tiddlyhost.com\" target=\"_blank\">https://tiddlyhost.com</a>
-  <br><br>
-  Die hier sichtbare Anwendung bildet eine Kopie mit Übersetzung in 7 weitere Sprachen ab, 
-  <br>
-  ist in Entwicklung und wird auf einem sporadisch erreichbaren Home-Server betrieben.
-  <br>
-  Details zu dieser mehrsprachigen Version sind auf github zu finden:<br>
-  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
-  <br><br>
-  <u><b>Das Erstellen eines Kontos ist hier nicht möglich!</b></u>"
+  
   # special imprint page
   contact_header: "Kontakt"
   email_label: "eMail:"

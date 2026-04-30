@@ -5,30 +5,18 @@
 #
 ---
 ko:
-  site_title: "Tiddlyhost - 한국어"
+  site_title: "Tiddlyhost-Wikiwise - 한국어"
   iso_language_code: "ko"
   
   # Logo
-  logo_link_title: "Tiddlyhost"
+  logo_link_title: "Tiddlyhost-Wikiwise - local"
   logo_image_tag: "logo.svg"
   logo_path: "logo.svg"
   logo_alt: "logo.svg"
   
+  # if registration is switched off
   registration_not_possible: "계정 생성 불가능!"
 
-  startpage_introduction_block_title: "Wikiwise"
-  startpage_introduction_block: "는 Tiddlyhost-com 테스트 설치본입니다.
-  Rails 애플리케이션으로 TiddlyWiki 사이트를 생성하고 호스팅합니다. <br>
-  Simon Baird가 설계했으며 <a href=\"https://tiddlyhost.com\" target=\"_blank\">https://tiddlyhost.com</a>에 배포될 예정입니다.
-  <br><br>
-  여기 보이는 애플리케이션은 7개 추가 언어로 번역된 복사본입니다.
-  <br>
-  개발 중이며 간헐적으로 사용 가능한 홈 서버에서 실행됩니다.
-  <br>
-  이 다국어 버전의 자세한 내용은 GitHub에서 확인할 수 있습니다:<br>
-  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">https://github.com/heino17/tiddlyhost-wikiwise</a>
-  <br><br>
-  <u><b>여기서는 계정 생성이 불가능합니다!</b></u>"
   # special imprint page
   contact_header: "연락처"
   email_label: "이메일:"
