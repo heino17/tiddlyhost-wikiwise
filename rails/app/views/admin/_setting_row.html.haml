@@ -36,9 +36,19 @@
                          min: setting[:min] || 1,
                          max: setting[:max] || 100,
                          class: "form-control"
-
+                         
       .input-group-text
         = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
+                         
+  - elsif setting[:type] == :string
+    .input-group.w-25
+      = text_field_tag "settings[#{setting[:key]}]",
+                       setting[:raw_value],
+                       class: "form-control",
+                       placeholder: t('admin.default_theme_width.placeholder')
+
+      .input-group-text
+        = setting[:suffix].presence || t('admin.default_theme_width.suffix')
 
   - elsif setting[:type] == :text
     .trix-container.mb-3

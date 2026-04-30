@@ -297,3 +297,8 @@ ja:
       light: "ライト"
       dark: "ダーク"
       auto: "自動（ブラウザのシステム設定に従う）"
+    default_theme_width:
+      label: "フロントエンドの最大幅"
+      description: "フロントエンドの最大幅は、px・%・rem・vw で指定できます。"
+      suffix: "幅"
+      placeholder: "例: 1169px または 80%"

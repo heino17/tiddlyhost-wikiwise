@@ -296,3 +296,8 @@ fr:
       light: "Clair"
       dark: "Sombre"
       auto: "Auto (suit les paramètres du navigateur)"
+    default_theme_width:
+      label: "Largeur maximale du frontend"
+      description: "La largeur maximale du frontend peut être indiquée ici en px, %, rem ou vw."
+      suffix: "Largeur"
+      placeholder: "p. ex. 1169px ou 80%"

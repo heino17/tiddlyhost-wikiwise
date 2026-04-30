@@ -296,3 +296,8 @@ de:
       light: "Hell (Light)"
       dark: "Dunkel (Dark)"
       auto: "Auto (folgt der System-Einstellung des Browsers)"
+    default_theme_width:
+      label: "Maximale Breite des Frontends"
+      description: "Die max. Breite des Frontends kann hier in px , %, rem oder vw angegeben werden."
+      suffix: "Breite"
+      placeholder: "z.B. 1169px oder 80%"

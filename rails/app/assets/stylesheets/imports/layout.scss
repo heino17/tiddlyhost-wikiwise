@@ -1,4 +1,18 @@
 // https://gka.github.io/palettes/#/15|d|5c7cd9||1|1
+//App background and width
+.bg-wrapper {
+  width: 100%;
+}
+[data-bs-theme="light"] .bg-wrapper { background-color: var(--bs-gray-200); }
+[data-bs-theme="dark"] .bg-wrapper { background: linear-gradient(#34373a, #1e1e1e); }
+// [data-bs-theme="dark"] .bg-wrapper { background-color: var(--bs-gray-800); }
+.app-container {
+  width: 100%;
+  max-width: 1169px;
+  margin:    0 auto;
+}
+//App background and width end
+
 $nav_bg_color: #3c60b9;
 
 .navbar {
@@ -241,6 +255,7 @@ body.simple-layout {
 
 /* The menu is quite busy so give it some extra whitespace */
 .th-nav-menu {
+    z-index: 1070 !important;
     padding-top: 0.9rem;
     padding-bottom: 1.2rem;
     min-width: 14.5em;
@@ -417,19 +432,23 @@ $hilight_bg_color: #d5e0f9;
 }
 /* Toggle Button */
 .sidebar-toggle {
-  position: fixed;
-  top: 193px;
-  right: 0.5rem;
-
-  z-index: 10;
-  padding: 0.3rem 0.6rem;
+ // background-color: var(--bs-body-bg) !important;
+  position: sticky;
+  top: 30px;
+  float: right;
+  width: 30px;
+  height: 30px;
+  border: 1px solid green;
+  z-index: 1060;
+  padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+  margin: 0 0;
   font-size: 0.9rem;
-
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
-
 .sidebar-toggle:hover {
+  background-color: #29A36A !important;
+  border: 1px solid purple;
   opacity: 1;
 }
 .sidebar-toggle i {

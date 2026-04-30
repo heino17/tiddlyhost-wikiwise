@@ -1,20 +1,42 @@
 <div class="container-fluid mt-3">
-      <% flash.each do |type, message| %>
-        <% next if type.to_s == "timedout" %> <!-- falls Devise o.a. verwendet wird -->
+  <% flash.each do |type, value| %>
+    <% next if type.to_s == "timedout" %>
 
-        <% css_class = case type.to_sym
-                       when :notice  then "success"
-                       when :alert   then "danger"
-                       when :error   then "danger"
-                       when :warning then "warning"
-                       else "info"
-                       end %>
+    <% if value.is_a?(Hash) %>
+      <% message = value[:message] || value["message"] %>
+      <% auto_dismiss = value[:auto_dismiss] != false %>
+    <% else %>
+      <% message = value %>
+      <% auto_dismiss = true %>
+    <% end %>
 
-        <div class="alert alert-<%= css_class %> alert-dismissible fade show alert-flash" 
-             role="alert"
-             <%= 'data-auto-dismiss="false"' if [:alert, :error].include?(type.to_sym) %>>
-          <%= message %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-      <% end %>
-    </div>
+    <% css_class = case type.to_sym
+                   when :notice  then "success"
+                   when :alert   then "danger"
+                   when :error   then "danger"
+                   when :warning then "warning"
+                   else "info"
+                   end %>
+
+    <% if css_class != "danger" %>
+
+      <div class="alert alert-<%= css_class %> alert-dismissible fade show alert-flash"
+           role="alert">
+        <%= message %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <% else %>
+
+      <div class="flash-persistent mb-3 d-flex align-items-center fade show alert-persistent"
+           role="alert"
+           data-flash_persistent="true"
+           data-auto-dismiss="<%= auto_dismiss %>">
+        <%= message %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <% end %>
+
+  <% end %>
+</div>

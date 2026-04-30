@@ -8,21 +8,19 @@ function autoHideFlash(container = document) {
   alerts.forEach(alert => {
     alert.dataset.autoHidden = 'true';
 
-    // Sofort Slide-Down starten
     requestAnimationFrame(() => {
       alert.classList.add('showing');
     });
 
-    // Nach 3 Sekunden Slide-Up starten
     setTimeout(() => {
       alert.classList.remove('showing');
       alert.classList.add('closing');
 
-      // Nach der Animation entfernen
       setTimeout(() => alert.remove(), 400);
     }, 3000);
   });
 }
+
 
 // Turbo-Events
 document.addEventListener('turbo:render', (event) => {

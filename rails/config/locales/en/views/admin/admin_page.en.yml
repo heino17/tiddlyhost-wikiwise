@@ -301,3 +301,8 @@ en:
       light: "Light"
       dark: "Dark"
       auto: "Auto (follows browser system setting)"
+    default_theme_width:
+      label: "Maximum frontend width"
+      description: "The maximum width of the frontend can be specified here in px, %, rem, or vw."
+      suffix: "Width"
+      placeholder: "e.g. 1169px or 80%"

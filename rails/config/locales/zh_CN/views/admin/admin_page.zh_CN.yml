@@ -295,3 +295,8 @@ zh_CN:
       light: "浅色"
       dark: "深色"
       auto: "自动（跟随浏览器系统设置）"
+    default_theme_width:
+      label: "前端最大宽度"
+      description: "前端的最大宽度可在此以 px、%、rem 或 vw 设置。"
+      suffix: "宽度"
+      placeholder: "例如：1169px 或 80%"

@@ -24,7 +24,9 @@ de:
     not_your_comment: "Das ist nicht dein Kommentar!"
     delete_confirm: "Wirklich löschen? Der Kommentar kann nicht wiederhergestellt werden!"
     
-    show_all_button: "Alle %{count} Kommentare anzeigen"
+    show_all_button: 
+      one: "1 Kommentar anzeigen"
+      other: "Alle %{count} Kommentare anzeigen"
     
     title_comments_for: "Kommentare zur Seite"
     delete_your_comment: "Deinen Kommentar löschen"

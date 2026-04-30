@@ -36,4 +36,4 @@
   .actions.mt-5
     = f.hidden_field :active_tab, id: "active_tab_field", value: params[:active_tab] || 'general'
     = f.submit t('admin.tab_settings.save'), class: "btn btn-primary"
-    = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn btn-outline-secondary ms-2"
+    = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn btn-outline-secondary ms-2 "

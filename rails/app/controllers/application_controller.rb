@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   before_action :permit_devise_params, if: :devise_controller?
   before_action :set_locale, :apply_enabled_locales  # Zuerst set_locale!
 
+  helper_method :theme_width
+
+  def theme_width
+    Setting.find_by(key: :default_theme_width)&.value.presence || "1169px"
+  end
+
   private
 
   def set_locale

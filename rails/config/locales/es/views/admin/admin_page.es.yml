@@ -296,3 +296,8 @@ es:
       light: "Claro"
       dark: "Oscuro"
       auto: "Auto (sigue la configuración del sistema del navegador)"
+    default_theme_width:
+      label: "Ancho máximo del frontend"
+      description: "El ancho máximo del frontend se puede indicar aquí en px, %, rem o vw."
+      suffix: "Ancho"
+      placeholder: "p. ej., 1169px o 80%"

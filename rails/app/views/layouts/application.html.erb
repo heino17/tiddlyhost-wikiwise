@@ -31,30 +31,32 @@
   </head>
 
   <body class="locale-<%= I18n.locale.to_s.tr('_', '-') %>">
-    
-    <header>
-      <%= render 'layouts/header' %>
-    </header>
+    <div class="bg-wrapper">
+      <div class="app-container" style="max-width: <%= theme_width %>;">
+          <header>
+            <%= render 'layouts/header' %>
+          </header>
   
-    <!-- Flash-Nachrichten -->
-    <%= render "layouts/flash" %>
-
-    <main>
-      <% Rails.logger.debug "Banner enabled? #{Setting.enabled?(:banner_message_enabled)}" %>
-      <% Rails.logger.debug "Visibility: #{Setting.value_for(:banner_message_visibility)}" %>
-      <% Rails.logger.debug "HTML present? #{Setting.value_for(:banner_message_html).present?}" %>
+          <!-- Flash-Nachrichten -->
+          <%= render "layouts/flash" %>
       
-      <% if Setting.enabled?(:banner_message_enabled) %>
-        <%= render partial: 'layouts/banner_message' %>
-      <% end %>
-      <div class="container-fluid">
-        <%= yield %>
+          <main>
+            <% Rails.logger.debug "Banner enabled? #{Setting.enabled?(:banner_message_enabled)}" %>
+            <% Rails.logger.debug "Visibility: #{Setting.value_for(:banner_message_visibility)}" %>
+            <% Rails.logger.debug "HTML present? #{Setting.value_for(:banner_message_html).present?}" %>
+            
+            <% if Setting.enabled?(:banner_message_enabled) %>
+              <%= render partial: 'layouts/banner_message' %>
+            <% end %>
+            <div class="container-fluid">
+              <%= yield %>
+            </div>
+          </main>
+      
+          <footer>
+            <%= render 'layouts/footer' %>
+          </footer>
       </div>
-    </main>
-
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
-
+    </div>
   </body>
 </html>

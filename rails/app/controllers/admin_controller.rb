@@ -78,64 +78,66 @@ class AdminController < ApplicationController
 
   def update_settings
     load_settings
-  
+
     # --- 1. Alle Locale-Keys sammeln ---
     locale_keys = available_locales.keys.map { |loc| "locale_enabled_#{loc}" }
-  
+
     # --- 2. Prüfen: Wird die aktuelle Sprache deaktiviert? ---
     current_locale_key = "locale_enabled_#{I18n.locale}"
     if params[:settings][current_locale_key] == "0"
       flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_current_locale')
+      flash.keep(:alert)
       return redirect_to admin_settings_path(active_tab: "locales")
     end
-  
+
     # --- 3. Prüfen: Wird die Default-Sprache deaktiviert? ---
     default_locale = Setting.string_for(:default_locale, default: "en").to_sym
     default_locale_key = "locale_enabled_#{default_locale}"
-  
+
     if params[:settings][default_locale_key] == "0"
-      flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_default_locale')
-      return redirect_to admin_settings_path(active_tab: "locales")
+      return redirect_to admin_settings_path(active_tab: "locales"),
+            alert: {
+              message: t("admin.locales_hint_messages.cannot_disable_default_locale"),
+              auto_dismiss: false
+            }
+
     end
-  
+
     # --- 4. Prüfen: Werden ALLE Sprachen deaktiviert? ---
     disabled_count = locale_keys.count { |k| params[:settings][k] == "0" }
-  
+
     if disabled_count == locale_keys.size
       flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_all_locales')
+      flash.keep(:alert)
       return redirect_to admin_settings_path(active_tab: "locales")
     end
-  
-    # --- 5. Wenn alles OK → speichern ---
-    # 5. Speichern – erweitert für :text
+
+    # --- 5. Alles OK → speichern ---
     params[:settings]&.each do |key_str, val|
       if key_str == "default_locale"
         Setting.set_string(:default_locale, val)
         next
       end
-    
+
       key_sym = key_str.to_sym
-      config = settings_config.find { |s| s[:key] == key_sym }  # Direkt aus config, nicht @settings
-    
-      Rails.logger.info "#{key_sym}: val=#{val}, config=#{config&.dig(:type)}"  # Temp-Log
-    
+      config = settings_config.find { |s| s[:key] == key_sym }
+
       if config
         case config[:type]
         when :boolean
           Setting.set_enabled(key_sym, val == "1")
-        when :integer, :select, :text
+        when :integer, :select, :text, :string
           Setting.set_value(key_sym, val.to_s.strip)
         end
       else
         Rails.logger.warn "Unknown setting skipped: #{key_sym}"
       end
     end
-  
+
     active_tab = params[:active_tab].presence || 'general'
-  
+
     redirect_to admin_settings_path(active_tab: active_tab),
                 notice: t("admin.tab_settings.settings_saved")
-  
   rescue => e
     flash.now[:alert] = "Fehler beim Speichern: #{e.message}"
     load_settings
@@ -327,6 +329,7 @@ class AdminController < ApplicationController
   
       # === Hub & Darstellung ===
       { key: :default_theme_mode,                   group: 'hub', default: 'light',  type: :select, options: ['light', 'dark', 'auto'] },
+      { key: :default_theme_width,                  group: 'hub', default: '1169px',  type: :string },
       { key: :hub_per_page,                         group: 'hub',       default: 17,    type: :integer, min: 1, max: 51 },
       # === Banner Message ===
       { key: :banner_message_enabled,     group: 'hub', default: true, type: :boolean },

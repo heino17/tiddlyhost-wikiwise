@@ -1,0 +1,60 @@
+/* Slide-Down/Up Animation für persistent/stehenbleibende  alert-Flash-Meldungen */
+.alert-persistent {
+  overflow: hidden;
+  z-index: 1070;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  opacity: 0;
+
+  /* Einblenden */
+  &.showing {
+    transition:
+      max-height 1s ease-out,
+      padding 0.9s ease-out,
+      margin 1s ease-out,
+      opacity 1s ease-out;
+
+    z-index: 1070;
+    max-height: 200px;
+    padding-top: var(--flash-pt, 0.75rem);
+    padding-bottom: var(--flash-pb, 0.75rem);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    opacity: 1;
+  }
+
+  /* Ausblenden */
+  &.closing {
+    transition:
+      max-height 0.9s linear,
+      padding 0.8s linear,
+      margin 0.8s linear,
+      opacity 0.9s linear;
+
+    z-index: 1070;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0px;
+    opacity: 0;
+  }
+}
+
+.flash-persistent {
+  /* Bootstrap alert-danger Optik */
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px dashed #ff0000;
+  border-radius: 0.375rem; 
+  padding: 0.75rem 1rem;
+  position: relative;
+
+  /* Close-Button wie bei Bootstrap */
+  .btn-close {
+    margin-left: auto;
+    filter: invert(50%); /* damit er auf hellrot sichtbar ist */
+  }
+}

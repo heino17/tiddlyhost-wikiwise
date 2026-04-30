@@ -19171,6 +19171,36 @@
   });
   observer.observe(document.body, { childList: true, subtree: true });
 
+  // app/javascript/flash_persistent.js
+  document.addEventListener("turbo:load", () => {
+    document.querySelectorAll(".flash-persistent[data-flash_persistent]").forEach((alert2) => {
+      setTimeout(() => {
+        alert2.classList.add("showing");
+      }, 40);
+      const auto2 = alert2.dataset.auto_dismiss === "true";
+      if (auto2) {
+        setTimeout(() => {
+          closeAlert(alert2);
+        }, 3e3);
+      }
+    });
+    document.addEventListener("click", (e2) => {
+      const closeBtn = e2.target.closest(".flash-persistent .btn-close");
+      if (!closeBtn) return;
+      const alert2 = closeBtn.closest(".flash-persistent");
+      if (!alert2) return;
+      e2.preventDefault();
+      closeAlert(alert2);
+    });
+  });
+  function closeAlert(alert2) {
+    alert2.classList.remove("showing");
+    alert2.classList.add("closing");
+    setTimeout(() => {
+      alert2.remove();
+    }, 900);
+  }
+
   // app/javascript/banner_dismiss.js
   document.addEventListener("turbo:load", () => {
     document.querySelectorAll(".banner-message[data-banner]").forEach((banner) => {
