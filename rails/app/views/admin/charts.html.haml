@@ -2,7 +2,8 @@
 = render 'tabs'
 
 %h3
-  = @chart_data[:title]
-  = render 'chart_menu'
+  - icon = AdminChartData::CHART_ICONS[@chart_data[:name]] || "📊"
+  = "#{icon} #{t("admin.charts.#{@chart_data[:name]}", default: @chart_data[:name].titleize)}"
+  = render "chart_menu"
 
 = render 'line_chart', chart_data: @chart_data

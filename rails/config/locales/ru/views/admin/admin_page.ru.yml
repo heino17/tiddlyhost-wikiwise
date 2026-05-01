@@ -134,6 +134,11 @@ ru:
     tab_etc:
       raise_an_exception: "Вызвать исключение"
       connection_pool_stats: "Статистика пула соединений"
+    charts:
+      subscribers: "Подписчики"
+      signups_per_day: "Регистрации в день"
+      signups_per_week: "Регистрации в неделю"
+      total_users: "Всего пользователей"
       # admin_helper.rb
     pagination_showing_entries:
       showing: "Отображено записей"

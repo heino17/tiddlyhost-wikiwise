@@ -130,6 +130,11 @@ ja:
     tab_etc:
       raise_an_exception: "例外を発生させる"
       connection_pool_stats: "接続プール統計"
+    charts:
+      subscribers: "購読者"
+      signups_per_day: "1日の登録数"
+      signups_per_week: "1週間の登録数"
+      total_users: "総ユーザー数"
       # admin_helper.rb
     pagination_showing_entries:
       showing: "表示中"

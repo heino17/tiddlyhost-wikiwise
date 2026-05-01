@@ -130,6 +130,11 @@ ko:
     tab_etc:
       raise_an_exception: "예외 발생시키기"
       connection_pool_stats: "연결 풀 통계"
+    charts:
+      subscribers: "구독자"
+      signups_per_day: "일일 가입자 수"
+      signups_per_week: "주간 가입자 수"
+      total_users: "총 사용자 수"
       # admin_helper.rb
     pagination_showing_entries:
       showing: "항목 표시"

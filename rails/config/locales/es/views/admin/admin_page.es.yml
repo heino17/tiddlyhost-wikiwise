@@ -129,6 +129,11 @@ es:
     tab_etc:
       raise_an_exception: "Generar una excepción"
       connection_pool_stats: "Estadísticas del pool de conexiones"
+    charts:
+      subscribers: "Suscriptores"
+      signups_per_day: "Registros por día"
+      signups_per_week: "Registros por semana"
+      total_users: "Usuarios totales"
       # admin_helper.rb
     pagination_showing_entries:
       showing: "Mostrando entradas"

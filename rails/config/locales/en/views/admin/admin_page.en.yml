@@ -134,6 +134,11 @@ en:
     tab_etc:
       raise_an_exception: "Raise an exception"
       connection_pool_stats: "Connection pool stats"
+    charts:
+      subscribers: "Subscribers"
+      signups_per_day: "Signups per day"
+      signups_per_week: "Signups per week"
+      total_users: "Total users"
       # admin_helper.rb
     pagination_showing_entries:
       showing: "Showing entries"

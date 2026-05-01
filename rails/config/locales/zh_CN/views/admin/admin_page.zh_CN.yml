@@ -129,6 +129,11 @@ zh_CN:
     tab_etc:
       raise_an_exception: "引发异常"
       connection_pool_stats: "连接池统计"
+    charts:
+      subscribers: "订阅者"
+      signups_per_day: "每日注册数"
+      signups_per_week: "每周注册数"
+      total_users: "用户总数"
       # admin_helper.rb
     pagination_showing_entries:
       showing: "显示条目"
