@@ -67,6 +67,16 @@ Rails.application.routes.draw do
     get 'admin/raw_download'
     get 'admin/boom'
     get 'admin/pool_stats'
+  
+    # New for create and delete an account
+    get    'admin/users/new',          to: 'users#new_admin',    as: :admin_new_user
+    post   'admin/users',              to: 'users#create_admin', as: :admin_create_user
+    
+    get    'admin/users/:id',          to: 'users#show_admin',   as: :admin_user
+    get    'admin/users/:id/edit',     to: 'users#edit_admin',   as: :edit_admin_user
+    
+    patch  'admin/users/:id/update',   to: 'users#update_admin', as: :update_admin_user
+    delete 'admin/users/:id/delete',   to: 'users#destroy_admin', as: :destroy_admin_user
 
     # These are variations on the same thing with a shared base class
     # See also HubController#redirect_hub_urls

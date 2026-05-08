@@ -3,6 +3,7 @@
 **+ Kommentar- & Bewertung der Wikis/Seiten**  
 **+ Shoutbox-Mini-Chat-Widget**  
 **+ Erweiterter Admin-Bereich für Einstellungen**  
+**+ Admin‑Bereich – Benutzerverwaltung erweitert** 
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
 
@@ -16,7 +17,8 @@
 - durch Implementierung von I18n Sprachunterstützung. **Siehe: [Readme_i18n.md](Readme_i18n.md)**
 - Erweitert um Kommentar & Bewertung der Tiddlyhost-Wikis. **Siehe: [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**  
 - Der Admin-Bereich wurde um eine Registrierkarte/Tab erweitert  
-  für direkten Zugriff auf einige Funktionen **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
+  für direkten Zugriff auf einige Funktionen **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**   
+- Die Benutzerverwaltung wurde erweitert **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**  
 - Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 
 Es ist für meine Server-Umgebung etwas angepasst, **siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
@@ -44,7 +46,8 @@ cd tiddlyhost-wikiwise
 **+ rails I18n language implementation**  
 **+ Comment & Voting for Wikis/Sites**  
 **+ Shoutbox-Mini-Chat-Widget**  
-**+ Advanced Admin Panel for Settings**    
+**+ Advanced Admin Panel for Settings**  
+**+ Admin area – User management expanded** 
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
 
@@ -58,6 +61,7 @@ cd tiddlyhost-wikiwise
 - through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
 - Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
 - A new tab has been added to the admin area for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
+- User management has been expanded **See: [Readme-User-Management.md](Readme-User-Management.md)**  
 - Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 
 It has been slightly adapted for my server environment, **see [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  

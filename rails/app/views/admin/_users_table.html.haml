@@ -20,9 +20,9 @@
   - records.each do |user|
     %tr
       %td= user.id
-      %td= link_to_user(user.name, user)
-      %td= link_to_user(user.username, user)
-      %td= link_to_user(user.email, user)
+      %td= link_to user.name, admin_user_path(user)
+      %td= link_to user.username, admin_user_path(user)
+      %td= link_to user.email, admin_user_path(user)
       %td
         - if user.use_avatar?
           = avatar_image(user, size: 18)
@@ -37,3 +37,10 @@
       %td= nice_timestamp user.created_at
       -# Show the timespan since it is more interesting than the raw timestamp
       %td= nice_timespan(user.created_at, user.confirmed_at)
+      -# %td
+        = link_to "Löschen", destroy_admin_user_path(user),
+            method: :delete,
+            data: { confirm: "Benutzer wirklich löschen?" },
+            class: "btn btn-sm btn-danger"
+  %tr
+    = turbo_off_link_to t('admin.tab_users.new_user'), admin_new_user_path, class: "btn btn-primary btn-sm"

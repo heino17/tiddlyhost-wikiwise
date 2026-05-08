@@ -123,7 +123,17 @@ class Settings
   end
 
   def self.feature_list
-    (Settings.secrets(:grant_feature).keys + Settings::Features.methods(false).map { |m| m.to_s.sub('_enabled?', '').to_sym }).uniq.sort
+    grant = Settings.secrets(:grant_feature)
+    grant_keys = grant.is_a?(Hash) ? grant.keys : []
+  
+    feature_methods =
+      if Settings.subscriptions_enabled?
+        Settings::Features.methods(false).map { |m| m.to_s.sub('_enabled?', '').to_sym }
+      else
+        []
+      end
+  
+    (grant_keys + feature_methods).uniq.sort
   end
 
   def self.stripe_products

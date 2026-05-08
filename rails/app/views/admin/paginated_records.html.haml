@@ -6,8 +6,6 @@
 
 = render 'tabs'
 
-= render 'user_info', user: @user if @user
-
 - unless @user && action_name == "users"
   .admin-filter
     .group 
@@ -15,11 +13,14 @@
     = render "#{action_name}_filter"
     = render 'search_box'
 
+= render 'user_info', user: @user if @user
+
 .admin-paginate= will_paginate(@records)
 .admin-page-info= pagination_info(@records)
 
-%table.admin.table.table-sm.table-striped
-  = render "#{action_name}_table", records: @records, specific_user: @user
+%div.admin-table-wrapper
+  %table.admin.table.table-sm.table-striped
+    = render "#{action_name}_table", records: @records, specific_user: @user
 
 .admin-paginate= will_paginate(@records)
 .admin-page-info= pagination_info(@records)

@@ -23,11 +23,11 @@ module Settings::Features
   end
 
   def startpage_introduction_block_enabled?
-    Setting.enabled?(:startpage_introduction_block_enabled, default: false)
+    Setting.enabled?(:startpage_introduction_block_enabled, default: true)
   end
 
   def special_imprint_enabled?
-    Setting.enabled?(:special_imprint_enabled, default: false)
+    Setting.enabled?(:special_imprint_enabled, default: true)
   end
 
   def registration_enabled?
@@ -47,10 +47,10 @@ module Settings::Features
   end
 
   def banner_message_enabled?
-    Setting.enabled?(:banner_message_enabled, default: false)
+    Setting.enabled?(:banner_message_enabled, default: true)
   end
 
   def default_theme_mode?
-    Setting.enabled?(:default_theme_mode, default: light)
+    Setting.enabled?(:default_theme_mode, default: dark)
   end
 end

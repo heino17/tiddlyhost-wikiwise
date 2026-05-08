@@ -2,6 +2,19 @@ class User < ApplicationRecord
   include AdminSearchable
   include Subscriber
 
+  before_validation :set_default_role, on: :create
+
+  def set_default_role
+    self.user_type_id ||= UserType.find_by(name: "basic")&.id
+  end
+
+  attr_accessor :skip_password_validation
+
+  def password_required?
+    return false if skip_password_validation
+    super
+  end
+
   PREFERENCES = {
     list_mode: %w[list grid],
     theme_mode: ThemeModeHelper::MODES,

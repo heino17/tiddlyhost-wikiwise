@@ -1,0 +1,78 @@
+%h2
+  = t('admin.tab_users.users_show_users_details_heading') + (':')
+  %span{ style: "color: #179b5b;" }
+    = " #{@user.name} #{@user.username}"
+
+%div.card{ style: "margin: 0 auto; max-width: 800px;" }
+  %div.card-body.enable-tooltips
+
+    %h4= t('admin.tab_users.users_show_users_details_heading_basic')
+    %table.table.table-sm
+      %tr
+        %th.text-muted= t('admin.tab_users.users_name')
+        %td= @user.name
+      %tr
+        %th.text-muted= t('admin.tab_users.users_email')
+        %td= @user.email
+      %tr
+        %th.text-muted= t('admin.tab_users.users_username')
+        %td= @user.username.presence || "—"
+      %tr
+        %th.text-muted= t('admin.tab_users.users_access_level')
+        %td= @user.user_type.name
+
+    %hr/
+
+    %h4= t('admin.tab_users.users_show_users_details_heading_activity')
+    %table.table.table-sm
+      %tr
+        %th.text-muted= t('admin.tab_users.users_show_users_details_basic_last_login')
+        %td= nice_timestamp @user.last_sign_in_at
+      %tr
+        %th.text-muted= t('admin.tab_users.users_show_users_details_basic_count_logins')
+        %td= @user.sign_in_count
+      %tr
+        %th.text-muted= t('admin.tab_users.users_show_users_details_basic_date_created')
+        %td= nice_timestamp @user.created_at
+      %tr
+        %th.text-muted= t('admin.tab_users.users_show_users_details_basic_date_confirmed')
+        %td= nice_timestamp @user.confirmed_at
+
+    %hr/
+
+    %h4= t('admin.tab_users.users_show_users_details_heading_contents')
+    %table.table.table-sm
+      %tr
+        %th.text-muted= t('admin.tab_users.users_show_users_details_contents_sites')
+        %td= @user.sites.count
+      - if Settings.tiddlyspot_enabled?
+        %tr
+          %th.text-muted= t('admin.tab_users.users_show_users_details_contents_tspot_sites')
+          %td= @user.tspot_sites.count
+      %tr
+        %th.text-muted= t('admin.tab_users.users_show_users_details_contents_hub_sites')
+        %td= @user.hub_sites_count
+
+    %hr/
+
+    .d-flex.justify-content-between
+      = link_to t('admin.tab_users.users_show_users_details_contents_cancel'),
+          admin_users_path,
+          class: "btn btn-secondary"
+          
+      = turbo_off_link_to t('admin.tab_users.users_show_users_details_edit_user'),
+          edit_admin_user_path(@user),
+          class: "btn btn-primary"          
+      
+      - if @user == current_user
+        %span{ style: "display: inline-block;" }
+          %button.btn.btn-outline-danger.btn-sm{ disabled: true }
+            = t('admin.tab_users.users_show_users_details_delete_user')          
+          = render 'popover_help', html_content: t("admin.tab_users.users_edit_user_account_flash_dont_delete_yourself")
+          
+      - else
+        = button_to t('admin.tab_users.users_show_users_details_delete_user'),
+            destroy_admin_user_path(@user),
+            method: :delete,
+            data: { turbo: false, confirm: t('admin.tab_users.users_show_users_details_delete_user_confirm') },
+            class: "btn btn-outline-danger btn-sm"

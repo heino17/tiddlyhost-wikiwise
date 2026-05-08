@@ -8,13 +8,20 @@ class SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
-    # If the user was trying to view their private site then redirect
-    # to that site after login succeeds
-    return @site.url if request.post? && params[:user] &&
-      (@site_redir = params[:user][:site_redir]) &&
-      (@site = Site.find_by_name(@site_redir)) &&
-      @site.user == current_user
+    # 1. Admin-Weiterleitung
+    if resource.is_superuser?
+      return admin_path
+    end
+  
+    # 2. Deine bestehende private-site-Weiterleitung
+    if request.post? && params[:user] &&
+       (@site_redir = params[:user][:site_redir]) &&
+       (@site = Site.find_by_name(@site_redir)) &&
+       @site.user == current_user
+      return @site.url
+    end
 
+    # 3. Standard-Devise-Weiterleitung
     super
   end
 end
