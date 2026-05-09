@@ -35,7 +35,8 @@
                          setting[:current_value],
                          min: setting[:min] || 1,
                          max: setting[:max] || 100,
-                         class: "form-control"
+                         class: "form-control form-control-sm",
+                         style: "min-width: 71px;"
                          
       .input-group-text
         = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
@@ -44,7 +45,8 @@
     .input-group.w-25
       = text_field_tag "settings[#{setting[:key]}]",
                        setting[:raw_value],
-                       class: "form-control",
+                       class: "form-control form-control-sm w-auto",
+                       style: "max-width: 185px;",
                        placeholder: t('admin.default_theme_width.placeholder')
 
       .input-group-text
@@ -80,7 +82,7 @@
                    title: t('admin.banner_message_editor.undo') }
             %span ⟲
           %button{ type: "button", 
-                   class: "trix-button", 
+                   class: "trix-button trix-button--icon", 
                    "data-trix-action": "redo", 
                    title: t('admin.banner_message_editor.redo') }
             %span ⟳
@@ -91,8 +93,7 @@
       
       %trix-editor{ input: "settings_#{setting[:key]}_input",
                     toolbar: "toolbar_#{setting[:key]}",
-                    class: "trix-content form-control border rounded p-3",
-                    style: "min-height: 150px;" }
+                    class: "trix-content form-select-sm border rounded p-1" }
       
       = label_tag "settings_#{setting[:key]}_label", setting[:label], class: "form-label mt-2"
 
@@ -101,4 +102,5 @@
 
     = select_tag "settings[#{setting[:key]}]",
                  options_for_select(options, setting[:raw_value] || setting[:current_value]),
-                 class: "form-select w-auto"
+                 class: "form-select form-select-sm w-auto",
+                 style: "max-width: 255px;"

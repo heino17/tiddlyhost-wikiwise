@@ -202,7 +202,6 @@
   padding: 5px 0 5px 5px;
   border-radius: 17px 7px;
 }
-
 /* Horizontal scroll wrapper for wide admin tables */
 /* Custom scrollbar for admin table wrapper */
 .admin-table-wrapper {
@@ -216,12 +215,10 @@
   height: 6px;
   display: block;
 }
-
 .admin-table-wrapper::-webkit-scrollbar-track {
   background: #e6f5e6;
   border-radius: 10px;
 }
-
 .admin-table-wrapper::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #28a745, #34ce57);
   border-radius: 10px;
@@ -230,31 +227,26 @@
     transform 0.25s ease,
     box-shadow 0.4s ease;
 }
-
 .admin-table-wrapper::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(90deg, #218838, #28a745);
  transform: scaleY(1.6);  /* Hover-Effekt bleibt sichtbar trotz dünner Höhe */
   box-shadow: 0 0 3px rgba(40, 167, 69, 0.7);
 }
-
 /* Firefox only */
 @-moz-document url-prefix() {
   .admin-table-wrapper {
     scrollbar-width: 6px;
     scrollbar-color: #28a745 transparent;
   }
-
   .admin-table-wrapper::-webkit-scrollbar-thumb {
     border-radius: 10px;
   }
 }
-
 /* Safari/iOS – Fake-Track sichtbar machen */
 @supports (-webkit-touch-callout: none) {
   .admin-table-wrapper {
     position: relative;
   }
-
   .admin-table-wrapper::after {
     content: "";
     position: absolute;
@@ -264,5 +256,32 @@
     height: 6px;
     background: rgba(40, 167, 69, 0.25);
     pointer-events: none;
+  }
+}
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+.toggle-password {
+  position: absolute;
+  right: 13px;
+  top: 18px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1rem;
+  color: #29A36A;
+  user-select: none;
+  opacity: 0.8;
+}
+.toggle-password:hover {
+  opacity: 1.0;
+}
+/* Hide toggle-password in Firefox */
+@-moz-document url-prefix() {
+  .password-wrapper {
+    display: block; /* Input bleibt sichtbar */
+  }
+  .toggle-password {
+    display: none !important; /* Auge/anzeigen/verbergen ausblenden */
   }
 }

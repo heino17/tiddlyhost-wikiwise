@@ -1,4 +1,4 @@
-%h2
+%h4
   = t('admin.tab_users.users_show_users_details_heading') + (':')
   %span{ style: "color: #179b5b;" }
     = " #{@user.name} #{@user.username}"
@@ -23,7 +23,7 @@
 
     %hr/
 
-    %h4= t('admin.tab_users.users_show_users_details_heading_activity')
+    %h5= t('admin.tab_users.users_show_users_details_heading_activity')
     %table.table.table-sm
       %tr
         %th.text-muted= t('admin.tab_users.users_show_users_details_basic_last_login')
@@ -40,7 +40,7 @@
 
     %hr/
 
-    %h4= t('admin.tab_users.users_show_users_details_heading_contents')
+    %h5= t('admin.tab_users.users_show_users_details_heading_contents')
     %table.table.table-sm
       %tr
         %th.text-muted= t('admin.tab_users.users_show_users_details_contents_sites')
@@ -55,14 +55,14 @@
 
     %hr/
 
-    .d-flex.justify-content-between
+    .d-flex.justify-content-between{style: "font-size: 0.7em;"}
       = link_to t('admin.tab_users.users_show_users_details_contents_cancel'),
           admin_users_path,
-          class: "btn btn-secondary"
+          class: "btn btn-sm btn-outline-secondary"
           
       = turbo_off_link_to t('admin.tab_users.users_show_users_details_edit_user'),
           edit_admin_user_path(@user),
-          class: "btn btn-primary"          
+          class: "btn btn-sm btn-primary"          
       
       - if @user == current_user
         %span{ style: "display: inline-block;" }

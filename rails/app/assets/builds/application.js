@@ -19327,7 +19327,7 @@
       { key: "0", color: "red" },
       { key: "1", color: "orangered" },
       { key: "2", color: "orange" },
-      { key: "3", color: "gold" },
+      { key: "3", color: "darkgold" },
       { key: "4", color: "green" },
       { key: "5", color: "darkgreen" }
     ];
@@ -19338,6 +19338,34 @@
       valueEl.style.color = level.color;
     }
   }
+
+  // app/javascript/password_toggle.js
+  document.addEventListener("click", function(e2) {
+    if (!e2.target.classList.contains("toggle-password")) return;
+    const fieldId = e2.target.dataset.target;
+    const field = document.getElementById(fieldId);
+    if (!field) return;
+    const showText = e2.target.dataset.show;
+    const hideText = e2.target.dataset.hide;
+    if (field.type === "password") {
+      field.type = "text";
+      e2.target.textContent = hideText;
+    } else {
+      field.type = "password";
+      e2.target.textContent = showText;
+    }
+  });
+  document.addEventListener("click", function(e2) {
+    if (e2.target.dataset.passwordClear !== void 0) {
+      const fields = [
+        document.getElementById("user_password"),
+        document.getElementById("user_password_confirmation")
+      ];
+      fields.forEach((f2) => {
+        if (f2) f2.value = "";
+      });
+    }
+  });
 
   // node_modules/@hotwired/stimulus/dist/stimulus.js
   var EventListener = class {

@@ -1,4 +1,4 @@
-%h2
+%h4
   = t('admin.tab_users.users_edit_user_account_heading') + (':')
   %span{ style: "color: #179b5b;" }
     = " #{@user.name} #{@user.username}"
@@ -6,7 +6,7 @@
 %div.card{ style: "margin: 0 auto; max-width: 800px;" }
   %div.card-body
   
-    %h2= t('admin.tab_users.users_edit_user_account_edit')
+    %h4= t('admin.tab_users.users_edit_user_account_edit')
     - if @user.errors.any?
       .alert.alert-danger
         %strong Fehler beim Speichern:
@@ -21,43 +21,64 @@
     
       .mb-3
         = f.label t('admin.tab_users.users_name')
-        = f.text_field :name, class: "form-control"
+        = f.text_field :name, class: "form-control form-control-sm"
     
       .mb-3
         = f.label t('admin.tab_users.users_email')
-        = f.email_field :email, class: "form-control"
+        = f.email_field :email, class: "form-control form-control-sm"
     
       .mb-3
         = f.label t('admin.tab_users.users_username')
-        = f.text_field :username, class: "form-control"
+        = f.text_field :username, class: "form-control form-control-sm"
     
       - if @user == current_user
         .mb-3
-          %label.form-label t('admin.tab_users.users_access_level')
+          %label.form-label= t('admin.tab_users.users_access_level')
           %div.form-control.bg-light.text-muted
-            Superuser (nicht änderbar)
+            = t('admin.tab_users.users_edit_user_cant_downgrage_access_level')
       - else
         .mb-3
           = f.label :user_type_id, t('admin.tab_users.users_access_level')
           = f.select :user_type_id,
               UserType.all.map { |t| [t.name, t.id] },
-              {}, class: "form-control"
+              {}, class: "form-control form-control-sm"
     
       %hr/
     
       %h4= t('admin.tab_users.users_edit_user_account_change_password')
     
-      .d-flex.justify-content-between.align-items-center.mb-2
-        %label.mb-0.mx-1= t('admin.tab_users.users_password')
-        = f.password_field :password, id: "user_password", class: "form-control"
+      .mb-3.position-relative
+        %label.form-label= t('admin.tab_users.users_password')
+        .password-wrapper
+          = f.password_field :password, id: "user_password", class: "form-control form-control-sm password-toggle-field"
+          %span.toggle-password{ 
+            data: { 
+              target: "user_password",
+              show: t('admin.tab_users.users_password_show'),
+              hide: t('admin.tab_users.users_password_hide')
+            } 
+          }
+            = t('admin.tab_users.users_password_show')
       
-      .mb-3
-        %label.mb-0= t('admin.tab_users.users_password_confirmation')
-        = f.password_field :password_confirmation, id: "user_password_confirmation", class: "form-control"
+      .mb-3.position-relative
+        %label.form-label= t('admin.tab_users.users_password_confirmation')
+        .password-wrapper
+          = f.password_field :password_confirmation, id: "user_password_confirmation", class: "form-control form-control-sm password-toggle-field"
+          %span.toggle-password{ 
+            data: { 
+              target: "user_password_confirmation",
+              show: t('admin.tab_users.users_password_show'),
+              hide: t('admin.tab_users.users_password_hide')
+            } 
+          }
+            = t('admin.tab_users.users_password_show')
       
         %br
         %button.btn.btn-sm.btn-secondary{ type: "button", data: { password_generator: true } }
           = t('admin.tab_users.users_password_generate')
+        
+        %button.btn.btn-sm.btn-outline-danger{ type: "button", data: { password_clear: true } }
+          = t('admin.tab_users.users_password_clear_password')
       
         %div.mt-1{
           data: {
@@ -73,8 +94,8 @@
       %hr/
     
       .d-flex.justify-content-between
-        = f.submit t('admin.tab_users.users_edit_user_account_save_users_details'), class: "btn btn-primary"
+        = f.submit t('admin.tab_users.users_edit_user_account_save_users_details'), class: "btn btn-sm btn-primary"
       
         = link_to t('admin.tab_users.users_edit_user_account_cancel'),
             admin_user_path(@user),
-            class: "btn btn-secondary"
+            class: "btn btn-sm btn-outline-secondary"

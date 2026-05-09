@@ -17,6 +17,7 @@
     %th= sort_link t('admin.tab_users_table_headers.th_confirmed'),       key: 'confirmed'
 
 %tbody
+  %tr
   - records.each do |user|
     %tr
       %td= user.id

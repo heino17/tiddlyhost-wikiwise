@@ -8,14 +8,14 @@
         %span.ms-1{ style: "font-size: 0.8rem;" }
           = t('admin.tab_sites_user_links.back_to_selection')
 
-      = link_to admin_user_path(user), target: "_blank", class: "text-decoration-none" do
+      = link_to admin_user_path(user), class: "text-decoration-none" do
         👤
         %span.ms-1{ style: "margin: 0; font-weight: bold; font-size: 0.8rem;" }
           %span{ style: "margin: 0; font-size: 0.8rem; color: #179b5b;" }= "'#{@user.name}'"
         = t('admin.tab_sites_user_links.view_user_data')
 
       - if user.has_hub_link?
-        = link_to hub_user_url(user.name), target: "_blank",
+        = link_to hub_user_url(user.name),
             class: "text-decoration-none invert" do
           <span style="margin: 0; font-size: 1.1rem; display:inline-block; transform: scaleX(-1);">👀</span>
           %span.ms-1{ style: "margin: 0; font-size: 0.8rem;" }

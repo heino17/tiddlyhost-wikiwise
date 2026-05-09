@@ -78,7 +78,7 @@ function updateStrengthIndicator(el, score) {
     { key: "0", color: "red" },
     { key: "1", color: "orangered" },
     { key: "2", color: "orange" },
-    { key: "3", color: "gold" },
+    { key: "3", color: "darkgold" },
     { key: "4", color: "green" },
     { key: "5", color: "darkgreen" }
   ];

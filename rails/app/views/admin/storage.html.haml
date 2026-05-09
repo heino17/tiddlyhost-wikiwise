@@ -2,26 +2,27 @@
 
 = render 'tabs'
 
-%table.admin.table.table-striped{ style: "width: auto; font-size: 1.1rem;" }
-  %thead
-    %th=t('admin.tab_storage_table_headers.th_type')
-    %th=t('admin.tab_storage_table_headers.th_service')
-    %th=t('admin.tab_storage_table_headers.th_bucket')
-    %th=t('admin.tab_storage_table_headers.th_files')
-    %th=t('admin.tab_storage_table_headers.th_bytes')
-
-  - configs = Rails.application.config.active_storage.service_configurations
-
-  - attachment_names.each do |name|
-    - attachment_service_names_for_attachment(name).each_with_index do |service_name, i|
-      - count = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).count
-      - bytes = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).sum(:byte_size)
-
-      %tr
-        %td= name if i == 0
-        %td= service_name
-        %td= configs&.dig(service_name, 'bucket') || '-'
-        %td= count
-        %td= nice_byte_count(bytes)
-
--# Todo maybe: Show orphan counts
+%div.admin-table-wrapper
+  %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto; max-width: 800px; font-size: 1.1rem;" }
+    %thead
+      %th=t('admin.tab_storage_table_headers.th_type')
+      %th=t('admin.tab_storage_table_headers.th_service')
+      %th=t('admin.tab_storage_table_headers.th_bucket')
+      %th=t('admin.tab_storage_table_headers.th_files')
+      %th=t('admin.tab_storage_table_headers.th_bytes')
+  
+    - configs = Rails.application.config.active_storage.service_configurations
+  
+    - attachment_names.each do |name|
+      - attachment_service_names_for_attachment(name).each_with_index do |service_name, i|
+        - count = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).count
+        - bytes = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).sum(:byte_size)
+  
+        %tr
+          %td= name if i == 0
+          %td= service_name
+          %td= configs&.dig(service_name, 'bucket') || '-'
+          %td= count
+          %td= nice_byte_count(bytes)
+  
+  -# Todo maybe: Show orphan counts
