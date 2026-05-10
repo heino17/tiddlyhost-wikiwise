@@ -1,14 +1,14 @@
 .row.mb-3
   .col-sm-4
-    %label.form-label{ for: "settings_default_locale" }
+    %label.form-label{ for: "settings_default_locale", style: "font-size: 0.9em" }
       = t('admin.locale_language_default')
       %br/
-      %small.text-muted
+      .text-muted
         = t('admin.locale_language_description')
 
   .col-sm-8
     - current_default = Setting.string_for(:default_locale, default: "en").to_sym
-    %select.form-select.w-auto{name: "settings[default_locale]", id: "settings_default_locale"}
+    %select.form-select.w-auto{name: "settings[default_locale]", id: "settings_default_locale", style: "font-size: 0.9em"}
       - available_locales.each do |loc, name|
         - is_current = (loc == I18n.locale)
         - is_default = (loc == current_default)
@@ -21,5 +21,5 @@
           = label
 
 .row.mb-3
-  .col-sm-8
+  .col-sm-8{ style: "font-size: 0.9em" }
     = t('admin.locale_enable_languages')

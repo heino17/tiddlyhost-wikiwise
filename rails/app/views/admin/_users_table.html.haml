@@ -21,9 +21,9 @@
   - records.each do |user|
     %tr
       %td= user.id
-      %td= link_to user.name, admin_user_path(user)
-      %td= link_to user.username, admin_user_path(user)
-      %td= link_to user.email, admin_user_path(user)
+      %td= turbo_off_link_to user.name, admin_user_path(user)
+      %td= turbo_off_link_to user.username, admin_user_path(user)
+      %td= turbo_off_link_to user.email, admin_user_path(user)
       %td
         - if user.use_avatar?
           = avatar_image(user, size: 18)

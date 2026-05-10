@@ -3,7 +3,7 @@
   %span{ style: "color: #179b5b;" }
     = " #{@user.name} #{@user.username}"
 
-%div.card{ style: "margin: 0 auto; max-width: 800px;" }
+%div.card{ style: "margin: 0 auto; max-width: 800px; font-size: 0.8em" }
   %div.card-body
   
     %h4= t('admin.tab_users.users_edit_user_account_edit')
@@ -20,35 +20,40 @@
         data: { turbo: false } do |f|
     
       .mb-3
-        = f.label t('admin.tab_users.users_name')
+        = f.label t('admin.tab_users.users_name'),
+            style: "font-weight: 600;"
         = f.text_field :name, class: "form-control form-control-sm"
     
       .mb-3
-        = f.label t('admin.tab_users.users_email')
+        = f.label t('admin.tab_users.users_email'),
+            style: "font-weight: 600;"
         = f.email_field :email, class: "form-control form-control-sm"
     
       .mb-3
-        = f.label t('admin.tab_users.users_username')
+        = f.label t('admin.tab_users.users_username'),
+            style: "font-weight: 600;"
         = f.text_field :username, class: "form-control form-control-sm"
     
       - if @user == current_user
         .mb-3
           %label.form-label= t('admin.tab_users.users_access_level')
-          %div.form-control.bg-light.text-muted
+          %div.form-control.form-control-sm
             = t('admin.tab_users.users_edit_user_cant_downgrage_access_level')
       - else
         .mb-3
-          = f.label :user_type_id, t('admin.tab_users.users_access_level')
+          = f.label :user_type_id, t('admin.tab_users.users_access_level'),
+              style: "font-weight: 600;"
           = f.select :user_type_id,
               UserType.all.map { |t| [t.name, t.id] },
               {}, class: "form-control form-control-sm"
     
       %hr/
     
-      %h4= t('admin.tab_users.users_edit_user_account_change_password')
+      %h5= t('admin.tab_users.users_edit_user_account_change_password')
     
       .mb-3.position-relative
-        %label.form-label= t('admin.tab_users.users_password')
+        %label.form-label{ style: "font-weight: 600;" }
+          = t('admin.tab_users.users_password')
         .password-wrapper
           = f.password_field :password, id: "user_password", class: "form-control form-control-sm password-toggle-field"
           %span.toggle-password{ 
@@ -61,7 +66,8 @@
             = t('admin.tab_users.users_password_show')
       
       .mb-3.position-relative
-        %label.form-label= t('admin.tab_users.users_password_confirmation')
+        %label.form-label{ style: "font-weight: 600;" }
+          = t('admin.tab_users.users_password_confirmation')
         .password-wrapper
           = f.password_field :password_confirmation, id: "user_password_confirmation", class: "form-control form-control-sm password-toggle-field"
           %span.toggle-password{ 
@@ -86,8 +92,9 @@
             strength_texts: I18n.t("admin.password.strength").to_json
           }
         }
-          = t('admin.tab_users.users_password_strength')
-          %span{ data: { password_strength_value: true } } -
+          %div{ style: "font-weight: 600;" }
+            = t('admin.tab_users.users_password_strength')
+            %span{ data: { password_strength_value: true } } -
       
         %div.mt-1.fw-bold{ data: { password_plain: true } } <!-- Klartext-Passwort -->
     

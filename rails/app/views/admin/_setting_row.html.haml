@@ -5,29 +5,34 @@
       = flag_emoji_for(loc)
       = " "
 
-    = setting[:label]
+    .small
+      = setting[:label]
+  
+      - if setting[:group] == 'locales'
+        - loc = setting[:key].to_s.sub("locale_enabled_", "").to_sym
+        - current_default = Setting.string_for(:default_locale, default: "en").to_sym
+  
+        - if loc == I18n.locale
+          %span.badge.bg-info.ms-2
+            = t('admin.locale_language_badge_current')
+  
+        - if loc == current_default
+          %span.badge.bg-primary.ms-2
+            = t('admin.locale_language_badge_default')
 
-    - if setting[:group] == 'locales'
-      - loc = setting[:key].to_s.sub("locale_enabled_", "").to_sym
-      - current_default = Setting.string_for(:default_locale, default: "en").to_sym
-
-      - if loc == I18n.locale
-        %span.badge.bg-info.ms-2
-          = t('admin.locale_language_badge_current')
-
-      - if loc == current_default
-        %span.badge.bg-primary.ms-2
-          = t('admin.locale_language_badge_default')
-
-  %p.text-muted.small= setting[:description]
+  .text-muted.small
+    .smaller
+      = setting[:description]
 
   - if setting[:type] == :boolean
-    .form-check.form-switch
+    .form-check.form-switch{ style: "font-size: 0.95em;" }
       = hidden_field_tag "settings[#{setting[:key]}]", "0"
       = check_box_tag "settings[#{setting[:key]}]", "1", setting[:current_value],
           class: "form-check-input",
-          id: "setting_#{setting[:key]}"
-      = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
+          id: "setting_#{setting[:key]}",
+          style: "margin-bottom: -30px; font-size: 0.8em;"
+      .small
+        = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
 
   - elsif setting[:type] == :integer
     .input-group.w-25
@@ -39,7 +44,8 @@
                          style: "min-width: 71px;"
                          
       .input-group-text
-        = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
+        .small
+          = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
                          
   - elsif setting[:type] == :string
     .input-group.w-25
@@ -50,7 +56,8 @@
                        placeholder: t('admin.default_theme_width.placeholder')
 
       .input-group-text
-        = setting[:suffix].presence || t('admin.default_theme_width.suffix')
+        .small
+          = setting[:suffix].presence || t('admin.default_theme_width.suffix')
 
   - elsif setting[:type] == :text
     .trix-container.mb-3

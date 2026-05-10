@@ -33,7 +33,7 @@
       - @settings.select { |s| s[:group] == 'locales' && s[:key] != :default_locale }.each do |setting|
         = render 'setting_row', setting: setting
 
-  .actions.mt-5
+  .actions.mt-4
     = f.hidden_field :active_tab, id: "active_tab_field", value: params[:active_tab] || 'general'
-    = f.submit t('admin.tab_settings.save'), class: "btn btn-primary"
-    = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn btn-outline-secondary ms-2 "
+    = f.submit t('admin.tab_settings.save'), class: "btn btn-sm btn-primary"
+    = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn  btn-sm btn-outline-secondary ms-2 "

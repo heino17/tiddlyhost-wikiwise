@@ -1,6 +1,6 @@
 %h4= t('admin.tab_users.new_user')
 
-%div.card{ style: "margin: 0 auto; max-width: 800px;" }
+%div.card{ style: "margin: 0 auto; max-width: 800px; font-size: 0.8em" }
   %div.card-body
 
     = form_with model: @user, url: admin_users_path, method: :post, data: { turbo: false } do |f|
@@ -13,15 +13,18 @@
               %li= msg
     
       .mb-3
-        = f.label t('admin.tab_users.users_name')
+        = f.label t('admin.tab_users.users_name'),
+            style: "font-weight: 600;"
         = f.text_field :name, class: "form-control form-control-sm"
     
       .mb-3
-        = f.label t('admin.tab_users.users_email')
+        = f.label t('admin.tab_users.users_email'),
+            style: "font-weight: 600;"
         = f.email_field :email, class: "form-control form-control-sm"
     
       .mb-3
-        = f.label t('admin.tab_users.users_username')
+        = f.label t('admin.tab_users.users_username'),
+            style: "font-weight: 600;"
         = f.text_field :username, class: "form-control form-control-sm"
     
       .mb-3
@@ -31,7 +34,8 @@
             {}, class: "form-control form-control-sm"
     
       .mb-3.position-relative
-        %label.form-label= t('admin.tab_users.users_password')
+        %label.form-label{ style: "font-weight: 600;" }
+          = t('admin.tab_users.users_password')
         .password-wrapper
           = f.password_field :password, id: "user_password", class: "form-control form-control-sm password-toggle-field"
           %span.toggle-password{ 
@@ -44,7 +48,8 @@
             = t('admin.tab_users.users_password_show')
       
       .mb-3.position-relative
-        %label.form-label= t('admin.tab_users.users_password_confirmation')
+        %label.form-label{ style: "font-weight: 600;" }
+          = t('admin.tab_users.users_password_confirmation')
         .password-wrapper
           = f.password_field :password_confirmation, id: "user_password_confirmation", class: "form-control form-control-sm password-toggle-field"
           %span.toggle-password{ 
@@ -54,7 +59,7 @@
               hide: t('admin.tab_users.users_password_hide')
             } 
           }
-            = t('admin.tab_users.users_password_show')
+            %div= t('admin.tab_users.users_password_show')
     
           %br
           %button.btn.btn-sm.btn-secondary.me-2{ type: "button", data: { password_generator: true } }
@@ -69,11 +74,12 @@
           strength_texts: I18n.t("admin.password.strength").to_json
         }
       }
-        = t('admin.tab_users.users_password_strength')
-        %span{ data: { password_strength_value: true } } ...
-        %br
-        %div.mt-1.fw-bold{ data: { password_plain: true } }
-        %br
+        %div{ style: "font-weight: 600;" }
+          = t('admin.tab_users.users_password_strength')
+          %span{ data: { password_strength_value: true } } ...
+          %br
+          %div.mt-1.fw-bold{ data: { password_plain: true } }
+          %br
       .d-flex.justify-content-between{style: "font-size: 0.7em; max-width: 100%;"}
         = f.submit t('admin.tab_users.new_user'), class: "btn btn-sm btn-primary"
       
