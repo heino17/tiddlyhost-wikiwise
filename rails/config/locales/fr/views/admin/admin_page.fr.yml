@@ -332,6 +332,9 @@ fr:
     banner_message_enabled:
       label: "Activer le message de bannière"
       description: "Affiche une bannière d'avertissement ou d'information en haut de toutes les pages"
+    banner_message_sticky:
+      label: "Fixer le message de bannière en haut"
+      description: "Lorsque activé, le message de bannière reste visible en haut lors du défilement."
     banner_message_html:
       label: "Contenu du message de la bannière"
       description: "Contenu HTML de la bannière (prend en charge les liens, le texte en gras, etc.)"
@@ -354,6 +357,9 @@ fr:
       light: "Clair"
       dark: "Sombre"
       auto: "Auto (suit les paramètres du navigateur)"
+    sticky_menu_enabled:
+      label: "Fixer la barre de menu en haut"
+      description: "Lorsque activé, la barre de menu reste visible en haut lors du défilement."
     default_theme_width:
       label: "Largeur maximale du frontend"
       description: "La largeur maximale du frontend peut être indiquée ici en px, %, rem ou vw."

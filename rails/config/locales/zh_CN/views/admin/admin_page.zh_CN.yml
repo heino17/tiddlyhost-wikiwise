@@ -331,6 +331,9 @@ zh_CN:
     banner_message_enabled:
       label: "启用横幅消息"
       description: "在所有页面顶部显示警告或信息横幅"
+    banner_message_sticky:
+      label: "将横幅消息固定在顶部"
+      description: "启用后，横幅消息在滚动时将始终固定在顶部显示。"
     banner_message_html:
       label: "横幅消息内容"
       description: "横幅的 HTML 内容（支持链接、粗体等）"
@@ -353,6 +356,9 @@ zh_CN:
       light: "浅色"
       dark: "深色"
       auto: "自动（跟随浏览器系统设置）"
+    sticky_menu_enabled:
+      label: "将菜单栏固定在顶部"
+      description: "启用后，滚动时菜单栏将始终固定在顶部显示。"
     default_theme_width:
       label: "前端最大宽度"
       description: "前端的最大宽度可在此以 px、%、rem 或 vw 设置。"

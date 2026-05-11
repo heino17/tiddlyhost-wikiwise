@@ -332,6 +332,9 @@ de:
     banner_message_enabled:
       label: "Banner-Nachricht aktivieren"
       description: "Zeigt eine Warn- oder Info-Banner oben auf allen Seiten an"
+    banner_message_sticky:
+      label: "Banner-Nachricht am oberen Rand fixieren"
+      description: "Wenn aktiviert, bleibt die Banner-Nachricht beim scrollen oben sichtbar."
     banner_message_html:
       label: "Inhalt der Banner-Nachricht"
       description: "HTML-Inhalt des Banners (kann Links, Fettschrift etc. enthalten)"
@@ -354,6 +357,9 @@ de:
       light: "Hell (Light)"
       dark: "Dunkel (Dark)"
       auto: "Auto (folgt der System-Einstellung des Browsers)"
+    sticky_menu_enabled:
+      label: "Menü-Leiste am oberen Rand fixieren"
+      description: "Wenn aktiviert, bleibt die Leiste beim scrollen oben sichtbar."
     default_theme_width:
       label: "Maximale Breite des Frontends"
       description: "Die max. Breite des Frontends kann hier in px , %, rem oder vw angegeben werden."

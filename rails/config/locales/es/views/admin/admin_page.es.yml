@@ -341,6 +341,9 @@ es:
       all: "Todos (incluidos los no registrados)"
       logged_in: "Solo usuarios registrados"
       logged_out: "Solo cuando no está registrado"
+    banner_message_sticky:
+      label: "Fijar el mensaje de banner en la parte superior"
+      description: "Si está activado, el mensaje de banner permanece visible en la parte superior al desplazarse."
     banner_message_editor:
       heading1: "Encabezado 1"
       bold: "Negrita"
@@ -354,6 +357,9 @@ es:
       light: "Claro"
       dark: "Oscuro"
       auto: "Auto (sigue la configuración del sistema del navegador)"
+    sticky_menu_enabled:
+      label: "Fijar la barra de menú en la parte superior"
+      description: "Si está activado, la barra de menú permanece visible en la parte superior al desplazarse."
     default_theme_width:
       label: "Ancho máximo del frontend"
       description: "El ancho máximo del frontend se puede indicar aquí en px, %, rem o vw."

@@ -337,6 +337,9 @@ en:
     banner_message_enabled:
       label: "Enable banner message"
       description: "Shows a warning or info banner at the top of all pages"
+    banner_message_sticky:
+      label: "Fix banner message at the top"
+      description: "When enabled, the banner message remains visible at the top while scrolling."
     banner_message_html:
       label: "Banner message content"
       description: "HTML content of the banner (supports links, bold text, etc.)"
@@ -359,6 +362,9 @@ en:
       light: "Light"
       dark: "Dark"
       auto: "Auto (follows browser system setting)"
+    sticky_menu_enabled:
+      label: "Fix menu bar at the top"
+      description: "When enabled, the menu bar remains visible at the top while scrolling."
     default_theme_width:
       label: "Maximum frontend width"
       description: "The maximum width of the frontend can be specified here in px, %, rem, or vw."

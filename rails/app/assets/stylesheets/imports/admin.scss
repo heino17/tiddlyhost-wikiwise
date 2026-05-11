@@ -1,6 +1,7 @@
 .stats {
     margin-left: 1rem;
     .card {
+        z-index: 1000;
         @extend .th-slightly-muted;
         border-radius: 0px;
         border-style: none;

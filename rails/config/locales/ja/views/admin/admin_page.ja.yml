@@ -333,6 +333,9 @@ ja:
     banner_message_enabled:
       label: "バナーメッセージを有効化"
       description: "すべてのページの上部に警告または情報バナーを表示します"
+    banner_message_sticky:
+      label: "バナーメッセージを上部に固定"
+      description: "有効にすると、スクロール時もバナーメッセージが上部に固定されて表示されます。"
     banner_message_html:
       label: "バナーメッセージの内容"
       description: "バナーのHTML内容（リンクや太字などをサポート）"
@@ -355,6 +358,9 @@ ja:
       light: "ライト"
       dark: "ダーク"
       auto: "自動（ブラウザのシステム設定に従う）"
+    sticky_menu_enabled:
+      label: "メニューバーを上部に固定"
+      description: "有効にすると、スクロール時もメニューバーが上部に固定されて表示されます。"
     default_theme_width:
       label: "フロントエンドの最大幅"
       description: "フロントエンドの最大幅は、px・%・rem・vw で指定できます。"

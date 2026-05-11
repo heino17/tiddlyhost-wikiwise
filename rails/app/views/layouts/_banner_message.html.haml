@@ -7,7 +7,7 @@
     - banner_dismissed_until = cookies[:banner_dismissed_until].to_i
     - if message_html && (banner_dismissed_until.zero? || banner_dismissed_until < Time.current.to_i)
 
-      .alert.alert-warning.banner-message.mb-4.d-flex.align-items-center{ 
+      .alert.alert-warning.banner-message.mb-0.d-flex.align-items-center{ 
         role: "alert",
         data: { banner: "true" }
       }

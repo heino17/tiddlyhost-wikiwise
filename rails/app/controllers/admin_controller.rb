@@ -323,28 +323,30 @@ class AdminController < ApplicationController
       { key: :registration_enabled,                 group: 'general', default: false, type: :boolean },
   
       # === Community ===
-      { key: :comments_enabled,                     group: 'community', default: true,  type: :boolean },
-      { key: :wiki_votes_enabled,                   group: 'community', default: true,  type: :boolean },
-      { key: :shoutbox_enabled,                     group: 'community', default: true,  type: :boolean },
+      { key: :comments_enabled,   group: 'community', default: true,  type: :boolean },
+      { key: :wiki_votes_enabled, group: 'community', default: true,  type: :boolean },
+      { key: :shoutbox_enabled,   group: 'community', default: true,  type: :boolean },
   
       # === Hub & Darstellung ===
-      { key: :default_theme_mode,                   group: 'hub', default: 'light',  type: :select, options: ['light', 'dark', 'auto'] },
-      { key: :default_theme_width,                  group: 'hub', default: '1169px',  type: :string },
-      { key: :hub_per_page,                         group: 'hub',       default: 17,    type: :integer, min: 1, max: 51 },
+      { key: :default_theme_mode,  group: 'hub', default: 'light',  type: :select, options: ['light', 'dark', 'auto'] },
+      { key: :sticky_menu_enabled, group: 'hub', default:  true,  type: :boolean },
+      { key: :default_theme_width, group: 'hub', default: '1169px',  type: :string },
+      { key: :hub_per_page,        group: 'hub',       default: 17,    type: :integer, min: 1, max: 51 },
       # === Banner Message ===
-      { key: :banner_message_enabled,     group: 'hub', default: true, type: :boolean },
-      { key: :banner_message_visibility,  group: 'hub', default: 'all',  type: :select, options: ['all', 'logged_in', 'logged_out'] },
-      { key: :banner_message_html,        group: 'hub', default: "",     type: :text },
+      { key: :banner_message_enabled,    group: 'hub', default: true, type: :boolean },
+      { key: :banner_message_sticky,     group: 'hub', default: true, type: :boolean },
+      { key: :banner_message_visibility, group: 'hub', default: 'all',  type: :select, options: ['all', 'logged_in', 'logged_out'] },
+      { key: :banner_message_html,       group: 'hub', default: "",     type: :text },
   
       # === Abonnements ===
-      { key: :subscriptions_enabled,                group: 'subscription', default: true, type: :boolean },
-      { key: :max_tags_per_site,                    group: 'subscription', default: 17,     type: :integer, min: 0, max: 17 },
+      { key: :subscriptions_enabled, group: 'subscription', default: true, type: :boolean },
+      { key: :max_tags_per_site,     group: 'subscription', default: 17,     type: :integer, min: 0, max: 17 },
   
       # === Speicher & Versionen ===
-      { key: :keep_count_free,                      group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
-      { key: :keep_count_standard,                  group: 'storage', default: 8, type: :integer, min: 1, max: 100 },
-      { key: :keep_count_premium,                   group: 'storage', default: 17, type: :integer, min: 1, max: 100 },
-      { key: :keep_count_tiddlyspot,                group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
+      { key: :keep_count_free,       group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
+      { key: :keep_count_standard,   group: 'storage', default: 8, type: :integer, min: 1, max: 100 },
+      { key: :keep_count_premium,    group: 'storage', default: 17, type: :integer, min: 1, max: 100 },
+      { key: :keep_count_tiddlyspot, group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
     
       # === Site-Größen-Limits pro Plan
       { key: :max_site_size_free_mb,     group: 'storage',   default: 20,  type: :integer, min: 0, max: 200 },

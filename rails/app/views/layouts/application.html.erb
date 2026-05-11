@@ -30,24 +30,48 @@
     <% end %>
   </head>
 
-  <body class="locale-<%= I18n.locale.to_s.tr('_', '-') %>">
+  <body class="locale-<%= I18n.locale.to_s.tr('_', '-') %>">  
+      
     <div class="bg-wrapper">
       <div class="app-container" style="max-width: <%= theme_width %>;">
+        <% if Setting.enabled?(:sticky_menu_enabled) %>
+          <header class="sticky-header">
+        <% else %>
           <header>
+        <% end %>
+          
             <%= render 'layouts/header' %>
-          </header>
   
-          <!-- Flash-Nachrichten -->
-          <%= render "layouts/flash" %>
+            <!-- Flash-Nachrichten -->
+            <%= render "layouts/flash" %>
       
-          <main>
             <% Rails.logger.debug "Banner enabled? #{Setting.enabled?(:banner_message_enabled)}" %>
             <% Rails.logger.debug "Visibility: #{Setting.value_for(:banner_message_visibility)}" %>
             <% Rails.logger.debug "HTML present? #{Setting.value_for(:banner_message_html).present?}" %>
-            
-            <% if Setting.enabled?(:banner_message_enabled) %>
-              <%= render partial: 'layouts/banner_message' %>
+          </header>    
+          
+            <% if Setting.enabled?(:sticky_menu_enabled) != true && Setting.enabled?(:banner_message_enabled) == true && Setting.enabled?(:banner_message_sticky) != true %>
+               <div class="sticky-banner-scroll">
+                 <%= render partial: 'layouts/banner_message' %>
+               </div>
+            <% else %>
+               <% if Setting.enabled?(:sticky_menu_enabled) == true && Setting.enabled?(:banner_message_enabled) == true && Setting.enabled?(:banner_message_sticky) != true %>
+                 <div class="sticky-banner-scroll">
+                   <%= render partial: 'layouts/banner_message' %>
+                 </div>
+               <% else %>
+                 <% if Setting.enabled?(:sticky_menu_enabled) == true && Setting.enabled?(:banner_message_enabled) == true && Setting.enabled?(:banner_message_sticky) == true %>
+                   <div class="sticky-banner-header-on">
+                     <%= render partial: 'layouts/banner_message' %>
+                   </div>
+                 <% else %>
+                   <div class="sticky-banner-header-off">
+                     <%= render partial: 'layouts/banner_message' %>
+                   </div>
+                 <% end %>
+              <% end %>
             <% end %>
+          <main>
             <div class="container-fluid">
               <%= yield %>
             </div>

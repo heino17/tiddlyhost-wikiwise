@@ -8,7 +8,7 @@
 // [data-bs-theme="dark"] .bg-wrapper { background-color: var(--bs-gray-800); }
 .app-container {
   width: 100%;
-  max-width: 1169px;
+  // max-width: 1169px;
   margin:    0 auto;
 }
 //App background and width end
@@ -16,12 +16,7 @@
 $nav_bg_color: #3c60b9;
 
 .navbar {
-    --bs-navbar-nav-link-padding-x: 0.7rem; // default is 0.5rem
-}
-
-.banner-message {
-    font-size: 75%;
-    padding: 0.15em 0.5em
+    --bs-navbar-nav-link-padding-x: 0.7rem;
 }
 
 .navbar {
@@ -255,7 +250,6 @@ body.simple-layout {
 
 /* The menu is quite busy so give it some extra whitespace */
 .th-nav-menu {
-    z-index: 1070 !important;
     padding-top: 0.9rem;
     padding-bottom: 1.2rem;
     min-width: 14.5em;
@@ -393,10 +387,14 @@ $hilight_bg_color: #d5e0f9;
 /* Shoutbox */
 /* Standard: Sidebar sichtbar */
 .sidebar {
+  z-index: 1020;
   transition: all 0.3s ease-in-out;
-  overflow: hidden;
+  position: sticky;
+  top: 81px;
   width: 300px;
-  opacity: 1;
+  height: calc(110vh - 81px);
+  overflow-y: auto;
+  opacity: 1;  
   margin-left: 0rem;
 }
 
@@ -434,21 +432,35 @@ $hilight_bg_color: #d5e0f9;
 .sidebar-toggle {
  // background-color: var(--bs-body-bg) !important;
   position: sticky;
-  top: 30px;
+  top: 120px;
   float: right;
   width: 30px;
   height: 30px;
-  border: 1px solid green;
+  border: 1px solid red;
+  border-radius: 50px;
   z-index: 1060;
-  padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+  padding: 0.2rem 0.4rem 0.5rem 0.4rem;
   margin: 0 0;
   font-size: 0.9rem;
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
+
+[data-bs-theme="dark"] {
+.sidebar-toggle {
+  background-color: LimeGreen !important;
+  border: 1px solid orange;
+ }
+}
+[data-bs-theme="light"] {
+.sidebar-toggle {
+  background-color: MediumSeaGreen !important;
+  border: 1px solid red;
+ }
+}
 .sidebar-toggle:hover {
-  background-color: #29A36A !important;
-  border: 1px solid purple;
+  background-color: LightGreen !important;
+  border: 2px solid orange;
   opacity: 1;
 }
 .sidebar-toggle i {
@@ -463,10 +475,17 @@ $hilight_bg_color: #d5e0f9;
   font-size: 0.65rem;
   line-height: 1;
 }
+
+.shoutbox-header {
+  position: sticky;
+  top: 0;
+    z-index: 1020;
+}
 .shoutbox-text {
   word-break: break-word;
   overflow-wrap: anywhere;
 }
+
 .fade-out {
   animation: fadeOut 0.4s ease forwards;
 }
@@ -477,12 +496,9 @@ $hilight_bg_color: #d5e0f9;
 }
 /* === Mobile: Shoutbox als Bottom Sheet === */
 @media (max-width: 768px) {
-  .responsive-grid {
-    grid-template-columns: 1fr;           /* Wikis bleiben einspaltig */
-  }
-
   .sidebar {
-    position: fixed;
+    position: fixed !important;
+    top: auto !important;
     bottom: 0;
     left: 0;
     right: 0;
@@ -491,13 +507,11 @@ $hilight_bg_color: #d5e0f9;
     background-color: var(--bs-body-bg);
     color: var(--bs-body-color);
     border-top: 1px solid var(--bs-border-color);
-    box-shadow: 0 -8px 25px -4px rgba(0, 0, 0, 0.3);   /* schönerer Schatten */
+    box-shadow: 0 -8px 25px -4px rgba(0, 0, 0, 0.3);
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
     transform: translateY(100%);
-    // transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
     transition: all 0.5s ease-in-out;
-    z-index: 1050;
     overflow-y: auto;
   }
 
@@ -559,4 +573,57 @@ trix-editor {
   background: #212529;
   border: 1px solid #198754;
   border-radius: 8px;
+}
+
+.banner-message { // NICHT sticky
+    font-size: 75%;
+    padding: 0 auto;
+    z-index: 1030;
+}
+.banner-message::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.banner-message:sticky { // NICHT sticky
+  top: 55px;
+  padding: 0 auto;
+}
+.sticky-header {
+  z-index: 1080;
+  position: sticky;
+  top: 0px;
+  margin-bottom: -5px;
+  // border: 1px green solid;
+}
+.sticky-header > .navbar {
+  position: relative; // NICHT sticky
+}
+.sticky-header > .banner-message {
+  position: relative; // NICHT sticky
+}
+.sticky-header > .sidebar {
+  position: relative; // NICHT sticky
+}
+
+.sticky-banner-header-on {
+  z-index: 1070;
+  position: sticky;
+  top: 60px;
+  padding: 0 13px 0 13px;
+  // border: 1px green solid;
+}
+.sticky-banner-header-off {
+  position: sticky;
+  top: 0px;
+  padding: 0 13px 0 13px;
+  // border: 1px green solid;
+}
+.sticky-banner-scroll {
+  z-index: 1070;
+  position: relative;
+  top: 0px;
+  padding: 0 13px 0 13px;
+  // border: 1px green solid;
 }

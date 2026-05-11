@@ -20,9 +20,11 @@ German and American
   - Shoutbox _ein-/ausschalten_
 - Tab Hub & Darstellung  
   - Standard-Theme beim ersten Besuch (Dropdown) _hell/dunkel/auto_
+  - Menü-Leiste am oberen Rand fixieren (beim scrollen oben sichtbar) _ein-/ausschalten_
   - Maximale Breite des Frontends _Inputfeld_
   - Anzahl der Wikis pro Seite in der Hub/Explore-Ansicht _Zahlenfeld und +/-_
   - Banner-Nachricht aktivieren, einstellen _Schalter, Dropdown, Textfeld_ 
+  - Banner-Nachricht am oberen Rand fixieren (beim scrollen oben sichtbar) _ein-/ausschalten_
 - Tab Abonnements  
   - Stripe-Abonnements-Funktion _ein-/ausschalten_
   - Maximale Anzahl erlaubter Tags pro Seite/Wiki _Zahlenfeld und +/-_
@@ -74,9 +76,11 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
   - Shoutbox _enable/disable_
 - Tab Hub & Display  
   - Default theme on first visit (dropdown) _light/dark/auto_
+  - Fix menu bar at the top while scrolling _enable/disable_
   - Maximum frontend width _input field_
   - Number of wikis per page in the Hub/Explore view _number field and +/-_
   - Enable and configure banner message _toggle, dropdown, text field_ 
+  - Fix banner message at the top while scrolling _enable/disable_
 - Tab Subscriptions  
   - Stripe subscription feature _enable/disable_
   - Maximum number of tags allowed per page/wiki _number field and +/-_
