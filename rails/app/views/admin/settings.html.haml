@@ -4,7 +4,6 @@
 = render 'settings_tabs'
 
 = form_with url: admin_settings_path, method: :patch, data: { turbo: false, controller: "settings-tab", active_tab: params[:active_tab] || 'general' } do |f|
-            
   .tab-content.mt-4
     #general.tab-pane.fade.show.active{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'general' }.each do |setting|
@@ -25,15 +24,13 @@
     #storage.tab-pane.fade{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'storage' }.each do |setting|
         = render 'setting_row', setting: setting
-        
+
     #locales.tab-pane.fade{ role: "tabpanel" }
-
       = render 'default_locale_row'
-
       - @settings.select { |s| s[:group] == 'locales' && s[:key] != :default_locale }.each do |setting|
         = render 'setting_row', setting: setting
 
   .actions.mt-4
     = f.hidden_field :active_tab, id: "active_tab_field", value: params[:active_tab] || 'general'
     = f.submit t('admin.tab_settings.save'), class: "btn btn-sm btn-primary"
-    = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn  btn-sm btn-outline-secondary ms-2 "
+    = link_to t('admin.tab_settings.cancel'), admin_path, class: "btn btn-sm btn-outline-secondary ms-2"

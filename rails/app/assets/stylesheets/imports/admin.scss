@@ -286,3 +286,61 @@
     display: none !important; /* Auge/anzeigen/verbergen ausblenden */
   }
 }
+/* Desktop: Settings-Tab-Leiste sticky machen */
+
+[data-bs-theme="light"] #settingsTabs { background-color: #F8F9FA; }
+[data-bs-theme="dark"] #settingsTabs { background-color: #313336; }
+
+@media (min-width: 769px) {
+  #settingsTabs {
+    position: sticky;
+    top: 60px;
+    z-index: 1070;
+    padding-top: 0.5rem;
+    margin-top: -0.5rem;
+    border-bottom: 1px solid green;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+/* ============================================
+   MOBILE STICKY GROUP
+   ============================================ */
+
+.mobile-sticky-group {
+  position: sticky;
+  z-index: 1070;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-group {
+    display: block;
+    margin-bottom: 20px;
+    z-index: 1070;
+  }
+
+  .admin-tabs-desktop {
+    display: none;
+  }
+
+  #settingsTabs {
+    display: none;
+  }
+}
+
+.mobile-sticky-group--with-header {
+  top: 60px;
+}
+
+.mobile-sticky-group--no-header {
+  top: 0;
+}
+
+/* Border direkt unter jedem Dropdown */
+.mobile-sticky-group select {
+  border-bottom: 1px solid green;
+}

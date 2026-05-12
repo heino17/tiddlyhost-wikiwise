@@ -1,0 +1,11 @@
+%select#mobile-main-tabs.form-select.main-tabs-select
+  %option{ value: url_for(action: :index) } 📊 #{t('admin.tabs_header.stats')}
+  %option{ value: url_for(action: :charts) } 📈 #{t('admin.tabs_header.charts')}
+  %option{ value: url_for(action: :users) } 👥 #{t('admin.tabs_header.users')}
+  %option{ value: url_for(action: :sites) } 🌐 #{t('admin.tabs_header.sites')}
+  - if Settings.tiddlyspot_enabled?
+    %option{ value: url_for(action: :tspot_sites) } 🛰️ #{t('admin.tabs_header.tspot_sites')}
+  %option{ value: url_for(action: :storage) } 💾 #{t('admin.tabs_header.storage')}
+  %option{ value: url_for(action: :settings) } ⚙️ #{t('admin.tabs_header.settings')}
+  %option{ value: url_for(action: :comments_list) } 💬 #{t('admin.tabs_header.comments')}
+  %option{ value: url_for(action: :etc) } 📦 #{t('admin.tabs_header.etc')}

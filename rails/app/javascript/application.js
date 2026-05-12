@@ -15,6 +15,8 @@ import "./banner_dismiss";
 import "./comment_textarea_validation"
 import "./password_tools";
 import "./password_toggle";
+import "./mobile_main_tabs";
+import "./mobile_settings_tabs";
 import "./controllers"
 import "trix"
 

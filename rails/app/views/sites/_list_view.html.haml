@@ -1,76 +1,77 @@
-%table.sites.table.table-striped.mt-4
-
-  %thead
-    %th= sort_link t('hub_view_table_header_name'),    key: 'name',    default_dir: :asc
-    %th
-    %th= sort_link t('hub_view_table_header_kind'),    key: 'kind'
-    %th= sort_link t('hub_view_table_header_version'), key: 'version'
-    %th{ style: "text-align: left; padding-left: 13px;" }
-      = sort_link t('hub_view_table_header_access'),  key: 'access', default_dir: :asc
-    %th{ style: "text-align: center; padding-left: 0px;" }
-      = sort_link t('hub_view_table_header_views'),   key: 'views'
-    %th= sort_link t('hub_view_table_header_size'),    key: 'size'
-    %th{ style: "text-align: left; padding-left: 13px;" }
-      = sort_link t('hub_view_table_header_updated'), key: 'updated'
-    %th{ style: "text-align: left; padding-left: 25px;" }
-      = t('hub_view_table_header_actions')
-
-  %tbody
-    - @filtered_sites.each do |site|
-      - is_tspot = site.is_a?(TspotSite)
-      %tr
-        %td.small
-          .sitelink= site_pretty_link(site, name: site.name, target: site.long_name)
-          - if site.description.present?
-            .description= span_with_title(site.description)
-          - unless site.tag_list.empty?
-            .site-tags= home_tag_links(site)
-
-        %td{ style: "text-align: right; padding: 0.3em 0.5em;" }
-          - thumbnail = site.thumbnail_with_fallback
-          - if thumbnail.present?
-            = link_to site.url, target: site.long_name do
-              = image_tag thumbnail_url(thumbnail), class: "thumbnail-small"
-
-        %td.small.pt-2
-          = kind_logo(site)
-
-        %td.small
-          - if site.tw_version
-            = site.tw_version_short
-          - else
-            .text-muted -
-
-        %td.small.smaller
-          - if site.access_private?
-            = t('site_view_edit_wiki_access_private')
-          - elsif site.access_public?
-            = t('site_view_edit_wiki_access_public')
-          - elsif site.access_public? || site.access_hub_listed?
-            = t('site_view_edit_wiki_access_hub_listed')
-          - elsif site.access_public? || site.access_hub_listed?
-            = t('site_view_edit_wiki_access_hub_listed')
-          - if site.cloneable_by_public?
-            = ('(' + t('hub_view_access_template')) + ')'
-
-        %td.small.smaller
-          .views
-            - if is_tspot
-              = site.access_count
+%div.admin-table-wrapper
+  %table.sites.table.table-striped.mt-4
+  
+    %thead
+      %th= sort_link t('hub_view_table_header_name'),    key: 'name',    default_dir: :asc
+      %th
+      %th= sort_link t('hub_view_table_header_kind'),    key: 'kind'
+      %th= sort_link t('hub_view_table_header_version'), key: 'version'
+      %th{ style: "text-align: left; padding-left: 13px;" }
+        = sort_link t('hub_view_table_header_access'),  key: 'access', default_dir: :asc
+      %th{ style: "text-align: center; padding-left: 0px;" }
+        = sort_link t('hub_view_table_header_views'),   key: 'views'
+      %th= sort_link t('hub_view_table_header_size'),    key: 'size'
+      %th{ style: "text-align: left; padding-left: 13px;" }
+        = sort_link t('hub_view_table_header_updated'), key: 'updated'
+      %th{ style: "text-align: left; padding-left: 25px;" }
+        = t('hub_view_table_header_actions')
+  
+    %tbody
+      - @filtered_sites.each do |site|
+        - is_tspot = site.is_a?(TspotSite)
+        %tr
+          %td.small
+            .sitelink= site_pretty_link(site, name: site.name, target: site.long_name)
+            - if site.description.present?
+              .description= span_with_title(site.description)
+            - unless site.tag_list.empty?
+              .site-tags= home_tag_links(site)
+  
+          %td{ style: "text-align: right; padding: 0.3em 0.5em;" }
+            - thumbnail = site.thumbnail_with_fallback
+            - if thumbnail.present?
+              = link_to site.url, target: site.long_name do
+                = image_tag thumbnail_url(thumbnail), class: "thumbnail-small"
+  
+          %td.small.pt-2
+            = kind_logo(site)
+  
+          %td.small
+            - if site.tw_version
+              = site.tw_version_short
             - else
-              = site.view_count
-
-        %td.small.smaller
-          - if site.raw_byte_size
-            = nice_byte_count_nbsp(site.raw_byte_size)
-          - else
-            .text-muted -
-
-        %td.small.smaller
-          - if is_tspot
-            = nice_timestamp(site.save_count > 0 && site.blob_created_at)
-          - else
-            = nice_timestamp(site.blob_created_at)
-
-        %td
-          = render 'actions_menu', site: site, is_tspot: is_tspot
+              .text-muted -
+  
+          %td.small.smaller
+            - if site.access_private?
+              = t('site_view_edit_wiki_access_private')
+            - elsif site.access_public?
+              = t('site_view_edit_wiki_access_public')
+            - elsif site.access_public? || site.access_hub_listed?
+              = t('site_view_edit_wiki_access_hub_listed')
+            - elsif site.access_public? || site.access_hub_listed?
+              = t('site_view_edit_wiki_access_hub_listed')
+            - if site.cloneable_by_public?
+              = ('(' + t('hub_view_access_template')) + ')'
+  
+          %td.small.smaller
+            .views
+              - if is_tspot
+                = site.access_count
+              - else
+                = site.view_count
+  
+          %td.small.smaller
+            - if site.raw_byte_size
+              = nice_byte_count_nbsp(site.raw_byte_size)
+            - else
+              .text-muted -
+  
+          %td.small.smaller
+            - if is_tspot
+              = nice_timestamp(site.save_count > 0 && site.blob_created_at)
+            - else
+              = nice_timestamp(site.blob_created_at)
+  
+          %td
+            = render 'actions_menu', site: site, is_tspot: is_tspot

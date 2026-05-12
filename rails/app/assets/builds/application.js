@@ -19367,6 +19367,58 @@
     }
   });
 
+  // app/javascript/mobile_main_tabs.js
+  document.addEventListener("turbo:load", () => {
+    const dropdown = document.getElementById("mobile-main-tabs");
+    if (!dropdown) return;
+    const currentPath = window.location.pathname;
+    for (const option of dropdown.options) {
+      try {
+        const optionPath = new URL(option.value, window.location.origin).pathname;
+        if (optionPath === currentPath) {
+          dropdown.value = option.value;
+          break;
+        }
+      } catch (e2) {
+      }
+    }
+    dropdown.addEventListener("change", (e2) => {
+      const url = e2.target.value;
+      if (url && url.length > 0) {
+        window.location.href = url;
+      }
+    });
+  });
+
+  // app/javascript/mobile_settings_tabs.js
+  document.addEventListener("turbo:load", () => {
+    const dropdown = document.getElementById("mobile-settings-tabs");
+    const desktopTabs = document.querySelectorAll("#settingsTabs .nav-link");
+    if (!dropdown || desktopTabs.length === 0) return;
+    const activeDesktopTab = document.querySelector("#settingsTabs .nav-link.active");
+    if (activeDesktopTab) {
+      const activeName = activeDesktopTab.dataset.tabName;
+      if (activeName) {
+        dropdown.value = activeName;
+      }
+    }
+    dropdown.addEventListener("change", (e2) => {
+      const targetName = e2.target.value;
+      const targetTab = document.querySelector(`#settingsTabs .nav-link[data-tab-name="${targetName}"]`);
+      if (targetTab) {
+        targetTab.click();
+      }
+    });
+    desktopTabs.forEach((tab) => {
+      tab.addEventListener("shown.bs.tab", (e2) => {
+        const newTabName = e2.target.dataset.tabName;
+        if (newTabName) {
+          dropdown.value = newTabName;
+        }
+      });
+    });
+  });
+
   // node_modules/@hotwired/stimulus/dist/stimulus.js
   var EventListener = class {
     constructor(eventTarget, eventName, eventOptions) {
