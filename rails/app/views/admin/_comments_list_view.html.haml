@@ -1,37 +1,41 @@
-%table.table.text-muted{ style: 'font-size: 85%; justify-content: center;' }
-  %thead
-    %tr
-      %th= t('admin.tab_view_comments.tab_comments_th_wiki')
-      %th= t('admin.tab_view_comments.tab_comments_th_user')
-      %th= t('admin.tab_view_comments.tab_comments_th_comment')
-      %th= t('admin.tab_view_comments.tab_comments_th_date')
-      %th= t('admin.tab_view_comments.tab_comments_th_action')
-  %tbody
-    - Comment.order(created_at: :desc).each do |comment|
-      %tr{ id: dom_id(comment) }
-        %td
-          = link_to (raw("#{comment.site&.name}")),
+%div.comments-list
+  - Comment.order(created_at: :desc).each do |comment|
+    %div.comment-card{ id: dom_id(comment) }
+
+      %div.comment-meta
+        %div.comment-wiki{ style: "color: #999; font-weight: bold;"}
+          = t('admin.tab_view_comments.tab_comments_th_wiki') + ': '
+          = link_to raw(comment.site&.name),
             (comment.site.url.presence || comment.site),
             target: "_blank",
             rel: "noopener",
-            title: t('admin.tab_view_comments.tab_comments_view_open_wiki')
+            title: t('admin.tab_view_comments.tab_comments_view_open_wiki'),
+            style: "font-weight: normal; text-decoration: none;"
+          = " ⮺"
 
-        %td= comment.user.username
-        
-        %td.shoutbox-text
-          = link_to truncate(comment.body, length: 117),
+        %div.comment-user.small
+          = comment.user.username + ', '
+          = l(comment.created_at, format: :long)
+          - if comment.edited_at.present?
+            %small 
+            = t('comments.edited')
+            = l(comment.edited_at, format: :long)
+
+      %div.comment-row
+        %div.comment-body
+          = t('comments.title_singular') + ': '
+          = link_to truncate(comment.body, length: 500),
             site_comments_path(comment.site),
             title: comment.body,
-            target: :blank            
-          = "⮺"
+            target: :blank,
+            style: "font-weight: normal; color: #999; text-decoration: none;"
+          = " ⮺"
 
-        %td= l(comment.created_at, format: :short)
-        
-        %td
+        %div.comment-actions
           - if user_signed_in? && user_is_admin?
             = link_to '🗑️',
               admin_comments_view_path(comment),
               method: :delete,
               data: { confirm: t('comments.delete_confirm') },
-              class: "btn btn-sm btn-outline-danger",
+              class: "delete-btn btn-danger",
               title: t('comments.delete_button')

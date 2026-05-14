@@ -2,6 +2,7 @@
 ---
 ja:
   admin:
+    admin_tabs_tables_ctrl_hint: "テキストを選択するには、Ctrl または ⌘ を押しながらテキストを選択してください"
     tabs_header:
       stats: "統計"
       charts: "グラフ"

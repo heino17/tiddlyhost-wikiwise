@@ -17,6 +17,7 @@ import "./password_tools";
 import "./password_toggle";
 import "./mobile_main_tabs";
 import "./mobile_settings_tabs";
+import "./admin_table_drag";
 import "./controllers"
 import "trix"
 

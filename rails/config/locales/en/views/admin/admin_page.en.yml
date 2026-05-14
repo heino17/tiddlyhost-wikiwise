@@ -1,6 +1,7 @@
 ---
 en:
   admin:
+    admin_tabs_tables_ctrl_hint: "To select text, hold down Strg/Ctrl/⌘, then select the text"
     tabs_header:
       stats: "Stats"
       charts: "Charts"

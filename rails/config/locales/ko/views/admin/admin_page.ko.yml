@@ -2,6 +2,7 @@
 ---
 ko:
   admin:
+    admin_tabs_tables_ctrl_hint: "텍스트를 선택하려면 Ctrl 또는 ⌘ 키를 누른 상태에서 텍스트를 선택하세요"
     tabs_header:
       stats: "통계"
       charts: "차트"

@@ -1,6 +1,7 @@
 ---
 ru:
   admin:
+    admin_tabs_tables_ctrl_hint: "Чтобы выделить текст, удерживайте Ctrl или ⌘ и затем выделите текст"
     tabs_header:
       stats: "Статистика"
       charts: "Графики"

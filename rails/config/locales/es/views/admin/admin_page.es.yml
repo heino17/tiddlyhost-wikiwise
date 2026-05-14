@@ -1,6 +1,7 @@
 ---
 es:
   admin:
+    admin_tabs_tables_ctrl_hint: "Para seleccionar texto, mantén presionada Ctrl o ⌘ y luego selecciona el texto"
     tabs_header:
       stats: "Estadísticas"
       charts: "Gráficos"

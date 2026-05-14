@@ -344,3 +344,20 @@
 .mobile-sticky-group select {
   border-bottom: 1px solid green;
 }
+
+/* Dragging tables with Mouse */
+.admin-table-wrapper.dragging {
+  cursor: grabbing;
+  cursor: -webkit-grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.admin-table-wrapper {
+  cursor: e-resize;
+  cursor: -webkit-grab;
+}
+/* cursor while holding down the Strg/Ctrl key */
+.admin-table-wrapper.allow-select {
+  cursor: text !important;
+}

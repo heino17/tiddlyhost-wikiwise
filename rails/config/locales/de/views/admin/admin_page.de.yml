@@ -1,5 +1,6 @@
 de:
   admin:
+    admin_tabs_tables_ctrl_hint: "Zum Text markieren, Strg/Ctrl/⌘ halten, dann Text markieren"
     tabs_header:
       stats: "Statistiken"
       charts: "Diagramme"

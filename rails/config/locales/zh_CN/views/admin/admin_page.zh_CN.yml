@@ -1,6 +1,7 @@
 ---
 zh_CN:
   admin:
+    admin_tabs_tables_ctrl_hint: "要选择文本，请按住 Ctrl 或 ⌘，然后选择文本"
     tabs_header:
       stats: "统计"
       charts: "图表"
