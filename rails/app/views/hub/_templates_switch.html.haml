@@ -8,5 +8,5 @@
     type="checkbox" role="switch" #{show_templates ? "checked" : ""}
     onclick="window.location.href = '#{url_for(sort_filter_url(:t, show_templates ? nil : '1'))}';">
     = t('explore_view_templates_only')
-  = render 'popover_help', placement: 'bottom', size: '0.875rem', fill: '#666',
+  = render 'popover_help', placement: 'bottom',
     html_content: t('explore_view_templates_only_tooltip')

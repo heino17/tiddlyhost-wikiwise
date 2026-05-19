@@ -168,9 +168,52 @@ zh_CN:
     tab_storage_table_headers:
       th_type: "类型"
       th_service: "服务"
-      th_bucket: "Bucket"
-      th_files: "文件数"
-      th_bytes: "字节"
+      th_bucket: "存储桶"
+      th_files: "文件"
+      th_bytes: "已存储"
+      th_wiki: "Wiki"
+      th_wikis: "Wikis"
+      th_wiki_storage: "Wiki 存储"
+      th_activestorage: "ActiveStorage"
+      th_size: "大小"
+      th_user: "用户"
+      th_count: "数量"
+      th_count_total: "总计"
+      #
+    storage:
+      storage_overview: "存储概览"
+      blobs: "Blob 文件"
+      hint_blobs: "Rails 内部存储的原始文件（如图片、PDF、HTML 导出等）。"
+      attachments: "附件"
+      hint_attachments: "文件与模型之间的关联 — 哪条记录使用哪个文件。"
+      storage_activestorage: "文件存储（ActiveStorage）"
+      hint_activestorage: "所有上传文件占用的存储空间。"
+      storage_wikis_and_activestorage_total: "Wiki 与文件的总存储量"
+      hint_wikis_and_activestorage_total: "Wiki 内容与所有相关文件的综合存储使用量。"
+      orphaned_blobs: "孤立 Blob"
+      hint_orphaned_blobs: "存在但不再被任何 Wiki 或用户使用的文件."
+      orphaned_files: "孤立文件"
+      hint_orphaned_files: "磁盘上与 ActiveStorage 条目不匹配的文件。"
+    storage_usage_per_wiki:
+      label: "按 Wiki 的存储使用情况（前 10 名）"
+    storage_usage_per_user:
+      label: "按用户的存储使用情况（前 10 名）"
+    storage_location_by_attachment_type:
+      label: "按附件类型的存储位置"
+    storage_fixing_orphaned_data:
+      label: "清理孤立数据"
+    storage_orphaned_blobs:
+      label: "孤立 Blob"
+    storage_orphaned_files:
+      label: "孤立文件"
+    storage_button_dry_run: "试运行"
+    storage_button_run_cleanup: "立即清理"
+    storage_button_run_cleanup_confirm: "确定要执行清理吗？"
+    storage_flash_cleanup_success: "清理完成！"
+    storage_dry_run_title: "试运行 — 未删除任何内容"
+    storage_dry_run_blobs: "孤立的 Blob"
+    storage_dry_run_files: "孤立的文件"
+    storage_dry_run_none: "未找到"
       #
     tab_view_comments:
       tab_comments_view_header: "所有评论"

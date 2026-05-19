@@ -19420,59 +19420,65 @@
   });
 
   // app/javascript/admin_table_drag.js
-  document.addEventListener("turbo:load", () => {
-    const el = document.querySelector(".admin-table-wrapper");
-    if (!el) return;
-    let isDown = false;
-    let lastX = 0;
-    let velocity = 0;
-    let rafID = null;
-    let allowSelect = false;
-    const stopMomentum = () => cancelAnimationFrame(rafID);
-    const momentum = () => {
-      el.scrollLeft -= velocity;
-      velocity *= 0.95;
-      if (Math.abs(velocity) > 0.5) {
-        rafID = requestAnimationFrame(momentum);
-      }
-    };
-    el.addEventListener("mousedown", (e2) => {
-      allowSelect = e2.ctrlKey || e2.metaKey;
-      if (allowSelect) {
-        el.classList.add("allow-select");
-        return;
-      }
-      el.classList.remove("allow-select");
-      isDown = true;
-      el.classList.add("dragging");
-      lastX = e2.pageX;
-      stopMomentum();
-      e2.preventDefault();
+  document.addEventListener("turbo:load", initDragScroll);
+  document.addEventListener("turbo:frame-load", initDragScroll);
+  function initDragScroll() {
+    const wrappers = document.querySelectorAll(".admin-table-wrapper");
+    if (!wrappers.length) return;
+    wrappers.forEach((el) => {
+      if (el.dataset.dragscrollInitialized === "true") return;
+      el.dataset.dragscrollInitialized = "true";
+      let isDown = false;
+      let lastX = 0;
+      let velocity = 0;
+      let rafID = null;
+      let allowSelect = false;
+      const stopMomentum = () => cancelAnimationFrame(rafID);
+      const momentum = () => {
+        el.scrollLeft -= velocity;
+        velocity *= 0.95;
+        if (Math.abs(velocity) > 0.5) {
+          rafID = requestAnimationFrame(momentum);
+        }
+      };
+      el.addEventListener("mousedown", (e2) => {
+        allowSelect = e2.ctrlKey || e2.metaKey;
+        if (allowSelect) {
+          el.classList.add("allow-select");
+          return;
+        }
+        el.classList.remove("allow-select");
+        isDown = true;
+        el.classList.add("dragging");
+        lastX = e2.pageX;
+        stopMomentum();
+        e2.preventDefault();
+      });
+      el.addEventListener("mousemove", (e2) => {
+        if (!isDown || allowSelect) return;
+        const dx = e2.pageX - lastX;
+        el.scrollLeft -= dx;
+        velocity = dx;
+        lastX = e2.pageX;
+      });
+      const endDrag = () => {
+        if (!isDown) return;
+        isDown = false;
+        el.classList.remove("dragging");
+        if (Math.abs(velocity) > 1) momentum();
+      };
+      el.addEventListener("mouseup", endDrag);
+      el.addEventListener("mouseleave", endDrag);
+      document.addEventListener("keydown", (e2) => {
+        if (e2.ctrlKey || e2.metaKey) {
+          el.classList.add("allow-select");
+        }
+      });
+      document.addEventListener("keyup", () => {
+        el.classList.remove("allow-select");
+      });
     });
-    el.addEventListener("mousemove", (e2) => {
-      if (!isDown || allowSelect) return;
-      const dx = e2.pageX - lastX;
-      el.scrollLeft -= dx;
-      velocity = dx;
-      lastX = e2.pageX;
-    });
-    const endDrag = () => {
-      if (!isDown) return;
-      isDown = false;
-      el.classList.remove("dragging");
-      if (Math.abs(velocity) > 1) momentum();
-    };
-    el.addEventListener("mouseup", endDrag);
-    el.addEventListener("mouseleave", endDrag);
-    document.addEventListener("keydown", (e2) => {
-      if (e2.ctrlKey || e2.metaKey) {
-        el.classList.add("allow-select");
-      }
-    });
-    document.addEventListener("keyup", () => {
-      el.classList.remove("allow-select");
-    });
-  });
+  }
 
   // node_modules/@hotwired/stimulus/dist/stimulus.js
   var EventListener = class {

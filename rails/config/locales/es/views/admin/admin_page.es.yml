@@ -168,9 +168,53 @@ es:
     tab_storage_table_headers:
       th_type: "Tipo"
       th_service: "Servicio"
-      th_bucket: "Bucket"
+      th_bucket: "Contenedor"
       th_files: "Archivos"
-      th_bytes: "Bytes"
+      th_bytes: "En almacenamiento"
+      th_wiki: "Wiki"
+      th_wikis: "Wikis"
+      th_wiki_storage: "Almacenamiento de Wiki"
+      th_activestorage: "ActiveStorage"
+      th_size: "Tamaño"
+      th_user: "Usuario"
+      th_count: "Cantidad"
+      th_count_total: "Total"
+      #
+    storage:
+      storage_overview: "Resumen de almacenamiento"
+      blobs: "Blobs"
+      hint_blobs: "Archivos sin procesar almacenados internamente por Rails (p. ej., imágenes, PDF, exportaciones HTML)."
+      attachments: "Adjuntos"
+      hint_attachments: "Enlaces entre archivos y modelos — qué registro utiliza cada archivo."
+      storage_activestorage: "Almacenamiento de archivos (ActiveStorage)"
+      hint_activestorage: "Espacio utilizado por todos los archivos subidos (imágenes, PDF, exportaciones HTML)."
+      storage_wikis_and_activestorage_total: "Almacenamiento total de wikis y archivos"
+      hint_wikis_and_activestorage_total: "Uso combinado del contenido de wikis y todos los archivos asociados."
+      orphaned_blobs: "Blobs huérfanos"
+      hint_orphaned_blobs: "Archivos que existen pero ya no son usados por ninguna wiki o usuario."
+      orphaned_files: "Archivos huérfanos"
+      hint_orphaned_files: "Archivos físicos en disco que ya no coinciden con ninguna entrada de ActiveStorage."
+    storage_usage_per_wiki:
+      label: "Uso de almacenamiento por wiki (Top 10)"
+    storage_usage_per_user:
+      label: "Uso de almacenamiento por usuario (Top 10)"
+    storage_location_by_attachment_type:
+      label: "Ubicación según tipo de adjunto"
+    storage_fixing_orphaned_data:
+      label: "Limpiar datos huérfanos"
+    storage_orphaned_blobs:
+      label: "Blobs huérfanos"
+    storage_orphaned_files:
+      label: "Archivos huérfanos"
+    storage_button_dry_run: "Prueba"
+    storage_button_run_cleanup: "Ejecutar limpieza"
+    storage_button_run_cleanup_confirm: "¿Realmente ejecutar la limpieza?"
+    storage_flash_cleanup_success: "¡Limpieza completada!"
+    storage_dry_run_title: "Prueba — no se eliminó nada"
+    storage_dry_run_blobs: "Blobs huérfanos"
+    storage_dry_run_files: "Archivos huérfanos"
+    storage_dry_run_none: "No se encontró nada"
+
       #
     tab_view_comments:
       tab_comments_view_header: "Todos los comentarios"

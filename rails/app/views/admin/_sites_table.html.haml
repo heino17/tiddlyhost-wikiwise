@@ -61,8 +61,8 @@
       %td= render 'versions_dropdown', site: site
       - unless specific_user
         %td= link_to_user_sites(site.user.username_or_email, site.user)
-      %td= nice_byte_count site.raw_byte_size
-      %td= nice_byte_count site.blob_byte_size
+      %td= nice_byte_count_pretty site.raw_byte_size
+      %td= nice_byte_count_pretty site.blob_byte_size
       %td= display_storage_service site
       %td= nice_timestamp site.accessed_at
       %td= nice_timestamp site.blob_created_at

@@ -55,7 +55,8 @@ Rails.application.routes.draw do
     get 'admin', to: 'admin#index'
 
     get 'admin/charts'
-    get 'admin/storage'
+    get 'admin/storage', to: 'admin#storage'
+    post 'admin/storage/cleanup',  to: 'admin#storage_cleanup'
     get 'admin/users'
     get 'admin/sites'
     get 'admin/tspot_sites'
@@ -89,6 +90,10 @@ Rails.application.routes.draw do
     get 'subscription', to: 'subscription#show'
     get 'subscription/plans', to: 'subscription#plans'
     get 'subscription/success', to: 'subscription#success'
+  
+    resource :storage, only: [:show] do
+      post :cleanup
+    end
   
     resources :shoutbox_messages, only: [:index, :create, :update, :destroy]
 

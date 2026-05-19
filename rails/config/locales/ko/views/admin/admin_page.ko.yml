@@ -170,8 +170,51 @@ ko:
       th_type: "유형"
       th_service: "서비스"
       th_bucket: "버킷"
-      th_files: "파일 수"
-      th_bytes: "바이트"
+      th_files: "파일"
+      th_bytes: "저장됨"
+      th_wiki: "위키"
+      th_wikis: "위키"
+      th_wiki_storage: "위키 저장용량"
+      th_activestorage: "ActiveStorage"
+      th_size: "크기"
+      th_user: "사용자"
+      th_count: "개수"
+      th_count_total: "총계"
+      #
+    storage:
+      storage_overview: "스토리지 개요"
+      blobs: "Blob 파일"
+      hint_blobs: "Rails가 내부적으로 저장하는 원본 파일(이미지, PDF, HTML 내보내기 등)."
+      attachments: "첨부 파일"
+      hint_attachments: "파일과 모델 간의 연결 — 어떤 레코드가 어떤 파일을 사용하는지."
+      storage_activestorage: "파일 스토리지 (ActiveStorage)"
+      hint_activestorage: "업로드된 모든 파일이 사용하는 스토리지 공간."
+      storage_wikis_and_activestorage_total: "위키 및 파일 총 스토리지"
+      hint_wikis_and_activestorage_total: "위키 콘텐츠와 관련 파일의 전체 사용량."
+      orphaned_blobs: "고아 Blob"
+      hint_orphaned_blobs: "존재하지만 어떤 위키나 사용자도 사용하지 않는 파일."
+      orphaned_files: "고아 파일"
+      hint_orphaned_files: "ActiveStorage 항목과 일치하지 않는 디스크의 파일."
+    storage_usage_per_wiki:
+      label: "위키별 스토리지 사용량 (Top 10)"
+    storage_usage_per_user:
+      label: "사용자별 스토리지 사용량 (Top 10)"
+    storage_location_by_attachment_type:
+      label: "첨부 유형별 저장 위치"
+    storage_fixing_orphaned_data:
+      label: "고아 데이터 정리"
+    storage_orphaned_blobs:
+      label: "고아 Blob"
+    storage_orphaned_files:
+      label: "고아 파일"
+    storage_button_dry_run: "드라이런"
+    storage_button_run_cleanup: "정리 실행"
+    storage_button_run_cleanup_confirm: "정리를 정말 실행하시겠습니까?"
+    storage_flash_cleanup_success: "정리가 완료되었습니다!"
+    storage_dry_run_title: "드라이 런 — 아무것도 삭제되지 않았습니다"
+    storage_dry_run_blobs: "고아 Blob"
+    storage_dry_run_files: "고아 파일"
+    storage_dry_run_none: "없음"
       #
     tab_view_comments:
       tab_comments_view_header: "모든 댓글"

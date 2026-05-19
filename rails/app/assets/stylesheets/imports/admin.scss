@@ -92,18 +92,18 @@
     }
 }
 
-@mixin up   { content: "↑"; opacity: 60%; padding-left: 1px; font-size: 90%; }
-@mixin down { content: "↓"; opacity: 60%; padding-left: 1px; font-size: 90%; }
-@mixin both { content: "⇵"; opacity: 20%; font-size: 80%; }
-@mixin sel  { content: "•"; opacity: 60%; font-size: 100%; }
+@mixin up   { content: "↑"; opacity: 80%; padding-left: 1px; font-size: 90%; }
+@mixin down { content: "↓"; opacity: 80%; padding-left: 1px; font-size: 90%; }
+@mixin both { content: "⇵"; opacity: 60%; font-size: 80%; }
+@mixin sel  { content: "•"; opacity: 80%; font-size: 100%; }
 
 .table.admin, .table.sites {
     th {
         @extend .text-muted;
-        opacity: 0.65;
+        opacity: 1;
         a {
             @extend .text-muted;
-            opacity: 0.65;
+            opacity: 1;
             color: var(--bs-body-color);
             text-decoration: none;
             white-space: nowrap;
@@ -360,4 +360,43 @@
 /* cursor while holding down the Strg/Ctrl key */
 .admin-table-wrapper.allow-select {
   cursor: text !important;
+}
+/* Display of storage info on top of "Storage"-Tab */
+.storage-grid {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  max-width: 1100px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.storage-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.storage-hint {
+  margin-left: 1.6em;
+  margin-top: 0.2em;
+  font-size: 0.75rem;
+  font-weight: normal;
+  opacity: 0.55;
+}
+
+/* Desktop: 3 Spalten */
+@media (min-width: 700px) {
+  .storage-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile: 1 Spalte */
+@media (max-width: 699px) {
+  .storage-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -170,8 +170,51 @@ ja:
       th_type: "タイプ"
       th_service: "サービス"
       th_bucket: "バケット"
-      th_files: "ファイル数"
-      th_bytes: "バイト"
+      th_files: "ファイル"
+      th_bytes: "保存容量"
+      th_wiki: "Wiki"
+      th_wikis: "Wikis"
+      th_wiki_storage: "Wiki ストレージ"
+      th_activestorage: "ActiveStorage"
+      th_size: "サイズ"
+      th_user: "ユーザー"
+      th_count: "数"
+      th_count_total: "合計"
+      #
+    storage:
+      storage_overview: "ストレージ概要"
+      blobs: "BLOB ファイル"
+      hint_blobs: "Rails が内部的に保存する生ファイル（画像、PDF、HTML エクスポートなど）。"
+      attachments: "添付"
+      hint_attachments: "ファイルとモデルの関連付け — どのレコードがどのファイルを使用しているか。"
+      storage_activestorage: "ファイルストレージ（ActiveStorage）"
+      hint_activestorage: "アップロードされたすべてのファイルが使用するストレージ領域。"
+      storage_wikis_and_activestorage_total: "Wiki とファイルの総ストレージ"
+      hint_wikis_and_activestorage_total: "Wiki コンテンツと関連ファイルの合計使用量。"
+      orphaned_blobs: "孤立した BLOB"
+      hint_orphaned_blobs: "存在するが、どの Wiki やユーザーにも使用されていないファイル。"
+      orphaned_files: "孤立したファイル"
+      hint_orphaned_files: "ActiveStorage のエントリと一致しないディスク上のファイル。"
+    storage_usage_per_wiki:
+      label: "Wikiごとのストレージ使用量（トップ10）"
+    storage_usage_per_user:
+      label: "ユーザー別ストレージ使用量（トップ 10）"
+    storage_location_by_attachment_type:
+      label: "添付タイプ別の保存場所"
+    storage_fixing_orphaned_data:
+      label: "孤立データのクリーンアップ"
+    storage_orphaned_blobs:
+      label: "孤立した BLOB"
+    storage_orphaned_files:
+      label: "孤立したファイル"
+    storage_button_dry_run: "ドライラン"
+    storage_button_run_cleanup: "クリーンアップを実行"
+    storage_button_run_cleanup_confirm: "本当にクリーンアップを実行しますか？"
+    storage_flash_cleanup_success: "クリーンアップが完了しました！"
+    storage_dry_run_title: "ドライラン — 何も削除されていません"
+    storage_dry_run_blobs: "孤立した Blob"
+    storage_dry_run_files: "孤立したファイル"
+    storage_dry_run_none: "見つかりませんでした"
       #
     tab_view_comments:
       tab_comments_view_header: "すべてのコメント"

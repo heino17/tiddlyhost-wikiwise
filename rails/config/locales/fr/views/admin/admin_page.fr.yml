@@ -168,9 +168,52 @@ fr:
     tab_storage_table_headers:
       th_type: "Type"
       th_service: "Service"
-      th_bucket: "Bucket"
+      th_bucket: "Conteneur"
       th_files: "Fichiers"
-      th_bytes: "Octets"
+      th_bytes: "Stocké"
+      th_wiki: "Wiki"
+      th_wikis: "Wikis"
+      th_wiki_storage: "Stockage Wiki"
+      th_activestorage: "ActiveStorage"
+      th_size: "Taille"
+      th_user: "Utilisateur"
+      th_count: "Nombre"
+      th_count_total: "Total"
+      #
+    storage:
+      storage_overview: "Aperçu du stockage"
+      blobs: "Blobs"
+      hint_blobs: "Fichiers bruts stockés en interne par Rails (images, PDF, exports HTML)."
+      attachments: "Pièces jointes"
+      hint_attachments: "Liens entre fichiers et modèles — quel enregistrement utilise quel fichier."
+      storage_activestorage: "Stockage des fichiers (ActiveStorage)"
+      hint_activestorage: "Espace utilisé par tous les fichiers téléversés (images, PDF, exports HTML)."
+      storage_wikis_and_activestorage_total: "Stockage total des wikis et fichiers"
+      hint_wikis_and_activestorage_total: "Utilisation combinée du contenu des wikis et de tous les fichiers associés."
+      orphaned_blobs: "Blobs orphelins"
+      hint_orphaned_blobs: "Fichiers existants mais non utilisés par un wiki ou un utilisateur."
+      orphaned_files: "Fichiers orphelins"
+      hint_orphaned_files: "Fichiers présents sur le disque sans correspondance dans ActiveStorage."
+    storage_usage_per_wiki:
+      label: "Utilisation du stockage par wiki (Top 10)"
+    storage_usage_per_user:
+      label: "Utilisation du stockage par utilisateur (Top 10)"
+    storage_location_by_attachment_type:
+      label: "Emplacement selon le type de pièce jointe"
+    storage_fixing_orphaned_data:
+      label: "Nettoyer les données orphelines"
+    storage_orphaned_blobs:
+      label: "Blobs orphelins"
+    storage_orphaned_files:
+      label: "Fichiers orphelins"
+    storage_button_dry_run: "Test à blanc"
+    storage_button_run_cleanup: "Lancer le nettoyage"
+    storage_button_run_cleanup_confirm: "Confirmer le nettoyage ?"
+    storage_flash_cleanup_success: "Nettoyage terminé !"
+    storage_dry_run_title: "Exécution à blanc — rien n’a été supprimé"
+    storage_dry_run_blobs: "Blobs orphelins"
+    storage_dry_run_files: "Fichiers orphelins"
+    storage_dry_run_none: "Aucun trouvé"
       #
     tab_view_comments:
       tab_comments_view_header: "Tous les commentaires"

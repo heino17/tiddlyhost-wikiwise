@@ -1,68 +1,80 @@
-document.addEventListener("turbo:load", () => {
-  const el = document.querySelector(".admin-table-wrapper");
-  if (!el) return;
+// --- Drag-Scroll fÃ¼r alle Tabellen ---
+// Wird ausgefÃ¼hrt bei:
+// - normalem Seitenladen (turbo:load)
+// - jedem Turbo-Frame-Reload (turbo:frame-load)
 
-  let isDown = false;
-  let lastX = 0;
-  let velocity = 0;
-  let rafID = null;
-  let allowSelect = false;
+document.addEventListener("turbo:load", initDragScroll);
+document.addEventListener("turbo:frame-load", initDragScroll);
 
-  const stopMomentum = () => cancelAnimationFrame(rafID);
+function initDragScroll() {
+  const wrappers = document.querySelectorAll(".admin-table-wrapper");
+  if (!wrappers.length) return;
 
-  const momentum = () => {
-    el.scrollLeft -= velocity;
-    velocity *= 0.95;
-    if (Math.abs(velocity) > 0.5) {
-      rafID = requestAnimationFrame(momentum);
-    }
-  };
+  wrappers.forEach((el) => {
+    // Verhindert doppelte Listener, falls Turbo mehrfach lÃ¤dt
+    if (el.dataset.dragscrollInitialized === "true") return;
+    el.dataset.dragscrollInitialized = "true";
 
-  el.addEventListener("mousedown", (e) => {
-    // STRG (Windows/Linux) oder ? (Mac)
-    allowSelect = e.ctrlKey || e.metaKey;
+    let isDown = false;
+    let lastX = 0;
+    let velocity = 0;
+    let rafID = null;
+    let allowSelect = false;
 
-    if (allowSelect) {
-      el.classList.add("allow-select");
-      return; // Markieren erlaubt
-    }
+    const stopMomentum = () => cancelAnimationFrame(rafID);
 
-    el.classList.remove("allow-select");
+    const momentum = () => {
+      el.scrollLeft -= velocity;
+      velocity *= 0.95;
+      if (Math.abs(velocity) > 0.5) {
+        rafID = requestAnimationFrame(momentum);
+      }
+    };
 
-    isDown = true;
-    el.classList.add("dragging");
-    lastX = e.pageX;
-    stopMomentum();
-    e.preventDefault();
+    el.addEventListener("mousedown", (e) => {
+      allowSelect = e.ctrlKey || e.metaKey;
+
+      if (allowSelect) {
+        el.classList.add("allow-select");
+        return;
+      }
+
+      el.classList.remove("allow-select");
+
+      isDown = true;
+      el.classList.add("dragging");
+      lastX = e.pageX;
+      stopMomentum();
+      e.preventDefault();
+    });
+
+    el.addEventListener("mousemove", (e) => {
+      if (!isDown || allowSelect) return;
+
+      const dx = e.pageX - lastX;
+      el.scrollLeft -= dx;
+      velocity = dx;
+      lastX = e.pageX;
+    });
+
+    const endDrag = () => {
+      if (!isDown) return;
+      isDown = false;
+      el.classList.remove("dragging");
+      if (Math.abs(velocity) > 1) momentum();
+    };
+
+    el.addEventListener("mouseup", endDrag);
+    el.addEventListener("mouseleave", endDrag);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.ctrlKey || e.metaKey) {
+        el.classList.add("allow-select");
+      }
+    });
+
+    document.addEventListener("keyup", () => {
+      el.classList.remove("allow-select");
+    });
   });
-
-  el.addEventListener("mousemove", (e) => {
-    if (!isDown || allowSelect) return;
-
-    const dx = e.pageX - lastX;
-    el.scrollLeft -= dx;
-    velocity = dx;
-    lastX = e.pageX;
-  });
-
-  const endDrag = () => {
-    if (!isDown) return;
-    isDown = false;
-    el.classList.remove("dragging");
-    if (Math.abs(velocity) > 1) momentum();
-  };
-
-  el.addEventListener("mouseup", endDrag);
-  el.addEventListener("mouseleave", endDrag);
-
-  // Cursor live umschalten, wenn STRG/? gedr«äckt wird
-  document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey || e.metaKey) {
-      el.classList.add("allow-select");
-    }
-  });
-
-  document.addEventListener("keyup", () => {
-    el.classList.remove("allow-select");
-  });
-});
+}

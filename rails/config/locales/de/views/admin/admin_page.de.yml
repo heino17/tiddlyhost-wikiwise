@@ -170,6 +170,51 @@ de:
       th_bucket: "Behälter"
       th_files: "Dateien"
       th_bytes: "Im Speicher"
+      
+      th_wiki: "Wiki"
+      th_wikis: "Wikis"
+      th_wiki_storage: "Wiki-Speicher"
+      th_activestorage: "ActiveStorage"
+      th_size: "Größe"
+      th_user: "Benutzer"
+      th_count: "Anzahl"
+      th_count_total: "Gesamt"
+      #
+    storage:
+      storage_overview: "Speicherübersicht"
+      blobs: "Blobs"
+      hint_blobs: "Rohdateien, die Rails intern speichert (z. B. Bilder, PDFs, HTML‑Exports)."
+      attachments: "Anhänge"
+      hint_attachments: "Verknüpfungen zwischen Dateien und Modellen — also wer welche Datei benutzt."
+      storage_activestorage: "Dateispeicher (ActiveStorage)"
+      hint_activestorage: "Speicherplatz aller hochgeladenen Dateien (Bilder, PDFs, HTML‑Exports)."
+      storage_wikis_and_activestorage_total: "Gesamtspeicher aller Wikis & Dateien"
+      hint_wikis_and_activestorage_total: "Kombinierter Speicherverbrauch aus Wiki‑Inhalten und allen zugehörigen Dateien."
+      orphaned_blobs: "Verwaiste Blobs"
+      hint_orphaned_blobs: "Dateien, die existieren, aber von keinem Wiki oder User mehr genutzt werden."
+      orphaned_files: "Verwaiste Dateien"
+      hint_orphaned_files: "Physische Dateien auf der Festplatte, die nicht mehr zu ActiveStorage passen."
+    storage_usage_per_wiki:
+      label: "Storage Usage pro Wiki (Top 10)"
+    storage_usage_per_user: 
+      label: "Speicherverbrauch pro User (Top 10)"
+    storage_location_by_attachment_type: 
+      label: "Speicherort nach Attachment‑Typ"
+    storage_fixing_orphaned_data: 
+      label: "Verwaiste Daten bereinigen"
+    storage_orphaned_blobs:
+      label: "Verwaiste Blobs"
+    storage_orphaned_files:
+      label: "Verwaiste Dateien"
+    storage_button_dry_run: "Probedurchlauf"
+    storage_button_run_cleanup: "Jetzt Bereinigen"
+    storage_button_run_cleanup_confirm: "Bereinigung wirklich ausführen?"
+    storage_flash_cleanup_success: "Bereinigung abgeschlossen!"    
+    storage_dry_run_title: "Probedurchlauf – nichts wurde gelöscht"
+    storage_dry_run_blobs: "Verwaiste Blobs"
+    storage_dry_run_files: "Verwaiste Dateien"
+    storage_dry_run_none: "Keine gefunden"
+    storage_cleanup_running: "Wird ausgeführt…"
       #
     tab_view_comments: 
       tab_comments_view_header: "Alle Kommentare"

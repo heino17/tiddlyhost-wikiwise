@@ -71,4 +71,25 @@ module AdminHelper
   def attachment_service_names_for_attachment(name)
     ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }).select('distinct service_name').map(&:service_name)
   end
+
+  def next_sort(column)
+    current = params[:sort]
+  
+    if current == "#{column}_asc"
+      "#{column}_desc"
+    else
+      "#{column}_asc"
+    end
+  end
+
+  def sort_arrow(column)
+    case params[:sort]
+    when "#{column}_asc"
+      "▲"
+    when "#{column}_desc"
+      "▼"
+    else
+      "" # kein Pfeil, wenn nicht aktiv sortiert
+    end
+  end
 end

@@ -44,10 +44,74 @@ module ApplicationHelper
   end
   # Language switch for i18n end
 
-  def nice_byte_count(bytes, precision: 3)
-    return '-' if bytes.nil?
+  DECIMAL_SEPARATOR = {
+    de: ",",
+    fr: ",",
+    es: ",",
+    ru: ",",
+    zh_CN: ".",
+    ja: ".",
+    ko: "."
+  }.freeze
 
-    number_to_human_size(bytes, precision:).delete_suffix(' Bytes')
+  def nice_byte_count(bytes, _unused = nil)
+    return "0" if bytes.to_i == 0
+  
+    units = ["Bytes", "KB", "MB", "GB", "TB"]
+    index = 0
+    value = bytes.to_f
+  
+    while value >= 1024 && index < units.length - 1
+      value /= 1024
+      index += 1
+    end
+  
+    if index == 0
+      value.to_i.to_s
+  
+    elsif units[index] == "KB"
+      if value < 10
+        formatted = format("%.2f", value)
+      elsif value < 100
+        formatted = format("%.1f", value)
+      else
+        formatted = value.round.to_s
+      end
+  
+      formatted = formatted.sub(/\.?0+$/, "")
+      "#{formatted} KB"
+  
+    else
+      "#{value.round} #{units[index]}"
+    end
+  end
+
+  def nice_byte_count_pretty(bytes)
+    return "0 B" if bytes.to_i == 0
+  
+    units = ["B", "KB", "MB", "GB", "TB"]
+    index = 0
+    value = bytes.to_f
+  
+    while value >= 1024 && index < units.length - 1
+      value /= 1024
+      index += 1
+    end
+  
+    separator = DECIMAL_SEPARATOR[I18n.locale] || "."
+  
+    if index <= 1
+      # B und KB → kompakt, trailing zeros entfernen
+      formatted = format("%.2f", value).sub(/\.?0+$/, "")
+    else
+      # MB, GB, TB → immer 2 Nachkommastellen
+      formatted = format("%.2f", value)
+    end
+  
+    # Dezimaltrenner lokalisieren
+    formatted = formatted.tr(".", separator)
+  
+    "#{formatted} #{units[index]}"
   end
 
   def nice_byte_count_nbsp(bytes)

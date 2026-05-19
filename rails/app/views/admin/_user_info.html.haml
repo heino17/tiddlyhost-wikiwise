@@ -6,7 +6,7 @@
       = link_to "\u{1F844} #{t('comments.back_to_previous_page')}", request.referer,
             class: 'btn btn-outline-success px-4'
 
-      = link_to admin_user_path(user), class: "text-decoration-none" do
+      = turbo_off_link_to admin_user_path(user), class: "text-decoration-none" do
         👤
         %span.ms-1{ style: "margin: 0; font-weight: bold; font-size: 0.8rem;" }
           %span{ style: "margin: 0; font-size: 0.8rem; color: #179b5b;" }= "'#{@user.name}'"

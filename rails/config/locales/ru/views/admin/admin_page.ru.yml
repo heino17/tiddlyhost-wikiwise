@@ -173,9 +173,52 @@ ru:
     tab_storage_table_headers:
       th_type: "Тип"
       th_service: "Сервис"
-      th_bucket: "Бакет"
+      th_bucket: "Контейнер"
       th_files: "Файлы"
-      th_bytes: "Байты"
+      th_bytes: "В хранилище"
+      th_wiki: "Вики"
+      th_wikis: "Вики"
+      th_wiki_storage: "Хранилище вики"
+      th_activestorage: "ActiveStorage"
+      th_size: "Размер"
+      th_user: "Пользователь"
+      th_count: "Количество"
+      th_count_total: "Всего"
+      #
+    storage:
+      storage_overview: "Обзор хранилища"
+      blobs: "Блоб‑файлы"
+      hint_blobs: "Исходные файлы, которые Rails хранит внутренне (например, изображения, PDF, HTML‑экспорты)."
+      attachments: "Привязки"
+      hint_attachments: "Связи между файлами и моделями — какой объект использует какой файл."
+      storage_activestorage: "Файловое хранилище (ActiveStorage)"
+      hint_activestorage: "Место, занимаемое всеми загруженными файлами (изображения, PDF, HTML‑экспорты)."
+      storage_wikis_and_activestorage_total: "Общий объём вики и файлов"
+      hint_wikis_and_activestorage_total: "Совокупный объём данных вики и всех связанных файлов."
+      orphaned_blobs: "Осиротевшие блобы"
+      hint_orphaned_blobs: "Файлы, которые существуют, но больше не используются ни одной вики или пользователем."
+      orphaned_files: "Осиротевшие файлы"
+      hint_orphaned_files: "Файлы на диске, которые не соответствуют ни одной записи ActiveStorage."
+    storage_usage_per_wiki:
+      label: "Использование хранилища по вики (Топ‑10)"
+    storage_usage_per_user:
+      label: "Использование хранилища по пользователям (Топ 10)"
+    storage_location_by_attachment_type:
+      label: "Хранилище по типу привязки"
+    storage_fixing_orphaned_data:
+      label: "Очистка осиротевших данных"
+    storage_orphaned_blobs:
+      label: "Осиротевшие блобы"
+    storage_orphaned_files:
+      label: "Осиротевшие файлы"
+    storage_button_dry_run: "Пробный запуск"
+    storage_button_run_cleanup: "Выполнить очистку"
+    storage_button_run_cleanup_confirm: "Действительно выполнить очистку?"
+    storage_flash_cleanup_success: "Очистка завершена!"
+    storage_dry_run_title: "Пробный запуск — ничего не было удалено"
+    storage_dry_run_blobs: "Осиротевшие блобы"
+    storage_dry_run_files: "Осиротевшие файлы"
+    storage_dry_run_none: "Ничего не найдено"
       #
     tab_view_comments:
       tab_comments_view_header: "Все комментарии"

@@ -68,7 +68,8 @@
         %span{ style: "display: inline-block;" }
           %button.btn.btn-outline-danger.btn-sm{ disabled: true }
             = t('admin.tab_users.users_show_users_details_delete_user')          
-          = render 'popover_help', html_content: t("admin.tab_users.users_edit_user_account_flash_dont_delete_yourself")
+        %span{style: "font-size: 2em;"}
+          = render 'popover_help_red', html_content: t("admin.tab_users.users_edit_user_account_flash_dont_delete_yourself")
           
       - else
         = button_to t('admin.tab_users.users_show_users_details_delete_user'),

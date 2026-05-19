@@ -64,8 +64,8 @@ a.th-text-deco-none, .th-text-deco-none a {
 [data-bs-theme="dark"]  .th-bg-jumbo { background-color: var(--bs-gray-700); }
 
 svg.bi {
-    fill: var(--bs-body-color);
-    @extend .th-muted;
+    // fill: var(--bs-body-color);
+    // @extend .th-muted;
 }
 
 .policy-markdown {

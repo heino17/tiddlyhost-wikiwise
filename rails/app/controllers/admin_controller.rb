@@ -9,6 +9,13 @@ class AdminController < ApplicationController
 
   before_action :enable_chart_js, only: [:charts]
 
+  before_action :require_admin
+  def require_admin
+    unless current_user&.is_admin?
+      redirect_to root_path, alert: "Nicht erlaubt."
+    end
+  end
+
   def index
     @title = 'Stats'
 
@@ -82,7 +89,7 @@ class AdminController < ApplicationController
     # --- 1. Alle Locale-Keys sammeln ---
     locale_keys = available_locales.keys.map { |loc| "locale_enabled_#{loc}" }
 
-    # --- 2. Prüfen: Wird die aktuelle Sprache deaktiviert? ---
+    # --- 2. PrÃ¼fen: Wird die aktuelle Sprache deaktiviert? ---
     current_locale_key = "locale_enabled_#{I18n.locale}"
     if params[:settings][current_locale_key] == "0"
       flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_current_locale')
@@ -90,7 +97,7 @@ class AdminController < ApplicationController
       return redirect_to admin_settings_path(active_tab: "locales")
     end
 
-    # --- 3. Prüfen: Wird die Default-Sprache deaktiviert? ---
+    # --- 3. PrÃ¼fen: Wird die Default-Sprache deaktiviert? ---
     default_locale = Setting.string_for(:default_locale, default: "en").to_sym
     default_locale_key = "locale_enabled_#{default_locale}"
 
@@ -103,7 +110,7 @@ class AdminController < ApplicationController
 
     end
 
-    # --- 4. Prüfen: Werden ALLE Sprachen deaktiviert? ---
+    # --- 4. PrÃ¼fen: Werden ALLE Sprachen deaktiviert? ---
     disabled_count = locale_keys.count { |k| params[:settings][k] == "0" }
 
     if disabled_count == locale_keys.size
@@ -112,7 +119,7 @@ class AdminController < ApplicationController
       return redirect_to admin_settings_path(active_tab: "locales")
     end
 
-    # --- 5. Alles OK → speichern ---
+    # --- 5. Alles OK â†’ speichern ---
     params[:settings]&.each do |key_str, val|
       if key_str == "default_locale"
         Setting.set_string(:default_locale, val)
@@ -170,6 +177,117 @@ class AdminController < ApplicationController
   end
 
   def storage
+    if params[:dry_run].present?
+      @dry_run_results = run_dry_run
+    end
+    @dry_run_done = params[:dry_run].present?
+
+    # ActiveStorage Stats
+    @blob_count       = ActiveStorage::Blob.count
+    @attachment_count = ActiveStorage::Attachment.count
+    @total_blob_bytes = ActiveStorage::Blob.sum(:byte_size)
+  
+    # Orphaned Blobs
+    @orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments)
+                                         .where(active_storage_attachments: { id: nil })
+    @orphaned_blob_count = @orphaned_blobs.count
+  
+    # Storage Folder Stats
+    storage_path = Rails.root.join("storage")
+    @storage_files = Dir.glob("#{storage_path}/**/*").select { |f| File.file?(f) }
+    @storage_total_bytes = @storage_files.sum { |f| File.size(f) }
+  
+    # Orphaned Files
+    used_keys = ActiveStorage::Blob.pluck(:key)
+    @orphaned_files = @storage_files.reject { |f| used_keys.any? { |key| f.include?(key) } }
+    @orphaned_files_count = @orphaned_files.count
+    @orphaned_files_bytes = @orphaned_files.sum { |f| File.size(f) }
+  
+    # Largest Blobs
+    @largest_blobs = ActiveStorage::Blob.order(byte_size: :desc).limit(10)
+  
+    @largest_wikis = Site.order(raw_byte_size: :desc).limit(10)
+  
+    # Speicherverbrauch pro User
+    @user_storage = User.all.map do |user|
+      # Wiki-Speicher
+      wiki_bytes = Site.where(user_id: user.id).sum(:raw_byte_size)
+    
+      # ActiveStorage-Speicher (z.B. Thumbnails)
+      blob_ids = ActiveStorage::Attachment
+        .where(record_type: "Site", record_id: Site.where(user_id: user.id).pluck(:id))
+        .pluck(:blob_id)
+    
+      active_bytes = ActiveStorage::Blob.where(id: blob_ids).sum(:byte_size)
+    
+      {
+        user: user,
+        wiki_bytes: wiki_bytes,
+        active_bytes: active_bytes,
+        total_bytes: wiki_bytes + active_bytes
+      }
+    end
+    
+    # Sortieren nach Gesamtverbrauch
+    @user_storage.sort_by! { |row| -row[:total_bytes] }
+    
+    # Anzeige Gesamtverbrauch
+    @total_user_storage_bytes = @user_storage.sum { |row| row[:total_bytes] }
+  
+    # Sortierung für User-Speicher
+    sort = params[:sort] || "total_desc"
+    
+    @user_storage = User.all.map do |user|
+      wiki_bytes = Site.where(user_id: user.id).sum(:raw_byte_size)
+    
+      blob_ids = ActiveStorage::Attachment
+        .where(record_type: "Site", record_id: Site.where(user_id: user.id).pluck(:id))
+        .pluck(:blob_id)
+    
+      active_bytes = ActiveStorage::Blob.where(id: blob_ids).sum(:byte_size)
+    
+      {
+        user: user,
+        wiki_bytes: wiki_bytes,
+        active_bytes: active_bytes,
+        total_bytes: wiki_bytes + active_bytes,
+        wiki_count: Site.where(user_id: user.id).count
+      }
+    end
+    
+    @user_storage = case sort
+    when "user_asc"      then @user_storage.sort_by { |r| r[:user].username }
+    when "user_desc"     then @user_storage.sort_by { |r| r[:user].username }.reverse
+    when "wiki_asc"      then @user_storage.sort_by { |r| r[:wiki_count] }
+    when "wiki_desc"     then @user_storage.sort_by { |r| r[:wiki_count] }.reverse
+    when "wiki_bytes_asc"  then @user_storage.sort_by { |r| r[:wiki_bytes] }
+    when "wiki_bytes_desc" then @user_storage.sort_by { |r| r[:wiki_bytes] }.reverse
+    when "active_bytes_asc"  then @user_storage.sort_by { |r| r[:active_bytes] }
+    when "active_bytes_desc" then @user_storage.sort_by { |r| r[:active_bytes] }.reverse
+    when "size_asc"      then @user_storage.sort_by { |r| r[:total_bytes] }
+    else                      @user_storage.sort_by { |r| r[:total_bytes] }.reverse # size_desc
+    end
+  
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
+  end
+
+  def storage_cleanup
+    # Delete orphaned blobs
+    ActiveStorage::Blob.left_outer_joins(:attachments)
+                       .where(active_storage_attachments: { id: nil })
+                       .find_each(&:purge)
+  
+    # Delete orphaned files
+    storage_path = Rails.root.join("storage")
+    all_files = Dir.glob("#{storage_path}/**/*").select { |f| File.file?(f) }
+    used_keys = ActiveStorage::Blob.pluck(:key)
+    orphaned_files = all_files.reject { |f| used_keys.any? { |key| f.include?(key) } }
+    orphaned_files.each { |file| File.delete(file) }
+  
+    redirect_to admin_storage_path, notice: "🧹 " + t('admin.storage_flash_cleanup_success')
   end
 
   def sort_options
@@ -249,7 +367,7 @@ class AdminController < ApplicationController
       },
       kind: {
         filter: ->(r, kind) { r.where(tw_kind: kind) },
-        # Hier kein title, weil es dynamisch pro Kind ist (oder du fügst einen Gruppen-Titel hinzu)
+        # Hier kein title, weil es dynamisch pro Kind ist (oder du fÃ¼gst einen Gruppen-Titel hinzu)
       },
       user: {
         # See filter_by_user_maybe below
@@ -270,6 +388,25 @@ class AdminController < ApplicationController
   end
 
   private
+
+  def run_dry_run
+    orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments)
+                                        .where(active_storage_attachments: { id: nil })
+  
+    orphaned_files = find_orphaned_files
+  
+    {
+      blobs: orphaned_blobs.map { |b| "#{b.id} – #{b.filename} – #{b.byte_size} bytes" },
+      files: orphaned_files
+    }
+  end
+  
+  def find_orphaned_files
+    storage_path = Rails.root.join("storage")
+    all_files = Dir.glob("#{storage_path}/**/*").select { |f| File.file?(f) }
+    used_keys = ActiveStorage::Blob.pluck(:key)
+    all_files.reject { |f| used_keys.any? { |key| f.include?(key) } }
+  end
 
   def default_sort
     case action_name
@@ -377,7 +514,7 @@ class AdminController < ApplicationController
   def load_settings
     config = settings_config.dup   # dup damit wir das Original nicht verändern
 
-    # ── Filter: Standard- und Premium-Einstellungen ausblenden, wenn Abos aus sind ──
+    # Filter: Standard- und Premium-Einstellungen ausblenden, wenn Abos deaktiviert sind
     unless Setting.enabled?(:subscriptions_enabled)
       config.reject! do |cfg|
         key = cfg[:key].to_s

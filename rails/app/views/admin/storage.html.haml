@@ -1,35 +1,217 @@
-%h2=t('admin.tabs_header.storage')
+%h2
+  = t("admin.storage.storage_overview")
 
 = render 'tabs'
 
+- if @dry_run_results.present?
+  %div.alert.alert-info{ style: "border-radius: 50px 10px; max-height: 200px; max-width: 900px; margin: 0 auto; overflow-y: auto; font-size: 0.8rem;" }
+    %h5= t("admin.storage_dry_run_title")
+
+    %strong= t("admin.storage_dry_run_blobs")
+    - if @dry_run_results[:blobs].any?
+      - @dry_run_results[:blobs].each do |line|
+        %div= "• #{line}"
+    - else
+      %div= t("admin.storage_dry_run_none")
+
+    %br/
+
+    %strong= t("admin.storage_dry_run_files")
+    - if @dry_run_results[:files].any?
+      - @dry_run_results[:files].each do |line|
+        %div= "• #{line}"
+    - else
+      %div= t("admin.storage_dry_run_none")
+
+%div.storage-grid
+  %div.storage-item 
+    = '🧱 ' + t("admin.storage.blobs") + ':'
+    #{@blob_count}
+    %div.storage-hint
+      = t("admin.storage.hint_blobs")
+
+  %div.storage-item
+    = '🧷 ' + t("admin.storage.attachments") + ':'
+    #{@attachment_count}
+    %div.storage-hint
+      = t("admin.storage.hint_attachments")
+
+  %div.storage-item
+    = '🗄️ ' + t("admin.storage.storage_activestorage") + ':'
+    #{nice_byte_count_pretty(@storage_total_bytes)}
+    %div.storage-hint
+      = t("admin.storage.hint_activestorage")
+
+  %div.storage-item
+    = '🗄️ ' + t("admin.storage.storage_wikis_and_activestorage_total") + ':'
+    #{nice_byte_count_pretty(@total_user_storage_bytes)}
+    %div.storage-hint
+      = t("admin.storage.hint_wikis_and_activestorage_total")
+
+  %div.storage-item
+    = '🔎 ' + t("admin.storage.orphaned_blobs") + ':'
+    #{@orphaned_blob_count}
+    %div.storage-hint
+      = t("admin.storage.hint_orphaned_blobs")
+
+  %div.storage-item
+    = '🔎 ' + t("admin.storage.orphaned_files") + ':'
+    #{@orphaned_files_count}
+    %div.storage-hint
+      = t("admin.storage.hint_orphaned_files")
+
+%h5
+%div{ style: "max-width: 1050px; margin: 0 auto;" }
+  = '📈 ' + t("admin.storage_usage_per_wiki.label")
+
 %div.admin-table-wrapper
-  %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto; max-width: 800px; font-size: 1.1rem;" }
+  %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto; max-width: 900px;" }
     %thead
-      %th=t('admin.tab_storage_table_headers.th_type')
-      %th=t('admin.tab_storage_table_headers.th_service')
-      %th=t('admin.tab_storage_table_headers.th_bucket')
-      %th=t('admin.tab_storage_table_headers.th_files')
-      %th=t('admin.tab_storage_table_headers.th_bytes')
+      %th= t('admin.tab_storage_table_headers.th_wiki')
+      
+      %th= t('admin.tab_storage_table_headers.th_size')
+      
+      %th= t('admin.tab_storage_table_headers.th_user')
   
+    - @largest_wikis.each do |wiki|
+      %tr
+        %td
+          - protocol = Settings.url_defaults[:protocol]
+          - host     = Settings.main_site_host
+          - port     = Settings.url_defaults[:port]
+          - url      = "#{protocol}://#{wiki.name}.#{host}"
+          - url     += ":#{port}" if port.present?
+        
+          = link_to url, url, target: "_blank", rel: "noopener"
+
+        %td= nice_byte_count_pretty(wiki.raw_byte_size)
+        %td= link_to wiki.user.username, admin_sites_path(user: wiki.user.id)  
+  
+  %div.text-muted{ style: "max-width: 1050px; margin: 0 auto; font-size: 0.71rem; margin-top: 13px; padding-left: 10px;" }
+    = t( "admin.admin_tabs_tables_ctrl_hint" )
+  
+%div.text-muted{ style: "max-width: 1050px; margin: 0 auto; margin-top: -21px;  font-size: 0.5rem;" }
+  = '⁉️ '
+      
+%br
+%h5
+%div{ style: "max-width: 1050px; margin: 0 auto;" }
+  = '👤' + t( "admin.storage_usage_per_user.label" )
+
+= turbo_frame_tag "user_storage" do
+  %div.admin-table-wrapper
+    %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto; max-width: 900px;" }
+      %thead
+        %th
+          = link_to admin_storage_path(sort: next_sort("user")), data: { turbo_frame: "user_storage" } do
+            = t('admin.tab_storage_table_headers.th_user')
+            #{sort_arrow("user")}
+        %th
+          = link_to admin_storage_path(sort: next_sort("wiki")), data: { turbo_frame: "user_storage" } do
+            = t('admin.tab_storage_table_headers.th_wikis')
+            #{sort_arrow("wiki")}
+        %th
+          = link_to admin_storage_path(sort: next_sort("wiki_bytes")), data: { turbo_frame: "user_storage" } do
+            = t('admin.tab_storage_table_headers.th_wiki_storage')
+            #{sort_arrow("wiki_bytes")}
+        %th
+          = link_to admin_storage_path(sort: next_sort("active_bytes")), data: { turbo_frame: "user_storage" } do
+            = t('admin.tab_storage_table_headers.th_activestorage')
+            #{sort_arrow("active_bytes")}
+  
+        %th
+          = link_to admin_storage_path(sort: next_sort("size")), data: { turbo_frame: "user_storage" } do
+            = t('admin.tab_storage_table_headers.th_count_total')
+            #{sort_arrow("size")}
+    
+      %tbody
+        - @user_storage.each do |row|
+          %tr
+            %td
+              = turbo_off_link_to row[:user].username,
+                        admin_sites_path(user: row[:user].id),
+                        class: "text-decoration-none"
+            %td= row[:wiki_count]
+            %td= nice_byte_count_pretty(row[:wiki_bytes])
+            %td= nice_byte_count_pretty(row[:active_bytes])
+            %td= nice_byte_count_pretty(row[:total_bytes])
+            
+  %div.text-muted{ style: "max-width: 1050px; margin: 0 auto; font-size: 0.71rem; margin-top: 13px; padding-left: 10px;" }
+    = t( "admin.admin_tabs_tables_ctrl_hint" )
+  
+%div.text-muted{ style: "max-width: 1050px; margin: 0 auto; margin-top: -21px;  font-size: 0.5rem;" }
+  = '⁉️ '
+
+%br
+%h5
+%div{ style: "max-width: 1050px; margin: 0 auto;" }
+  = '🗂️' + t( "admin.storage_location_by_attachment_type.label" )
+  .text-muted{ style: "font-size: 0.75rem; margin-left: 1.8em;" }
+    = 'config/storage.yml service: Disk'  
+
+%div.admin-table-wrapper
+  %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto; max-width: 900px; font-size: 1rem;" }
+    %thead
+      %th= t( "admin.tab_storage_table_headers.th_type" )
+        
+      %th= t( "admin.tab_storage_table_headers.th_service" )
+        
+      %th= t( "admin.tab_storage_table_headers.th_bucket" )
+        
+      %th= t( "admin.tab_storage_table_headers.th_files" )
+      
+      %th= t( "admin.tab_storage_table_headers.th_bytes" )
+
     - configs = Rails.application.config.active_storage.service_configurations
-  
+
     - attachment_names.each do |name|
       - attachment_service_names_for_attachment(name).each_with_index do |service_name, i|
         - count = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).count
         - bytes = ActiveStorage::Blob.joins(:attachments).where(attachments: { name: }, service_name:).sum(:byte_size)
-  
+
         %tr
           %td= name if i == 0
           %td= service_name
           %td= configs&.dig(service_name, 'bucket') || '-'
           %td= count
-          %td= nice_byte_count(bytes)
-  
-  -# Todo maybe: Show orphan counts
+          %td= nice_byte_count_pretty(bytes)
+
 %br
-%div.text-muted{ style: "margin: 0 auto; max-width: 800px;" }
-  %div{ style: "font-size: 0.71rem; margin-top: 13px; padding-left: 10px;" }
-    = t( "admin.admin_tabs_tables_ctrl_hint" )
-    
-  %div.text-muted{ style: "font-size: 0.5rem; margin-top: -21px;" }
-    = '⁉️ '
+%h5
+%div{ style: "max-width: 1050px; margin: 0 auto; color: #00a055; opacity: 0.8;" }
+  = '🧹 ' + t( "admin.storage_fixing_orphaned_data.label" )
+
+%table.admin.table.table-sm.table-striped{ style: "margin: 0 auto;; max-width: 900px;" }
+  %thead
+    %th= t( "admin.tab_storage_table_headers.th_type" )
+    %th= t( "admin.tab_storage_table_headers.th_count" )
+    %th= t( "admin.tab_storage_table_headers.th_bytes" )
+
+  %tr
+    %td
+      = '🔎 ' + t( "admin.storage_orphaned_blobs.label" )
+    %td= @orphaned_blob_count
+    %td -
+
+  %tr
+    %td
+      = '🔎 ' + t( "admin.storage_orphaned_files.label" )
+    %td= @orphaned_files_count
+    %td= nice_byte_count_pretty(@orphaned_files_bytes)
+
+%div{ style: "max-width: 900px; margin: 0 auto;" }
+  .d-flex.justify-content-between{style: "font-size: 0.7em; margin-top: 50px;"}
+
+    = turbo_off_link_to "🧪 " + t("admin.storage_button_dry_run"),
+        admin_storage_path(dry_run: true),
+        class: "btn btn-sm btn-outline-success"
+
+    - if @dry_run_done
+      = form_with url: admin_storage_cleanup_path, method: :post, data: { turbo: false } do
+        = submit_tag "🧹 " + t("admin.storage_button_run_cleanup"),
+              class: "btn btn-sm btn-outline-success",
+              data: { confirm: "🧹 " + t("admin.storage_button_run_cleanup_confirm"),
+              disable_with: t("admin.storage_cleanup_running")}
+    - else
+      %button.btn.btn-sm.btn-outline-success{ disabled: true }
+        🧹 #{t("admin.storage_button_run_cleanup")}
