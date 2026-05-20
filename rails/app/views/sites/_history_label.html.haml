@@ -13,8 +13,11 @@
 
   -# This does a "patch" with no label params to delete the label
   - if f.attachment_label
-    = link_to(version_label_update_site_path(site, f.blob_id),
-      remote: false, method: :patch, style: "text-decoration: none; color: inherit;") do
+    = button_to version_label_update_site_path(site, f.blob_id),
+        method: :patch,
+        form: { data: { turbo: false } },
+        class: "btn btn-link p-0",
+        style: "text-decoration: none; color: inherit;" do
       = bi_icon('x-lg', height: '0.8em', width: '0.8em')
 
 - else

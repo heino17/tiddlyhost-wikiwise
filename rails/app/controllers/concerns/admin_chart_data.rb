@@ -37,11 +37,11 @@ module AdminChartData
   end
 
   def chart_data_signups_per_day
-    raw = User.signed_in_more_than(0)
-              .where("created_at >= ?", USERS_EPOCH)
-              .group(Arel.sql("DATE(created_at)"))
-              .order(Arel.sql("DATE(created_at)"))
-              .count
+    raw = User
+        .where("created_at >= ?", USERS_EPOCH)
+        .group(Arel.sql("DATE(created_at)"))
+        .order(Arel.sql("DATE(created_at)"))
+        .count
   
     fill_missing_dates(raw)
   end
@@ -60,21 +60,21 @@ module AdminChartData
   end
 
   def chart_data_signups_per_week
-    raw = User.signed_in_more_than(0)
-              .where("created_at >= ?", USERS_EPOCH)
-              .group(Arel.sql("DATE_TRUNC('week', created_at)"))
-              .order(Arel.sql("DATE_TRUNC('week', created_at)"))
-              .count
+    raw = User
+        .where("created_at >= ?", USERS_EPOCH)
+        .group(Arel.sql("DATE_TRUNC('week', created_at)"))
+        .order(Arel.sql("DATE_TRUNC('week', created_at)"))
+        .count
   
     fill_missing_weeks_normalized(raw)
   end
 
   def chart_data_total_users
-    raw = User.signed_in_more_than(1)
-              .where("created_at >= ?", USERS_EPOCH)
-              .group(Arel.sql("DATE(created_at)"))
-              .order(Arel.sql("DATE(created_at)"))
-              .count
+    raw = User
+        .where("created_at >= ?", USERS_EPOCH)
+        .group(Arel.sql("DATE(created_at)"))
+        .order(Arel.sql("DATE(created_at)"))
+        .count
   
     fill_missing_dates(raw)
   end
@@ -86,7 +86,7 @@ module AdminChartData
     total_users
   ].freeze
 
-  DEFAULT_CHART = KNOWN_CHARTS.first
+  DEFAULT_CHART = "total_users".freeze
 
   # Make these both on a Sunday so the X-axis rendering matches the data better
   USERS_EPOCH = '2026-01-04'

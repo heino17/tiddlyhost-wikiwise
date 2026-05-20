@@ -17,10 +17,16 @@
     - else
       = t('showing_filtered_sites', filtered_count: @filtered_site_count, access: params[:access], total_count: pluralize(@site_count, t('sites')))
       = link_to(t('clear_filter'), sites_path(s: params[:s]), style: 'text-decoration: none;') + "."
-    = t('storage_used', bytes: nice_byte_count(@total_storage_bytes)) # Oder kombiniere es
+    = t('storage_used', bytes: nice_byte_count_pretty(@total_storage_bytes)) # Oder kombiniere es
 
   -# 'list_view' or 'grid_view'
-  = render "#{@list_mode}_view" # Diese Partials (z. B. list_view.html.haml) müssten auch i18n-isiert werden
+  = render "#{@list_mode}_view"
+  
+%div.text-muted{ style: "max-width: 1050px; margin: 0 auto; font-size: 0.71rem; padding-left: 10px;" }
+  = t( "admin.admin_tabs_tables_ctrl_hint" )
+  
+%div.text-muted{ style: "max-width: 1050px; margin: 0 auto; margin-top: -21px;  font-size: 0.5rem;" }
+  = '⁉️ '
 
 .nice-buttons.mx-2.my-4.py-2
   = turbo_off_link_to new_site_path, class: 'btn me-3', title: t('create') do

@@ -32,15 +32,20 @@ function initDragScroll() {
     };
 
     el.addEventListener("mousedown", (e) => {
+      // Allow clicks on interactive elements
+      if (e.target.closest("a, button, .help-icon, .tooltip-trigger")) {
+        return;
+      }
+    
       allowSelect = e.ctrlKey || e.metaKey;
-
+    
       if (allowSelect) {
         el.classList.add("allow-select");
         return;
       }
-
+    
       el.classList.remove("allow-select");
-
+    
       isDown = true;
       el.classList.add("dragging");
       lastX = e.pageX;

@@ -17,7 +17,7 @@
   %button.btn.btn-light{type: "button",
     "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false",
     style: ("border-color: transparent !important;" if local_assigns[:menu_only]),
-    title: (local_assigns[:menu_only] ? "Actions" : t('hub_view_action_menu_more'))}
+    title: (local_assigns[:menu_only] ? t('site_view_save_history_actions') : t('hub_view_action_menu_more'))}
     = bi_icon('three-dots', fill: '#212529')
 
   .dropdown-menu.dropdown-menu-end

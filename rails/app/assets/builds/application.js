@@ -19442,6 +19442,9 @@
         }
       };
       el.addEventListener("mousedown", (e2) => {
+        if (e2.target.closest("a, button, .help-icon, .tooltip-trigger")) {
+          return;
+        }
         allowSelect = e2.ctrlKey || e2.metaKey;
         if (allowSelect) {
           el.classList.add("allow-select");

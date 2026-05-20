@@ -49,15 +49,15 @@ module AdminHelper
     end
   end
 
-  def card_color(title, _value, alert: false)
+  def card_color(key, _value, alert: false)
     return 'red' if alert
-
-    case title.downcase
-    when /users/, /active/, /subscriptions/
+  
+    case key
+    when :users, :active_daily, :active_weekly, :active_monthly, :subscriptions
       'yellow'
-    when /tspot/
+    when :tspots, :tspot_views, :owned_tspots, :saved_tspots
       'green'
-    when /site/
+    when :sites, :site_views, :public_sites, :public_searchable_sites
       'blue'
     else
       'plain'

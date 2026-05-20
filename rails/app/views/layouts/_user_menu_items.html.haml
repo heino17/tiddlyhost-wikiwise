@@ -43,7 +43,7 @@
   %b.ps-2
     = turbo_off_link_to sites_path do
       #{current_user.all_sites.count} #{t('user_menu_item_counted_sites')}
-      (#{nice_byte_count(current_user.total_storage_bytes)})
+      (#{nice_byte_count_pretty(current_user.total_storage_bytes)})
   %br
 
 %li

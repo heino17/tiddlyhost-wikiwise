@@ -172,6 +172,21 @@ module ApplicationHelper
     end
   end
 
+  def bi_icon_red(icon, opts = {})
+    return unless icon
+
+    opts.reverse_merge!(
+      class: ['bi_red'].append(opts.delete(:class)).compact,
+      height: '1.2em',
+      width: '1.4em',
+      style: "margin-top:-3px;margin-right:3px;#{opts.delete(:style)}")
+
+    content_tag(:svg, opts) do
+      content_tag(:use, nil, 'xlink:href' =>
+        "#{asset_path('bootstrap-icons/bootstrap-icons.svg')}##{icon}")
+    end
+  end
+
   def display_none_when(condition)
     "display: #{condition ? 'none' : 'block'};"
   end

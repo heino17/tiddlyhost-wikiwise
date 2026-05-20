@@ -85,7 +85,7 @@ h1 {
 
     span.views {
         margin-left: 0.1em;
-        color: #7b7b7b;
+        color: #888;
         font-size: 70%;
     }
 
@@ -352,4 +352,9 @@ h1 {
     vertical-align: middle;
     width: 1.5em;
     cursor: pointer;
+}
+
+.modal-content {
+  margin-top: 22vh;
+  border: 1px solid green;
 }
