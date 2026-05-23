@@ -41,25 +41,19 @@ module SitesHelper
   end
 
   def site_access(site)
-    # rubocop: disable Layout/IndentationWidth
-    access_type = if site.redirect_to.present?
-      'redirected'
-    elsif site.access_hub_listed?
-      'hub_listed'
-    elsif site.access_public?
-      'public'
-    elsif site.access_private?
-      'private'
-    end
-
-    # We don't call it "Hub listed" any more
-    access_title = if access_type == 'hub_listed'
-      t('hub_view_access_searchable')
-    else
-      access_type.humanize
-    end
-    # rubocop: enable Layout/IndentationWidth
-
+    access_type =
+      if site.redirect_to.present?
+        'redirected'
+      elsif site.access_hub_listed?
+        'hub_listed'
+      elsif site.access_public?
+        'public'
+      elsif site.access_private?
+        'private'
+      end
+  
+    access_title = t("site_access.#{access_type}")
+  
     access_icon(access_type) + access_title
   end
 

@@ -19,7 +19,7 @@
     visibility 0.55s;
 
   &.visible {
-    transform: translate(-50%, 0);
+    transform: translate(-50%, 0) !important;
     opacity: 1;
     visibility: visible;
   }
@@ -27,10 +27,12 @@
 /* Mobile: full width */
 @media (max-width: 600px) {
   .cookie-consent-banner {
+    transform: translate(-50%, 105%);
     max-width: 100vw;
     border-radius: 7px;
   }
 }
+
 /* Content */
 .cookie-consent-content { 
   max-width: 96vw;

@@ -135,3 +135,9 @@ fr:
     list: "Passer à la vue en liste"
   #
   site_view_filter_and_sort_show_all: "tout afficher"
+  
+  site_access:
+    hub_listed: "Référencé"
+    public: "Public"
+    private: "Privé"
+    redirected: "Redirigé"

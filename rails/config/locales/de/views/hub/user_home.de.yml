@@ -152,3 +152,8 @@ de:
   #
   site_view_filter_and_sort_show_all: "zeige alle"
   
+  site_access:
+   hub_listed: "Durchsuchbar"
+   public: "Öffentlich"
+   private: "Privat"
+   redirected: "Weiterleitung"

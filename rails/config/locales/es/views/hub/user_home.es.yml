@@ -135,3 +135,9 @@ es:
     list: "Cambiar a vista de lista"
   #
   site_view_filter_and_sort_show_all: "mostrar todos"
+  
+  site_access:
+    hub_listed: "Visible en búsquedas"
+    public: "Público"
+    private: "Privado"
+    redirected: "Redirigido"

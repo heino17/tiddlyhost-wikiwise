@@ -151,3 +151,9 @@ en:
   #
   site_view_filter_and_sort_show_all: "show all"
   
+  site_access:
+    hub_listed: "Searchable"
+    public: "Public"
+    private: "Private"
+    redirected: "Redirected"
+  

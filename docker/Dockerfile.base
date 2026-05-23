@@ -93,6 +93,10 @@ RUN bundle config set --global path $_BUNDLE_PATH
 # https://stackoverflow.com/questions/69394632/webpack-build-failing-with-err-ossl-evp-unsupported
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
+# Use system Chrome instead of downloading Chromium
+ENV PUPPETEER_SKIP_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome
+
 # Make it easy to connect and do things in the container
 # See docker-compose for how we start rails
 CMD ["/bin/bash"]

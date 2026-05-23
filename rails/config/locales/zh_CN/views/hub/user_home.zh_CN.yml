@@ -135,3 +135,9 @@ zh_CN:
     list: "切换到列表视图"
   #
   site_view_filter_and_sort_show_all: "显示全部"
+  
+  site_access:
+    hub_listed: "可搜索"
+    public: "公开"
+    private: "私有"
+    redirected: "已重定向"

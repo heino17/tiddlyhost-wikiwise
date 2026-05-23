@@ -143,4 +143,10 @@ ko:
     list: "리스트 보기 전환"
   #
   site_view_filter_and_sort_show_all: "전체 보기"
+
+  site_access:
+    hub_listed: "검색 가능"
+    public: "공개"
+    private: "비공개"
+    redirected: "리디렉션됨"
   

@@ -21,12 +21,13 @@
 
   -# 'list_view' or 'grid_view'
   = render "#{@list_mode}_view"
-  
-%div.text-muted{ style: "max-width: 1050px; margin: 0 auto; font-size: 0.71rem; padding-left: 10px;" }
-  = t( "admin.admin_tabs_tables_ctrl_hint" )
-  
-%div.text-muted{ style: "max-width: 1050px; margin: 0 auto; margin-top: -21px;  font-size: 0.5rem;" }
-  = '⁉️ '
+
+- if @list_mode == "list"
+  %div.text-muted{ style: "max-width: 1050px; margin: 0 auto; font-size: 0.71rem; padding-left: 10px;" }
+    = t( "admin.admin_tabs_tables_ctrl_hint" )
+    
+  %div.text-muted{ style: "max-width: 1050px; margin: 0 auto; margin-top: -21px;  font-size: 0.5rem;" }
+    = '⁉️ '
 
 .nice-buttons.mx-2.my-4.py-2
   = turbo_off_link_to new_site_path, class: 'btn me-3', title: t('create') do

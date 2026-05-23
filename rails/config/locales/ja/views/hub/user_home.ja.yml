@@ -142,4 +142,9 @@ ja:
     list: "リスト表示に切り替え"
   #
   site_view_filter_and_sort_show_all: "すべて表示"
-  
+
+  site_access:
+    hub_listed: "検索可能"
+    public: "公開"
+    private: "非公開"
+    redirected: "リダイレクト"

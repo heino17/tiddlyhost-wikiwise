@@ -89,7 +89,7 @@ class AdminController < ApplicationController
     # --- 1. Alle Locale-Keys sammeln ---
     locale_keys = available_locales.keys.map { |loc| "locale_enabled_#{loc}" }
 
-    # --- 2. PrÃ¼fen: Wird die aktuelle Sprache deaktiviert? ---
+    # --- 2. Prüfen: Wird die aktuelle Sprache deaktiviert? ---
     current_locale_key = "locale_enabled_#{I18n.locale}"
     if params[:settings][current_locale_key] == "0"
       flash[:alert] = I18n.t('admin.locales_hint_messages.cannot_disable_current_locale')
@@ -97,7 +97,7 @@ class AdminController < ApplicationController
       return redirect_to admin_settings_path(active_tab: "locales")
     end
 
-    # --- 3. PrÃ¼fen: Wird die Default-Sprache deaktiviert? ---
+    # --- 3. Prüfen: Wird die Default-Sprache deaktiviert? ---
     default_locale = Setting.string_for(:default_locale, default: "en").to_sym
     default_locale_key = "locale_enabled_#{default_locale}"
 
@@ -110,7 +110,7 @@ class AdminController < ApplicationController
 
     end
 
-    # --- 4. PrÃ¼fen: Werden ALLE Sprachen deaktiviert? ---
+    # --- 4. Prüfen: Werden ALLE Sprachen deaktiviert? ---
     disabled_count = locale_keys.count { |k| params[:settings][k] == "0" }
 
     if disabled_count == locale_keys.size
@@ -119,7 +119,7 @@ class AdminController < ApplicationController
       return redirect_to admin_settings_path(active_tab: "locales")
     end
 
-    # --- 5. Alles OK â†’ speichern ---
+    # --- 5. Alles OK & speichern ---
     params[:settings]&.each do |key_str, val|
       if key_str == "default_locale"
         Setting.set_string(:default_locale, val)
@@ -367,7 +367,7 @@ class AdminController < ApplicationController
       },
       kind: {
         filter: ->(r, kind) { r.where(tw_kind: kind) },
-        # Hier kein title, weil es dynamisch pro Kind ist (oder du fÃ¼gst einen Gruppen-Titel hinzu)
+        # Hier kein title, weil es dynamisch pro Kind ist (oder du fügst einen Gruppen-Titel hinzu)
       },
       user: {
         # See filter_by_user_maybe below

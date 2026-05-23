@@ -144,3 +144,9 @@ ru:
   #
   site_view_filter_and_sort_show_all: "показать все"
   
+  site_access:
+    hub_listed: "Доступно в поиске"
+    public: "Публичный"
+    private: "Приватный"
+    redirected: "Перенаправлено"
+  
