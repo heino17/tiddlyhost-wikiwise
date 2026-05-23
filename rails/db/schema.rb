@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_14_143061) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_21_160824) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -253,6 +253,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_14_143061) do
     t.integer "votes_count", default: 0, null: false
     t.integer "comments_count", default: 0, null: false
     t.decimal "vote_score", precision: 3, scale: 1, default: "0.0"
+    t.boolean "cookie_consent_enabled", default: false, null: false
+    t.integer "cookie_consent_version", default: 1, null: false
     t.index ["cloned_from_id"], name: "index_sites_on_cloned_from_id"
     t.index ["comments_count"], name: "index_sites_on_comments_count"
     t.index ["empty_id"], name: "index_sites_on_empty_id"

@@ -318,6 +318,9 @@ ru:
     subscriptions_enabled:
       label: "Подписки / Stripe-интеграция активна"
       description: "Включает платежи, премиум-планы и расширенные функции через Stripe"
+    avatars_enabled:
+      label: "Включить аватары"
+      description: "Если включено, пользователи могут подключать аватары из Gravatar или Libravatar."
       #
     hub_per_page:
       prefix: "Вики"

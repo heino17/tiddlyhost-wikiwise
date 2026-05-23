@@ -457,6 +457,7 @@ class AdminController < ApplicationController
       # === Allgemein ===
       { key: :startpage_introduction_block_enabled, group: 'general', default: true,  type: :boolean },
       { key: :special_imprint_enabled,              group: 'general', default: true,  type: :boolean },
+      { key: :cookie_consent_enabled,               group: 'general', default: false, type: :boolean },
       { key: :registration_enabled,                 group: 'general', default: false, type: :boolean },
   
       # === Community ===
@@ -477,6 +478,7 @@ class AdminController < ApplicationController
   
       # === Abonnements ===
       { key: :subscriptions_enabled, group: 'subscription', default: true, type: :boolean },
+      { key: :avatars_enabled,       group: 'subscription', default: false, type: :boolean },
       { key: :max_tags_per_site,     group: 'subscription', default: 17,     type: :integer, min: 0, max: 17 },
   
       # === Speicher & Versionen ===

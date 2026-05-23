@@ -313,6 +313,9 @@ zh_CN:
     subscriptions_enabled:
       label: "订阅 / Stripe 集成激活"
       description: "通过 Stripe 启用支付、高级计划和高级功能"
+    avatars_enabled:
+      label: "启用头像"
+      description: "启用后，用户可以连接来自 Gravatar 或 Libravatar 的头像。"
     #
     hub_per_page:
       prefix: "维基"

@@ -22061,6 +22061,73 @@
     }
   };
 
+  // app/javascript/controllers/cookie_consent_controller.js
+  var cookie_consent_controller_default = class extends Controller {
+    static targets = ["banner", "stats", "marketing"];
+    connect() {
+      const saved = localStorage.getItem("cookie_consent");
+      if (saved) {
+        const consent = JSON.parse(saved);
+        this.statsTarget.checked = consent.stats ?? true;
+        this.marketingTarget.checked = consent.marketing ?? true;
+        this.activateScripts(consent);
+      } else {
+        setTimeout(() => this.show(), 150);
+      }
+    }
+    show(event) {
+      if (event) event.preventDefault();
+      this.bannerTarget.classList.remove("hidden");
+      this.bannerTarget.classList.remove("hiding");
+      this.bannerTarget.classList.remove("visible");
+      requestAnimationFrame(() => {
+        this.bannerTarget.classList.add("visible");
+      });
+    }
+    hide() {
+      this.bannerTarget.classList.remove("visible");
+      this.bannerTarget.classList.add("hiding");
+      setTimeout(() => {
+        this.bannerTarget.classList.add("hidden");
+        this.bannerTarget.classList.remove("hiding");
+      }, 550);
+    }
+    acceptAll(e2) {
+      e2.preventDefault();
+      this.statsTarget.checked = true;
+      this.marketingTarget.checked = true;
+      this.save();
+    }
+    rejectAll(e2) {
+      e2.preventDefault();
+      this.statsTarget.checked = false;
+      this.marketingTarget.checked = false;
+      this.save();
+    }
+    save(e2) {
+      if (e2) e2.preventDefault();
+      const consent = {
+        stats: this.statsTarget.checked,
+        marketing: this.marketingTarget.checked
+      };
+      localStorage.setItem("cookie_consent", JSON.stringify(consent));
+      this.activateScripts(consent);
+      this.hide();
+    }
+    activateScripts(consent) {
+      document.querySelectorAll("[data-cookie-blocked-script]").forEach((script) => {
+        const category = script.dataset.cookieCategory;
+        if (consent[category] === true) {
+          const newScript = document.createElement("script");
+          newScript.type = "text/javascript";
+          if (script.src) newScript.src = script.src;
+          if (script.textContent) newScript.textContent = script.textContent;
+          script.replaceWith(newScript);
+        }
+      });
+    }
+  };
+
   // app/javascript/controllers/index.js
   application.register("comment-counter", comment_counter_controller_default);
   application.register("hello", hello_controller_default);
@@ -22068,6 +22135,7 @@
   application.register("sidebar", sidebar_controller_default);
   application.register("test", test_controller_default);
   application.register("settings-tab", settings_tab_controller_default);
+  application.register("cookie-consent", cookie_consent_controller_default);
 
   // node_modules/trix/dist/trix.esm.min.js
   var t = "2.1.19";

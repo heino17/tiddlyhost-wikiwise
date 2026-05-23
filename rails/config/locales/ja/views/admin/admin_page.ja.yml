@@ -314,6 +314,9 @@ ja:
     subscriptions_enabled:
       label: "サブスクリプション / Stripe連携 有効"
       description: "Stripe経由の支払い、プレミアムプランおよび高度な機能を有効にします"
+    avatars_enabled:
+      label: "アバターを有効化"
+      description: "有効にすると、Gravatar または Libravatar のアバターをリンクできます."
     #
     hub_per_page:
       prefix: "「ウィキ」"

@@ -3,7 +3,8 @@
 **+ Kommentar- & Bewertung der Wikis/Seiten**  
 **+ Shoutbox-Mini-Chat-Widget**  
 **+ Erweiterter Admin-Bereich für Einstellungen**  
-**+ Admin‑Bereich – Benutzerverwaltung erweitert** 
+**+ Admin‑Bereich – Benutzerverwaltung erweitert**  
+**+ Cookie-Banner - EU-Cookie-Richtlinien, DSGVO und TTDSG** 
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
 
@@ -47,7 +48,8 @@ cd tiddlyhost-wikiwise
 **+ Comment & Voting for Wikis/Sites**  
 **+ Shoutbox-Mini-Chat-Widget**  
 **+ Advanced Admin Panel for Settings**  
-**+ Admin area – User management expanded** 
+**+ Admin area – User management expanded**  
+**+ Cookie-Banner - EU Cookie Directives, GDPR, and TTDSG**  
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
 

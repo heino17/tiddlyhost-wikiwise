@@ -1,13 +1,21 @@
 class ApplicationController < ActionController::Base
   before_action :redirect_www_requests
   before_action :permit_devise_params, if: :devise_controller?
-  before_action :set_locale, :apply_enabled_locales  # Zuerst set_locale!
-
-  helper_method :theme_width
+  before_action :set_locale, :apply_enabled_locales  # set_locale first!
 
   def theme_width
     Setting.find_by(key: :default_theme_width)&.value.presence || "1169px"
   end
+  helper_method :theme_width
+
+  def current_site
+    # Wenn ein Controller (z.B. TiddlywikiController) schon @site gesetzt hat → nutzen
+    return @site if defined?(@site) && @site.present?
+
+    # Fallback: Subdomain-Lookup (für echte Wiki-Subdomains)
+    @current_site ||= Site.find_by_name(request.subdomain)
+  end
+  helper_method :current_site
 
   private
 

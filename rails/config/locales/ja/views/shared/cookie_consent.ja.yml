@@ -1,0 +1,19 @@
+---
+ja:
+  admin:
+    cookie_consent_enabled:
+      label: "クッキーバナーを有効化"
+      description: "EUクッキー指令、GDPR、TTDSGに準拠したクッキー通知です。"
+    cookie_consent_button: "クッキー設定"
+    cookie_banner_necessary_cookies: "必須クッキー"
+    cookie_banner_essentials: "必須（常に有効）"
+    cookie_banner_stats: "統計"
+    cookie_banner_marketing: "マーケティング"
+    cookie_banner_hint_text: >
+      必須クッキーはログイン、セキュリティ、基本機能を保証し、無効化できません。
+      追加のクッキーは匿名統計の収集やマーケティング機能の提供に使用されます。
+      許可するカテゴリを選択できます。
+    cookie_banner_more_info: "<a href=\"/privacy-policy\">ポリシーを読む…</a>"
+    cookie_banner_accept_all: "すべて許可"
+    cookie_banner_save: "保存"
+    cookie_banner_reject_all: "すべて拒否"

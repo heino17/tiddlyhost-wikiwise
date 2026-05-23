@@ -313,6 +313,9 @@ fr:
     subscriptions_enabled:
       label: "Abonnements / Intégration Stripe active"
       description: "Active les paiements, les plans premium et les fonctionnalités avancées via Stripe"
+    avatars_enabled:
+      label: "Activer les avatars"
+      description: "Si activé, les utilisateurs peuvent lier des avatars depuis Gravatar ou Libravatar."
     #
     hub_per_page:
       prefix: "Wikis"

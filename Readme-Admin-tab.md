@@ -13,6 +13,7 @@ German and American
 - Tab Allgemein  
   - Startseiten-Einführungsblock _ein-/ausschalten_
   - Spezielle Impressum-Seite _ein-/ausschalten_
+  - Cookie-Banner _ein-/ausschalten_
   - Registrierung neuer Benutzer _ein-/ausschalten_
 - Tab Gemeinschaft  
   - Kommentarfunktion _ein-/ausschalten_
@@ -27,6 +28,7 @@ German and American
   - Banner-Nachricht am oberen Rand fixieren (beim scrollen oben sichtbar) _ein-/ausschalten_
 - Tab Abonnements  
   - Stripe-Abonnements-Funktion _ein-/ausschalten_
+  - Gravatar/Libravatar _ein-/ausschalten_
   - Maximale Anzahl erlaubter Tags pro Seite/Wiki _Zahlenfeld und +/-_
 - Tab Speicher & Versionen (Standard-Plan, Premium-Plan nur sichtbar, wenn Abos aktiv)
   - Max. Versionen (Free-Plan) _Zahlenfeld und +/-_
@@ -69,6 +71,7 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
 - Tab General  
   - Home page introduction block _enable/disable_
   - Dedicated legal notice page _enable/disable_
+  - Cookie-Banner _enable/disable_
   - New user registration _enable/disable_
 - Tab Community   
   - Comment feature _enable/disable_
@@ -83,6 +86,7 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
   - Fix banner message at the top while scrolling _enable/disable_
 - Tab Subscriptions  
   - Stripe subscription feature _enable/disable_
+  - Gravatar/Libravatar _enable/disable_
   - Maximum number of tags allowed per page/wiki _number field and +/-_
 - Tab Storage & Versions (Standard Plan; Premium Plan: visible only if subscriptions are active)
   - Max. versions (Free plan) _number field and +/-_

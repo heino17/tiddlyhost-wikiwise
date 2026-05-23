@@ -4,13 +4,14 @@
     %th= sort_link t('admin.tab_users_table_headers.th_name'),        key: 'name',      default_dir: :asc
     %th= sort_link t('admin.tab_users_table_headers.th_username'),    key: 'username',  default_dir: :asc
     %th= sort_link t('admin.tab_users_table_headers.th_email'),       key: 'email',     default_dir: :asc
-    %th= sort_link t('admin.tab_users_table_headers.th_av'),          key: 'av'
+    - if Setting.enabled?(:avatars_enabled)
+      %th= sort_link t('admin.tab_users_table_headers.th_av'),        key: 'av'
     %th= sort_link t('admin.tab_users_table_headers.th_type'),        key: 'type'
     %th= sort_link t('admin.tab_users_table_headers.th_subscription'),key: 'subscription', default_dir: :asc
     %th= sort_link t('admin.tab_users_table_headers.th_logins'),      key: 'logins'
     %th= sort_link t('admin.tab_users_table_headers.th_sites'),       key: 'sites'
-    - if Settings.tiddlyspot_enabled?
-      %th= sort_link t('admin.tab_users_table_headers.th_tspot_sites'), key: 'tspot_sites'
+    - if Setting.enabled?(:tiddlyspot_enabled)
+      %th= sort_link t('admin.tab_users_table_headers.th_tspot_sites'),   key: 'tspot_sites'
     %th= sort_link t('admin.tab_users_table_headers.th_current_sign_in'), key: 'current_sign_in'
     %th= sort_link t('admin.tab_users_table_headers.th_last_sign_in'),    key: 'last_sign_in'
     %th= sort_link t('admin.tab_users_table_headers.th_created'),         key: 'created'
@@ -24,9 +25,10 @@
       %td= turbo_off_link_to user.name, admin_user_path(user)
       %td= turbo_off_link_to user.username, admin_user_path(user)
       %td= turbo_off_link_to user.email, admin_user_path(user)
-      %td
-        - if user.use_avatar?
-          = avatar_image(user, size: 18)
+      - if Setting.enabled?(:avatars_enabled)
+        %td
+          - if user.use_avatar?
+            = avatar_image(user, size: 18)
       %td= user.user_type.name
       %td= plan_name_with_indicator(user)
       %td= user.sign_in_count
@@ -37,6 +39,7 @@
       %td= nice_timestamp user.last_sign_in_at
       %td= nice_timestamp user.created_at
       -# Show the timespan since it is more interesting than the raw timestamp
-      %td= nice_timespan(user.created_at, user.confirmed_at)
+        %td= nice_timespan(user.created_at, user.confirmed_at)
+      %td= nice_timestamp user.confirmed_at
   %tr
     = turbo_off_link_to t('admin.tab_users.new_user'), admin_new_user_path, class: "btn btn-primary btn-sm"

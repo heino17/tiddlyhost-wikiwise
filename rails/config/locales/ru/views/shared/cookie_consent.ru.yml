@@ -1,0 +1,19 @@
+---
+ru:
+  admin:
+    cookie_consent_enabled:
+      label: "Включить баннер cookies"
+      description: "Уведомление о cookies в соответствии с директивой ЕС, GDPR и TTDSG."
+    cookie_consent_button: "Настройки cookies"
+    cookie_banner_necessary_cookies: "Необходимые cookies"
+    cookie_banner_essentials: "Необходимые (всегда активны)"
+    cookie_banner_stats: "Статистика"
+    cookie_banner_marketing: "Маркетинг"
+    cookie_banner_hint_text: >
+      Необходимые cookies обеспечивают вход в систему, безопасность и базовые функции и не могут быть отключены.
+      Мы используем дополнительные cookies для сбора анонимной статистики и предоставления маркетинговых функций.
+      Вы можете выбрать, какие категории разрешить.
+    cookie_banner_more_info: "<a href=\"/privacy-policy\">Читать политику…</a>"
+    cookie_banner_accept_all: "Принять все"
+    cookie_banner_save: "Сохранить"
+    cookie_banner_reject_all: "Отклонить все"

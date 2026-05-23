@@ -1,0 +1,19 @@
+---
+fr:
+  admin:
+    cookie_consent_enabled:
+      label: "Activer la bannière de cookies"
+      description: "Avis de cookies conforme à la directive européenne, au RGPD et au TTDSG."
+    cookie_consent_button: "Paramètres des cookies"
+    cookie_banner_necessary_cookies: "Cookies nécessaires"
+    cookie_banner_essentials: "Essentiels (toujours actifs)"
+    cookie_banner_stats: "Statistiques"
+    cookie_banner_marketing: "Marketing"
+    cookie_banner_hint_text: >
+      Les cookies essentiels garantissent la connexion, la sécurité et les fonctions de base et ne peuvent pas être désactivés.
+      Nous utilisons d’autres cookies pour collecter des statistiques anonymes et fournir des fonctionnalités marketing.
+      Vous pouvez choisir les catégories que vous souhaitez autoriser.
+    cookie_banner_more_info: "<a href=\"/privacy-policy\">Lire la politique…</a>"
+    cookie_banner_accept_all: "Tout accepter"
+    cookie_banner_save: "Enregistrer"
+    cookie_banner_reject_all: "Tout refuser"

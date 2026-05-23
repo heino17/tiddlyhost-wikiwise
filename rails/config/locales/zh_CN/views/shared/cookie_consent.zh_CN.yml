@@ -1,0 +1,19 @@
+---
+zh_CN:
+  admin:
+    cookie_consent_enabled:
+      label: "启用 Cookie 横幅"
+      description: "符合欧盟 Cookie 指令、GDPR 和 TTDSG 的 Cookie 提示。"
+    cookie_consent_button: "Cookie 设置"
+    cookie_banner_necessary_cookies: "必要的 Cookie"
+    cookie_banner_essentials: "必要（始终启用）"
+    cookie_banner_stats: "统计"
+    cookie_banner_marketing: "营销"
+    cookie_banner_hint_text: >
+      必要的 Cookie 用于登录、安全和基本功能，无法禁用。
+      我们使用其他 Cookie 来收集匿名统计数据并提供营销功能。
+      你可以选择允许哪些类别。
+    cookie_banner_more_info: "<a href=\"/privacy-policy\">阅读政策…</a>"
+    cookie_banner_accept_all: "全部接受"
+    cookie_banner_save: "保存"
+    cookie_banner_reject_all: "全部拒绝"

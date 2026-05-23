@@ -1,0 +1,20 @@
+---
+en:
+  admin:
+    cookie_consent_enabled:
+      label: "Enable cookie banner"
+      description: "Cookie notice compliant with EU Cookie Directive, GDPR and TTDSG."
+    cookie_consent_button: "Cookie settings"
+    cookie_banner_necessary_cookies: "Necessary cookies"
+    cookie_banner_essentials: "Essential (always active)"
+    cookie_banner_stats: "Statistics"
+    cookie_banner_marketing: "Marketing"
+    cookie_banner_hint_text: >
+      Essential cookies ensure login, security and basic functionality and cannot be disabled.
+      We use additional cookies to collect anonymous statistics and to provide marketing features.
+      You can choose which categories you want to allow.
+    cookie_banner_more_info: "<a href=\"/privacy-policy\">Read policy…</a>"
+    cookie_banner_accept_all: "Accept all"
+    cookie_banner_save: "Save"
+    cookie_banner_reject_all: "Reject all"
+  

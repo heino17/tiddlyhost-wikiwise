@@ -24,23 +24,24 @@
       = f.text_field :username, autofocus: true, autofill: 'off', autocomplete: 'off', class: 'form-control'
       .form-text= t('user_update_account_username_text')
 
-    = render layout: 'field_wrapper' do
-      = f.label t('user_update_account_profile_image_label')
-      .row.my-2
-        .col
-          %div.form-check
-            = f.label :use_gravatar do
-              = gravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
-              %br
-              = f.check_box :use_gravatar, class: 'form-check-input'
-              .form-check-label #{t('user_update_account_use')} #{link_to 'Gravatar', 'https://gravatar.com/', target: '_blank'}
-        .col
-          %div.form-check
-            = f.label :use_libravatar do
-              = libravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
-              %br
-              = f.check_box :use_libravatar, class: 'form-check-input'
-              .form-check-label #{t('user_update_account_use')} #{link_to('Libravatar', 'https://libravatar.org/', target: '_blank')}
+    - if Setting.enabled?(:avatars_enabled)
+      = render layout: 'field_wrapper' do
+        = f.label t('user_update_account_profile_image_label')
+        .row.my-2
+          .col
+            %div.form-check
+              = f.label :use_gravatar do
+                = gravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
+                %br
+                = f.check_box :use_gravatar, class: 'form-check-input'
+                .form-check-label #{t('user_update_account_use')} #{link_to 'Gravatar', 'https://gravatar.com/', target: '_blank'}
+          .col
+            %div.form-check
+              = f.label :use_libravatar do
+                = libravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
+                %br
+                = f.check_box :use_libravatar, class: 'form-check-input'
+                .form-check-label #{t('user_update_account_use')} #{link_to('Libravatar', 'https://libravatar.org/', target: '_blank')}
 
     = render layout: 'field_wrapper' do
       = f.label :current_password, t('user_update_account_current_password_label')

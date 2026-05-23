@@ -1030,3 +1030,8 @@ cleanup-caches:
 	# docker builder prune -f
 
 	@echo "✨ All caches cleaned!"
+
+# precompile the assets
+assets-compile:
+	$(DCC) 'bin/rails assets:precompile'
+    

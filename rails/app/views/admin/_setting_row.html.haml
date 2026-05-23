@@ -35,20 +35,20 @@
         = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
 
   - elsif setting[:type] == :integer
-    .input-group.w-25
+    .input-group.w-100
       = number_field_tag "settings[#{setting[:key]}]", 
                          setting[:current_value],
                          min: setting[:min] || 1,
                          max: setting[:max] || 100,
                          class: "form-control form-control-sm",
-                         style: "min-width: 71px;"
+                         style: "max-width: 90px;"
                          
       .input-group-text
         .small
           = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
                          
   - elsif setting[:type] == :string
-    .input-group.w-25
+    .input-group.w-100
       = text_field_tag "settings[#{setting[:key]}]",
                        setting[:raw_value],
                        class: "form-control form-control-sm w-auto",

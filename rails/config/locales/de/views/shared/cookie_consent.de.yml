@@ -1,0 +1,20 @@
+---
+de:
+  admin:
+    cookie_consent_enabled:
+      label: "Cookie-Banner aktivieren"
+      description: "Cookie-Hinweis nach EU-Cookie-Richtlinien, DSGVO und TTDSG."
+    cookie_consent_button: "Cookie‑Einstellungen"
+    cookie_banner_necessary_cookies: "Notwendige Cookies"
+    cookie_banner_essentials: "Notwendig (immer aktiv)"
+    cookie_banner_stats: "Statistiken"
+    cookie_banner_marketing: "Marketing"
+    cookie_banner_hint_text: >
+      Notwendige Cookies sorgen für Login, Sicherheit und Grundfunktionen und können nicht deaktiviert werden.
+      Wir verwenden weitere Cookies, um anonyme Statistiken zu erheben und Funktionen für Marketing bereitzustellen.
+      Du kannst selbst entscheiden, welche Kategorien du erlaubst.
+    cookie_banner_more_info: "<a href=\"/privacy-policy\">Richtlinien lesen…</a>"
+    cookie_banner_accept_all: "Alle akzeptieren"
+    cookie_banner_save: "Speichern"
+    cookie_banner_reject_all: "Alle ablehnen"
+  

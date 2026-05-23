@@ -314,6 +314,9 @@ es:
     subscriptions_enabled:
       label: "Suscripciones / Integración de Stripe activa"
       description: "Habilita pagos, planes premium y funciones avanzadas a través de Stripe"
+    avatars_enabled:
+      label: "Activar avatares"
+      description: "Si está activado, los usuarios pueden vincular avatares de Gravatar o Libravatar."
     #
     hub_per_page:
       prefix: "Wikis"

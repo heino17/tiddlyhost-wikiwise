@@ -76,10 +76,20 @@
               <%= yield %>
             </div>
           </main>
-      
           <footer>
             <%= render 'layouts/footer' %>
           </footer>
+          <% if Setting.enabled?(:cookie_consent_enabled) %>
+            <div data-controller="cookie-consent">
+              <%= render 'layouts/cookie_consent_banner' %>
+              <div class="site-tags">
+                <a href="#" data-action="click->cookie-consent#show">
+                  <%= '🍪 ' + t('admin.cookie_consent_button') %>
+                </a>
+                <br><br>
+              </div>
+            </div>
+          <% end %>
       </div>
     </div>
   </body>

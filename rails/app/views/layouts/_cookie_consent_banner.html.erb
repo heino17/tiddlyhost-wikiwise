@@ -1,0 +1,34 @@
+<div
+  data-cookie-consent-target="banner"
+  class="cookie-consent-banner bg-wrapper"
+>
+  <div class="cookie-consent-content">
+    <p class="cookie-consent-note">
+      🍪 <strong><%= t('admin.cookie_banner_necessary_cookies') + ':' %></strong> <%= t('admin.cookie_banner_hint_text') %>
+      <%= t('admin.cookie_banner_more_info').html_safe %>
+    </p>
+
+    <div class="cookie-consent-options">
+      <div class="cookie-option.disabled input">
+        <input type="checkbox" id="essentials" checked disabled />
+        <label for="essentials"></strong><%= t('admin.cookie_banner_essentials') %></label>
+      </div>
+      
+      <div class="cookie-option">
+        <input type="checkbox" id="stats" data-cookie-consent-target="stats" checked />
+        <label for="stats"><%= t('admin.cookie_banner_stats') %></label>
+      </div>
+      
+      <div class="cookie-option">
+        <input type="checkbox" id="marketing" data-cookie-consent-target="marketing" />
+        <label for="marketing"><%= t('admin.cookie_banner_marketing') %></label>
+      </div>
+    </div>
+
+    <div class="cookie-consent-actions">
+      <button data-action="click->cookie-consent#acceptAll"><%= t('admin.cookie_banner_accept_all') %></button>
+      <button data-action="click->cookie-consent#save"><%= t('admin.cookie_banner_save') %></button>
+      <button data-action="click->cookie-consent#rejectAll"><%= t('admin.cookie_banner_reject_all') %></button>
+    </div>
+  </div>
+</div>

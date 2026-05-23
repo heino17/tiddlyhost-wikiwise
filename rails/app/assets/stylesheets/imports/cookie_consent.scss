@@ -1,0 +1,102 @@
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 120%);
+  opacity: 0;
+  visibility: hidden;
+  max-width: 69vw;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-top: 4px solid #22c55e;
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-size: 0.75rem;
+  border-radius: 8px 8px 0 0;
+  transition: 
+    transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.5s ease,
+    visibility 0.55s;
+
+  &.visible {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/* Mobile: full width */
+@media (max-width: 600px) {
+  .cookie-consent-banner {
+    max-width: 100vw;
+    border-radius: 7px;
+  }
+}
+/* Content */
+.cookie-consent-content { 
+  max-width: 96vw;
+  margin: 0 auto;
+}
+.cookie-consent-options {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+.cookie-option {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+.cookie-option.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.cookie-option.disabled input {
+  cursor: not-allowed;
+}
+/* Buttons */
+.cookie-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+/* Checkbox Fix */
+.cookie-consent-banner input[type="checkbox"] {
+  appearance: auto !important;
+}
+/* Buttons styling */
+.cookie-consent-actions button {
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+/* Primary */
+.cookie-consent-actions button:first-child {
+  border: 1px solid green;
+}
+.cookie-consent-actions button:first-child:hover {
+  background: green;
+  border: 1px solid green;
+  color: white;
+}
+/* Neutral */
+.cookie-consent-actions button:nth-child(2),
+.cookie-consent-actions button:nth-child(3) {
+  border: 1px solid green;
+}
+.cookie-consent-actions button:nth-child(2):hover,
+.cookie-consent-actions button:nth-child(3):hover {
+  background: green;
+  border: 1px solid green;
+  color: white;
+}
+.cookie-consent-actions button:active {
+  transform: scale(0.96);
+}
+

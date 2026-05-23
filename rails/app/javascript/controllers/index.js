@@ -21,3 +21,6 @@ application.register("test", TestController)
 
 import SettingsTabController from "./settings_tab_controller"
 application.register("settings-tab", SettingsTabController)
+
+import CookieConsentController from "./cookie_consent_controller"
+application.register("cookie-consent", CookieConsentController)

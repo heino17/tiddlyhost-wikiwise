@@ -314,6 +314,9 @@ ko:
     subscriptions_enabled:
       label: "구독 / Stripe 연동 활성화"
       description: "Stripe를 통한 결제, 프리미엄 플랜 및 고급 기능을 활성화합니다"
+    avatars_enabled:
+      label: "아바타 활성화"
+      description: "활성화하면 Gravatar 또는 Libravatar 아바타를 연결할 수 있습니다."
     #
     hub_per_page:
       prefix: "위키"

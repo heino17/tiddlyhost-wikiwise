@@ -60,12 +60,11 @@
 - `Replace various texts and hard codes in views & controllers` 
   - replaced with t(“key”) and moved to translation files (.yml)
   - minor adjustments to the code for compatibility
-  -  approximately 60 existing files edited (almost complete, the “Pricing” section is still missing)
-  -  160 language files created
+  -  190 language files created
 
 ### # Current status (February 2026):
 - Works stably with 0 errors in tests (with :en as default)
-- 96% of UI texts and words already translated (.yml language files still need to be organized...)
+- 99% of UI texts and words already translated
 - Very good basis for additional languages available
 - Mother repository is https://github.com/tiddlyhost/tiddlyhost-com
 
@@ -134,12 +133,11 @@
 - `Diverse Texte und hard-codes in Views & Controllern ersetzen` 
   - durch t("key") ersetzt und in Übersetzungsdateien (.yml) ausgelagert
   - kleine Anpassungen im Code für Kompatibilität
-  -  ca. 60 vorhandene Dateien bearbeitet (fast vollständig, der "Pricing"-Teil fehlt noch)
-  -  160 Sprachdateien erstellt
+  -  190 Sprachdateien erstellt
 
-### # Aktueller Status (Februar 2026):
+### # Aktueller Status (Mai 2026):
 - Funktioniert stabil mit 0 Fehlern in den Tests (bei :en als Standard)
-- 96% der UI-Texte und Worte bereits übersetzt (.yml-Sprachdateien sind noch zu ordnen...)
+- 99% der UI-Texte und Worte übersetzt (.yml-Sprachdateien sind noch zu ordnen...)
 - Sehr gute Basis für weitere Sprachen vorhanden
 - Mutter-Reository ist https://github.com/tiddlyhost/tiddlyhost-com
 

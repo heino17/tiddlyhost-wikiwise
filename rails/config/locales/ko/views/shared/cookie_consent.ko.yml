@@ -1,0 +1,19 @@
+---
+ko:
+  admin:
+    cookie_consent_enabled:
+      label: "쿠키 배너 활성화"
+      description: "EU 쿠키 지침, GDPR, TTDSG에 따른 쿠키 알림입니다."
+    cookie_consent_button: "쿠키 설정"
+    cookie_banner_necessary_cookies: "필수 쿠키"
+    cookie_banner_essentials: "필수(항상 활성)"
+    cookie_banner_stats: "통계"
+    cookie_banner_marketing: "마케팅"
+    cookie_banner_hint_text: >
+      필수 쿠키는 로그인, 보안 및 기본 기능을 보장하며 비활성화할 수 없습니다.
+      추가 쿠키는 익명 통계 수집 및 마케팅 기능 제공에 사용됩니다.
+      허용할 카테고리를 선택할 수 있습니다.
+    cookie_banner_more_info: "<a href=\"/privacy-policy\">정책 읽기…</a>"
+    cookie_banner_accept_all: "모두 허용"
+    cookie_banner_save: "저장"
+    cookie_banner_reject_all: "모두 거부"
