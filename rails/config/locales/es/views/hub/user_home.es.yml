@@ -141,3 +141,5 @@ es:
     public: "Público"
     private: "Privado"
     redirected: "Redirigido"
+    
+  preview_image_not_yet_available: "La imagen de vista previa se está generando. Por favor espera un momento y vuelve a cargar la página. (F5)"

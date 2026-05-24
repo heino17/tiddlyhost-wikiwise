@@ -148,3 +148,5 @@ ja:
     public: "公開"
     private: "非公開"
     redirected: "リダイレクト"
+    
+  preview_image_not_yet_available: "プレビュー画像を生成しています。少し待ってからページを再読み込みしてください。(F5)"

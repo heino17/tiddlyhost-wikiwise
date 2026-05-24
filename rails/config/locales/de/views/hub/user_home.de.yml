@@ -157,3 +157,5 @@ de:
    public: "Öffentlich"
    private: "Privat"
    redirected: "Weiterleitung"
+    
+  preview_image_not_yet_available: "Das Vorschaubild wird gerade erstellt, warte einen Moment, dann lade die Seite neu! (F5)"

@@ -156,4 +156,6 @@ en:
     public: "Public"
     private: "Private"
     redirected: "Redirected"
+    
+  preview_image_not_yet_available: "The preview image is currently being generated. Please wait a moment, then reload the page! (F5)"
   

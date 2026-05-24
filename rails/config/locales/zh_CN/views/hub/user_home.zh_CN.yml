@@ -141,3 +141,5 @@ zh_CN:
     public: "公开"
     private: "私有"
     redirected: "已重定向"
+    
+  preview_image_not_yet_available: "预览图正在生成中。请稍等片刻，然后刷新页面。(F5)"

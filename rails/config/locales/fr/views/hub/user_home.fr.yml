@@ -141,3 +141,5 @@ fr:
     public: "Public"
     private: "Privé"
     redirected: "Redirigé"
+    
+  preview_image_not_yet_available: "L’image d’aperçu est en cours de génération. Veuillez patienter un instant, puis rechargez la page. (F5)"

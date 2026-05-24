@@ -149,4 +149,6 @@ ko:
     public: "공개"
     private: "비공개"
     redirected: "리디렉션됨"
+    
+  preview_image_not_yet_available: "미리보기 이미지를 생성하는 중입니다. 잠시 기다린 후 페이지를 새로고침하세요. (F5)"
   
