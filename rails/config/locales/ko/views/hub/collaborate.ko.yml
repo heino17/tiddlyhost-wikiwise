@@ -1,0 +1,24 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ko:
+  # Backend - on edit a wiki
+  collaborators: "협력자/게스트"
+  collaborator_add_new: "협력자/게스트 추가"
+  collaborator_invitation_link: "초대 링크"
+  collaborator_invitation_link_click_to_mark: "클릭하여 선택 후 복사하세요"
+  collaborator_password_hint: "변경하지 않으려면 비워두세요"
+  collaborator_checkbox_active: "활성"
+  collaborator_checkbox_remove: "삭제"
+  # Frontend
+  collaborate: "협업"
+  collaborate_on: "협업 대상:"
+  collaborate_fill_out_form: "사용자 이름과 비밀번호를 입력하세요."
+  collaborator_name: "이름"
+  collaborator_password: "비밀번호"
+  collaborate_login_button: "로그인"
+  collaborator_logged_in_as: "로그인됨:"
+  collaborator_log_off: "로그아웃"
+  collaborate_last_saved_by: "게스트 %{name}이(가) 저장했습니다,"
+  collaborate_delete_banner: "이 배너를 영구적으로 삭제"

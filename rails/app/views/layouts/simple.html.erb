@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html data-theme-mode="<%= theme_mode %>">
+<html data-theme-mode="<%= theme_mode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">
   <head>
     <title><%= @title || "#{@status_code} #{@status_message}" %></title>
+    <%# NEU: Mobile viewport %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
-    <%#
-      # This is used only for calling setLightDark to set the theme. Todo: It would be
-      # better to load just the javascript needed for that instead of everything
-     %>
     <%= javascript_include_tag 'application', defer: true %>
   </head>
 
   <body class="simple-layout">
     <header>
       <nav class="navbar navbar-dark bg-gradient <%= navbar_prod %>">
-        <%= link_to(Settings.main_site_url, class: 'navbar-brand', title: 'Tiddlyhost') do %>
+        <%= link_to(Settings.main_site_url, class: 'navbar-brand', title: t('site_title')) do %>
           <%= image_tag("logo.svg") %>
-          <span>Tiddlyhost</span>
+          <span>
+            <%= t('site_title') %>
+          </span>
         <% end %>
       </nav>
     </header>

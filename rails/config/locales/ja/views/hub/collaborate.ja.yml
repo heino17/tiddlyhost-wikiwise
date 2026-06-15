@@ -1,0 +1,24 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ja:
+  # Backend - on edit a wiki
+  collaborators: "コラボレーター/ゲスト"
+  collaborator_add_new: "コラボレーター/ゲストを追加"
+  collaborator_invitation_link: "招待リンク"
+  collaborator_invitation_link_click_to_mark: "クリックして選択し、コピーしてください"
+  collaborator_password_hint: "空白のままにすると変更しない"
+  collaborator_checkbox_active: "有効"
+  collaborator_checkbox_remove: "削除"
+  # Backend - on edit a wiki
+  collaborate: "コラボレート"
+  collaborate_on: "共同作業："
+  collaborate_fill_out_form: "ユーザー名とパスワードを入力してください。"
+  collaborator_name: "名前"
+  collaborator_password: "パスワード"
+  collaborate_login_button: "ログイン"
+  collaborator_logged_in_as: "ログイン中："
+  collaborator_log_off: "ログアウト"
+  collaborate_last_saved_by: "ゲスト %{name} によって保存されました、"
+  collaborate_delete_banner: "このバナーを永久に削除"

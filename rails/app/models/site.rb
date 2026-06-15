@@ -1,6 +1,10 @@
 class Site < ApplicationRecord
   include SiteCommon
 
+  # Collaborators
+  has_many :wiki_collaborators, dependent: :destroy, inverse_of: :site
+  accepts_nested_attributes_for :wiki_collaborators, allow_destroy: true, reject_if: :all_blank
+
   # Comment & Voting
   has_many :comments, dependent: :destroy
   has_many :site_votes, dependent: :destroy

@@ -1,0 +1,100 @@
+<br>
+<h5 style="color: var(--bs-secondary-color);"><%= t('collaborators') %></h5>
+
+<div style="margin-bottom: 1.5rem; padding: 0.75rem 1rem; border-left: 4px solid #6c8ebf; border-radius: 4px; font-size: 1rem; color: var(--bs-secondary-color);">
+  <label><strong><%= t('collaborator_invitation_link') %></strong></label><br>
+  <input type="text"
+         value="https://<%= @site.name %>.<%= Settings.main_site_host %>/?collaborate"
+         readonly
+         onclick="this.select();"
+         style="width:100%; cursor:pointer; border: 1px solid #ccc; border-radius: 4px; padding: 0.4rem; color: var(--bs-body-color);">
+  <small style="color: var(--bs-secondary-color);"><%= t('collaborator_invitation_link_click_to_mark') %></small>
+</div>
+
+<div id="collaborators">
+  <%= f.fields_for :wiki_collaborators do |cf| %>
+    <div class="collaborator-card" style="
+      border: 1px solid green;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+      font-size: 0.9rem;
+    ">
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end; color: var(--bs-secondary-color);">
+        <div style="flex: 1; min-width: 150px;">
+          <%= cf.label :name, t('collaborator_name'), style: "font-weight:600; display:block; margin-bottom:0.25rem;" %>
+          <%= cf.text_field :name, style: "width:100%; border:1px solid #ccc; border-radius:4px; padding:0.4rem; color: var(--bs-body-color);" %>
+        </div>
+        <div style="flex: 2; min-width: 200px;">
+          <%= cf.label :password, t('collaborator_password') + ' (' + t('collaborator_password_hint') + ') ', style: "font-weight:600; display:block; margin-bottom:0.25rem;" %>
+          <%= cf.password_field :password, style: "width:100%; border:1px solid #ccc; border-radius:4px; padding:0.4rem;" %>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.4rem; padding-bottom:0.2rem;">
+          <%= cf.check_box :enabled, style: "width:1.1rem; height:1.1rem;" %>
+          <%= cf.label :enabled, t('collaborator_checkbox_active'), style: "margin:0; cursor:pointer;" %>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.4rem; padding-bottom:0.2rem;">
+          <%= cf.check_box :_destroy, style: "width:1.1rem; height:1.1rem; accent-color: #dc3545;" %>
+          <%= cf.label :_destroy, t('collaborator_checkbox_remove'), style: "margin:0; cursor:pointer; color:#dc3545;" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to "＋" + "#{t('collaborator_add_new')}", "#", id: "add-collaborator", class: "button" %>
+</div>
+
+<template id="collaborator-template">
+  <div class="collaborator-card" style="
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+  ">
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: flex-end;">
+      <div style="flex: 1; min-width: 150px;">
+        <label style="font-weight:600; display:block; margin-bottom:0.25rem;"><%= t('collaborator_name') %></label>
+        <input type="text"
+               name="site[wiki_collaborators_attributes][NEW_ID][name]"
+               style="width:100%; border:1px solid #ccc; border-radius:4px; padding:0.4rem; color: var(--bs-secondary-color);">
+      </div>
+      <div style="flex: 2; min-width: 200px;">
+        <label style="font-weight:600; display:block; margin-bottom:0.25rem;"><%= t('collaborator_password') %></label>
+        <input type="password"
+               name="site[wiki_collaborators_attributes][NEW_ID][password]"
+               style="width:100%; border:1px solid #ccc; border-radius:4px; padding:0.4rem;">
+      </div>
+      <div style="display:flex; align-items:center; gap:0.4rem; padding-bottom:0.2rem;">
+        <input type="checkbox"
+               name="site[wiki_collaborators_attributes][NEW_ID][enabled]"
+               checked
+               style="width:1.1rem; height:1.1rem;">
+        <label style="margin:0; cursor:pointer;"><%= t('collaborator_checkbox_active') %></label>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.4rem; padding-bottom:0.2rem;">
+        <input type="checkbox"
+               name="site[wiki_collaborators_attributes][NEW_ID][_destroy]"
+               style="width:1.1rem; height:1.1rem; accent-color: #dc3545;">
+        <label style="margin:0; cursor:pointer; color:#dc3545;"><%= t('collaborator_checkbox_remove') %></label>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const addButton = document.getElementById("add-collaborator");
+  const container = document.getElementById("collaborators");
+  const template = document.getElementById("collaborator-template").innerHTML;
+
+  let counter = Date.now();
+
+  addButton.addEventListener("click", function(e) {
+    e.preventDefault();
+    const html = template.replace(/NEW_ID/g, counter++);
+    container.insertAdjacentHTML("beforeend", html);
+  });
+});
+</script>

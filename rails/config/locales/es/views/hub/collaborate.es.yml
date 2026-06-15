@@ -1,0 +1,24 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+es:
+  # Backend - on edit a wiki
+  collaborators: "Tus colaboradores/invitados"
+  collaborator_add_new: "Añadir colaborador/invitado"
+  collaborator_invitation_link: "Enlace de invitación"
+  collaborator_invitation_link_click_to_mark: "Clic para seleccionar, luego copiar"
+  collaborator_password_hint: "dejar en blanco para conservar"
+  collaborator_checkbox_active: "Activo"
+  collaborator_checkbox_remove: "Eliminar"
+  # Frontend
+  collaborate: "Colaborar"
+  collaborate_on: "Colaborar con"
+  collaborate_fill_out_form: "Por favor, introduce tu nombre de usuario y contraseña."
+  collaborator_name: "Nombre"
+  collaborator_password: "Contraseña"
+  collaborate_login_button: "Iniciar sesión"
+  collaborator_logged_in_as: "Conectado como"
+  collaborator_log_off: "Cerrar sesión"
+  collaborate_last_saved_by: "guardado por tu invitado %{name}, el"
+  collaborate_delete_banner: "Eliminar este banner permanentemente"

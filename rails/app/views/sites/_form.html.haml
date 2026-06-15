@@ -54,6 +54,8 @@
       = render 'site_common/allow_in_iframe', f:
       = render 'save_method_prefs', f:
       = render 'skip_etag_check', f:
+      
+    = render "collaborators_fields", f: f
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-5' } do
       = f.submit @site.new_record? ? t('site_view_save_history_button_create') : t('site_view_save_history_button_update'), class: 'btn btn-primary'

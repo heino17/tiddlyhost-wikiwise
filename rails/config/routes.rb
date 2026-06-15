@@ -25,9 +25,13 @@ Rails.application.routes.draw do
     get '/favicon.ico', to: 'tiddlywiki#favicon'
     get '/download', to: 'tiddlywiki#download'
     get '/thumb.png', to: 'tiddlywiki#thumb_png'
+  
+    # Collaborator login 
+    post '/', to: 'tiddlywiki#collab_login_submit', constraints: lambda { |req| req.params.key?('collaborate') }
 
     post '/', to: 'tiddlywiki#upload_save'
     put '/', to: 'tiddlywiki#put_save'
+
   end
 
   #
@@ -125,6 +129,8 @@ Rails.application.routes.draw do
 
         get 'version_label/:blob_id', action: 'version_label_form', as: :version_label_form
         patch 'version_label/:blob_id', action: 'version_label_update', as: :version_label_update
+      
+        delete :dismiss_collab_banner
       end
     end
   

@@ -1,3 +1,32 @@
+- collab_sites = @sites.select { |s| s.last_collab_saved_at.present? }
+- if collab_sites.any?
+  - collab_sites.each do |s|
+    .alert.alert-info.mx-2.mb-2{ style: "max-width: 1050px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;" }
+      %span
+        💾
+        = "\"#{s.name}\""
+        = t('collaborate_last_saved_by', name: s.last_collab_saved_by)
+        %span.local-time{ data: { utc: s.last_collab_saved_at.utc.iso8601 } }
+          = l(s.last_collab_saved_at, format: :short)
+      = button_to "✕", dismiss_collab_banner_site_path(s), method: :delete,
+          form: { style: "margin:0;", data: { turbo: false } },
+          style: "background:none; border:none; cursor:pointer; font-size:1.1rem; color: red;",
+          title: t('collaborate_delete_banner')
+
+:javascript
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.local-time').forEach(function(el) {
+      const utc = new Date(el.dataset.utc);
+      el.textContent = utc.toLocaleString(undefined, {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    });
+  });
+
 %h1= I18n.t('your_sites')
 
 - if @sites.empty?

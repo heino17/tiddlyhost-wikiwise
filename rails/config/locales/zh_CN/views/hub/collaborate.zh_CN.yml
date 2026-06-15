@@ -1,0 +1,24 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+zh_CN:
+  # Backend - on edit a wiki
+  collaborators: "您的协作者/访客"
+  collaborator_add_new: "添加协作者/访客"
+  collaborator_invitation_link: "邀请链接"
+  collaborator_invitation_link_click_to_mark: "点击高亮，然后复制"
+  collaborator_password_hint: "留空则保持不变"
+  collaborator_checkbox_active: "启用"
+  collaborator_checkbox_remove: "删除"
+  # Frontend
+  collaborate: "协作"
+  collaborate_on: "协作于"
+  collaborate_fill_out_form: "请输入您的用户名和密码。"
+  collaborator_name: "姓名"
+  collaborator_password: "密码"
+  collaborate_login_button: "登录"
+  collaborator_logged_in_as: "已登录为"
+  collaborator_log_off: "退出登录"
+  collaborate_last_saved_by: "由您的访客 %{name} 保存于"
+  collaborate_delete_banner: "永久删除此横幅"

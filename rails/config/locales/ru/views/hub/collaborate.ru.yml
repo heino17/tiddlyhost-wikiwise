@@ -1,0 +1,24 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+#
+---
+ru:
+  # Backend - on edit a wiki
+  collaborators: "Ваши соавторы/гости"
+  collaborator_add_new: "Добавить соавтора/гостя"
+  collaborator_invitation_link: "Ссылка-приглашение"
+  collaborator_invitation_link_click_to_mark: "Нажмите для выделения, затем скопируйте"
+  collaborator_password_hint: "оставьте пустым, чтобы сохранить"
+  collaborator_checkbox_active: "Активен"
+  collaborator_checkbox_remove: "Удалить"
+  # Frontend
+  collaborate: "Совместная работа"
+  collaborate_on: "Совместная работа с"
+  collaborate_fill_out_form: "Пожалуйста, введите имя пользователя и пароль."
+  collaborator_name: "Имя"
+  collaborator_password: "Пароль"
+  collaborate_login_button: "Войти"
+  collaborator_logged_in_as: "Вы вошли как"
+  collaborator_log_off: "Выйти"
+  collaborate_last_saved_by: "сохранено вашим гостем %{name},"
+  collaborate_delete_banner: "Удалить этот баннер навсегда"

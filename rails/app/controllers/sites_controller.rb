@@ -226,6 +226,15 @@ class SitesController < ApplicationController
     end
   end
 
+  def dismiss_collab_banner
+    @site = current_user.sites.find(params[:id])
+    @site.update_columns(
+      last_collab_saved_by: nil,
+      last_collab_saved_at: nil
+    )
+    redirect_to sites_path
+  end
+
   private
 
   def set_site
@@ -270,12 +279,14 @@ class SitesController < ApplicationController
     allow_public_clone
     skip_etag_check
     disable_download_url
+    wiki_collaborators_attributes
   ]
 
   def site_params_for_update
-    params.
-      require(:site).
-      permit(*UPDATEABLE_PARAMS)
+    params.require(:site).permit(
+      *UPDATEABLE_PARAMS,
+      wiki_collaborators_attributes: [:id, :name, :password, :enabled, :_destroy]
+    )
   end
 
   UPDATEABLE_PARAMS_ON_CREATE = UPDATEABLE_PARAMS + %i[

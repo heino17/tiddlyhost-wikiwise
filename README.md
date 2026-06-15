@@ -4,7 +4,8 @@
 **+ Shoutbox-Mini-Chat-Widget**  
 **+ Erweiterter Admin-Bereich für Einstellungen**  
 **+ Admin‑Bereich – Benutzerverwaltung erweitert**  
-**+ Cookie-Banner - EU-Cookie-Richtlinien, DSGVO und TTDSG** 
+**+ Cookie-Banner - EU-Cookie-Richtlinien, DSGVO und TTDSG**  
+**+ Gäste-Login für jedes Wiki**  
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
 
@@ -20,7 +21,8 @@
 - Der Admin-Bereich wurde um eine Registrierkarte/Tab erweitert  
   für direkten Zugriff auf einige Funktionen **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**   
 - Die Benutzerverwaltung wurde erweitert **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**  
-- Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
+- Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)** 
+- Gäste-Login für jedes Wiki **Siehe: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**
 
 Es ist für meine Server-Umgebung etwas angepasst, **siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
@@ -50,6 +52,7 @@ cd tiddlyhost-wikiwise
 **+ Advanced Admin Panel for Settings**  
 **+ Admin area – User management expanded**  
 **+ Cookie-Banner - EU Cookie Directives, GDPR, and TTDSG**  
+**+ Guest login for every wiki**  
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
 
@@ -65,6 +68,7 @@ cd tiddlyhost-wikiwise
 - A new tab has been added to the admin area for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
 - User management has been expanded **See: [Readme-User-Management.md](Readme-User-Management.md)**  
 - Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
+- Guest login for each wiki **See: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**  
 
 It has been slightly adapted for my server environment, **see [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 

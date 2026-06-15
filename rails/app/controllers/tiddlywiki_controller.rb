@@ -19,21 +19,85 @@ class TiddlywikiController < ApplicationController
   def serve
     return site_not_available unless site_visible?
 
-    # Convince TiddlyWiki it can use the put saver
+    # ?collaborate → Login-Formular direkt anzeigen (kein Redirect!)
+    if params.key?(:collaborate)
+      @site_name = @site.name
+      return render 'sites/collab_login', layout: 'simple'
+    end
+  
+    # ?collab_logout → Session löschen und Wiki neu laden
+    if params.key?(:collab_logout)
+      session.delete(:collab_site_id)
+      session.delete(:collab_name)
+      response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
+      response.headers['Pragma'] = 'no-cache'
+      response.headers['Expires'] = '0'
+      return redirect_to "https://#{request.subdomain}.#{request.domain}/?cache_clean=#{Time.now.to_i}", allow_other_host: true
+    end
+  
     dummy_webdav_header if request.options? && @site.use_put_saver?
-
     etag_header
-
-    # Avoid site download for head or options requests
     return head 200 if request.head? || request.options?
-
-    # Don't serve a file if it doesn't resemble a valid TiddlyWiki
     return site_not_valid unless site_valid?
-
+  
     update_view_count_and_access_timestamp
-
     nginx_no_buffering_header
-    render html: @site.html_content(is_logged_in: user_owns_site?).html_safe
+    content = @site.html_content(is_logged_in: user_owns_site? || collab_session_active?)
+    if collab_session_active?
+      banner = %(<div style="position:fixed;top:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:6px;z-index:99999;font-family:sans-serif;">
+        #{t('collaborator_logged_in_as')}: <strong>#{session[:collab_name]}</strong>
+        &nbsp;|&nbsp;
+        <form method="GET" action="/" style="display:inline;">
+          <input type="hidden" name="collab_logout" value="1">
+          <button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;"> #{t('collaborator_log_off')} </button>
+        </form>
+      </div>)
+      content = content.sub('</body>', "#{banner}</body>")
+    end
+  
+    # $:/status/UserName setzen
+    username = nil
+    username = current_user.username if user_owns_site?
+    username = session[:collab_name] if collab_session_active?
+    
+    if username.present?
+      script = %(<script>
+        window.addEventListener('load', function() {
+          if (window.$tw) {
+            $tw.wiki.addTiddler(new $tw.Tiddler({
+              title: '$:/status/UserName',
+              text: '#{username}'
+            }));
+          }
+        });
+      </script>)
+      content = content.sub('</body>', "#{script}</body>")
+    end
+    render html: content.html_safe
+  
+  end
+
+  def collab_login
+    @site_name = @site.name
+    render 'sites/collab_login', layout: 'simple'
+  end
+  
+  def collab_login_submit
+    name     = params[:name]
+    password = params[:password]
+  
+    collaborator = WikiCollaborator.authenticate_for_site(@site, name, password)
+  
+    if collaborator
+      session[:collab_site_id]   = @site.id
+      session[:collab_name]      = collaborator.name
+      session[:collab_expires_at] = 24.hours.from_now
+      redirect_to "https://#{request.subdomain}.#{request.domain}/", allow_other_host: true
+    else
+      @site_name = @site.name
+      @error = "Name oder Passwort falsch."
+      render 'sites/collab_login', layout: 'simple', status: :unprocessable_entity
+    end
   end
 
   def json_content
@@ -107,6 +171,12 @@ class TiddlywikiController < ApplicationController
       if site_saveable?
         @site.file_upload(params[:userfile])
         @site.increment_save_count
+        if collab_session_active?
+          @site.update_columns(
+            last_collab_saved_by: session[:collab_name],
+            last_collab_saved_at: Time.current
+          )
+        end
         render plain: "0 - OK\n"
       else
         # Give a 200 status no matter what so the user sees the message in a browser alert
@@ -146,6 +216,12 @@ class TiddlywikiController < ApplicationController
           # All clear to save
           @site.file_upload(request.body)
           @site.increment_save_count
+          if collab_session_active?
+            @site.update_columns(
+              last_collab_saved_by: session[:collab_name],
+              last_collab_saved_at: Time.current
+            )
+          end
           head 204
 
         end
@@ -216,7 +292,13 @@ class TiddlywikiController < ApplicationController
   end
 
   def site_saveable?
-    site_exists? && user_owns_site?
+    site_exists? && (user_owns_site? || collab_session_active?)
+  end
+
+  def collab_session_active?
+    session[:collab_site_id] == @site.id &&
+      session[:collab_expires_at].present? &&
+      session[:collab_expires_at] > Time.now
   end
 
   def site_save_would_overwrite?

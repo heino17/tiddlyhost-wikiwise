@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_05_21_160824) do
+ActiveRecord::Schema[7.2].define(version: 2026_06_14_145332) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -255,6 +255,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_21_160824) do
     t.decimal "vote_score", precision: 3, scale: 1, default: "0.0"
     t.boolean "cookie_consent_enabled", default: false, null: false
     t.integer "cookie_consent_version", default: 1, null: false
+    t.string "last_collab_saved_by"
+    t.datetime "last_collab_saved_at"
     t.index ["cloned_from_id"], name: "index_sites_on_cloned_from_id"
     t.index ["comments_count"], name: "index_sites_on_comments_count"
     t.index ["empty_id"], name: "index_sites_on_empty_id"
@@ -356,6 +358,17 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_21_160824) do
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
+  create_table "wiki_collaborators", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.string "name", null: false
+    t.string "password_digest", null: false
+    t.boolean "enabled", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id", "name"], name: "index_wiki_collaborators_on_site_id_and_name"
+    t.index ["site_id"], name: "index_wiki_collaborators_on_site_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comment_votes", "comments"
@@ -374,4 +387,5 @@ ActiveRecord::Schema[7.2].define(version: 2026_05_21_160824) do
   add_foreign_key "taggings", "tags"
   add_foreign_key "tspot_sites", "users"
   add_foreign_key "users", "user_types"
+  add_foreign_key "wiki_collaborators", "sites"
 end
