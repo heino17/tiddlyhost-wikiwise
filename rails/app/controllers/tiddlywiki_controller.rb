@@ -43,35 +43,55 @@ class TiddlywikiController < ApplicationController
     update_view_count_and_access_timestamp
     nginx_no_buffering_header
     content = @site.html_content(is_logged_in: user_owns_site? || collab_session_active?)
+    # Banner und Username-Injection nur für TiddlyWiki
+    is_tiddlywiki = @site.tw_kind.in?(['tw5', 'tw5x', 'classic'])
     if collab_session_active?
-      banner = %(<div style="position:fixed;top:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:6px;z-index:99999;font-family:sans-serif;">
-        #{t('collaborator_logged_in_as')}: <strong>#{session[:collab_name]}</strong>
-        &nbsp;|&nbsp;
-        <form method="GET" action="/" style="display:inline;">
-          <input type="hidden" name="collab_logout" value="1">
-          <button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;"> #{t('collaborator_log_off')} </button>
-        </form>
-      </div>)
+      logged_in_text = t('collaborator_logged_in_as')
+      collab_name = session[:collab_name]
+      log_off_text = t('collaborator_log_off')
+    
+      banner = %(<div id="collab-banner" style="position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:1px;z-index:99999;font-size:0.777rem;font-family:sans-serif;">#{logged_in_text}: <strong>#{collab_name}</strong> | <form method="GET" action="/" style="display:inline;"><input type="hidden" name="collab_logout" value="1"><button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;">#{log_off_text}</button></form></div>)
+    
       content = content.sub('</body>', "#{banner}</body>")
     end
   
+    if collab_session_active? && @site.tw_kind == 'sitelet'
+      banner_script = %(<script id="collab-banner-script">
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          if (document.getElementById('collab-banner')) return;
+          var b = document.createElement('div');
+          b.id = 'collab-banner';
+          b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:1px;z-index:99999;font-size:0.777rem;font-family:sans-serif;';
+          b.innerHTML = '#{t('collaborator_logged_in_as')}: <strong>#{session[:collab_name]}</strong> &nbsp;|&nbsp; <form method="GET" action="/" style="display:inline;"><input type="hidden" name="collab_logout" value="1"><button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;">#{t('collaborator_log_off')}</button></form>';
+          document.body.appendChild(b);
+        }, 300);
+      });
+    <\/script>)
+    # In <head> injizieren statt </body>!
+    content = content.sub('</head>', "#{banner_script}</head>")
+    end
+  
     # $:/status/UserName setzen
-    username = nil
-    username = current_user.username if user_owns_site?
-    username = session[:collab_name] if collab_session_active?
+    # $tw.wiki.addTiddler nur für TiddlyWiki!
+    if is_tiddlywiki
+      username = nil
+      username = current_user.username if user_owns_site?
+      username = session[:collab_name] if collab_session_active?
     
-    if username.present?
-      script = %(<script>
-        window.addEventListener('load', function() {
-          if (window.$tw) {
-            $tw.wiki.addTiddler(new $tw.Tiddler({
-              title: '$:/status/UserName',
-              text: '#{username}'
-            }));
-          }
-        });
-      </script>)
-      content = content.sub('</body>', "#{script}</body>")
+      if username.present?
+        script = %(<script>
+          window.addEventListener('load', function() {
+            if (window.$tw) {
+              $tw.wiki.addTiddler(new $tw.Tiddler({
+                title: '$:/status/UserName',
+                text: '#{username}'
+              }));
+            }
+          });
+        </script>)
+        content = content.sub('</body>', "#{script}</body>")
+      end
     end
     render html: content.html_safe
   
@@ -98,6 +118,12 @@ class TiddlywikiController < ApplicationController
       @error = "Name oder Passwort falsch."
       render 'sites/collab_login', layout: 'simple', status: :unprocessable_entity
     end
+  end
+
+  def clean_collab_banner(content)
+    content
+      .gsub(/<div id="collab-banner".*?<\/div>/m, '')
+      .gsub(/<script id="collab-banner-script">.*?<\/script>/m, '')
   end
 
   def json_content
@@ -169,7 +195,9 @@ class TiddlywikiController < ApplicationController
   def upload_save
     begin
       if site_saveable?
-        @site.file_upload(params[:userfile])
+        userfile = params[:userfile]
+        cleaned = clean_collab_banner(userfile.read)
+        @site.file_upload(StringIO.new(cleaned))
         @site.increment_save_count
         if collab_session_active?
           @site.update_columns(
@@ -193,16 +221,6 @@ class TiddlywikiController < ApplicationController
     begin
       if site_saveable?
         if site_save_would_overwrite?
-          #
-          # Todo: Find a better solution for this. Some ideas:
-          # - Do a sync of the newer content and refresh the etag
-          # - Somehow do a merge-save that keeps all the changes
-          # - Detect the etag change early and warn the user they need to
-          #   reload so they're less likely to have a lot of edits they can't
-          #   save when they get this message
-          # - Some kind of "force overwrite" option if they decide the other
-          #   changes are less important
-          #
           err_message = 'It appears that the site has been updated since you first ' \
             'loaded it. Saving now would cause those updates to be overwritten.' \
             "\n\n" \
@@ -211,10 +229,10 @@ class TiddlywikiController < ApplicationController
             'option you can set in the Tiddlyhost advanced site settings to ignore ' \
             'this error and save anyway.)'
           render status: 412, plain: err_message
-
         else
-          # All clear to save
-          @site.file_upload(request.body)
+          # Banner bereinigen und speichern
+          body = clean_collab_banner(request.body.read)
+          @site.file_upload(StringIO.new(body))
           @site.increment_save_count
           if collab_session_active?
             @site.update_columns(
@@ -223,16 +241,12 @@ class TiddlywikiController < ApplicationController
             )
           end
           head 204
-
         end
-
       else
-        # Maybe login is needed
         err_message = "If this is your site please log in at #{main_site_url} and try again."
         render status: 403, plain: err_message
       end
     rescue StandardError => e
-      # Todo: Should probably give a generic "Save failed!" message, and log the real problem
       err_message = "#{e.class.name} #{e.message}"
       render status: 500, plain: err_message
     end

@@ -354,10 +354,10 @@ EMPTY_URL_tw5x=https://tiddlywiki.com/empty-external-core.html
 EMPTY_URL_classic=https://classic.tiddlywiki.com/empty.html
 EMPTY_URL_prerelease=https://tiddlywiki.com/prerelease/empty.html
 
-EMPTY_URL_feather=https://feather.wiki/builds/v1.8.x/FeatherWiki_$(FEATHER_BIRD).html
-EMPTY_URL_featherx=https://feather.wiki/builds/v1.8.x/FeatherWiki-bones$(FEATHER_BIRD).html
-EMPTY_URL_feather_plumage=https://feather.wiki/builds/v1.8.x/FeatherWiki-plumage_$(FEATHER_BIRD).css
-EMPTY_URL_feather_bones=https://feather.wiki/builds/v1.8.x/FeatherWiki-bones_$(FEATHER_BIRD).js
+EMPTY_URL_feather=https://feather.wiki/builds/v1.9.x/FeatherWiki_$(FEATHER_BIRD).html
+EMPTY_URL_featherx=https://feather.wiki/builds/v1.9.x/FeatherWiki-bones$(FEATHER_BIRD).html
+EMPTY_URL_feather_plumage=https://feather.wiki/builds/v1.9.x/FeatherWiki-plumage_$(FEATHER_BIRD).css
+EMPTY_URL_feather_bones=https://feather.wiki/builds/v1.9.x/FeatherWiki-bones_$(FEATHER_BIRD).js
 
 CURL_FETCH=curl -sL $(EMPTY_URL_$1) -o $(EMPTY_DIR)/$1.html
 
@@ -394,12 +394,12 @@ prod-prerelease: $(PROD_PRERELEASE)
 # to copy in locally built Feather Wiki empty
 FEATHER_EMPTY=$(EMPTY_DIR)/feather.html
 $(FEATHER_EMPTY):
-	cp ../FeatherWiki/builds/v1.8.x/FeatherWiki_$(FEATHER_BIRD).html $@
+	cp ../FeatherWiki/builds/v1.9.x/FeatherWiki_$(FEATHER_BIRD).html $@
 
 # Built locally with https://codeberg.org/Alamantus/FeatherWiki/pulls/208
 FEATHERX_EMPTY=$(EMPTY_DIR)/featherx.html
 $(FEATHERX_EMPTY):
-	cp ../FeatherWiki/builds/v1.8.x/FeatherWiki-bare_$(FEATHER_BIRD).html $@
+	cp ../FeatherWiki/builds/v1.9.x/FeatherWiki-bare_$(FEATHER_BIRD).html $@
 
 feather-empty: $(FEATHER_EMPTY) $(FEATHERX_EMPTY)
 
@@ -450,7 +450,7 @@ tw5-update: ver-set $(TW5_DIR) download-empty-tw5 download-empty-tw5x download-c
 # You must specify the version manually here too:
 #   VER=1.7.0 make feather-update
 #
-FEATHER_BIRD=Woodlark
+FEATHER_BIRD=Greenfinch
 feather-update: ver-set download-empty-feather
 	cp $(EMPTIES_DIR)/feather.html $(EMPTIES_DIR)/feather/$(VER).html
 	git add \
@@ -460,7 +460,7 @@ feather-update: ver-set download-empty-feather
 	  -m 'Commit created with `VER=$(VER) make feather-update`'
 
 # Same thing for Classic
-#   VER=2.10.1 make classic-update
+#   VER=2.10.2 make classic-update
 classic-update: ver-set download-empty-classic
 	cp $(EMPTIES_DIR)/classic.html $(EMPTIES_DIR)/classic/$(VER).html
 	git add \
