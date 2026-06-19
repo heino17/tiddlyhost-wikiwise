@@ -248,6 +248,7 @@ ko:
       save: "저장"
       cancel: "취소"
       settings_saved: "설정이 저장되었습니다!"
+      settings_save_failed: "이 사이트가 본인 소유라면 %{main_site_url} 에 로그인한 후 다시 시도하세요."
     tab_settings_subtab:
       general: "일반"
       community: "커뮤니티"

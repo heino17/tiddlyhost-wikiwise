@@ -247,6 +247,7 @@ fr:
       save: "Enregistrer"
       cancel: "Annuler"
       settings_saved: "Paramètres enregistrés !"
+      settings_save_failed: "Si ce site est le vôtre, veuillez vous connecter sur %{main_site_url} et réessayer."
     tab_settings_subtab:
       general: "Général"
       community: "Communauté"

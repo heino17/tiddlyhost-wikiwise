@@ -247,6 +247,7 @@ zh_CN:
       save: "保存"
       cancel: "取消"
       settings_saved: "设置已保存！"
+      settings_save_failed: "如果这是您的站点，请在 %{main_site_url} 登录后重试。"
     tab_settings_subtab:
       general: "常规"
       community: "社区"

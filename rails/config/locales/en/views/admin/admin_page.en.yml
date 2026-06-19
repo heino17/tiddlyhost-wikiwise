@@ -252,6 +252,7 @@ en:
       save: "Save"
       cancel: "Cancel"
       settings_saved: "Settings saved!"
+      settings_save_failed: "If this is your site, please log in at %{main_site_url} and try again."
     tab_settings_subtab:
       general: "General"
       community: "Community"

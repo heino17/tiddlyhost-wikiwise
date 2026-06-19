@@ -252,6 +252,7 @@ ru:
       save: "Сохранить"
       cancel: "Отмена"
       settings_saved: "Настройки сохранены!"
+      settings_save_failed: "Если это ваш сайт, пожалуйста, войдите на %{main_site_url} и попробуйте снова."
     tab_settings_subtab:
       general: "Общие"
       community: "Сообщество"

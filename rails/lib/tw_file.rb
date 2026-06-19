@@ -72,7 +72,7 @@ class TwFile
     if html_content.match(/<meta name="?application-name"? content="Feather Wiki">/)
       match = html_content.match(/<meta name="?version"? content="?([a-zA-Z0-9\-._]+)"?/)
       if match
-        if html_content.match(/<script id="?a"? src="?FeatherWiki-bones_\w+.js"?>/)
+        if html_content[0,2000].match(/<script id="?a"? src=/)
           # External javascript
           return ['featherx', match[1]]
         else
@@ -132,7 +132,7 @@ class TwFile
   end
 
   def is_feather_external_core?
-    is_feather? && doc.at_xpath("/html/head/script[contains(@src, 'FeatherWiki-bones')]").present?
+    is_feather? && doc.at_xpath("/html/head/script[@id='a'][@src]").present?
   end
 
   def kind

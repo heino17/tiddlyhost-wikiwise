@@ -248,6 +248,7 @@ es:
       save: "Guardar"
       cancel: "Cancelar"
       settings_saved: "¡Configuración guardada!"
+      settings_save_failed: "Si este es tu sitio, inicia sesión en %{main_site_url} e inténtalo de nuevo."
     tab_settings_subtab:
       general: "General"
       community: "Comunidad"

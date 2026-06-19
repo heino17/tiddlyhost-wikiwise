@@ -45,24 +45,54 @@ class TiddlywikiController < ApplicationController
     content = @site.html_content(is_logged_in: user_owns_site? || collab_session_active?)
     # Banner und Username-Injection nur für TiddlyWiki
     is_tiddlywiki = @site.tw_kind.in?(['tw5', 'tw5x', 'classic'])
+  
     if collab_session_active?
       logged_in_text = t('collaborator_logged_in_as')
       collab_name = session[:collab_name]
       log_off_text = t('collaborator_log_off')
     
-      banner = %(<div id="collab-banner" style="position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:1px;z-index:99999;font-size:0.777rem;font-family:sans-serif;">#{logged_in_text}: <strong>#{collab_name}</strong> | <form method="GET" action="/" style="display:inline;"><input type="hidden" name="collab_logout" value="1"><button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;">#{log_off_text}</button></form></div>)
+      is_feather = @site.empty.name == 'feather'
+      is_featherx = @site.empty.name == 'featherx'
     
-      content = content.sub('</body>', "#{banner}</body>")
+      if is_featherx
+        # Featherx Wiki entfernt DOM-Elemente – wir brauchen setInterval
+        banner_script = <<~'BANNER'
+          <script>
+            (function() {
+              function insertBanner() {
+                if (document.getElementById('collab-banner')) return;
+                var b = document.createElement('div');
+                b.id = 'collab-banner';
+                b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:0px;z-index:99999;font-size:0.777rem;font-family:sans-serif;';
+                b.innerHTML = 'LOGGED_IN_TEXT: <strong>COLLAB_NAME</strong> | <form method="GET" action="/" style="display:inline;"><input type="hidden" name="collab_logout" value="1"><button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;">LOG_OFF_TEXT</button></form>';
+                document.body.appendChild(b);
+              }
+              setTimeout(insertBanner, 1000);
+              setInterval(insertBanner, 2000);
+            })();
+          </script>
+        BANNER
+        banner_script = banner_script
+          .gsub('LOGGED_IN_TEXT', logged_in_text)
+          .gsub('COLLAB_NAME', collab_name)
+          .gsub('LOG_OFF_TEXT', log_off_text)
+        content = content.sub('</body>', "#{banner_script}</body>")
+    
+      else
+        # TiddlyWiki, Classic, Feather etc.
+        banner = %(<div id="collab-banner" style="position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:1px;z-index:99999;font-size:0.777rem;font-family:sans-serif;">#{logged_in_text}: <strong>#{collab_name}</strong> | <form method="GET" action="/" style="display:inline;"><input type="hidden" name="collab_logout" value="1"><button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;">#{log_off_text}</button></form></div>)
+        content = content.sub('</body>', "#{banner}</body>")
+      end
     end
   
-    if collab_session_active? && @site.tw_kind == 'sitelet'
+    if collab_session_active? && @site.empty.name == 'sitelet'
       banner_script = %(<script id="collab-banner-script">
       window.addEventListener('load', function() {
         setTimeout(function() {
           if (document.getElementById('collab-banner')) return;
           var b = document.createElement('div');
           b.id = 'collab-banner';
-          b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:1px;z-index:99999;font-size:0.777rem;font-family:sans-serif;';
+          b.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:0px;padding-bottom:10px;z-index:99999;font-size:0.777rem;font-family:sans-serif;';
           b.innerHTML = '#{t('collaborator_logged_in_as')}: <strong>#{session[:collab_name]}</strong> &nbsp;|&nbsp; <form method="GET" action="/" style="display:inline;"><input type="hidden" name="collab_logout" value="1"><button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;">#{t('collaborator_log_off')}</button></form>';
           document.body.appendChild(b);
         }, 300);
@@ -208,7 +238,7 @@ class TiddlywikiController < ApplicationController
         render plain: "0 - OK\n"
       else
         # Give a 200 status no matter what so the user sees the message in a browser alert
-        render plain: "If this is your site please log in at\n#{main_site_url} and try again.\n"
+        render plain: I18n.t('admin.tab_settings.settings_save_failed', main_site_url: main_site_url)
       end
     rescue StandardError => e
       # Todo: Should probably give a generic "Save failed!" message, and log the real problem
@@ -243,7 +273,7 @@ class TiddlywikiController < ApplicationController
           head 204
         end
       else
-        err_message = "If this is your site please log in at #{main_site_url} and try again."
+        err_message = I18n.t('admin.tab_settings.settings_save_failed', main_site_url: main_site_url)
         render status: 403, plain: err_message
       end
     rescue StandardError => e

@@ -346,7 +346,6 @@ forgot-link:
 	@$(DCC) 'grep "tiddlyhost.local/users/password/edit?reset_password_token=" log/development.log | grep -v "Started GET" | tail -1 | cut -d" " -f2'
 
 #----------------------------------------------------------
-
 EMPTY_DIR=rails/tw_content/empties
 
 EMPTY_URL_tw5=https://tiddlywiki.com/empty.html
@@ -355,63 +354,69 @@ EMPTY_URL_classic=https://classic.tiddlywiki.com/empty.html
 EMPTY_URL_prerelease=https://tiddlywiki.com/prerelease/empty.html
 
 EMPTY_URL_feather=https://feather.wiki/builds/v1.9.x/FeatherWiki_$(FEATHER_BIRD).html
-EMPTY_URL_featherx=https://feather.wiki/builds/v1.9.x/FeatherWiki-bones$(FEATHER_BIRD).html
+# Fixed: was missing the underscore before $(FEATHER_BIRD)
+EMPTY_URL_featherx=https://feather.wiki/builds/v1.9.x/FeatherWiki-bones_$(FEATHER_BIRD).html
 EMPTY_URL_feather_plumage=https://feather.wiki/builds/v1.9.x/FeatherWiki-plumage_$(FEATHER_BIRD).css
 EMPTY_URL_feather_bones=https://feather.wiki/builds/v1.9.x/FeatherWiki-bones_$(FEATHER_BIRD).js
-
 CURL_FETCH=curl -sL $(EMPTY_URL_$1) -o $(EMPTY_DIR)/$1.html
-
 download-empty-%: $(EMPTY_DIR)
 	$(call CURL_FETCH,$*)
-
 CORE_JS_URL=https://tiddlywiki.com/tiddlywikicore-$(VER).js
 
 download-core-js:
 	cd rails/public && curl -sL $(CORE_JS_URL) -O
-
+    
 download-core-js-prerelease:
 	PRERELEASE_VER=$$(curl -s --range 0-1000 $(EMPTY_URL_prerelease) | grep '<meta name="tiddlywiki-version"' | cut -d'"' -f4) && \
 	CORE_JS_PRERELEASE_URL=https://tiddlywiki.com/prerelease/tiddlywikicore-$${PRERELEASE_VER}.js && \
 	  cd rails/public && \
 	  curl -sL $${CORE_JS_PRERELEASE_URL} -O
-
+      
 # (No download-empty-featherx yet since I'm building it locally)
 download-empties: download-empty-tw5 download-empty-tw5x download-empty-feather download-empty-classic download-empty-prerelease download-core-js download-core-js-prerelease
 
 # For Feather Wiki js and css
 # (Actually I'm building the "bones" locally also since it requires the
 # changes from https://codeberg.org/Alamantus/FeatherWiki/pulls/208 )
+#
+# NOTE: The external-core JS/CSS bundle filenames are whatever the Feather
+# Wiki build produces for the given $(FEATHER_BIRD) release name (e.g.
+# "bones_Meadowlark", "muscles_Greenfinch", ...). This naming scheme can
+# change between Feather Wiki versions/builds. That's fine: tw_file.rb's
+# is_feather_external_core? detects the external-core variant structurally
+# (checks for a @src attribute on the <script id="a"> tag) rather than by
+# matching a specific filename, so a renamed bundle won't break kind
+# detection. Just make sure the variables below point at whatever the
+# current build actually outputs.
+
 download-plumage-and-bones:
 	cd rails/public && curl -sLO $(EMPTY_URL_feather_bones) && curl -sLO $(EMPTY_URL_feather_plumage)
-
 PROD_PRERELEASE=docker/config/prerelease.html
 $(PROD_PRERELEASE): $(EMPTY_DIR)/prerelease.html
 	cp $< $@
-
 prod-prerelease: $(PROD_PRERELEASE)
-
 # Usually this is downloaded using download-empties, but this can be used
 # to copy in locally built Feather Wiki empty
 FEATHER_EMPTY=$(EMPTY_DIR)/feather.html
 $(FEATHER_EMPTY):
 	cp ../FeatherWiki/builds/v1.9.x/FeatherWiki_$(FEATHER_BIRD).html $@
-
 # Built locally with https://codeberg.org/Alamantus/FeatherWiki/pulls/208
+#
+# NOTE: the source filename here ("bare_...") is whatever this PR branch's
+# build currently calls its external-core empty file. If a future build
+# (or PR update) renames it, update this line to match — but no other
+# code needs to change, since kind detection doesn't depend on the name.
 FEATHERX_EMPTY=$(EMPTY_DIR)/featherx.html
 $(FEATHERX_EMPTY):
 	cp ../FeatherWiki/builds/v1.9.x/FeatherWiki-bare_$(FEATHER_BIRD).html $@
-
 feather-empty: $(FEATHER_EMPTY) $(FEATHERX_EMPTY)
-
 refresh-empties: empty-versions clear-empties download-empties
 
 clear-empties:
 	@rm -rf $(EMPTY_DIR)/*.html
-
 empty-versions:
 	@$(DCC) 'bin/rails runner "puts Empty.versions.to_yaml"' \
 	  | grep -v 'Spring preloader' | grep -v '\-\-\-'
-
 #----------------------------------------------------------
 
 # Run this at build time since I don't want to check in the gzipped files

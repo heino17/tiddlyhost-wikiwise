@@ -1,4 +1,4 @@
-- collab_sites = @sites.select { |s| s.last_collab_saved_at.present? }
+- collab_sites = @sites.select { |s| s.respond_to?(:last_collab_saved_at) && s.last_collab_saved_at.present? }
 - if collab_sites.any?
   - collab_sites.each do |s|
     .alert.alert-info.mx-2.mb-2{ style: "max-width: 1050px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;" }

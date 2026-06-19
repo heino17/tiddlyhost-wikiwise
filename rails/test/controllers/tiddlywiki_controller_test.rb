@@ -279,8 +279,8 @@ class TiddlywikiControllerTest < ActionDispatch::IntegrationTest
     upload_save_site_as_user(user: users(:mary), site: @site, fixture_file: 'index.html',
       expected_status: 200, expect_success: false)
 
-    assert_equal "If this is your site please log in at\nhttp://tiddlyhost-test-example.com and try again.\n",
-      response.body
+    assert_equal(
+      'If this is your site, please log in at http://tiddlyhost-test-example.com and try again.', response.body)
   end
 
   test 'put save with etag check' do
@@ -332,7 +332,7 @@ class TiddlywikiControllerTest < ActionDispatch::IntegrationTest
     put_save_site_as_user(user: users(:mary), site: @site, content: new_content,
       headers: { 'If-Match' => 'whatever' }, expected_status: 403)
     assert_equal(
-      'If this is your site please log in at http://tiddlyhost-test-example.com and try again.', response.body)
+      'If this is your site, please log in at http://tiddlyhost-test-example.com and try again.', response.body)
   end
 
   def fetch_site_as_user(user: @user, site: @site, expected_status: 200)

@@ -248,6 +248,7 @@ ja:
       save: "保存"
       cancel: "キャンセル"
       settings_saved: "設定を保存しました！"
+      settings_save_failed: "このサイトがあなたのものであれば、%{main_site_url} にログインして再試行してください。"
     tab_settings_subtab:
       general: "一般"
       community: "コミュニティ"

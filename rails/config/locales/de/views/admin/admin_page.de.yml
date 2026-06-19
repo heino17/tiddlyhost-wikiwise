@@ -248,6 +248,7 @@ de:
       save: "Speichern"
       cancel: "Abbrechen"
       settings_saved: "Einstellungen gespeichert!"
+      settings_save_failed: "Wenn dies Ihre Seite ist, melden Sie sich bitte unter %{main_site_url} an und versuchen Sie es erneut."
     tab_settings_subtab:
       general: "Allgemein"
       community: "Gemeinschaft"
