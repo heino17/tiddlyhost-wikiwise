@@ -15,6 +15,13 @@
             = t('footer_version_built_title') + ":"
             = "#{nice_timestamp(DateTime.parse(Settings.build_info['date']))}"
         %li &copy; 2021-#{Time.now.year} Simon Baird
+        %li
+          = "Modifications and extensions:"
+          %br
+          = "© 2026 heino17 (tiddlyhost-wikiwise)"
+          = link_to "https://github.com/heino17/tiddlyhost-wikiwise/blob/main/LICENSE.md", target: '_blank' do
+            %br
+            = t('footer_host_info_software_license')
 
     .col-md-3.col-6
       %h6.text-muted

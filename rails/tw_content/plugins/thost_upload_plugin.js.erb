@@ -40,15 +40,15 @@ if (!("debugMode" in bidix)) { bidix.debugMode = false; }
 
 config.macros.thostUpload = {
   handler: function(place,macroName,params) {
-    createTiddlyButton(place, "save to tiddlyhost",
-      "save this TiddlyWiki to a site on Tiddlyhost.com",
+    createTiddlyButton(place, "save on server",
+      "Save this TiddlyWiki on Server",
       this.action, null, null, this.accessKey);
   },
 
   action: function(params) {
     var siteName = config.options.txtThostSiteName.trim();
     if (!siteName) {
-      alert("Tiddlyhost site name is missing!");
+      alert("Site name is missing!");
       clearMessage();
     }
     else {
@@ -198,7 +198,7 @@ bidix.initOption = function(name,value) {
 };
 
 merge(config.optionsDesc, {
-  txtThostSiteName: "Site name for uploads to Tiddlyhost.com",
+  txtThostSiteName: "Site name for uploads to Server",
 });
 
 bidix.initOption('txtThostSiteName','<%= site_name %>');
