@@ -1,26 +1,26 @@
 /bin/sh: 1: [[: not found
 docker compose run --rm app bash -c 'bin/rails test:all'
- Container th_db Running 
  Container th_cache Running 
- Container tiddlyhost-wikiwise-app-run-f843d9e8d791 Creating 
- Container tiddlyhost-wikiwise-app-run-f843d9e8d791 Created 
+ Container th_db Running 
+ Container tiddlyhost-wikiwise-app-run-93ed9436b6d4 Creating 
+ Container tiddlyhost-wikiwise-app-run-93ed9436b6d4 Created 
 yarn install v1.22.22
 [1/4] Resolving packages...
 success Already up-to-date.
-Done in 0.40s.
+Done in 0.34s.
 yarn run v1.22.22
 $ esbuild app/javascript/application.js --bundle --sourcemap --format=iife --outdir=app/assets/builds --public-path=/assets $([ "$RAILS_ENV" = "production" ] && echo '--minify' || echo '')
 
   app/assets/builds/application.js      1.0mb ⚠️
   app/assets/builds/application.js.map  2.1mb
 
-Done in 0.67s.
+Done in 0.72s.
 Running 182 tests in parallel using 6 processes
-Run options: --seed 15098
+Run options: --seed 30527
 
 # Running:
 
 ......................................................................................................................................................................................
 
-Finished in 42.983658s, 4.2342 runs/s, 29.1041 assertions/s.
+Finished in 37.129589s, 4.9018 runs/s, 33.6928 assertions/s.
 182 runs, 1251 assertions, 0 failures, 0 errors, 0 skips
