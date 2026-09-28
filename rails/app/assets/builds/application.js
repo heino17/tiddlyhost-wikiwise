@@ -6810,9 +6810,9 @@
   var Subscriptions;
   var init_subscriptions = __esm({
     "node_modules/@rails/actioncable/src/subscriptions.js"() {
+      init_logger();
       init_subscription();
       init_subscription_guarantor();
-      init_logger();
       Subscriptions = class {
         constructor(consumer2) {
           this.consumer = consumer2;
@@ -6965,15 +6965,15 @@
   }
   var init_src = __esm({
     "node_modules/@rails/actioncable/src/index.js"() {
+      init_adapters();
       init_connection();
       init_connection_monitor();
       init_consumer();
       init_internal();
-      init_subscription();
-      init_subscriptions();
-      init_subscription_guarantor();
-      init_adapters();
       init_logger();
+      init_subscription();
+      init_subscription_guarantor();
+      init_subscriptions();
     }
   });
 
