@@ -10,6 +10,7 @@
 - Aktueller Flow (ab 10/2026, nach Absprache): erst `make git-push-work` (pusht Arbeitsbranch), danach auf ausdrücklichen Wunsch `make git-merge-work-into-public` (zieht `main` auf Arbeitsbranch-Stand). Beide einzeln aufrufen, **nicht** als Kette.
 - `make promote-to-public` (Deps-Update + Commit + beides in einem) vorerst **nicht** ungefragt nutzen. `make deps-update-local` ist ein eigenes Thema und wird separat nach Absprache gemacht.
 - **Niemals** ohne expliziten Wunsch pushen/committen.
+- Commit-Nachrichten auf **Englisch** schreiben (ab 17.10.2026 gewünscht).
 
 ## AGENTS-Dateien
 - `AGENTS.md` = gemeinsame Regeln (darf committet werden).
