@@ -32,3 +32,6 @@ docker/node_modules
 docker/dotcache
 etc/
 *.log
+
+# Local agent notes
+AGENTS_heino17.md
