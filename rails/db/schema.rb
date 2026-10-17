@@ -198,10 +198,10 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_14_145332) do
 
   create_table "settings", force: :cascade do |t|
     t.string "key", null: false
-    t.string "value", default: "false", null: false
+    t.text "value"
+    t.boolean "enabled", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "enabled", default: false, null: false
     t.index ["key"], name: "index_settings_on_key", unique: true
   end
 
