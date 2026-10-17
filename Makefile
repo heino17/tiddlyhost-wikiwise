@@ -816,6 +816,19 @@ git-push-work:
 	git push origin $(MY_WORK_BRANCH)
 
 git-merge-work-into-public:
+	@echo "Hole aktuellen Stand von origin …"
+	git fetch origin
+	@echo "Sicherheits-Checks vor dem Überschreiben von $(MY_PUBLIC_BRANCH) …"
+	@if ! git diff --quiet || ! git diff --cached --quiet; then \
+		echo "❌ Uncommittete Änderungen im Working Tree – bitte erst aufräumen (commit/stash)."; \
+		exit 1; \
+	fi
+	@if [ -n "$$(git log --oneline $(MY_WORK_BRANCH)..origin/$(MY_PUBLIC_BRANCH) 2>/dev/null)" ]; then \
+		echo "❌ origin/$(MY_PUBLIC_BRANCH) hat Commits, die NICHT im Arbeitsbranch sind:"; \
+		git log --oneline $(MY_WORK_BRANCH)..origin/$(MY_PUBLIC_BRANCH); \
+		echo "→ Abbruch! Force-Push würde diese Commits überschreiben. Bitte zuerst klären/mergen."; \
+		exit 1; \
+	fi
 	@echo "Überschreibe $(MY_PUBLIC_BRANCH) mit aktuellem Stand von $(MY_WORK_BRANCH) (lokal)"
 	git checkout $(MY_PUBLIC_BRANCH)
 	git reset --hard $(MY_WORK_BRANCH)
@@ -861,7 +874,7 @@ deps-update-local-with-commit: pull-ruby build-base bundle-update yarn-upgrade
 	@echo ""
 	@echo "Tests & Linting laufen jetzt:"
 	@$(MAKE) --no-print-directory bootstrap-email-sass-precompile test delint \
-	  || echo "⚠️  Tests oder Linting haben Fehler – bitte prüfen!"
+	  || { echo "❌ Tests oder Linting haben Fehler – Abbruch (kein weiteres promote/push)"; exit 1; }
 	@echo ""
 	@echo "Aktueller Branch-Status:"
 	@git branch --show-current

@@ -7,7 +7,8 @@
 
 ## Workflow (Push/Branches)
 - Vorgehen laut Makefile-Bereich („Strategie A", ab Zeile ~797): `wikiwise-local-translation` = Arbeitsbranch, `main` = stabile/öffentliche Version.
-- Bisheriger Flow (zur Orientierung): erst auf `wikiwise-local-translation` arbeiten und pushen (`make git-push-work`), dann Rollout über `make promote-to-public` Richtung `main`.
+- Aktueller Flow (ab 10/2026, nach Absprache): erst `make git-push-work` (pusht Arbeitsbranch), danach auf ausdrücklichen Wunsch `make git-merge-work-into-public` (zieht `main` auf Arbeitsbranch-Stand). Beide einzeln aufrufen, **nicht** als Kette.
+- `make promote-to-public` (Deps-Update + Commit + beides in einem) vorerst **nicht** ungefragt nutzen. `make deps-update-local` ist ein eigenes Thema und wird separat nach Absprache gemacht.
 - **Niemals** ohne expliziten Wunsch pushen/committen.
 
 ## AGENTS-Dateien
