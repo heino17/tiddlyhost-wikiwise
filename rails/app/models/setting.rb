@@ -19,7 +19,7 @@ class Setting < ApplicationRecord
     record = find_by(key: key.to_s)
     return default unless record
 
-    # Wenn value gefüllt ist �� verwenden (bevorzugt)
+    # Wenn value gefüllt ist, diesen verwenden (bevorzugt)
     if record.value.present? && record.value != 'false'
       record.value.to_i
     else
