@@ -145,7 +145,7 @@ DC_PROD=docker compose -f docker-compose-prod.yml
 
 # Figure out if there's already a container running and use exec or run accordingly
 # Call it DCC for "Docker Compose Command"
-EXEC_OR_RUN=$(shell [[ $$($(DC) ps --services --filter status=running | grep app ) ]] && echo 'exec' || echo 'run --rm')
+EXEC_OR_RUN=$(shell [ -n "$$($(DC) ps --services --filter status=running | grep app )" ] && echo 'exec' || echo 'run --rm')
 DCCF=$(DC) $(EXEC_OR_RUN) app bash -c
 DCC=-$(DCCF)
 
@@ -431,7 +431,7 @@ gzip-core-js-files:
 EMPTIES_DIR=rails/tw_content/empties
 
 require-var-%:
-	@[[ ! -z "$$$(*)" ]] || ( echo "Environment var $(*) is required." && exit 1 )
+	@[ -n "$$$(*)" ] || ( echo "Environment var $(*) is required." && exit 1 )
 
 ver-set: require-var-VER
 
@@ -520,7 +520,7 @@ no-uncommitted-diffs:
 	fi
 
 no-uncommitted-rails-files:
-	@if [[ -n "$$( git status rails --porcelain )" ]]; then \
+	@if [ -n "$$( git status rails --porcelain )" ]; then \
 	  echo "Aborting due to uncommitted files under rails directory!"; \
 	  git status rails --porcelain; \
 	  exit 1; \
