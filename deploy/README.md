@@ -33,7 +33,7 @@ erzeugt. Wichtig:
 | --- | --- |
 | `DOMAIN` | Domain oder IP, unter der du erreichbar bist |
 | `HTTP_PORT` | Port des Webservers (Default `8080`) |
-| `TIDDLHOST_IMAGE` | Image, das gestartet wird |
+| `TIDDLHOST_IMAGE` | Image inkl. Tag, z. B. `:latest` oder `:v0.1.0` |
 | `SECRET_KEY_BASE`, `DB_PASSWORD` | werden automatisch erzeugt – **nicht** ändern, sobald Nutzer existieren |
 
 ## Bedienung
@@ -54,6 +54,28 @@ Daten liegen in den Volumes `th_deploy_db_data` (Datenbank) und
 docker compose pull
 docker compose up -d
 ```
+
+Das Image liegt öffentlich im GitHub Container Registry unter
+`ghcr.io/heino17/tiddlyhost-wikiwise`. Wer keine Überraschungen will,
+schreibt in `.env` eine feste Version fest:
+
+```bash
+TIDDLHOST_IMAGE=ghcr.io/heino17/tiddlyhost-wikiwise:v0.1.0
+```
+
+## Version veröffentlichen (Maintainer)
+
+Ein Push eines Tags `v*` startet den `Release`-Workflow: Testlauf, dann
+Build des Produktions-Images und Push nach GHCR als `<tag>` **und**
+`latest`.
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+Voraussetzung: das Package muss auf **public** stehen (GitHub →
+Packages → Package settings), sonst können Anwender nicht pullen.
 
 ## Aktueller Stand / Einschränkungen
 

@@ -8,6 +8,9 @@ on:
     branches:
     - main
     - devel
+  # Von release.yml als Job aufgerufen, damit nur getestete Images
+  # ins Registry wandern.
+  workflow_call:
   workflow_dispatch:
 
 jobs:

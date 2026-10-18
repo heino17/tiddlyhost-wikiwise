@@ -1,0 +1,86 @@
+#
+# Baut das Produktions-Image und pusht es ins GitHub Container Registry.
+#
+# Auslöser ist ein Versions-Tag:
+#
+#   git tag v0.1.0 && git push origin v0.1.0
+#
+# Ergebnis: ghcr.io/heino17/tiddlyhost-wikiwise:<tag> und :latest
+#
+# Hinweis: Das Package muss einmalig auf "public" gestellt werden
+# (GitHub -> Packages -> Package settings), sonst schlägt der Pull
+# für Endanwender fehl. GHCR ist für public Repos/packages kostenlos.
+#
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+env:
+  REGISTRY: ghcr.io
+  # heino17/tiddlyhost-wikiwise -> ghcr.io/heino17/tiddlyhost-wikiwise
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  test:
+    name: Run test suite
+    uses: ./.github/workflows/test.yml
+
+  publish:
+    name: Build and publish image
+    needs: test
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL "$AGENT_TOOLSDIRECTORY" || true
+          df -h /
+
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          show-progress: false
+          # build-info (bin/create-build-info.sh) nutzt git describe --tags
+          fetch-depth: 0
+
+      # `make build-prod` ist bewusst nicht `build-prod-ci`: erstere zieht
+      # Core-JS/Empties/jsMath und prüft auf sauberen Tree, ohne die ist
+      # das Image unvollständig (siehe Kommentar in build.yml).
+      - name: Build production image
+        run: make build-prod
+
+      - name: Log in to the GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # docker-compose-prod.yml baut unter dem upstream-Namen
+      # docker.io/sbaird/tiddlyhost:latest, wir taggen es um.
+      - name: Tag and push image
+        run: |
+          SRC=docker.io/sbaird/tiddlyhost:latest
+          docker tag "$SRC" "$REGISTRY/$IMAGE_NAME:$GITHUB_REF_NAME"
+          docker tag "$SRC" "$REGISTRY/$IMAGE_NAME:latest"
+          docker push "$REGISTRY/$IMAGE_NAME:$GITHUB_REF_NAME"
+          docker push "$REGISTRY/$IMAGE_NAME:latest"
+
+      - name: Write summary
+        run: |
+          {
+            echo "### Image veröffentlicht"
+            echo ""
+            echo '```'
+            echo "TIDDLHOST_IMAGE=$REGISTRY/$IMAGE_NAME:$GITHUB_REF_NAME"
+            echo "docker pull $REGISTRY/$IMAGE_NAME:latest"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
