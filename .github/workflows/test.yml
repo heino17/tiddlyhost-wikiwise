@@ -19,6 +19,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
+    env:
+      # puppeteer lädt sonst beim yarn install (~300 MB) Chromium und
+      # hängt dabei regelmäßig. Der Runner liefert Google Chrome mit,
+      # so machen es auch docker/Dockerfile.base und die App-Initializers.
+      PUPPETEER_SKIP_DOWNLOAD: "true"
+      PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
+
     defaults:
       run:
         working-directory: rails
