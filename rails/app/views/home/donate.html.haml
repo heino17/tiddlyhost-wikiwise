@@ -1,4 +1,5 @@
-- subscribed_already = user_signed_in? && current_user.subscribed?
+-# Donations & Sponsorships
+-# Only two donation links remain: GitHub Sponsors and Buy Me a Coffee.
 
 %h1= t('donations_page_heading')
 %h6= t('donations_page_subheading').html_safe
@@ -12,39 +13,10 @@
     = t('donations_page_txt_2').html_safe
 
   %p.py-2
-    - if Setting.enabled?(:subscriptions_enabled) == true
-      = t('donations_page_logged_in_out_before').html_safe
-    - if Setting.enabled?(:subscriptions_enabled) == true
-      = turbo_off_link_to bi_icon('bag-check') + t('user_menu_item_subscription_plans'), '/subscription'
-    - else
-      - if Setting.enabled?(:subscriptions_enabled) == true && user_signed_in?
-        = turbo_off_link_to t('top_menu_pricing'), '/pricing'
-    - if Setting.enabled?(:subscriptions_enabled) == true
-      = t('donations_page_logged_in_after').html_safe
-    - if subscribed_already
-      %sup.th-dim
-        &dagger;
-
-  %p.py-2
     .donate-button
-      = render 'paypal_donate_button'
-
-    .donate-button{ style: 'margin-top: 1.9em;' }
-      = render 'github_sponsor_button'
+      = link_to t('donations_page_github_sponsor_button_link'), title: t('donations_page_github_sponsor_button_title'), target: '_blank' do
+        = bi_icon('heart') + ' ' + t('donations_page_github_sponsor_button_title')
 
     .donate-button{ style: 'margin-top: 1.9em; padding-left:4px;' }
       = link_to t('donations_page_buy_coffee_button_link'), title: t('donations_page_buy_coffee_button_title'), target: '_blank' do
         = image_tag "coffee.svg", style: "width: 120px;"
-
-    .donate-button.ms-2
-      - if Setting.enabled?(:subscriptions_enabled) == true && user_signed_in?
-        = turbo_off_link_to '/subscription' do
-          = bi_icon('bag-check', style: 'margin-right: 3px;') + t('user_menu_item_subscription_plans')
-      - else
-        - if Setting.enabled?(:subscriptions_enabled) == true
-          = turbo_off_link_to '/pricing' do
-            = bi_icon('bag-check', style: 'margin-right: 3px;') + t('top_menu_pricing')
-
-  - if subscribed_already
-    %p.py-4.th-text-small.th-dim
-      &dagger;&nbsp; t('donations_page_subscribed_already')
