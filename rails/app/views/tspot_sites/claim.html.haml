@@ -8,11 +8,11 @@
 - if @success
   .p-3
     Return to
-    = link_to('your sites', sites_path) + "."
+    #{link_to('your sites', sites_path)}.
 
 - else
   .p-3
     Try again or
-    = link_to('cancel', sites_path) + "."
+    #{link_to('cancel', sites_path)}.
 
   = render 'claim_form'

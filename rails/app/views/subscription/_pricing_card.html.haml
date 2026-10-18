@@ -12,7 +12,7 @@
         - if product['name'] == 'Missing'
           = t('plans.site_plans_fallback_missing_plan') # "Zahlungen nicht eingerichtet"
         - else
-          = "#{product['name']} #{t('site_pricing_pricingcard_titel')}"
+          #{product['name']} #{t('site_pricing_pricingcard_titel')}
     .card-body.mx-3.pb-4.d-flex.flex-column
       %h1.card-title.pricing-card-title
         = "$#{product.price}"

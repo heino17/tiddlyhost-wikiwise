@@ -15,7 +15,7 @@
             = resource.unconfirmed_email
 
     = render layout: 'field_wrapper' do
-      = f.label "#{t('user_update_account_name_label')}"
+      = f.label t('user_update_account_name_label').to_s
       = f.text_field :name, autofocus: true, autofill: 'off', autocomplete: 'off', class: 'form-control'
       .form-text= t('user_update_account_name_text')
 

@@ -10,7 +10,7 @@
     %strong= t("admin.storage_dry_run_blobs")
     - if @dry_run_results[:blobs].any?
       - @dry_run_results[:blobs].each do |line|
-        %div= "• #{line}"
+        %div • #{line}
     - else
       %div= t("admin.storage_dry_run_none")
 
@@ -19,50 +19,50 @@
     %strong= t("admin.storage_dry_run_files")
     - if @dry_run_results[:files].any?
       - @dry_run_results[:files].each do |line|
-        %div= "• #{line}"
+        %div • #{line}
     - else
       %div= t("admin.storage_dry_run_none")
 
 .storage-grid
   .storage-item
-    = '🧱 ' + t("admin.storage.blobs") + ':'
+    🧱 #{t('admin.storage.blobs')}:
     #{@blob_count}
     .storage-hint
       = t("admin.storage.hint_blobs")
 
   .storage-item
-    = '🧷 ' + t("admin.storage.attachments") + ':'
+    🧷 #{t('admin.storage.attachments')}:
     #{@attachment_count}
     .storage-hint
       = t("admin.storage.hint_attachments")
 
   .storage-item
-    = '🗄️ ' + t("admin.storage.storage_activestorage") + ':'
+    🗄️ #{t('admin.storage.storage_activestorage')}:
     #{nice_byte_count_pretty(@storage_total_bytes)}
     .storage-hint
       = t("admin.storage.hint_activestorage")
 
   .storage-item
-    = '🗄️ ' + t("admin.storage.storage_wikis_and_activestorage_total") + ':'
+    🗄️ #{t('admin.storage.storage_wikis_and_activestorage_total')}:
     #{nice_byte_count_pretty(@total_user_storage_bytes)}
     .storage-hint
       = t("admin.storage.hint_wikis_and_activestorage_total")
 
   .storage-item
-    = '🔎 ' + t("admin.storage.orphaned_blobs") + ':'
+    🔎 #{t('admin.storage.orphaned_blobs')}:
     #{@orphaned_blob_count}
     .storage-hint
       = t("admin.storage.hint_orphaned_blobs")
 
   .storage-item
-    = '🔎 ' + t("admin.storage.orphaned_files") + ':'
+    🔎 #{t('admin.storage.orphaned_files')}:
     #{@orphaned_files_count}
     .storage-hint
       = t("admin.storage.hint_orphaned_files")
 
 %h5
 %div{ style: "max-width: 1050px; margin: 0 auto;" }
-  = '📈 ' + t("admin.storage_usage_per_wiki.label")
+  📈 #{t('admin.storage_usage_per_wiki.label')}
 
 .admin-table-wrapper
   %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto; max-width: 900px;" }
@@ -76,11 +76,12 @@
     - @largest_wikis.each do |wiki|
       %tr
         %td
-          - protocol = Settings.url_defaults[:protocol]
-          - host     = Settings.main_site_host
-          - port     = Settings.url_defaults[:port]
-          - url      = "#{protocol}://#{wiki.name}.#{host}"
-          - url     += ":#{port}" if port.present?
+          :ruby
+            protocol = Settings.url_defaults[:protocol]
+            host     = Settings.main_site_host
+            port     = Settings.url_defaults[:port]
+            url      = "#{protocol}://#{wiki.name}.#{host}"
+            url     += ":#{port}" if port.present?
 
           = link_to url, url, target: "_blank", rel: "noopener"
 
@@ -96,7 +97,7 @@
 %br
 %h5
 %div{ style: "max-width: 1050px; margin: 0 auto;" }
-  = '👤' + t("admin.storage_usage_per_user.label")
+  👤#{t('admin.storage_usage_per_user.label')}
 
 = turbo_frame_tag "user_storage" do
   .admin-table-wrapper
@@ -145,9 +146,9 @@
 %br
 %h5
 %div{ style: "max-width: 1050px; margin: 0 auto;" }
-  = '🗂️' + t("admin.storage_location_by_attachment_type.label")
+  🗂️#{t('admin.storage_location_by_attachment_type.label')}
   .text-muted{ style: "font-size: 0.75rem; margin-left: 1.8em;" }
-    = 'config/storage.yml service: Disk'
+    config/storage.yml service: Disk
 
 .admin-table-wrapper
   %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto; max-width: 900px; font-size: 1rem;" }
@@ -179,7 +180,7 @@
 %br
 %h5
 %div{ style: "max-width: 1050px; margin: 0 auto; color: #00a055; opacity: 0.8;" }
-  = '🧹 ' + t("admin.storage_fixing_orphaned_data.label")
+  🧹 #{t('admin.storage_fixing_orphaned_data.label')}
 
 %table.admin.table.table-sm.table-striped{ style: "margin: 0 auto;; max-width: 900px;" }
   %thead
@@ -189,28 +190,28 @@
 
   %tr
     %td
-      = '🔎 ' + t("admin.storage_orphaned_blobs.label")
+      🔎 #{t('admin.storage_orphaned_blobs.label')}
     %td= @orphaned_blob_count
     %td -
 
   %tr
     %td
-      = '🔎 ' + t("admin.storage_orphaned_files.label")
+      🔎 #{t('admin.storage_orphaned_files.label')}
     %td= @orphaned_files_count
     %td= nice_byte_count_pretty(@orphaned_files_bytes)
 
 %div{ style: "max-width: 900px; margin: 0 auto;" }
   .d-flex.justify-content-between{ style: "font-size: 0.7em; margin-top: 50px;" }
 
-    = turbo_off_link_to "🧪 " + t("admin.storage_button_dry_run"),
+    = turbo_off_link_to "🧪 #{t('admin.storage_button_dry_run')}",
         admin_storage_path(dry_run: true),
         class: "btn btn-sm btn-outline-success"
 
     - if @dry_run_done
       = form_with url: admin_storage_cleanup_path, method: :post, data: { turbo: false } do
-        = submit_tag "🧹 " + t("admin.storage_button_run_cleanup"),
+        = submit_tag "🧹 #{t('admin.storage_button_run_cleanup')}",
               class: "btn btn-sm btn-outline-success",
-              data: { confirm: "🧹 " + t("admin.storage_button_run_cleanup_confirm"),
+              data: { confirm: "🧹 #{t('admin.storage_button_run_cleanup_confirm')}",
               disable_with: t("admin.storage_cleanup_running") }
     - else
       %button.btn.btn-sm.btn-outline-success{ disabled: true }

@@ -6,4 +6,4 @@
       - icon = AdminChartData::CHART_ICONS[chart] || "📊"
 
       %a.dropdown-item{ href: admin_charts_path(chart: chart) }
-        = "#{icon} #{t("admin.charts.#{chart}", default: chart.titleize)}"
+        #{icon} #{t("admin.charts.#{chart}", default: chart.titleize)}

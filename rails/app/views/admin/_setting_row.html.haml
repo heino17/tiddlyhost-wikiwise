@@ -24,7 +24,8 @@
     .smaller
       = setting[:description]
 
-  - if setting[:type] == :boolean
+  - case setting[:type]
+  - when :boolean
     .form-check.form-switch{ style: "font-size: 0.95em;" }
       = hidden_field_tag "settings[#{setting[:key]}]", "0"
       = check_box_tag "settings[#{setting[:key]}]", "1", setting[:current_value],
@@ -34,7 +35,7 @@
       .small
         = label_tag "setting_#{setting[:key]}", t('admin.tab_settings.aktivate'), class: "form-check-label"
 
-  - elsif setting[:type] == :integer
+  - when :integer
     .input-group.w-100
       = number_field_tag "settings[#{setting[:key]}]",
                          setting[:current_value],
@@ -47,7 +48,7 @@
         .small
           = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
 
-  - elsif setting[:type] == :string
+  - when :string
     .input-group.w-100
       = text_field_tag "settings[#{setting[:key]}]",
                        setting[:raw_value],
@@ -59,7 +60,7 @@
         .small
           = setting[:suffix].presence || t('admin.default_theme_width.suffix')
 
-  - elsif setting[:type] == :text
+  - when :text
     .trix-container.mb-3
       %trix-toolbar{ id: "toolbar_#{setting[:key]}" }
         .trix-button-row
@@ -104,7 +105,7 @@
 
       = label_tag "settings_#{setting[:key]}_label", setting[:label], class: "form-label mt-2"
 
-  - elsif setting[:type] == :select
+  - when :select
     - options = setting[:options].map { |opt| [t("admin.#{setting[:key]}.#{opt}", default: opt.to_s.humanize), opt] }
 
     = select_tag "settings[#{setting[:key]}]",

@@ -30,13 +30,13 @@
         = t('hub_view.tagged_with.template.one')
       - else
         = t('hub_view.tagged_with.template.other')
-    %b= @tag + '.'
+    %b #{@tag}.
   - elsif @user.present?
     - if thing_key == :site
       = t('hub_view.created_by.site')
     - elsif thing_key == :template
       = t('hub_view.created_by.template')
-    %b= @user.username + '.'
+    %b #{@user.username}.
 
 %div{ style: "margin-bottom: 2em;" }
   %ul.nav.nav-tabs
@@ -60,14 +60,14 @@
     = link_to("#", class: 'dropdown-toggle',
       role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
       %span.pe-1
-        = t('hub_view_list_kind') + ':'
+        #{t('hub_view_list_kind')}:
       - if @kind_filter.present? && @kind_filter != "all"
         = logo_for_kind(@kind_filter, "margin-left: 2px; height: 1.3em; margin-top: -3px;")
       - else
         = t('hub_view_list_show_all')
     .dropdown-menu.hub-menu{ 'aria-labelledby': 'dropdownMenuLink' }
       = filter_link(:k, nil, crawler_protect: true)
-      - filter_params[:k].keys.each do |k|
+      - filter_params[:k].each_key do |k|
         = filter_link(:k, k, crawler_protect: true) do |_, title|
           = logo_for_kind(k, "margin-right: 4px; height: 1.3em;")
           = title
@@ -76,10 +76,10 @@
     = link_to("#", class: 'dropdown-toggle',
       role: 'button', 'data-bs-toggle': 'dropdown', 'aria-haspopup': 'true', 'aria-expanded': 'false') do
       %span.pe-1
-        = t('hub_view_list_sort_by') + ':'
+        #{t('hub_view_list_sort_by')}:
       = sort_opt[:title]
     .dropdown-menu.hub-menu{ 'aria-labelledby': 'dropdownMenuLink' }
-      - sort_options.keys.each do |k|
+      - sort_options.each_key do |k|
         = simple_sort_link k, 'dropdown-item', crawler_protect: true
 
   = render 'search_box'

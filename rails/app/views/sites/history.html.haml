@@ -38,7 +38,7 @@
           - if is_current
             %tr
               %td.pt-4{ colspan: 7 }
-                %b= t('site_view_save_history_current_version') + ':'
+                %b #{t('site_view_save_history_current_version')}:
 
           - fade_opac = fade_away_opacity(@site, i) unless feature_enabled?(:site_history)
           %tr
@@ -68,7 +68,7 @@
             - if @saved_version_count > 1
               %tr
                 %td.pt-4{ colspan: 7 }
-                  %b= t('site_view_save_history_older_versions') + ':'
+                  %b #{t('site_view_save_history_older_versions')}:
             - else
               %tr
                 %td.p-4{ colspan: 7, style: "border-bottom-width: 0px;" }

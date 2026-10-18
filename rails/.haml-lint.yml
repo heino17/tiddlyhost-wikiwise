@@ -1,13 +1,15 @@
 # Aktive Projekt-Konfiguration – bewusst gesetzte Regeln
 
+# Parkliste für Altbestand (von `haml-lint --auto-gen-config` erzeugt)
+inherits_from: .haml-lint_todo.yml
+
 linters:
   LineLength:
     max: 200            # Deine bewusste Erhöhung
 
-  ViewLength:
-    exclude:
-      - "app/views/home/privacy_policy.html.haml"
-      - "app/views/home/terms_of_use.html.haml"
+  # ViewLength: liegt komplett in .haml-lint_todo.yml (Altbestand + die
+  # bewusst langen Rechtsseiten), sonst überschreibt dieser Block die
+  # geerbte Exclude-Liste und die Altbestandseinträge fallen durch.
 
   InlineStyles:
     enabled: false      # Erlaubt Inline-Styles vorerst

@@ -14,8 +14,8 @@
         - is_default = (loc == current_default)
 
         - label = name.dup
-        - label += " (" + t('admin.locale_language_badge_current') + ")" if is_current
-        - label += " (" + t('admin.locale_language_badge_default') + ")" if is_default
+        - label += " (#{t('admin.locale_language_badge_current')})" if is_current
+        - label += " (#{t('admin.locale_language_badge_default')})" if is_default
 
         %option{ value: loc, selected: (loc == current_default) }
           = label

@@ -31,23 +31,23 @@
                   method: :post, class: 'dropdown-item',
                   data: { turbo: false, confirm: text_join("The thumbnail may take some time to generate.",
                   "Click OK then wait a few moments and reload the page.") } do
-          = bi_icon('camera') + 'Create thumbnail'
+          #{bi_icon('camera')}Create thumbnail
 
       = link_to(download_tspot_site_path(site), class: 'dropdown-item') { bi_icon('download') + t('hub_view_action_menu_download') }
       = link_to(site.url, class: 'dropdown-item', target: site.long_name) { bi_icon('box-arrow-up-right') + t('hub_view_action_menu_view') }
-      - if safe_mode_url = site.safe_mode_url
+      - if (safe_mode_url = site.safe_mode_url)
         = link_to(safe_mode_url, class: 'dropdown-item', target: '_blank') { bi_icon('life-preserver') + t('hub_view_action_menu_view_safe_mode') }
       .dropdown-divider
-      = link_to(change_password_tspot_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('person-check') + 'Change password' }
+      = link_to(change_password_tspot_site_path(site), data: { turbo: false }, class: 'dropdown-item') { "#{bi_icon('person-check')}Change password" }
       .dropdown-divider
       = link_to disown_tspot_site_path(site), method: :post, class: 'dropdown-item', data: { turbo: false, confirm: "Are you sure you want to give up ownership of '#{site.host}'?" } do
-        = bi_icon('file-earmark-minus') + 'Disown'
+        #{bi_icon('file-earmark-minus')}Disown
 
       .dropdown-divider
       = link_to(delete_tspot_site_path(site), method: :post, class: 'dropdown-item',
         data: { confirm: text_join("Beware there's no way to undo this action and there's",
         "no way to recreate the site once it has been deleted.\n\nAre you sure you want",
-        "to delete '#{site.host}' forever?") }) { bi_icon('trash') + 'Delete' }
+        "to delete '#{site.host}' forever?") }) { "#{bi_icon('trash')}Delete" }
 
     - else
       = link_to(edit_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('sliders') + t('hub_view_action_menu_settings') }
@@ -63,12 +63,12 @@
                   method: :post, class: 'dropdown-item',
                   data: { turbo: false, confirm: text_join("The thumbnail may take some time to generate.",
                   "Click OK then wait a few moments and reload the page.") } do
-          = bi_icon('camera') + 'Create thumbnail'
+          #{bi_icon('camera')}Create thumbnail
         .dropdown-divider
 
       = link_to(site.url, class: 'dropdown-item', target: site.long_name) { bi_icon('box-arrow-up-right') + t('hub_view_action_menu_view') }
 
-      - if safe_mode_url = site.safe_mode_url
+      - if (safe_mode_url = site.safe_mode_url)
         = link_to(safe_mode_url, class: 'dropdown-item', target: '_blank') { bi_icon('life-preserver') + t('hub_view_action_menu_view_safe_mode') }
 
       .dropdown-divider
@@ -81,9 +81,9 @@
 
         = link_to(download_site_path(site, mode: 'local_core'), class: 'dropdown-item',
           data: { confirm: "Note: You must also download the core javascript file to use the downloaded TiddlyWiki." }) do
-          = bi_icon('download') + 'Download with local core'
+          #{bi_icon('download')}Download with local core
 
-        = link_to(download_core_js_site_path(site), class: 'dropdown-item') { bi_icon('download') + 'Download core javascript file' }
+        = link_to(download_core_js_site_path(site), class: 'dropdown-item') { "#{bi_icon('download')}Download core javascript file" }
 
       - else
         = link_to(download_site_path(site), class: 'dropdown-item') { bi_icon('download') + t('hub_view_action_menu_download') }

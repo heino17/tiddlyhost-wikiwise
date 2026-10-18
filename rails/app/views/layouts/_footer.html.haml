@@ -7,18 +7,18 @@
         - unless Rails.env.production?
           %li= t('footer_version_environment_title') + ": #{Rails.env}"
         %li
-          = t('footer_version_version_title') + ":"
+          #{t('footer_version_version_title')}:
           = link_to '/about' do
-            = "#{Settings.app_version}"
+            = Settings.app_version.to_s
         - if feature_enabled?(:admin)
           %li
-            = t('footer_version_built_title') + ":"
-            = "#{nice_timestamp(DateTime.parse(Settings.build_info['date']))}"
+            #{t('footer_version_built_title')}:
+            = nice_timestamp(DateTime.parse(Settings.build_info['date'])).to_s
         %li &copy; 2021-#{Time.now.year} Simon Baird
         %li
-          = "Modifications and extensions:"
+          Modifications and extensions:
           %br
-          = "© 2026 heino17 (tiddlyhost-wikiwise)"
+          © 2026 heino17 (tiddlyhost-wikiwise)
           = link_to "https://github.com/heino17/tiddlyhost-wikiwise/blob/main/LICENSE.md", target: '_blank' do
             %br
             = t('footer_host_info_software_license')

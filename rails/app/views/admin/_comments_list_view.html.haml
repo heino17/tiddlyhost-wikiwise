@@ -4,7 +4,7 @@
 
       .comment-meta
         .comment-wiki{ style: "color: #999; font-weight: bold;" }
-          = t('admin.tab_view_comments.tab_comments_th_wiki') + ': '
+          = "#{t('admin.tab_view_comments.tab_comments_th_wiki')}: "
           = link_to raw(comment.site&.name),
             (comment.site.url.presence || comment.site),
             target: "_blank",
@@ -14,7 +14,7 @@
           = " ⮺"
 
         .comment-user.small
-          = comment.user.username + ', '
+          = "#{comment.user.username}, "
           = l(comment.created_at, format: :long)
           - if comment.edited_at.present?
             %small
@@ -23,7 +23,7 @@
 
       .comment-row
         .comment-body
-          = t('comments.title_singular') + ': '
+          = "#{t('comments.title_singular')}: "
           = link_to truncate(comment.body, length: 500),
             site_comments_path(comment.site),
             title: comment.body,

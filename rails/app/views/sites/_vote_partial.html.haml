@@ -19,7 +19,7 @@
           %summary.small{ style: 'font-size: 0.7rem; cursor: pointer; margin-left: 3px;' }
             - if user_vote
               %small{ style: 'font-size: 90%; color: #5a8ee2; font-weight: 600; cursor: pointer; opacity: 0.8;' }
-                = t('votes.my_rating') + ':'
+                #{t('votes.my_rating')}:
               %small{ style: 'font-size: 90%; color: gray; font-weight: 600; cursor: pointer; opacity: 0.8;' }
                 #{user_vote.value}
               %small{ style: 'color: #f59e0b; font-size: 1.0em;' } ★

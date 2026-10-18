@@ -16,11 +16,11 @@
 
 %div{ class: "row sm-px-5 py-2" }
   %div{ class: "form-wrapper rounded p-4", style: "width: 80%; margin: 0 auto;" }
-    - if local_assigns.has_key?(:heading)
+    - if local_assigns.key?(:heading)
       %h2.pt-0
         = heading
 
-    - if local_assigns.has_key?(:intro_text)
+    - if local_assigns.key?(:intro_text)
       %p.small.text-muted.px-2<
         != intro_text
 

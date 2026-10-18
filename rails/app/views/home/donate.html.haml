@@ -15,7 +15,7 @@
   %p.py-2
     .donate-button
       = link_to t('donations_page_github_sponsor_button_link'), title: t('donations_page_github_sponsor_button_title'), target: '_blank' do
-        = bi_icon('heart') + ' ' + t('donations_page_github_sponsor_button_title')
+        #{bi_icon('heart')} #{t('donations_page_github_sponsor_button_title')}
 
     .donate-button{ style: 'margin-top: 1.9em; padding-left:4px;' }
       = link_to t('donations_page_buy_coffee_button_link'), title: t('donations_page_buy_coffee_button_title'), target: '_blank' do
