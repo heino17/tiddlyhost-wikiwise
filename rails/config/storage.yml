@@ -32,7 +32,15 @@ local2:
 
 <%= Settings.storage_config_yaml(:trial2, :trial_2) %>
 
-<%= Settings.storage_config_yaml(:main, :trial_2) %>
+<% if (main_service = Settings.storage_config_yaml(:main, :trial_2)) %>
+<%= main_service %>
+<% else %>
+# Without the S3/Wasabi credentials used upstream, fall back to local disk so
+# that a self-hosted instance can boot at all (production.rb expects :main).
+main:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+<% end %>
 
 <%= Settings.storage_config_yaml(:thumbs, :thumbs_1) %>
 

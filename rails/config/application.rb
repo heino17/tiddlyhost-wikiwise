@@ -78,7 +78,7 @@ module App
     # (`domain: :all` might be useful here later maybe)
     config.session_store :cookie_store, domain: Settings.main_site_host
 
-    config.action_controller.default_url_options = { host: Settings.main_site_host }
+    config.action_controller.default_url_options = Settings.url_defaults
 
     # Initially for devise emails
     config.action_mailer.default_url_options = Settings.url_defaults
