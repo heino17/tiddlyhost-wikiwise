@@ -25,7 +25,7 @@ en:
 
     <br><br>
 
-    In this demo, the original footer has been retained; some links lead to Simon Baird or his accounts!
+    In this demo the original footer has been adapted: all links now point to this fork instead of the original Tiddlyhost.
 
     <br>
     More information about Tiddlyhost-Wikiwise and the source code can be found on GitHub:<br>
@@ -55,7 +55,7 @@ de:
     
     <br><br>
     
-    In der vorliegenden Demo wurde der Original-Footer beibehalten, einige Links führen zu Simon Baird bzw. dessen Accounts!
+    In der vorliegenden Demo wurde der Original-Footer angepasst: Alle Links führen nun zu diesem Fork statt zum Original-Tiddlyhost.
     
     <br>
     Mehr Informationen zu Tiddlyhost-Wikiwise und den Quellcode findest du auf GitHub:<br>
@@ -85,7 +85,7 @@ ru:
 
     <br><br>
 
-    В этой демо‑версии сохранён оригинальный футер; некоторые ссылки ведут к Саймону Бэрду или его аккаунтам!
+    В этой демо-версии оригинальный футер адаптирован: все ссылки теперь ведут на этот форк, а не на оригинальный Tiddlyhost.
 
     <br>
     Дополнительная информация о Tiddlyhost-Wikiwise и исходный код доступны на GitHub:<br>
@@ -115,7 +115,7 @@ es:
 
     <br><br>
 
-    En esta demo se ha mantenido el pie de página original; algunos enlaces llevan a Simon Baird o a sus cuentas.
+    En esta demo el pie de página original se ha adaptado: todos los enlaces apuntan ahora a este fork en lugar del Tiddlyhost original.
 
     <br>
     Más información sobre Tiddlyhost-Wikiwise y el código fuente en GitHub:<br>
@@ -145,7 +145,7 @@ fr:
 
     <br><br>
 
-    Dans cette démo, le pied de page original a été conservé ; certains liens mènent à Simon Baird ou à ses comptes.
+    Dans cette démo, le pied de page original a été adapté : tous les liens mènent désormais à ce fork plutôt qu'à Tiddlyhost original.
 
     <br>
     Plus d’informations sur Tiddlyhost-Wikiwise et le code source sont disponibles sur GitHub :<br>
@@ -175,7 +175,7 @@ ja:
 
     <br><br>
 
-    このデモではオリジナルのフッターが保持されており、一部のリンクは Simon Baird またはそのアカウントに繋がっています。
+    このデモではオリジナルのフッターが調整されており、すべてのリンクはオリジナルの Tiddlyhost ではなくこのフォークを指しています。
 
     <br>
     Tiddlyhost-Wikiwise の詳細およびソースコードは GitHub にあります：<br>
@@ -205,7 +205,7 @@ ko:
 
     <br><br>
 
-    이 데모에서는 원본 푸터가 유지되어 있으며, 일부 링크는 Simon Baird 또는 그의 계정으로 연결됩니다.
+    이 데모에서는 원본 푸터가 조정되어 있으며, 모든 링크는 원본 Tiddlyhost 대신 이 포크를 가리킵니다.
 
     <br>
     Tiddlyhost-Wikiwise 및 소스 코드는 GitHub에서 확인할 수 있습니다:<br>
@@ -235,7 +235,7 @@ zh_CN:
 
     <br><br>
 
-    本演示保留了原始页脚，其中一些链接指向 Simon Baird 或其账户。
+    本演示对原始页脚作了调整，其中所有链接现在指向本分支而非原版 Tiddlyhost。
 
     <br>
     更多关于 Tiddlyhost-Wikiwise 的信息和源代码可在 GitHub 查看：<br>

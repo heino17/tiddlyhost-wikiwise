@@ -111,11 +111,11 @@ ja:
   
   site_view_edit_wiki_advanced_settings_prefer_upload_saver: "TiddlyWiki 5.2.3 以降で従来の「upload」セーバーを使用"
   site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "デフォルトでは TiddlyWiki 5.2.3 以降で put セーバーが使用されます。  
-  こちらを好む場合はチェックしてください。詳細は <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">この FAQ</a> を参照。"
+  こちらを好む場合はチェックしてください。詳細は <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">この FAQ</a> を参照。"
   
   site_view_edit_wiki_advanced_settings_prefer_put_saver: "TiddlyWiki 5.2.2 以前で「put」セーバーを使用"
   site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "デフォルトでは TiddlyWiki 5.2.2 以前で upload セーバーが使用されます。  
-  こちらを好む場合はチェックしてください。詳細は <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">この FAQ</a> を参照。"
+  こちらを好む場合はチェックしてください。詳細は <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">この FAQ</a> を参照。"
   
   site_view_edit_wiki_advanced_settings_skip_etag_check: "保存時に「サーバー上でファイルが変更されました」のチェックを無視"
   site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "「サーバー上でファイルが変更されました」のエラーが誤って保存を妨げていると思われる場合はチェックしてください。  

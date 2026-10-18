@@ -10,10 +10,6 @@ ko:
   
   footer_about_header: "소개"
   footer_about_faq: "문서"
-  footer_about_blog: "블로그"
-  footer_about_link_to_blog: "https://tiddlyspot.blogspot.com/"
-  footer_about_x: "X"
-  footer_about_link_to_x: "https://x.com/tiddlyhost"
   
   footer_support_header: "지원"
   footer_support_report_issue: "문제 보고"
@@ -21,7 +17,7 @@ ko:
   footer_support_send_email: "이메일 보내기"
   footer_support_donate: "기부/스폰서"
   
-  footer_host_info_header: "Tiddlyhost"
+  footer_host_info_header: "Tiddlyhost-Wikiwise"
   footer_host_info_terms_of_use: "이용 약관"
   footer_host_info_privacy_policy: "개인정보 정책"
   footer_host_info_software_license: "소프트웨어 라이선스"

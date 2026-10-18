@@ -10,10 +10,6 @@ de:
     
   footer_about_header: "Über"
   footer_about_faq: "Doks"
-  footer_about_blog: "Blog"
-  footer_about_link_to_blog: "https://tiddlyspot.blogspot.com/"
-  footer_about_x: "X"
-  footer_about_link_to_x: "https://x.com/tiddlyhost"
   
   footer_support_header: "Support"
   footer_support_report_issue: "Problem melden"
@@ -21,7 +17,7 @@ de:
   footer_support_send_email: "eMail senden"
   footer_support_donate: "Spenden/Sponsor"
   
-  footer_host_info_header: "Tiddlyhost"
+  footer_host_info_header: "Tiddlyhost-Wikiwise"
   footer_host_info_terms_of_use: "Nutzungsbedingungen"
   footer_host_info_privacy_policy: "Datenschutzerklärung"
   footer_host_info_software_license: "Software Lizenz"

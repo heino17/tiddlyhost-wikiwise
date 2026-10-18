@@ -117,12 +117,12 @@ de:
   site_view_edit_wiki_advanced_settings_prefer_upload_saver: "Verwende den alten \"Upload\"-Saver für TiddlyWiki-Versionen 5.2.3 und höher."
   site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "Standardmäßig wird der Put Saver für TiddlyWiki-Versionen 5.2.3 und höher verwendet. 
   Aktiviere diese Option, wenn Du stattdessen den Upload Saver für diese TiddlyWiki-Versionen verwenden möchten. Siehe auch 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">diese FAQ</a>."
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">diese FAQ</a>."
   
   site_view_edit_wiki_advanced_settings_prefer_put_saver: "Verwende den \"Put\"-Saver für TiddlyWiki-Versionen 5.2.2 und niedriger"
   site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "Standardmäßig wird der Upload-Saver für TiddlyWiki-Versionen 5.2.2 und niedriger verwendet. 
   Aktiviere diese Option, wenn Du für diese TiddlyWiki-Versionen lieber den „put”-Saver verwenden möchtest. Siehe auch 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">diese FAQ</a>."
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">diese FAQ</a>."
   
   site_view_edit_wiki_advanced_settings_skip_etag_check: "\"Datei auf Server geändert\"-Überprüfung beim Speichern ignorieren"
   site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Aktiviere dieses Kontrollkästchen, wenn Du der Meinung bist, 

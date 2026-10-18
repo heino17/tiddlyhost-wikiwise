@@ -111,12 +111,12 @@ ru:
   site_view_edit_wiki_advanced_settings_prefer_upload_saver: "Использовать устаревший saver 'upload' для TiddlyWiki 5.2.3 и выше"
   site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "По умолчанию используется saver put для TiddlyWiki 5.2.3 и выше.  
   Отметьте, если предпочитаете saver upload для этих версий. См. также эту FAQ:  
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">эта FAQ</a>."
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">эта FAQ</a>."
   
   site_view_edit_wiki_advanced_settings_prefer_put_saver: "Использовать saver 'put' для TiddlyWiki 5.2.2 и ниже"
   site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "По умолчанию используется saver upload для TiddlyWiki 5.2.2 и ниже.  
   Отметьте, если предпочитаете saver put для этих версий. См. также эту FAQ:  
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">эта FAQ</a>."
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">эта FAQ</a>."
   
   site_view_edit_wiki_advanced_settings_skip_etag_check: "Игнорировать проверку 'файл изменён на сервере' при сохранении"
   site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "Отметьте эту галочку, если считаете, что ошибка 'файл изменён на сервере' неправильно препятствует сохранению.  

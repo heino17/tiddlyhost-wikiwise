@@ -10,10 +10,6 @@ zh_CN:
 
   footer_about_header: "关于"
   footer_about_faq: "文档"
-  footer_about_blog: "博客"
-  footer_about_link_to_blog: "https://tiddlyspot.blogspot.com/"
-  footer_about_x: "X"
-  footer_about_link_to_x: "https://x.com/tiddlyhost"
 
   footer_support_header: "支持"
   footer_support_report_issue: "报告问题"
@@ -21,7 +17,7 @@ zh_CN:
   footer_support_send_email: "发送邮件"
   footer_support_donate: "捐赠/赞助"
 
-  footer_host_info_header: "Tiddlyhost"
+  footer_host_info_header: "Tiddlyhost-Wikiwise"
   footer_host_info_terms_of_use: "使用条款"
   footer_host_info_privacy_policy: "隐私政策"
   footer_host_info_software_license: "软件许可证"

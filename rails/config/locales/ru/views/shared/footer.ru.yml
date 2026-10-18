@@ -10,10 +10,6 @@ ru:
     
   footer_about_header: "О проекте"
   footer_about_faq: "Документы"
-  footer_about_blog: "Блог"
-  footer_about_link_to_blog: "https://tiddlyspot.blogspot.com/"
-  footer_about_x: "X"
-  footer_about_link_to_x: "https://x.com/tiddlyhost"
   
   footer_support_header: "Поддержка"
   footer_support_report_issue: "Сообщить проблему"
@@ -21,7 +17,7 @@ ru:
   footer_support_send_email: "Отправить email"
   footer_support_donate: "Пожертвования/Спонсорство"
   
-  footer_host_info_header: "Tiddlyhost"
+  footer_host_info_header: "Tiddlyhost-Wikiwise"
   footer_host_info_terms_of_use: "Условия использования"
   footer_host_info_privacy_policy: "Политика конфиденциальности"
   footer_host_info_software_license: "Лицензия ПО"

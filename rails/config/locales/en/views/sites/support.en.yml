@@ -2,18 +2,16 @@
 en:
   # Support-site
   support_page_heading: "Support"
-  support_page_subheading: "Tiddlyhost support"
+  support_page_subheading: "Tiddlyhost-Wikiwise support"
   support_page_intro_txt: "If you have Tiddlyhost problems or need help with something, please use one of the following options:"
   support_page_report_to_github: "Report an issue in GitHub"
   support_page_suggest_to_github: "Suggest a feature in GitHub"
   support_page_send_email: "Send an email"
-  # Tiddlyhost support text
+  # Tiddlyhost-Wikiwise support text
   support_page_tiddlyhost_support_txt: "You can also browse the existing issues in 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 
-  to see if there's an issue filed already for your problem. See also the 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> and the 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a>. 
-  <br>(Improved documentation for Tiddlyhost is planned for the future.)"
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise/issues\" target=\"_blank\">GitHub</a> 
+  to see if there's an issue filed already for your problem. 
+  <br>(This instance is a demonstration of the fork, so there is no separate support channel yet.)"
   # TiddlyWiki support text
   support_page_tiddlywiki_subheading: "TiddlyWiki support"
   support_page_tiddlywiki_support_txt: "There are a lot of information out there related to TiddlyWiki. The primary forum for asking questions is 

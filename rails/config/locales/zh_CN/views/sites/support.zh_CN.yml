@@ -2,17 +2,17 @@
 zh_CN:
   # Support-site
   support_page_heading: "支持"
-  support_page_subheading: "Tiddlyhost 支持"
+  support_page_subheading: "Tiddlyhost-Wikiwise 支持"
   support_page_intro_txt: "如果您遇到 Tiddlyhost 问题或需要帮助，请使用以下选项之一："
   support_page_report_to_github: "在 GitHub 中报告问题"
   support_page_suggest_to_github: "在 GitHub 中建议功能"
   support_page_send_email: "发送邮件"
   # Tiddlyhost support text
   support_page_tiddlyhost_support_txt: "您也可以浏览
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 中的现有问题，
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise/issues\" target=\"_blank\">GitHub</a> 中的现有问题，
   查看是否已为您的常见问题提交了问题。另见
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> 和
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a>。
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">Wiki</a> 和
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">FAQ</a>。
   <br>(Tiddlyhost 的改进文档计划在未来实现。)"
   # TiddlyWiki support text
   support_page_tiddlywiki_subheading: "TiddlyWiki 支持"

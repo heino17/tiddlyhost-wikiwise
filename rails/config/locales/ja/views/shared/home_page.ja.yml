@@ -13,9 +13,8 @@ ja:
   signed_out_col2_text: "Tiddlyhost は <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> を基盤としています。  
   これは革新的なオープンソース JavaScript wiki です。また、新しい超軽量 <a href=\"https://feather.wiki/\" target=_blank>Feather Wiki</a> や  
   クラシックなオリジナル <a href=\"https://classic.tiddlywiki.com/\" target=_blank>TiddlyWiki Classic</a> にも対応しています。"  
-  signed_out_col3_heading: "Tiddlyspot の作成者による"  
-  signed_out_col3_text: "Tiddlyhost は Tiddlyspot の安全・現代的・信頼性の高い後継であり、コードは <a href=\"https://github.com/tiddlyhost/tiddlyhost-com\" target=_blank>オープンソース</a> です。  
-  詳細は <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=_blank>FAQ</a> または <a href=\"about\">About</a> ページをご覧ください。"
+  signed_out_col3_heading: "このインストールについて"  
+  signed_out_col3_text: "このインストールはフォーク版 <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=_blank>Tiddlyhost-Wikiwise</a> のデモです。詳細は <a href=\"about\">About</a> ページをご覧ください。"
   signed_out_linkto_explore: "探索ページ"
   # Startpage Get started now - box
   get_started_heading: "今すぐ始める"

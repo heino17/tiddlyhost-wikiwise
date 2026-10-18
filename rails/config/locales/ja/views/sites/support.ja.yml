@@ -2,17 +2,17 @@
 ja:
   # Support-site
   support_page_heading: "サポート"
-  support_page_subheading: "Tiddlyhost サポート"
+  support_page_subheading: "Tiddlyhost-Wikiwise サポート"
   support_page_intro_txt: "Tiddlyhost で問題が発生した場合や何かお手伝いが必要な場合は、以下のいずれかの方法をご利用ください："
   support_page_report_to_github: "GitHub で問題を報告"
   support_page_suggest_to_github: "GitHub で機能を提案"
   support_page_send_email: "メールを送信"
   # Tiddlyhost support text
   support_page_tiddlyhost_support_txt: "既存の問題を 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise/issues\" target=\"_blank\">GitHub</a> 
   で確認すると、あなたの問題に対する既存の報告があるかもしれません。また 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> や 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">FAQ</a> 
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">Wiki</a> や 
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">FAQ</a> 
   もご覧ください。<br>(Tiddlyhost のドキュメント改善は今後予定されています。)"
   # TiddlyWiki support text
   support_page_tiddlywiki_subheading: "TiddlyWiki サポート"

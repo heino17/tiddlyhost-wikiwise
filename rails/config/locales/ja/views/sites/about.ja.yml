@@ -1,16 +1,12 @@
 ---
 ja:
   # About-site
-  site_heading_about: "Tiddlyhost について"
-  site_text_about: "オンラインで 
-  <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> を最も簡単に利用できる方法です。<p>Simon Baird が作成・メンテナンス・サポートしています。"
-  site_text2_about: "問題がある場合は <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>GitHub で issue を報告</a> するか、 
-  <a href=\"mailto:simon.baird@gmail.com\">Simon にメール</a> をお送りください。または <a href=\"/support\">サポート</a> ページで他のオプションをご確認ください。"
+  site_heading_about: "Tiddlyhost-Wikiwise について"
+  site_text_about: "オンラインで <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> を最も簡単に利用できる方法です。<p>これはフォーク版 Tiddlyhost-Wikiwise のデモインストールです。"
+  site_text2_about: "問題がある場合は <a href=\"https://github.com/heino17/tiddlyhost-wikiwise/issues/new\" target=_blank>GitHub で issue を報告</a> するか、<a href=\"/support\">サポート</a> ページで他のオプションをご確認ください。"
   about_links_support: "サポート"
   about_links_faq: "FAQ"
   about_links_documentation: "ドキュメント"
-  about_links_blog: "ブログ"
-  about_links_x: "X"
   about_links_terms: "利用規約"
   about_links_privacy: "プライバシーポリシー"
   about_links_source: "ソースコード"

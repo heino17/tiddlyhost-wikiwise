@@ -2,17 +2,17 @@
 es:
   # Support-site
   support_page_heading: "Soporte"
-  support_page_subheading: "Soporte de Tiddlyhost"
+  support_page_subheading: "Soporte de Tiddlyhost-Wikiwise"
   support_page_intro_txt: "Si tienes problemas con Tiddlyhost o necesitas ayuda con algo, por favor usa una de las siguientes opciones:"
   support_page_report_to_github: "Reportar un problema en GitHub"
   support_page_suggest_to_github: "Sugerir una función en GitHub"
   support_page_send_email: "Enviar un email"
   # Tiddlyhost support text
   support_page_tiddlyhost_support_txt: "También puedes revisar los problemas existentes en 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues\" target=\"_blank\">GitHub</a> 
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise/issues\" target=\"_blank\">GitHub</a> 
   para ver si ya hay un reporte sobre tu problema. Consulta también la 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki\" target=\"_blank\">Wiki</a> y las 
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ\" target=\"_blank\">Preguntas frecuentes</a>. 
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">Wiki</a> y las 
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">Preguntas frecuentes</a>. 
   <br>(Mejoras en la documentación de Tiddlyhost están planeadas para el futuro.)"
   # TiddlyWiki support text
   support_page_tiddlywiki_subheading: "Soporte de TiddlyWiki"

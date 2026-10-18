@@ -111,12 +111,12 @@ ko:
   site_view_edit_wiki_advanced_settings_prefer_upload_saver: "TiddlyWiki 5.2.3 이상에서 레거시 'upload' 세이버 사용"
   site_view_edit_wiki_advanced_settings_prefer_upload_saver_tooltip: "기본적으로 TiddlyWiki 5.2.3 이상에서 put 세이버 사용.  
   해당 버전에서 upload 세이버 선호 시 체크. FAQ 참조:  
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">이 FAQ</a>."
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">이 FAQ</a>."
   
   site_view_edit_wiki_advanced_settings_prefer_put_saver: "TiddlyWiki 5.2.2 이하에서 'put' 세이버 사용"
   site_view_edit_wiki_advanced_settings_prefer_put_saver_tooltip: "기본적으로 TiddlyWiki 5.2.2 이하에서 upload 세이버 사용.  
   해당 버전에서 put 세이버 선호 시 체크. FAQ 참조:  
-  <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/wiki/About-the-two-different-save-methods\" target=\"_blank\">이 FAQ</a>."
+  <a href=\"https://github.com/heino17/tiddlyhost-wikiwise\" target=\"_blank\">이 FAQ</a>."
   
   site_view_edit_wiki_advanced_settings_skip_etag_check: "저장 시 '서버 파일 변경' 체크 무시"
   site_view_edit_wiki_advanced_settings_skip_etag_check_tooltip: "'서버 파일 변경' 오류가 잘못 저장 방지 시 체크.  

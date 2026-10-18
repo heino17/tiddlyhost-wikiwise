@@ -1,16 +1,12 @@
 ---
 en:
   # About-site
-  site_heading_about: "About Tiddlyhost"
-  site_text_about: "The easiest way to use 
-  <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> online. <p>Created, maintained and supported by Simon Baird."
-  site_text2_about: "If you have problems please <a href=\"https://github.com/tiddlyhost/tiddlyhost-com/issues/new\" target=_blank>report an issue in Github</a> 
-  , <a href=\"mailto:simon.baird@gmail.com\">send an email to Simon</a>, or see <a href=\"/support\">Support</a> for more support options."
+  site_heading_about: "About Tiddlyhost-Wikiwise"
+  site_text_about: "The easiest way to use <a href=\"https://tiddlywiki.com/\" target=_blank>TiddlyWiki</a> online. <p>This is a demonstration instance of the Tiddlyhost-Wikiwise fork."
+  site_text2_about: "If you have problems please <a href=\"https://github.com/heino17/tiddlyhost-wikiwise/issues/new\" target=_blank>report an issue on GitHub</a> or see <a href=\"/support\">Support</a> for more support options."
   about_links_support: "Support"
   about_links_faq: "FAQ"
   about_links_documentation: "Documentation"
-  about_links_blog: "Blog"
-  about_links_x: "X"
   about_links_terms: "Terms of Use"
   about_links_privacy: "Privacy Policy"
   about_links_source: "Source Code"
