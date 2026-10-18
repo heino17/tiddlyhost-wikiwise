@@ -1,6 +1,6 @@
 # https://stackoverflow.com/questions/44680975/custom-will-paginate-renderer
 
-# require 'will_paginate/view_helpers/action_view'
+require 'will_paginate/view_helpers/action_view'
 
 class BootstrapPaginateRenderer < WillPaginate::ActionView::LinkRenderer
   def container_attributes
