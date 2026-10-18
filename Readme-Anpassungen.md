@@ -25,14 +25,7 @@ ports:
 ## Ab hier sind's nur Erinnerungshilfen für mich...
 
 ### make rails-init
-Falls es eine Fehlermeldung wegen jsMath-3.3g.zip, Error 23 gibt, fehlt der Ordner "etc" im Hauptverzeichnis tiddlyhost-com
-```
-Verzeichnis anlegen 
-mkdir etc
-Verzeichnisrechte
-sudo chown -R deinuser:deinuser etc
-```
-dann make rails-init wiederholen
+Der Ordner "etc" wird mittlerweile automatisch angelegt (siehe `@mkdir -p` im Makefile, Ziel `js-math`). Die jsMath-Zips landen dort als Cache und sind gitignored – kein manuelles `mkdir etc` und keine Rechte-Handarbeit mehr nötig. Ohne Ordner wird er bei `make rails-init` bzw. `make js-math` selbst erzeugt.
 
 
 ### leere /docker/nginx-conf/nginx.conf
@@ -147,14 +140,7 @@ ports:
 ## From here it's just reminders for me...
 
 ### make rails-init
-If there is an error message due to jsMath-3.3g.zip, Error 23, the folder "etc" is missing in the main directory tiddlyhost-com
-```
-Create a directory 
-mkdir etc
-Directory rights
-sudo chown -R deinuser:deinuser etc
-```
-then repeat 'make rails-init'
+The "etc" folder is now created automatically (see `@mkdir -p` in the Makefile, the `js-math` target). The jsMath zips land there as a cache and are gitignored – no more manual `mkdir etc` or permission fiddling. If the folder is missing it gets created during `make rails-init` / `make js-math`.
 
 
 ### empty /docker/nginx-conf/nginx.conf

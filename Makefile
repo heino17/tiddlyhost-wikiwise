@@ -713,6 +713,7 @@ $(JS_MATH_ZIP_PATH):
 	curl -sL $(JS_MATH_DOWNLOADS)/jsMath/3.3g/$(JS_MATH_ZIP) -o $@
 
 $(JS_MATH_FONTS_ZIP_PATH):
+	@mkdir -p $(TOP_DIR)/etc
 	curl -sL $(JS_MATH_DOWNLOADS)/jsMath%20Image%20Fonts/1.3/$(JS_MATH_FONTS_ZIP) -o $@
 
 rails/public/jsMath/jsMath.js: $(JS_MATH_ZIP_PATH) $(JS_MATH_FONTS_ZIP_PATH)
