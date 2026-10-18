@@ -35,7 +35,7 @@
                 "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true"}
                 = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
                 = t("languages.#{I18n.locale}")
-  
+
               %ul.dropdown-menu.dropdown-menu-end
                 - enabled_locales.each_key do |loc|
                   - flag_code = flag_code_for(loc)
@@ -90,7 +90,7 @@
                 "data-bs-toggle" => "dropdown", "aria-expanded" => "false", "aria-haspopup" => "true"}
                 = image_tag "flags/4x3/#{current_flag_code}.svg", width: 20, class: "me-1 align-text-middle", alt: ""
                 = t("languages.#{I18n.locale}")
-  
+
               %ul.dropdown-menu.dropdown-menu-end
                 - enabled_locales.each_key do |loc|
                   - flag_code = flag_code_for(loc)

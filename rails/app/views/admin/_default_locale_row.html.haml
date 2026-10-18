@@ -8,7 +8,7 @@
 
   .col-sm-8
     - current_default = Setting.string_for(:default_locale, default: "en").to_sym
-    %select.form-select.w-auto{name: "settings[default_locale]", id: "settings_default_locale", style: "font-size: 0.9em"}
+    %select.form-select.w-auto{ name: "settings[default_locale]", id: "settings_default_locale", style: "font-size: 0.9em" }
       - available_locales.each do |loc, name|
         - is_current = (loc == I18n.locale)
         - is_default = (loc == current_default)

@@ -5,7 +5,7 @@
       %h6.text-muted= t('footer_version_header')
       %ul{ style: "padding-left: 0.5em; opacity: 70%;" }
         - unless Rails.env.production?
-          %li=t('footer_version_environment_title') + ": #{Rails.env}"
+          %li= t('footer_version_environment_title') + ": #{Rails.env}"
         %li
           = t('footer_version_version_title') + ":"
           = link_to '/about' do
@@ -85,14 +85,14 @@
         %li
           = link_to Settings.github_url, target: '_blank' do
             = bi_icon('gem')
-            = t('footer_host_info_source_code')            
-    
+            = t('footer_host_info_source_code')
+
     - if Settings::Features.special_imprint_enabled?
       .col.md-6
         %br
         <center>
         %h6.text-muted ❤️ WikiWise.de
-        %ul      
+        %ul
           %li
             = link_to '/imprint' do
               = bi_icon('file-earmark-text')
@@ -100,7 +100,7 @@
     -#
       .col.md-6
         %br
-        <center>      
+        <center>
         %ul
           %b= t('test')
           %br

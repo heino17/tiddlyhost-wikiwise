@@ -27,8 +27,8 @@
 
       -# I want to only show this on the grid view, hence the menu_only check here
       - if !site.thumbnail.present? && local_assigns[:menu_only]
-        = link_to create_thumbnail_site_path(site), 
-                  method: :post, class: 'dropdown-item', 
+        = link_to create_thumbnail_site_path(site),
+                  method: :post, class: 'dropdown-item',
                   data: { turbo: false, confirm: text_join("The thumbnail may take some time to generate.",
                   "Click OK then wait a few moments and reload the page.") } do
           = bi_icon('camera') + 'Create thumbnail'
@@ -40,7 +40,7 @@
       .dropdown-divider
       = link_to(change_password_tspot_site_path(site), data: { turbo: false }, class: 'dropdown-item') { bi_icon('person-check') + 'Change password' }
       .dropdown-divider
-      = link_to disown_tspot_site_path(site), method: :post, class: 'dropdown-item', data: { turbo: false, confirm: "Are you sure you want to give up ownership of '#{site.host}'?"} do
+      = link_to disown_tspot_site_path(site), method: :post, class: 'dropdown-item', data: { turbo: false, confirm: "Are you sure you want to give up ownership of '#{site.host}'?" } do
         = bi_icon('file-earmark-minus') + 'Disown'
 
       .dropdown-divider
@@ -59,8 +59,8 @@
 
       -# I want to only show this on the grid view, hence the menu_only check here
       - if !site.thumbnail.present? && local_assigns[:menu_only]
-        = link_to create_thumbnail_site_path(site), 
-                  method: :post, class: 'dropdown-item', 
+        = link_to create_thumbnail_site_path(site),
+                  method: :post, class: 'dropdown-item',
                   data: { turbo: false, confirm: text_join("The thumbnail may take some time to generate.",
                   "Click OK then wait a few moments and reload the page.") } do
           = bi_icon('camera') + 'Create thumbnail'

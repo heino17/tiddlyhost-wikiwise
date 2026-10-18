@@ -1,74 +1,73 @@
 %h4= t('admin.tab_users.new_user')
 
-%div.card{ style: "margin: 0 auto; max-width: 800px; font-size: 0.8em" }
-  %div.card-body
+.card{ style: "margin: 0 auto; max-width: 800px; font-size: 0.8em" }
+  .card-body
 
     = form_with model: @user, url: admin_users_path, method: :post, data: { turbo: false } do |f|
-    
       - if @user.errors.any?
         .alert.alert-danger
           %strong Fehler beim Speichern:
           %ul
             - @user.errors.full_messages.each do |msg|
               %li= msg
-    
+
       .mb-3
         = f.label t('admin.tab_users.users_name'),
             style: "font-weight: 600;"
         = f.text_field :name, class: "form-control form-control-sm"
-    
+
       .mb-3
         = f.label t('admin.tab_users.users_email'),
             style: "font-weight: 600;"
         = f.email_field :email, class: "form-control form-control-sm"
-    
+
       .mb-3
         = f.label t('admin.tab_users.users_username'),
             style: "font-weight: 600;"
         = f.text_field :username, class: "form-control form-control-sm"
-    
+
       .mb-3
         = f.label :user_type_id, t('admin.tab_users.users_access_level')
         = f.select :user_type_id,
             UserType.all.map { |t| [t.name, t.id] },
             {}, class: "form-control form-control-sm"
-    
+
       .mb-3.position-relative
         %label.form-label{ style: "font-weight: 600;" }
           = t('admin.tab_users.users_password')
         .password-wrapper
           = f.password_field :password, id: "user_password", class: "form-control form-control-sm password-toggle-field"
-          %span.toggle-password{ 
-            data: { 
+          %span.toggle-password{
+            data: {
               target: "user_password",
               show: t('admin.tab_users.users_password_show'),
               hide: t('admin.tab_users.users_password_hide')
-            } 
+            }
           }
             = t('admin.tab_users.users_password_show')
-      
+
       .mb-3.position-relative
         %label.form-label{ style: "font-weight: 600;" }
           = t('admin.tab_users.users_password_confirmation')
         .password-wrapper
           = f.password_field :password_confirmation, id: "user_password_confirmation", class: "form-control form-control-sm password-toggle-field"
-          %span.toggle-password{ 
-            data: { 
+          %span.toggle-password{
+            data: {
               target: "user_password_confirmation",
               show: t('admin.tab_users.users_password_show'),
               hide: t('admin.tab_users.users_password_hide')
-            } 
+            }
           }
             %div= t('admin.tab_users.users_password_show')
-    
+
           %br
           %button.btn.btn-sm.btn-secondary.me-2{ type: "button", data: { password_generator: true } }
             = t('admin.tab_users.users_password_generate')
-        
+
           %button.btn.btn-sm.btn-outline-danger{ type: "button", data: { password_clear: true } }
             = t('admin.tab_users.users_password_clear_password')
-        
-      %div.mt-1{
+
+      .mt-1{
         data: {
           password_strength: true,
           strength_texts: I18n.t("admin.password.strength").to_json
@@ -78,12 +77,11 @@
           = t('admin.tab_users.users_password_strength')
           %span{ data: { password_strength_value: true } } ...
           %br
-          %div.mt-1.fw-bold{ data: { password_plain: true } }
+          .mt-1.fw-bold{ data: { password_plain: true } }
           %br
-      .d-flex.justify-content-between{style: "font-size: 0.7em; max-width: 100%;"}
+      .d-flex.justify-content-between{ style: "font-size: 0.7em; max-width: 100%;" }
         = f.submit t('admin.tab_users.new_user'), class: "btn btn-sm btn-primary"
-      
+
         = link_to t('admin.tab_users.new_user_cancel'),
                 admin_users_path,
                 class: "btn btn-sm btn-outline-secondary"
-    

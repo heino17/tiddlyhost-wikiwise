@@ -4,30 +4,30 @@
 
 - else
   %h2= t('admin.tabs_header.sites')
-  
+
 = render 'tabs'
 
 - unless @user && action_name == "users"
   .admin-filter
-    .group 
+    .group
       = I18n.t('admin.radio_filter.filter_row_prefix') + ": "
     = render "#{action_name}_filter"
     = render 'search_box'
-    
+
 = render 'user_info', user: @user if @user
 
 .admin-paginate= will_paginate(@records)
 .admin-page-info= pagination_info(@records)
 
-%div.admin-table-wrapper
+.admin-table-wrapper
   %table.admin.table.table-sm.table-striped
     = render "#{action_name}_table", records: @records, specific_user: @user
 
 .admin-paginate= will_paginate(@records)
 .admin-page-info= pagination_info(@records)
 
-%div.text-muted{ style: "font-size: 0.71rem; margin-top: 13px; padding-left: 10px;" }
-  = t( "admin.admin_tabs_tables_ctrl_hint" )
-  
-%div.text-muted{ style: "font-size: 0.5rem; margin-top: -21px;" }
+.text-muted{ style: "font-size: 0.71rem; margin-top: 13px; padding-left: 10px;" }
+  = t("admin.admin_tabs_tables_ctrl_hint")
+
+.text-muted{ style: "font-size: 0.5rem; margin-top: -21px;" }
   = '⁉️ '

@@ -1,4 +1,4 @@
-- flash.each do |type, message|
+- flash.each do |_type, _message|
   .flash-persistent.mb-3.d-flex.align-items-center{
     role: "alert",
     data: { flash_persistent: true }
@@ -7,13 +7,13 @@
     - if raw.present?
       - text = raw.is_a?(Hash) ? raw["message"] : raw
       - auto = raw.is_a?(Hash) ? raw["auto_dismiss"] : false
-    
+
       .flash-persistent.mb-3.d-flex.align-items-center{
         role: "alert",
         data: { flash_persistent: true, auto_dismiss: auto }
       }
         = text
-    
+
         %button.btn-close.ms-auto{
           type: "button",
           aria: { label: "Schließen" }

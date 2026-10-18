@@ -1,10 +1,10 @@
 %h4
-  = t('admin.tab_users.users_show_users_details_heading') + (':')
+  = t('admin.tab_users.users_show_users_details_heading') + ':'
   %span{ style: "color: #179b5b;" }
     = " #{@user.name} #{@user.username}"
 
-%div.card{ style: "margin: 0 auto; max-width: 800px; font-size: 0.8em" }
-  %div.card-body.enable-tooltips
+.card{ style: "margin: 0 auto; max-width: 800px; font-size: 0.8em" }
+  .card-body.enable-tooltips
 
     %h4= t('admin.tab_users.users_show_users_details_heading_basic')
     %table.table.table-sm
@@ -55,22 +55,22 @@
 
     %hr/
 
-    .d-flex.justify-content-between{style: "font-size: 0.7em;"}
+    .d-flex.justify-content-between{ style: "font-size: 0.7em;" }
       = link_to t('admin.tab_users.users_show_users_details_contents_cancel'),
           admin_users_path,
           class: "btn btn-sm btn-outline-secondary"
-          
+
       = turbo_off_link_to t('admin.tab_users.users_show_users_details_edit_user'),
           edit_admin_user_path(@user),
-          class: "btn btn-sm btn-primary"          
-      
+          class: "btn btn-sm btn-primary"
+
       - if @user == current_user
         %span{ style: "display: inline-block;" }
           %button.btn.btn-outline-danger.btn-sm{ disabled: true }
-            = t('admin.tab_users.users_show_users_details_delete_user')          
-        %span{style: "font-size: 2em;"}
+            = t('admin.tab_users.users_show_users_details_delete_user')
+        %span{ style: "font-size: 2em;" }
           = render 'popover_help_red', html_content: t("admin.tab_users.users_edit_user_account_flash_dont_delete_yourself")
-          
+
       - else
         = button_to t('admin.tab_users.users_show_users_details_delete_user'),
             destroy_admin_user_path(@user),

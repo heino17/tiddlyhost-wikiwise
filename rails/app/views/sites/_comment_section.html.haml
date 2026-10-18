@@ -8,17 +8,16 @@
           #{site.comments.count}
           = site.comments.count == 1 ? t('comments.title_singular') : t('comments.title_plural')
         #{bi_icon('feather', height: '1.2em', fill: '#777')}
-        
+
       %small{ style: 'font-size: 20%; color: #5a8ee2; font-weight: 600;' }
-  
+
       - if user_signed_in?
         - comment_record = site.comments.find_by(user: current_user) || Comment.new
-  
+
         = form_with model: comment_record,
                     url: site_comments_path(site),
                     method: :post,
                     data: { turbo: true, controller: 'comment-counter' } do |f|
-        
           .mb-2.position-relative
             = f.text_area :body,
                           value: comment_record.body || '',
@@ -30,32 +29,32 @@
                           maxlength: 1500,
                           'aria-describedby': 'comment-help comment-progress',
                           data: { comment_counter_target: 'textarea' }
-  
-            .progress.mt-1{ style: 
-                            'height: 6px; 
+
+            .progress.mt-1{style:
+                            'height: 6px;
                             background: linear-gradient(to right,  #1e5799 0%,#badbc7 0%,#fdffd8 55%,#fdffd8 58%,#ffd8d8 100%);
-  ' }
-              .progress-bar#comment-progress-bar{ 
-                role: 'progressbar', 
+            '}
+              .progress-bar#comment-progress-bar{
+                role: 'progressbar',
                 style: 'width: 0%; transition: width 0.3s ease;',
                 aria: { valuenow: '0', valuemin: '0', valuemax: '100' },
                 data: { comment_counter_target: 'progressBar' }
               }
-  
+
             .d-flex.justify-content-between.mt-1
               %small.text-muted#comment-help{ style: 'font-size: 0.65em;' }
                 = t('comments.comment_required_characters') || "Mindestens ein Zeichen erforderlich"
                 %b#current-count{ data: { comment_counter_target: 'countDisplay' } }
-  
+
           .mb-1
             = f.submit t(comment_record.persisted? ? 'comments.update_button' : 'comments.create_button'),
                        class: 'btn btn-outline-success btn-sm comment-submit-btn',
                        style: 'margin-top: 0rem; font-size: 100%;'
-  
+
       - else
         .text-muted{ style: 'font-size: 0.8em; margin-bottom: 0.0rem; margin-top: 0.0rem;' }
           = t('comments.login_hint_short')
-  
+
       - site.comments.includes(:user).order(created_at: :desc).limit(3).each do |comment|
         .comment-item{ style: 'border-top: 1px solid #eee; padding-top: 0.2rem; margin-top: 0.2rem; font-size: 0.5rem; position: relative;' }
           %span.text-muted
@@ -65,14 +64,14 @@
             - if comment.edited_at.present?
               %br
               = "(#{t('comments.edited')}: #{l(comment.edited_at, format: :long)})"
-  
-          %div.comment-body{ style: 'font-size: 0.7rem; overflow-wrap: break-word; word-wrap: break-word; hyphens: auto;' }
+
+          .comment-body{ style: 'font-size: 0.7rem; overflow-wrap: break-word; word-wrap: break-word; hyphens: auto;' }
             - truncated = comment.body.truncate(150, separator: ' ', omission: '…')
             = simple_format(truncated, {}, wrapper_tag: 'span')
             - if comment.body.length > 150
               %br
               %small.text-muted= " (#{comment.body.length} Zeichen)"
-  
+
           %span.text-muted.d-flex.justify-content-between.align-items-center.mt-1
             / Score kommt später
           - if user_signed_in? && comment.user == current_user

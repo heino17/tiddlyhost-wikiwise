@@ -2,24 +2,24 @@
   .shoutbox-widget{ id: "shoutbox-widget", data: { controller: "shoutbox" } }
 
     / Geschlossener / geöffneter Header
-    .shoutbox-header.d-flex.align-items-center.justify-content-between.p-3.border-bottom{ 
-      data: { action: "click->shoutbox#toggle" }, 
+    .shoutbox-header.d-flex.align-items-center.justify-content-between.p-3.border-bottom{
+      data: { action: "click->shoutbox#toggle" },
       id: "shoutbox-header",
-      style: "font-size: 0.9em; color: white; background-color: rgba(64, 140, 253, 0.5); border-radius: 6px 6px 0 0;" }
+      style: "font-size: 0.9em; color: white; background-color: rgba(64, 140, 253, 0.5); border-radius: 6px 6px 0 0;"}
 
       %span.d-flex.align-items-center.gap-2
         %strong
-        = t('shoutbox_title_icon') 
+        = t('shoutbox_title_icon')
         = t('shoutbox_title')
 
       %span.badge.bg-primary#shoutbox_count{ data: { shoutbox_target: "count" } }
-        = ShoutboxMessage.count 
+        = ShoutboxMessage.count
         = t('shoutbox_counter_suffix')
 
-    .shoutbox-body.border.border-top-0.p-3{ 
-      data: { shoutbox_target: "body" }, 
-      style: "border-radius: 0 0 6px 6px; max-height: 80vh; overflow-y: auto;" }
-    
+    .shoutbox-body.border.border-top-0.p-3{
+      data: { shoutbox_target: "body" },
+      style: "border-radius: 0 0 6px 6px; max-height: 80vh; overflow-y: auto;"}
+
       = turbo_frame_tag "shoutbox_messages" do
         .shoutbox-messages
           - ShoutboxMessage.limit(50).each do |msg|
@@ -29,14 +29,13 @@
       = form_with model: ShoutboxMessage.new,
           url: shoutbox_messages_path,
           data: { turbo_frame: "_top", controller: "shoutbox", shoutbox_target: "form", action: "shoutbox#resetForm, turbo:submit-end->shoutbox#scrollToTop" } do |f|
-
         .input-group
-          = f.text_field :message, 
+          = f.text_field :message,
                          id: "shoutbox-form-input",
-                         maxlength: 120, 
+                         maxlength: 120,
                          placeholder: t('shoutbox_input_placeholder'),
                          class: "form-control",
                          style: "font-size: 0.677rem;",
                          data: { action: "keypress->shoutbox#onKeypress" }
-                         
+
           = f.submit t('shoutbox_send_button'), class: "btn btn-primary btn-xs"

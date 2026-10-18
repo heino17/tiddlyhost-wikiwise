@@ -1,9 +1,9 @@
 .shoutbox-message.mb-3{ id: dom_id(msg) }
-  .d-flex.justify-content-between{style: "font-size: 0.70em;"}
-    %strong{style: "color: #408cfd;"}
+  .d-flex.justify-content-between{ style: "font-size: 0.70em;" }
+    %strong{ style: "color: #408cfd;" }
       = msg.user.username_or_email
     %small.text-muted= time_ago_in_words(msg.created_at)
-  %small.shoutbox-text{style: "font-size: 0.75em;"}
+  %small.shoutbox-text{ style: "font-size: 0.75em;" }
     = msg.message
 
   - if user_is_admin?

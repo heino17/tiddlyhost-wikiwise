@@ -1,9 +1,9 @@
-%div.comments-list
+.comments-list
   - Comment.order(created_at: :desc).each do |comment|
-    %div.comment-card{ id: dom_id(comment) }
+    .comment-card{ id: dom_id(comment) }
 
-      %div.comment-meta
-        %div.comment-wiki{ style: "color: #999; font-weight: bold;"}
+      .comment-meta
+        .comment-wiki{ style: "color: #999; font-weight: bold;" }
           = t('admin.tab_view_comments.tab_comments_th_wiki') + ': '
           = link_to raw(comment.site&.name),
             (comment.site.url.presence || comment.site),
@@ -13,16 +13,16 @@
             style: "font-weight: normal; text-decoration: none;"
           = " ⮺"
 
-        %div.comment-user.small
+        .comment-user.small
           = comment.user.username + ', '
           = l(comment.created_at, format: :long)
           - if comment.edited_at.present?
-            %small 
+            %small
             = t('comments.edited')
             = l(comment.edited_at, format: :long)
 
-      %div.comment-row
-        %div.comment-body
+      .comment-row
+        .comment-body
           = t('comments.title_singular') + ': '
           = link_to truncate(comment.body, length: 500),
             site_comments_path(comment.site),
@@ -31,7 +31,7 @@
             style: "font-weight: normal; color: #999; text-decoration: none;"
           = " ⮺"
 
-        %div.comment-actions
+        .comment-actions
           - if user_signed_in? && user_is_admin?
             = link_to '🗑️',
               admin_comments_view_path(comment),

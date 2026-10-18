@@ -1,7 +1,7 @@
 -# ============================================
 -# DESKTOP-TABS
 -# ============================================
-%div.admin-tabs-desktop{ style: "margin-bottom: 2em;" }
+.admin-tabs-desktop{ style: "margin-bottom: 2em;" }
   %ul.nav.nav-tabs
     = tab_link_to("📊 #{t('admin.tabs_header.stats')}", action: :index)
     = tab_link_to("📈 #{t('admin.tabs_header.charts')}", action: :charts)
@@ -19,11 +19,10 @@
 -# ============================================
 - sticky_variant = Setting.enabled?(:sticky_menu_enabled) ? "mobile-sticky-group--with-header" : "mobile-sticky-group--no-header"
 
-%div.mobile-sticky-group{ class: sticky_variant }
-  %div.mobile-main-tabs
+.mobile-sticky-group{ class: sticky_variant }
+  .mobile-main-tabs
     = render 'mobile_main_tabs_only'
 
   - if params[:action] == 'settings'
-    %div.mobile-settings-tabs
+    .mobile-settings-tabs
       = render 'mobile_settings_tabs_only'
-

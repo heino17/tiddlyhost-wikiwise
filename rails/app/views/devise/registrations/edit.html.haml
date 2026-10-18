@@ -5,7 +5,7 @@
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
       = f.label t('user_update_account_email_label')
       = f.email_field :email, autofill: 'off', autocomplete: 'off', class: 'form-control'
-      .form-text #{t('user_update_account_email_text')}
+      .form-text= t('user_update_account_email_text')
 
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       = render layout: 'field_wrapper' do
@@ -29,14 +29,14 @@
         = f.label t('user_update_account_profile_image_label')
         .row.my-2
           .col
-            %div.form-check
+            .form-check
               = f.label :use_gravatar do
                 = gravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
                 %br
                 = f.check_box :use_gravatar, class: 'form-check-input'
                 .form-check-label #{t('user_update_account_use')} #{link_to 'Gravatar', 'https://gravatar.com/', target: '_blank'}
           .col
-            %div.form-check
+            .form-check
               = f.label :use_libravatar do
                 = libravatar_image(resource, size: 40, style: 'margin-left: -1.5em;')
                 %br
@@ -50,14 +50,14 @@
 
     = render layout: 'field_wrapper' do
       = f.label :password, t('user_update_account_new_password_label')
-      .form-text #{t('user_update_account_new_password_leave_blank')}
+      .form-text= t('user_update_account_new_password_leave_blank')
       = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
       .form-text #{Settings.minimum_password_length} #{t('user_update_account_new_password_text')}
 
     = render layout: 'field_wrapper' do
       = f.label :password_confirmation, t('user_update_account_confirm_password_text')
       = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
-      .form-text #{t('user_update_account_confirm_password_text')}
+      .form-text= t('user_update_account_confirm_password_text')
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-3' } do
       = f.submit t('user_update_account_button_submit'), class: 'btn btn-primary'
@@ -70,7 +70,7 @@
   = render layout: 'field_wrapper' do
     .form-text{ style: 'padding:1em;' }
       = bi_icon 'exclamation-triangle', class: 'warning', height: '2em', width: '2em'
-      %b.text-danger #{t('user_delete_account_danger_text')}
+      %b.text-danger= t('user_delete_account_danger_text')
 
   = render layout: 'field_wrapper' do
     = button_to t('user_delete_account_button_delete'), registration_path(resource_name), method: :delete, class: 'btn btn-danger',

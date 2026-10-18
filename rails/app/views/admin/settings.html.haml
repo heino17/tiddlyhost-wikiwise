@@ -5,27 +5,27 @@
 
 = form_with url: admin_settings_path, method: :patch, data: { turbo: false, controller: "settings-tab", active_tab: params[:active_tab] || 'general' } do |f|
   .tab-content.mt-4
-    #general.tab-pane.fade.show.active{ role: "tabpanel" }
+    .tab-pane.fade.show.active#general{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'general' }.each do |setting|
         = render 'setting_row', setting: setting
 
-    #community.tab-pane.fade{ role: "tabpanel" }
+    .tab-pane.fade#community{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'community' }.each do |setting|
         = render 'setting_row', setting: setting
 
-    #hub.tab-pane.fade{ role: "tabpanel" }
+    .tab-pane.fade#hub{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'hub' }.each do |setting|
         = render 'setting_row', setting: setting
 
-    #subscription.tab-pane.fade{ role: "tabpanel" }
+    .tab-pane.fade#subscription{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'subscription' }.each do |setting|
         = render 'setting_row', setting: setting
 
-    #storage.tab-pane.fade{ role: "tabpanel" }
+    .tab-pane.fade#storage{ role: "tabpanel" }
       - @settings.select { |s| s[:group] == 'storage' }.each do |setting|
         = render 'setting_row', setting: setting
 
-    #locales.tab-pane.fade{ role: "tabpanel" }
+    .tab-pane.fade#locales{ role: "tabpanel" }
       = render 'default_locale_row'
       - @settings.select { |s| s[:group] == 'locales' && s[:key] != :default_locale }.each do |setting|
         = render 'setting_row', setting: setting

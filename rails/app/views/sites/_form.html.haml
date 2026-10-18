@@ -1,13 +1,13 @@
 = render layout: 'form_wrapper', locals: { heading: heading } do
 
   = form_for @site, data: { turbo: false } do |f|
-  
+
     - if @site.errors.any?
       = render layout: 'field_wrapper' do
         .alert.alert-danger
           %p
-            = t("errors.messages.attention", 
-                 count: @site.errors.count, 
+            = t("errors.messages.attention",
+                 count: @site.errors.count,
                  model: t("site"))
           %ul
             - @site.errors.full_messages.each do |message|
@@ -20,7 +20,7 @@
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
       = f.label t('site_view_edit_wiki_name_label')
       = f.text_field :name, class: 'form-control', maxlength: 63, autofocus: @site.new_record?
-      %small.form-text.text-muted #{t('site_view_edit_wiki_name_text')}
+      %small.form-text.text-muted= t('site_view_edit_wiki_name_text')
 
     - if @site.new_record?
       = render layout: 'field_wrapper' do
@@ -41,12 +41,12 @@
     = render layout: 'field_wrapper' do
       = f.label t('site_view_edit_wiki_description_label')
       = f.text_area :description, class: 'form-control'
-      .form-text #{t('site_view_edit_wiki_description_text')}
+      .form-text= t('site_view_edit_wiki_description_text')
 
     = render layout: 'field_wrapper' do
       = f.label :tag_list, t('site_view_edit_wiki_tag_list_label')
       = f.text_field :tag_list, class: 'form-control', value: @site.tag_list.to_s
-      .form-text #{t('site_view_edit_wiki_tag_list_text')}
+      .form-text= t('site_view_edit_wiki_tag_list_text')
 
     = render layout: 'advanced_wrapper' do
       = render 'public_clone', f:
@@ -54,7 +54,7 @@
       = render 'site_common/allow_in_iframe', f:
       = render 'save_method_prefs', f:
       = render 'skip_etag_check', f:
-      
+
     = render "collaborators_fields", f: f
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-5' } do

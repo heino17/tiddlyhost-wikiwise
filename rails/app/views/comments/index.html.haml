@@ -20,7 +20,7 @@
                   = l(comment.created_at, format: :long)
                   - if comment.edited_at.present?
                     %br
-                    %small 
+                    %small
                     = t('comments.edited')
                     = l(comment.edited_at, format: :long)
 
@@ -28,7 +28,7 @@
                 = simple_format(comment.body)
 
               .text-muted.mt-2
-                -#Score: #{comment.score}
+                -# Score: #{comment.score}
                 - if user_signed_in? && (comment.user == current_user || user_is_admin?)
                   %br
                   %br

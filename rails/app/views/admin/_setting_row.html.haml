@@ -7,15 +7,15 @@
 
     .small
       = setting[:label]
-  
+
       - if setting[:group] == 'locales'
         - loc = setting[:key].to_s.sub("locale_enabled_", "").to_sym
         - current_default = Setting.string_for(:default_locale, default: "en").to_sym
-  
+
         - if loc == I18n.locale
           %span.badge.bg-info.ms-2
             = t('admin.locale_language_badge_current')
-  
+
         - if loc == current_default
           %span.badge.bg-primary.ms-2
             = t('admin.locale_language_badge_default')
@@ -36,17 +36,17 @@
 
   - elsif setting[:type] == :integer
     .input-group.w-100
-      = number_field_tag "settings[#{setting[:key]}]", 
+      = number_field_tag "settings[#{setting[:key]}]",
                          setting[:current_value],
                          min: setting[:min] || 1,
                          max: setting[:max] || 100,
                          class: "form-control form-control-sm",
                          style: "max-width: 90px;"
-                         
+
       .input-group-text
         .small
           = setting[:suffix].presence || t('admin.max_tags_per_site.suffix')
-                         
+
   - elsif setting[:type] == :string
     .input-group.w-100
       = text_field_tag "settings[#{setting[:key]}]",
@@ -63,45 +63,45 @@
     .trix-container.mb-3
       %trix-toolbar{ id: "toolbar_#{setting[:key]}" }
         .trix-button-row
-          %button{ type: "button", 
-                   class: "trix-button", 
-                   "data-trix-attribute": "heading1", 
-                   title: t('admin.banner_message_editor.heading1') }
+          %button{type: "button",
+                   class: "trix-button",
+                   'data-trix-attribute': "heading1",
+                   title: t('admin.banner_message_editor.heading1')}
             %span 🅗¹
-          %button{ type: "button", 
-                   class: "trix-button", 
-                   "data-trix-attribute": "bold", 
-                   title: t('admin.banner_message_editor.bold') }
+          %button{type: "button",
+                   class: "trix-button",
+                   'data-trix-attribute': "bold",
+                   title: t('admin.banner_message_editor.bold')}
             %span 🅱️
-          %button{ type: "button", 
-                   class: "trix-button", 
-                   "data-trix-attribute": "italic", 
-                   title: t('admin.banner_message_editor.italic') }
+          %button{type: "button",
+                   class: "trix-button",
+                   'data-trix-attribute': "italic",
+                   title: t('admin.banner_message_editor.italic')}
             %span 𝑰
-          %button{ type: "button", 
-                   class: "trix-button", 
-                   "data-trix-attribute": "strike", 
-                   title: t('admin.banner_message_editor.strikethrough') }
+          %button{type: "button",
+                   class: "trix-button",
+                   'data-trix-attribute': "strike",
+                   title: t('admin.banner_message_editor.strikethrough')}
             %span S̶
-          %button{ type: "button", 
-                   class: "trix-button", 
-                   "data-trix-action": "undo", 
-                   title: t('admin.banner_message_editor.undo') }
+          %button{type: "button",
+                   class: "trix-button",
+                   'data-trix-action': "undo",
+                   title: t('admin.banner_message_editor.undo')}
             %span ⟲
-          %button{ type: "button", 
-                   class: "trix-button trix-button--icon", 
-                   "data-trix-action": "redo", 
-                   title: t('admin.banner_message_editor.redo') }
+          %button{type: "button",
+                   class: "trix-button trix-button--icon",
+                   'data-trix-action': "redo",
+                   title: t('admin.banner_message_editor.redo')}
             %span ⟳
-  
-      = hidden_field_tag "settings[#{setting[:key]}]", 
-                         setting[:raw_value] || setting[:current_value], 
+
+      = hidden_field_tag "settings[#{setting[:key]}]",
+                         setting[:raw_value] || setting[:current_value],
                          id: "settings_#{setting[:key]}_input"
-      
-      %trix-editor{ input: "settings_#{setting[:key]}_input",
+
+      %trix-editor{input: "settings_#{setting[:key]}_input",
                     toolbar: "toolbar_#{setting[:key]}",
-                    class: "trix-content form-select-sm border rounded p-1" }
-      
+                    class: "trix-content form-select-sm border rounded p-1"}
+
       = label_tag "settings_#{setting[:key]}_label", setting[:label], class: "form-label mt-2"
 
   - elsif setting[:type] == :select

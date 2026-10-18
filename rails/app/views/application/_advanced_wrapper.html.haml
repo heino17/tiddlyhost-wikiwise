@@ -8,6 +8,6 @@
 .advanced.pt-4{ style: display_none_when(!has_advanced_settings) }
   = render layout: 'field_wrapper' do
     .form-text
-      %h5 #{t('site_view_edit_wiki_advanced_settings_heading')}
+      %h5= t('site_view_edit_wiki_advanced_settings_heading')
 
   = yield

@@ -52,10 +52,10 @@
   = render "#{@list_mode}_view"
 
 - if @list_mode == "list"
-  %div.text-muted{ style: "max-width: 1050px; margin: 0 auto; font-size: 0.71rem; padding-left: 10px;" }
-    = t( "admin.admin_tabs_tables_ctrl_hint" )
-    
-  %div.text-muted{ style: "max-width: 1050px; margin: 0 auto; margin-top: -21px;  font-size: 0.5rem;" }
+  .text-muted{ style: "max-width: 1050px; margin: 0 auto; font-size: 0.71rem; padding-left: 10px;" }
+    = t("admin.admin_tabs_tables_ctrl_hint")
+
+  .text-muted{ style: "max-width: 1050px; margin: 0 auto; margin-top: -21px;  font-size: 0.5rem;" }
     = '⁉️ '
 
 .nice-buttons.mx-2.my-4.py-2

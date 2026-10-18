@@ -61,7 +61,7 @@
     = sort_link t('sites_sort_views'),   :desc, 'dropdown-item', 'views'
     = sort_link t('sites_sort_size'),    :desc, 'dropdown-item', 'size'
     = sort_link t('sites_sort_updated'), :desc, 'dropdown-item', 'updated'
-    
+
     - if sites.any?(&:is_tspot?)
       = sort_link t('sites.sort.origin'), :asc, 'dropdown-item', 'origin'
 
