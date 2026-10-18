@@ -4,7 +4,7 @@ module ThemeModeHelper
   def default_mode
     mode = Setting.string_for(:default_theme_mode, default: "auto")
     return mode if mode.in?(MODES)
-  
+
     "auto"
   end
 
@@ -13,7 +13,7 @@ module ThemeModeHelper
     mode ||= cookies[:theme_mode]
     mode ||= default_mode
     return mode if mode.in?(MODES)
-  
+
     default_mode
   end
 

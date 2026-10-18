@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 # https://docs.rubocop.org/rubocop/configuration.html
 
 AllCops:

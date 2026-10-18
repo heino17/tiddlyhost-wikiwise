@@ -56,8 +56,8 @@ gem 'devise'
 gem 'devise-security'
 
 # Pagination
-gem 'will_paginate'
 gem 'pagy'
+gem 'will_paginate'
 
 # Used in TspotSite for redirect url
 gem 'validate_url'

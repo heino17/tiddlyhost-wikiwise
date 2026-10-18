@@ -145,7 +145,7 @@ class AdminController < ApplicationController
 
     redirect_to admin_settings_path(active_tab: active_tab),
                 notice: t("admin.tab_settings.settings_saved")
-  rescue => e
+  rescue StandardError => e
     flash.now[:alert] = "Fehler beim Speichern: #{e.message}"
     load_settings
     render :settings, status: :unprocessable_entity
@@ -186,40 +186,40 @@ class AdminController < ApplicationController
     @blob_count       = ActiveStorage::Blob.count
     @attachment_count = ActiveStorage::Attachment.count
     @total_blob_bytes = ActiveStorage::Blob.sum(:byte_size)
-  
+
     # Orphaned Blobs
-    @orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments)
-                                         .where(active_storage_attachments: { id: nil })
+    @orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments).
+                                         where(active_storage_attachments: { id: nil })
     @orphaned_blob_count = @orphaned_blobs.count
-  
+
     # Storage Folder Stats
     storage_path = Rails.root.join("storage")
     @storage_files = Dir.glob("#{storage_path}/**/*").select { |f| File.file?(f) }
     @storage_total_bytes = @storage_files.sum { |f| File.size(f) }
-  
+
     # Orphaned Files
     used_keys = ActiveStorage::Blob.pluck(:key)
     @orphaned_files = @storage_files.reject { |f| used_keys.any? { |key| f.include?(key) } }
     @orphaned_files_count = @orphaned_files.count
     @orphaned_files_bytes = @orphaned_files.sum { |f| File.size(f) }
-  
+
     # Largest Blobs
     @largest_blobs = ActiveStorage::Blob.order(byte_size: :desc).limit(10)
-  
+
     @largest_wikis = Site.order(raw_byte_size: :desc).limit(10)
-  
+
     # Speicherverbrauch pro User
     @user_storage = User.all.map do |user|
       # Wiki-Speicher
       wiki_bytes = Site.where(user_id: user.id).sum(:raw_byte_size)
-    
+
       # ActiveStorage-Speicher (z.B. Thumbnails)
-      blob_ids = ActiveStorage::Attachment
-        .where(record_type: "Site", record_id: Site.where(user_id: user.id).pluck(:id))
-        .pluck(:blob_id)
-    
+      blob_ids = ActiveStorage::Attachment.
+        where(record_type: "Site", record_id: Site.where(user_id: user.id).pluck(:id)).
+        pluck(:blob_id)
+
       active_bytes = ActiveStorage::Blob.where(id: blob_ids).sum(:byte_size)
-    
+
       {
         user: user,
         wiki_bytes: wiki_bytes,
@@ -227,25 +227,25 @@ class AdminController < ApplicationController
         total_bytes: wiki_bytes + active_bytes
       }
     end
-    
+
     # Sortieren nach Gesamtverbrauch
     @user_storage.sort_by! { |row| -row[:total_bytes] }
-    
+
     # Anzeige Gesamtverbrauch
     @total_user_storage_bytes = @user_storage.sum { |row| row[:total_bytes] }
-  
+
     # Sortierung für User-Speicher
     sort = params[:sort] || "total_desc"
-    
+
     @user_storage = User.all.map do |user|
       wiki_bytes = Site.where(user_id: user.id).sum(:raw_byte_size)
-    
-      blob_ids = ActiveStorage::Attachment
-        .where(record_type: "Site", record_id: Site.where(user_id: user.id).pluck(:id))
-        .pluck(:blob_id)
-    
+
+      blob_ids = ActiveStorage::Attachment.
+        where(record_type: "Site", record_id: Site.where(user_id: user.id).pluck(:id)).
+        pluck(:blob_id)
+
       active_bytes = ActiveStorage::Blob.where(id: blob_ids).sum(:byte_size)
-    
+
       {
         user: user,
         wiki_bytes: wiki_bytes,
@@ -254,7 +254,7 @@ class AdminController < ApplicationController
         wiki_count: Site.where(user_id: user.id).count
       }
     end
-    
+
     @user_storage = case sort
     when "user_asc"      then @user_storage.sort_by { |r| r[:user].username }
     when "user_desc"     then @user_storage.sort_by { |r| r[:user].username }.reverse
@@ -264,10 +264,10 @@ class AdminController < ApplicationController
     when "wiki_bytes_desc" then @user_storage.sort_by { |r| r[:wiki_bytes] }.reverse
     when "active_bytes_asc"  then @user_storage.sort_by { |r| r[:active_bytes] }
     when "active_bytes_desc" then @user_storage.sort_by { |r| r[:active_bytes] }.reverse
-    when "size_asc"      then @user_storage.sort_by { |r| r[:total_bytes] }
-    else                      @user_storage.sort_by { |r| r[:total_bytes] }.reverse # size_desc
+    when "size_asc" then @user_storage.sort_by { |r| r[:total_bytes] }
+    else @user_storage.sort_by { |r| r[:total_bytes] }.reverse # size_desc
     end
-  
+
     respond_to do |format|
       format.html
       format.turbo_stream
@@ -276,18 +276,18 @@ class AdminController < ApplicationController
 
   def storage_cleanup
     # Delete orphaned blobs
-    ActiveStorage::Blob.left_outer_joins(:attachments)
-                       .where(active_storage_attachments: { id: nil })
-                       .find_each(&:purge)
-  
+    ActiveStorage::Blob.left_outer_joins(:attachments).
+                       where(active_storage_attachments: { id: nil }).
+                       find_each(&:purge)
+
     # Delete orphaned files
     storage_path = Rails.root.join("storage")
     all_files = Dir.glob("#{storage_path}/**/*").select { |f| File.file?(f) }
     used_keys = ActiveStorage::Blob.pluck(:key)
     orphaned_files = all_files.reject { |f| used_keys.any? { |key| f.include?(key) } }
     orphaned_files.each { |file| File.delete(file) }
-  
-    redirect_to admin_storage_path, notice: "🧹 " + t('admin.storage_flash_cleanup_success')
+
+    redirect_to admin_storage_path, notice: "🧹 #{t('admin.storage_flash_cleanup_success')}"
   end
 
   def sort_options
@@ -298,7 +298,7 @@ class AdminController < ApplicationController
       created:      'created_at',
       confirmed:    'confirmed_at',
       createdip:    'created_ip',
-      currentsignin:'current_sign_in_at',
+      currentsignin: 'current_sign_in_at',
       description:  "NULLIF(sites.description, '')",
       email:        'email',
       #empty:       'empties.name',   # auskommentiert lassen
@@ -390,17 +390,17 @@ class AdminController < ApplicationController
   private
 
   def run_dry_run
-    orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments)
-                                        .where(active_storage_attachments: { id: nil })
-  
+    orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments).
+                                        where(active_storage_attachments: { id: nil })
+
     orphaned_files = find_orphaned_files
-  
+
     {
       blobs: orphaned_blobs.map { |b| "#{b.id} – #{b.filename} – #{b.byte_size} bytes" },
       files: orphaned_files
     }
   end
-  
+
   def find_orphaned_files
     storage_path = Rails.root.join("storage")
     all_files = Dir.glob("#{storage_path}/**/*").select { |f| File.file?(f) }
@@ -459,50 +459,50 @@ class AdminController < ApplicationController
       { key: :special_imprint_enabled,              group: 'general', default: true,  type: :boolean },
       { key: :cookie_consent_enabled,               group: 'general', default: false, type: :boolean },
       { key: :registration_enabled,                 group: 'general', default: false, type: :boolean },
-  
+
       # === Community ===
       { key: :comments_enabled,   group: 'community', default: true,  type: :boolean },
       { key: :wiki_votes_enabled, group: 'community', default: true,  type: :boolean },
       { key: :shoutbox_enabled,   group: 'community', default: true,  type: :boolean },
-  
+
       # === Hub & Darstellung ===
-      { key: :default_theme_mode,  group: 'hub', default: 'light',  type: :select, options: ['light', 'dark', 'auto'] },
-      { key: :sticky_menu_enabled, group: 'hub', default:  true,  type: :boolean },
-      { key: :default_theme_width, group: 'hub', default: '1169px',  type: :string },
-      { key: :hub_per_page,        group: 'hub',       default: 17,    type: :integer, min: 1, max: 51 },
+      { key: :default_theme_mode,  group: 'hub', default: 'light', type: :select, options: ['light', 'dark', 'auto'] },
+      { key: :sticky_menu_enabled, group: 'hub', default: true, type: :boolean },
+      { key: :default_theme_width, group: 'hub', default: '1169px', type: :string },
+      { key: :hub_per_page,        group: 'hub',       default: 17, type: :integer, min: 1, max: 51 },
       # === Banner Message ===
       { key: :banner_message_enabled,    group: 'hub', default: true, type: :boolean },
       { key: :banner_message_sticky,     group: 'hub', default: true, type: :boolean },
       { key: :banner_message_visibility, group: 'hub', default: 'all',  type: :select, options: ['all', 'logged_in', 'logged_out'] },
       { key: :banner_message_html,       group: 'hub', default: "",     type: :text },
-  
+
       # === Abonnements ===
       { key: :subscriptions_enabled, group: 'subscription', default: true, type: :boolean },
       { key: :avatars_enabled,       group: 'subscription', default: false, type: :boolean },
-      { key: :max_tags_per_site,     group: 'subscription', default: 17,     type: :integer, min: 0, max: 17 },
-  
+      { key: :max_tags_per_site,     group: 'subscription', default: 17, type: :integer, min: 0, max: 17 },
+
       # === Speicher & Versionen ===
       { key: :keep_count_free,       group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
       { key: :keep_count_standard,   group: 'storage', default: 8, type: :integer, min: 1, max: 100 },
       { key: :keep_count_premium,    group: 'storage', default: 17, type: :integer, min: 1, max: 100 },
-      { key: :keep_count_tiddlyspot, group: 'storage', default: 4,   type: :integer, min: 1, max: 100 },
-    
+      { key: :keep_count_tiddlyspot, group: 'storage', default: 4, type: :integer, min: 1, max: 100 },
+
       # === Site-Größen-Limits pro Plan
       { key: :max_site_size_free_mb,     group: 'storage',   default: 20,  type: :integer, min: 0, max: 200 },
       { key: :max_site_size_standard_mb, group: 'storage',   default: 100, type: :integer, min: 0, max: 1000 },
-      { key: :max_site_size_premium_mb,  group: 'storage',   default: 500,type: :integer, min: 0, max: 5000 },
-    
+      { key: :max_site_size_premium_mb,  group: 'storage',   default: 500, type: :integer, min: 0, max: 5000 },
+
       # Account-weites Speicherlimit (Gesamtgröße aller Wikis eines Users)
-      { key: :max_account_storage_free_mb,      group: 'storage', default: 40,  type: :integer, min: 1, max: 10000 },
-      { key: :max_account_storage_standard_mb,  group: 'storage', default: 400, type: :integer, min: 1, max: 10000 },
-      { key: :max_account_storage_premium_mb,   group: 'storage', default: 4000, type: :integer, min: 1, max: 10000 },
-    
+      { key: :max_account_storage_free_mb,      group: 'storage', default: 40,  type: :integer, min: 1, max: 10_000 },
+      { key: :max_account_storage_standard_mb,  group: 'storage', default: 400, type: :integer, min: 1, max: 10_000 },
+      { key: :max_account_storage_premium_mb,   group: 'storage', default: 4000, type: :integer, min: 1, max: 10_000 },
+
       # === Sprachen (dynamisch erzeugt) ===
       { key: :default_locale, group: 'locales', default: :en, type: :string, label: "Standardsprache", description: "Sprache, die als Standard verwendet wird" },
 
       *available_locales.map { |locale, name|
         {
-          key:        "locale_enabled_#{locale}".to_sym,
+          key:        :"locale_enabled_#{locale}",
           group:      'locales',
           default:    true,
           type:       :boolean,
@@ -512,9 +512,9 @@ class AdminController < ApplicationController
       }
     ]
   end
-  
+
   def load_settings
-    config = settings_config.dup   # dup damit wir das Original nicht verändern
+    config = settings_config.dup # dup damit wir das Original nicht verändern
 
     # Filter: Standard- und Premium-Einstellungen ausblenden, wenn Abos deaktiviert sind
     unless Setting.enabled?(:subscriptions_enabled)
@@ -523,14 +523,14 @@ class AdminController < ApplicationController
         key.include?("_standard") || key.include?("_premium")
       end
     end
-  
+
     @settings = config.map do |cfg|
       if cfg[:type] == :boolean
         current_value = Setting.enabled?(cfg[:key], default: cfg[:default])
       else
         current_value = Setting.value_for(cfg[:key], default: cfg[:default])
       end
-  
+
       {
         key:           cfg[:key],
         group:         cfg[:group],

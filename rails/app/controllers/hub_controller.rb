@@ -68,7 +68,7 @@ class HubController < ApplicationController
     # Hier wird jetzt der dynamische Wert verwendet
     @sites = HubQuery.paginated_sites(
       page:          params[:page],
-      per_page:      per_page,                    # ← hier kommt der Admin-Wert rein
+      per_page:      per_page, # ← hier kommt der Admin-Wert rein
       sort_by:       sort_opt[:field],
       templates_only: @show_templates,
       kind:          @kind_filter,
@@ -100,8 +100,8 @@ class HubController < ApplicationController
 
   def sort_options
     options = {
-      v:  { title: I18n.t('hub_view_list_sort_view_count'),     field: 'view_count DESC' },
-      cl: { title: I18n.t('hub_view_list_sort_clone_count'),     field: 'clone_count DESC' },
+      v:  { title: I18n.t('hub_view_list_sort_view_count'), field: 'view_count DESC' },
+      cl: { title: I18n.t('hub_view_list_sort_clone_count'), field: 'clone_count DESC' },
       u:  { title: I18n.t('hub_view_list_sort_recently_updated'), field: 'blob_created_at DESC NULLS LAST' },
       c:  { title: I18n.t('hub_view_list_sort_recently_created'), field: 'created_at DESC NULLS LAST' },
       a:  { title: I18n.t('hub_view_list_sort_name_az'),         field: 'name ASC' },
@@ -110,22 +110,22 @@ class HubController < ApplicationController
       ov: { title: I18n.t('hub_view_list_sort_older_version'),   field: 'tw_version_trimmed ASC NULLS LAST' },
       r:  { title: I18n.t('hub_view_list_sort_random'),          field: 'rand_sort' },
     }
-  
+
     # Neue Sortieroptionen – nur anzeigen, wenn Feature aktiv
     if Settings::Features.wiki_votes_enabled?
-      options[:votes] = { 
-        title: I18n.t('hub_view_list_sort_votes_highest_rated'), 
-        field: 'vote_score DESC, votes_count DESC NULLS LAST'  # ← Tie-Breaker
+      options[:votes] = {
+        title: I18n.t('hub_view_list_sort_votes_highest_rated'),
+        field: 'vote_score DESC, votes_count DESC NULLS LAST' # ← Tie-Breaker
       }
     end
-  
+
     if Settings::Features.comments_enabled?
-      options[:comments] = { 
-        title: I18n.t('hub_view_list_sort_comments'), 
-        field: 'comments_count DESC' 
+      options[:comments] = {
+        title: I18n.t('hub_view_list_sort_comments'),
+        field: 'comments_count DESC'
       }
     end
-  
+
     options
   end
 

@@ -72,7 +72,7 @@ class TwFile
     if html_content.match(/<meta name="?application-name"? content="Feather Wiki">/)
       match = html_content.match(/<meta name="?version"? content="?([a-zA-Z0-9\-._]+)"?/)
       if match
-        if html_content[0,2000].match(/<script id="?a"? src=/)
+        if html_content[0, 2000].match(/<script id="?a"? src=/)
           # External javascript
           return ['featherx', match[1]]
         else

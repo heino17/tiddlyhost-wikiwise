@@ -45,7 +45,7 @@ module SortAndFilterLinkHelper
       default_sort_dir  = :desc
       extra_klass       = nil
       internal_sort_key = nil
-  
+
       args.each do |arg|
         case arg
         when Symbol
@@ -58,13 +58,13 @@ module SortAndFilterLinkHelper
           end
         end
       end
-  
+
       # Fallback, falls kein Schlüssel explizit übergeben wurde
       internal_sort_key ||= link_title.to_s.downcase.gsub(/[^a-z0-9_]/, '')
     end
-  
+
     param_val = internal_sort_key
-  
+
     # Rest der Logik (unverändert)
     if sort_by == param_val
       new_sort_by = flipped_sort_by
@@ -73,11 +73,12 @@ module SortAndFilterLinkHelper
       new_sort_by = sort_val_with_suffix(param_val, sort_desc: default_sort_dir == :desc)
       klass = nil
     end
-  
+
     turbo_off_link_to(sort_link_url(new_sort_by), class: [klass, extra_klass].compact, rel: 'nofollow') do
       link_title
     end
   end
+
   #
   # Used in the hub
   # This one does not provide the asc/desc flipping
@@ -198,7 +199,7 @@ module SortAndFilterLinkHelper
   end
 
   def current_sort_title
-    opt = sort_opt   # kommt aus dem Helper – liefert { title: ..., field: ... }
+    opt = sort_opt # kommt aus dem Helper – liefert { title: ..., field: ... }
     opt ? opt[:title] : t('site_view_filter_and_sort_default_sort')
   end
 

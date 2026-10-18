@@ -2,8 +2,8 @@ namespace :active_storage do
   desc "Dry-run: Zeigt verwaiste ActiveStorage-Blobs und Dateien"
   task dry_run: :environment do
     puts "🔍 Suche verwaiste Blobs…"
-    orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments)
-                                        .where(active_storage_attachments: { id: nil })
+    orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments).
+                                        where(active_storage_attachments: { id: nil })
 
     puts "Gefundene verwaiste Blobs: #{orphaned_blobs.count}"
     orphaned_blobs.each do |blob|
@@ -26,8 +26,8 @@ namespace :active_storage do
   desc "Löscht verwaiste ActiveStorage-Blobs und Dateien"
   task cleanup: :environment do
     puts "🧹 Lösche verwaiste Blobs…"
-    orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments)
-                                        .where(active_storage_attachments: { id: nil })
+    orphaned_blobs = ActiveStorage::Blob.left_outer_joins(:attachments).
+                                        where(active_storage_attachments: { id: nil })
 
     orphaned_blobs.find_each do |blob|
       puts " - Lösche Blob ##{blob.id} (#{blob.filename})"

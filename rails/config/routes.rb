@@ -25,13 +25,12 @@ Rails.application.routes.draw do
     get '/favicon.ico', to: 'tiddlywiki#favicon'
     get '/download', to: 'tiddlywiki#download'
     get '/thumb.png', to: 'tiddlywiki#thumb_png'
-  
-    # Collaborator login 
-    post '/', to: 'tiddlywiki#collab_login_submit', constraints: lambda { |req| req.params.key?('collaborate') }
+
+    # Collaborator login
+    post '/', to: 'tiddlywiki#collab_login_submit', constraints: ->(req) { req.params.key?('collaborate') }
 
     post '/', to: 'tiddlywiki#upload_save'
     put '/', to: 'tiddlywiki#put_save'
-
   end
 
   #
@@ -60,7 +59,7 @@ Rails.application.routes.draw do
 
     get 'admin/charts'
     get 'admin/storage', to: 'admin#storage'
-    post 'admin/storage/cleanup',  to: 'admin#storage_cleanup'
+    post 'admin/storage/cleanup', to: 'admin#storage_cleanup'
     get 'admin/users'
     get 'admin/sites'
     get 'admin/tspot_sites'
@@ -72,14 +71,14 @@ Rails.application.routes.draw do
     get 'admin/raw_download'
     get 'admin/boom'
     get 'admin/pool_stats'
-  
+
     # New for create and delete an account
     get    'admin/users/new',          to: 'users#new_admin',    as: :admin_new_user
     post   'admin/users',              to: 'users#create_admin', as: :admin_create_user
-    
+
     get    'admin/users/:id',          to: 'users#show_admin',   as: :admin_user
     get    'admin/users/:id/edit',     to: 'users#edit_admin',   as: :edit_admin_user
-    
+
     patch  'admin/users/:id/update',   to: 'users#update_admin', as: :update_admin_user
     delete 'admin/users/:id/delete',   to: 'users#destroy_admin', as: :destroy_admin_user
 
@@ -94,11 +93,11 @@ Rails.application.routes.draw do
     get 'subscription', to: 'subscription#show'
     get 'subscription/plans', to: 'subscription#plans'
     get 'subscription/success', to: 'subscription#success'
-  
+
     resource :storage, only: [:show] do
       post :cleanup
     end
-  
+
     resources :shoutbox_messages, only: [:index, :create, :update, :destroy]
 
     resources :sites do
@@ -129,13 +128,13 @@ Rails.application.routes.draw do
 
         get 'version_label/:blob_id', action: 'version_label_form', as: :version_label_form
         patch 'version_label/:blob_id', action: 'version_label_update', as: :version_label_update
-      
+
         delete :dismiss_collab_banner
       end
     end
-  
+
     post 'banner/dismiss', to: 'banner#dismiss'
-  
+
     delete "admin/comments_view/:id", to: "admin_comments_view#destroy", as: :admin_comments_view
 
     if Settings.tiddlyspot_enabled?

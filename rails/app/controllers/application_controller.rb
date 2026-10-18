@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :redirect_www_requests
   before_action :permit_devise_params, if: :devise_controller?
-  before_action :set_locale, :apply_enabled_locales  # set_locale first!
+  before_action :set_locale, :apply_enabled_locales # set_locale first!
 
   def theme_width
     Setting.find_by(key: :default_theme_width)&.value.presence || "1169px"
@@ -139,13 +139,13 @@ class ApplicationController < ActionController::Base
       zh_CN:  "简体中文"
     }
   end
-  helper_method :available_locales   # macht die Methode auch in Views verfügbar
+  helper_method :available_locales # macht die Methode auch in Views verfügbar
 
   def enabled_locales
     locales = available_locales.select do |loc, _|
       Setting.enabled?("locale_enabled_#{loc}", default: true)
     end
-  
+
     locales.presence || { I18n.default_locale => available_locales[I18n.default_locale] }
   end
   helper_method :enabled_locales
@@ -155,5 +155,4 @@ class ApplicationController < ActionController::Base
     default_locale = Setting.string_for('defaultlocale', default: 'en') # oder 'en', je nach Einstellung
     I18n.available_locales = (enabled + [default_locale.to_sym]).uniq
   end
-
 end

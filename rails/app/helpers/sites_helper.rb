@@ -51,9 +51,9 @@ module SitesHelper
       elsif site.access_private?
         'private'
       end
-  
+
     access_title = t("site_access.#{access_type}")
-  
+
     access_icon(access_type) + access_title
   end
 

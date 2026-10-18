@@ -5,7 +5,7 @@ module ApplicationHelper
   # Language switcher
   def language_switcher_links
     available_locales.keys.map do |loc|
-      link_to loc.to_s.upcase, params.merge(locale: loc), 
+      link_to loc.to_s.upcase, params.merge(locale: loc),
               class: "nav-link #{'active' if I18n.locale == loc}"
     end.join(' | ').html_safe
   end
@@ -28,7 +28,7 @@ module ApplicationHelper
   def flag_emoji_for(locale)
     case locale.to_sym
     when :de     then "🇩🇪"
-    when :en     then "🇺🇸"   # oder 🇺🇸 – deine Wahl
+    when :en     then "🇺🇸" # oder 🇺🇸 – deine Wahl
     when :ru     then "🇷🇺"
     when :es     then "🇪🇸"
     when :fr     then "🇫🇷"
@@ -56,19 +56,19 @@ module ApplicationHelper
 
   def nice_byte_count(bytes, _unused = nil)
     return "0" if bytes.to_i == 0
-  
+
     units = ["Bytes", "KB", "MB", "GB", "TB"]
     index = 0
     value = bytes.to_f
-  
+
     while value >= 1024 && index < units.length - 1
       value /= 1024
       index += 1
     end
-  
+
     if index == 0
       value.to_i.to_s
-  
+
     elsif units[index] == "KB"
       if value < 10
         formatted = format("%.2f", value)
@@ -77,10 +77,10 @@ module ApplicationHelper
       else
         formatted = value.round.to_s
       end
-  
+
       formatted = formatted.sub(/\.?0+$/, "")
       "#{formatted} KB"
-  
+
     else
       "#{value.round} #{units[index]}"
     end
@@ -88,18 +88,18 @@ module ApplicationHelper
 
   def nice_byte_count_pretty(bytes)
     return "0 B" if bytes.to_i == 0
-  
+
     units = ["B", "KB", "MB", "GB", "TB"]
     index = 0
     value = bytes.to_f
-  
+
     while value >= 1024 && index < units.length - 1
       value /= 1024
       index += 1
     end
-  
+
     separator = DECIMAL_SEPARATOR[I18n.locale] || "."
-  
+
     if index <= 1
       # B und KB → kompakt, trailing zeros entfernen
       formatted = format("%.2f", value).sub(/\.?0+$/, "")
@@ -107,10 +107,10 @@ module ApplicationHelper
       # MB, GB, TB → immer 2 Nachkommastellen
       formatted = format("%.2f", value)
     end
-  
+
     # Dezimaltrenner lokalisieren
     formatted = formatted.tr(".", separator)
-  
+
     "#{formatted} #{units[index]}"
   end
 
@@ -304,16 +304,16 @@ module ApplicationHelper
 
   def link_content(key)
     icon, text_key = case key
-                     when :view    then ['box-arrow-up-right', 'site_view_save_history_older_versions_actions_view']
+                     when :view then ['box-arrow-up-right', 'site_view_save_history_older_versions_actions_view']
                      when :download then ['download', 'site_view_save_history_older_versions_actions_download']
                      when :restore then ['file-earmark-arrow-up', 'site_view_save_history_older_versions_actions_restore']
                      when :discard then ['trash', 'site_view_save_history_older_versions_actions_discard']
                      when :upgrade then [['stars', { class: 'red-icon' }], 'site_view_save_history_older_versions_actions_upgrade']
                      else [nil, nil]
                      end
-  
+
     return "" unless text_key
-  
+
     bi_icon(*Array.wrap(icon)) + t(text_key)
   end
 

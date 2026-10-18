@@ -12,7 +12,7 @@ class SessionsController < Devise::SessionsController
     if resource.is_superuser?
       return admin_path
     end
-  
+
     # 2. Deine bestehende private-site-Weiterleitung
     if request.post? && params[:user] &&
        (@site_redir = params[:user][:site_redir]) &&

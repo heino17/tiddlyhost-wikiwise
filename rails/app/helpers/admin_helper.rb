@@ -51,7 +51,7 @@ module AdminHelper
 
   def card_color(key, _value, alert: false)
     return 'red' if alert
-  
+
     case key
     when :users, :active_daily, :active_weekly, :active_monthly, :subscriptions
       'yellow'
@@ -74,7 +74,7 @@ module AdminHelper
 
   def next_sort(column)
     current = params[:sort]
-  
+
     if current == "#{column}_asc"
       "#{column}_desc"
     else

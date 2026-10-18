@@ -167,9 +167,9 @@ class TspotSite < ApplicationRecord
       new_score = 0.0
     end
     update_column(:vote_score, new_score)
-  rescue
-    update_column(:vote_score, 0.0)  # ← Fallback
+  rescue StandardError
+    update_column(:vote_score, 0.0) # ← Fallback
   end
-  
+
   after_commit :update_vote_score, on: [:create, :update, :destroy]
 end

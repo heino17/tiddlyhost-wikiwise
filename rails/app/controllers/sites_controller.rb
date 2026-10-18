@@ -30,11 +30,11 @@ class SitesController < ApplicationController
     {
       # Fixme maybe: These filters could probably be moved into the db query
       access: {
-        hub:    { filter: ->(s) { s.select(&:hub_listed?) },    title: I18n.t('site_filter.access.hub')    },
+        hub:    { filter: ->(s) { s.select(&:hub_listed?) }, title: I18n.t('site_filter.access.hub') },
         public: { filter: ->(s) { s.select(&:is_public?).reject(&:hub_listed?) }, title: I18n.t('site_filter.access.public') },
-        private:{ filter: ->(s) { s.select(&:is_private?) },    title: I18n.t('site_filter.access.private') }
+        private: { filter: ->(s) { s.select(&:is_private?) }, title: I18n.t('site_filter.access.private') }
       },
-      kind: SiteCommon::KINDS.to_a.to_h { |k, v| [k.to_sym,
+      kind: SiteCommon::KINDS.to_a.to_h { |k, _v| [k.to_sym,
         { filter: ->(ss) { ss.select { |s| s.tw_kind == k.to_s } }, title: I18n.t("site_filter.kind.#{k}") }
       ]},
       # So this gets included in sort_filter_param_keys. The search_text
@@ -151,11 +151,11 @@ class SitesController < ApplicationController
     end
   end
 
-    # GET /sites/1/upload_form
-    def upload_form
+  # GET /sites/1/upload_form
+  def upload_form
     @site = Site.find(params[:id])
 
-    @current_mb = @site.user&.total_storage_bytes.to_i / 1.megabyte.to_f || 0
+    @current_mb = (@site.user&.total_storage_bytes.to_i / 1.megabyte.to_f) || 0
 
     @max_allowed_mb = if @site.is_tspot?
                         Setting.value_for(:max_account_storage_free_mb, default: 40)
@@ -184,7 +184,7 @@ class SitesController < ApplicationController
     @site = Site.find(params[:id])
 
     # Dieselben Variablen wie oben berechnen (für den Fehlerfall)
-    @current_mb = @site.user&.total_storage_bytes.to_i / 1.megabyte.to_f || 0
+    @current_mb = (@site.user&.total_storage_bytes.to_i / 1.megabyte.to_f) || 0
 
     @max_allowed_mb = if @site.is_tspot?
                         Setting.value_for(:max_account_storage_free_mb, default: 40)

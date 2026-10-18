@@ -29,7 +29,7 @@ module HubQuery
       ])
   end
 
-    def self.paginated_sites(page:, per_page:, sort_by:, tag:, user:, search:, templates_only: false, kind: nil, for_hub: true, extra_fields_in_select: [])
+  def self.paginated_sites(page:, per_page:, sort_by:, tag:, user:, search:, templates_only: false, kind: nil, for_hub: true, extra_fields_in_select: [])
     # Work with two separate queries, one for each model
     qs = [
       Site.with_blobs_for_query.not_deleted.select(
@@ -50,7 +50,7 @@ module HubQuery
         :comments_count,       # ← neu
         *extra_fields_in_select
       ),
-  
+
       TspotSite.with_blobs_for_query.not_deleted.select(
         'DISTINCT ON (type, id) ' \
         "'TspotSite' AS type",
@@ -70,35 +70,35 @@ module HubQuery
         *extra_fields_in_select
       ),
     ]
-  
+
     # Apply filters
     qs.map!(&:for_hub) if for_hub
     qs.map!(&:templates_only) if templates_only
     qs.map! { |q| q.tagged_with(tag) } if tag.present?
     qs.map! { |q| q.where(user_id: user.id) } if user.present?
     qs.map! { |q| q.search_for(search) } if search.present?
-  
+
     kind = ['tw5', 'tw5x'] if kind == 'tw'
     qs.map! { |q| q.where(tw_kind: kind) } if kind.present?
-  
+
     # DISTINCT ON Order (neueste Blob-Version)
     qs.map! { |q| q.order('1, 2, blob_created_at DESC') }
-  
+
     # Return paginated collection
     WillPaginate::Collection.create(page || 1, per_page) do |pager|
       # Combine the two queries with a union and apply the sorting
       full_query_sql = qs.map(&:to_sql).map { |q| "( #{q} )" }.join(' UNION ') +
                        " ORDER BY #{sort_by}, 1, 2 DESC"
-  
+
       # For paginated results
       paged_query_sql = "#{full_query_sql} LIMIT #{pager.per_page} OFFSET #{pager.offset}"
-  
+
       # Returns a mix of Site & TspotSite records
       results = ActiveRecord::Base.connection.execute(paged_query_sql).pluck('type', 'id').map do |s_type, s_id|
         const_get(s_type).find(s_id)
       end
       pager.replace(results)
-  
+
       # Find the total result count
       result_count = ActiveRecord::Base.count_by_sql("select count(*) from (#{full_query_sql}) as foo")
       pager.total_entries = result_count

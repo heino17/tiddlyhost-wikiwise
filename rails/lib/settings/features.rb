@@ -1,5 +1,6 @@
 module Settings::Features
   require_dependency 'setting'
+
   module_function
 
   def admin_enabled?(user)

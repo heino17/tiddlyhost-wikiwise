@@ -21,8 +21,8 @@ Rails.application.configure do
   # TODO: Clean up fixtures (comment_votes references non-existent comments)
   # → Then reactivate: config.active_record.verify_foreign_keys_for_fixtures = true
   config.active_record.verify_foreign_keys_for_fixtures = false
-  
-  # Open redirect protection (since Rails 7) throws errors in controller tests 
+
+  # Open redirect protection (since Rails 7) throws errors in controller tests
   # because redirects go to *.tiddly(host|spot).example.com / test-hosts.
   # Not a problem in production (same host or known domains), but disruptive in tests.
   # Temporarily disabled until redirects are explicitly marked with allow_other_host: true.

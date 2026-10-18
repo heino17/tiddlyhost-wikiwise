@@ -24,7 +24,7 @@ class TiddlywikiController < ApplicationController
       @site_name = @site.name
       return render 'sites/collab_login', layout: 'simple'
     end
-  
+
     # ?collab_logout → Session löschen und Wiki neu laden
     if params.key?(:collab_logout)
       session.delete(:collab_site_id)
@@ -34,29 +34,29 @@ class TiddlywikiController < ApplicationController
       response.headers['Expires'] = '0'
       return redirect_to "https://#{request.subdomain}.#{request.domain}/?cache_clean=#{Time.now.to_i}", allow_other_host: true
     end
-  
+
     dummy_webdav_header if request.options? && @site.use_put_saver?
     etag_header
     return head 200 if request.head? || request.options?
     return site_not_valid unless site_valid?
-  
+
     update_view_count_and_access_timestamp
     nginx_no_buffering_header
     content = @site.html_content(is_logged_in: user_owns_site? || collab_session_active?)
     # Banner und Username-Injection nur für TiddlyWiki
     is_tiddlywiki = @site.tw_kind.in?(['tw5', 'tw5x', 'classic'])
-  
+
     if collab_session_active?
       logged_in_text = t('collaborator_logged_in_as')
       collab_name = session[:collab_name]
       log_off_text = t('collaborator_log_off')
-    
-      is_feather = @site.empty.name == 'feather'
+
+      @site.empty.name
       is_featherx = @site.empty.name == 'featherx'
-    
+
       if is_featherx
         # Featherx Wiki entfernt DOM-Elemente – wir brauchen setInterval
-        banner_script = <<~'BANNER'
+        banner_script = <<~BANNER
           <script>
             (function() {
               function insertBanner() {
@@ -72,19 +72,19 @@ class TiddlywikiController < ApplicationController
             })();
           </script>
         BANNER
-        banner_script = banner_script
-          .gsub('LOGGED_IN_TEXT', logged_in_text)
-          .gsub('COLLAB_NAME', collab_name)
-          .gsub('LOG_OFF_TEXT', log_off_text)
+        banner_script = banner_script.
+          gsub('LOGGED_IN_TEXT', logged_in_text).
+          gsub('COLLAB_NAME', collab_name).
+          gsub('LOG_OFF_TEXT', log_off_text)
         content = content.sub('</body>', "#{banner_script}</body>")
-    
+
       else
         # TiddlyWiki, Classic, Feather etc.
         banner = %(<div id="collab-banner" style="position:fixed;bottom:0;left:0;right:0;background:#f0a500;color:#000;text-align:center;padding:1px;z-index:99999;font-size:0.777rem;font-family:sans-serif;">#{logged_in_text}: <strong>#{collab_name}</strong> | <form method="GET" action="/" style="display:inline;"><input type="hidden" name="collab_logout" value="1"><button type="submit" style="background:none;border:none;cursor:pointer;color:#000;font-family:sans-serif;font-size:inherit;text-decoration:underline;padding:0;">#{log_off_text}</button></form></div>)
         content = content.sub('</body>', "#{banner}</body>")
       end
     end
-  
+
     if collab_session_active? && @site.empty.name == 'sitelet'
       banner_script = %(<script id="collab-banner-script">
       window.addEventListener('load', function() {
@@ -97,18 +97,18 @@ class TiddlywikiController < ApplicationController
           document.body.appendChild(b);
         }, 300);
       });
-    <\/script>)
-    # In <head> injizieren statt </body>!
-    content = content.sub('</head>', "#{banner_script}</head>")
+    </script>)
+      # In <head> injizieren statt </body>!
+      content = content.sub('</head>', "#{banner_script}</head>")
     end
-  
+
     # $:/status/UserName setzen
     # $tw.wiki.addTiddler nur für TiddlyWiki!
     if is_tiddlywiki
       username = nil
       username = current_user.username if user_owns_site?
       username = session[:collab_name] if collab_session_active?
-    
+
       if username.present?
         script = %(<script>
           window.addEventListener('load', function() {
@@ -124,20 +124,19 @@ class TiddlywikiController < ApplicationController
       end
     end
     render html: content.html_safe
-  
   end
 
   def collab_login
     @site_name = @site.name
     render 'sites/collab_login', layout: 'simple'
   end
-  
+
   def collab_login_submit
     name     = params[:name]
     password = params[:password]
-  
+
     collaborator = WikiCollaborator.authenticate_for_site(@site, name, password)
-  
+
     if collaborator
       session[:collab_site_id]   = @site.id
       session[:collab_name]      = collaborator.name
@@ -151,9 +150,9 @@ class TiddlywikiController < ApplicationController
   end
 
   def clean_collab_banner(content)
-    content
-      .gsub(/<div id="collab-banner".*?<\/div>/m, '')
-      .gsub(/<script id="collab-banner-script">.*?<\/script>/m, '')
+    content.
+      gsub(%r{<div id="collab-banner".*?</div>}m, '').
+      gsub(%r{<script id="collab-banner-script">.*?</script>}m, '')
   end
 
   def json_content

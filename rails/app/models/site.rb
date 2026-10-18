@@ -24,6 +24,7 @@ class Site < ApplicationRecord
 
   def update_vote_score
     return if destroyed?
+
     new_score = site_votes.average(:value)&.round(1) || 0.0
     update_column(:vote_score, new_score)
   end
@@ -218,7 +219,7 @@ class Site < ApplicationRecord
   # be nice if the save history is not entirely empty after subscribing.
   # See also app/jobs/prune_attachments_job.
   # Wie viele Versionen eines Wikis sollen behalten werden?
-  
+
   # === keep_count (Versions-History) ===
   def keep_count
     if is_tspot?
@@ -236,10 +237,10 @@ class Site < ApplicationRecord
     Setting.value_for(:keep_count_tiddlyspot, default: 4)
   end
 
-  validates :tag_list, 
+  validates :tag_list,
     length: {
       maximum: -> { Setting.value_for(:max_tags_per_site, default: 7) },
-      message: ->(record, data) {
+      message: lambda { |_record, _data|
         I18n.t(
           "admin.max_tags_per_site.too_many",
           count: Setting.value_for(:max_tags_per_site, default: 7)
@@ -252,7 +253,7 @@ class Site < ApplicationRecord
 
   # Für Speichergrößen-Limits
   validate :site_size_within_limit
-    validate :account_storage_within_limit
+  validate :account_storage_within_limit
 
   private
 
@@ -266,9 +267,9 @@ class Site < ApplicationRecord
   # end
 
   # === Pro-Wiki Größenlimit ===
-  def site_size_within_limit  
+  def site_size_within_limit
     return if user&.is_admin?
-  
+
     return unless saved_content_files.attached? && user.present?
 
     max_allowed_mb = if is_tspot?
@@ -284,9 +285,9 @@ class Site < ApplicationRecord
     current_size_mb = (raw_byte_size || 0) / 1.megabyte.to_f
 
     if current_size_mb > max_allowed_mb
-            errors.add(:base, I18n.t("action_menu_upload_form_site_size_exceeded",
-                               limit: max_allowed_mb,
-                               current: current_size_mb.round(1)))
+      errors.add(:base, I18n.t("action_menu_upload_form_site_size_exceeded",
+                         limit: max_allowed_mb,
+                         current: current_size_mb.round(1)))
     end
   end
 
@@ -295,7 +296,7 @@ class Site < ApplicationRecord
     return if user&.is_admin? || user.nil?
     return unless saved_content_files.attached? && raw_byte_size.present?
 
-    new_size_mb      = raw_byte_size / 1.megabyte.to_f
+    new_size_mb = raw_byte_size / 1.megabyte.to_f
 
     # Alte Größe dieses Wikis abziehen (falls es sich um ein Update handelt)
     old_size_mb = raw_byte_size_was.to_i / 1.megabyte.to_f

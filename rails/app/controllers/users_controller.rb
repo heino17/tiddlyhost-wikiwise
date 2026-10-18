@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def update_admin
     @user = User.find(params[:id])
     @user.skip_password_validation = true
-  
+
     if @user.update(user_params_admin)
       redirect_to admin_user_path(@user), notice: t("admin.tab_users.users_edit_user_account_flash_updated")
     else
@@ -40,12 +40,12 @@ class UsersController < ApplicationController
   def create_admin
     @user = User.new(user_params_admin)
     @user.skip_password_validation = true
-  
+
     # User sofort bestätigen
     @user.confirmed_at = Time.current
     @user.confirmation_token = nil
     @user.confirmation_sent_at = nil
-  
+
     if @user.save
       redirect_to admin_user_path(@user), notice: t("admin.tab_users.users_edit_user_account_flash_created")
     else
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       redirect_to admin_user_path(@user), alert: t("admin.tab_users.users_edit_user_account_flash_dont_delete_yourself")
       return
     end
-  
+
     @user.destroy
     redirect_to admin_users_path, notice: t("admin.tab_users.users_edit_user_account_flash_deleted")
   end

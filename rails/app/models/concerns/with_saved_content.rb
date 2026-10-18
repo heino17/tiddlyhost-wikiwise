@@ -160,16 +160,16 @@ module WithSavedContent
       keep = Setting.value_for(:keep_count_standard, default: 100)
 
       # Revisions mit Label haben Vorrang
-      ordered_files = saved_content_files
-        .left_outer_joins(:attachment_label)
-        .order(Arel.sql('attachment_labels.text IS NULL ASC'))
-        .order('created_at DESC')
+      ordered_files = saved_content_files.
+        left_outer_joins(:attachment_label).
+        order(Arel.sql('attachment_labels.text IS NULL ASC')).
+        order('created_at DESC')
     else
       # Normaler Modus → Free-Plan-Limit verwenden
       keep = Setting.value_for(:keep_count_free, default: 4)
 
-      ordered_files = saved_content_files
-        .order('created_at DESC')
+      ordered_files = saved_content_files.
+        order('created_at DESC')
     end
 
     # Alte Versionen löschen
