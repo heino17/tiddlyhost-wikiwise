@@ -1,0 +1,3 @@
+# Nicht ins Repository: enthält Secrets.
+.env
+config/
