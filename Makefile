@@ -358,19 +358,22 @@ EMPTY_URL_feather=https://feather.wiki/builds/v1.9.x/FeatherWiki_$(FEATHER_BIRD)
 EMPTY_URL_featherx=https://feather.wiki/builds/v1.9.x/FeatherWiki-bones_$(FEATHER_BIRD).html
 EMPTY_URL_feather_plumage=https://feather.wiki/builds/v1.9.x/FeatherWiki-plumage_$(FEATHER_BIRD).css
 EMPTY_URL_feather_bones=https://feather.wiki/builds/v1.9.x/FeatherWiki-bones_$(FEATHER_BIRD).js
-CURL_FETCH=curl -sL $(EMPTY_URL_$1) -o $(EMPTY_DIR)/$1.html
+# Timeouts verhindern hängende CI-Builds, wenn eine Quelle (z.B.
+# SourceForge für jsMath) drosselt oder Verbindungen hängenbleiben.
+CURL_OPTS=--connect-timeout 15 --max-time 300 --retry 3 --retry-delay 5
+CURL_FETCH=curl $(CURL_OPTS) -sL $(EMPTY_URL_$1) -o $(EMPTY_DIR)/$1.html
 download-empty-%: $(EMPTY_DIR)
 	$(call CURL_FETCH,$*)
 CORE_JS_URL=https://tiddlywiki.com/tiddlywikicore-$(VER).js
 
 download-core-js:
-	cd rails/public && curl -sL $(CORE_JS_URL) -O
+	cd rails/public && curl $(CURL_OPTS) -sL $(CORE_JS_URL) -O
     
 download-core-js-prerelease:
-	PRERELEASE_VER=$$(curl -s --range 0-1000 $(EMPTY_URL_prerelease) | grep '<meta name="tiddlywiki-version"' | cut -d'"' -f4) && \
+	PRERELEASE_VER=$$(curl $(CURL_OPTS) -s --range 0-1000 $(EMPTY_URL_prerelease) | grep '<meta name="tiddlywiki-version"' | cut -d'"' -f4) && \
 	CORE_JS_PRERELEASE_URL=https://tiddlywiki.com/prerelease/tiddlywikicore-$${PRERELEASE_VER}.js && \
 	  cd rails/public && \
-	  curl -sL $${CORE_JS_PRERELEASE_URL} -O
+	  curl $(CURL_OPTS) -sL $${CORE_JS_PRERELEASE_URL} -O
       
 # (No download-empty-featherx yet since I'm building it locally)
 download-empties: download-empty-tw5 download-empty-tw5x download-empty-feather download-empty-classic download-empty-prerelease download-core-js download-core-js-prerelease
@@ -390,7 +393,7 @@ download-empties: download-empty-tw5 download-empty-tw5x download-empty-feather 
 # current build actually outputs.
 
 download-plumage-and-bones:
-	cd rails/public && curl -sLO $(EMPTY_URL_feather_bones) && curl -sLO $(EMPTY_URL_feather_plumage)
+	cd rails/public && curl $(CURL_OPTS) -sLO $(EMPTY_URL_feather_bones) && curl $(CURL_OPTS) -sLO $(EMPTY_URL_feather_plumage)
 PROD_PRERELEASE=docker/config/prerelease.html
 $(PROD_PRERELEASE): $(EMPTY_DIR)/prerelease.html
 	cp $< $@
@@ -710,11 +713,11 @@ JS_MATH_DOWNLOADS=https://master.dl.sourceforge.net/project/jsmath
 
 $(JS_MATH_ZIP_PATH):
 	@mkdir -p $(TOP_DIR)/etc
-	curl -sL $(JS_MATH_DOWNLOADS)/jsMath/3.3g/$(JS_MATH_ZIP) -o $@
+	curl $(CURL_OPTS) -sL $(JS_MATH_DOWNLOADS)/jsMath/3.3g/$(JS_MATH_ZIP) -o $@
 
 $(JS_MATH_FONTS_ZIP_PATH):
 	@mkdir -p $(TOP_DIR)/etc
-	curl -sL $(JS_MATH_DOWNLOADS)/jsMath%20Image%20Fonts/1.3/$(JS_MATH_FONTS_ZIP) -o $@
+	curl $(CURL_OPTS) -sL $(JS_MATH_DOWNLOADS)/jsMath%20Image%20Fonts/1.3/$(JS_MATH_FONTS_ZIP) -o $@
 
 rails/public/jsMath/jsMath.js: $(JS_MATH_ZIP_PATH) $(JS_MATH_FONTS_ZIP_PATH)
 	cd rails/public && unzip -qo $(JS_MATH_ZIP_PATH)

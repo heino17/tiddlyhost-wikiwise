@@ -32,6 +32,9 @@ jobs:
     name: Build and publish image
     needs: test
     runs-on: ubuntu-latest
+    # Ohne Grenze blockiert ein hängender Download/Build den Runner
+    # stundenlang (siehe curl-Timeouts im Makefile).
+    timeout-minutes: 60
 
     permissions:
       contents: read
