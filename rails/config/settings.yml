@@ -27,6 +27,7 @@ defaults:
   public_thumbs_storage_service: local2
 
   major_version: "1.8"
+  app_version: "0.1.0-wikiwise"
 
   #banner_message:
   #  :icon: exclamation-triangle
