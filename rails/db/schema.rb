@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_06_14_145332) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_19_191537) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -198,10 +198,10 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_14_145332) do
 
   create_table "settings", force: :cascade do |t|
     t.string "key", null: false
-    t.text "value"
-    t.boolean "enabled", default: false
+    t.string "value", default: "false", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "enabled", default: false, null: false
     t.index ["key"], name: "index_settings_on_key", unique: true
   end
 
@@ -212,6 +212,21 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_14_145332) do
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_shoutbox_messages_on_created_at"
     t.index ["user_id"], name: "index_shoutbox_messages_on_user_id"
+  end
+
+  create_table "simple_data", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "json", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_id"], name: "index_simple_data_on_site_id", unique: true
+  end
+
+  create_table "simple_data_versions", force: :cascade do |t|
+    t.bigint "site_id", null: false
+    t.text "json", null: false
+    t.datetime "created_at", null: false
+    t.index ["site_id"], name: "index_simple_data_versions_on_site_id"
   end
 
   create_table "site_votes", force: :cascade do |t|
@@ -380,6 +395,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_06_14_145332) do
   add_foreign_key "pay_payment_methods", "pay_customers", column: "customer_id"
   add_foreign_key "pay_subscriptions", "pay_customers", column: "customer_id"
   add_foreign_key "shoutbox_messages", "users"
+  add_foreign_key "simple_data", "sites"
+  add_foreign_key "simple_data_versions", "sites"
   add_foreign_key "site_votes", "sites"
   add_foreign_key "site_votes", "users"
   add_foreign_key "sites", "empties"

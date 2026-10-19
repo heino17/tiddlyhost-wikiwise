@@ -49,6 +49,7 @@ module SiteCommon
     'feather'  => 'Feather Wiki',
     'featherx' => 'Feather Wiki (external javascript)',
     'sitelet'  => 'siteleteer',
+    'simple'   => 'SimpleWiki',
   }.freeze
 
   KIND_LOGOS = {
@@ -60,6 +61,7 @@ module SiteCommon
     'feather'  => 'feather-icon.svg',
     'featherx' => 'feather-icon.svg',
     'sitelet'  => 'siteleteer-logo.svg',
+    'simple'   => 'tw5-icon.ico',
   }.freeze
 
   # (These are not currently used)
@@ -71,6 +73,7 @@ module SiteCommon
     'feather'  => 'https://feather.wiki/',
     'featherx' => 'https://feather.wiki/',
     'sitelet'  => 'https://alamantus.codeberg.page/siteleteer/',
+    'simple'   => 'https://github.com/heino17/simplewiki',
   }.freeze
 
   KIND_VALS = KINDS.keys.freeze

@@ -88,3 +88,14 @@
   info_link: https://alamantus.codeberg.page/siteleteer/
   tooltip: To see how it works, view the clean and very readable page source. Requires
     a custom build of siteleteer.
+- id: 22
+  name: simple
+  title: SimpleWiki
+  description: A simple single-page wiki for text pages, focused on ease of use and
+    a clean data format.
+  enabled: true
+  display_order: 26
+  primary: false
+  info_link: https://github.com/heino17/simplewiki
+  tooltip: A lightweight wiki made of text pages. Saves are small because the content
+    is stored as a separate data island.

@@ -157,6 +157,49 @@ class TwFileTest < ActiveSupport::TestCase
     end
   end
 
+  test 'simplewiki detection' do
+    tw = ThFile.from_empty(:simple)
+    assert tw.is_simple?
+    assert_equal 'simple', tw.kind
+    refute tw.is_tw5?
+    assert tw.looks_valid?
+    assert_equal '0.1.47', tw.tiddlywiki_version
+    assert tw.simple_island_content.present?
+
+    # Light detection matches too
+    assert_equal ['simple', '0.1.47'],
+      TwFile.light_get_kind_and_version(File.read(ThFile.empty_path(:simple)))
+  end
+
+  test 'simplewiki mods replace island and add server metas when serving' do
+    th_file = ThFile.from_empty(:simple)
+    th_file.apply_simple_mods('coolsite', island_json: '{"seiten":[{"titel":"A"}]}')
+
+    assert_equal '{"seiten":[{"titel":"A"}]}', th_file.simple_island_content
+    assert_equal 'tiddlyhost', th_file.get_meta('simplewiki-server')
+    assert_equal 'http://coolsite.tiddlyhost-test-example.com/simplewiki/status',
+      th_file.get_meta('simplewiki-status-url')
+    assert_equal 'http://coolsite.tiddlyhost-test-example.com/simplewiki/data',
+      th_file.get_meta('simplewiki-data-url')
+  end
+
+  test 'simplewiki mods for download keep island but add no server metas' do
+    th_file = ThFile.from_empty(:simple)
+    th_file.apply_simple_mods('coolsite', for_download: true, island_json: '{"seiten":[]}')
+
+    assert_equal '{"seiten":[]}', th_file.simple_island_content
+    assert_nil th_file.get_meta('simplewiki-server')
+    assert_nil th_file.get_meta('simplewiki-status-url')
+  end
+
+  test 'simplewiki island escapes script-closing sequences' do
+    th_file = ThFile.from_empty(:simple)
+    th_file.apply_simple_mods('coolsite', island_json: '{"seiten":[{"text":"</script>"}]}')
+
+    refute_match '</script>', th_file.simple_island_content
+    assert_match '\u003c/script>', th_file.simple_island_content
+  end
+
   test 'robust version' do
     th_file = ThFile.from_empty(:tw5x)
     th_file.stubs(:tiddlywiki_version).returns('11.1.2')

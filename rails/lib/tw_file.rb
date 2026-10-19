@@ -86,7 +86,20 @@ class TwFile
     if html_content.match(/<meta name="application-name" content="siteleteer-tiddlyhost">/)
       match = html_content.match(/<meta name="?version"? content="?([a-zA-Z0-9\-._]+)"?/)
       if match
-        ['sitelet', match[1]]
+        return ['sitelet', match[1]]
+      end
+    end
+
+    # For SimpleWiki
+    # Detected by its data island; the version lives in a meta tag next to
+    # the shell version (see the exchange contract in simplewiki.html).
+    if html_content.match(/<script[^>]*id="simplewiki-daten"[^>]*>/)
+      match = html_content.match(/<meta name="simplewiki-version" content="([a-zA-Z0-9\-._]+)"/) ||
+              html_content.match(/<meta name="mws-shell-version" content="([a-zA-Z0-9\-._]+)"/)
+      if match
+        ['simple', match[1].sub(/\Av/, '')]
+      else
+        ['simple', nil]
       end
     end
   end
@@ -97,6 +110,7 @@ class TwFile
   def looks_valid?
     return true if is_feather?
     return true if is_sitelet?
+    return true if is_simple?
 
     # The application name is present
     tiddlywiki_title == 'TiddlyWiki' &&
@@ -111,7 +125,7 @@ class TwFile
   end
 
   def is_tw5?
-    !(is_classic? || is_feather? || is_sitelet?)
+    !(is_classic? || is_feather? || is_sitelet? || is_simple?)
   end
 
   def is_feather?
@@ -120,6 +134,16 @@ class TwFile
 
   def is_sitelet?
     get_meta('application-name') == 'siteleteer-tiddlyhost'
+  end
+
+  # Identified by the presence of its data island rather than a meta tag.
+  def is_simple?
+    !doc.at_css('script#simplewiki-daten').nil?
+  end
+
+  # The raw content of the SimpleWiki data island (parsed text), or nil.
+  def simple_island_content
+    doc.at_css('script#simplewiki-daten')&.content
   end
 
   def external_core_script_tag
@@ -139,6 +163,7 @@ class TwFile
     return 'featherx' if is_feather_external_core?
     return 'feather' if is_feather?
     return 'sitelet' if is_sitelet?
+    return 'simple' if is_simple?
     return 'classic' if is_classic?
     return 'tw5x' if is_external_core?
 
@@ -156,6 +181,7 @@ class TwFile
   def tiddlywiki_version
     return featherwiki_version if is_feather?
     return siteleteer_version if is_sitelet?
+    return simplewiki_version if is_simple?
 
     tiddlywiki_version_tw5 || tiddlywiki_version_classic
   end
@@ -187,6 +213,14 @@ class TwFile
 
   def siteleteer_version
     get_meta('version')
+  end
+
+  # The shell/template version. Prefer an explicit simplewiki-version meta
+  # if present, otherwise fall back to the shell version marker.
+  def simplewiki_version
+    version = get_meta('simplewiki-version')
+    version = get_meta('mws-shell-version') if version.nil? || version.empty?
+    version&.sub(/\Av/, '')
   end
 
   def tiddlywiki_title_classic

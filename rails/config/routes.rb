@@ -31,6 +31,10 @@ Rails.application.routes.draw do
 
     post '/', to: 'tiddlywiki#upload_save'
     put '/', to: 'tiddlywiki#put_save'
+
+    # SimpleWiki content island API
+    match '/simplewiki/status', to: 'simplewiki#status', via: [:get, :options]
+    match '/simplewiki/data', to: 'simplewiki#data', via: [:get, :put, :options]
   end
 
   #

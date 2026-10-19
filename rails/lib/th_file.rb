@@ -160,18 +160,61 @@ class ThFile < TwFile
     })
   end
 
-  def apply_tiddlyhost_mods(site_name, for_download: false, local_core: false, use_put_saver: false, is_logged_in: false)
+  def apply_tiddlyhost_mods(site_name, for_download: false, local_core: false, use_put_saver: false, is_logged_in: false, island_json: nil)
     if is_tw5?
       apply_tw5_mods(site_name, for_download:, local_core:, use_put_saver:, is_logged_in:)
     elsif is_classic?
       apply_classic_mods(site_name, for_download:, is_logged_in:)
+    elsif is_simple?
+      apply_simple_mods(site_name, for_download:, island_json:)
     end
     # No modifications for Feather Wiki or siteleteer
     self
   end
 
+  # SimpleWiki: replace the data island with the stored content and (when
+  # serving, not downloading) point the shell at the save endpoints.
+  #
+  # The island JSON is stored separately from the shell, so the shell
+  # attachment itself never needs to change when only the content changes.
+  def apply_simple_mods(site_name, for_download: false, island_json: nil)
+    island = doc.at_css('script#simplewiki-daten')
+    return self unless island
+
+    # Escape "<" so an island value can never break out of the script tag,
+    # matching how SimpleWiki itself writes the island.
+    island.content = (island_json.presence || island.content.to_s).gsub('<', '\u003c')
+
+    return self if for_download
+
+    head = doc.at_css('head')
+    remove_simple_server_metas(head) if head
+    if head
+      add_meta(head, 'simplewiki-server', 'tiddlyhost')
+      add_meta(head, 'simplewiki-status-url', "#{Settings.subdomain_site_url(site_name)}/simplewiki/status")
+      add_meta(head, 'simplewiki-data-url', "#{Settings.subdomain_site_url(site_name)}/simplewiki/data")
+    end
+
+    self
+  end
+
   def plugin_content(plugin_name, erb_vars)
     ThFile.plugin_template(plugin_name).result_with_hash(erb_vars)
+  end
+
+  def add_meta(head, name, content)
+    meta = Nokogiri::XML::Node.new('meta', doc)
+    meta['name'] = name
+    meta['content'] = content
+    head.add_child(meta)
+  end
+
+  # Remove any previously injected server metas so a re-serve never
+  # accumulates duplicates.
+  def remove_simple_server_metas(head)
+    %w[simplewiki-server simplewiki-status-url simplewiki-data-url].each do |name|
+      head.xpath("meta[@name='#{name}']").each(&:remove)
+    end
   end
 
   def get_site_name

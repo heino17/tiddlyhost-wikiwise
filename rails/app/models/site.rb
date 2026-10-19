@@ -5,6 +5,10 @@ class Site < ApplicationRecord
   has_many :wiki_collaborators, dependent: :destroy, inverse_of: :site
   accepts_nested_attributes_for :wiki_collaborators, allow_destroy: true, reject_if: :all_blank
 
+  # SimpleWiki content island (separate from the shell attachment)
+  has_one :simple_data, dependent: :destroy
+  has_many :simple_data_versions, dependent: :destroy
+
   # Comment & Voting
   has_many :comments, dependent: :destroy
   has_many :site_votes, dependent: :destroy
@@ -102,14 +106,16 @@ class Site < ApplicationRecord
 
   def html_content(is_logged_in: false)
     th_file.apply_tiddlyhost_mods(name,
-      is_logged_in:, use_put_saver: use_put_saver?).to_html
+      is_logged_in:, use_put_saver: use_put_saver?,
+      island_json: simple_island_json).to_html
   end
 
   def html_content_for_blob_id(blob_id, is_logged_in: false)
     th_file_for_blob_id(blob_id).apply_tiddlyhost_mods(name,
       # Note: There might be some tricky edge cases around the value of use_put_saver?
       # here since it's based on the current site, not the specific version being fetched
-      is_logged_in:, use_put_saver: use_put_saver?).to_html
+      is_logged_in:, use_put_saver: use_put_saver?,
+      island_json: simple_island_json).to_html
   end
 
   def json_data(opts = {})
@@ -123,12 +129,21 @@ class Site < ApplicationRecord
   end
 
   def download_content(local_core: false)
-    th_file.apply_tiddlyhost_mods(name, for_download: true, local_core:).to_html
+    th_file.apply_tiddlyhost_mods(name, for_download: true, local_core:,
+      island_json: simple_island_json).to_html
   end
 
   def download_content_for_blob_id(blob_id)
     # Todo maybe: Consider the local core option here
-    ThFile.new(file_download(blob_id)).apply_tiddlyhost_mods(name, for_download: true).to_html
+    ThFile.new(file_download(blob_id)).apply_tiddlyhost_mods(name, for_download: true,
+      island_json: simple_island_json).to_html
+  end
+
+  # The stored SimpleWiki content island, or nil for non-SimpleWiki sites.
+  def simple_island_json
+    return nil unless is_simple?
+
+    simple_data&.json
   end
 
   # Could be more clever here and try to read it from the script src,
