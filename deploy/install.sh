@@ -163,6 +163,13 @@ if [ "$SETTINGS_CHANGED" -eq 1 ] && [ "$APP_ALREADY_RUNNING" -eq 1 ]; then
   docker compose restart app jobs
 fi
 
+# nginx.conf kann sich mit einer neuen Version geändert haben. Ein Reload
+# übernimmt die Änderungen; der Resolver in nginx.conf löst "app" danach
+# ohnehin laufend neu auf.
+if [ -n "$(docker compose ps -q web 2>/dev/null || true)" ]; then
+  docker compose exec -T web nginx -s reload >/dev/null 2>&1 || true
+fi
+
 #-------------------------------------------------------------
 # 4b. Storage-Volumes für die App beschreibbar machen
 #
