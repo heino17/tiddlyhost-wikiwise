@@ -27,7 +27,8 @@ defaults:
   public_thumbs_storage_service: local2
 
   major_version: "1.8"
-  app_version: "0.1.0-wikiwise"
+  # app_version wird bewusst nicht hier gepflegt, sondern beim Release aus dem
+  # Git-Tag über public/build-info.txt erzeugt (siehe Settings.app_version).
 
   #banner_message:
   #  :icon: exclamation-triangle

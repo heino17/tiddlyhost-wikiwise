@@ -7,6 +7,7 @@ class Settings
     'date' => 'Wed May 4 12:41:58 PM EDT 2022',
     'sha' => '0123456789abcdef',
     'build_number' => 42,
+    'tag' => '',
     'commit' => 'Fix stuff',
     'branch' => 'devel',
   }.freeze
@@ -99,7 +100,15 @@ class Settings
   end
 
   def self.app_version
-    SETTINGS['app_version'] || "#{major_version}.#{build_info['build_number']}"
+    # An explicit version (config/settings.yml) wins, otherwise use the git
+    # tag stamped into build-info.txt by bin/create-build-info.sh at release
+    # time, and fall back to the commit count for untagged builds.
+    return SETTINGS['app_version'] if SETTINGS['app_version'].present?
+
+    tag = build_info['tag'].to_s.delete_prefix('v')
+    return "#{tag}-wikiwise" if tag.present?
+
+    "#{major_version}.#{build_info['build_number']}"
   end
 
   def self.app_version_with_sha
