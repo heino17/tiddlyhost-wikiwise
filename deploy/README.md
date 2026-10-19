@@ -71,8 +71,26 @@ Das Image liegt öffentlich im GitHub Container Registry unter
 schreibt in `.env` eine feste Version fest:
 
 ```bash
-TIDDLHOST_IMAGE=ghcr.io/heino17/tiddlyhost-wikiwise:v0.1.0
+TIDDLHOST_IMAGE=ghcr.io/heino17/tiddlyhost-wikiwise:v0.1.3
 ```
+
+## Häufige Probleme
+
+**`DB_PASSWORD passt nicht zum vorhandenen Datenbank-Volume.`**
+
+Das Datenbank-Volume `th_deploy_db_data` überlebt `docker compose down`
+und auch das Löschen einzelner Container. Postgres merkt sich das Passwort,
+mit dem es beim allerersten Start initialisiert wurde – ein später
+geändertes `DB_PASSWORD` in `.env` führt zu „password authentication
+failed". `install.sh` erkennt das und bricht vor den Migrationen ab.
+Zwei Varianten:
+
+1. **Daten behalten:** altes `DB_PASSWORD` in `.env` eintragen
+   (steht ggf. in einem Backup oder einer alten `.env`) und
+   `./install.sh` erneut ausführen.
+2. **Daten verwerfen:** `docker compose down -v` (löscht die Volumes)
+   und `./install.sh` neu starten – die Datenbank wird dann frisch
+   mit dem aktuellen Passwort initialisiert.
 
 ## Version veröffentlichen (Maintainer)
 

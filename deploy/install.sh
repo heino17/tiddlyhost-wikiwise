@@ -200,6 +200,27 @@ done
 docker compose exec -T db pg_isready -U postgres >/dev/null 2>&1 \
   || die "Die Datenbank antwortet nicht. 'docker compose logs db' zeigt warum."
 
+# Anmeldung mit den .env-Zugangsdaten testen. Postgres setzt
+# POSTGRES_PASSWORD nur beim allerersten Start des Datenverzeichnisses;
+# ein später geändertes Passwort in .env führt deshalb zu
+# "password authentication failed" – hier früh und verständlich melden.
+# Wichtig: per Hostname "db" verbinden, nicht 127.0.0.1 – im Container
+# gilt für localhost "trust", übers Netzwerk "scram-sha-256" (wie die App).
+if ! docker compose exec -T -e PGPASSWORD="$DB_PASSWORD" db \
+    psql -U postgres -h db -d postgres -tAc 'select 1' >/dev/null 2>&1; then
+  warn "Die Datenbank akzeptiert das DB_PASSWORD aus .env nicht."
+  echo
+  echo "  Typische Ursache: Das Datenbank-Volume 'th_deploy_db_data' existiert"
+  echo "  schon und wurde mit einem anderen DB_PASSWORD angelegt."
+  echo
+  echo "  Lösung (zwei Varianten):"
+  echo "    1) Daten behalten: altes DB_PASSWORD in .env eintragen"
+  echo "       (steht ggf. in einem Backup oder alten .env) und ./install.sh erneut ausführen."
+  echo "    2) Daten verwerfen: docker compose down -v && ./install.sh"
+  echo
+  die "DB_PASSWORD passt nicht zum vorhandenen Datenbank-Volume."
+fi
+
 info "Führe Datenbank-Migrationen aus"
 docker compose exec -T app bin/rails db:prepare
 ok "Datenbank bereit"
