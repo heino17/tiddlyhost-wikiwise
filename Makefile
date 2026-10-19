@@ -491,6 +491,37 @@ siteleteer-update: ver-set
 	git commit -m 'chore: Upgrade siteleteer empty to $(VER)' \
 	  -m 'Commit created with `VER=$(VER) make siteleteer-update`'
 
+# And for SimpleWiki
+# The source is a locally prepared simplewiki.html (see the SimpleWiki
+# repository). The version is read from its shell-version meta, so it can
+# not drift from the file that is copied in.
+#
+#   make simple-update
+#   SIMPLEWIKI_DIR=../somewhere make simple-update
+#
+# This is the same shape as siteleteer-update: copy the prepared file to
+# the current-template slot and to a versioned slot, then commit. The
+# versioned slot is what the detection tests walk (see for_all_empties in
+# rails/test/test_helper.rb).
+SIMPLEWIKI_DIR ?= ../../Tiddlywiki_neu_erfinden
+simple-update:
+	@test -f "$(SIMPLEWIKI_DIR)/simplewiki.html" || \
+	  ( echo "Not found: $(SIMPLEWIKI_DIR)/simplewiki.html" \
+	    && echo "Set SIMPLEWIKI_DIR to the SimpleWiki checkout." \
+	    && exit 1 )
+	@VER=$$( grep -o '<meta name="mws-shell-version" content="v[0-9.]*"' \
+	    "$(SIMPLEWIKI_DIR)/simplewiki.html" | head -1 \
+	    | sed -E 's/.*content="v([0-9.]+)".*/\1/' ); \
+	  test -n "$$VER" || ( echo "No shell version found in the source." && exit 1 ); \
+	  echo "SimpleWiki shell version: $$VER"; \
+	  cp "$(SIMPLEWIKI_DIR)/simplewiki.html" $(EMPTIES_DIR)/simple.html; \
+	  cp $(EMPTIES_DIR)/simple.html $(EMPTIES_DIR)/simple/$$VER.html; \
+	  git add \
+	    $(EMPTIES_DIR)/simple.html \
+	    $(EMPTIES_DIR)/simple/$$VER.html; \
+	  git commit -m "chore: Upgrade SimpleWiki empty to $$VER" \
+	    -m "Commit created with \`make simple-update\`"
+
 #----------------------------------------------------------
 
 # Generate an SSL cert

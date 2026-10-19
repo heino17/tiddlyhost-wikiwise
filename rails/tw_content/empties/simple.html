@@ -2,7 +2,7 @@
 <html lang="de"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="mws-shell-version" content="v0.1.47">
+    <meta name="mws-shell-version" content="v0.1.48">
     <meta name="simplewiki-doc-id" content="">
     <meta name="simplewiki-exported" content="">
     <meta name="simplewiki-title" content="">
@@ -5664,6 +5664,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "emptyCreate": "Erste Seite anlegen",
                     "speicherFehler": "Nicht auf dem Server gespeichert: {grund}. " +
                         "Die Änderung steht in dieser Seite, aber nicht beim Server.",
+                    "konflikt": "Jemand anderes hat dieses Wiki seither geändert. " +
+                        "Der neue Stand wurde geladen - bitte prüfe Deine Änderung noch einmal.",
                     "mwsHinweis": "Die Seiten liegen auf dem Server. Jede Änderung geht sofort dorthin.",
                     "updateUeberschrift": "Neue Oberflächen-Version bereit",
                     "updateText": "Diese Wiki läuft auf {alt}. Zum Übernehmen bereit steht {neu}.",
@@ -5863,6 +5865,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "emptyCreate": "Create the first page",
                     "speicherFehler": "Not saved on the server: {grund}. " +
                         "The change is in this page, but not on the server.",
+                    "konflikt": "Someone else has changed this wiki since. " +
+                        "The new version was loaded - please check your change again.",
                     "mwsHinweis": "The pages live on the server. Every change goes there right away.",
                     "updateUeberschrift": "New interface version available",
                     "updateText": "This wiki is running {alt}. {neu} is ready for you to take over.",
@@ -6061,6 +6065,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "abmeldenFehler": "Не удалось выйти. Попробуйте ещё раз.",
                     "emptyCreate": "Создать первую страницу",
                     "speicherFehler": "Не сохранено на сервере: {grund}. Изменение есть на этой странице, но не на сервере.",
+                    "konflikt": "Кто-то другой с тех пор изменил эту вики. Загружена новая версия — проверьте своё изменение.",
                     "mwsHinweis": "Страницы хранятся на сервере. Каждое изменение сразу отправляется туда.",
                     "updateUeberschrift": "Доступна новая версия интерфейса",
                     "updateText": "Эта вики работает на {alt}. {neu} готова к переносу.",
@@ -6259,6 +6264,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "abmeldenFehler": "No se pudo cerrar sesión. Inténtalo de nuevo.",
                     "emptyCreate": "Crear la primera página",
                     "speicherFehler": "No guardado en el servidor: {grund}. El cambio está en esta página, pero no en el servidor.",
+                    "konflikt": "Alguien más ha cambiado esta wiki desde entonces. Se cargó la nueva versión: revisa tu cambio.",
                     "mwsHinweis": "Las páginas viven en el servidor. Cada cambio va allí de inmediato.",
                     "updateUeberschrift": "Nueva versión de la interfaz disponible",
                     "updateText": "Este wiki usa {alt}. {neu} está listo para adoptarlo.",
@@ -6457,6 +6463,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "abmeldenFehler": "La déconnexion n'a pas fonctionné. Veuillez réessayer.",
                     "emptyCreate": "Créer la première page",
                     "speicherFehler": "Non enregistré sur le serveur : {grund}. La modification est dans cette page, mais pas sur le serveur.",
+                    "konflikt": "Quelqu'un d'autre a modifié ce wiki depuis. La nouvelle version a été chargée : vérifiez votre modification.",
                     "mwsHinweis": "Les pages résident sur le serveur. Chaque modification y va immédiatement.",
                     "updateUeberschrift": "Nouvelle version de l'interface disponible",
                     "updateText": "Ce wiki utilise {alt}. {neu} est prêt à être repris.",
@@ -6655,6 +6662,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "abmeldenFehler": "サインアウトできませんでした。もう一度お試しください。",
                     "emptyCreate": "最初のページを作成",
                     "speicherFehler": "サーバーに保存されませんでした: {grund}。変更はこのページにありますが、サーバーにはありません。",
+                    "konflikt": "他の誰かがこのウィキを変更しました。新しい版を読み込みました。変更内容を確認してください。",
                     "mwsHinweis": "ページはサーバーにあります。変更はすぐにそこへ送られます。",
                     "updateUeberschrift": "新しいインターフェース版が利用可能です",
                     "updateText": "この Wiki は {alt} で動作しています。{neu} を引き継げます。",
@@ -6853,6 +6861,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "abmeldenFehler": "로그아웃하지 못했습니다. 다시 시도하세요.",
                     "emptyCreate": "첫 페이지 만들기",
                     "speicherFehler": "서버에 저장되지 않았습니다: {grund}. 변경 사항은 이 페이지에 있지만 서버에는 없습니다.",
+                    "konflikt": "다른 사람이 그 사이에 이 위키를 변경했습니다. 새 버전을 불러왔으니 변경 내용을 다시 확인하세요.",
                     "mwsHinweis": "페이지는 서버에 있습니다. 모든 변경은 즉시 서버로 전송됩니다.",
                     "updateUeberschrift": "새 인터페이스 버전을 사용할 수 있습니다",
                     "updateText": "이 위키는 {alt}에서 실행 중입니다. {neu}를 넘겨받을 수 있습니다.",
@@ -7051,6 +7060,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "abmeldenFehler": "退出登录未成功。请重试。",
                     "emptyCreate": "创建第一个页面",
                     "speicherFehler": "未保存到服务器：{grund}。更改在此页面中，但不在服务器上。",
+                    "konflikt": "其他人此后修改了此 Wiki。已加载新版本，请再次检查你的更改。",
                     "mwsHinweis": "页面存放在服务器上。每次更改都会立即发送到那里。",
                     "updateUeberschrift": "有新的界面版本可用",
                     "updateText": "此 Wiki 正在运行 {alt}。{neu} 已可供接管。",
@@ -7811,6 +7821,10 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
 
         function MwsStore(tiddler) {
             this.art = 'mws';
+            /* Wie beim Tiddlyhost-Speicher: hinter diesem Speicher steht ein
+               Server. Die App fragt danach ueber serverseitig, statt jede
+               Auspraegung einzeln zu kennen. */
+            this.serverseitig = true;
             this.tiddler = Array.isArray(tiddler) ? tiddler : [];
             this.slug = mwsSlug();
             /* Die Felder, wie sie kamen. Beim Schreiben werden sie
@@ -8210,6 +8224,361 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
            und nicht direkt nach dem Konstruktor. */
         pruefeSpeicher(MwsStore.prototype, 'der Serverspeicher');
 
+        /* ---------- Ausprägung 3: Tiddlyhost ----------
+
+           Tiddlyhost liefert dieselbe Art Shell aus wie MWS, aber einen
+           anderen Weg zum Inhalt: nicht Tiddler, sondern eine einzelne
+           Dateninsel. Beim Ausliefern haengt der Server drei Meta-Zeilen
+           in den Kopf (erkennt man am ersten unten), die sagen, dass hier
+           dieser Speicher zustaendig ist und wohin geschrieben wird.
+
+           Gehalten wird der Inhalt in der Dateninsel selbst - derselben
+           <script id="simplewiki-daten">, die eine gesicherte Datei traegt.
+           Geschrieben wird sie als Ganzes: jede Aenderung geht als
+           gebuendelter PUT an /simplewiki/data, das Wiki liest sie beim
+           naechsten Neuladen wieder ein.
+
+           Der Server fuehrt zu jeder Fassung eine eigene Version (ETag).
+           Ein PUT mit If-Match traegt die zuletzt gelesene mit; hat ein
+           anderer seither geschrieben, antwortet er mit 409, und diese
+           Wiki liest den neuen Stand und meldet den Konflikt, statt ihn
+           zu ueberschreiben. */
+
+        function tiddlyhostServer() {
+            const m = document.querySelector('meta[name="simplewiki-server"]');
+            return m ? String(m.getAttribute('content') || '') : '';
+        }
+
+        function tiddlyhostMeta(name) {
+            const m = document.querySelector('meta[name="' + name + '"]');
+            return m ? String(m.getAttribute('content') || '') : '';
+        }
+
+        /* Die Dateninsel aus dem Dokument lesen. Ein leerer oder
+           fehlender Block ist ein leeres Wiki, kein Fehler. */
+        function tiddlyhostInsel() {
+            const el = document.getElementById('simplewiki-daten');
+            if (!el) return null;
+            try {
+                const daten = JSON.parse(el.textContent || '');
+                if (daten && typeof daten === 'object' && !Array.isArray(daten)) {
+                    return daten;
+                }
+            } catch (e) { /* eine kaputte Insel wird wie eine leere behandelt */ }
+            return null;
+        }
+
+        function TiddlyhostStore() {
+            this.art = 'tiddlyhost';
+            /* Damit die App weiss, dass hier ein Server hinter steht - ohne
+               dass sie zwei Auspraegungen kennen muss. */
+            this.serverseitig = true;
+            this.datenUrl = tiddlyhostMeta('simplewiki-data-url');
+            this.statusUrl = tiddlyhostMeta('simplewiki-status-url');
+            this.seiten = [];
+            this.startId = '';
+            this.einstellungen = {};
+            this.fremdeDaten = {};
+            this.wikiTitel = '';
+            this.wikiUntertitel = '';
+            this.nurLesen = false;
+            /* Die zuletzt gelesene Fassung des Servers. Sie geht als
+               If-Match mit und wird nach jedem Schreiben ersetzt. */
+            this.etag = '';
+            this.schreibZeit = null;
+            this.buchenLaeuft = false;
+        }
+
+        /* Wer hier arbeitet und ob dieser Tab schreiben darf.
+
+           Der Server antwortet mit {logged_in, logged_in_as}. Die App
+           erwartet die MWS-Form; die wird hier gebaut - so braucht die
+           Oberflaeche den Unterschied nicht zu kennen. */
+        TiddlyhostStore.prototype.status = function () {
+            if (!this.statusUrl) return Promise.resolve(null);
+            return fetch(this.statusUrl, {
+                headers: { 'X-Requested-With': 'fetch' },
+                credentials: 'same-origin'
+            }).then(function (antwort) {
+                if (!antwort.ok) return null;
+                return antwort.json();
+            }).then(function (daten) {
+                if (!daten) return null;
+                const angemeldet = !!daten.logged_in;
+                return {
+                    isLoggedIn: angemeldet,
+                    username: angemeldet ? String(daten.logged_in_as || '') : '',
+                    /* Schreiben darf, wer angemeldet ist; ob er es auf
+                       diesem Wiki darf, sagt erst der PUT (403). */
+                    bags: [{ canUserWrite: angemeldet }]
+                };
+            }).catch(function () {
+                return null;
+            });
+        };
+
+        /* Abmelden: Tiddlyhost die Sitzung loeschen lassen. Das Cookie
+           gilt domainweit, also meldet das auch aus dieser Wiki ab. */
+        TiddlyhostStore.prototype.abmelden = function () {
+            return fetch('/users/sign_out', {
+                method: 'DELETE',
+                headers: { 'X-Requested-With': 'fetch' },
+                credentials: 'same-origin'
+            }).then(function (antwort) {
+                return antwort.ok || antwort.status === 302 || antwort.status === 204;
+            }).catch(function () {
+                return false;
+            });
+        };
+
+        /* Der Weg zu einer Fehlermeldung in der Oberflaeche - wie beim
+           MWS-Speicher. */
+        TiddlyhostStore.prototype.fehlerMelden = function (grund) {
+            try {
+                document.dispatchEvent(new CustomEvent('simplewiki:fehler', {
+                    detail: String(grund == null ? '' : grund)
+                }));
+            } catch (e) { /* älterer Browser: dann eben ohne Hinweis */ }
+        };
+
+        TiddlyhostStore.prototype.nurLesenMelden = function () {
+            this.nurLesen = true;
+            try {
+                document.dispatchEvent(new CustomEvent('simplewiki:nurlesen'));
+            } catch (e) { /* älterer Browser: nur die Merkvariable zählt */ }
+        };
+
+        /* Die Dateninsel bauen - genau in der Austauschform, die auch der
+           Export schreibt. Unbekannte Felder aus dem eingelesenen
+           Ursprueng bleiben erhalten. */
+        TiddlyhostStore.prototype.bauInsel = function () {
+            const daten = Object.assign({}, this.fremdeDaten || {});
+            daten.version = SIMPLEWIKI_FORMAT_VERSION;
+            daten.seiten = this.seiten;
+            daten.startseite = this.startId;
+            daten.sprache = this.einstellungen.sprache || '';
+            daten.thema = this.einstellungen.thema === 'dark' ? 'dark' : 'light';
+            daten.palette = this.einstellungen.palette || '';
+            daten.toolbar = !!this.einstellungen.toolbar;
+            daten.seiteninhalt = !!this.einstellungen.seiteninhalt;
+            daten.eigeneFarben = this.einstellungen.eigeneFarben || null;
+            return daten;
+        };
+
+        /* Die Insel im Dokument mit dem aktuellen Stand ersetzen, damit
+           ein "Sichern" ohne Neuladen denselben Inhalt traegt. */
+        TiddlyhostStore.prototype.inselAktualisieren = function (text) {
+            const el = document.getElementById('simplewiki-daten');
+            if (el) el.textContent = text;
+        };
+
+        /* Die Insel sammeln und - gebuendelt - zum Server schicken.
+
+           Gebuendelt, weil eine Umbenennung viele Seiten beruehrt und
+           jede einzelne ein Schreiben waere. Ein kurzer Aufschub fasst
+           sie zu einem PUT zusammen. */
+        TiddlyhostStore.prototype.buchen = function () {
+            if (this.schreibZeit) clearTimeout(this.schreibZeit);
+            this.schreibZeit = setTimeout(() => {
+                this.schreibZeit = null;
+                this.jetztSchreiben();
+            }, 400);
+            return true;
+        };
+
+        /* Sofort schreiben - ohne Aufschub. Der letzte Schreibvorgang
+           beim Verlassen der Seite geht hier durch. */
+        TiddlyhostStore.prototype.flush = function () {
+            if (this.schreibZeit) {
+                clearTimeout(this.schreibZeit);
+                this.schreibZeit = null;
+            }
+            return this.jetztSchreiben();
+        };
+
+        TiddlyhostStore.prototype.jetztSchreiben = function () {
+            if (!this.datenUrl) return Promise.resolve(null);
+            if (this.nurLesen) return Promise.resolve(null);
+            const text = JSON.stringify(this.bauInsel());
+            const kopf = {
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'fetch'
+            };
+            /* Die zuletzt gelesene Fassung mitgeben. Ein anderer Schreiber
+               seither faellt so als 409 auf, statt still zu verschwinden. */
+            if (this.etag) kopf['If-Match'] = this.etag;
+            const selbst = this;
+            return fetch(this.datenUrl, {
+                method: 'PUT',
+                headers: kopf,
+                credentials: 'same-origin',
+                body: text
+            }).then(function (antwort) {
+                if (antwort.status === 409) {
+                    /* Jemand anderes hat seither geschrieben. Den neuen
+                       Stand lesen und den Konflikt melden - nicht
+                       darueberbuegeln. */
+                    selbst.konfliktMelden();
+                    return null;
+                }
+                if (antwort.status === 403) {
+                    selbst.nurLesenMelden();
+                    return null;
+                }
+                if (!antwort.ok) {
+                    throw new Error('HTTP ' + antwort.status);
+                }
+                const neu = antwort.headers.get('ETag');
+                if (neu) selbst.etag = neu;
+                /* Die Insel im Dokument auf denselben Stand bringen. */
+                selbst.inselAktualisieren(text);
+                return true;
+            }).catch(function (e) {
+                selbst.fehlerMelden(e && e.message ? e.message : 'unbekannter Fehler');
+                return null;
+            });
+        };
+
+        TiddlyhostStore.prototype.konfliktMelden = function () {
+            const selbst = this;
+            /* Den neuen Stand holen und zu eigen machen, damit die naechste
+               Eingabe wieder passt. */
+            this.vomServerLesen().then(function (daten) {
+                if (!daten) return;
+                selbst.seiten = Array.isArray(daten.seiten) ? daten.seiten : [];
+                selbst.startId = daten.startseite == null ? '' : String(daten.startseite);
+                selbst.einstellungen = {
+                    thema: daten.thema === 'dark' ? 'dark' : (daten.thema === 'light' ? 'light' : ''),
+                    palette: daten.palette == null ? '' : String(daten.palette),
+                    eigeneFarben: eigeneFarbenLesen(daten.eigeneFarben),
+                    sprache: daten.sprache == null ? '' : String(daten.sprache),
+                    toolbar: wahlWahr(daten.toolbar),
+                    seiteninhalt: wahlWahr(daten.seiteninhalt)
+                };
+            });
+            try {
+                document.dispatchEvent(new CustomEvent('simplewiki:konflikt'));
+            } catch (e) { /* älterer Browser: dann eben ohne Hinweis */ }
+        };
+
+        /* Den aktuellen Stand vom Server holen. */
+        TiddlyhostStore.prototype.vomServerLesen = function () {
+            if (!this.datenUrl) return Promise.resolve(null);
+            const selbst = this;
+            return fetch(this.datenUrl, {
+                headers: { 'X-Requested-With': 'fetch', 'Accept': 'application/json' },
+                credentials: 'same-origin'
+            }).then(function (antwort) {
+                const etag = antwort.headers.get('ETag');
+                if (etag) selbst.etag = etag;
+                if (!antwort.ok) return null;
+                return antwort.json();
+            }).catch(function () {
+                return null;
+            });
+        };
+
+        TiddlyhostStore.prototype.laden = function () {
+            const insel = tiddlyhostInsel() || {};
+            const seiten = Array.isArray(insel.seiten) ? insel.seiten : [];
+            this.seiten = seiten;
+            this.startId = insel.startseite == null ? '' : String(insel.startseite);
+
+            const bekannt = ['version', 'seiten', 'startseite', 'sprache', 'thema',
+                'palette', 'toolbar', 'seiteninhalt', 'eigeneFarben'];
+            const fremd = {};
+            Object.keys(insel).forEach(k => {
+                if (bekannt.indexOf(k) < 0) fremd[k] = insel[k];
+            });
+            this.fremdeDaten = fremd;
+
+            this.einstellungen = {
+                thema: insel.thema === 'dark' ? 'dark' : (insel.thema === 'light' ? 'light' : ''),
+                palette: insel.palette == null ? '' : String(insel.palette),
+                eigeneFarben: eigeneFarbenLesen(insel.eigeneFarben),
+                sprache: insel.sprache == null ? '' : String(insel.sprache),
+                toolbar: wahlWahr(insel.toolbar),
+                seiteninhalt: wahlWahr(insel.seiteninhalt)
+            };
+
+            return {
+                seiten: seiten,
+                /* Wie beim MWS-Speicher: der Server hat das Wiki geliefert.
+                   Ein leeres Server-Wiki bleibt leer - hier wird keine
+                   Willkommensseite erfunden. */
+                vorhanden: true,
+                verweise: SimpleWikiStore.get('simplewiki_refs') === '1',
+                startseite: this.startId,
+                sprache: this.einstellungen.sprache,
+                thema: this.einstellungen.thema,
+                palette: this.einstellungen.palette,
+                toolbar: this.einstellungen.toolbar,
+                seiteninhalt: this.einstellungen.seiteninhalt,
+                eigeneFarben: this.einstellungen.eigeneFarben,
+                nurLesen: this.nurLesen,
+                wikiTitel: this.wikiTitel,
+                wikiUntertitel: this.wikiUntertitel,
+                slug: ''
+            };
+        };
+
+        TiddlyhostStore.prototype.uebernehmen = function (seiten) {
+            this.seiten = seiten;
+            return this;
+        };
+
+        /* Jede Aenderung an einer Seite ist eine Aenderung an der Insel:
+           die ganze Insel wird neu geschrieben. */
+        TiddlyhostStore.prototype.seiteSichern = function (seite) {
+            const i = this.seiten.findIndex(p => String(p.id) === String(seite.id));
+            if (i >= 0) this.seiten[i] = seite;
+            else this.seiten.push(seite);
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.seiteLoeschen = function (id) {
+            const i = this.seiten.findIndex(p => String(p.id) === String(id));
+            if (i >= 0) this.seiten.splice(i, 1);
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.startseiteSetzen = function (id) {
+            this.startId = id == null ? '' : String(id);
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.themaSetzen = function (thema) {
+            this.einstellungen.thema = thema === 'dark' ? 'dark' : 'light';
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.paletteSetzen = function (palette) {
+            this.einstellungen.palette = palette == null ? '' : String(palette);
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.eigeneFarbenSetzen = function (werte) {
+            this.einstellungen.eigeneFarben = werte || null;
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.spracheSetzen = function (sprache) {
+            this.einstellungen.sprache = sprache == null ? '' : String(sprache);
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.toolbarSetzen = function (an) {
+            this.einstellungen.toolbar = !!an;
+            return this.buchen();
+        };
+
+        TiddlyhostStore.prototype.seiteninhaltSetzen = function (an) {
+            this.einstellungen.seiteninhalt = !!an;
+            return this.buchen();
+        };
+
+        pruefeSpeicher(TiddlyhostStore.prototype, 'der Tiddlyhost-Speicher');
+
         /* ---------- Und hier wird entschieden ----------
 
            Tiddler im Aufbau: der Server liefert die Seiten mit, das Wiki
@@ -8222,9 +8591,11 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
            $:/state/...). Die gehoeren zu keiner Seite und werden beim
            Laden aussortiert. */
         const MWS_TIDDLER = mwsTiddlerLesen();
-        const SPEICHER = (MWS_TIDDLER && MWS_TIDDLER.length)
-            ? new MwsStore(MWS_TIDDLER)
-            : LocalStore;
+        const SPEICHER = (tiddlyhostServer() === 'tiddlyhost')
+            ? new TiddlyhostStore()
+            : ((MWS_TIDDLER && MWS_TIDDLER.length)
+                ? new MwsStore(MWS_TIDDLER)
+                : LocalStore);
 
         /* Oberflächentexte des Markdown-Editors.
            Die i18n-Datei von Toast UI ist mit dem All-Bundle inkompatibel,
@@ -8822,12 +9193,14 @@ showSettings: false,
                    Schreibweg. Sie weiss es nicht besser, und einen Knopf
                    kurz zu zeigen und dann wieder wegzunehmen ist schlechter
                    als gar keinen. */
-                if (SPEICHER.art === 'mws') {
+                if (SPEICHER.serverseitig) {
                     this.kannSchreiben = false;
                     this.statusHolen();
                     /* Liegt eine neuere Oberfläche bereit, entscheidet das
-                       hier - der Status wird dafür noch einmal gefragt. */
-                    this.pruefeShellUpdate();
+                       hier - der Status wird dafür noch einmal gefragt.
+                       Nur MWS kennt diesen Weg (die Tiddler tragen die
+                       Fassung); Tiddlyhost braucht ihn nicht. */
+                    if (SPEICHER.art === 'mws') this.pruefeShellUpdate();
                 }
                 this.updateTheme();
                 this.applyPalette();
@@ -8843,6 +9216,13 @@ showSettings: false,
                 /* Hat der Server etwas abgelehnt, das nichts mit den
                    Rechten zu tun hat, steht der Grund unten im Bild. */
                 document.addEventListener('simplewiki:fehler', this.speicherFehlerMerken);
+                /* Jemand anderes hat seither geschrieben. */
+                document.addEventListener('simplewiki:konflikt', this.konfliktMerken);
+                /* Beim Verlassen der Seite den aufgeschobenen Schreibvorgang
+                   noch abschicken. pagehide ist der verlaessliche Weg -
+                   beforeunload laesst keinen fetch mehr zu. */
+                window.addEventListener('pagehide', this.seiteVerlassen);
+                document.addEventListener('visibilitychange', this.sichtbarkeitWechsel);
                 window.addEventListener('beforeprint', this.vorDemDruck);
                 window.addEventListener('afterprint', this.nachDemDruck);
                 window.addEventListener('keydown', this.onKeydown);
@@ -10669,7 +11049,7 @@ showSettings: false,
                            gleich wieder ersetzen. (Nur im Browser zaehlt
                            er - auf dem Server schreibt das Einlesen
                            ohnehin gegen die Tiddler.) */
-                        if (SPEICHER.art === 'browser') {
+                        if (!SPEICHER.serverseitig) {
                             SimpleWikiStore.set('simplewiki_digest', this.dateiFingerabdruck() || '');
                         }
                         /* Die bisher offene Seite existiert vielleicht
@@ -10734,7 +11114,7 @@ showSettings: false,
                    Fingerabdruck, und der Browser gewann faelschlich. */
                 loadPages() {
                     this.laedt = true;
-                    this.mwsModus = SPEICHER.art === 'mws';
+                    this.mwsModus = !!SPEICHER.serverseitig;
 
                     /* Erst das Dokument klaeren, dann lesen: sonst laese
                        der Speicher den Entwurf der vorigen Datei. */
@@ -11007,7 +11387,7 @@ showSettings: false,
                     /* Der Grund kann sich dabei geaendert haben: die
                        Sitzung ist abgelaufen, der Name war weg. Nur der
                        Server weiss das - also nachfragen. */
-                    if (SPEICHER.art === 'mws') this.statusHolen();
+                    if (SPEICHER.serverseitig) this.statusHolen();
                 },
 
                 /* Die Antwort des Servers auswerten. Drei Dinge kommen
@@ -11214,6 +11594,30 @@ showSettings: false,
                 speicherFehlerMerken(e) {
                     this.hinweis(this.t('speicherFehler')
                         .replace('{grund}', (e && e.detail) || '?'));
+                },
+
+                /* Ein anderer Schreiber war schneller. Der neue Stand ist
+                   bereits vom Server geholt; hier wird nur gesagt, dass
+                   das passiert ist. */
+                konfliktMerken() {
+                    this.hinweis(this.t('konflikt'));
+                },
+
+                /* Beim Verlassen der Seite einen aufgeschobenen Schreibvorgang
+                   noch losschicken. Nur der Tiddlyhost-Speicher schiebt
+                   Schreibvorgaenge auf; die anderen kennen flush() nicht. */
+                seiteVerlassen() {
+                    if (SPEICHER && typeof SPEICHER.flush === 'function') {
+                        SPEICHER.flush();
+                    }
+                },
+
+                /* Wandert die Seite in den Hintergrund (Tab-Wechsel,
+                   Minimieren), wird ebenfalls geschrieben - so geht auch
+                   dann nichts verloren, wenn die Seite nicht sauber
+                   zugemacht wird. */
+                sichtbarkeitWechsel() {
+                    if (document.visibilityState === 'hidden') this.seiteVerlassen();
                 },
 
 createNewPage() {
