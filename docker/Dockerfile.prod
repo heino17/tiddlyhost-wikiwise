@@ -32,6 +32,14 @@ RUN yarn install --production && yarn cache clean
 # excluding what's listed in .dockerignore
 COPY --chown=$APP_USER:$APP_USER rails ./
 
+# Local-disk storage dirs (thumbs_storage_service/public_thumbs_storage_service
+# fall back to these when no S3/Wasabi credentials are configured). They are
+# gitignored, so a fresh checkout – like the CI build – has no rails/storage1
+# or rails/storage2 and Docker would create the named volumes owned by root,
+# making thumbnail generation fail with EACCES. Creating them here means the
+# volumes inherit the app user's ownership.
+RUN mkdir -p storage storage1 storage2
+
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
 

@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+  # Disk-based Active Storage services (the local fallback when no S3/Wasabi
+  # credentials are configured) need the current request's url_options to build
+  # blob URLs. Rails 7.2 only includes this in ActiveStorage::BaseController.
+  include ActiveStorage::SetCurrent
+
   before_action :redirect_www_requests
   before_action :permit_devise_params, if: :devise_controller?
   before_action :set_locale, :apply_enabled_locales # set_locale first!

@@ -164,6 +164,23 @@ if [ "$SETTINGS_CHANGED" -eq 1 ] && [ "$APP_ALREADY_RUNNING" -eq 1 ]; then
 fi
 
 #-------------------------------------------------------------
+# 4b. Storage-Volumes für die App beschreibbar machen
+#
+#     Die Named Volumes erben den Besitzer aus dem Image. Bei Bildern, die
+#     die Ordner storage1/storage2 nicht enthalten (oder bei Volumes aus
+#     einer früheren Installation), gehören sie root und das Anlegen von
+#     Thumbnails schlägt mit "EACCES: Permission denied" fehl.
+#-------------------------------------------------------------
+APP_OWNER="$(docker compose exec -T app id -un 2>/dev/null || echo appuser)"
+for dir in /opt/app/storage /opt/app/storage1 /opt/app/storage2; do
+  if docker compose exec -T app test -w "$dir" >/dev/null 2>&1; then
+    continue
+  fi
+  warn "$dir ist nicht beschreibbar – setze Besitzer auf $APP_OWNER"
+  docker compose exec -T -u root app chown -R "$APP_OWNER:$APP_OWNER" "$dir"
+done
+
+#-------------------------------------------------------------
 # 5. Datenbank vorbereiten
 #-------------------------------------------------------------
 info "Warte auf die Datenbank"
