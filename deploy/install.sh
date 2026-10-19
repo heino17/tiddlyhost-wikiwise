@@ -109,6 +109,7 @@ ok "$ENV_FILE vollständig (Domain: $DOMAIN, Port: $HTTP_PORT)"
 #    Ohne TLS müssen wir das korrigieren, sonst verweisen E-Mails und
 #    Links auf eine nicht erreichbare Adresse.
 #-------------------------------------------------------------
+SETTINGS_CHANGED=0
 if [ "$KEEP_CONFIG" -eq 1 ] && [ -f "$SETTINGS_FILE" ]; then
   info "Behalte bestehende $SETTINGS_FILE"
 else
@@ -121,7 +122,8 @@ else
     PORT_LINE="  :port: ${HTTP_PORT}"
   fi
 
-  cat > "$SETTINGS_FILE" <<EOF
+  TMP_SETTINGS="$SETTINGS_FILE.tmp"
+  cat > "$TMP_SETTINGS" <<EOF
 # Erzeugt von deploy/install.sh – bitte in .env ändern, nicht hier.
 url_defaults:
   :host: ${DOMAIN}
@@ -133,7 +135,21 @@ ${PORT_LINE}
 thumbs_storage_service: local1
 public_thumbs_storage_service: local2
 EOF
-  [ -n "$PORT_LINE" ] || sed -i '/^$/d' "$SETTINGS_FILE"
+  [ -n "$PORT_LINE" ] || sed -i '/^$/d' "$TMP_SETTINGS"
+
+  if [ -f "$SETTINGS_FILE" ] && cmp -s "$TMP_SETTINGS" "$SETTINGS_FILE"; then
+    rm -f "$TMP_SETTINGS"
+  else
+    mv "$TMP_SETTINGS" "$SETTINGS_FILE"
+    SETTINGS_CHANGED=1
+  fi
+fi
+
+# Laufen die Container schon, merken wir uns das: eine geänderte
+# settings_local.yml wird erst nach einem Neustart gelesen.
+APP_ALREADY_RUNNING=0
+if [ -n "$(docker compose ps -q app 2>/dev/null || true)" ]; then
+  APP_ALREADY_RUNNING=1
 fi
 
 #-------------------------------------------------------------
@@ -141,6 +157,11 @@ fi
 #-------------------------------------------------------------
 info "Starte Container (Image: $TIDDLHOST_IMAGE)"
 docker compose up -d
+
+if [ "$SETTINGS_CHANGED" -eq 1 ] && [ "$APP_ALREADY_RUNNING" -eq 1 ]; then
+  info "settings_local.yml hat sich geändert – starte app und jobs neu"
+  docker compose restart app jobs
+fi
 
 #-------------------------------------------------------------
 # 5. Datenbank vorbereiten

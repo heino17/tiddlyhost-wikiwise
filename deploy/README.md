@@ -14,6 +14,11 @@ cp .env.example .env      # Domain/Port eintragen
 
 Danach: <http://localhost:8080> (bzw. `http://DEINE-DOMAIN:PORT`).
 
+Im lokalen Test ohne eigene Domain `DOMAIN=localhost` in `.env` eintragen –
+ansonsten meldet Rails `403 Forbidden`, weil der Hostname nicht zur
+konfigurierten Domain passt. Ein Eintrag `127.0.0.1 tiddlyhost.local` in
+`/etc/hosts` erledigt dasselbe für den Default-Namen.
+
 Einen Administrator mit Passwort anlegen (ohne E-Mail-Bestätigung, da SMTP
 nicht konfiguriert ist):
 
@@ -35,6 +40,12 @@ erzeugt. Wichtig:
 | `HTTP_PORT` | Port des Webservers (Default `8080`) |
 | `TIDDLHOST_IMAGE` | Image inkl. Tag, z. B. `:latest` oder `:v0.1.0` |
 | `SECRET_KEY_BASE`, `DB_PASSWORD` | werden automatisch erzeugt – **nicht** ändern, sobald Nutzer existieren |
+
+Nach einer Änderung an `DOMAIN` oder `HTTP_PORT` einfach `./install.sh`
+nochmal ausführen: die Datei `config/settings_local.yml` wird daraus neu
+erzeugt und die App-Container neu gestartet. Ohne diesen Schritt antwortet
+die App mit `403 Forbidden` (Rails „Blocked hosts"), weil sie den alten
+Hostnamen noch im Kopf hat.
 
 ## Bedienung
 
