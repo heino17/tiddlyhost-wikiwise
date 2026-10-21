@@ -160,13 +160,13 @@ class ThFile < TwFile
     })
   end
 
-  def apply_tiddlyhost_mods(site_name, for_download: false, local_core: false, use_put_saver: false, is_logged_in: false, island_json: nil)
+  def apply_tiddlyhost_mods(site_name, for_download: false, local_core: false, use_put_saver: false, is_logged_in: false, island_json: nil, display_name: nil, subtitle: nil)
     if is_tw5?
       apply_tw5_mods(site_name, for_download:, local_core:, use_put_saver:, is_logged_in:)
     elsif is_classic?
       apply_classic_mods(site_name, for_download:, is_logged_in:)
     elsif is_simple?
-      apply_simple_mods(site_name, for_download:, island_json:)
+      apply_simple_mods(site_name, for_download:, island_json:, display_name:, subtitle:)
     end
     # No modifications for Feather Wiki or siteleteer
     self
@@ -177,7 +177,7 @@ class ThFile < TwFile
   #
   # The island JSON is stored separately from the shell, so the shell
   # attachment itself never needs to change when only the content changes.
-  def apply_simple_mods(site_name, for_download: false, island_json: nil)
+  def apply_simple_mods(site_name, for_download: false, island_json: nil, display_name: nil, subtitle: nil)
     island = doc.at_css('script#simplewiki-daten')
     return self unless island
 
@@ -185,9 +185,15 @@ class ThFile < TwFile
     # matching how SimpleWiki itself writes the island.
     island.content = (island_json.presence || island.content.to_s).gsub('<', '\u003c')
 
+    head = doc.at_css('head')
+    if head
+      remove_simple_title_metas(head)
+      add_meta(head, 'simplewiki-title', display_name) if display_name.present?
+      add_meta(head, 'simplewiki-subtitle', subtitle) if subtitle.present?
+    end
+
     return self if for_download
 
-    head = doc.at_css('head')
     remove_simple_server_metas(head) if head
     if head
       add_meta(head, 'simplewiki-server', 'tiddlyhost')
@@ -207,6 +213,14 @@ class ThFile < TwFile
     meta['name'] = name
     meta['content'] = content
     head.add_child(meta)
+  end
+
+  # Replace the shell's title/subtitle metas with the site settings, so a
+  # re-serve never accumulates duplicates and a cleared value disappears.
+  def remove_simple_title_metas(head)
+    %w[simplewiki-title simplewiki-subtitle].each do |name|
+      head.xpath("meta[@name='#{name}']").each(&:remove)
+    end
   end
 
   # Remove any previously injected server metas so a re-serve never

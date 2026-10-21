@@ -92,6 +92,9 @@ class Site < ApplicationRecord
       message: "'%<value>s' is reserved. Please choose a different site name.",
     }
 
+  validates :display_name, length: { maximum: 120 }, allow_blank: true
+  validates :subtitle, length: { maximum: 200 }, allow_blank: true
+
   def th_file
     @_th_file ||= ThFile.new(file_download)
   end
@@ -107,7 +110,7 @@ class Site < ApplicationRecord
   def html_content(is_logged_in: false)
     th_file.apply_tiddlyhost_mods(name,
       is_logged_in:, use_put_saver: use_put_saver?,
-      island_json: simple_island_json).to_html
+      island_json: simple_island_json, display_name:, subtitle:).to_html
   end
 
   def html_content_for_blob_id(blob_id, is_logged_in: false)
@@ -115,7 +118,7 @@ class Site < ApplicationRecord
       # Note: There might be some tricky edge cases around the value of use_put_saver?
       # here since it's based on the current site, not the specific version being fetched
       is_logged_in:, use_put_saver: use_put_saver?,
-      island_json: simple_island_json).to_html
+      island_json: simple_island_json, display_name:, subtitle:).to_html
   end
 
   def json_data(opts = {})
@@ -130,13 +133,13 @@ class Site < ApplicationRecord
 
   def download_content(local_core: false)
     th_file.apply_tiddlyhost_mods(name, for_download: true, local_core:,
-      island_json: simple_island_json).to_html
+      island_json: simple_island_json, display_name:, subtitle:).to_html
   end
 
   def download_content_for_blob_id(blob_id)
     # Todo maybe: Consider the local core option here
     ThFile.new(file_download(blob_id)).apply_tiddlyhost_mods(name, for_download: true,
-      island_json: simple_island_json).to_html
+      island_json: simple_island_json, display_name:, subtitle:).to_html
   end
 
   # The stored SimpleWiki content island, or nil for non-SimpleWiki sites.

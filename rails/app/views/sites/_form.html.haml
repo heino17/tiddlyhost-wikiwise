@@ -22,6 +22,16 @@
       = f.text_field :name, class: 'form-control', maxlength: 63, autofocus: @site.new_record?
       %small.form-text.text-muted= t('site_view_edit_wiki_name_text')
 
+    = render layout: 'field_wrapper' do
+      = f.label t('site_view_edit_wiki_display_name_label')
+      = f.text_field :display_name, class: 'form-control', maxlength: 120
+      %small.form-text.text-muted= t('site_view_edit_wiki_display_name_text')
+
+    = render layout: 'field_wrapper' do
+      = f.label t('site_view_edit_wiki_subtitle_label')
+      = f.text_field :subtitle, class: 'form-control', maxlength: 200
+      %small.form-text.text-muted= t('site_view_edit_wiki_subtitle_text')
+
     - if @site.new_record?
       = render layout: 'field_wrapper' do
         - if @site_to_clone

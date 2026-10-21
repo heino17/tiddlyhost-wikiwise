@@ -45,13 +45,20 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create simplewiki with vue handlers intact' do
     post sites_url, params: {
-      site: { name: 'simplesite', is_private: '0', empty_id: Empty.find_by_name('simple').id },
+      site: {
+        name: 'simplesite', display_name: 'Mein Wiki', subtitle: 'Klein und fein',
+        is_private: '0', empty_id: Empty.find_by_name('simple').id
+      },
     }
     assert_redirected_to sites_url
 
     new_site = Site.find_by_name('simplesite')
     assert new_site.is_simple?
+    assert_equal 'Mein Wiki', new_site.display_name
+    assert_equal 'Klein und fein', new_site.subtitle
     assert_includes new_site.file_download, '@click="toggleTheme"'
+    assert_includes new_site.html_content, '<meta name="simplewiki-title" content="Mein Wiki">'
+    assert_includes new_site.html_content, '<meta name="simplewiki-subtitle" content="Klein und fein">'
   end
 
   test 'should create and also clone site' do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_21_181636) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_21_224500) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -272,6 +272,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_21_181636) do
     t.integer "cookie_consent_version", default: 1, null: false
     t.string "last_collab_saved_by"
     t.datetime "last_collab_saved_at"
+    t.string "display_name"
+    t.string "subtitle"
     t.index ["cloned_from_id"], name: "index_sites_on_cloned_from_id"
     t.index ["comments_count"], name: "index_sites_on_comments_count"
     t.index ["empty_id"], name: "index_sites_on_empty_id"

@@ -60,6 +60,10 @@ en:
   site_view_edit_wiki_heading: "Settings for"
   site_view_edit_wiki_name_label: "Name"
   site_view_edit_wiki_name_text: "Lower case letters, numbers, and non-leading, non-trailing '-' chars are allowed."
+  site_view_edit_wiki_display_name_label: "Display name"
+  site_view_edit_wiki_display_name_text: "Optional. The name shown in the wiki header. If empty, the fixed app name is used."
+  site_view_edit_wiki_subtitle_label: "Subtitle"
+  site_view_edit_wiki_subtitle_text: "Optional. A line under the display name, shown by SimpleWiki."
   site_view_edit_wiki_updated_flash: "Site successfully updated."
   site_view_edit_wiki_site_not_found_flash: "Site not found."
   

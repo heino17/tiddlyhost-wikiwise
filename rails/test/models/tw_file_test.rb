@@ -163,24 +163,33 @@ class TwFileTest < ActiveSupport::TestCase
     assert_equal 'simple', tw.kind
     refute tw.is_tw5?
     assert tw.looks_valid?
-    assert_equal '0.1.48', tw.tiddlywiki_version
+    assert_equal '0.1.49', tw.tiddlywiki_version
     assert tw.simple_island_content.present?
 
     # Light detection matches too
-    assert_equal ['simple', '0.1.48'],
+    assert_equal ['simple', '0.1.49'],
       TwFile.light_get_kind_and_version(File.read(ThFile.empty_path(:simple)))
   end
 
   test 'simplewiki mods replace island and add server metas when serving' do
     th_file = ThFile.from_empty(:simple)
-    th_file.apply_simple_mods('coolsite', island_json: '{"seiten":[{"titel":"A"}]}')
+    th_file.apply_simple_mods('coolsite', island_json: '{"seiten":[{"titel":"A"}]}',
+      display_name: 'Mein Wiki', subtitle: 'Klein und fein')
 
     assert_equal '{"seiten":[{"titel":"A"}]}', th_file.simple_island_content
+    assert_equal 'Mein Wiki', th_file.get_meta('simplewiki-title')
+    assert_equal 'Klein und fein', th_file.get_meta('simplewiki-subtitle')
     assert_equal 'tiddlyhost', th_file.get_meta('simplewiki-server')
     assert_equal 'http://coolsite.tiddlyhost-test-example.com/simplewiki/status',
       th_file.get_meta('simplewiki-status-url')
     assert_equal 'http://coolsite.tiddlyhost-test-example.com/simplewiki/data',
       th_file.get_meta('simplewiki-data-url')
+
+    th_file.apply_simple_mods('coolsite', island_json: '{"seiten":[]}',
+      display_name: 'Neu', subtitle: '')
+    assert_equal 'Neu', th_file.get_meta('simplewiki-title')
+    assert_nil th_file.get_meta('simplewiki-subtitle')
+    assert_equal 1, th_file.to_html.scan('<meta name="simplewiki-title"').count
   end
 
   test 'simplewiki shell keeps vue event attributes when served' do
@@ -192,11 +201,14 @@ class TwFileTest < ActiveSupport::TestCase
     assert_includes html, '@click="openSettings"'
   end
 
-  test 'simplewiki mods for download keep island but add no server metas' do
+  test 'simplewiki mods for download keep island and title but add no server metas' do
     th_file = ThFile.from_empty(:simple)
-    th_file.apply_simple_mods('coolsite', for_download: true, island_json: '{"seiten":[]}')
+    th_file.apply_simple_mods('coolsite', for_download: true, island_json: '{"seiten":[]}',
+      display_name: 'Mein Wiki', subtitle: 'Klein und fein')
 
     assert_equal '{"seiten":[]}', th_file.simple_island_content
+    assert_equal 'Mein Wiki', th_file.get_meta('simplewiki-title')
+    assert_equal 'Klein und fein', th_file.get_meta('simplewiki-subtitle')
     assert_nil th_file.get_meta('simplewiki-server')
     assert_nil th_file.get_meta('simplewiki-status-url')
   end

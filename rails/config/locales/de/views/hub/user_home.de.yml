@@ -61,6 +61,10 @@ de:
   site_view_edit_wiki_heading: "Einstellungen für"
   site_view_edit_wiki_name_label: "Name"
   site_view_edit_wiki_name_text: "Kleinbuchstaben, Zahlen und nicht am Anfang oder Ende stehende Bindestriche/Minuszeichen sind zulässig."
+  site_view_edit_wiki_display_name_label: "Anzeigename"
+  site_view_edit_wiki_display_name_text: "Optional. Der Name im Kopf der Wiki. Leer heißt: Es bleibt beim festen App-Namen."
+  site_view_edit_wiki_subtitle_label: "Untertitel"
+  site_view_edit_wiki_subtitle_text: "Optional. Eine Zeile unter dem Anzeigenamen, die SimpleWiki anzeigt."
   site_view_edit_wiki_updated_flash: "Seite erfolgreich aktualisiert."
   site_view_edit_wiki_site_not_found_flash: "Seite nicht gefunden."
   

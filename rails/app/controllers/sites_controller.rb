@@ -269,6 +269,8 @@ class SitesController < ApplicationController
 
   UPDATEABLE_PARAMS = %i[
     name
+    display_name
+    subtitle
     description
     is_private
     is_searchable
