@@ -35,3 +35,7 @@ en:
       title: "Siteleteer"
       description: "An even lighter and simpler single-page wiki from the creator of Feather Wiki."
       tooltip: "To see how it works, view the clean and very readable page source. Requires a custom build of siteleteer."
+    22:
+      title: "SimpleWiki"
+      description: "A simple single-page wiki for text pages, focused on ease of use and a clean data format."
+      tooltip: "A lightweight wiki made of text pages. Saves are small because the content is stored as a separate data island."

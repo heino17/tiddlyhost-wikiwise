@@ -81,7 +81,7 @@ simple:
     a clean data format.
   enabled: true
   display_order: 26
-  primary: false
+  primary: true
   info_link: https://github.com/heino17/simplewiki
   tooltip: A lightweight wiki made of text pages. Saves are small because the content
     is stored as a separate data island.

@@ -27,9 +27,19 @@ class TwFile
   end
 
   def initialize(html_content)
-    @doc = Nokogiri::HTML(html_content) do |config|
-      config.options |= Nokogiri::XML::ParseOptions::HUGE
-    end
+    simplewiki_shell = html_content.b.match?(/<script[^>]*id="simplewiki-daten"/)
+
+    @doc = if simplewiki_shell
+             # SimpleWiki's shell uses Vue event attributes like @click. The
+             # HTML4 parser drops attribute names containing "@", which would
+             # leave every button without a handler, so parse the shell as
+             # HTML5 instead.
+             Nokogiri::HTML5(html_content)
+           else
+             Nokogiri::HTML(html_content) do |config|
+               config.options |= Nokogiri::XML::ParseOptions::HUGE
+             end
+           end
 
     # Avoid ridiculously long inspect output
     @doc.define_singleton_method(:inspect) do |*args|

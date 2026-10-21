@@ -18,4 +18,13 @@ class EmptyTest < ActiveSupport::TestCase
     empty.update(name: 'foobar')
     refute empty.file_present?
   end
+
+  test 'simplewiki empty is available in the type chooser' do
+    empty = Empty.find_by_name('simple')
+
+    assert empty.enabled?
+    assert empty.primary?
+    assert empty.file_present?
+    assert_includes Empty.for_select, empty
+  end
 end

@@ -36,6 +36,24 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should offer simplewiki on new site page' do
+    get new_site_url
+    assert_response :success
+    assert_includes response.body, 'SimpleWiki'
+    assert_includes response.body, 'site_empty_id_22'
+  end
+
+  test 'should create simplewiki with vue handlers intact' do
+    post sites_url, params: {
+      site: { name: 'simplesite', is_private: '0', empty_id: Empty.find_by_name('simple').id },
+    }
+    assert_redirected_to sites_url
+
+    new_site = Site.find_by_name('simplesite')
+    assert new_site.is_simple?
+    assert_includes new_site.file_download, '@click="toggleTheme"'
+  end
+
   test 'should create and also clone site' do
     assert_difference('Site.count') do
       post sites_url, params: { site: { name: 'foo', is_private: '0', empty_id: 1 } }

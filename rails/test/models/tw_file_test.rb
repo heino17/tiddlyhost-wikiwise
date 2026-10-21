@@ -183,6 +183,15 @@ class TwFileTest < ActiveSupport::TestCase
       th_file.get_meta('simplewiki-data-url')
   end
 
+  test 'simplewiki shell keeps vue event attributes when served' do
+    th_file = ThFile.from_empty(:simple)
+    th_file.apply_simple_mods('coolsite', island_json: '{"seiten":[]}')
+
+    html = th_file.to_html
+    assert_includes html, '@click="toggleTheme"'
+    assert_includes html, '@click="openSettings"'
+  end
+
   test 'simplewiki mods for download keep island but add no server metas' do
     th_file = ThFile.from_empty(:simple)
     th_file.apply_simple_mods('coolsite', for_download: true, island_json: '{"seiten":[]}')

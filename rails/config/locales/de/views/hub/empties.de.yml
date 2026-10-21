@@ -32,4 +32,8 @@ de:
     21:
       title: "Siteleteer"
       description: "Noch leichteres und einfacheres Einseiten-Wiki vom Autor von Feather Wiki."
-      tooltip: "Um zu sehen, wie es funktioniert, schau dir den sauberen und sehr lesbaren Quelltext der Seite an. Erfordert einen custom Build von Siteleteer."      
+      tooltip: "Um zu sehen, wie es funktioniert, schau dir den sauberen und sehr lesbaren Quelltext der Seite an. Erfordert einen custom Build von Siteleteer."
+    22:
+      title: "SimpleWiki"
+      description: "Ein einfaches Einseiten-Wiki für Textseiten, mit Fokus auf einfache Bedienung und ein sauberes Datenformat."
+      tooltip: "Ein leichtgewichtiges Wiki aus Textseiten. Speichern ist klein, weil der Inhalt als separate Dateninsel gespeichert wird."
