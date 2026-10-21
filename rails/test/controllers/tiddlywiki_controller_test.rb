@@ -413,4 +413,22 @@ class TiddlywikiControllerTest < ActionDispatch::IntegrationTest
     get '/', headers: { 'Accept' => '*/*;charset=UTF-8' }
     assert_response :success
   end
+
+  test 'collaborator login redirects with the configured scheme' do
+    @site.wiki_collaborators.create!(name: 'guest', password: 'Password-123', enabled: true)
+
+    post '/?collaborate', params: { name: 'guest', password: 'Password-123' }
+
+    assert_redirected_to "#{Settings.subdomain_site_url(@site.name)}/"
+  end
+
+  test 'collaborator logout redirects with the configured scheme' do
+    get '/?collab_logout'
+
+    assert_response :redirect
+    assert_match(
+      %r{\A#{Regexp.escape(Settings.subdomain_site_url(@site.name))}/\?cache_clean=\d+\z},
+      response.location
+    )
+  end
 end

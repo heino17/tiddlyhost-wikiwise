@@ -32,7 +32,7 @@ class TiddlywikiController < ApplicationController
       response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
       response.headers['Pragma'] = 'no-cache'
       response.headers['Expires'] = '0'
-      return redirect_to "https://#{request.subdomain}.#{request.domain}/?cache_clean=#{Time.now.to_i}", allow_other_host: true
+      return redirect_to "#{Settings.subdomain_site_url(@site.name)}/?cache_clean=#{Time.now.to_i}", allow_other_host: true
     end
 
     dummy_webdav_header if request.options? && @site.use_put_saver?
@@ -141,7 +141,7 @@ class TiddlywikiController < ApplicationController
       session[:collab_site_id]   = @site.id
       session[:collab_name]      = collaborator.name
       session[:collab_expires_at] = 24.hours.from_now
-      redirect_to "https://#{request.subdomain}.#{request.domain}/", allow_other_host: true
+      redirect_to "#{Settings.subdomain_site_url(@site.name)}/", allow_other_host: true
     else
       @site_name = @site.name
       @error = "Name oder Passwort falsch."
