@@ -86,6 +86,12 @@ module SiteCommon
     end
   end
 
+  # Whether the display name and subtitle fields apply to this site.
+  # They are SimpleWiki-only settings, so the form hides them otherwise.
+  def simplewiki_display_fields_applicable?
+    is_simple?
+  end
+
   def kind_title
     SiteCommon::KINDS[tw_kind] if tw_kind
   end

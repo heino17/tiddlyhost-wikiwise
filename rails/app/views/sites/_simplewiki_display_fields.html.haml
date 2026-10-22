@@ -1,0 +1,29 @@
+-#
+  Display name and subtitle are SimpleWiki-only settings.
+  On the create form the type can still be changed, so the block is toggled
+  live by the type chooser (see app/javascript/simplewiki_display_fields.js).
+  For a clone the type is fixed by the source site, and for an existing site
+  we know its kind already, so in both cases we render it (or not) up front.
+:ruby
+  cloning = @site_to_clone.present?
+  toggleable = @site.new_record? && !cloning
+  source = cloning ? @site_to_clone : @site
+  applicable = source.simplewiki_display_fields_applicable?
+  fields_hidden = toggleable || !applicable
+
+.js-simplewiki-display-fields{ class: ('simplewiki-fields-hidden' if fields_hidden), data: { simplewiki_toggleable: toggleable.to_s } }
+
+  -# Without JavaScript the fields would stay hidden on the create form
+  %noscript
+    %style
+      ~ ".js-simplewiki-display-fields { display: block !important; }"
+
+  = render layout: 'field_wrapper' do
+    = f.label t('site_view_edit_wiki_display_name_label')
+    = f.text_field :display_name, class: 'form-control js-simplewiki-display-field', maxlength: 120, disabled: fields_hidden && !toggleable
+    %small.form-text.text-muted= t('site_view_edit_wiki_display_name_text')
+
+  = render layout: 'field_wrapper' do
+    = f.label t('site_view_edit_wiki_subtitle_label')
+    = f.text_field :subtitle, class: 'form-control js-simplewiki-display-field', maxlength: 200, disabled: fields_hidden && !toggleable
+    %small.form-text.text-muted= t('site_view_edit_wiki_subtitle_text')

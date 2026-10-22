@@ -19376,6 +19376,31 @@
     }
   });
 
+  // app/javascript/simplewiki_display_fields.js
+  function initSimplewikiDisplayFields(container = document) {
+    const fields = container.querySelector(".js-simplewiki-display-fields");
+    if (!fields) return;
+    if (fields.dataset.simplewikiToggleable !== "true") return;
+    const radios = container.querySelectorAll('.type-chooser input[name="site[empty_id]"]');
+    if (!radios.length) return;
+    const toggle = () => {
+      const selected = container.querySelector('.type-chooser input[name="site[empty_id]"]:checked');
+      const isSimplewiki = selected && selected.dataset.simplewiki === "true";
+      fields.classList.toggle("simplewiki-fields-hidden", !isSimplewiki);
+      fields.querySelectorAll(".js-simplewiki-display-field").forEach((input) => {
+        input.disabled = !isSimplewiki;
+      });
+    };
+    radios.forEach((radio) => radio.addEventListener("change", toggle));
+    toggle();
+  }
+  document.addEventListener("turbo:load", () => initSimplewikiDisplayFields());
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => initSimplewikiDisplayFields());
+  } else {
+    initSimplewikiDisplayFields();
+  }
+
   // app/javascript/mobile_main_tabs.js
   document.addEventListener("turbo:load", () => {
     const dropdown = document.getElementById("mobile-main-tabs");

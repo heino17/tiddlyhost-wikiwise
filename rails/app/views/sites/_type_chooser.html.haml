@@ -9,7 +9,8 @@
     %div{ class: [empty == @site.empty ? 'selected' : '', empty.primary? ? '' : 'longer-only'] }
 
       = f.label :empty_id, empty.id, value: empty.id do
-        = f.radio_button :empty_id, empty.id, class: 'me-1', style: "margin-left: -0.3em;"
+        = f.radio_button :empty_id, empty.id, class: 'me-1', style: "margin-left: -0.3em;",
+          data: { simplewiki: empty.kind == 'simple' }
 
         = logo_for_kind empty.kind
 

@@ -43,6 +43,49 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.body, 'site_empty_id_22'
   end
 
+  test 'display name fields are toggleable on new site page' do
+    get new_site_url
+    assert_response :success
+    # Present but hidden until SimpleWiki is chosen
+    assert_match(/<div class="js-simplewiki-display-fields simplewiki-fields-hidden"/, response.body)
+    assert_includes response.body, 'data-simplewiki-toggleable="true"'
+    # The simple empty radio is the one that reveals them
+    assert_match(/data-simplewiki="true"/, response.body)
+  end
+
+  test 'display name fields are shown for a simplewiki site' do
+    site = new_site_helper(name: 'simpleedit', user: @user, empty: :simple)
+
+    get edit_site_url(site)
+    assert_response :success
+    assert_match(/<div class="js-simplewiki-display-fields"[^>]*>/, response.body)
+    refute_match(/<div class="js-simplewiki-display-fields simplewiki-fields-hidden"/, response.body)
+    refute_includes response.body, 'data-simplewiki-toggleable="true"'
+  end
+
+  test 'display name fields are hidden for a non-simplewiki site' do
+    get edit_site_url(@site)
+    assert_response :success
+    assert_match(/<div class="js-simplewiki-display-fields simplewiki-fields-hidden"/, response.body)
+  end
+
+  test 'display name fields are shown when cloning a simplewiki site' do
+    site = new_site_helper(name: 'simpleclone', user: @user, empty: :simple)
+
+    get new_site_url(clone: site.name)
+    assert_response :success
+    assert_match(/<div class="js-simplewiki-display-fields"[^>]*>/, response.body)
+    refute_match(/<div class="js-simplewiki-display-fields simplewiki-fields-hidden"/, response.body)
+    refute_includes response.body, 'data-simplewiki-toggleable="true"'
+  end
+
+  test 'display name fields are hidden when cloning a non-simplewiki site' do
+    get new_site_url(clone: @site.name)
+    assert_response :success
+    assert_match(/<div class="js-simplewiki-display-fields simplewiki-fields-hidden"/, response.body)
+    refute_includes response.body, 'data-simplewiki-toggleable="true"'
+  end
+
   test 'should create simplewiki with vue handlers intact' do
     post sites_url, params: {
       site: {

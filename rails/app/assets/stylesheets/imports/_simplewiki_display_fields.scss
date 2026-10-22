@@ -1,0 +1,7 @@
+// Fields that only apply to SimpleWiki (display name and subtitle).
+// They are shown/hidden depending on the selected wiki type.
+// See also app/views/sites/_simplewiki_display_fields.html.haml
+//
+.simplewiki-fields-hidden {
+    display: none;
+}
