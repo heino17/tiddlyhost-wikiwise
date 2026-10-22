@@ -4,7 +4,9 @@
 ---
 fr:
   # user_home
-  hub_view_sites_on_your: "Sites sur votre"
+  hub_view_sites_on_your_page:
+    one: "%{count} site sur votre page Explorer"
+    other: "%{count} sites sur votre page Explorer"
   hub_view_sites_on_your_explore_page: "page Explorer"
   
   your_sites: "Vos sites"

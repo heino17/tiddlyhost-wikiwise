@@ -4,7 +4,8 @@
 ---
 ko:
   # hub view
-  hub_view_sites_on_your: "사이트 위치:"
+  hub_view_sites_on_your_page:
+    other: "%{count}개의 사이트가 탐색 페이지에 있습니다"
   hub_view_sites_on_your_explore_page: "탐색 페이지"
   
   your_sites: "내 사이트"

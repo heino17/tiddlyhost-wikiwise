@@ -4,7 +4,8 @@
 ---
 ja:
   # hub view
-  hub_view_sites_on_your: "あなたのサイトは"
+  hub_view_sites_on_your_page:
+    other: "%{count} 件のサイトが探索ページにあります"
   hub_view_sites_on_your_explore_page: "探索ページにあります"
   
   your_sites: "あなたのサイト"

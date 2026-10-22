@@ -5,7 +5,9 @@
 de:  
   # user_home
   # hub view - may be not good choosen
-  hub_view_sites_on_your: "Seiten auf Deiner"
+  hub_view_sites_on_your_page:
+    one: "%{count} Seite auf Deiner Schaufenster-Seite"
+    other: "%{count} Seiten auf Deiner Schaufenster-Seite"
   hub_view_sites_on_your_explore_page: "Schaufenster-Seite"
   
   your_sites: "Deine Seiten"

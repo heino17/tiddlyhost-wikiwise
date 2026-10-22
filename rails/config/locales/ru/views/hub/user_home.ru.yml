@@ -4,7 +4,11 @@
 ---
 ru:
   # hub view
-  hub_view_sites_on_your: "Сайты на вашей"
+  hub_view_sites_on_your_page:
+    one: "%{count} сайт на вашей странице «Обзор»"
+    few: "%{count} сайта на вашей странице «Обзор»"
+    many: "%{count} сайтов на вашей странице «Обзор»"
+    other: "%{count} сайта на вашей странице «Обзор»"
   hub_view_sites_on_your_explore_page: "странице Исследования"
   
   your_sites: "Ваши сайты"

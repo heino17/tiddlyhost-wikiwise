@@ -35,7 +35,7 @@
 - else
   - if current_user.has_hub_link?
     .th-text-deco-none.th-text-smaller.m-3.mt-2.pt-1
-      = link_to_user_hub_with_count(current_user) # Hier nochmal pluralize prüfen (yours)
+      = link_to_user_hub_with_count(current_user)
 
   .float-end.sites-menu-container.small{ style: "margin-top: -0.6rem;" }
     = render 'filter_and_sort', sites: @sites, list_mode: @list_mode, list_mode_next: @list_mode_next

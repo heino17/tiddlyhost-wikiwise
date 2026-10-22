@@ -5,7 +5,9 @@
 en:  
   # user_home
   # hub view - may be not good choosen
-  hub_view_sites_on_your: "Sites on your"
+  hub_view_sites_on_your_page:
+    one: "%{count} Site on your Explore page"
+    other: "%{count} Sites on your Explore page"
   hub_view_sites_on_your_explore_page: "Explore page"
   
   your_sites: "Your sites"

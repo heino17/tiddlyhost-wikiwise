@@ -4,7 +4,9 @@
 ---
 es:
   # user_home
-  hub_view_sites_on_your: "Sitios en tu"
+  hub_view_sites_on_your_page:
+    one: "%{count} sitio en tu página de Explorar"
+    other: "%{count} sitios en tu página de Explorar"
   hub_view_sites_on_your_explore_page: "página de Explorar"
   
   your_sites: "Tus sitios"

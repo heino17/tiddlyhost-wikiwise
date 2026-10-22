@@ -5,7 +5,8 @@
 zh_CN:
   # user_home
   # hub view - may be not good choosen
-  hub_view_sites_on_your: "您的站点位于"
+  hub_view_sites_on_your_page:
+    other: "%{count} 个站点位于探索页面"
   hub_view_sites_on_your_explore_page: "探索页面"
 
   your_sites: "您的站点"
