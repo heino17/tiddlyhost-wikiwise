@@ -2,7 +2,7 @@
 <html lang="de"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="mws-shell-version" content="v0.1.50">
+    <meta name="mws-shell-version" content="v0.1.51">
     <meta name="simplewiki-doc-id" content="">
     <meta name="simplewiki-exported" content="">
     <meta name="simplewiki-title" content="">
@@ -103,6 +103,12 @@
                                   Person: er steht unter dem Namen, ist dort
                                   anklickbar und wandert beim Sichern in
                                   den Kopf der Datei.
+
+          Die drei Meta-Angaben des Servers (simplewiki-server,
+          simplewiki-status-url, simplewiki-data-url) gehoeren dagegen zur
+          Auslieferung, nicht zur Datei. "Als Datei sichern" entfernt sie:
+          eine gesicherte Datei ist unter file:// ein eigenes Wiki, auch
+          wenn sie von einem Server stammt.
 
           Alle vier stehen bewusst hier und nicht im Datenblock: der
           Vertrag unten bleibt damit unveraendert, und eine fremde
@@ -8352,6 +8358,25 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
             return m ? String(m.getAttribute('content') || '') : '';
         }
 
+        /* Ist der Tiddlyhost-Server, dessen Meta-Zeilen im Kopf stehen,
+           auch jetzt erreichbar? Eine gesicherte Datei bringt die Zeilen
+           mit, weil die Vorlage beim Ausliefern kopiert wurde - unter
+           file:// und auf einem fremden Origin gibt es diesen Server aber
+           nicht mehr. Dann entscheidet die Datei, nicht der Kopf: sonst
+           hielte sich ein Export fuer ein Server-Wiki und seine
+           Schreibversuche liefen ins Leere. */
+        function tiddlyhostServerAktiv() {
+            if (tiddlyhostServer() !== 'tiddlyhost') return false;
+            if (location.protocol === 'file:') return false;
+            const datenUrl = tiddlyhostMeta('simplewiki-data-url');
+            if (!datenUrl) return false;
+            try {
+                return new URL(datenUrl, location.href).origin === location.origin;
+            } catch (e) {
+                return false;
+            }
+        }
+
         /* Die Dateninsel aus dem Dokument lesen. Ein leerer oder
            fehlender Block ist ein leeres Wiki, kein Fehler. */
         function tiddlyhostInsel() {
@@ -8692,7 +8717,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
            $:/state/...). Die gehoeren zu keiner Seite und werden beim
            Laden aussortiert. */
         const MWS_TIDDLER = mwsTiddlerLesen();
-        const SPEICHER = (tiddlyhostServer() === 'tiddlyhost')
+        const SPEICHER = tiddlyhostServerAktiv()
             ? new TiddlyhostStore()
             : ((MWS_TIDDLER && MWS_TIDDLER.length)
                 ? new MwsStore(MWS_TIDDLER)
@@ -10943,6 +10968,16 @@ showSettings: false,
                    nur mit frischen Daten im Datenblock. */
                 bauExport(daten, kennung, titel, untertitel) {
                     const doc = new DOMParser().parseFromString(VORLAGE_HTML, 'text/html');
+                    /* Die Meta-Zeilen des Servers gehoeren zur Auslieferung,
+                       nicht zur Datei. Die Vorlage stammt aus dem Kopf der
+                       ausgelieferten Seite - blieben die Zeilen stehen,
+                       hielte sich die gesicherte Datei fuer ein Server-Wiki
+                       und ihre Schreibversuche liefen ins Leere. */
+                    for (const name of ['simplewiki-server', 'simplewiki-status-url', 'simplewiki-data-url']) {
+                        for (const meta of Array.from(doc.querySelectorAll('meta[name="' + name + '"]'))) {
+                            meta.parentNode.removeChild(meta);
+                        }
+                    }
                     /* Kennung, Zeitpunkt, Titel und Untertitel in den Kopf
                        schreiben. Die Kennung ist die des offenen Dokuments -
                        so erkennt die Datei beim naechsten Oeffnen ihren
