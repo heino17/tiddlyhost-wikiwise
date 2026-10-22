@@ -1,0 +1,27 @@
+# Caddyfile für Tiddlyhost-Wikiwise (Deploy-Stack)
+# Wird von install.sh entsprechend TLS_ENABLED / CADDY_LETSENCRYPT erzeugt.
+
+{$DOMAIN} {
+	# HTTP -> HTTPS Redirect passiert automatisch, wenn TLS aktiv ist.
+	# Header für Rails (wichtig für korrekte URLs, Cookies)
+	header_up Host {host}
+	header_up X-Real-IP {remote}
+	header_up X-Forwarded-For {remote}
+	header_up X-Forwarded-Proto {scheme}
+
+	# SimpleWiki island API nicht komprimieren (ETag)
+	@simple path /simplewiki/*
+	handle @simple {
+		reverse_proxy app:3333 {
+			header_up X-Forwarded-Proto {scheme}
+		}
+		encode off
+	}
+
+	# Alles andere an Rails
+	reverse_proxy app:3333 {
+		header_up X-Forwarded-Proto {scheme}
+	}
+}
+
+# HTTP auf Port 80 wird automatisch auf HTTPS umgeleitet, wenn 443 bedient wird.

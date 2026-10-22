@@ -127,3 +127,45 @@ Der productive Stack des Repos (`docker-compose-prod.yml`) unterstützt TLS
 bereits über `nginx`-Templates aus `ansible/playbooks/templates/docker/` und
 Let's Encrypt. Diese Variante hier bewusst noch ohne, damit die Installation
 auch ohne freie Ports 80/443 und ohne DNS-Provider-Zugang funktioniert.
+
+
+## HTTPS/TLS (Caddy oder externer Reverse-Proxy)
+
+Der Stack unterstützt jetzt direkt HTTPS über **Caddy**. Du hast drei Varianten:
+
+### A) Let's Encrypt (Internet, echte Domain)
+Voraussetzungen: Domain zeigt auf den Server, Ports 80/443 sind frei nach außen.
+
+```bash
+cp .env.example .env
+./install.sh --tls --letsencrypt --domainname deine-domain.de --acme-email dir@deine-domain.de
+```
+
+Caddy holt automatisch ein Zertifikat, leitet HTTP auf HTTPS um und erneuert es selbst.
+
+### B) Eigene Zertifikate (z. B. bereits vorhanden)
+```bash
+cp .env.example .env
+# certs/fullchain.pem und certs/privkey.pem ablegen
+./install.sh --tls --domainname deine-domain.de
+```
+Oder direkt:
+```bash
+./install.sh --tls --domainname deine-domain.de --cert-file /pfad/fullchain.pem --key-file /pfad/privkey.pem
+```
+
+### C) Selbstsigniert (lokal/test, z. B. tiddlyhost.local)
+```bash
+cp .env.example .env
+./install.sh --tls --self-signed --domainname tiddlyhost.local
+```
+Im Browser musst du das Zertifikat dann kurz akzeptieren.
+
+### Externer Reverse-Proxy (unverändert möglich)
+Falls du bereits Traefik/Nginx/Caddy vor dem Stack betreibst, kannst du TLS dort terminieren. Richte dann in `.env` `TLS_ENABLED=false`, setze `DOMAIN`/`HTTP_PORT` entsprechend und stelle sicher, dass der Proxy `X-Forwarded-Proto https` weitergibt. `settings_local.yml` lässt sich via `./install.sh --keep-config` unverändert halten.
+
+### Hinweise
+- `http://` -> `https://` wird bei aktivem TLS automatisch umgeleitet.
+- Bei Let's Encrypt sind 80 und 443 zwingend erreichbar.
+- Ports lassen sich über `HTTPS_PORT` in `.env` anpassen.
+- `./install.sh` passt bei TLS automatisch `config/settings_local.yml` auf `protocol: https` um.

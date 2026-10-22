@@ -29,6 +29,14 @@ Aufruf: ./install.sh [Optionen]
   --admin-username NAME    Benutzername für die Schaufenster-Seite
                            (Default: der Teil der E-Mail vor dem @).
   --admin-passwort PASS    Passwort des Superusers (sonst wird eines erzeugt).
+  --tls                    TLS aktivieren (Caddy). Kombinierbar mit:
+  --letsencrypt            Let's Encrypt verwenden (benötigt --domainname / DOMAIN & ACME-E-Mail)
+  --domainname NAME        Domain für Zertifikat/Weiterleitungen (entspricht DOMAIN)
+  --acme-email ADRESSE     E-Mail für Let's Encrypt (ACME)
+  --self-signed            Lokales selbstsigniertes Zertifikat erzeugen (für tiddlyhost.local)
+  --cert-file PFAD         Vollständiges Zertifikat (fullchain.pem) für manuelle TLS-Konfiguration
+  --key-file PFAD          Privater Schlüssel (privkey.pem) für manuelle TLS-Konfiguration
+  --https-port PORT        HTTPS-Port (Default 443)
   --keep-config            Bestehende config/settings_local.yml nicht überschreiben.
   -h, --help               Diese Hilfe.
 EOF
@@ -39,6 +47,13 @@ ADMIN_EMAIL=""
 ADMIN_NAME="Admin"
 ADMIN_USERNAME=""
 ADMIN_PASSWORD=""
+TLS_ENABLED="${TLS_ENABLED:-false}"
+CADDY_LETSENCRYPT="${CADDY_LETSENCRYPT:-false}"
+ACME_EMAIL="${ACME_EMAIL:-}"
+CERT_FILE=""
+KEY_FILE=""
+SELF_SIGNED=0
+HTTPS_PORT="${HTTPS_PORT:-443}"
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -46,6 +61,14 @@ while [ $# -gt 0 ]; do
     --admin-name)       ADMIN_NAME="${2:?}"; shift 2 ;;
     --admin-username)   ADMIN_USERNAME="${2:?}"; shift 2 ;;
     --admin-passwort|--admin-password) ADMIN_PASSWORD="${2:?}"; shift 2 ;;
+    --tls)              TLS_ENABLED="true"; shift ;;
+    --letsencrypt)      CADDY_LETSENCRYPT="true"; TLS_ENABLED="true"; shift ;;
+    --domainname)       DOMAIN="${2:?}"; shift 2 ;;
+    --acme-email)       ACME_EMAIL="${2:?}"; shift 2 ;;
+    --self-signed)      SELF_SIGNED=1; TLS_ENABLED="true"; shift ;;
+    --cert-file)        CERT_FILE="${2:?}"; TLS_ENABLED="true"; shift 2 ;;
+    --key-file)         KEY_FILE="${2:?}"; TLS_ENABLED="true"; shift 2 ;;
+    --https-port)       HTTPS_PORT="${2:?}"; shift 2 ;;
     --keep-config)      KEEP_CONFIG=1; shift ;;
     -h|--help)          usage; exit 0 ;;
     *)                  usage >&2; die "Unbekannte Option: $1" ;;
@@ -102,16 +125,23 @@ set +a
 : "${SECRET_KEY_BASE:?SECRET_KEY_BASE fehlt in $ENV_FILE}"
 : "${DB_PASSWORD:?DB_PASSWORD fehlt in $ENV_FILE}"
 
+TLS_ENABLED="${TLS_ENABLED:-false}"
+CADDY_LETSENCRYPT="${CADDY_LETSENCRYPT:-false}"
+ACME_EMAIL="${ACME_EMAIL:-}"
+HTTPS_PORT="${HTTPS_PORT:-443}"
+
+# Aufruf-Parameter überschreiben .env-Werte für diesen Lauf
+# (DOMAIN, TLS_FLAGS etc. wurden oben gesetzt)
+
 TIDDLHOST_IMAGE="${TIDDLHOST_IMAGE:-ghcr.io/heino17/tiddlyhost-wikiwise:latest}"
 
-ok "$ENV_FILE vollständig (Domain: $DOMAIN, Port: $HTTP_PORT)"
+ok "$ENV_FILE vollständig (Domain: $DOMAIN, HTTP-Port: $HTTP_PORT)"
 
 #-------------------------------------------------------------
 # 3. settings_local.yml erzeugen
 #
 #    Im Container defaultet settings.yml auf https/ohne Port (nginx+TLS).
-#    Ohne TLS müssen wir das korrigieren, sonst verweisen E-Mails und
-#    Links auf eine nicht erreichbare Adresse.
+#    Wir passen protocol/port an den gewählten Modus an.
 #-------------------------------------------------------------
 SETTINGS_CHANGED=0
 if [ "$KEEP_CONFIG" -eq 1 ] && [ -f "$SETTINGS_FILE" ]; then
@@ -120,10 +150,20 @@ else
   info "Erzeuge $SETTINGS_FILE"
   mkdir -p "$CONFIG_DIR"
 
-  if [ "$HTTP_PORT" = "80" ]; then
-    PORT_LINE=""
+  if [ "$TLS_ENABLED" = "true" ]; then
+    PROTO="https"
+    if [ "$HTTPS_PORT" = "443" ]; then
+      PORT_LINE=""
+    else
+      PORT_LINE="  :port: ${HTTPS_PORT}"
+    fi
   else
-    PORT_LINE="  :port: ${HTTP_PORT}"
+    PROTO="http"
+    if [ "$HTTP_PORT" = "80" ]; then
+      PORT_LINE=""
+    else
+      PORT_LINE="  :port: ${HTTP_PORT}"
+    fi
   fi
 
   TMP_SETTINGS="$SETTINGS_FILE.tmp"
@@ -131,7 +171,7 @@ else
 # Erzeugt von deploy/install.sh – bitte in .env ändern, nicht hier.
 url_defaults:
   :host: ${DOMAIN}
-  :protocol: http
+  :protocol: ${PROTO}
 ${PORT_LINE}
 
 # Ohne S3/Wasabi-Zugang (die upstream hinterlegt sind) greifen die
@@ -157,10 +197,77 @@ if [ -n "$(docker compose ps -q app 2>/dev/null || true)" ]; then
 fi
 
 #-------------------------------------------------------------
+# 3b. TLS/Caddy konfigurieren
+#-------------------------------------------------------------
+mkdir -p certs caddy
+if [ "$TLS_ENABLED" = "true" ]; then
+  info "TLS aktiviert (Caddy)"
+  if [ "$CADDY_LETSENCRYPT" = "true" ]; then
+    if [ -z "$ACME_EMAIL" ]; then
+      die "Für Let's Encrypt wird --acme-email oder ACME_EMAIL in .env benötigt."
+    fi
+    cp caddy/Caddyfile.letsencrypt caddy/Caddyfile
+    grep -q "^ACME_EMAIL=" "$ENV_FILE" || printf 'ACME_EMAIL=%s
+' "$ACME_EMAIL" >> "$ENV_FILE"
+    grep -q "^CADDY_LETSENCRYPT=" "$ENV_FILE" || printf 'CADDY_LETSENCRYPT=true
+' >> "$ENV_FILE"
+    grep -q "^TLS_ENABLED=" "$ENV_FILE" || printf 'TLS_ENABLED=true
+' >> "$ENV_FILE"
+    ok "Caddy nutzt Let's Encrypt für $DOMAIN"
+  else
+    if [ -n "$CERT_FILE" ] && [ -n "$KEY_FILE" ]; then
+      info "Kopiere manuell abgelegte Zertifikate"
+      [ -f "$CERT_FILE" ] || die "Zertifikat nicht gefunden: $CERT_FILE"
+      [ -f "$KEY_FILE" ] || die "Schlüssel nicht gefunden: $KEY_FILE"
+      cp "$CERT_FILE" certs/fullchain.pem
+      cp "$KEY_FILE" certs/privkey.pem
+      cp caddy/Caddyfile.manual caddy/Caddyfile
+      ok "Manuelle Zertifikate nach certs/ kopiert"
+    elif [ "$SELF_SIGNED" -eq 1 ] || [[ "$DOMAIN" == *tiddlyhost.local ]]; then
+      info "Erzeuge selbstsigniertes Zertifikat für $DOMAIN"
+      if [ ! -f "certs/fullchain.pem" ] || [ ! -f "certs/privkey.pem" ]; then
+        if [ -f "../bin/create-local-ssl-cert.sh" ]; then
+          bash ../bin/create-local-ssl-cert.sh "$(pwd)/certs"
+        elif [ -f "bin/create-local-ssl-cert.sh" ]; then
+          bash bin/create-local-ssl-cert.sh "$(pwd)/certs"
+        else
+          openssl req -x509 -nodes -newkey rsa:2048 -days 365             -keyout certs/privkey.pem -out certs/fullchain.pem             -subj "/CN=${DOMAIN}" >/dev/null 2>&1 || die "openssl req fehlgeschlagen"
+        fi
+      fi
+      cp caddy/Caddyfile.selfsigned caddy/Caddyfile
+      ok "Selbstsigniertes Zertifikat in certs/ bereit"
+    else
+      if [ -f "certs/fullchain.pem" ] && [ -f "certs/privkey.pem" ]; then
+        info "Verwende vorhandene Zertifikate in certs/"
+        cp caddy/Caddyfile.manual caddy/Caddyfile
+      else
+        die "Keine Zertifikate gefunden. Verwende --letsencrypt, --self-signed, --cert-file/--key-file oder lege certs/fullchain.pem + certs/privkey.pem ab."
+      fi
+    fi
+    grep -q "^TLS_ENABLED=" "$ENV_FILE" || printf 'TLS_ENABLED=true
+' >> "$ENV_FILE"
+    grep -q "^CADDY_LETSENCRYPT=" "$ENV_FILE" || printf 'CADDY_LETSENCRYPT=false
+' >> "$ENV_FILE"
+  fi
+  grep -q "^DOMAIN=" "$ENV_FILE" || printf 'DOMAIN=%s
+' "$DOMAIN" >> "$ENV_FILE"
+else
+  info "TLS deaktiviert – verwende HTTP-Proxy (nginx)"
+  [ -f caddy/Caddyfile ] && rm -f caddy/Caddyfile
+fi
+
+#-------------------------------------------------------------
 # 4. Container starten
 #-------------------------------------------------------------
-info "Starte Container (Image: $TIDDLHOST_IMAGE)"
-docker compose up -d
+if [ "$TLS_ENABLED" = "true" ]; then
+  info "Starte Container mit TLS (Caddy) – Image: $TIDDLHOST_IMAGE"
+  docker compose --profile tls up -d
+  docker compose --profile http stop >/dev/null 2>&1 || true
+else
+  info "Starte Container (HTTP, nginx) – Image: $TIDDLHOST_IMAGE"
+  docker compose --profile http up -d
+  docker compose --profile tls stop >/dev/null 2>&1 || true
+fi
 
 if [ "$SETTINGS_CHANGED" -eq 1 ] && [ "$APP_ALREADY_RUNNING" -eq 1 ]; then
   info "settings_local.yml hat sich geändert – starte app und jobs neu"
@@ -170,7 +277,7 @@ fi
 # nginx.conf kann sich mit einer neuen Version geändert haben. Ein Reload
 # übernimmt die Änderungen; der Resolver in nginx.conf löst "app" danach
 # ohnehin laufend neu auf.
-if [ -n "$(docker compose ps -q web 2>/dev/null || true)" ]; then
+if [ "$TLS_ENABLED" != "true" ] && [ -n "$(docker compose ps -q web 2>/dev/null || true)" ]; then
   docker compose exec -T web nginx -s reload >/dev/null 2>&1 || true
 fi
 
@@ -261,8 +368,15 @@ if [ -n "$ADMIN_EMAIL" ]; then
         user.save!
       '
     ok "Superuser angelegt"
-    printf '\n  Login: %s/users/sign_in\n  E-Mail: %s\n  Passwort: %s\n\n' \
-      "http://${DOMAIN}:${HTTP_PORT}" "$ADMIN_EMAIL" "$ADMIN_PASSWORD"
+    if [ "$TLS_ENABLED" = "true" ]; then
+      if [ "$HTTPS_PORT" = "443" ]; then
+        printf '\n  Login: https://%s/users/sign_in\n  E-Mail: %s\n  Passwort: %s\n\n' "$DOMAIN" "$ADMIN_EMAIL" "$ADMIN_PASSWORD"
+      else
+        printf '\n  Login: https://%s:%s/users/sign_in\n  E-Mail: %s\n  Passwort: %s\n\n' "$DOMAIN" "$HTTPS_PORT" "$ADMIN_EMAIL" "$ADMIN_PASSWORD"
+      fi
+    else
+      printf '\n  Login: http://%s:%s/users/sign_in\n  E-Mail: %s\n  Passwort: %s\n\n' "$DOMAIN" "$HTTP_PORT" "$ADMIN_EMAIL" "$ADMIN_PASSWORD"
+    fi
   fi
 
   # Ohne Benutzernamen gibt es keine Schaufenster-Seite (Hub): die Namen
@@ -308,13 +422,25 @@ printf '    Start:      docker compose up -d\n'
 printf '    Stoppen:    docker compose down\n'
 printf '    Logs:       docker compose logs -f app\n'
 printf '    DB-Backup:  docker compose exec db pg_dump -U postgres tiddlyhost > backup.sql\n\n'
-printf '    Oberfläche: http://%s:%s\n\n' "$DOMAIN" "$HTTP_PORT"
-cat <<EOF
+if [ "$TLS_ENABLED" = "true" ]; then
+  if [ "$HTTPS_PORT" = "443" ]; then
+    printf '    Oberfläche: https://%s\n\n' "$DOMAIN"
+  else
+    printf '    Oberfläche: https://%s:%s\n\n' "$DOMAIN" "$HTTPS_PORT"
+  fi
+  cat <<EOF
   Hinweise:
     * E-Mail-Versand (SMTP) ist nicht konfiguriert – Anmeldungen ohne
       --admin-email brauchen eine manuelle Bestätigung in der Datenbank.
-      Konfiguration: .env ergänzen und docker/Dockerfile.prod bzw. die
-      App-Env (SMTP_*) setzen.
-    * TLS/HTTPS folgt in einer späteren Version.
-
+    * HTTP wird automatisch auf HTTPS umgeleitet (Caddy).
+    * Bei Let's Encrypt ist Port 80 und 443 nach außen erforderlich.
 EOF
+else
+  printf '    Oberfläche: http://%s:%s\n\n' "$DOMAIN" "$HTTP_PORT"
+  cat <<EOF
+  Hinweise:
+    * E-Mail-Versand (SMTP) ist nicht konfiguriert – Anmeldungen ohne
+      --admin-email brauchen eine manuelle Bestätigung in der Datenbank.
+    * Für HTTPS/TLS siehe README.md (Caddy oder externer Reverse-Proxy).
+EOF
+fi
