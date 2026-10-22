@@ -9,6 +9,7 @@
 - Clean, lightweight option for future languages (it, pl, ti, no, ...)
 - First page view reliably starts in English (:en as default, can be changed)
 - Browser language is considered a suggestion, not automatically adopted (can be changed)
+- Plurals go through Rails' own plural rules per locale (`t('key', count: n)`), not `pluralize`: the hub link on the site list reads "1 page on your Explore page" / "3 pages on your Explore page" in English, and carries the correct Russian `few`/`many` forms
 - HTML ISO language codes change according to language  
 `<html data-theme-mode="<%= thememode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">`  
     - If your browser detects that the page is written in a language other than your preferred language, it will display an icon or button that allows you to translate the entire page into your language.  
@@ -83,6 +84,7 @@
 - Saubere, leichtgewichtige Möglichkeit für zukünftige Sprachen (it, pl,  ti, no, …)
 - Erster Seitenaufruf startet zuverlässig auf Englisch (:en als Default, kann geändert werden)
 - Browser-Sprache wird als Vorschlag betrachtet, nicht automatisch übernommen (Änderung möglich)
+- Pluralformen laufen über die Pluralregeln von Rails je Sprache (`t('key', count: n)`), nicht über `pluralize`: Der Hub-Link in der Seitenliste heißt „1 Seite auf Deiner Schaufenster-Seite" / „3 Seiten auf Deiner Schaufenster-Seite" und trifft im Russischen die `few`/`many`-Formen
 - HTML-ISO-Sprachcodes wechseln nach Sprache  
 `<html data-theme-mode="<%= thememode %>" data-bs-theme="<%= theme_mode %>" lang="<%= t('iso_language_code') %>">`  
     - Wenn dein Browser erkennt, dass die Seite in einer anderen Sprache als deiner bevorzugten Sprache verfasst ist, zeigt er ein Symbol oder eine Schaltfläche an, mit der Du die Seite vollständig in deine Sprache übersetzen kannst.  
