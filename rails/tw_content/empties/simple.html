@@ -2,7 +2,7 @@
 <html lang="de"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="mws-shell-version" content="v0.1.49">
+    <meta name="mws-shell-version" content="v0.1.50">
     <meta name="simplewiki-doc-id" content="">
     <meta name="simplewiki-exported" content="">
     <meta name="simplewiki-title" content="">
@@ -98,8 +98,11 @@
             simplewiki-subtitle   der Wiki-Untertitel, eine Zeile unter dem
                                   Namen. Leer heisst: keine Zeile. Im
                                   Serverbetrieb kommt er aus der Verwaltung
-                                  und wird beim Sichern mitgenommen; im
-                                  Browser ist er Teil der Datei.
+                                  und wird beim Sichern mitgenommen; unter
+                                  file:// ist es der eigene Untertitel der
+                                  Person: er steht unter dem Namen, ist dort
+                                  anklickbar und wandert beim Sichern in
+                                  den Kopf der Datei.
 
           Alle vier stehen bewusst hier und nicht im Datenblock: der
           Vertrag unten bleibt damit unveraendert, und eine fremde
@@ -2438,6 +2441,41 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            max-width: 60vw;
+        }
+
+        /* Der Untertitel ist unter file:// anklickbar: derselbe Cursor und
+           derselbe leise Strich wie beim Namen. Im Serverbetrieb fehlt die
+           Klasse - dort gehoert der Untertitel der Verwaltung. */
+        .header .kopf-untertitel-editierbar {
+            cursor: text;
+        }
+
+        .header .kopf-untertitel-editierbar:hover {
+            text-decoration: underline dotted;
+            text-underline-offset: 3px;
+        }
+
+        /* Der Platzhalter, wenn noch kein Untertitel da ist: leise, damit
+           er ein Angebot bleibt und nicht wie ein Text aussieht. */
+        .header .kopf-untertitel-leer {
+            opacity: 0.55;
+        }
+
+        /* Das Eingabefeld anstelle des Untertitels sieht aus wie die
+           Zeile, damit an derselben Stelle nichts springt. Der Einzug
+           entspricht dem des Untertitels (30px) minus dem Rahmen. */
+        .header .kopf-untertitel-feld {
+            font-family: inherit;
+            font-size: 0.78rem;
+            line-height: 1.15;
+            color: var(--text-secondary);
+            background: var(--bg-hover);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1px 6px;
+            margin-left: 24px;
+            min-width: 14ch;
             max-width: 60vw;
         }
 
@@ -4842,7 +4880,24 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     <h1 v-else :class="{ 'kopf-titel-editierbar': !mwsModus }"
                         :title="!mwsModus ? t('titelHint') : ''"
                         @click="titelStarten">📚 {{ kopfTitel() }}</h1>
-                    <p v-if="wikiUntertitel" class="kopf-untertitel">{{ wikiUntertitel }}</p>
+                    <!-- Der Untertitel ist unter file:// genauso anklickbar
+                         wie der Name: er wird zum Eingabefeld, Enter
+                         uebernimmt, Escape verwirft. Im Serverbetrieb kommt
+                         er aus der Verwaltung ($:/SiteSubtitle) und ist kein
+                         Gegenstand dieser Oberflaeche. Leer ist er eine
+                         stille Zeile mit einem Platzhalter - so kann ihn
+                         jemand anlegen, ohne den Weg ueber die Datei zu
+                         kennen. -->
+                    <input v-if="untertitelBearbeiten" ref="untertitelFeld" class="kopf-untertitel-feld"
+                           v-model="untertitelEntwurf" :aria-label="t('untertitelHint')"
+                           @keydown.enter.prevent="untertitelSichern"
+                           @keydown.esc.prevent="untertitelAbbrechen"
+                           @blur="untertitelSichern">
+                    <p v-else class="kopf-untertitel"
+                       :class="{ 'kopf-untertitel-editierbar': !mwsModus,
+                                'kopf-untertitel-leer': !kopfUntertitel() }"
+                       :title="!mwsModus ? t('untertitelHint') : ''"
+                       @click="untertitelStarten">{{ kopfUntertitel() || (!mwsModus ? t('untertitelLeer') : '') }}</p>
                 </div>
                 <!-- Suche. Das Feld steht im Kopf, und die Treffer kommen
                      direkt darunter.
@@ -5400,7 +5455,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
             <div class="settings-fuss">
                 <div class="kopf-titel">
                     <span class="fuss-titel">📚 {{ kopfTitel() }}</span>
-                    <span v-if="wikiUntertitel" class="fuss-untertitel">{{ wikiUntertitel }}</span>
+                    <span v-if="kopfUntertitel()" class="fuss-untertitel">{{ kopfUntertitel() }}</span>
                 </div>
                 <a class="fuss-version" :href="autorUrl" target="_blank" rel="noopener">{{ shellVersion }}</a>
             </div>
@@ -5585,6 +5640,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "Seitentitel...",
                     "contentPlaceholder": "Schreibe hier... (Markdown wird unterstützt)",
                     "titelHint": "Titel ändern – klicken und tippen",
+                    "untertitelHint": "Untertitel ändern – klicken und tippen",
+                    "untertitelLeer": "Untertitel hinzufügen",
                     "untitled": "Neue Seite",
                     "language": "Sprache",
                     "palette": "Farbwelt",
@@ -5861,6 +5918,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "Page title...",
                     "contentPlaceholder": "Write here... (Markdown is supported)",
                     "titelHint": "Change title – click and type",
+                    "untertitelHint": "Change subtitle – click and type",
+                    "untertitelLeer": "Add a subtitle",
                     "untitled": "New Page",
                     "nurLesen": "This wiki cannot be written to. You can read everything, but not create, change or delete anything.",
                     "nurLesenKurz": "Read only",
@@ -5987,6 +6046,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "Заголовок страницы...",
                     "contentPlaceholder": "Пишите здесь... (поддерживается Markdown)",
                     "titelHint": "Изменить заголовок – нажмите и введите",
+                    "untertitelHint": "Изменить подзаголовок – нажмите и введите",
+                    "untertitelLeer": "Добавить подзаголовок",
                     "untitled": "Новая страница",
                     "language": "Язык",
                     "palette": "Палитра цветов",
@@ -6186,6 +6247,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "Título de la página...",
                     "contentPlaceholder": "Escribe aquí... (se admite Markdown)",
                     "titelHint": "Cambiar el título – haga clic y escriba",
+                    "untertitelHint": "Cambiar el subtítulo – haga clic y escriba",
+                    "untertitelLeer": "Añadir un subtítulo",
                     "untitled": "Nueva página",
                     "language": "Idioma",
                     "palette": "Paleta de colores",
@@ -6385,6 +6448,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "Titre de la page...",
                     "contentPlaceholder": "Écrivez ici... (Markdown est pris en charge)",
                     "titelHint": "Modifier le titre – cliquez et saisissez",
+                    "untertitelHint": "Modifier le sous-titre – cliquez et saisissez",
+                    "untertitelLeer": "Ajouter un sous-titre",
                     "untitled": "Nouvelle page",
                     "language": "Langue",
                     "palette": "Palette de couleurs",
@@ -6584,6 +6649,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "ページタイトル...",
                     "contentPlaceholder": "ここに入力...（Markdown に対応）",
                     "titelHint": "タイトルを変更 – クリックして入力",
+                    "untertitelHint": "サブタイトルを変更 – クリックして入力",
+                    "untertitelLeer": "サブタイトルを追加",
                     "untitled": "新しいページ",
                     "language": "言語",
                     "palette": "カラーパレット",
@@ -6783,6 +6850,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "페이지 제목...",
                     "contentPlaceholder": "여기에 작성하세요... (Markdown 지원)",
                     "titelHint": "제목 변경 – 클릭하고 입력",
+                    "untertitelHint": "부제 변경 – 클릭하고 입력",
+                    "untertitelLeer": "부제 추가",
                     "untitled": "새 페이지",
                     "language": "언어",
                     "palette": "색상 팔레트",
@@ -6982,6 +7051,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     "titlePlaceholder": "页面标题...",
                     "contentPlaceholder": "在此书写……（支持 Markdown）",
                     "titelHint": "更改标题 – 点击并输入",
+                    "untertitelHint": "更改副标题 – 点击并输入",
+                    "untertitelLeer": "添加副标题",
                     "untitled": "新页面",
                     "language": "语言",
                     "palette": "配色方案",
@@ -7286,7 +7357,8 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
             'simplewiki_refs', 'simplewiki_lang', 'simplewiki_theme',
             'simplewiki_palette', 'simplewiki_toolbar', 'simplewiki_seiteninhalt',
             'simplewiki_eigene_farben', 'simplewiki_datei_warnung',
-            'simplewiki_draft_time', 'simplewiki_digest', 'simplewiki_titel'];
+            'simplewiki_draft_time', 'simplewiki_digest', 'simplewiki_titel',
+            'simplewiki_untertitel'];
 
         /* Eine Kennung auf harmlose Zeichen bringen: sie wird Teil eines
            Speicherschluessels und steht in der Datei. Leer heisst: keine
@@ -8828,8 +8900,20 @@ showSettings: false,
                 /* Was im Eingabefeld steht, bevor Enter es uebernimmt. */
                 titelEntwurf: '',
                 /* Der Untertitel aus $:/SiteSubtitle, eine Zeile unter dem
-                   Namen. Im Browser leer; dann fehlt die Zeile. */
+                   Namen. Im Browser leer; dort gilt der eigene
+                   Untertitel. */
                 wikiUntertitel: '',
+                /* Der eigene Untertitel, den die Person unter file:// unter
+                   dem Namen vergibt. Er wandert in den Kopf der gesicherten
+                   Datei (meta simplewiki-subtitle) und gehoert zu genau
+                   dieser Datei. Im Serverbetrieb leer - dort gilt der
+                   Untertitel der Verwaltung. */
+                eigenerUntertitel: '',
+                /* Der Kopf zeigt gerade das Eingabefeld statt des
+                   Untertitels. */
+                untertitelBearbeiten: false,
+                /* Was im Eingabefeld steht, bevor Enter es uebernimmt. */
+                untertitelEntwurf: '',
                 /* Der Name des Wikis aus dem Serverpfad (/wiki/<name>).
                    Er benennt die gesicherte Datei. Im Browser leer, dann
                    heisst die Sicherung weiterhin simplewiki.html. */
@@ -10476,6 +10560,15 @@ showSettings: false,
                     return this.t('appName');
                 },
 
+                /* Der Untertitel unter dem Namen. Reihenfolge: der
+                   Untertitel der Verwaltung ($:/SiteSubtitle), dann unter
+                   file:// der eigene, dann nichts - dann fehlt die Zeile. */
+                kopfUntertitel() {
+                    if (this.wikiUntertitel) return this.wikiUntertitel;
+                    if (!this.mwsModus && this.eigenerUntertitel) return this.eigenerUntertitel;
+                    return '';
+                },
+
                 applyLanguage() {
                     document.documentElement.lang = this.currentLang;
                     document.title = this.kopfTitel();
@@ -10518,6 +10611,46 @@ showSettings: false,
                 titelAbbrechen() {
                     this.titelBearbeiten = false;
                     this.titelEntwurf = '';
+                },
+
+                /* Darf der Untertitel hier geaendert werden? Nur unter
+                   file://: im Serverbetrieb gehoert er zur Verwaltung
+                   ($:/SiteSubtitle). */
+                untertitelBearbeitbar() {
+                    return !this.mwsModus;
+                },
+
+                /* Der Untertitel wird zum Eingabefeld: den gezeigten
+                   hineinschreiben, damit man ihn aendert statt neu tippt. */
+                untertitelStarten() {
+                    if (!this.untertitelBearbeitbar()) return;
+                    this.untertitelEntwurf = this.kopfUntertitel();
+                    this.untertitelBearbeiten = true;
+                    this.$nextTick(() => {
+                        const feld = this.$refs.untertitelFeld;
+                        if (feld) { feld.focus(); feld.select(); }
+                    });
+                },
+
+                /* Enter oder Wegklicken: den Untertitel uebernehmen. Leer
+                   heisst: keine Zeile. Geaendert heisst: die Datei auf der
+                   Platte kennt den Untertitel noch nicht - also warnen. */
+                untertitelSichern() {
+                    if (!this.untertitelBearbeiten) return;
+                    this.untertitelBearbeiten = false;
+                    const neu = untertitelSaeubern(this.untertitelEntwurf);
+                    this.untertitelEntwurf = '';
+                    if (neu === this.eigenerUntertitel) return;
+                    this.eigenerUntertitel = neu;
+                    try { SimpleWikiStore.set('simplewiki_untertitel', neu); } catch (e) { /* egal */ }
+                    this.dateiWarnen();
+                },
+
+                /* Escape: nichts uebernehmen. Der Untertitel bleibt, wie er
+                   war. */
+                untertitelAbbrechen() {
+                    this.untertitelBearbeiten = false;
+                    this.untertitelEntwurf = '';
                 },
 
                 changeLanguage() {
@@ -10822,7 +10955,8 @@ showSettings: false,
                        sind die des offenen Dokuments, sofern der Aufrufer
                        keine anderen nennt. Im Serverbetrieb kommen sie vom
                        Server (MWS oder Tiddlyhost), unter file:// aus dem
-                       Kopf der Datei. */
+                       Kopf der Datei - oder, beim Untertitel, aus dem, was
+                       die Person oben selbst eingetragen hat. */
                     metaSetzen(doc, KENNUNG_META, kennung || arbeitsId());
                     metaSetzen(doc, ZEIT_META, new Date().toISOString());
                     metaSetzen(doc, TITEL_META,
@@ -10831,7 +10965,7 @@ showSettings: false,
                             : titelSaeubern(titel));
                     metaSetzen(doc, UNTERTITEL_META,
                         untertitel === undefined
-                            ? this.wikiUntertitel
+                            ? (this.wikiUntertitel || this.eigenerUntertitel)
                             : untertitelSaeubern(untertitel));
                     /* Nur hier wird "<" escaped: der Block steckt in einer
                        HTML-Datei, und ein Script-Ende im Inhalt wuerde sie
@@ -11168,6 +11302,16 @@ showSettings: false,
                     this.eigenerTitel = this.mwsModus
                         ? ''
                         : (SimpleWikiStore.get('simplewiki_titel', '') || '');
+                    /* Der eigene Untertitel: aus dem Browserspeicher, sonst
+                       aus dem Kopf der geoeffneten Datei. Steht dort noch
+                       keiner, weiss nur die Datei, was unter dem Namen
+                       steht - dann gehoert es ihr. Ein leerer Eintrag im
+                       Speicher ist eine bewusste Entscheidung ("keine
+                       Zeile") und wird nicht von der Datei ueberschrieben. */
+                    const gemerkt = SimpleWikiStore.get('simplewiki_untertitel', null);
+                    this.eigenerUntertitel = this.mwsModus
+                        ? ''
+                        : (gemerkt === null ? dateiUntertitel() : untertitelSaeubern(gemerkt));
 
                     const geladen = SPEICHER.laden();
                     /* Die gemerkte Warnung nur im Browserbetrieb: auf dem
@@ -11176,13 +11320,10 @@ showSettings: false,
                         && SimpleWikiStore.get('simplewiki_datei_warnung') === '1';
                     this.nurLesen = !!geladen.nurLesen;
                     this.wikiTitel = geladen.wikiTitel || '';
+                    /* Der Untertitel der Verwaltung. Im Browser gibt es
+                       keinen - dort steht der eigene Untertitel der Person
+                       (siehe oben). */
                     this.wikiUntertitel = geladen.wikiUntertitel || '';
-                    /* Unter file:// steht der Untertitel im Kopf der Datei.
-                       Im Serverbetrieb kommt er vom Server; dort wuerde ein
-                       alter Kopfwert sonst die Verwaltung ueberstimmen. */
-                    if (!this.mwsModus) {
-                        this.wikiUntertitel = this.wikiUntertitel || dateiUntertitel();
-                    }
                     this.wikiSlug = geladen.slug || '';
                     this.showRefs = !!geladen.verweise;
 
@@ -11198,6 +11339,7 @@ showSettings: false,
                             this.seitenUebernehmen();
                             this.seitenSichern();
                             this.titelAusDatei();
+                            this.untertitelAusDatei();
                             this.uebernehmenAusDatei(ausDatei);
                             this.dateiUebernommen(finger);
                             this.dateiWarnungLoeschen();
@@ -11226,6 +11368,7 @@ showSettings: false,
                         this.seitenUebernehmen();
                         this.seitenSichern();
                         this.titelAusDatei();
+                        this.untertitelAusDatei();
                         this.uebernehmenAusDatei(ausDatei);
                         this.dateiUebernommen(finger);
                         this.dateiWarnungLoeschen();
@@ -11301,6 +11444,19 @@ showSettings: false,
                     this.eigenerTitel = dateiTitel();
                     try {
                         SimpleWikiStore.set('simplewiki_titel', this.eigenerTitel);
+                    } catch (e) { /* es gibt Speicher ohne Platz */ }
+                },
+
+                /* Den eigenen Untertitel aus dem Kopf der offenen Datei
+                   uebernehmen. Nur beim Oeffnen der Datei - dort ist das
+                   laufende Dokument die Datei selbst. Der Knopf
+                   "Datenbereich laden" liest dagegen nur den Datenblock,
+                   nicht den Kopf, und laesst den Untertitel stehen. */
+                untertitelAusDatei() {
+                    if (this.mwsModus) return;
+                    this.eigenerUntertitel = dateiUntertitel();
+                    try {
+                        SimpleWikiStore.set('simplewiki_untertitel', this.eigenerUntertitel);
                     } catch (e) { /* es gibt Speicher ohne Platz */ }
                 },
 
