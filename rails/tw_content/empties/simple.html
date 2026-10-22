@@ -2,7 +2,7 @@
 <html lang="de"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="mws-shell-version" content="v0.1.51">
+    <meta name="mws-shell-version" content="v0.1.52">
     <meta name="simplewiki-doc-id" content="">
     <meta name="simplewiki-exported" content="">
     <meta name="simplewiki-title" content="">
@@ -11330,13 +11330,21 @@ showSettings: false,
                         SimpleWikiStore.set('simplewiki_doc_id', arbeitsId());
                     }
 
-                    /* Der eigene Name des offenen Dokuments. Der Wechsel
-                       oben hat ihn mit dem Entwurf hervorgeholt oder
-                       weggeraeumt. Eine Datei, die gleich die Seiten
-                       liefert, setzt ihn gleich danach aus ihrem Kopf. */
+                    /* Der eigene Name des offenen Dokuments: aus dem
+                       Browserspeicher, sonst aus dem Kopf der geoeffneten
+                       Datei. Ein fehlender Eintrag heisst nicht "kein
+                       Name", sondern "noch nicht geaendert" - der Name
+                       steht dann in der Datei. Ein leerer Eintrag ist
+                       dagegen eine bewusste Entscheidung ("fester Name")
+                       und wird nicht von der Datei ueberschrieben. Ohne
+                       diese Unterscheidung zeigte eine Datei nach einer
+                       Aenderung an den Seiten den festen Namen, obwohl
+                       ihr Kopf einen eigenen traegt: der Entwurf gewinnt
+                       dann, und einen Titel hatte er nie geschrieben. */
+                    const gemerkterTitel = SimpleWikiStore.get('simplewiki_titel', null);
                     this.eigenerTitel = this.mwsModus
                         ? ''
-                        : (SimpleWikiStore.get('simplewiki_titel', '') || '');
+                        : (gemerkterTitel === null ? dateiTitel() : titelSaeubern(gemerkterTitel));
                     /* Der eigene Untertitel: aus dem Browserspeicher, sonst
                        aus dem Kopf der geoeffneten Datei. Steht dort noch
                        keiner, weiss nur die Datei, was unter dem Namen
