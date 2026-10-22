@@ -26,6 +26,8 @@ Aufruf: ./install.sh [Optionen]
 
   --admin-email ADRESSE    Legt nach dem Start einen Superuser an.
   --admin-name NAME        Anzeigename des Superusers (Default: Admin).
+  --admin-username NAME    Benutzername für die Schaufenster-Seite
+                           (Default: der Teil der E-Mail vor dem @).
   --admin-passwort PASS    Passwort des Superusers (sonst wird eines erzeugt).
   --keep-config            Bestehende config/settings_local.yml nicht überschreiben.
   -h, --help               Diese Hilfe.
@@ -35,12 +37,14 @@ EOF
 KEEP_CONFIG=0
 ADMIN_EMAIL=""
 ADMIN_NAME="Admin"
+ADMIN_USERNAME=""
 ADMIN_PASSWORD=""
 
 while [ $# -gt 0 ]; do
   case "$1" in
     --admin-email)      ADMIN_EMAIL="${2:?}"; shift 2 ;;
     --admin-name)       ADMIN_NAME="${2:?}"; shift 2 ;;
+    --admin-username)   ADMIN_USERNAME="${2:?}"; shift 2 ;;
     --admin-passwort|--admin-password) ADMIN_PASSWORD="${2:?}"; shift 2 ;;
     --keep-config)      KEEP_CONFIG=1; shift ;;
     -h|--help)          usage; exit 0 ;;
@@ -260,6 +264,40 @@ if [ -n "$ADMIN_EMAIL" ]; then
     printf '\n  Login: %s/users/sign_in\n  E-Mail: %s\n  Passwort: %s\n\n' \
       "http://${DOMAIN}:${HTTP_PORT}" "$ADMIN_EMAIL" "$ADMIN_PASSWORD"
   fi
+
+  # Ohne Benutzernamen gibt es keine Schaufenster-Seite (Hub): die Namen
+  # der Eigentuemer auf /explore und /templates waeren dann kein Link,
+  # und auf /sites fehlte die Zeile "Seiten auf Deiner Schaufenster-
+  # Seite". Der Runner legt ihn deshalb an, wenn er fehlt - auch bei
+  # einem Superuser, den eine fruehere Installation ohne ihn angelegt
+  # hat. Ungueltige oder vergebene Namen bleiben leer und werden nur
+  # gemeldet; die Person kann sie unter /users/edit selbst setzen.
+  benutzer=$(docker compose exec -T \
+    -e ADMIN_EMAIL="$ADMIN_EMAIL" \
+    -e ADMIN_USERNAME="${ADMIN_USERNAME:-${ADMIN_EMAIL%%@*}}" \
+    app bin/rails runner '
+      user = User.find_by(email: ENV.fetch("ADMIN_EMAIL"))
+      if user && user.username.blank?
+        name = ENV.fetch("ADMIN_USERNAME", "").to_s.strip
+        name = name.gsub(/[^A-Za-z0-9-]+/, "-").gsub(/-+/, "-")
+          .gsub(/\A-|-\z/, "")[0, 30]
+        frei = name.length >= 3 &&
+          !User.where.not(id: user.id).exists?(username: name)
+        if frei
+          user.update!(username: name)
+          puts "BENUTZERNAME=#{name}"
+        else
+          puts "KEINER"
+        end
+      end
+    ' 2>/dev/null | tail -n 1) || benutzer=""
+
+  case "$benutzer" in
+    BENUTZERNAME=*)
+      ok "${benutzer#BENUTZERNAME=} als Benutzername gesetzt (Schaufenster-Seite)" ;;
+    KEINER)
+      warn "Kein Benutzername gesetzt - bitte unter /users/edit einen waehlen." ;;
+  esac
 fi
 
 #-------------------------------------------------------------

@@ -27,7 +27,10 @@ nicht konfiguriert ist):
 ```
 
 Das Passwort wird erzeugt und ausgegeben; mit `--admin-passwort …` kannst du
-ein eigenes setzen.
+ein eigenes setzen. Als Benutzername für die Schaufenster-Seite (Hub) nimmt
+das Skript den Teil der E-Mail vor dem `@`; mit `--admin-username …` wählst du
+einen anderen. Ohne Benutzername gibt es keine Hub-Seite, und die Namen der
+Eigentümer auf `/explore` und `/templates` sind dann keine Links.
 
 ## Die Datei `.env`
 
