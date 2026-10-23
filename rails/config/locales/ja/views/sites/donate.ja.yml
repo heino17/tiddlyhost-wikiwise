@@ -4,7 +4,7 @@ ja:
   donations_page_heading: "寄付・スポンサー"
   donations_page_subheading: "<i><b>...コミュニティをサポートしてください！</b></i>"
   # Donations & Sponsorships text
-  donations_page_txt_1: "Tiddlyhost-Wikiwise がお役に立てているなら、ぜひ寄付またはスポンサーシップをご検討ください。寄付はホスティング費用をカバーし、ソフトウェアの継続的なサポートと開発を後押しします。"
+  donations_page_txt_1: "Tiddlyhost がお役に立てているなら、Tiddlyhost の創設者である Simon Baird への寄付またはスポンサーシップをご検討ください。寄付はホスティング費用をカバーし、ソフトウェアの継続的なサポートと開発を後押しします。"
   donations_page_txt_2: "寄付またはスポンサーになるには、<a href=\"https://github.com/sponsors/simonbaird?o=esb\" target=\"_blank\">GitHub Sponsors</a> または <a href=\"https://www.buymeacoffee.com/simonbaird\" target=\"_blank\">Buy Me a Coffee</a> をご利用ください。"
   donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
   donations_page_buy_coffee_button_title: "Buy Me a Coffee"

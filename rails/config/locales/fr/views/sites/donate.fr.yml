@@ -4,7 +4,7 @@ fr:
   donations_page_heading: "Dons et parrainages"
   donations_page_subheading: "<i><b>...soutenez notre communauté !</b></i>"
   # Donations & Sponsorships text
-  donations_page_txt_1: "Si vous trouvez Tiddlyhost-Wikiwise utile, veuillez envisager un don ou un parrainage. Les dons aident à couvrir les coûts d'hébergement et encouragent le soutien et le développement continu du logiciel."
+  donations_page_txt_1: "Si vous trouvez Tiddlyhost utile, veuillez envisager un don ou un parrainage en faveur de Simon Baird, le fondateur de Tiddlyhost. Les dons aident à couvrir les coûts d'hébergement et encouragent le soutien et le développement continu du logiciel."
   donations_page_txt_2: "Pour faire un don ou devenir parrain, utilisez <a href=\"https://github.com/sponsors/simonbaird?o=esb\" target=\"_blank\">GitHub Sponsors</a> ou <a href=\"https://www.buymeacoffee.com/simonbaird\" target=\"_blank\">Buy Me a Coffee</a>."
   donations_page_buy_coffee_button_link: "https://www.buymeacoffee.com/simonbaird"
   donations_page_buy_coffee_button_title: "Buy Me a Coffee"
