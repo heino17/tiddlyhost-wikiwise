@@ -5,6 +5,7 @@
 fr:
   # Top Menu
   top_menu_root: "Accueil"
+  top_menu_sites: "Sites"
   top_menu_explore: "Explorer"
   top_menu_templates: "Modèles"
   top_menu_pricing: "Tarifs"

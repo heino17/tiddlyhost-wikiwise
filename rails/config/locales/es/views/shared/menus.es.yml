@@ -5,6 +5,7 @@
 es:
   # Top Menu
   top_menu_root: "Inicio"
+  top_menu_sites: "Sitios"
   top_menu_explore: "Explorar"
   top_menu_templates: "Plantillas"
   top_menu_pricing: "Precios"

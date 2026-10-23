@@ -5,6 +5,7 @@
 zh_CN:
   # Top Menu
   top_menu_root: "首页"
+  top_menu_sites: "站点"
   top_menu_explore: "探索"
   top_menu_templates: "模板"
   top_menu_pricing: "定价"

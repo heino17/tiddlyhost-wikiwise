@@ -5,6 +5,7 @@
 de:
   # Menu
   top_menu_root: "Start"
+  top_menu_sites: "Seiten"
   top_menu_explore: "Schaufenster"
   top_menu_templates: "Vorlagen"
   top_menu_pricing: "Preise"

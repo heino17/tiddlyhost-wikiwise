@@ -5,6 +5,7 @@
 ko:
   # Top Menu
   top_menu_root: "홈"
+  top_menu_sites: "사이트"
   top_menu_explore: "탐색"
   top_menu_templates: "템플릿"
   top_menu_pricing: "가격"

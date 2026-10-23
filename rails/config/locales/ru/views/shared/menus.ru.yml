@@ -5,6 +5,7 @@
 ru:
   # Top Menu
   top_menu_root: "Главная"
+  top_menu_sites: "Сайты"
   top_menu_explore: "Исследовать"
   top_menu_templates: "Шаблоны"
   top_menu_pricing: "Цены"

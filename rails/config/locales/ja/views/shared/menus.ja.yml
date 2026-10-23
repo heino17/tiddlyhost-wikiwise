@@ -5,6 +5,7 @@
 ja:
   # Top Menu
   top_menu_root: "ホーム"
+  top_menu_sites: "サイト"
   top_menu_explore: "探索"
   top_menu_templates: "テンプレート"
   top_menu_pricing: "料金"

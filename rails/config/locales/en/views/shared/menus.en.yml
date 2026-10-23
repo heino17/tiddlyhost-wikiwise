@@ -5,6 +5,7 @@
 en:
   # Top Menu
   top_menu_root: "Home"
+  top_menu_sites: "Sites"
   top_menu_explore: "Explore"
   top_menu_templates: "Templates"
   top_menu_pricing: "Pricing"
