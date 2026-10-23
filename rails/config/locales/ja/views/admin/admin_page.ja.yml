@@ -57,6 +57,8 @@ ja:
       th_confirmed: "確認済み"
     tab_users:
       new_user: "新しいユーザーアカウントを作成 🛠️"
+      sites_count:
+        other: "%{count} サイト"
       users_name: "名前"
       users_email: "メール"
       users_username: "ユーザー名"

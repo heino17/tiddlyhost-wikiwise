@@ -56,6 +56,11 @@ ru:
       th_confirmed: "Подтверждено"
     tab_users:
       new_user: "Создать новую учетную запись 🛠️"
+      sites_count:
+        one: "%{count} сайт"
+        few: "%{count} сайта"
+        many: "%{count} сайтов"
+        other: "%{count} сайта"
       users_name: "Имя"
       users_email: "Email"
       users_username: "Имя пользователя"

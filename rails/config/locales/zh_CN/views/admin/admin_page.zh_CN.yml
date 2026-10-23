@@ -56,6 +56,8 @@ zh_CN:
       th_confirmed: "已确认"
     tab_users:
       new_user: "创建新用户账户 🛠️"
+      sites_count:
+        other: "%{count} 个站点"
       users_name: "姓名"
       users_email: "邮箱"
       users_username: "用户名"

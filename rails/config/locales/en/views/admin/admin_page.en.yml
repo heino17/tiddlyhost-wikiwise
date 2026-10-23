@@ -56,6 +56,9 @@ en:
       th_confirmed: "Confirmed"    
     tab_users:
       new_user: "Create new user account 🛠️"
+      sites_count:
+        one: "%{count} Site"
+        other: "%{count} Sites"
       users_name: "Name"
       users_email: "Email"
       users_username: "Username"

@@ -55,6 +55,9 @@ de:
       th_confirmed: "Bestätigt"
     tab_users:
       new_user: "Neues Benutzerkonto erstellen 🛠️"
+      sites_count:
+        one: "%{count} Seite"
+        other: "%{count} Seiten"
       users_name: "Name"
       users_email: "eMail"
       users_username: "Benutzername"

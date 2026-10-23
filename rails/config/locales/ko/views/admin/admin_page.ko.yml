@@ -57,6 +57,8 @@ ko:
       th_confirmed: "확인됨"
     tab_users:
       new_user: "새 사용자 계정 만들기 🛠️"
+      sites_count:
+        other: "%{count} 사이트"
       users_name: "이름"
       users_email: "이메일"
       users_username: "사용자명"
