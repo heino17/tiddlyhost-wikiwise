@@ -6,6 +6,9 @@
 **+ Admin‑Bereich – Benutzerverwaltung erweitert**  
 **+ Cookie-Banner - EU-Cookie-Richtlinien, DSGVO und TTDSG**  
 **+ Gäste-Login für jedes Wiki**  
+**+ SimpleWiki-Hosting für leichtgewichtige Dateninsel-Wikis**<br>
+**+ Live-Verfügbarkeitsprüfung der Wiki-Adresse beim Anlegen**<br>
+**+ Einheitliches Wikiwise-Branding (Logo, Favicon, Link-Icon)**
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
 
@@ -23,6 +26,11 @@
 - Die Benutzerverwaltung wurde erweitert **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**  
 - Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)** 
 - Gäste-Login für jedes Wiki **Siehe: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**
+- SimpleWiki-Wikis können direkt angelegt und als leichtgewichtige Dateninsel gehostet werden.
+- Beim Anlegen wird die gewünschte Wiki-Adresse live auf Verfügbarkeit geprüft.
+- Einheitliches Wikiwise-Branding mit SimpleWiki-Logo, Favicon und Link-Icon in der Seitenliste.
+
+**Docker-Installation für den Endanwender-Betrieb:** **Siehe [deploy/README.md](deploy/README.md)**.
 
 Es ist für meine Server-Umgebung etwas angepasst, **siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
@@ -53,6 +61,9 @@ cd tiddlyhost-wikiwise
 **+ Admin area – User management expanded**  
 **+ Cookie-Banner - EU Cookie Directives, GDPR, and TTDSG**  
 **+ Guest login for every wiki**  
+**+ SimpleWiki hosting for lightweight data-island wikis**<br>
+**+ Live availability check for the wiki address during creation**<br>
+**+ Consistent Wikiwise branding (logo, favicon, link icon)**
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
 
@@ -69,6 +80,11 @@ cd tiddlyhost-wikiwise
 - User management has been expanded **See: [Readme-User-Management.md](Readme-User-Management.md)**  
 - Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 - Guest login for each wiki **See: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**  
+- SimpleWiki sites can be created directly and hosted as lightweight data-island wikis.
+- The desired wiki address is checked live for availability during creation.
+- Consistent Wikiwise branding with SimpleWiki logo, favicon and link icon in the site list.
+
+**Docker installation for end users:** **See [deploy/README.md](deploy/README.md)**.
 
 It has been slightly adapted for my server environment, **see [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 

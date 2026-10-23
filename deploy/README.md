@@ -41,7 +41,7 @@ erzeugt. Wichtig:
 | --- | --- |
 | `DOMAIN` | Domain oder IP, unter der du erreichbar bist |
 | `HTTP_PORT` | Port des Webservers (Default `8080`) |
-| `TIDDLHOST_IMAGE` | Image inkl. Tag, z. B. `:latest` oder `:v0.1.0` |
+| `TIDDLHOST_IMAGE` | Image inkl. Tag, z. B. `:latest` oder `:v0.1.3` |
 | `SECRET_KEY_BASE`, `DB_PASSWORD` | werden automatisch erzeugt – **nicht** ändern, sobald Nutzer existieren |
 
 Nach einer Änderung an `DOMAIN` oder `HTTP_PORT` einfach `./install.sh`
@@ -102,32 +102,28 @@ Build des Produktions-Images und Push nach GHCR als `<tag>` **und**
 `latest`.
 
 ```bash
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.1.10        # Beispiel: nächster Release-Tag
+git push origin v0.1.10
 ```
 
 Voraussetzung: das Package muss auf **public** stehen (GitHub →
 Packages → Package settings), sonst können Anwender nicht pullen.
 
+Die im Footer und auf `/about` angezeigte Version stammt aus
+`rails/public/build-info.txt` und damit aus dem Git-Tag, z. B. `v0.1.9` →
+`0.1.9-wikiwise`. Ein lokaler Docker-Tag wie `v0.1.11-preview` ändert sie
+nicht; erst ein neuer Git-Tag und ein frischer Build aktualisieren sie.
+
 ## Aktueller Stand / Einschränkungen
 
-- **Nur HTTP.** TLS/Let's Encrypt ist noch nicht integriert. Für öffentlichen
-  Betrieb vorerst einen eigenen Reverse-Proxy davorstellen, der HTTPS
-  terminiert (z. B. Caddy, Traefik oder nginx mit Zertifikaten).
+- **TLS:** über Caddy (Let's Encrypt, eigene Zertifikate oder selbstsigniert)
+  oder einen externen Reverse-Proxy; siehe HTTPS/TLS.
 - **Kein SMTP.** Ohne Mailserver funktioniert die Anmeldung neuer Nutzer
   nicht (Devise `:confirmable`). Nutzer lässt du deshalb entweder über
   `--admin-email` anlegen oder du bestätigst sie manuell in der Datenbank.
 - **Kein automatisches Backup.** Bitte regelmäßig `pg_dump` laufen lassen.
 - Subdomains (`meinwiki.tiddlyhost.local`) setzen voraus, dass DNS dorthin
   zeigt; im lokalen Test genügt `127.0.0.1` in `/etc/hosts`.
-
-## TLS (geplant)
-
-Der productive Stack des Repos (`docker-compose-prod.yml`) unterstützt TLS
-bereits über `nginx`-Templates aus `ansible/playbooks/templates/docker/` und
-Let's Encrypt. Diese Variante hier bewusst noch ohne, damit die Installation
-auch ohne freie Ports 80/443 und ohne DNS-Provider-Zugang funktioniert.
-
 
 ## HTTPS/TLS (Caddy oder externer Reverse-Proxy)
 
