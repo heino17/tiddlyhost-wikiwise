@@ -61,6 +61,9 @@ fr:
   site_view_edit_wiki_heading: "Paramètres pour"
   site_view_edit_wiki_name_label: "Adresse du site (sous-domaine)"
   site_view_edit_wiki_name_text: "Lettres minuscules, chiffres et caractères '-' non en début ni en fin sont autorisés."
+  site_view_edit_wiki_name_checking: "Vérification de la disponibilité …"
+  site_view_edit_wiki_name_available: "Cette adresse du site est disponible."
+  site_view_edit_wiki_name_taken: "Cette adresse du site est déjà utilisée."
   site_view_edit_wiki_updated_flash: "Site mis à jour avec succès."
   site_view_edit_wiki_site_not_found_flash: "Site non trouvé."
   

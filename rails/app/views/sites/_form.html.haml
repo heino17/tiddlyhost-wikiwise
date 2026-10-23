@@ -18,9 +18,24 @@
         = render 'site_tile_clone', site: @site
 
     = render layout: 'field_wrapper', locals: { pt: 'pt-2' } do
-      = f.label t('site_view_edit_wiki_name_label')
-      = f.text_field :name, class: 'form-control', maxlength: 63, autofocus: @site.new_record?
-      %small.form-text.text-muted= t('site_view_edit_wiki_name_text')
+      .site-name-availability{ data: {
+        controller: 'site-name-availability',
+        site_name_availability_url_value: check_name_sites_path,
+        site_name_availability_site_id_value: @site.id,
+        site_name_availability_checking_text_value: t('site_view_edit_wiki_name_checking'),
+        site_name_availability_available_text_value: t('site_view_edit_wiki_name_available'),
+        site_name_availability_taken_text_value: t('site_view_edit_wiki_name_taken')
+      } }
+        = f.label t('site_view_edit_wiki_name_label')
+        = f.text_field :name, class: 'form-control', maxlength: 63,
+          autofocus: @site.new_record?,
+          data: { site_name_availability_target: 'input',
+                  action: 'input->site-name-availability#check' }
+        %small.form-text.text-muted= t('site_view_edit_wiki_name_text')
+        %small.form-text.site-name-availability-status{
+          data: { site_name_availability_target: 'status' },
+          'aria-live': 'polite'
+        }
 
     - if @site.new_record?
       = render layout: 'field_wrapper' do

@@ -24,3 +24,6 @@ application.register("settings-tab", SettingsTabController)
 
 import CookieConsentController from "./cookie_consent_controller"
 application.register("cookie-consent", CookieConsentController)
+
+import SiteNameAvailabilityController from "./site_name_availability_controller"
+application.register("site-name-availability", SiteNameAvailabilityController)

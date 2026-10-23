@@ -13,7 +13,7 @@
     <header>
       <nav class="navbar navbar-dark bg-gradient <%= navbar_prod %>">
         <%= link_to(Settings.main_site_url, class: 'navbar-brand', title: t('site_title')) do %>
-          <%= image_tag("logo.svg") %>
+          <%= image_tag(t('logo_path')) %>
           <span>
             <%= t('site_title') %>
           </span>

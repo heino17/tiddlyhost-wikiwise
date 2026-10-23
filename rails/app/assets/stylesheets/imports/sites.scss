@@ -50,13 +50,8 @@ table.sites {
         .sitelink {
             white-space: nowrap;
 
-            // Show a favicon
-            img {
-              width: 0.8rem;
-              height: 0.8rem;
-              margin-right: 0.2rem;
-              margin-top: -2px;
-              border-radius: 2px;
+            svg.bi.site-link-icon {
+              fill: var(--bs-link-color);
             }
 
             a {

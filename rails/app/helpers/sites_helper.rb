@@ -14,7 +14,11 @@ module SitesHelper
 
   def site_pretty_link(site, opts = {})
     site_long_link(site, opts) do
-      image_tag(asset_path(site.favicon_asset_name))
+      bi_icon('link-45deg',
+              height: '0.8rem',
+              width: '0.8rem',
+              class: 'site-link-icon',
+              style: 'margin-top: -2px; margin-right: 0.2rem;')
     end
   end
 

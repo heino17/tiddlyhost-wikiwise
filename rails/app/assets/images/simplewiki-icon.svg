@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SimpleWiki">
+  <g stroke="#243243" stroke-width="1.4" stroke-linejoin="round">
+    <g transform="rotate(-14 20 40)">
+      <rect x="7" y="18" width="15" height="42" rx="2" fill="#3f86cc"/>
+      <rect x="7" y="18" width="4.5" height="42" rx="2" fill="#235e9d"/>
+      <path d="M18.5 22h1.5v34h-1.5z" fill="#f3ead6" stroke="none"/>
+      <path d="M11.5 49h7" stroke="#8fc4ee" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g transform="rotate(14 49.5 40)">
+      <rect x="42" y="18" width="15" height="42" rx="2" fill="#58a35f"/>
+      <rect x="42" y="18" width="4.5" height="42" rx="2" fill="#357a3e"/>
+      <path d="M53.5 22h1.5v34h-1.5z" fill="#f3ead6" stroke="none"/>
+      <path d="M46.5 49h7" stroke="#9fd3a4" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g>
+      <rect x="27" y="10" width="16" height="50" rx="2" fill="#e27c3e"/>
+      <rect x="27" y="10" width="4.5" height="50" rx="2" fill="#b95720"/>
+      <path d="M39.5 14h1.5v42h-1.5z" fill="#f3ead6" stroke="none"/>
+      <path d="M31.5 54h7" stroke="#f6b98e" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

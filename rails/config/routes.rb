@@ -112,6 +112,7 @@ Rails.application.routes.draw do
       collection do
         get :view_toggle
         get :download_all
+        get :check_name
       end
 
       member do

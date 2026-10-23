@@ -22162,6 +22162,63 @@
     }
   };
 
+  // app/javascript/controllers/site_name_availability_controller.js
+  var site_name_availability_controller_default = class extends Controller {
+    static targets = ["input", "status"];
+    static values = {
+      url: String,
+      siteId: String,
+      checkingText: String,
+      availableText: String,
+      takenText: String
+    };
+    disconnect() {
+      window.clearTimeout(this.timeout);
+      if (this.abortController) this.abortController.abort();
+    }
+    check() {
+      window.clearTimeout(this.timeout);
+      const name = this.inputTarget.value.trim();
+      if (!name) {
+        if (this.abortController) this.abortController.abort();
+        this.clearStatus();
+        return;
+      }
+      this.timeout = window.setTimeout(() => this.checkAvailability(name), 300);
+    }
+    async checkAvailability(name) {
+      if (this.abortController) this.abortController.abort();
+      this.abortController = new AbortController();
+      this.setStatus(this.checkingTextValue, "text-muted");
+      const params = new URLSearchParams({ name });
+      if (this.siteIdValue) params.set("site_id", this.siteIdValue);
+      try {
+        const response = await fetch(`${this.urlValue}?${params}`, {
+          headers: { Accept: "application/json" },
+          signal: this.abortController.signal
+        });
+        if (!response.ok) throw new Error(response.statusText);
+        const data = await response.json();
+        if (data.available) {
+          this.setStatus(this.availableTextValue, "text-success");
+        } else {
+          this.setStatus(this.takenTextValue, "text-danger");
+        }
+      } catch (error2) {
+        if (error2.name !== "AbortError") this.clearStatus();
+      }
+    }
+    setStatus(message, className) {
+      this.statusTarget.textContent = message;
+      this.statusTarget.classList.remove("text-muted", "text-success", "text-danger");
+      this.statusTarget.classList.add(className);
+    }
+    clearStatus() {
+      this.statusTarget.textContent = "";
+      this.statusTarget.classList.remove("text-muted", "text-success", "text-danger");
+    }
+  };
+
   // app/javascript/controllers/index.js
   application.register("comment-counter", comment_counter_controller_default);
   application.register("hello", hello_controller_default);
@@ -22170,6 +22227,7 @@
   application.register("test", test_controller_default);
   application.register("settings-tab", settings_tab_controller_default);
   application.register("cookie-consent", cookie_consent_controller_default);
+  application.register("site-name-availability", site_name_availability_controller_default);
 
   // node_modules/trix/dist/trix.esm.min.js
   var t = "2.1.19";

@@ -10,6 +10,8 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
   test 'should get index' do
     get sites_url
     assert_response :success
+    assert_select '.sitelink svg.site-link-icon', count: 1
+    assert_includes response.body, '#link-45deg'
   end
 
   test 'should get index as json' do
@@ -34,6 +36,22 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
   test 'should get new' do
     get new_site_url
     assert_response :success
+    assert_includes response.body, 'data-controller="site-name-availability"'
+    assert_includes response.body, 'data-site-name-availability-url-value="/sites/check_name"'
+  end
+
+  test 'site name availability' do
+    get check_name_sites_url, params: { name: 'mysite' }, as: :json
+    assert_response :success
+    assert_equal false, JSON.parse(response.body)['available']
+
+    get check_name_sites_url, params: { name: 'available-name' }, as: :json
+    assert_response :success
+    assert_equal true, JSON.parse(response.body)['available']
+
+    get check_name_sites_url, params: { name: 'mysite', site_id: @site.id }, as: :json
+    assert_response :success
+    assert_equal true, JSON.parse(response.body)['available']
   end
 
   test 'should offer simplewiki on new site page' do
@@ -41,6 +59,7 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_includes response.body, 'SimpleWiki'
     assert_includes response.body, 'site_empty_id_22'
+    assert_includes response.body, 'simplewiki-icon'
   end
 
   test 'display name fields are toggleable on new site page' do

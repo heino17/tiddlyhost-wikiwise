@@ -10,9 +10,9 @@ de:
   
   # Logo
   logo_link_title: "Tiddlyhost-Wikiwise - local"
-  logo_image_tag: "logo.svg"
-  logo_path: "logo.svg"
-  logo_alt: "logo.svg"  
+  logo_image_tag: "simplewiki-icon.svg"
+  logo_path: "simplewiki-icon.svg"
+  logo_alt: "Tiddlyhost-Wikiwise"
   
   # if registration is switched off
   registration_not_possible: "Konto erstellen nicht möglich!"

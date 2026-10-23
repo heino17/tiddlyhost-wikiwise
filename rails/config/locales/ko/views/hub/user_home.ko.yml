@@ -60,6 +60,9 @@ ko:
   site_view_edit_wiki_heading: "설정"
   site_view_edit_wiki_name_label: "사이트 주소 (하위 도메인)"
   site_view_edit_wiki_name_text: "소문자, 숫자, 시작/끝 제외 '-' 허용."
+  site_view_edit_wiki_name_checking: "사용 가능 여부를 확인하는 중 …"
+  site_view_edit_wiki_name_available: "이 사이트 주소는 사용 가능합니다."
+  site_view_edit_wiki_name_taken: "이 사이트 주소는 이미 사용 중입니다."
   site_view_edit_wiki_updated_flash: "사이트 업데이트 성공."
   
   site_view_edit_wiki_show_more_types_label: "유형"

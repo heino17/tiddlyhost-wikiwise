@@ -1,6 +1,6 @@
 class SitesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_site, except: [:index, :new, :create, :view_toggle, :download_all]
+  before_action :set_site, except: [:index, :new, :create, :view_toggle, :download_all, :check_name]
   before_action :set_sites, only: [:index, :download_all]
   before_action :set_empties_list, only: [:new, :create]
   before_action :set_site_to_clone, only: [:new, :create]
@@ -93,6 +93,16 @@ class SitesController < ApplicationController
 
   def download_core_js
     download_js_content(@site.core_js_content, @site.core_js_name)
+  end
+
+  def check_name
+    name = params[:name].to_s.strip.downcase
+    return render json: { available: false } if name.blank?
+
+    scope = Site.where(name: name)
+    site_id = params[:site_id].to_i
+    scope = scope.where.not(id: site_id) if site_id.positive?
+    render json: { available: !scope.exists? }
   end
 
   # GET /sites/new

@@ -61,7 +61,7 @@ module SiteCommon
     'feather'  => 'feather-icon.svg',
     'featherx' => 'feather-icon.svg',
     'sitelet'  => 'siteleteer-logo.svg',
-    'simple'   => 'tw5-icon.ico',
+    'simple'   => 'simplewiki-icon.svg',
   }.freeze
 
   # (These are not currently used)

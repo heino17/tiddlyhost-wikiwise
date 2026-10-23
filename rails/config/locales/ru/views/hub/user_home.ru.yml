@@ -63,6 +63,9 @@ ru:
   site_view_edit_wiki_heading: "Настройки для"
   site_view_edit_wiki_name_label: "Адрес сайта (поддомен)"
   site_view_edit_wiki_name_text: "Разрешены строчные буквы, цифры и '-' (не в начале и не в конце)."
+  site_view_edit_wiki_name_checking: "Проверка доступности …"
+  site_view_edit_wiki_name_available: "Этот адрес сайта доступен."
+  site_view_edit_wiki_name_taken: "Этот адрес сайта уже занят."
   site_view_edit_wiki_updated_flash: "Сайт успешно обновлён."
   
   site_view_edit_wiki_show_more_types_label: "Тип"
