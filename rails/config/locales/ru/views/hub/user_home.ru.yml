@@ -61,7 +61,7 @@ ru:
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Настройки для"
-  site_view_edit_wiki_name_label: "Имя"
+  site_view_edit_wiki_name_label: "Адрес сайта (поддомен)"
   site_view_edit_wiki_name_text: "Разрешены строчные буквы, цифры и '-' (не в начале и не в конце)."
   site_view_edit_wiki_updated_flash: "Сайт успешно обновлён."
   

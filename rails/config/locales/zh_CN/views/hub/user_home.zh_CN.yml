@@ -58,7 +58,7 @@ zh_CN:
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "设置用于"
-  site_view_edit_wiki_name_label: "名称"
+  site_view_edit_wiki_name_label: "站点地址（子域名）"
   site_view_edit_wiki_name_text: "允许小写字母、数字和“-”（不在开头或结尾）。"
   site_view_edit_wiki_updated_flash: "页面已成功更新。"
   site_view_edit_wiki_site_not_found_flash: "站点未找到。"

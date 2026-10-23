@@ -60,7 +60,7 @@ en:
   site_view_save_history_keep_note: "Note: Only the newest %{count} versions will be kept. Once there are more, the oldest unlabeled saved versions will be automatically removed."
   # user home actions menu "Settings"-details
   site_view_edit_wiki_heading: "Settings for"
-  site_view_edit_wiki_name_label: "Name"
+  site_view_edit_wiki_name_label: "Site address (subdomain)"
   site_view_edit_wiki_name_text: "Lower case letters, numbers, and non-leading, non-trailing '-' chars are allowed."
   site_view_edit_wiki_display_name_label: "Display name"
   site_view_edit_wiki_display_name_text: "Optional. The name shown in the wiki header. If empty, the fixed app name is used."

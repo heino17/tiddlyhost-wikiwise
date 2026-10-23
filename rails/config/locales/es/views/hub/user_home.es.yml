@@ -59,7 +59,7 @@ es:
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Configuración para"
-  site_view_edit_wiki_name_label: "Nombre"
+  site_view_edit_wiki_name_label: "Dirección del sitio (subdominio)"
   site_view_edit_wiki_name_text: "Se permiten letras minúsculas, números y guiones '-' no al inicio ni al final."
   site_view_edit_wiki_updated_flash: "Sitio actualizado correctamente."
   site_view_edit_wiki_site_not_found_flash: "Sitio no encontrado."
