@@ -3,7 +3,7 @@ zh_CN:
   # Support-site
   support_page_heading: "支持"
   support_page_subheading: "Tiddlyhost-Wikiwise 支持"
-  support_page_intro_txt: "如果您遇到 Tiddlyhost 问题或需要帮助，请使用以下选项之一："
+  support_page_intro_txt: "如果您遇到 Tiddlyhost-wikiwise 问题或需要帮助，请使用以下选项之一："
   support_page_report_to_github: "在 GitHub 中报告问题"
   support_page_suggest_to_github: "在 GitHub 中建议功能"
   support_page_send_email: "发送邮件"

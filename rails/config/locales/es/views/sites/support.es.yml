@@ -3,7 +3,7 @@ es:
   # Support-site
   support_page_heading: "Soporte"
   support_page_subheading: "Soporte de Tiddlyhost-Wikiwise"
-  support_page_intro_txt: "Si tienes problemas con Tiddlyhost o necesitas ayuda con algo, por favor usa una de las siguientes opciones:"
+  support_page_intro_txt: "Si tienes problemas con Tiddlyhost-wikiwise o necesitas ayuda con algo, por favor usa una de las siguientes opciones:"
   support_page_report_to_github: "Reportar un problema en GitHub"
   support_page_suggest_to_github: "Sugerir una función en GitHub"
   support_page_send_email: "Enviar un email"

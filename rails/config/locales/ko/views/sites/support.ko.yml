@@ -3,7 +3,7 @@ ko:
   # Support-site
   support_page_heading: "지원"
   support_page_subheading: "Tiddlyhost-Wikiwise 지원"
-  support_page_intro_txt: "Tiddlyhost에 문제가 있거나 도움이 필요하시면 아래 옵션 중 하나를 이용해주세요:"
+  support_page_intro_txt: "Tiddlyhost-wikiwise에 문제가 있거나 도움이 필요하시면 아래 옵션 중 하나를 이용해주세요:"
   support_page_report_to_github: "GitHub에서 문제 보고"
   support_page_suggest_to_github: "GitHub에서 기능 제안"
   support_page_send_email: "이메일 보내기"

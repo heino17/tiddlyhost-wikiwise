@@ -3,7 +3,7 @@ ja:
   # Support-site
   support_page_heading: "サポート"
   support_page_subheading: "Tiddlyhost-Wikiwise サポート"
-  support_page_intro_txt: "Tiddlyhost で問題が発生した場合や何かお手伝いが必要な場合は、以下のいずれかの方法をご利用ください："
+  support_page_intro_txt: "Tiddlyhost-wikiwise で問題が発生した場合や何かお手伝いが必要な場合は、以下のいずれかの方法をご利用ください："
   support_page_report_to_github: "GitHub で問題を報告"
   support_page_suggest_to_github: "GitHub で機能を提案"
   support_page_send_email: "メールを送信"
