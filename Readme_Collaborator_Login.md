@@ -11,11 +11,13 @@ German and American
   - Kein eigenes Konto nötig für Gäste  
   - Kein zusätzlicher Tiddler oder Plugin im Wiki nötig  
   - Funktioniert mit jedem bestehenden Wiki sofort  
+  - Funktioniert auch mit SimpleWiki-Wikis
 - **!!! Das Bearbeiten eines Wikis durch 2 Anwender gleichzeitig ist per Tiddlyhost-design vorerst nicht möglich !!!**
   - Aber es ist eine hervorragende Möglichkeit,  helfende Unterstützung einzuladen, ohne das gesamte Konto freizugeben
 
 - **Einladungslink**
   - Einladungslink pro Wiki, direkt in der Edit-Seite sichtbar
+  - Wird aus der konfigurierten Wiki-URL gebaut (Schema, Host, Port) – funktioniert auch in lokalen Installationen
   - Klick zum Markieren, dann kopieren – fertig
   - Link + Name + Passwort per beliebigem Kanal weitergeben (Mail, Signal, etc.)
 
@@ -30,6 +32,7 @@ German and American
 - **Gast-Session im Wiki**
   - Oranger Banner oben im Wiki: „Eingeloggt als Gast: [Name]"
   - Logout-Button im Banner
+  - Abmelden funktioniert für Gäste und den Wiki-Eigentümer
   - `$:/status/UserName` wird automatisch auf den Gast-Namen gesetzt
   - Auch der Wiki-Eigentümer bekommt seinen `username` automatisch gesetzt
   - Nur das freigegebene Wiki ist speicherbar – andere Wikis bleiben geschützt
@@ -60,11 +63,13 @@ German and American
   - No account needed for guests
   - No additional tiddler or plugin required in the wiki
   - Works with any existing wiki immediately
+  - Works with SimpleWiki sites too
 - **!!! Due to the way Tiddlyhost is designed, it is currently not possible for two users to edit a wiki at the same time !!!**
   - But it's a great way to invite people to help out without sharing your entire account  
 
 - **Invitation link**
   - One invitation link per wiki, visible directly on the edit page
+  - Built from the configured wiki URL (scheme, host, port) – works in local installations too
   - Click to highlight, then copy – done
   - Share link + name + password via any channel (email, Signal, etc.)
 
@@ -79,6 +84,7 @@ German and American
 - **Guest session in the wiki**
   - Orange banner at the top of the wiki: "Logged in as guest: [Name]"
   - Logout button in the banner
+  - Logout works for guests and the wiki owner
   - `$:/status/UserName` is automatically set to the guest's name
   - The wiki owner also gets their `username` set automatically
   - Only the shared wiki is writable – other wikis remain protected

@@ -23,3 +23,6 @@
 ## Releases / Installation
 - Tarball-Release (wie MultiWikiServer) grundsätzlich denkbar, aber Tiddlyhost ist Rails + Docker-Stack.
 - Für einfache Installation eher OCI-Image + docker-compose pragmatischer als reiner Tarball.
+- Release-Ablauf (seit v0.1.11): Commit auf dem Arbeitsbranch → `make git-push-work` → `make git-merge-work-into-public` → Tag `vX.Y.Z` auf denselben Commit → `git push origin vX.Y.Z`. Der Release-Workflow baut `ghcr.io/heino17/tiddlyhost-wikiwise:vX.Y.Z` und führt die Testsuite aus.
+- GitHub-Releases mit englischen Notizen anlegen (ab v0.1.11; v0.1.4–v0.1.10 sind tag-only).
+- Deploy-Stack aktualisieren: `deploy/.env` auf das neue Image pinnen, dann `docker compose -f deploy/docker-compose.yml up -d app jobs`.

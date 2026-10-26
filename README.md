@@ -27,6 +27,7 @@
 - Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)** 
 - Gäste-Login für jedes Wiki **Siehe: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**
 - SimpleWiki-Wikis können direkt angelegt und als leichtgewichtige Dateninsel gehostet werden.
+- Beim Hochladen einer SimpleWiki-Datei werden Inhalt, Titel und Untertitel vollständig übernommen.
 - Beim Anlegen wird die gewünschte Wiki-Adresse live auf Verfügbarkeit geprüft.
 - Einheitliches Wikiwise-Branding mit SimpleWiki-Logo, Favicon und Link-Icon in der Seitenliste.
 
@@ -81,6 +82,7 @@ cd tiddlyhost-wikiwise
 - Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 - Guest login for each wiki **See: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**  
 - SimpleWiki sites can be created directly and hosted as lightweight data-island wikis.
+- Uploading a SimpleWiki file takes over its content, title and subtitle.
 - The desired wiki address is checked live for availability during creation.
 - Consistent Wikiwise branding with SimpleWiki logo, favicon and link icon in the site list.
 
