@@ -218,12 +218,32 @@ class SitesController < ApplicationController
                      Setting.value_for(:max_site_size_free_mb, default: 20)
                    end
 
-    if @site.update(WithSavedContent.attachment_params(params[:site][:tiddlywiki_file].read, @site))
-      redirect_to sites_path, notice: "Datei erfolgreich hochgeladen."
-    else
-      flash.now[:alert] = @site.errors.full_messages.to_sentence
+    content = params[:site][:tiddlywiki_file].read
+    tw_kind, = TwFile.light_get_kind_and_version(content)
+    # Parsing the whole document is only needed for SimpleWiki, where the
+    # content island lives inside the shell.
+    simplewiki_file = TwFile.new(content) if tw_kind == 'simple'
+
+    if simplewiki_file && !SimpleData.valid_island_json?(simplewiki_file.simple_island_content)
+      flash.now[:alert] = t('action_menu_upload_form_invalid_simplewiki')
       render :upload_form, status: :unprocessable_entity
+      return
     end
+
+    attrs = WithSavedContent.attachment_params(content, @site)
+    attrs.merge!(simplewiki_attrs(simplewiki_file)) if simplewiki_file
+
+    Site.transaction do
+      @site.update!(attrs)
+      # The shell and the island are stored separately. Serving always uses
+      # the stored island, so the uploaded file's content must be taken over
+      # here, otherwise an existing (even empty) island would shadow it.
+      SimpleData.store!(@site, simplewiki_file.simple_island_content) if simplewiki_file
+    end
+    redirect_to sites_path, notice: t('action_menu_upload_form_success')
+  rescue ActiveRecord::RecordInvalid
+    flash.now[:alert] = @site.errors.full_messages.to_sentence
+    render :upload_form, status: :unprocessable_entity
   end
 
   # DELETE /sites/1
@@ -246,6 +266,18 @@ class SitesController < ApplicationController
   end
 
   private
+
+  # SimpleWiki keeps its display name and subtitle in meta tags. Import them
+  # when the uploaded shell provides them, so the site list and the served
+  # title match the file. An empty subtitle clears the site subtitle.
+  def simplewiki_attrs(tw_file)
+    attrs = {}
+    title = tw_file.get_meta('simplewiki-title')
+    subtitle = tw_file.get_meta('simplewiki-subtitle')
+    attrs[:display_name] = title unless title.nil?
+    attrs[:subtitle] = subtitle unless subtitle.nil?
+    attrs
+  end
 
   def set_site
     @site = current_user.sites.find_by!(id: params[:id])

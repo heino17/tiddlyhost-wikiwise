@@ -35,7 +35,7 @@ class SimplewikiController < ApplicationController
     incoming = request.body.read
     return render plain: 'Empty body', status: :bad_request if incoming.blank?
 
-    unless valid_island_json?(incoming)
+    unless SimpleData.valid_island_json?(incoming)
       return render plain: 'Invalid SimpleWiki data', status: :unprocessable_entity
     end
 
@@ -70,13 +70,6 @@ class SimplewikiController < ApplicationController
 
   def current_etag
     @site.simple_data&.etag || 'none'
-  end
-
-  def valid_island_json?(text)
-    parsed = JSON.parse(text)
-    parsed.is_a?(Hash) && parsed.key?('seiten')
-  rescue JSON::ParserError
-    false
   end
 
   def logged_in_name

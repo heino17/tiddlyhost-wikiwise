@@ -23,6 +23,15 @@ class SimpleData < ApplicationRecord
       each(&:destroy)
   end
 
+  # The shell and the save endpoint both carry a content island. Check it
+  # before storing it, so a broken file cannot replace working content.
+  def self.valid_island_json?(text)
+    parsed = JSON.parse(text.to_s)
+    parsed.is_a?(Hash) && parsed.key?('seiten')
+  rescue JSON::ParserError
+    false
+  end
+
   # ETag derived from the current content so clients can detect conflicts.
   def etag
     Digest::MD5.hexdigest(json.to_s)

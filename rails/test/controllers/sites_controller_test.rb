@@ -213,29 +213,61 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to sites_url
   end
 
-  # Tests are being skipped for now due to new logic
-  #test 'uploads', skip: true
+  # SimpleWiki stores its content island separately from the shell. An
+  # upload must take the island over, otherwise the stored island (which may
+  # be an empty one from a first visit) shadows the file when serving.
+  test 'upload takes over SimpleWiki island and display metadata' do
+    SimpleData.store!(@site, '{"version":1,"seiten":[],"startseite":"","sprache":"de"}')
+    file_to_upload = fixture_file_upload('simplewiki-upload.html', 'text/html')
 
-  #test 'uploads' do
-  #  # Just so we can also confirm the save history is preserved when uploading
-  #  @site.content_upload('hey')
-  #  assert_nil @site.reload.tw_kind
-  #  assert_equal 1, @site.saved_version_count
-  #
-  #  # For something to upload, let's use a feather wiki empty
-  #  file_to_upload = fixture_file_upload(
-  #    "#{Rails.root}/tw_content/empties/feather.html", 'text/html;charset=UTF-8')
-  #
-  #  # Do the upload
-  #  assert_enqueued_with(job: PruneAttachmentsJob) do
-  #    patch upload_site_url(@site), params: { site: { tiddlywiki_file: file_to_upload } }
-  #  end
-  #  assert_redirected_to sites_url
-  #
-  #  # Smoke test
-  #  assert_equal 'feather', @site.reload.tw_kind
-  #  assert_equal 2, @site.saved_version_count
-  # end
+    assert_difference('SimpleDataVersion.count', 1) do
+      patch upload_site_url(@site), params: { site: { tiddlywiki_file: file_to_upload } }
+    end
+
+    assert_redirected_to sites_url
+
+    @site.reload
+    assert_equal 1, @site.saved_version_count
+    assert_equal 'simple', @site.tw_kind
+    assert_equal '0.1.52', @site.tw_version
+    assert_equal 'Hochgeladenes Wiki', @site.display_name
+    assert_equal 'Aus der Datei', @site.subtitle
+
+    island = JSON.parse(@site.simple_data.json)
+    titles = island['seiten'].map { |page| page['title'] }
+    assert_equal ['Erste Seite'], titles
+    assert_includes @site.html_content, 'Inhalt aus der hochgeladenen Datei'
+  end
+
+  test 'upload rejects a SimpleWiki shell with an invalid island' do
+    SimpleData.store!(@site, '{"version":1,"seiten":[],"startseite":""}')
+    file_to_upload = fixture_file_upload('simplewiki-invalid.html', 'text/html')
+
+    assert_no_difference(['SimpleDataVersion.count', 'ActiveStorage::Attachment.count']) do
+      patch upload_site_url(@site), params: { site: { tiddlywiki_file: file_to_upload } }
+    end
+
+    assert_response :unprocessable_entity
+
+    @site.reload
+    assert_equal '{"version":1,"seiten":[],"startseite":""}', @site.simple_data.json
+    assert_equal 0, @site.saved_version_count
+    assert_nil @site.tw_kind
+  end
+
+  test 'upload of a non-SimpleWiki file does not create content island' do
+    file_to_upload = Rack::Test::UploadedFile.new(
+      Rails.root.join('test/data/minimal_tw5.html'), 'text/html')
+
+    patch upload_site_url(@site), params: { site: { tiddlywiki_file: file_to_upload } }
+
+    assert_redirected_to sites_url
+
+    @site.reload
+    assert_equal 1, @site.saved_version_count
+    assert_equal 'tw5', @site.tw_kind
+    assert_nil @site.simple_data
+  end
 
   test 'should destroy site' do
     assert_difference('Site.count', -1) do
