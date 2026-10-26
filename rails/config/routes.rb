@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
   #
+  # Sign out on a site host
+  #
+  # SimpleWiki has a sign-out button that calls fetch() and cannot send a
+  # CSRF token. A collaborator is signed in through the session, not through
+  # Devise, so Devise's "already signed out" guard would answer 401. Handle
+  # the site host here, before Devise, and clear both kinds of session.
+  #
+  constraints(lambda { |req|
+    req.domain == Settings.main_site_host && req.subdomain.present? && req.subdomain != 'www'
+  }) do
+    delete '/users/sign_out', to: 'site_sessions#destroy'
+  end
+
+  #
   # Devise for user signups and authentication
   # (but exclude it for Tiddlyspot routes)
   #

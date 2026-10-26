@@ -431,4 +431,28 @@ class TiddlywikiControllerTest < ActionDispatch::IntegrationTest
       response.location
     )
   end
+
+  # SimpleWiki's sign-out button sends a plain fetch(): no CSRF token and
+  # "Accept: */*". A collaborator has no Devise session, so Devise's own
+  # destroy would answer 401 here.
+  test 'collaborator sign-out clears the collab session' do
+    @site.wiki_collaborators.create!(name: 'guest', password: 'Password-123', enabled: true)
+    post '/?collaborate', params: { name: 'guest', password: 'Password-123' }
+
+    delete '/users/sign_out', headers: { 'Accept' => '*/*' }
+
+    assert_response :no_content
+    get '/simplewiki/status'
+    assert_equal false, response.parsed_body['logged_in']
+  end
+
+  test 'signed-in owner sign-out clears the Devise session' do
+    sign_in @user
+
+    delete '/users/sign_out', headers: { 'Accept' => '*/*' }
+
+    assert_response :no_content
+    get '/simplewiki/status'
+    assert_equal false, response.parsed_body['logged_in']
+  end
 end
