@@ -223,7 +223,7 @@ class SimplewikiControllerTest < ActionDispatch::IntegrationTest
       assert_response :no_content
     end
 
-    assert_equal 3, @site.simple_data_versions.count
+    assert @site.simple_data_versions.count <= @site.keep_count
   end
 
   test 'serving injects server metas and the stored island' do

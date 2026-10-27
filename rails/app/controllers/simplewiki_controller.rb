@@ -70,7 +70,14 @@ class SimplewikiController < ApplicationController
     # the wiki content.
     if @site.is_simple?
       begin
+        before_count = @site.saved_content_files.count
         @site.content_upload(@site.html_content(is_logged_in: site_saveable?))
+        @site.reload
+        new_blob = @site.saved_content_files.order(created_at: :desc).first
+        if new_blob
+          version = @site.simple_data_versions.create!(json: incoming, created_at: new_blob.blob.created_at)
+          SimpleData.prune_versions!(@site, @site.keep_count)
+        end
       rescue StandardError => e
         Rails.logger.warn("SimpleWiki history snapshot failed for #{@site.name}: #{e.class}: #{e.message}")
       end
