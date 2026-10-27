@@ -114,11 +114,12 @@ class Site < ApplicationRecord
   end
 
   def html_content_for_blob_id(blob_id, is_logged_in: false)
+    island_json = simple_island_json_for_blob_id(blob_id)
     th_file_for_blob_id(blob_id).apply_tiddlyhost_mods(name,
       # Note: There might be some tricky edge cases around the value of use_put_saver?
       # here since it's based on the current site, not the specific version being fetched
       is_logged_in:, use_put_saver: use_put_saver?,
-      island_json: simple_island_json, display_name:, subtitle:).to_html
+      island_json:, display_name:, subtitle:).to_html
   end
 
   def json_data(opts = {})
@@ -162,6 +163,33 @@ class Site < ApplicationRecord
 
   def simplewiki_shell_update_available?
     SimplewikiShell.newer?(simplewiki_shell_version, simplewiki_shell_latest_version)
+  end
+
+  # For history views, prefer the island JSON that was stored at the time of
+  # the save when possible. SimpleWiki keeps content separate from the shell
+  # attachment, so without this all historical versions would show the current
+  # island content.
+  def simple_island_json_for_blob_id(blob_id)
+    return nil unless is_simple?
+
+    version = simple_data_versions.find_by(id: blob_id)
+    return version.json if version
+
+    # Fallback to the snapshot stored in the blob if we ever record it there,
+    # otherwise fall back to the current island (legacy behavior).
+    attachment = specific_saved_content_file(blob_id)
+    return nil unless attachment
+
+    blob_content = attachment.download
+    html = WithSavedContent.decompress_html(blob_content)
+    doc = Nokogiri::HTML5(html)
+    island = doc.at_css('script#simplewiki-daten')&.content.to_s
+    return nil if island.blank?
+
+    # Unescape the same way apply_simple_mods escapes it
+    island.gsub('\u003c', '<')
+  rescue StandardError
+    simple_data&.json
   end
 
   # Could be more clever here and try to read it from the script src,
