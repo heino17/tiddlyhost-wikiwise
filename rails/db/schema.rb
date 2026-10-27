@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_21_224500) do
+ActiveRecord::Schema[7.2].define(version: 2026_10_27_220000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -226,6 +226,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_21_224500) do
     t.bigint "site_id", null: false
     t.text "json", null: false
     t.datetime "created_at", null: false
+    t.string "blob_id"
+    t.index ["blob_id"], name: "index_simple_data_versions_on_blob_id"
     t.index ["site_id"], name: "index_simple_data_versions_on_site_id"
   end
 
