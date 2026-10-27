@@ -172,14 +172,26 @@ class Site < ApplicationRecord
   def simple_island_json_for_blob_id(blob_id)
     return nil unless is_simple?
 
-    version = simple_data_versions.find_by(blob_id: blob_id)
+    # Try to find by blob_id first (newest versions)
+    version = simple_data_versions.where(blob_id: blob_id).order(created_at: :desc).first
     return version.json if version
+    # Try to find by matching timestamp to the blob
+    attachment = specific_saved_content_file(blob_id)
+    if attachment
+      version = simple_data_versions.where(created_at: attachment.blob.created_at).order(created_at: :desc).first
+      return version.json if version
+      # Try nearest match
+      version = simple_data_versions.order(Arel.sql("ABS(EXTRACT(EPOCH FROM (simple_data_versions.created_at - '#{attachment.blob.created_at.to_fs(:db)}'::timestamp)))")).first
+      # Only use if within a few seconds
+      if version && (version.created_at - attachment.blob.created_at).abs < 10
+        return version.json
+      end
+    end
     version = simple_data_versions.find_by(id: blob_id)
     return version.json if version
 
     # Fallback to the snapshot stored in the blob if we ever record it there,
     # otherwise fall back to the current island (legacy behavior).
-    attachment = specific_saved_content_file(blob_id)
     return nil unless attachment
 
     blob_content = attachment.download
