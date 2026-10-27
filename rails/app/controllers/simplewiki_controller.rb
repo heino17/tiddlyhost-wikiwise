@@ -63,6 +63,19 @@ class SimplewikiController < ApplicationController
       )
     end
 
+    # Keep the save history in sync with SimpleWiki content changes. The
+    # shell attachment is the versioned artifact shown in the history UI,
+    # but for SimpleWiki the actual content lives in the island. Snapshot the
+    # fully rendered HTML (shell + current island) so older versions include
+    # the wiki content.
+    if @site.is_simple?
+      begin
+        @site.content_upload(@site.html_content(is_logged_in: site_saveable?))
+      rescue StandardError => e
+        Rails.logger.warn("SimpleWiki history snapshot failed for #{@site.name}: #{e.class}: #{e.message}")
+      end
+    end
+
     response.set_header 'ETag', current_etag
     head :no_content
   end
