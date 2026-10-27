@@ -75,8 +75,12 @@ class SimplewikiController < ApplicationController
         @site.reload
         new_blob = @site.saved_content_files.order(created_at: :desc).first
         if new_blob
-          version = @site.simple_data_versions.create!(json: incoming, created_at: new_blob.blob.created_at)
+          version = @site.simple_data_versions.create!(json: incoming, created_at: new_blob.blob.created_at, blob_id: new_blob.blob_id)
           SimpleData.prune_versions!(@site, @site.keep_count)
+          # Also prune island versions whose blob was pruned? Best effort: keep matching count.
+          if version
+            @site.simple_data_versions.where.not(id: version.id).order(created_at: :desc).offset(@site.keep_count).each(&:destroy)
+          end
         end
       rescue StandardError => e
         Rails.logger.warn("SimpleWiki history snapshot failed for #{@site.name}: #{e.class}: #{e.message}")

@@ -172,6 +172,8 @@ class Site < ApplicationRecord
   def simple_island_json_for_blob_id(blob_id)
     return nil unless is_simple?
 
+    version = simple_data_versions.find_by(blob_id: blob_id)
+    return version.json if version
     version = simple_data_versions.find_by(id: blob_id)
     return version.json if version
 
