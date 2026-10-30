@@ -123,6 +123,47 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_includes new_site.html_content, '<meta name="simplewiki-subtitle" content="Klein und fein">'
   end
 
+  test 'simplewiki settings offer a newer shell and the update keeps the pages' do
+    site = old_simple_site(name: 'oldshell')
+    SimpleData.store!(site, { 'seiten' => [{ 'titel' => 'Bleibt' }] }.to_json)
+
+    get edit_site_url(site)
+    assert_response :success
+    assert_includes response.body, 'Update shell'
+    assert_includes response.body, update_simplewiki_shell_site_path(site)
+
+    put update_simplewiki_shell_site_url(site)
+    assert_redirected_to edit_site_url(site)
+    assert_equal SimplewikiShell.latest_version, site.reload.tw_version
+    assert_equal 'Bleibt', JSON.parse(site.simple_data.json)['seiten'].first['titel']
+  end
+
+  test 'simplewiki settings say when the shell is current' do
+    site = new_site_helper(name: 'currentshell', user: @user, empty: :simple)
+
+    get edit_site_url(site)
+    assert_response :success
+    assert_includes response.body, 'No newer version is available'
+    refute_includes response.body, update_simplewiki_shell_site_path(site)
+  end
+
+  test 'settings do not mention the shell for other site kinds' do
+    get edit_site_url(@site)
+    assert_response :success
+    refute_includes response.body, 'SimpleWiki shell'
+
+    put update_simplewiki_shell_site_url(@site)
+    assert_response :not_found
+  end
+
+  test 'another user cannot update a site shell from settings' do
+    site = old_simple_site(name: 'notmine', user: users(:mary))
+
+    put update_simplewiki_shell_site_url(site)
+    assert_redirected_to sites_url
+    assert_equal '0.1.51', site.reload.tw_version
+  end
+
   test 'should create and also clone site' do
     assert_difference('Site.count') do
       post sites_url, params: { site: { name: 'foo', is_private: '0', empty_id: 1 } }
@@ -405,5 +446,12 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
       assert_equal('foo.html', entry.name)
       assert_match(/meta name="application-name" content="TiddlyWiki"/, zip.read.force_encoding('UTF-8'))
     end
+  end
+
+  private
+
+  def old_simple_site(name:, user: @user)
+    new_site_helper(name: name, user: user, empty: :simple,
+      empty_content: File.read(Rails.root.join('tw_content/empties/simple/0.1.51.html')))
   end
 end

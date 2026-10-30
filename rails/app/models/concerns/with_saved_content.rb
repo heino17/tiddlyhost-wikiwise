@@ -121,6 +121,9 @@ module WithSavedContent
     ok = update(WithSavedContent.attachment_params(new_content, self))
     return unless ok
 
+    # Any parsed copy of the previous content is stale now.
+    @_th_file = nil
+
     # See below
     prune_attachments_later
 

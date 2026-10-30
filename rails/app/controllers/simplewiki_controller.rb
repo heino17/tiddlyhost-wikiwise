@@ -4,8 +4,8 @@ class SimplewikiController < ApplicationController
   before_action :find_site
 
   # SimpleWiki fetches with a plain fetch() and can't provide the CSRF
-  # token, so skip verification for its two endpoints.
-  skip_before_action :verify_authenticity_token, only: [:status, :data]
+  # token, so skip verification for its JSON endpoints.
+  skip_before_action :verify_authenticity_token, only: [:status, :data, :shell_update]
 
   # For CORS preflight and cross-origin reads
   before_action :cors_headers, only: [:status, :data]
@@ -14,13 +14,22 @@ class SimplewikiController < ApplicationController
     return head 200 if request.options?
     return head :not_found unless site_exists?
 
-    render json: {
-      kind: 'simple',
-      version: @site.tw_version,
-      etag: current_etag,
-      logged_in: site_saveable?,
-      logged_in_as: logged_in_name,
-    }
+    render json: status_payload
+  end
+
+  # Accept the newest SimpleWiki shell bundled with this deployment. The pages
+  # live in SimpleData, so only the shell changes. Owner and superuser may
+  # decide; collaborators may edit pages but must not replace the shell.
+  def shell_update
+    return head 200 if request.options?
+    return head :not_found unless site_exists? && @site.is_simple?
+    return head :forbidden unless user_can_update_shell?
+    return head :bad_request unless request.headers['X-Requested-With'] == 'fetch'
+
+    SimplewikiShell.upgrade!(@site)
+    @site.reload
+
+    render json: status_payload
   end
 
   def data
@@ -66,6 +75,36 @@ class SimplewikiController < ApplicationController
 
     response.set_header 'ETag', current_etag
     render plain: json, content_type: 'application/json'
+  end
+
+  def status_payload
+    {
+      kind: 'simple',
+      version: @site.tw_version,
+      etag: current_etag,
+      logged_in: site_saveable?,
+      logged_in_as: logged_in_name,
+      shell: shell_status,
+    }
+  end
+
+  def shell_status
+    return nil unless @site.is_simple?
+
+    served = @site.simplewiki_shell_version
+    latest = @site.simplewiki_shell_latest_version
+    {
+      served: served,
+      latest: latest,
+      update_available: SimplewikiShell.newer?(served, latest),
+      can_update: user_can_update_shell? && SimplewikiShell.newer?(served, latest),
+    }
+  end
+
+  def user_can_update_shell?
+    return false unless user_signed_in?
+
+    current_user == @site.user || current_user.is_superuser?
   end
 
   def current_etag

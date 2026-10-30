@@ -246,6 +246,23 @@ class SitesController < ApplicationController
     render :upload_form, status: :unprocessable_entity
   end
 
+  # PUT /sites/1/update_simplewiki_shell
+  def update_simplewiki_shell
+    return head :not_found unless @site.is_simple?
+
+    if (version = SimplewikiShell.upgrade!(@site))
+      redirect_to edit_site_path(@site),
+        notice: t('site_view_simplewiki_shell_updated', version:)
+    elsif @site.reload.simplewiki_shell_update_available?
+      redirect_to edit_site_path(@site),
+        alert: t('site_view_simplewiki_shell_update_failed')
+    else
+      redirect_to edit_site_path(@site),
+        notice: t('site_view_simplewiki_shell_current',
+          served: @site.simplewiki_shell_version)
+    end
+  end
+
   # DELETE /sites/1
   # DELETE /sites/1.json
   def destroy

@@ -1,0 +1,20 @@
+-#
+  Offer the newest bundled SimpleWiki shell. Pages are stored separately, so
+  accepting the offer replaces only the shell and keeps the content.
+- if @site.persisted? && @site.is_simple?
+  - served = @site.simplewiki_shell_version
+  - latest = @site.simplewiki_shell_latest_version
+  = render layout: 'field_wrapper' do
+    %h6= t('site_view_simplewiki_shell_heading')
+    - if SimplewikiShell.newer?(served, latest)
+      %p= t('site_view_simplewiki_shell_update_available', served: served, latest: latest)
+      = link_to t('site_view_simplewiki_shell_update_button'),
+        update_simplewiki_shell_site_path(@site),
+        method: :put,
+        class: 'btn btn-outline-primary btn-sm',
+        data: { turbo: false,
+                confirm: t('site_view_simplewiki_shell_update_confirm') }
+    - elsif served.present?
+      %p.text-muted= t('site_view_simplewiki_shell_current', served: served)
+    - else
+      %p.text-muted= t('site_view_simplewiki_shell_unknown')

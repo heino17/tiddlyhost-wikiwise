@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     # SimpleWiki content island API
     match '/simplewiki/status', to: 'simplewiki#status', via: [:get, :options]
     match '/simplewiki/data', to: 'simplewiki#data', via: [:get, :put, :options]
+    match '/simplewiki/shell/update', to: 'simplewiki#shell_update', via: [:put, :options]
   end
 
   #
@@ -138,6 +139,7 @@ Rails.application.routes.draw do
         get :download_core_js
         get :upload_form
         patch :upload
+        put :update_simplewiki_shell
 
         post :create_thumbnail
 

@@ -149,6 +149,21 @@ class Site < ApplicationRecord
     simple_data&.json
   end
 
+  # The version of the SimpleWiki shell this site currently serves. Nil for
+  # non-SimpleWiki sites, or for a shell that declares no version. The upload
+  # path records the shell version in tw_version, so no parsing is needed here.
+  def simplewiki_shell_version
+    tw_version if is_simple?
+  end
+
+  def simplewiki_shell_latest_version
+    SimplewikiShell.latest_version
+  end
+
+  def simplewiki_shell_update_available?
+    SimplewikiShell.newer?(simplewiki_shell_version, simplewiki_shell_latest_version)
+  end
+
   # Could be more clever here and try to read it from the script src,
   # but let's keep it simple to begin with.
   def core_js_name
