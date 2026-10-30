@@ -8,6 +8,11 @@ class SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
+    # A site host's root is the wiki itself. Without this, a superuser
+    # signing in there would be sent to /admin, which only exists on the
+    # main site and would be a 404 on the subdomain.
+    return root_path if request.subdomain.present? && request.subdomain != 'www'
+
     # 1. Admin-Weiterleitung
     if resource.is_superuser?
       return admin_path

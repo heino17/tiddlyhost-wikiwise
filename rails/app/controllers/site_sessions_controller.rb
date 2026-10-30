@@ -10,6 +10,16 @@ class SiteSessionsController < ApplicationController
   # (The TiddlyWiki banner's GET /?collab_logout is just as unprotected.)
   skip_before_action :verify_authenticity_token, only: [:destroy]
 
+  # SimpleWiki links "sign in" to /login, which is the MultiWikiServer
+  # convention. Tiddlyhost signs users in through Devise, so send the browser
+  # there. A signed-in user goes straight back to the wiki: on a site host the
+  # wiki is the root.
+  def new
+    return redirect_to root_path if user_signed_in?
+
+    redirect_to new_user_session_path
+  end
+
   # Clear both kinds of session, so the button does what it says whether a
   # collaborator or the signed-in owner pressed it.
   def destroy

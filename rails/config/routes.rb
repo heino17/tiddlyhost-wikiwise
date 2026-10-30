@@ -43,6 +43,10 @@ Rails.application.routes.draw do
     # Collaborator login
     post '/', to: 'tiddlywiki#collab_login_submit', constraints: ->(req) { req.params.key?('collaborate') }
 
+    # SimpleWiki links anonymous readers to /login, the path the MultiWikiServer
+    # uses. On a Tiddlyhost site, Devise owns the sign-in page instead.
+    get '/login', to: 'site_sessions#new'
+
     post '/', to: 'tiddlywiki#upload_save'
     put '/', to: 'tiddlywiki#put_save'
 
