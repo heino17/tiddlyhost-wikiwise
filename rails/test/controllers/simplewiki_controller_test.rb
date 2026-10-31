@@ -242,6 +242,7 @@ class SimplewikiControllerTest < ActionDispatch::IntegrationTest
     assert_nil th_file.get_meta('simplewiki-version')
     assert_match %r{/simplewiki/status\z}, th_file.get_meta('simplewiki-status-url')
     assert_match %r{/simplewiki/data\z}, th_file.get_meta('simplewiki-data-url')
+    assert_match %r{/simplewiki/shell/update\z}, th_file.get_meta('simplewiki-shell-update-url')
 
     island = th_file.simple_island_content
     assert_equal 'en', JSON.parse(island)['sprache']

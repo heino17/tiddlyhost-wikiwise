@@ -199,6 +199,7 @@ class ThFile < TwFile
       add_meta(head, 'simplewiki-server', 'tiddlyhost')
       add_meta(head, 'simplewiki-status-url', "#{Settings.subdomain_site_url(site_name)}/simplewiki/status")
       add_meta(head, 'simplewiki-data-url', "#{Settings.subdomain_site_url(site_name)}/simplewiki/data")
+      add_meta(head, 'simplewiki-shell-update-url', "#{Settings.subdomain_site_url(site_name)}/simplewiki/shell/update")
     end
 
     self
@@ -226,7 +227,7 @@ class ThFile < TwFile
   # Remove any previously injected server metas so a re-serve never
   # accumulates duplicates.
   def remove_simple_server_metas(head)
-    %w[simplewiki-server simplewiki-status-url simplewiki-data-url].each do |name|
+    %w[simplewiki-server simplewiki-status-url simplewiki-data-url simplewiki-shell-update-url].each do |name|
       head.xpath("meta[@name='#{name}']").each(&:remove)
     end
   end

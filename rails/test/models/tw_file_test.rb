@@ -184,6 +184,8 @@ class TwFileTest < ActiveSupport::TestCase
       th_file.get_meta('simplewiki-status-url')
     assert_equal 'http://coolsite.tiddlyhost-test-example.com/simplewiki/data',
       th_file.get_meta('simplewiki-data-url')
+    assert_equal 'http://coolsite.tiddlyhost-test-example.com/simplewiki/shell/update',
+      th_file.get_meta('simplewiki-shell-update-url')
 
     th_file.apply_simple_mods('coolsite', island_json: '{"seiten":[]}',
       display_name: 'Neu', subtitle: '')
