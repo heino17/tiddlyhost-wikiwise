@@ -2,7 +2,7 @@
 <html lang="de"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="mws-shell-version" content="v0.1.52">
+    <meta name="mws-shell-version" content="v0.1.53">
     <meta name="simplewiki-doc-id" content="">
     <meta name="simplewiki-exported" content="">
     <meta name="simplewiki-title" content="">
@@ -7923,6 +7923,21 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
             return m ? decodeURIComponent(m[1]) : '';
         }
 
+        /* Ein Shell-Angebot, das weggelegt wurde, ist fuer diese Benutzerin
+           erledigt. "Beim naechsten Update erinnern" merkt sich die Nummer
+           der angebotenen Fassung, "in einem Monat erinnern" einen Stichtag.
+           Beides liegt im Browser und nicht beim Server: es ist eine
+           Entscheidung dieser Benutzerin, nicht eine Eigenschaft des Wikis. */
+        function shellAngebotWeg(latest) {
+            try {
+                if (localStorage.getItem('simplewiki_update_weg_' + latest)) return true;
+                const bis = Number(localStorage.getItem('simplewiki_update_bis_' + latest)) || 0;
+                if (bis > Date.now()) return true;
+                if (bis) localStorage.removeItem('simplewiki_update_bis_' + latest);
+            } catch (e) { /* ohne Speicher kein Wegdrucken */ }
+            return false;
+        }
+
         function MwsStore(tiddler) {
             this.art = 'mws';
             /* Wie beim Tiddlyhost-Speicher: hinter diesem Speicher steht ein
@@ -7973,6 +7988,74 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                 return antwort.json();
             }).catch(function () {
                 return null;
+            });
+        };
+
+        /* Was der Server ueber die Oberflaechen-Version sagt.
+
+           MWS liefert die Fassung als Konfigurations-Tiddler mit, nicht im
+           Status: shell-policy, shell-release, shell-latest-release und die
+           beiden Beschriftungen. Nur bei der Politik "notify" und nur, wenn
+           eine neuere Nummer bereitliegt, gibt es hier etwas anzubieten.
+
+           Wer sie uebernehmen darf, sagt der Status: die Besitzerin und die
+           Administratoren - dieselbe Grenze wie beim Einstellungsformular.
+           Ein Angebot, das diese Benutzerin schon weggelegt hat, kommt nicht
+           wieder. Antwortet der Server nicht, gibt es kein Angebot; es wird
+           nichts erfunden. */
+        MwsStore.prototype.shellStatus = function () {
+            const konfig = {};
+            try {
+                (window.$tw && window.$tw.preloadTiddlers || []).forEach(function (t) {
+                    if (t && t.title && String(t.title).indexOf('$:/config/multiwikiclient/shell-') === 0) {
+                        konfig[String(t.title).replace('$:/config/multiwikiclient/', '')] = String(t.text || '');
+                    } else if (t && t.title === '$:/config/multiwikiclient/owner') {
+                        konfig.owner = String(t.text || '');
+                    }
+                });
+            } catch (e) { /* ohne Vormerkung ist hier nichts zu lesen */ }
+
+            if (konfig['shell-policy'] !== 'notify') return Promise.resolve(null);
+
+            const geliefert = Number(konfig['shell-release']) || 0;
+            const neueste = Number(konfig['shell-latest-release']) || 0;
+            if (!geliefert || !neueste || neueste === geliefert) return Promise.resolve(null);
+            if (shellAngebotWeg(neueste)) return Promise.resolve(null);
+
+            return fetch('/recipe/' + encodeURIComponent(this.slug) + '/status', {
+                headers: { 'X-Requested-With': 'fetch' },
+                credentials: 'same-origin'
+            }).then(function (antwort) {
+                if (!antwort.ok) return null;
+                return antwort.json();
+            }).then(function (status) {
+                if (!status || !status.isLoggedIn) return null;
+                if (!(status.isAdmin || (konfig.owner && status.username === konfig.owner))) return null;
+                return {
+                    alt: konfig['shell-release-label'] || String(geliefert),
+                    neu: konfig['shell-latest-release-label'] || String(neueste),
+                    latest: neueste
+                };
+            }).catch(function () {
+                return null;
+            });
+        };
+
+        /* Die angebotene Oberflaeche uebernehmen. Der Server entscheidet:
+           200 heisst uebernommen, alles andere heisst nicht. */
+        MwsStore.prototype.shellAktualisieren = function () {
+            return fetch('/recipe/' + encodeURIComponent(this.slug) + '/shell/update', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'fetch'
+                },
+                body: JSON.stringify({}),
+                credentials: 'same-origin'
+            }).then(function (antwort) {
+                return antwort.ok;
+            }).catch(function () {
+                return false;
             });
         };
 
@@ -8398,6 +8481,7 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
             this.serverseitig = true;
             this.datenUrl = tiddlyhostMeta('simplewiki-data-url');
             this.statusUrl = tiddlyhostMeta('simplewiki-status-url');
+            this.shellUpdateUrl = tiddlyhostMeta('simplewiki-shell-update-url');
             this.seiten = [];
             this.startId = '';
             this.einstellungen = {};
@@ -8436,10 +8520,55 @@ var e=function(t,n){return e=Object.setPrototypeOf||{__proto__:[]}instanceof Arr
                     username: angemeldet ? String(daten.logged_in_as || '') : '',
                     /* Schreiben darf, wer angemeldet ist; ob er es auf
                        diesem Wiki darf, sagt erst der PUT (403). */
-                    bags: [{ canUserWrite: angemeldet }]
+                    bags: [{ canUserWrite: angemeldet }],
+                    /* Was der Server ueber die Oberflaechen-Version sagt:
+                       served, latest, update_available, can_update. Die
+                       Grenze "nur Besitzerin und Superuser" steckt schon
+                       in can_update. */
+                    shell: daten.shell || null
                 };
             }).catch(function () {
                 return null;
+            });
+        };
+
+        /* Ob dieses Wiki eine neuere Oberflaeche anbietet.
+
+           Tiddlyhost entscheidet das im Status: update_available sagt, ob
+           die bereitliegende Fassung wirklich neuer ist, can_update, ob
+           diese Benutzerin sie uebernehmen darf. Hier wird nichts
+           nachgerechnet, was der Server schon entschieden hat. */
+        TiddlyhostStore.prototype.shellStatus = function () {
+            return this.status().then(function (status) {
+                if (!status || !status.shell) return null;
+                const shell = status.shell;
+                if (!shell.update_available || !shell.can_update) return null;
+                const neueste = shell.latest == null ? '' : String(shell.latest);
+                if (!neueste || shellAngebotWeg(neueste)) return null;
+                return {
+                    alt: shell.served == null ? '' : String(shell.served),
+                    neu: neueste,
+                    latest: neueste
+                };
+            });
+        };
+
+        /* Die angebotene Oberflaeche uebernehmen. Der Server tauscht nur
+           die Huelle; die Seiten liegen in der Dateninsel und bleiben. */
+        TiddlyhostStore.prototype.shellAktualisieren = function () {
+            if (!this.shellUpdateUrl) return Promise.resolve(false);
+            return fetch(this.shellUpdateUrl, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'fetch'
+                },
+                body: JSON.stringify({}),
+                credentials: 'same-origin'
+            }).then(function (antwort) {
+                return antwort.ok;
+            }).catch(function () {
+                return false;
             });
         };
 
@@ -9335,10 +9464,10 @@ showSettings: false,
                     this.kannSchreiben = false;
                     this.statusHolen();
                     /* Liegt eine neuere Oberfläche bereit, entscheidet das
-                       hier - der Status wird dafür noch einmal gefragt.
-                       Nur MWS kennt diesen Weg (die Tiddler tragen die
-                       Fassung); Tiddlyhost braucht ihn nicht. */
-                    if (SPEICHER.art === 'mws') this.pruefeShellUpdate();
+                       hier - wenn der Speicher sie anbieten kann. MWS und
+                       Tiddlyhost tun das auf ihrem eigenen Weg; im Browser
+                       gibt es nichts zu fragen. */
+                    this.pruefeShellUpdate();
                 }
                 this.updateTheme();
                 this.applyPalette();
@@ -11667,100 +11796,44 @@ showSettings: false,
 
                 /* ---------- Neue Oberflächen-Version anbieten ----------
 
-                   MWS meldet in der Antwort von /recipe/<name>/status unter
-                   "shell", auf welcher Template-Version diese Wiki steht.
-                   Bei der Politik "notify" mit bereitliegender neuerer
-                   Version zeigt diese Wiki der Besitzerin und den
+                   Ob eine neuere Oberfläche bereitliegt, weiss der Speicher
+                   am besten - er kennt seinen Server. MWS liest die Fassung
+                   aus den Konfigurations-Tiddlern, Tiddlyhost aus dem
+                   Status. Beide geben hier dasselbe zurueck: alt, neu und
+                   die Nummer der angebotenen Fassung - oder null.
+
+                   Bei einem Angebot zeigt diese Wiki der Besitzerin und den
                    Administratoren den Hinweis im Einstellungen-Dialog (der
-                   Punkt am Zahnrad sagt es), mit einem Knopf, der
-                   PUT /recipe/<name>/shell/update aufruft (eine eigene
-                   Route, nur für Besitzerin und Administratoren).
+                   Punkt am Zahnrad sagt es), mit einem Knopf, der den
+                   Speicher die neue Oberfläche übernehmen lässt.
 
                    Weggedrückt wird der Hinweis je angebotener Version:
                    "Beim nächsten Update erinnern" legt einen Schlüssel für
                    die Nummer der angebotenen Version, das nächste Angebot
                    bekommt einen neuen Schlüssel und meldet sich wieder;
                    "In einem Monat erinnern" legt stattdessen einen
-                   Stichtag, nach dem derselbe Hinweis zurückkehrt. */
+                   Stichtag, nach dem derselbe Hinweis zurückkehrt. Die
+                   Frage, ob ein Angebot weggelegt ist, stellt der Speicher
+                   selbst (shellAngebotWeg). */
                 pruefeShellUpdate() {
-                    /* Nur im MWS-Betrieb: die Wiki kommt von /wiki/<name>/. */
-                    const m = String(window.location.pathname || '').match(/\/wiki\/([^/]+)/);
-                    if (!m) return;
-
-                    /* Die Konfiguration steht in den Tiddlern, die der Server
-                       mitgeschickt hat - in derselben Form, in der die App sie
-                       liest. Ohne "shell-policy"-Tiddler ist das ein Wiki ohne
-                       Versionsbetrachtung, und dann ist hier nichts zu tun. */
-                    const konfig = {};
-                    try {
-                        (window.$tw && window.$tw.preloadTiddlers || []).forEach(function (t) {
-                            if (t && t.title && String(t.title).indexOf('$:/config/multiwikiclient/shell-') === 0) {
-                                konfig[String(t.title).replace('$:/config/multiwikiclient/', '')] = String(t.text || '');
-                            } else if (t && t.title === '$:/config/multiwikiclient/owner') {
-                                konfig.owner = String(t.text || '');
-                            }
-                        });
-                    } catch (e) { /* ohne Vormerkung ist hier nichts zu lesen */ }
-
-                    if (konfig['shell-policy'] !== 'notify') return;
-
-                    const slug = decodeURIComponent(m[1]);
-                    const geliefert = Number(konfig['shell-release']) || 0;
-                    const neueste = Number(konfig['shell-latest-release']) || 0;
-                    if (!geliefert || !neueste || neueste === geliefert) return;
-
-                    /* Weggedrückt? "bis zum nächsten Update" liegt ein
-                       Schlüssel für die angebotene Version, "für einen
-                       Monat" ein Stichtag. Fehlt localStorage, ist der
-                       Hinweis eben nicht weggedrückt - schlimmer ist,
-                       dass er nie wieder käme. */
-                    try {
-                        if (localStorage.getItem('simplewiki_update_weg_' + neueste)) return;
-                        const bis = Number(localStorage.getItem('simplewiki_update_bis_' + neueste)) || 0;
-                        if (bis > Date.now()) return;
-                        if (bis) localStorage.removeItem('simplewiki_update_bis_' + neueste);
-                    } catch (e) { /* ohne Speicher kein Wegdrucken */ }
-
+                    if (typeof SPEICHER.shellStatus !== 'function') return;
                     const selbst = this;
-                    fetch('/recipe/' + encodeURIComponent(slug) + '/status', {
-                        headers: { 'X-Requested-With': 'fetch' },
-                        credentials: 'same-origin'
-                    }).then(function (antwort) {
-                        if (!antwort.ok) return null;
-                        return antwort.json();
-                    }).then(function (status) {
-                        /* Der Status sagt, wer hier am Werk ist. Der Status
-                           selbst fehlt, wenn der Server nicht antwortet -
-                           dann wird nichts erfunden, auch kein Hinweis. */
-                        if (!status || !status.isLoggedIn) return;
-                        if (!(status.isAdmin || (konfig.owner && status.username === konfig.owner))) return;
-
-                        selbst.shellUpdate = {
-                            alt: konfig['shell-release-label'] || String(geliefert),
-                            neu: konfig['shell-latest-release-label'] || String(neueste),
-                            latest: neueste
-                        };
+                    SPEICHER.shellStatus().then(function (angebot) {
+                        if (!angebot) return;
+                        selbst.shellUpdate = angebot;
+                    }).catch(function () {
+                        /* Kein Angebot ist auch eine Antwort. */
                     });
                 },
 
                 shellUebernehmen() {
                     if (!this.shellUpdate) return;
-                    const m = String(window.location.pathname || '').match(/\/wiki\/([^/]+)/);
-                    if (!m) return;
-                    const slug = decodeURIComponent(m[1]);
+                    if (typeof SPEICHER.shellAktualisieren !== 'function') return;
                     this.shellTaetig = true;
                     this.shellFehler = false;
                     const selbst = this;
-                    fetch('/recipe/' + encodeURIComponent(slug) + '/shell/update', {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Requested-With': 'fetch'
-                        },
-                        body: JSON.stringify({}),
-                        credentials: 'same-origin'
-                    }).then(function (antwort) {
-                        if (antwort.ok) { window.location.reload(); return; }
+                    SPEICHER.shellAktualisieren().then(function (ok) {
+                        if (ok) { window.location.reload(); return; }
                         selbst.shellFehler = true;
                         selbst.shellTaetig = false;
                     }).catch(function () {
