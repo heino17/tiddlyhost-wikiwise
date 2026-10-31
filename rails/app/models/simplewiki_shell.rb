@@ -8,7 +8,7 @@ class SimplewikiShell
   EMPTY_NAME = 'simple'.freeze
 
   class << self
-    # The newest shell version shipped with this deployment, e.g. "0.1.52".
+    # The newest shell version shipped with this deployment, e.g. "0.1.53".
     # The file only changes on deploy, so keep the parsed result per process.
     def latest_version
       @latest_version ||= empty&.tiddlywiki_version
