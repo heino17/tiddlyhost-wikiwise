@@ -262,11 +262,15 @@ fi
 if [ "$TLS_ENABLED" = "true" ]; then
   info "Starte Container mit TLS (Caddy) – Image: $TIDDLHOST_IMAGE"
   docker compose --profile tls up -d
-  docker compose --profile http stop >/dev/null 2>&1 || true
+  # Nur den Web-Proxy des anderen Profils stoppen. Ein blankes
+  # "docker compose --profile http stop" würde auch app/jobs/db/cache
+  # stoppen, weil diese keinem Profil zugeordnet sind.
+  docker compose --profile http stop web >/dev/null 2>&1 || true
 else
   info "Starte Container (HTTP, nginx) – Image: $TIDDLHOST_IMAGE"
   docker compose --profile http up -d
-  docker compose --profile tls stop >/dev/null 2>&1 || true
+  # Siehe oben: nur Caddy stoppen, nicht den ganzen Stack.
+  docker compose --profile tls stop caddy >/dev/null 2>&1 || true
 fi
 
 if [ "$SETTINGS_CHANGED" -eq 1 ] && [ "$APP_ALREADY_RUNNING" -eq 1 ]; then
