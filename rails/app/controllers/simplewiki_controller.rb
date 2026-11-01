@@ -55,7 +55,6 @@ class SimplewikiController < ApplicationController
     end
 
     SimpleData.store!(@site, incoming)
-    history_version = @site.simple_data_versions.order(created_at: :desc).first
     @site.increment_save_count
     if collab_session_active?
       @site.update_columns(
@@ -71,15 +70,7 @@ class SimplewikiController < ApplicationController
     # the wiki content, then link that island version to the new blob.
     if @site.is_simple?
       begin
-        @site.content_upload(@site.html_content(is_logged_in: site_saveable?))
-        @site.reload
-        new_attachment = @site.saved_content_files.order(id: :desc).first
-        if new_attachment && history_version
-          history_version.update!(
-            blob_id: new_attachment.blob_id,
-            created_at: new_attachment.blob.created_at
-          )
-        end
+        @site.snapshot_simplewiki_content!(is_logged_in: site_saveable?)
       rescue StandardError => e
         Rails.logger.warn("SimpleWiki history snapshot failed for #{@site.name}: #{e.class}: #{e.message}")
       end

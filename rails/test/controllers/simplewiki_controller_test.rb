@@ -272,6 +272,47 @@ class SimplewikiControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'Alt', JSON.parse(ThFile.new(response.body).simple_island_content)['seiten'].first['titel']
   end
 
+  test 'restoring an older version replaces the island and keeps the current shell' do
+    Settings::Features.stubs(:site_history_enabled?).returns(true)
+    sign_in @user
+
+    put '/simplewiki/data',
+      params: ISLAND.merge(seiten: [{ titel: 'Alt' }]).to_json,
+      headers: { 'Content-Type' => 'application/json', 'X-Requested-With' => 'fetch' }
+    assert_response :no_content
+    old_blob_id = @site.reload.saved_content_files.order(id: :desc).first.blob_id
+    shell_version = @site.tw_version
+
+    put '/simplewiki/data',
+      params: ISLAND.merge(seiten: [{ titel: 'Neu' }]).to_json,
+      headers: { 'Content-Type' => 'application/json', 'X-Requested-With' => 'fetch' }
+    assert_response :no_content
+    assert_equal 'Neu', JSON.parse(@site.reload.simple_data.json)['seiten'].first['titel']
+
+    host! Settings.main_site_host
+    assert_difference -> { @site.saved_content_files.count } => 1,
+      -> { @site.simple_data_versions.count } => 1 do
+      post restore_version_site_path(@site, blob_id: old_blob_id)
+    end
+    assert_redirected_to history_site_url(@site)
+
+    @site.reload
+    assert_equal 'Alt', JSON.parse(@site.simple_data.json)['seiten'].first['titel']
+    assert_equal shell_version, @site.tw_version
+
+    # The restored content is what the site actually serves.
+    host! @site.host
+    get '/'
+    assert_response :success
+    assert_equal 'Alt', JSON.parse(ThFile.new(response.body).simple_island_content)['seiten'].first['titel']
+
+    # The restore itself becomes the newest history version, linked to its blob.
+    newest_attachment = @site.saved_content_files.order(id: :desc).first
+    newest_version = @site.simple_data_versions.order(created_at: :desc).first
+    assert_equal newest_attachment.blob_id.to_s, newest_version.blob_id
+    assert_equal 'Alt', JSON.parse(newest_version.json)['seiten'].first['titel']
+  end
+
   test 'history falls back to an unlinked island version by timestamp' do
     Settings::Features.stubs(:site_history_enabled?).returns(true)
     sign_in @user

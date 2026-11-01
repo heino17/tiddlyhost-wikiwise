@@ -46,7 +46,11 @@ module SiteHistory
   end
 
   def restore_version
-    @site.content_upload(@site.file_download(@blob_id))
+    if @site.is_simple?
+      restore_simplewiki_version
+    else
+      @site.content_upload(@site.file_download(@blob_id))
+    end
     redirect_to action: :history
   end
 
@@ -76,6 +80,21 @@ module SiteHistory
   end
 
   private
+
+  # SimpleWiki content lives in the island, not in the shell attachment, so
+  # restoring the old shell alone would not change what the wiki serves. Put
+  # the historical island back, then record the result as a new save version
+  # while keeping the current shell (no downgrade).
+  def restore_simplewiki_version
+    island_json = @site.simple_island_json_for_blob_id(@blob_id)
+    if island_json.blank?
+      Rails.logger.warn("SimpleWiki restore skipped for #{@site.name}/#{@blob_id}: no island snapshot")
+      return
+    end
+
+    SimpleData.store!(@site, island_json)
+    @site.snapshot_simplewiki_content!(is_logged_in: true)
+  end
 
   def require_site_history_or_preview_enabled!
     require_condition!(feature_enabled?(:site_history) || feature_enabled?(:site_history_preview))

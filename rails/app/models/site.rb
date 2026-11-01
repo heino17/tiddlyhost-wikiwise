@@ -150,6 +150,27 @@ class Site < ApplicationRecord
     simple_data&.json
   end
 
+  # Snapshot the rendered shell including the current content island as a new
+  # history entry and link the newest SimpleData version to that blob. The
+  # island holds the actual SimpleWiki content, so the shell attachment alone
+  # would not represent what was saved. Returns the new attachment, or nil if
+  # the snapshot could not be stored.
+  def snapshot_simplewiki_content!(is_logged_in: false)
+    return nil unless is_simple?
+    return nil unless content_upload(html_content(is_logged_in:))
+
+    reload
+    new_attachment = saved_content_files.order(id: :desc).first
+    newest_version = simple_data_versions.order(created_at: :desc).first
+    if new_attachment && newest_version
+      newest_version.update!(
+        blob_id: new_attachment.blob_id,
+        created_at: new_attachment.blob.created_at
+      )
+    end
+    new_attachment
+  end
+
   # The version of the SimpleWiki shell this site currently serves. Nil for
   # non-SimpleWiki sites, or for a shell that declares no version. The upload
   # path records the shell version in tw_version, so no parsing is needed here.
