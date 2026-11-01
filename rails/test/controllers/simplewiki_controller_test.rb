@@ -226,6 +226,94 @@ class SimplewikiControllerTest < ActionDispatch::IntegrationTest
     assert @site.simple_data_versions.count <= @site.keep_count
   end
 
+  test 'saving the island appends a history snapshot linked to the saved blob' do
+    sign_in @user
+    payload = ISLAND.merge(seiten: [{ titel: 'Alt' }]).to_json
+
+    assert_difference -> { @site.saved_content_files.count } => 1,
+      -> { @site.simple_data_versions.count } => 1 do
+      put '/simplewiki/data',
+        params: payload,
+        headers: { 'Content-Type' => 'application/json', 'X-Requested-With' => 'fetch' }
+    end
+    assert_response :no_content
+
+    @site.reload
+    attachment = @site.saved_content_files.order(id: :desc).first
+    version = @site.simple_data_versions.order(created_at: :desc).first
+
+    assert_equal attachment.blob_id.to_s, version.blob_id
+    assert_equal payload, version.json
+    assert_in_delta attachment.blob.created_at.to_f, version.created_at.to_f, 1
+  end
+
+  test 'history shows the island snapshot of that save' do
+    Settings::Features.stubs(:site_history_enabled?).returns(true)
+    sign_in @user
+
+    put '/simplewiki/data',
+      params: ISLAND.merge(seiten: [{ titel: 'Alt' }]).to_json,
+      headers: { 'Content-Type' => 'application/json', 'X-Requested-With' => 'fetch' }
+    assert_response :no_content
+    old_blob_id = @site.reload.saved_content_files.order(id: :desc).first.blob_id
+
+    put '/simplewiki/data',
+      params: ISLAND.merge(seiten: [{ titel: 'Neu' }]).to_json,
+      headers: { 'Content-Type' => 'application/json', 'X-Requested-With' => 'fetch' }
+    assert_response :no_content
+
+    host! Settings.main_site_host
+    get view_version_site_path(@site, blob_id: old_blob_id)
+    assert_response :success
+    assert_equal 'Alt', JSON.parse(ThFile.new(response.body).simple_island_content)['seiten'].first['titel']
+
+    get download_version_site_path(@site, blob_id: old_blob_id)
+    assert_response :success
+    assert_equal 'Alt', JSON.parse(ThFile.new(response.body).simple_island_content)['seiten'].first['titel']
+  end
+
+  test 'history falls back to an unlinked island version by timestamp' do
+    Settings::Features.stubs(:site_history_enabled?).returns(true)
+    sign_in @user
+
+    put '/simplewiki/data',
+      params: ISLAND.merge(seiten: [{ titel: 'Alt' }]).to_json,
+      headers: { 'Content-Type' => 'application/json', 'X-Requested-With' => 'fetch' }
+    assert_response :no_content
+    old_blob_id = @site.reload.saved_content_files.order(id: :desc).first.blob_id
+    @site.simple_data_versions.order(created_at: :desc).first.update_columns(blob_id: nil)
+
+    put '/simplewiki/data',
+      params: ISLAND.merge(seiten: [{ titel: 'Neu' }]).to_json,
+      headers: { 'Content-Type' => 'application/json', 'X-Requested-With' => 'fetch' }
+    assert_response :no_content
+
+    host! Settings.main_site_host
+    get view_version_site_path(@site, blob_id: old_blob_id)
+    assert_response :success
+    assert_equal 'Alt', JSON.parse(ThFile.new(response.body).simple_island_content)['seiten'].first['titel']
+  end
+
+  test 'history extracts the island from a legacy shell blob' do
+    Settings::Features.stubs(:site_history_enabled?).returns(true)
+    sign_in @user
+    legacy = ISLAND.merge(seiten: [{ titel: 'Alt' }])
+    shell = @site.th_file.apply_simple_mods(@site.name, island_json: legacy.to_json).to_html
+    @site.content_upload(shell)
+    old_blob_id = @site.reload.saved_content_files.order(id: :desc).first.blob_id
+
+    # A newer island exists, but its snapshot is too old to belong to the blob.
+    @site.simple_data_versions.create!(
+      json: ISLAND.merge(seiten: [{ titel: 'Neu' }]).to_json,
+      created_at: 1.minute.ago
+    )
+
+    host! Settings.main_site_host
+    get view_version_site_path(@site, blob_id: old_blob_id)
+    assert_response :success
+    assert_equal 'Alt', JSON.parse(ThFile.new(response.body).simple_island_content)['seiten'].first['titel']
+  end
+
   test 'serving injects server metas and the stored island' do
     sign_in @user
     put '/simplewiki/data',

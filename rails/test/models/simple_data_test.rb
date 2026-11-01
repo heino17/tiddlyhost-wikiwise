@@ -40,4 +40,13 @@ class SimpleDataTest < ActiveSupport::TestCase
     latest = @site.simple_data_versions.order(created_at: :desc).first
     assert_equal '{"seiten":[],"v":4}', latest.json
   end
+
+  test 'store! can link a version to a saved blob' do
+    time = 1.minute.ago
+    SimpleData.store!(@site, '{"seiten":[]}', blob_id: 'blob-123', created_at: time)
+
+    version = @site.reload.simple_data_versions.first
+    assert_equal 'blob-123', version.blob_id
+    assert_in_delta time.to_f, version.created_at.to_f, 1
+  end
 end

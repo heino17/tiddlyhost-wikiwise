@@ -9,6 +9,12 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select 'link[href*="favicon"]'
   end
 
+  test 'about page uses the SimpleWiki icon' do
+    get '/about'
+    assert_response :success
+    assert_select 'img[src*="simplewiki-icon"]'
+  end
+
   test 'favicon is an ico file' do
     get '/favicon.ico'
     assert_response :success

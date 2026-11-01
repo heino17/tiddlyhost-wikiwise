@@ -140,7 +140,7 @@ class Site < ApplicationRecord
   def download_content_for_blob_id(blob_id)
     # Todo maybe: Consider the local core option here
     ThFile.new(file_download(blob_id)).apply_tiddlyhost_mods(name, for_download: true,
-      island_json: simple_island_json, display_name:, subtitle:).to_html
+      island_json: simple_island_json_for_blob_id(blob_id), display_name:, subtitle:).to_html
   end
 
   # The stored SimpleWiki content island, or nil for non-SimpleWiki sites.
@@ -171,38 +171,33 @@ class Site < ApplicationRecord
   # island content.
   def simple_island_json_for_blob_id(blob_id)
     return nil unless is_simple?
+    return nil if blob_id.blank?
 
-    # Try to find by blob_id first (newest versions)
-    version = simple_data_versions.where(blob_id: blob_id).order(created_at: :desc).first
-    return version.json if version
-    # Try to find by matching timestamp to the blob
+    linked_version = simple_data_versions.where(blob_id:).order(created_at: :desc).first
+    return linked_version.json if linked_version
+
     attachment = specific_saved_content_file(blob_id)
-    if attachment
-      version = simple_data_versions.where(created_at: attachment.blob.created_at).order(created_at: :desc).first
-      return version.json if version
-      # Try nearest match
-      version = simple_data_versions.order(Arel.sql("ABS(EXTRACT(EPOCH FROM (simple_data_versions.created_at - '#{attachment.blob.created_at.to_fs(:db)}'::timestamp)))")).first
-      # Only use if within a few seconds
-      if version && (version.created_at - attachment.blob.created_at).abs < 10
-        return version.json
-      end
-    end
-    version = simple_data_versions.find_by(id: blob_id)
-    return version.json if version
-
-    # Fallback to the snapshot stored in the blob if we ever record it there,
-    # otherwise fall back to the current island (legacy behavior).
     return nil unless attachment
 
-    blob_content = attachment.download
-    html = WithSavedContent.decompress_html(blob_content)
+    # Versions saved before the blob was linked can still be matched by their
+    # timestamp. A save and its shell snapshot happen within the same moment.
+    blob_time = attachment.blob.created_at
+    nearby_version = simple_data_versions.
+      where(created_at: (blob_time - 10.seconds)..(blob_time + 10.seconds)).
+      min_by { |candidate| (candidate.created_at - blob_time).abs }
+    return nearby_version.json if nearby_version
+
+    # Older history entries were written before island snapshots existed. The
+    # rendered shell still contains the island it was saved with.
+    html = WithSavedContent.decompress_html(attachment.download)
     doc = Nokogiri::HTML5(html)
     island = doc.at_css('script#simplewiki-daten')&.content.to_s
     return nil if island.blank?
 
     # Unescape the same way apply_simple_mods escapes it
     island.gsub('\u003c', '<')
-  rescue StandardError
+  rescue StandardError => e
+    Rails.logger.warn("SimpleWiki history island lookup failed for #{name}/#{blob_id}: #{e.class}: #{e.message}")
     simple_data&.json
   end
 

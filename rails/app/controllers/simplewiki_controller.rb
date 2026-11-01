@@ -55,6 +55,7 @@ class SimplewikiController < ApplicationController
     end
 
     SimpleData.store!(@site, incoming)
+    history_version = @site.simple_data_versions.order(created_at: :desc).first
     @site.increment_save_count
     if collab_session_active?
       @site.update_columns(
@@ -67,20 +68,17 @@ class SimplewikiController < ApplicationController
     # shell attachment is the versioned artifact shown in the history UI,
     # but for SimpleWiki the actual content lives in the island. Snapshot the
     # fully rendered HTML (shell + current island) so older versions include
-    # the wiki content.
+    # the wiki content, then link that island version to the new blob.
     if @site.is_simple?
       begin
-        before_count = @site.saved_content_files.count
         @site.content_upload(@site.html_content(is_logged_in: site_saveable?))
         @site.reload
-        new_blob = @site.saved_content_files.order(created_at: :desc).first
-        if new_blob
-          version = @site.simple_data_versions.create!(json: incoming, created_at: new_blob.blob.created_at, blob_id: new_blob.blob_id)
-          SimpleData.prune_versions!(@site, @site.keep_count)
-          # Also prune island versions whose blob was pruned? Best effort: keep matching count.
-          if version
-            @site.simple_data_versions.where.not(id: version.id).order(created_at: :desc).offset(@site.keep_count).each(&:destroy)
-          end
+        new_attachment = @site.saved_content_files.order(id: :desc).first
+        if new_attachment && history_version
+          history_version.update!(
+            blob_id: new_attachment.blob_id,
+            created_at: new_attachment.blob.created_at
+          )
         end
       rescue StandardError => e
         Rails.logger.warn("SimpleWiki history snapshot failed for #{@site.name}: #{e.class}: #{e.message}")

@@ -5,12 +5,16 @@ class SimpleData < ApplicationRecord
 
   # Save a new content version and keep a bounded history, mirroring the
   # keep_count logic used for the wiki shell history.
-  def self.store!(site, new_json)
+  def self.store!(site, new_json, blob_id: nil, created_at: nil)
     record = site.simple_data || site.build_simple_data
     record.json = new_json
     record.save!
 
-    site.simple_data_versions.create!(json: new_json, created_at: Time.current)
+    site.simple_data_versions.create!(
+      json: new_json,
+      created_at: created_at || Time.current,
+      blob_id:
+    )
     prune_versions!(site, site.keep_count)
 
     record
