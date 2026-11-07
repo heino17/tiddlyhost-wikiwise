@@ -26,14 +26,13 @@
 - Die Benutzerverwaltung wurde erweitert **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**  
 - Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)** 
 - Gäste-Login für jedes Wiki **Siehe: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**
+- Spezielle Impressum-Seite für den Betrieb in Europa, im Admin-Bereich ein-/ausschaltbar **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**
 - SimpleWiki-Wikis können direkt angelegt und als leichtgewichtige Dateninsel gehostet werden.
 - Beim Hochladen einer SimpleWiki-Datei werden Inhalt, Titel und Untertitel vollständig übernommen.
 - Beim Anlegen wird die gewünschte Wiki-Adresse live auf Verfügbarkeit geprüft.
 - Einheitliches Wikiwise-Branding mit SimpleWiki-Logo, Favicon und Link-Icon in der Seitenliste.
 
 **Docker-Installation für den Endanwender-Betrieb:** **Siehe [deploy/README.md](deploy/README.md)**.
-
-Es ist für meine Server-Umgebung etwas angepasst, **siehe [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
 
 Ich dachte, es könnte das Interesse an der Software steigern, zum Beispiel bei deutschen, spanischen oder französischen Programmierern...  
 
@@ -54,50 +53,7 @@ git clone https://github.com/heino17/tiddlyhost-wikiwise.git
 cd tiddlyhost-wikiwise
 ```
 
-# 🇬🇧 Tiddlyhost-wikiwise  
-**+ rails I18n language implementation**  
-**+ Comment & Voting for Wikis/Sites**  
-**+ Shoutbox-Mini-Chat-Widget**  
-**+ Advanced Admin Panel for Settings**  
-**+ Admin area – User management expanded**  
-**+ Cookie-Banner - EU Cookie Directives, GDPR, and TTDSG**  
-**+ Guest login for every wiki**  
-**+ SimpleWiki hosting for lightweight data-island wikis**<br>
-**+ Live availability check for the wiki address during creation**<br>
-**+ Consistent Wikiwise branding (logo, favicon, link icon)**
-
-- 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
-
-- It's fun! :)  
-- Activate and deactivate languages individually  
-- more languages easy to implement  
-- note the ports!  
- 
-...is a fork of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with a 
-- interface translated into 7 additional languages,
-- through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
-- Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
-- A new tab has been added to the admin area for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
-- User management has been expanded **See: [Readme-User-Management.md](Readme-User-Management.md)**  
-- Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
-- Guest login for each wiki **See: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**  
-- SimpleWiki sites can be created directly and hosted as lightweight data-island wikis.
-- Uploading a SimpleWiki file takes over its content, title and subtitle.
-- The desired wiki address is checked live for availability during creation.
-- Consistent Wikiwise branding with SimpleWiki logo, favicon and link icon in the site list.
-
-**Docker installation for end users:** **See [deploy/README.md](deploy/README.md)**.
-
-It has been slightly adapted for my server environment, **see [Readme-Anpassungen.md](Readme-Anpassungen.md)**.  
-
-I thought it might increase interest in the software, for example among German, Spanish, or French programmers...  
-  
-Huge thanks to Simon Baird for the fun with your awesome software!
-
-(„• ᴗ •„)
-
-**Nachfolgend die originale, unveränderte Tiddlyhost-readme ins Deutsche übersetzt.  
-Below is the original, unmodified Tiddlyhost readme translated into German.**
+**Nachfolgend die originale Tiddlyhost-Readme ins Deutsche übersetzt (Pfade und Ports an dieses Repo angepasst).**
 
 # Tiddlyhost 
 
@@ -136,8 +92,8 @@ Du benötigst Docker und Docker Compose [auf Deinem System installiert](https://
 
 Schau dir den Code an:
 
-    git clone git@github.com:tiddlyhost/tiddlyhost-com.git
-    cd tiddlyhost-com
+    git clone git@github.com:heino17/tiddlyhost-wikiwise.git
+    cd tiddlyhost-wikiwise
 
 ### Erstelle den Container und richte Rails ein.
 
@@ -168,7 +124,9 @@ Du solltest nun in der Lage sein, Rails wie folgt zu starten:
 
     make start
 
-Rufe die Seite <https://tiddlyhost.local/> in Deinem Browser auf, und du solltest eine funktionierende Webanwendung sehen.
+Rufe die Seite <https://tiddlyhost.local:7443/> in Deinem Browser auf, und du solltest eine funktionierende Webanwendung sehen.
+
+Der Dev-Stack veröffentlicht HTTPS auf Port 7443. Aufrufe über `http://tiddlyhost.local:8034/` werden dorthin umgeleitet.
 
 Beachte, dass die Entwicklungsumgebung ein selbstsigniertes SSL-Zertifikat verwendet.  
 Du musst daher die Warnungen bezüglich unsicherer Verbindungen akzeptieren.
@@ -216,4 +174,181 @@ Führe „make“ allein aus, um eine vollständige Liste der Make-Befehle anzuz
 ### Lizenz
 
 Tiddlyhost ist eine Open-Source-Software. Sie verwendet eine BSD-Lizenz. Siehe
+[LICENSE.md](LICENSE.md).
+
+# 🇬🇧 Tiddlyhost-wikiwise  
+**+ rails I18n language implementation**  
+**+ Comment & Voting for Wikis/Sites**  
+**+ Shoutbox-Mini-Chat-Widget**  
+**+ Advanced Admin Panel for Settings**  
+**+ Admin area – User management expanded**  
+**+ Cookie-Banner - EU Cookie Directives, GDPR, and TTDSG**  
+**+ Guest login for every wiki**  
+**+ SimpleWiki hosting for lightweight data-island wikis**<br>
+**+ Live availability check for the wiki address during creation**<br>
+**+ Consistent Wikiwise branding (logo, favicon, link icon)**
+
+- 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
+
+- It's fun! :)  
+- Activate and deactivate languages individually  
+- more languages easy to implement  
+- note the ports!  
+ 
+...is a fork of [Tiddlyhost-com](https://github.com/tiddlyhost/tiddlyhost-com) with a 
+- interface translated into 7 additional languages,
+- through the implementation of I18n language support. **More about in [Readme_i18n.md](Readme_i18n.md)**
+- Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
+- A new tab has been added to the admin area for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
+- User management has been expanded **See: [Readme-User-Management.md](Readme-User-Management.md)**  
+- Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
+- Guest login for each wiki **See: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**  
+- Dedicated legal notice (imprint) page for operation in Europe, can be enabled/disabled in the admin area **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**
+- SimpleWiki sites can be created directly and hosted as lightweight data-island wikis.
+- Uploading a SimpleWiki file takes over its content, title and subtitle.
+- The desired wiki address is checked live for availability during creation.
+- Consistent Wikiwise branding with SimpleWiki logo, favicon and link icon in the site list.
+
+**Docker installation for end users:** **See [deploy/README.md](deploy/README.md)**.
+
+I thought it might increase interest in the software, for example among German, Spanish, or French programmers...  
+  
+Huge thanks to Simon Baird for the fun with your awesome software!
+
+(„• ᴗ •„)
+  
+## clone branch:  
+SSH:  
+```
+git clone git@github.com:heino17/tiddlyhost-wikiwise.git  
+```
+https:  
+```
+git clone https://github.com/heino17/tiddlyhost-wikiwise.git  
+```
+```
+cd tiddlyhost-wikiwise
+```
+
+**Below is the original Tiddlyhost readme translated into English (paths and ports adapted to this repository).**
+
+# Tiddlyhost 
+
+## About
+
+[Tiddlyhost](https://tiddlyhost.com/) is the new Tiddlyspot, a hosting service for TiddlyWiki.
+
+It aims to be the easiest and best way to use TiddlyWiki online.  
+
+Unlike the original Tiddlyspot, Tiddlyhost offers the following features:
+
+* Secure SSL
+* Password recovery
+* TiddlyWiki5 support
+* Open source
+
+For more information, see the
+[FAQ](https://github.com/tiddlyhost/tiddlyhost-com/wiki/FAQ).
+
+### Current status
+--------------
+
+Tiddlyhost is under active development.
+
+For current status information, see the
+[Journal](https://github.com/tiddlyhost/tiddlyhost-com/wiki/Journal).
+
+## Getting started (for developers)
+--------------------------------
+
+Todo: Describe another way to set up a development environment that runs Rails directly.
+
+### Prepare the environment
+
+You need Docker and Docker Compose [installed on your system](https://docs.docker.com/engine/install/).
+
+Take a look at the code:
+
+    git clone git@github.com:heino17/tiddlyhost-wikiwise.git
+    cd tiddlyhost-wikiwise
+
+### Create the container and set up Rails.
+
+Create a container image for development:  
+
+    make build-base
+
+Install all Ruby gems and Node modules and initialize the databases:  
+
+    make rails-init
+
+Run the test suite. Hopefully everything passes:  
+
+    make test
+
+Tiddlyhost uses wildcard subdomains. To simulate this for local development,  
+add some entries to your /etc/hosts:
+
+    127.0.0.1 tiddlyhost.local
+    127.0.0.1 aaa.tiddlyhost.local
+    127.0.0.1 bbb.tiddlyhost.local
+    127.0.0.1 foo.tiddlyhost.local
+    127.0.0.1 bar.tiddlyhost.local
+
+You should now be able to start Rails as follows:
+
+(It runs in the foreground, so I recommend doing this in a second terminal window.)
+
+    make start
+
+Open <https://tiddlyhost.local:7443/> in your browser, and you should see a working web application.
+
+The dev stack publishes HTTPS on port 7443. Requests to `http://tiddlyhost.local:8034/` are redirected there.
+
+Note that the development environment uses a self-signed SSL certificate.  
+You will therefore need to accept the warnings about insecure connections.
+
+### Create an account and create a site
+
+Click “Sign in” and enter some details. An invalid email address is fine.
+
+When running locally, no emails are sent, but you can find the confirmation link for the email by running:
+
+    make signup-link
+
+Click on that link, then you should be able to sign in.
+
+Note: For the first user-created account, the confirmation step is skipped and you are signed in immediately.  
+Click “Create” to create a site. Note that you must use a site name  
+that matches something you added to your /etc/hosts file, e.g. aaa or bbb.  
+
+When you are done, click “Save” to save the site.  
+Click on the site to open it. Accept the certificate warnings again.  
+Click the “Save” button and make sure your site could be saved.  
+
+Create more sites or local accounts as needed.
+
+### Other useful commands
+
+Note that the container mounts the `rails` directory, so the code can be edited outside the container while Rails runs inside the container.
+
+You can log into the running container from another terminal as follows:
+
+    make join
+
+From there you can access the Rails console, run tests, etc., inside the container.
+
+You can press Ctrl-C in the terminal where you ran `make start` to stop it.
+
+You can also shut down and clean up like this:
+
+    make cleanup
+
+Note that the Make tasks are mostly just wrappers around `docker compose`, so you can also use your own `docker compose` commands directly if you prefer. Details can be found in the Makefile.
+
+Run `make` on its own to display a complete list of Make commands. Read the Makefile to learn more about what they do.
+
+### License
+
+Tiddlyhost is open-source software. It uses a BSD license. See
 [LICENSE.md](LICENSE.md).

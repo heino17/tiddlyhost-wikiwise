@@ -60,6 +60,13 @@ Verbesserte Tabellenköpfe in den Admin-Listen (Sites & Users) mit korrekter Meh
 
 Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.  
 
+### Spezielle Impressum-Seite (für den Betrieb in Europa)
+- Die Seite ist unter `/imprint` erreichbar: `rails/app/views/home/imprint.html.haml`.
+- Der Footer-Link lässt sich im Admin-Bereich unter **Tab Allgemein → Spezielle Impressum-Seite aktiv** ein- und ausschalten.
+- Gelesen wird die Einstellung über `special_imprint_enabled` in `rails/lib/settings/features.rb` (Standard: aktiv).
+- Die im Impressum hinterlegten Kontaktdaten sind als Unicode-Zeichen kodiert. Dadurch stehen sie im Quelltext nicht als Klartext, was einfache Datensammler abschreckt. Einen Schutz gegen gezieltes Auslesen bietet das nicht.
+- Der Seiteninhalt (Name, Anschrift, E-Mail) ist ein Beispiel und muss vor dem produktiven Einsatz durch die eigenen Angaben ersetzt werden. Als Vorlage diente der [Impressum-Generator von eRecht24](https://www.e-recht24.de/impressum-generator.html).
+
 ### 🇺🇸  
 ### Admin Area - “Read Comments” tab
 - ⭐ Admins can view all comments and delete individual comments
@@ -117,3 +124,10 @@ i18n support for all new admin texts and error messages
 Improved table headers in the admin lists (Sites & Users) with proper multilingual support  
   
 All changed settings take effect immediately without requiring a restart.  
+
+### Dedicated legal notice page (for operation in Europe)
+- The page is available at `/imprint`: `rails/app/views/home/imprint.html.haml`.
+- The footer link can be enabled or disabled in the admin area under **General tab → Special imprint page active**.
+- The setting is read via `special_imprint_enabled` in `rails/lib/settings/features.rb` (default: enabled).
+- The contact details in the legal notice are encoded as Unicode characters. This keeps them out of the source as plain text, which deters simple data collectors. It is not protection against targeted extraction.
+- The page content (name, address, email) is a sample and must be replaced with your own details before productive use. The [eRecht24 imprint generator](https://www.e-recht24.de/impressum-generator.html) was used as a template.
