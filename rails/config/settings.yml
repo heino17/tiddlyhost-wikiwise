@@ -63,7 +63,8 @@ development:
     # By "in container" we actually mean running with
     # `docker compose up` with nginx handling requests
     :protocol: <%= is_in_container ? "https" : "http" %>
-    :port: <%= is_in_container ? nil : 3333 %>
+    # The dev compose stack publishes HTTPS on 7443 (see docker-compose.yml)
+    :port: <%= is_in_container ? 7443 : 3333 %>
 
   tiddlyspot_host: tiddlyspot.local
 

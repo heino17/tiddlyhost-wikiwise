@@ -70,7 +70,7 @@ location ~ ^/(?:templates|explore|hub)/(?:tag|user)/ {
     # won't work. (Actually it might be that it works in production but not in
     # local development, maybe related to the /opt/rails-static volume.)
     #
-    proxy_set_header Host $host;
+    proxy_set_header Host $http_host;
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -117,7 +117,7 @@ location @app {
   # The rails application cares about all this so make
   # sure it knows the real request details
   #
-  proxy_set_header Host $host;
+  proxy_set_header Host $http_host;
   proxy_set_header X-Forwarded-Proto $scheme;
   proxy_set_header X-Real-IP $remote_addr;
 
