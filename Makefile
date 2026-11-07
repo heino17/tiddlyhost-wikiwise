@@ -1094,34 +1094,38 @@ list-backups:
 	@ls -lh ../build-backups/ 2>/dev/null || echo "Noch keine Backups vorhanden."
     
 # Caches leeren
+#
+# Only caches and logs are removed. Database data (docker/postgresql-data)
+# and uploaded files (rails/storage, excluding its tmp subdirectory) are
+# never touched. The Docker build cache is intentionally left alone because
+# pruning it makes the next image build significantly slower; run
+# `docker builder prune -f` manually when disk space is needed.
 cleanup-caches:
 	@echo "🧹 Cleaning Rails tmp/cache/log..."
-	rm -rf tmp/cache/*
-	rm -rf tmp/pids/*
-	rm -rf log/*.log
+	rm -rf rails/tmp/cache/*
+	rm -rf rails/tmp/pids/*
+	rm -rf rails/log/*.log
+	rm -rf docker/log/*.log
 
 	@echo "🧹 Cleaning Rails assets..."
-	rm -rf public/assets/*
-	rm -rf public/packs/*
+	rm -rf rails/public/assets/*
+	rm -rf rails/public/packs/*
 
 	@echo "🧹 Cleaning Node/Yarn cache..."
 	yarn cache clean --all || true
-	rm -rf node_modules/.cache || true
+	rm -rf docker/node_modules/.cache || true
 
 	@echo "🧹 Cleaning Puppeteer cache..."
 	rm -rf ~/.cache/puppeteer || true
 
 	@echo "🧹 Cleaning ActiveStorage temp files..."
-	rm -rf storage/tmp/* || true
+	rm -rf rails/storage/tmp/* || true
 
 	@echo "🧹 Cleaning Docker user cache (~/.cache)..."
 	rm -rf docker/dotcache/yarn/* || true
 	rm -rf docker/dotcache/puppeteer/* || true
 	rm -rf docker/dotcache/fontconfig/* || true
 	rm -rf docker/dotcache/rubocop_cache/* || true
-
-	@echo "🧹 Cleaning Docker build cache (optional)..."
-	# docker builder prune -f
 
 	@echo "✨ All caches cleaned!"
 
