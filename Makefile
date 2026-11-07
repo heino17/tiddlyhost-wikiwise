@@ -117,12 +117,30 @@ prod-secrets: docker/secrets/master.key docker/secrets/credentials.yml.enc
 #----------------------------------------------------------
 
 # Fun way to reuse the ansible templates to create local config
+#
+# Prefer a Python that already has Jinja2, otherwise fall back to uv with a
+# temporary Jinja2 environment. If neither exists, the recipe aborts before
+# the target file is touched.
+JINJA_PYTHON ?= $(shell \
+  if command -v python3 >/dev/null 2>&1 && python3 -c 'import jinja2' >/dev/null 2>&1; then echo python3; \
+  elif command -v python >/dev/null 2>&1 && python -c 'import jinja2' >/dev/null 2>&1; then echo python; \
+  elif command -v uv >/dev/null 2>&1; then echo "uv run --quiet --no-project --with jinja2 python"; \
+  fi)
+
+JINJA_RENDER = $(JINJA_PYTHON) -c "import os,sys,jinja2; print(jinja2.Template(sys.stdin.read()).render(os.environ), end='')"
+
 docker/%: ansible/playbooks/templates/docker/%.j2
 	@mkdir -p $$(dirname $@)
-	@env primary_host=tiddlyhost.local tiddlyspot_host=tiddlyspot.local \
-	  python -c "import os,sys,jinja2; print(jinja2.Template(sys.stdin.read()).render(os.environ))" \
-	  < $< > $@
-	@echo $@ created using $<
+	@if [ -z "$(JINJA_PYTHON)" ]; then \
+		echo "ERROR: Jinja2 not found. Install python3 with Jinja2 or uv, then retry." >&2; \
+		exit 1; \
+	fi
+	@tmp="$@.tmp.$$$$"; trap 'rm -f "$$tmp"' EXIT; \
+	env primary_host=tiddlyhost.local tiddlyspot_host=tiddlyspot.local \
+	  $(JINJA_RENDER) \
+	  < $< > "$$tmp" && \
+	mv "$$tmp" "$@" && \
+	echo "$@ created using $<"
 
 local-nginx: docker/nginx-conf/nginx.conf docker/nginx-conf/server-common.conf
 local-rails: docker/config/settings_local.yml
