@@ -127,6 +127,9 @@ JINJA_PYTHON ?= $(shell \
   elif command -v uv >/dev/null 2>&1; then echo "uv run --quiet --no-project --with jinja2 python"; \
   fi)
 
+# External HTTPS port of the dev compose stack (see docker-compose.yml)
+LOCAL_HTTPS_PORT ?= 7443
+
 JINJA_RENDER = $(JINJA_PYTHON) -c "import os,sys,jinja2; print(jinja2.Template(sys.stdin.read()).render(os.environ), end='')"
 
 docker/%: ansible/playbooks/templates/docker/%.j2
@@ -142,7 +145,26 @@ docker/%: ansible/playbooks/templates/docker/%.j2
 	mv "$$tmp" "$@" && \
 	echo "$@ created using $<"
 
-local-nginx: docker/nginx-conf/nginx.conf docker/nginx-conf/server-common.conf
+# The dev stack publishes HTTPS on a non-standard port, so its nginx config
+# must include that port in the HTTP->HTTPS redirect. The production config
+# keeps the default port (no explicit :port).
+docker/nginx-conf/nginx.conf: HTTPS_REDIRECT_PORT :=
+docker/nginx-conf/nginx.dev.conf: HTTPS_REDIRECT_PORT := $(LOCAL_HTTPS_PORT)
+
+docker/nginx-conf/nginx.conf docker/nginx-conf/nginx.dev.conf: ansible/playbooks/templates/docker/nginx-conf/nginx.conf.j2
+	@mkdir -p $$(dirname $@)
+	@if [ -z "$(JINJA_PYTHON)" ]; then \
+		echo "ERROR: Jinja2 not found. Install python3 with Jinja2 or uv, then retry." >&2; \
+		exit 1; \
+	fi
+	@tmp="$@.tmp.$$$$"; trap 'rm -f "$$tmp"' EXIT; \
+	env primary_host=tiddlyhost.local tiddlyspot_host=tiddlyspot.local https_redirect_port=$(HTTPS_REDIRECT_PORT) \
+	  $(JINJA_RENDER) \
+	  < $< > "$$tmp" && \
+	mv "$$tmp" "$@" && \
+	echo "$@ created using $<"
+
+local-nginx: docker/nginx-conf/nginx.conf docker/nginx-conf/nginx.dev.conf docker/nginx-conf/server-common.conf
 local-rails: docker/config/settings_local.yml
 
 local-config: local-nginx local-rails

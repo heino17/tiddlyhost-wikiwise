@@ -55,7 +55,7 @@ http {
         # Redirect most http requests to https
         listen 80;
         server_name {{ primary_host }} {% if tiddlyspot_host is defined and tiddlyspot_host %}{{ tiddlyspot_host }} {% endif %}*.{{ primary_host }};
-        return 301 https://$host$request_uri;
+        return 301 https://$host{% if https_redirect_port is defined and https_redirect_port %}:{{ https_redirect_port }}{% endif %}$request_uri;
     }
 
     {% if tiddlyspot_host is defined and tiddlyspot_host -%}

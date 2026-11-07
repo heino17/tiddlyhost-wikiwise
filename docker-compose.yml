@@ -9,7 +9,7 @@ services:
     - "7443:443"
     volumes:
     - ./docker/letsencrypt:/etc/letsencrypt:z
-    - ./docker/nginx-conf/nginx.conf:/etc/nginx/nginx.conf:z
+    - ./docker/nginx-conf/nginx.dev.conf:/etc/nginx/nginx.conf:z
     - ./docker/nginx-conf/server-common.conf:/etc/nginx/server-common.conf:z
     - ./docker/nginx-html:/opt/nginx-html:z
 
