@@ -2,7 +2,7 @@
 
 ## Allgemein
 - Dieses Repo ist ein Fork von Tiddlyhost (wikiwise-Variante). Wir sind **nicht mehr upstream-kompatibel**.
-- CLAUDE.md ist historisch (Original von Simon). Für diese Zusammenarbeit gilt primär diese AGENTS.md.
+- OpenCode.md = technische Projektübersicht (aus der Original-CLAUDE.md abgeleitet und an den Fork angepasst). Für diese Zusammenarbeit gilt primär diese AGENTS.md.
 - Kein Druck, kein festes Ziel. App läuft, wir tasten uns langsam ran.
 
 ## Workflow (Push/Branches)
