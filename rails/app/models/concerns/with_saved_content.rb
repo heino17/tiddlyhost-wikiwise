@@ -158,22 +158,21 @@ module WithSavedContent
   end
 
   def prune_attachments_now
-    if user&.feature_enabled?(:site_history)
-      # Wenn Site History aktiviert ist → Standard-Plan-Limit verwenden
-      keep = Setting.value_for(:keep_count_standard, default: 100)
+    # keep_count already chooses the right setting for this user's plan, so
+    # retention and the history view always agree.
+    keep = keep_count
 
-      # Revisions mit Label haben Vorrang
-      ordered_files = saved_content_files.
-        left_outer_joins(:attachment_label).
-        order(Arel.sql('attachment_labels.text IS NULL ASC')).
-        order('created_at DESC')
-    else
-      # Normaler Modus → Free-Plan-Limit verwenden
-      keep = Setting.value_for(:keep_count_free, default: 4)
-
-      ordered_files = saved_content_files.
-        order('created_at DESC')
-    end
+    ordered_files =
+      if user&.feature_enabled?(:site_history)
+        # Revisions mit Label haben Vorrang
+        saved_content_files.
+          left_outer_joins(:attachment_label).
+          order(Arel.sql('attachment_labels.text IS NULL ASC')).
+          order('created_at DESC')
+      else
+        saved_content_files.
+          order('created_at DESC')
+      end
 
     # Alte Versionen löschen
     ordered_files.offset(keep).each(&:purge)

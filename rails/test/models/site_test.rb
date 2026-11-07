@@ -136,6 +136,35 @@ class SiteTest < ActiveSupport::TestCase
     assert_equal 5, @site.reload.saved_content_files.count
   end
 
+  test 'keep count uses the standard limit for site history users' do
+    Setting.set_value(:keep_count_free, 4)
+    Setting.set_value(:keep_count_standard, 8)
+
+    assert_equal 4, @site.keep_count
+
+    @site.user.update!(user_type: UserType.find_by!(name: 'superuser'))
+    @site.reload
+
+    assert @site.user.feature_enabled?(:site_history)
+    assert_equal 8, @site.keep_count
+  end
+
+  test 'prune attachments keeps the same count as keep_count' do
+    Setting.set_value(:keep_count_standard, 3)
+    @site.user.update!(user_type: UserType.find_by!(name: 'superuser'))
+    @site.reload
+
+    5.times { |i| @site.content_upload("version #{i}") }
+
+    assert_equal 5, @site.reload.saved_content_files.count
+    assert_equal 3, @site.keep_count
+
+    @site.prune_attachments_now
+
+    assert_equal 3, @site.reload.saved_content_files.count
+    assert_equal 'version 4', @site.file_download
+  end
+
   # Tests are being skipped for now due to new logic
   # test 'prune attachments respects keep count', skip: true
 

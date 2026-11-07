@@ -312,12 +312,16 @@ class Site < ApplicationRecord
   # Wie viele Versionen eines Wikis sollen behalten werden?
 
   # === keep_count (Versions-History) ===
+  # The same value is used for pruning and for the history view, so the
+  # number of stored versions and the number of visible versions can't drift
+  # apart. Admins and legacy subscribers have site_history enabled without a
+  # Stripe subscription, hence they get the standard plan limit.
   def keep_count
-    if is_tspot?
-      Setting.value_for(:keep_count_tiddlyspot, default: 4)
-    elsif user&.subscribed? && user.respond_to?(:premium?) && user.premium?
+    return Setting.value_for(:keep_count_tiddlyspot, default: 4) if is_tspot?
+
+    if user&.subscribed? && user.respond_to?(:premium?) && user.premium?
       Setting.value_for(:keep_count_premium, default: 17)
-    elsif user&.subscribed?
+    elsif user&.subscribed? || user&.feature_enabled?(:site_history)
       Setting.value_for(:keep_count_standard, default: 8)
     else
       Setting.value_for(:keep_count_free, default: 4)

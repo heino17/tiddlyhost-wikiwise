@@ -380,6 +380,26 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_response :not_found
   end
 
+  test 'site history shows every retained version' do
+    @user.update(user_type: UserType.superuser)
+    Setting.set_value(:keep_count_standard, 3)
+
+    5.times { |i| @site.content_upload("hey#{i}") }
+    @site.prune_attachments_now
+    assert_equal 3, @site.reload.saved_version_count
+
+    get history_site_url(@site)
+    assert_response :success
+
+    version_numbers = Nokogiri::HTML(response.body).
+      css('table.history-table tbody tr td:first-child').
+      map { |td| td.text.strip }.
+      grep(/\A\d+\.\z/)
+
+    # No retained version is hidden behind the display limit.
+    assert_equal %w[1. 2. 3.], version_numbers
+  end
+
   test 'site history version labels' do
     @user.update(user_type: UserType.superuser)
     @site.content_upload('hey1')
