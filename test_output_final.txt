@@ -1,26 +1,30 @@
-/bin/sh: 1: [[: not found
 docker compose run --rm app bash -c 'bin/rails test:all'
- Container th_cache Running 
- Container th_db Running 
- Container tiddlyhost-wikiwise-app-run-93ed9436b6d4 Creating 
- Container tiddlyhost-wikiwise-app-run-93ed9436b6d4 Created 
+ Container th_db Starting 
+ Container th_cache Starting 
+ Container th_db Started 
+ Container th_cache Started 
+ Container tiddlyhost-wikiwise-app-run-ceea92765826 Creating 
+ Container tiddlyhost-wikiwise-app-run-ceea92765826 Created 
 yarn install v1.22.22
 [1/4] Resolving packages...
 success Already up-to-date.
-Done in 0.34s.
+Done in 0.17s.
 yarn run v1.22.22
 $ esbuild app/javascript/application.js --bundle --sourcemap --format=iife --outdir=app/assets/builds --public-path=/assets $([ "$RAILS_ENV" = "production" ] && echo '--minify' || echo '')
 
   app/assets/builds/application.js      1.0mb ⚠️
   app/assets/builds/application.js.map  2.1mb
 
-Done in 0.72s.
-Running 182 tests in parallel using 6 processes
-Run options: --seed 30527
+Done in 0.35s.
+Running 243 tests in parallel using 4 processes
+/opt/bundle/ruby/3.4.0/gems/rack-3.2.7/lib/rack/mock_request.rb:148: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+Run options: --seed 56158
 
 # Running:
 
-......................................................................................................................................................................................
+...........................................................................................................................................................................................................................New css file cached for bootstrap-email
+New css file cached for bootstrap-head
+........................
 
-Finished in 37.129589s, 4.9018 runs/s, 33.6928 assertions/s.
-182 runs, 1251 assertions, 0 failures, 0 errors, 0 skips
+Finished in 49.834625s, 4.8761 runs/s, 30.9223 assertions/s.
+243 runs, 1541 assertions, 0 failures, 0 errors, 0 skips
