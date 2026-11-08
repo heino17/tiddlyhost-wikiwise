@@ -35,6 +35,10 @@ German and American
   - Max. Versionen (Standard-Plan) _Zahlenfeld und +/-_
   - Max. Versionen (Premium-Plan) _Zahlenfeld und +/-_
   - Max. Versionen (Tiddlyspot) _Zahlenfeld und +/-_
+  - Aufbewahrung: Tage für Tagessicherungen _Zahlenfeld (0 = aus)_
+  - Aufbewahrung: Pause zwischen Sitzungen in Minuten _Zahlenfeld (0 = aus)_
+  - Aufbewahrung: Anzahl zusätzlicher Sitzungssicherungen _Zahlenfeld (0 = aus)_
+  - Details: **[Readme_History_Retention.md](Readme_History_Retention.md)**
   
   - Max. Speichergröße pro Wiki (Free-Plan) _Zahlenfeld und +/-_
   - Max. Speichergröße pro Wiki (Standard-Plan) _Zahlenfeld und +/-_
@@ -100,6 +104,10 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
   - Max. versions (Standard plan) _number field and +/-_
   - Max. versions (Premium plan) _number field and +/-_
   - Max. versions (Tiddlyspot) _number field and +/-_
+  - Retention: days for daily snapshots _number field (0 = off)_
+  - Retention: pause between sessions in minutes _number field (0 = off)_
+  - Retention: number of additional session snapshots _number field (0 = off)_
+  - Details: **[Readme_History_Retention.md](Readme_History_Retention.md)**
   
   - Max. storage size per wiki (Free Plan) _number field and +/-_
   - Max. storage size per wiki (Standard Plan) _number field and +/-_

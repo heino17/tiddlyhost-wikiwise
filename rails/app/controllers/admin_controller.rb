@@ -486,6 +486,9 @@ class AdminController < ApplicationController
       { key: :keep_count_standard,   group: 'storage', default: 8, type: :integer, min: 1, max: 100 },
       { key: :keep_count_premium,    group: 'storage', default: 17, type: :integer, min: 1, max: 100 },
       { key: :keep_count_tiddlyspot, group: 'storage', default: 4, type: :integer, min: 1, max: 100 },
+      { key: :history_daily_keep_days,     group: 'storage', default: 14, type: :integer, min: 0, max: 365 },
+      { key: :history_session_gap_minutes, group: 'storage', default: 30, type: :integer, min: 0, max: 1440 },
+      { key: :history_session_keep_count,  group: 'storage', default: 10, type: :integer, min: 0, max: 100 },
 
       # === Site-Größen-Limits pro Plan
       { key: :max_site_size_free_mb,     group: 'storage',   default: 20,  type: :integer, min: 0, max: 200 },

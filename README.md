@@ -31,6 +31,7 @@
 - Beim Hochladen einer SimpleWiki-Datei werden Inhalt, Titel und Untertitel vollständig übernommen.
 - Beim Anlegen wird die gewünschte Wiki-Adresse live auf Verfügbarkeit geprüft.
 - Einheitliches Wikiwise-Branding mit SimpleWiki-Logo, Favicon und Link-Icon in der Seitenliste.
+- Speicherverlauf mit gestaffelter Aufbewahrung (Recent-Puffer, Sitzungs- und Tagessicherungen) sowie manuellen Wiederherstellungspunkten. **Siehe: [Readme_History_Retention.md](Readme_History_Retention.md)**
 
 **Docker-Installation für den Endanwender-Betrieb:** **Siehe [deploy/README.md](deploy/README.md)**.
 
@@ -208,6 +209,7 @@ Tiddlyhost ist eine Open-Source-Software. Sie verwendet eine BSD-Lizenz. Siehe
 - Uploading a SimpleWiki file takes over its content, title and subtitle.
 - The desired wiki address is checked live for availability during creation.
 - Consistent Wikiwise branding with SimpleWiki logo, favicon and link icon in the site list.
+- Save history with tiered retention (recent buffer, session and daily snapshots) and manual restore points. **See: [Readme_History_Retention.md](Readme_History_Retention.md)**
 
 **Docker installation for end users:** **See [deploy/README.md](deploy/README.md)**.
 

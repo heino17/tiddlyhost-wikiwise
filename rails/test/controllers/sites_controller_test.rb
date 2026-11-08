@@ -380,9 +380,36 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_response :not_found
   end
 
+  test 'create restore point' do
+    @user.update(user_type: UserType.superuser)
+    @site.content_upload('hey1')
+
+    assert_difference '@site.saved_content_files.count', 1 do
+      post create_restore_point_site_url(@site)
+    end
+    assert_redirected_to history_site_url(@site,
+      notice: I18n.t('site_view_save_history_restore_point_created'))
+
+    newest = @site.reload.saved_content_files.order(id: :desc).first
+    assert newest.attachment_label.present?
+    assert_equal 'hey1', @site.file_download
+    assert_equal 'hey1', @site.file_download(newest.blob_id)
+  end
+
+  test 'create restore point is not available without site history' do
+    Settings::Features.stubs(:site_history_enabled?).returns(false)
+
+    assert_no_difference '@site.saved_content_files.count' do
+      post create_restore_point_site_url(@site)
+    end
+    assert_response :not_found
+  end
+
   test 'site history shows every retained version' do
     @user.update(user_type: UserType.superuser)
     Setting.set_value(:keep_count_standard, 3)
+    Setting.set_value(:history_daily_keep_days, 0)
+    Setting.set_value(:history_session_keep_count, 0)
 
     5.times { |i| @site.content_upload("hey#{i}") }
     @site.prune_attachments_now

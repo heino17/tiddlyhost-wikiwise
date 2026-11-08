@@ -6,7 +6,8 @@ module SiteHistory
       only: [:history]
 
     before_action :require_site_history_enabled!,
-      only: [:view_version, :download_version, :restore_version, :discard_version]
+      only: [:view_version, :download_version, :restore_version, :discard_version,
+        :create_restore_point]
 
     before_action :set_blob_id,
       only: [:view_version, :download_version, :restore_version, :discard_version,
@@ -28,6 +29,8 @@ module SiteHistory
     @current_blob_id = @site.blob.id
     @saved_version_count = @site.saved_version_count
     @keep_count = @site.keep_count
+    @history_daily_keep_days =
+      Setting.value_for(:history_daily_keep_days, default: 14)
   end
 
   def view_version
@@ -59,6 +62,18 @@ module SiteHistory
     # back end is flaky or slow, but let's try this anyway and see how it goes.
     @site.specific_saved_content_file(@blob_id).purge
     redirect_to action: :history
+  end
+
+  # Label the current content as a new history entry so it survives pruning,
+  # even when many saves follow.
+  def create_restore_point
+    if @site.create_restore_point!
+      redirect_to action: :history,
+        notice: t('site_view_save_history_restore_point_created')
+    else
+      redirect_to action: :history,
+        alert: t('site_view_save_history_restore_point_failed')
+    end
   end
 
   # Expected to be accessed with an ajax style request

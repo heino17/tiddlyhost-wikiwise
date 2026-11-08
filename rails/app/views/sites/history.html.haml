@@ -3,6 +3,14 @@
   .my-3
     = render 'site_tile_clone', mode: 'home', site: @site
 
+  - if feature_enabled?(:site_history)
+    .d-flex.justify-content-end.mb-2
+      = link_to t('site_view_save_history_create_restore_point'),
+          create_restore_point_site_path(@site),
+          class: 'btn btn-primary btn-sm',
+          method: :post,
+          data: { confirm: t('site_view_save_history_create_restore_point_confirm') }
+
   .admin-table-wrapper
     %table.table.history-table.mt-2
       %thead
@@ -32,7 +40,7 @@
             = t('site_view_save_history_actions')
 
       %tbody
-        - @site.saved_content_files.order('created_at DESC').limit(@site.keep_count + 2).each_with_index do |f, i|
+        - @site.saved_content_files.order('created_at DESC').each_with_index do |f, i|
           - is_current = (f.blob_id == @current_blob_id)
 
           - if is_current
@@ -88,13 +96,4 @@
   .text-muted{ style: "max-width: 900px; margin: 0 auto; font-size: 0.5rem; margin-top: -21px;" }
     = '⁉️ '
 
-  - if !feature_enabled?(:site_history)
-    .p-4
-      %i
-        = t('site_view_save_history_upgrade_notice', count: Setting.value_for(:keep_count_standard, default: 100))
-        = link_to t('site_view_save_history_upgrade_link_text'), "/subscription"
-
-  - elsif @saved_version_count >= @keep_count
-    .p-3.text-muted.small
-      %i
-        = t('site_view_save_history_keep_note', count: @keep_count)
+  = render 'history_footer'

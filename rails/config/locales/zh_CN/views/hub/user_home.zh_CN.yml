@@ -54,7 +54,12 @@ zh_CN:
   
   site_view_save_history_upgrade_notice: "Tiddlyhost 将为订阅用户保存并提供最多 %{count} 个版本。要使用此功能，"
   site_view_save_history_upgrade_link_text: "立即升级您的计划"
-  site_view_save_history_keep_note: "注意：仅保留最新的 %{count} 个版本。当超过此数量时，最旧的未标记保存版本将被自动删除。"
+  site_view_save_history_keep_note: "注意：最新的 %{count} 个版本会完整保留。更早的保存还会作为每日和会话快照保留最多 %{days} 天。带标签的版本永远不会被自动删除。"
+  site_view_save_history_create_restore_point: "创建还原点"
+  site_view_save_history_create_restore_point_confirm: "将当前状态保存为受保护的还原点？即使之后进行许多次保存，此版本也会保留。"
+  site_view_save_history_restore_point_created: "还原点已创建。"
+  site_view_save_history_restore_point_failed: "无法创建还原点。"
+  site_view_save_history_restore_point_default: "还原点 %{time}"
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "设置用于"

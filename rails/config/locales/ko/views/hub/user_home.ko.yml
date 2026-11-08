@@ -54,7 +54,12 @@ ko:
   
   site_view_save_history_upgrade_notice: "Tiddlyhost는 구독자를 위해 최대 %{count}개의 버전을 저장하고 제공합니다. 이 기능을 사용하려면 "
   site_view_save_history_upgrade_link_text: "지금 플랜 업그레이드"
-  site_view_save_history_keep_note: "참고: 최신 %{count}개의 버전만 유지됩니다. 그 이상이 되면 가장 오래된 라벨이 없는 저장 버전이 자동으로 삭제됩니다."
+  site_view_save_history_keep_note: "참고: 최신 %{count}개 버전은 완전히 유지됩니다. 더 오래된 저장본은 최대 %{days}일 동안 일별 및 세션 스냅샷으로 유지됩니다. 라벨이 지정된 버전은 자동으로 삭제되지 않습니다."
+  site_view_save_history_create_restore_point: "복원 지점 만들기"
+  site_view_save_history_create_restore_point_confirm: "현재 상태를 보호된 복원 지점으로 저장할까요? 이후에 많은 저장이 이루어져도 이 버전은 유지됩니다."
+  site_view_save_history_restore_point_created: "복원 지점이 생성되었습니다."
+  site_view_save_history_restore_point_failed: "복원 지점을 생성할 수 없습니다."
+  site_view_save_history_restore_point_default: "복원 지점 %{time}"
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "설정"

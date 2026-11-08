@@ -354,6 +354,21 @@ es:
       suffix: "por cuenta"
       label: "Número máximo de versiones (Premium-Pan)"
       description: "¿Cuántas versiones como máximo deben poder guardar los usuarios Premium?"
+    history_daily_keep_days:
+      prefix: "Días"
+      suffix: "días"
+      label: "Conservar instantáneas diarias"
+      description: "¿Cuántos días deben conservarse las instantáneas diarias automáticas? 0 desactiva las instantáneas diarias."
+    history_session_gap_minutes:
+      prefix: "Minutos"
+      suffix: "minutos"
+      label: "Pausa entre sesiones"
+      description: "¿Tras cuánto tiempo de pausa una nueva guardado inicia una nueva sesión? 0 desactiva las instantáneas de sesión."
+    history_session_keep_count:
+      prefix: "Versiones"
+      suffix: "sesiones"
+      label: "Conservar instantáneas de sesión"
+      description: "¿Cuántas instantáneas de sesión adicionales deben conservarse? 0 desactiva las instantáneas de sesión."
     max_site_size_free_mb:
       label: "Tamaño máximo de almacenamiento por wiki (Plan Free)"
       description: "Tamaño total máximo de un wiki para usuarios Free (en MB)"

@@ -358,6 +358,21 @@ en:
       suffix: "per account"
       label: "Max. versions (TiddlySpot-Site)"
       description: "What is the maximum number of versions of a Tiddlyspot site that can be saved?"
+    history_daily_keep_days:
+      prefix: "Days"
+      suffix: "days"
+      label: "Keep daily snapshots"
+      description: "How many days should automatic daily snapshots be kept? 0 disables daily snapshots."
+    history_session_gap_minutes:
+      prefix: "Minutes"
+      suffix: "minutes"
+      label: "Pause between sessions"
+      description: "After how long a pause does a new save start a new session? 0 disables session snapshots."
+    history_session_keep_count:
+      prefix: "Versions"
+      suffix: "sessions"
+      label: "Keep session snapshots"
+      description: "How many session snapshots should be kept in addition? 0 disables session snapshots."
     max_site_size_free_mb:
       label: "Max. storage size per wiki (Free plan)"
       description: "Maximum total size of a wiki for Free users (in MB)"

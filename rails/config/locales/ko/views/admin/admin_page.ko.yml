@@ -352,6 +352,21 @@ ko:
       suffix: "계정당"
       label: "최대 버전 수 (프리미엄 플랜)"
       description: "프리미엄 사용자가 저장할 수 있는 최대 버전 수는 몇 개인가요?"
+    history_daily_keep_days:
+      prefix: "일"
+      suffix: "일"
+      label: "일별 스냅샷 보관"
+      description: "자동 일별 스냅샷을 며칠 동안 보관할까요? 0이면 일별 스냅샷이 비활성화됩니다."
+    history_session_gap_minutes:
+      prefix: "분"
+      suffix: "분"
+      label: "세션 사이의 일시 정지"
+      description: "얼마나 오래 멈춘 뒤의 새 저장을 새 세션으로 간주할까요? 0이면 세션 스냅샷이 비활성화됩니다."
+    history_session_keep_count:
+      prefix: "버전"
+      suffix: "세션"
+      label: "세션 스냅샷 보관"
+      description: "세션 스냅샷을 추가로 몇 개 보관할까요? 0이면 세션 스냅샷이 비활성화됩니다."
     max_site_size_free_mb:
       label: "Wiki당 최대 저장소 크기 (Free 플랜)"
       description: "Free 사용자의 Wiki 최대 총 크기 (MB)"

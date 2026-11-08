@@ -57,7 +57,12 @@ de:
   
   site_view_save_history_upgrade_notice: "Tiddlyhost speichert und stellt bis zu %{count} Versionen für Abonnenten zur Verfügung. Um auf diese Funktion zuzugreifen, "
   site_view_save_history_upgrade_link_text: "jetzt upgraden"
-  site_view_save_history_keep_note: "Hinweis: Es werden nur die neuesten %{count} Versionen behalten. Sobald es mehr gibt, werden die ältesten unmarkierten Versionen automatisch gelöscht."
+  site_view_save_history_keep_note: "Hinweis: Die neuesten %{count} Versionen werden vollständig behalten. Ältere Saves bleiben zusätzlich als Tages- und Sitzungssicherungen bis zu %{days} Tage erhalten. Versionen mit Label werden nie automatisch gelöscht."
+  site_view_save_history_create_restore_point: "Wiederherstellungspunkt setzen"
+  site_view_save_history_create_restore_point_confirm: "Aktuellen Stand als geschützten Wiederherstellungspunkt speichern? Die Version bleibt auch nach vielen weiteren Saves erhalten."
+  site_view_save_history_restore_point_created: "Wiederherstellungspunkt wurde erstellt."
+  site_view_save_history_restore_point_failed: "Wiederherstellungspunkt konnte nicht erstellt werden."
+  site_view_save_history_restore_point_default: "Wiederherstellungspunkt %{time}"
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Einstellungen für"

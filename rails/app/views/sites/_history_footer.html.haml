@@ -1,0 +1,12 @@
+-# Retention and upgrade notes shown below the history table.
+- if !feature_enabled?(:site_history)
+  .p-4
+    %i
+      = t('site_view_save_history_upgrade_notice', count: Setting.value_for(:keep_count_standard, default: 100))
+      = link_to t('site_view_save_history_upgrade_link_text'), "/subscription"
+
+- elsif @saved_version_count >= @keep_count
+  .p-3.text-muted.small
+    %i
+      = t('site_view_save_history_keep_note',
+          count: @keep_count, days: @history_daily_keep_days)

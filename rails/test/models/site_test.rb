@@ -151,6 +151,8 @@ class SiteTest < ActiveSupport::TestCase
 
   test 'prune attachments keeps the same count as keep_count' do
     Setting.set_value(:keep_count_standard, 3)
+    Setting.set_value(:history_daily_keep_days, 0)
+    Setting.set_value(:history_session_keep_count, 0)
     @site.user.update!(user_type: UserType.find_by!(name: 'superuser'))
     @site.reload
 
@@ -163,6 +165,101 @@ class SiteTest < ActiveSupport::TestCase
 
     assert_equal 3, @site.reload.saved_content_files.count
     assert_equal 'version 4', @site.file_download
+  end
+
+  test 'prune keeps one snapshot per day' do
+    setup_history_retention(keep_count: 2, daily_days: 30, session_count: 0)
+
+    now = Time.current
+    blob_ids = {
+      newest:  create_version('newest',  at: now - 1.minute),
+      second:  create_version('second',  at: now - 2.minutes),
+      today:   create_version('today',   at: now - 3.minutes),
+      y_new:   create_version('y_new',   at: now - 1.day),
+      y_old:   create_version('y_old',   at: now - 1.day - 1.hour),
+      d2_new:  create_version('d2_new',  at: now - 2.days),
+      d2_old:  create_version('d2_old',  at: now - 2.days - 1.hour),
+    }
+
+    @site.prune_attachments_now
+
+    remaining = @site.reload.saved_content_files.pluck(:blob_id)
+    assert_equal 4, remaining.count
+
+    # The recent buffer plus the last save of each older day survives.
+    [blob_ids[:newest], blob_ids[:second], blob_ids[:y_new], blob_ids[:d2_new]].each do |blob_id|
+      assert_includes remaining, blob_id
+    end
+    [blob_ids[:today], blob_ids[:y_old], blob_ids[:d2_old]].each do |blob_id|
+      refute_includes remaining, blob_id
+    end
+  end
+
+  test 'prune keeps the last save of each session' do
+    setup_history_retention(keep_count: 2, daily_days: 0, session_count: 10)
+
+    now = Time.current
+    blob_ids = {
+      newest:    create_version('newest',    at: now - 1.minute),
+      second:    create_version('second',    at: now - 2.minutes),
+      session_a: create_version('session_a', at: now - 2.hours),
+      same_a:    create_version('same_a',    at: now - 2.hours - 10.minutes),
+      session_b: create_version('session_b', at: now - 5.hours),
+      same_b:    create_version('same_b',    at: now - 5.hours - 10.minutes),
+    }
+
+    @site.prune_attachments_now
+
+    remaining = @site.reload.saved_content_files.pluck(:blob_id)
+    assert_equal 4, remaining.count
+
+    [blob_ids[:newest], blob_ids[:second], blob_ids[:session_a], blob_ids[:session_b]].each do |blob_id|
+      assert_includes remaining, blob_id
+    end
+    [blob_ids[:same_a], blob_ids[:same_b]].each do |blob_id|
+      refute_includes remaining, blob_id
+    end
+  end
+
+  test 'prune keeps labeled versions outside the retention windows' do
+    setup_history_retention(keep_count: 2, daily_days: 0, session_count: 0)
+
+    blob_ids = 5.times.map { |i| create_version("labeled #{i}", at: Time.current - i.minutes) }
+    oldest = @site.specific_saved_content_file(blob_ids.last)
+    oldest.attachment_label = 'keep this one'
+    oldest.save!
+
+    @site.prune_attachments_now
+
+    remaining = @site.reload.saved_content_files.pluck(:blob_id)
+    assert_equal 3, remaining.count
+    assert_includes remaining, blob_ids.last
+    assert_equal 'labeled 0', @site.file_download(blob_ids.first)
+  end
+
+  test 'create restore point adds a labeled copy of the current content' do
+    @site.content_upload('restore me')
+    version_count = @site.reload.saved_version_count
+
+    attachment = @site.create_restore_point!
+
+    assert_equal version_count + 1, @site.reload.saved_version_count
+    assert attachment.attachment_label.present?
+    assert_equal 'restore me', @site.file_download
+    assert_equal 'restore me', @site.file_download(attachment.blob_id)
+  end
+
+  test 'create restore point snapshots the SimpleWiki island' do
+    site = new_site_helper(user: @site.user, name: 'restorepoint', empty: :simple)
+    SimpleData.store!(site, '{"version":1,"seiten":[],"startseite":"","sprache":"de"}')
+    version_count = site.reload.saved_version_count
+
+    attachment = site.create_restore_point!
+
+    assert_equal version_count + 1, site.reload.saved_version_count
+    assert attachment.attachment_label.present?
+    assert_equal '{"version":1,"seiten":[],"startseite":"","sprache":"de"}',
+      site.simple_island_json_for_blob_id(attachment.blob_id)
   end
 
   # Tests are being skipped for now due to new logic
@@ -428,5 +525,25 @@ class SiteTest < ActiveSupport::TestCase
     assert_includes @site.tag_list, 'two'
     assert_includes @site.tag_list, 'three'
     assert_not_includes @site.tag_list, 'foo'
+  end
+
+  private
+
+  def setup_history_retention(keep_count:, daily_days:, session_count:)
+    @site.user.update!(user_type: UserType.find_by!(name: 'superuser'))
+    Setting.set_value(:keep_count_standard, keep_count)
+    Setting.set_value(:history_daily_keep_days, daily_days)
+    Setting.set_value(:history_session_gap_minutes, 30)
+    Setting.set_value(:history_session_keep_count, session_count)
+    @site.reload
+  end
+
+  def create_version(content, at:)
+    @site.content_upload(content)
+    @site.reload
+    attachment = @site.saved_content_files.order(id: :desc).first
+    attachment.update_column(:created_at, at)
+    attachment.blob.update_column(:created_at, at)
+    attachment.blob_id
   end
 end

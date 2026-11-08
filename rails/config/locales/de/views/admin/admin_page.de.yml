@@ -354,6 +354,21 @@ de:
       suffix: "pro Konto"
       label: "Max. Versionen (TiddlySpot-Site)"
       description: "Wie viele Versionen einer Tiddlyspot-Seite dürfen maximal gespeichern werden?"
+    history_daily_keep_days:
+      prefix: "Tage"
+      suffix: "Tage"
+      label: "Tages-Sicherungen aufbewahren"
+      description: "Wie viele Tage sollen automatische Tagessicherungen aufbewahrt werden? 0 deaktiviert die Tagessicherungen."
+    history_session_gap_minutes:
+      prefix: "Minuten"
+      suffix: "Minuten"
+      label: "Pause zwischen Sitzungen"
+      description: "Ab welcher Pause gilt ein neuer Save als Beginn einer neuen Sitzung? 0 deaktiviert die Sitzungssicherungen."
+    history_session_keep_count:
+      prefix: "Versionen"
+      suffix: "Sitzungen"
+      label: "Sitzungssicherungen aufbewahren"
+      description: "Wie viele Sitzungssicherungen sollen zusätzlich aufbewahrt werden? 0 deaktiviert die Sitzungssicherungen."
     max_site_size_free_mb:
       label: "Max. Speichergröße pro Wiki (Free-Plan)"
       description: "Maximale Gesamtgröße eines Wikis für Free-User (in MB)"

@@ -54,7 +54,12 @@ ja:
   
   site_view_save_history_upgrade_notice: "Tiddlyhostはサブスクライバー向けに最大%{count}個のバージョンを保存・提供します。この機能を利用するには、"
   site_view_save_history_upgrade_link_text: "今すぐプランをアップグレード"
-  site_view_save_history_keep_note: "注意：最新の%{count}バージョンだけが保持されます。それ以上になると、最も古いラベルなしの保存バージョンが自動的に削除されます。"
+  site_view_save_history_keep_note: "注意：最新の %{count} バージョンは完全に保持されます。それより古い保存は、最大 %{days} 日間、日次およびセッションのスナップショットとして保持されます。ラベル付きのバージョンは自動的に削除されることはありません。"
+  site_view_save_history_create_restore_point: "復元ポイントを作成"
+  site_view_save_history_create_restore_point_confirm: "現在の状態を保護された復元ポイントとして保存しますか？このバージョンはさらに多くの保存が行われても保持されます。"
+  site_view_save_history_restore_point_created: "復元ポイントを作成しました。"
+  site_view_save_history_restore_point_failed: "復元ポイントを作成できませんでした。"
+  site_view_save_history_restore_point_default: "復元ポイント %{time}"
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "設定"

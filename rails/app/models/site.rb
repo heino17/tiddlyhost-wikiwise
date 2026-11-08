@@ -171,6 +171,30 @@ class Site < ApplicationRecord
     new_attachment
   end
 
+  # Create a new history entry from the current content and label it, so it
+  # survives pruning. This is the manual restore point behind the button on
+  # the history page.
+  def create_restore_point!(label: nil)
+    return nil unless saved_content_files.attached?
+
+    attachment =
+      if is_simple?
+        snapshot_simplewiki_content!(is_logged_in: true)
+      else
+        content_upload(file_download)
+        reload
+        saved_content_files.order(id: :desc).first
+      end
+    return nil unless attachment
+
+    time = Time.current.strftime('%Y-%m-%d %H:%M')
+    attachment.attachment_label =
+      label.presence || I18n.t('site_view_save_history_restore_point_default',
+        time:, default: "Restore point #{time}")
+    attachment.save!
+    attachment
+  end
+
   # The version of the SimpleWiki shell this site currently serves. Nil for
   # non-SimpleWiki sites, or for a shell that declares no version. The upload
   # path records the shell version in tw_version, so no parsing is needed here.

@@ -158,25 +158,90 @@ module WithSavedContent
   end
 
   def prune_attachments_now
-    # keep_count already chooses the right setting for this user's plan, so
-    # retention and the history view always agree.
-    keep = keep_count
+    if is_tspot? || !user&.feature_enabled?(:site_history)
+      # Without site history only the plan's recent buffer is kept.
+      saved_content_files.order('created_at DESC').offset(keep_count).each(&:purge)
+      return
+    end
 
-    ordered_files =
-      if user&.feature_enabled?(:site_history)
-        # Revisions mit Label haben Vorrang
-        saved_content_files.
-          left_outer_joins(:attachment_label).
-          order(Arel.sql('attachment_labels.text IS NULL ASC')).
-          order('created_at DESC')
-      else
-        saved_content_files.
-          order('created_at DESC')
-      end
+    # With site history: keep a dense recent buffer, one snapshot per editing
+    # session, one snapshot per day, and every labeled version. Everything
+    # else is removed. This lets short-term undo stay responsive while older
+    # history is thinned out instead of running through within a few saves.
+    versions = saved_content_files.includes(:attachment_label).order('created_at DESC').to_a
+    keep_ids = history_versions_to_keep(versions)
 
-    # Alte Versionen löschen
-    ordered_files.offset(keep).each(&:purge)
+    versions.each { |version| version.purge unless keep_ids[version.id] }
   end
+
+  # Returns a Hash keyed by attachment id with all versions that must survive
+  # the next prune.
+  def history_versions_to_keep(versions)
+    recent_count = [keep_count.to_i, 1].max
+    daily_days = Setting.value_for(:history_daily_keep_days, default: 14).to_i
+    session_gap = Setting.value_for(:history_session_gap_minutes, default: 30).to_i.minutes
+    session_count = Setting.value_for(:history_session_keep_count, default: 10).to_i
+
+    keep_ids = {}
+    versions.first(recent_count).each { |version| keep_ids[version.id] = true }
+    versions.each { |version| keep_ids[version.id] = true if version.attachment_label.present? }
+
+    keep_session_snapshots(versions, recent_count, keep_ids, session_gap, session_count, daily_days)
+    keep_daily_snapshots(versions, recent_count, keep_ids, daily_days)
+
+    keep_ids
+  end
+
+  def keep_session_snapshots(versions, recent_count, keep_ids, session_gap, session_count, daily_days)
+    return if session_gap.zero? || session_count <= 0
+
+    cutoff = daily_days.positive? ? daily_days.days.ago : nil
+    kept = 0
+
+    versions.each_with_index do |version, index|
+      break if kept >= session_count
+
+      # The dense recent buffer has already been marked for keeping.
+      next if index < recent_count
+      next if cutoff && version.created_at < cutoff
+
+      newer_version = versions[index - 1]
+      next unless newer_version
+      next if newer_version.created_at - version.created_at < session_gap
+
+      # This version is the last save before a quiet period, i.e. the final
+      # state of an editing session.
+      keep_ids[version.id] = true
+      kept += 1
+    end
+  end
+
+  def keep_daily_snapshots(versions, recent_count, keep_ids, daily_days)
+    return unless daily_days.positive?
+
+    cutoff = daily_days.days.ago
+    seen_days = {}
+
+    # Days already represented by the recent buffer need no extra snapshot.
+    versions.first(recent_count).each do |version|
+      seen_days[version.created_at.in_time_zone.to_date] = true
+    end
+
+    versions.each_with_index do |version, index|
+      next if index < recent_count
+      next if version.created_at < cutoff
+
+      # Versions are newest first, so the first version seen for a day is the
+      # last save of that day.
+      day = version.created_at.in_time_zone.to_date
+      next if seen_days[day]
+
+      seen_days[day] = true
+      keep_ids[version.id] = true
+    end
+  end
+
+  private :keep_session_snapshots, :keep_daily_snapshots
 
   # Speziell für TspotSites
   def prune_attachments_for_tspot

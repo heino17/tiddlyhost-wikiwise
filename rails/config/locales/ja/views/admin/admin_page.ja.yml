@@ -353,6 +353,21 @@ ja:
       suffix: "アカウントあたり"
       label: "「最大バージョン数 (プレミアムプラン)」"
       description: "「プレミアムユーザーは最大で何個のバージョンを保存できるようにしますか？」"
+    history_daily_keep_days:
+      prefix: "日"
+      suffix: "日"
+      label: "日次スナップショットを保持する日数"
+      description: "日次スナップショットを何日間保持しますか？0 にすると日次スナップショットは無効になります。"
+    history_session_gap_minutes:
+      prefix: "分"
+      suffix: "分"
+      label: "セッション間の休止時間"
+      description: "どのくらいの休止時間で新しい保存を新しいセッションとみなしますか？0 にするとセッションスナップショットは無効になります。"
+    history_session_keep_count:
+      prefix: "バージョン"
+      suffix: "セッション"
+      label: "セッションスナップショットを保持する数"
+      description: "セッションスナップショットを追加で何個保持しますか？0 にするとセッションスナップショットは無効になります。"
     max_site_size_free_mb:
       label: "Wikiあたりの最大ストレージサイズ（Freeプラン）"
       description: "FreeユーザーのWikiの最大合計サイズ（MB）"

@@ -28,12 +28,23 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
       /admin/sites
       /admin/tspot_sites
       /admin/storage
+      /admin/settings
       /admin/etc
 
     ].each do |page|
       get page
       assert_response :success
     end
+  end
+
+  test 'history retention settings are available' do
+    sign_in @admin
+    get '/admin/settings'
+    assert_response :success
+
+    assert_includes response.body, I18n.t('admin.history_daily_keep_days.label')
+    assert_includes response.body, I18n.t('admin.history_session_gap_minutes.label')
+    assert_includes response.body, I18n.t('admin.history_session_keep_count.label')
   end
 
   test 'search sites' do

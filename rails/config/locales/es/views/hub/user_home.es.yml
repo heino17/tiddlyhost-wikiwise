@@ -55,7 +55,12 @@ es:
   
   site_view_save_history_upgrade_notice: "Tiddlyhost guardará y proporcionará acceso a hasta %{count} versiones para suscriptores. Para acceder a esta función, "
   site_view_save_history_upgrade_link_text: "actualice su plan ahora"
-  site_view_save_history_keep_note: "Nota: Solo se conservan las %{count} versiones más recientes. Cuando haya más, las versiones guardadas más antiguas sin etiqueta se eliminarán automáticamente."
+  site_view_save_history_keep_note: "Nota: Las %{count} versiones más recientes se conservan completas. Las versiones guardadas más antiguas también se conservan como instantáneas diarias y de sesión durante hasta %{days} días. Las versiones con etiqueta nunca se eliminan automáticamente."
+  site_view_save_history_create_restore_point: "Crear punto de restauración"
+  site_view_save_history_create_restore_point_confirm: "¿Guardar el estado actual como punto de restauración protegido? Esta versión se conservará aunque se guarden muchas más."
+  site_view_save_history_restore_point_created: "Punto de restauración creado."
+  site_view_save_history_restore_point_failed: "No se pudo crear el punto de restauración."
+  site_view_save_history_restore_point_default: "Punto de restauración %{time}"
   # user home actions menu "Settings"-details
   # Settings = Edit a/the single Wiki
   site_view_edit_wiki_heading: "Configuración para"

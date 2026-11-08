@@ -150,6 +150,7 @@ Rails.application.routes.draw do
         get 'download_version/:blob_id', action: 'download_version', as: :download_version
         post 'restore_version/:blob_id', action: 'restore_version', as: :restore_version
         post 'discard_version/:blob_id', action: 'discard_version', as: :discard_version
+        post :create_restore_point
 
         get 'version_label/:blob_id', action: 'version_label_form', as: :version_label_form
         patch 'version_label/:blob_id', action: 'version_label_update', as: :version_label_update

@@ -205,6 +205,8 @@ Uses Delayed Job for:
 - TiddlyWiki content is stored as compressed HTML files in Active Storage blobs
 - The app supports multiple TiddlyWiki versions via "empties" (templates)
 - Save history allows users to view/restore previous versions
+- Site history uses tiered retention: a dense recent buffer, one snapshot per editing session, one per day, and all labeled versions (see `Readme_History_Retention.md`)
+- A manual restore point can be created from the history page; it labels a copy of the current content so it survives pruning
 - SimpleWiki keeps its pages in a JSON content island, separate from the shell, so the shell can be updated without touching the content
 - SimpleWiki shell updates are restricted to owner and superuser; collaborators can edit pages but must not replace the shell
 - Subscription management via Stripe integration
