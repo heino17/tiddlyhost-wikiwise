@@ -242,11 +242,17 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
   end
 
   # The invitation link must match the URL that actually serves the wiki:
-  # scheme, host and port come from Settings.url_defaults.
+  # scheme, host and port come from Settings.url_defaults. It is also a
+  # Stimulus target so the link follows the site name while editing.
   test 'collaborator invitation link uses the site url' do
     get edit_site_url(@site)
     assert_response :success
-    assert_match(%r{value="#{Regexp.escape(@site.url)}/\?collaborate"}, response.body)
+
+    assert_select 'form[data-controller="site-name-availability"]' do
+      assert_select 'input[data-site-name-availability-target="inviteLink"]' do |inputs|
+        assert_equal "#{@site.url}/?collaborate", inputs.first['value']
+      end
+    end
   end
 
   test 'should update site' do

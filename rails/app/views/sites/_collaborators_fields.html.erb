@@ -4,7 +4,9 @@
 <div style="margin-bottom: 1.5rem; padding: 0.75rem 1rem; border-left: 4px solid #6c8ebf; border-radius: 4px; font-size: 1rem; color: var(--bs-secondary-color);">
   <label><strong><%= t('collaborator_invitation_link') %></strong></label><br>
   <input type="text"
+         id="collaborator-invitation-link"
          value="<%= @site.url %>/?collaborate"
+         data-site-name-availability-target="inviteLink"
          readonly
          onclick="this.select();"
          style="width:100%; cursor:pointer; border: 1px solid #ccc; border-radius: 4px; padding: 0.4rem; color: var(--bs-body-color);">

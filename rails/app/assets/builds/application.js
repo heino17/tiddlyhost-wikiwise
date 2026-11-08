@@ -22164,7 +22164,7 @@
 
   // app/javascript/controllers/site_name_availability_controller.js
   var site_name_availability_controller_default = class extends Controller {
-    static targets = ["input", "status"];
+    static targets = ["input", "status", "inviteLink"];
     static values = {
       url: String,
       siteId: String,
@@ -22179,12 +22179,30 @@
     check() {
       window.clearTimeout(this.timeout);
       const name = this.inputTarget.value.trim();
+      this.updateInviteLink(name);
       if (!name) {
         if (this.abortController) this.abortController.abort();
         this.clearStatus();
         return;
       }
       this.timeout = window.setTimeout(() => this.checkAvailability(name), 300);
+    }
+    // Keep the collaborator invitation link in sync with the site name while
+    // the user types. The link's host is "<name>.<site domain>:<port>", so only
+    // the first hostname label needs to change.
+    updateInviteLink(name) {
+      if (!this.hasInviteLinkTarget) return;
+      const sanitized = name.toLowerCase().replace(/[^0-9a-z-]/g, "").replace(/-{2,}/g, "-").replace(/^-+/, "");
+      if (!sanitized) return;
+      try {
+        const url = new URL(this.inviteLinkTarget.value);
+        const labels = url.hostname.split(".");
+        if (labels.length < 2) return;
+        labels[0] = sanitized;
+        url.hostname = labels.join(".");
+        this.inviteLinkTarget.value = url.toString();
+      } catch (error2) {
+      }
     }
     async checkAvailability(name) {
       if (this.abortController) this.abortController.abort();
