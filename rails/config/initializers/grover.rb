@@ -1,9 +1,12 @@
 Grover.configure do |config|
   config.options = {
+    # Render the page with a desktop-sized viewport (1920x1200 CSS px) and
+    # scale the screenshot down to 640x400. This gives much sharper text than
+    # rendering a small viewport at a low device scale factor.
     viewport: {
-      width: 1024,
-      height: 680,
-      device_scale_factor: 0.25,
+      width: 1920,
+      height: 1200,
+      device_scale_factor: 1.0 / 3,
     },
 
     # Timeout waiting for the page request to finish

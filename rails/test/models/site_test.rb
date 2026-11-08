@@ -346,6 +346,11 @@ class SiteTest < ActiveSupport::TestCase
     GenerateThumbnailJob.perform_now('Site', @site.id)
     assert @site.reload.thumbnail.present?
     assert_equal 'image/png', @site.thumbnail.blob.content_type
+
+    # Rendered with a 1920x1200 viewport and scaled down to 640x400.
+    # Width and height are the first two big-endian integers in the PNG IHDR.
+    width, height = @site.thumbnail.download[16, 8].unpack('NN')
+    assert_equal [640, 400], [width, height]
   end
 
   test 'thumbnail storage service' do

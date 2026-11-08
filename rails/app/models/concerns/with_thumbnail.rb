@@ -77,7 +77,7 @@ module WithThumbnail
 
     # For future debugging:
     #Rails.logger.info(grover.send(:normalized_options, path: nil))
-    # {"viewport"=>{"width"=>1024, "height"=>680, "deviceScaleFactor"=>0.25},
+    # {"viewport"=>{"width"=>1920, "height"=>1200, "deviceScaleFactor"=>0.3333333333333333},
     #  "requestTimeout"=>30000, "convertTimeout"=>20000, "waitForTimeout"=>5000,
     #  "waitUntil"=>"networkidle2"}
 
