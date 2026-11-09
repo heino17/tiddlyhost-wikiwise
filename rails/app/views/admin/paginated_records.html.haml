@@ -19,9 +19,15 @@
 .admin-paginate= will_paginate(@records)
 .admin-page-info= pagination_info(@records)
 
-.admin-table-wrapper
-  %table.admin.table.table-sm.table-striped
-    = render "#{action_name}_table", records: @records, specific_user: @user
+- previewable = action_name.in?(%w[sites tspot_sites])
+
+.thumbnail-preview-scope{ data: { controller: 'thumbnail-preview' } }
+  .admin-table-wrapper
+    %table.admin.table.table-sm.table-striped
+      = render "#{action_name}_table", records: @records, specific_user: @user
+
+  - if previewable
+    = render 'application/thumbnail_preview_modal'
 
 .admin-paginate= will_paginate(@records)
 .admin-page-info= pagination_info(@records)

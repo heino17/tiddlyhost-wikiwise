@@ -1,3 +1,6 @@
 - if site.thumbnail.present?
-  = link_to thumbnail_url(site.thumbnail), target: '_blank' do
+  %button.thumbnail-preview-trigger{ type: 'button',
+    title: t('site_view_thumbnail_preview_open'),
+    aria: { label: t('site_view_thumbnail_preview_alt', name: site.name) },
+    data: thumbnail_preview_data(site, site.thumbnail) }
     = bi_icon('image', height: '0.9em', fill: 'var(--bs-link-color)')

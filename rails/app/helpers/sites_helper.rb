@@ -44,6 +44,17 @@ module SitesHelper
     end
   end
 
+  # Shared data attributes for the thumbnail preview modal. The modal is
+  # rendered once per page, so every trigger only needs to supply its image.
+  def thumbnail_preview_data(site, thumbnail)
+    {
+      action: 'thumbnail-preview#open',
+      thumbnail_url: thumbnail_url(thumbnail),
+      thumbnail_title: site.name,
+      thumbnail_alt: t('site_view_thumbnail_preview_alt', name: site.name),
+    }
+  end
+
   def site_access(site)
     access_type =
       if site.redirect_to.present?

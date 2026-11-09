@@ -36,10 +36,7 @@
                 %button.thumbnail-preview-trigger{ type: "button",
                   title: t('site_view_thumbnail_preview_open'),
                   aria: { label: t('site_view_thumbnail_preview_alt', name: site.name) },
-                  data: { action: "thumbnail-preview#open",
-                          thumbnail_url: thumbnail_url(thumbnail),
-                          thumbnail_title: site.name,
-                          thumbnail_alt: t('site_view_thumbnail_preview_alt', name: site.name) } }
+                  data: thumbnail_preview_data(site, thumbnail) }
                   = image_tag thumbnail_url(thumbnail), class: "thumbnail-small", alt: ""
 
             %td.small.pt-2
@@ -85,4 +82,4 @@
             %td
               = render 'actions_menu', site: site, is_tspot: is_tspot
 
-  = render 'thumbnail_preview_modal'
+  = render 'application/thumbnail_preview_modal'
