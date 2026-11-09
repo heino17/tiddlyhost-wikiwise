@@ -1,0 +1,12 @@
+.modal.fade#thumbnail-preview-modal{ tabindex: "-1",
+  aria: { labelledby: "thumbnail-preview-title", hidden: "true" },
+  data: { thumbnail_preview_target: "modal" } }
+  .modal-dialog.modal-lg.modal-dialog-centered
+    .modal-content
+      .modal-header
+        .thumbnail-preview-heading
+          .thumbnail-preview-kicker= t('site_view_thumbnail_preview_heading')
+          %h3.thumbnail-preview-title#thumbnail-preview-title{ data: { thumbnail_preview_target: "title" } }
+        %button.btn-close{ type: "button", 'data-bs-dismiss': "modal", 'aria-label': "Close" }
+      .modal-body
+        %img.thumbnail-preview-image{ data: { thumbnail_preview_target: "image" }, alt: "" }

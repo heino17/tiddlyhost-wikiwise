@@ -153,3 +153,6 @@ fr:
     redirected: "Redirigé"
     
   preview_image_not_yet_available: "L’image d’aperçu est en cours de génération. Veuillez patienter un instant, puis rechargez la page. (F5)"
+  site_view_thumbnail_preview_heading: "Aperçu du wiki"
+  site_view_thumbnail_preview_open: "Afficher l’aperçu"
+  site_view_thumbnail_preview_alt: "Aperçu de %{name}"

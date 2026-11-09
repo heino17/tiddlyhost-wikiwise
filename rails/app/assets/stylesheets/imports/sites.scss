@@ -75,6 +75,48 @@ table.sites {
     }
 }
 
+button.thumbnail-preview-trigger {
+    background: none;
+    border: 0;
+    padding: 0;
+    line-height: 0;
+    cursor: zoom-in;
+    border-radius: 4px;
+
+    &:focus-visible {
+        outline: 2px solid var(--bs-primary);
+        outline-offset: 2px;
+    }
+}
+
+#thumbnail-preview-modal {
+    .thumbnail-preview-heading {
+        min-width: 0;
+    }
+
+    .thumbnail-preview-kicker {
+        font-size: 0.72rem;
+        color: var(--bs-secondary-color);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .thumbnail-preview-title {
+        margin: 0;
+        font-size: 1.15rem;
+        overflow-wrap: anywhere;
+    }
+
+    .thumbnail-preview-image {
+        display: block;
+        width: 100%;
+        max-width: 640px;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 12px;
+    }
+}
+
 .compressed-indicator {
     vertical-align: middle;
     font-size: 60%;

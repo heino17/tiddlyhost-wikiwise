@@ -163,4 +163,7 @@ ru:
     redirected: "Перенаправлено"
     
   preview_image_not_yet_available: "Предварительное изображение ещё создаётся. Подождите немного и обновите страницу! (F5)"
+  site_view_thumbnail_preview_heading: "Предпросмотр вики"
+  site_view_thumbnail_preview_open: "Показать предпросмотр"
+  site_view_thumbnail_preview_alt: "Предпросмотр %{name}"
   

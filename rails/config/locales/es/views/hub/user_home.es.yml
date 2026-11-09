@@ -153,3 +153,6 @@ es:
     redirected: "Redirigido"
     
   preview_image_not_yet_available: "La imagen de vista previa se está generando. Por favor espera un momento y vuelve a cargar la página. (F5)"
+  site_view_thumbnail_preview_heading: "Vista previa de la wiki"
+  site_view_thumbnail_preview_open: "Mostrar vista previa"
+  site_view_thumbnail_preview_alt: "Vista previa de %{name}"

@@ -159,3 +159,6 @@ ja:
     redirected: "リダイレクト"
     
   preview_image_not_yet_available: "プレビュー画像を生成しています。少し待ってからページを再読み込みしてください。(F5)"
+  site_view_thumbnail_preview_heading: "Wiki プレビュー"
+  site_view_thumbnail_preview_open: "プレビューを表示"
+  site_view_thumbnail_preview_alt: "%{name} のプレビュー"

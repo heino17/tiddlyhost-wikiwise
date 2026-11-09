@@ -27,3 +27,6 @@ application.register("cookie-consent", CookieConsentController)
 
 import SiteNameAvailabilityController from "./site_name_availability_controller"
 application.register("site-name-availability", SiteNameAvailabilityController)
+
+import ThumbnailPreviewController from "./thumbnail_preview_controller"
+application.register("thumbnail-preview", ThumbnailPreviewController)

@@ -14,6 +14,28 @@ class SitesControllerTest < ActionDispatch::IntegrationTest
     assert_includes response.body, '#link-45deg'
   end
 
+  test 'list view thumbnail opens a preview modal' do
+    @site.thumbnail.attach(io: StringIO.new('thumbnail'), filename: 'thumb.png', content_type: 'image/png')
+
+    get sites_url
+
+    assert_response :success
+    assert_select 'div[data-controller="thumbnail-preview"]' do
+      assert_select 'button.thumbnail-preview-trigger[data-action="thumbnail-preview#open"] > img.thumbnail-small', count: 1
+
+      assert_select 'button.thumbnail-preview-trigger' do |buttons|
+        button = buttons.first
+        assert_equal 'mysite', button['data-thumbnail-title']
+        assert_equal I18n.t('site_view_thumbnail_preview_alt', name: 'mysite'), button['data-thumbnail-alt']
+        assert_includes button['data-thumbnail-url'], '/rails/active_storage/'
+      end
+
+      assert_select '#thumbnail-preview-modal .thumbnail-preview-kicker', text: I18n.t('site_view_thumbnail_preview_heading')
+      assert_select '#thumbnail-preview-modal h3#thumbnail-preview-title'
+      assert_select '#thumbnail-preview-modal img.thumbnail-preview-image'
+    end
+  end
+
   test 'should get index as json' do
     get sites_url(format: :json)
     assert_response :success

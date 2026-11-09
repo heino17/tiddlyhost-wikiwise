@@ -160,4 +160,7 @@ ko:
     redirected: "리디렉션됨"
     
   preview_image_not_yet_available: "미리보기 이미지를 생성하는 중입니다. 잠시 기다린 후 페이지를 새로고침하세요. (F5)"
+  site_view_thumbnail_preview_heading: "위키 미리보기"
+  site_view_thumbnail_preview_open: "미리보기 표시"
+  site_view_thumbnail_preview_alt: "%{name} 미리보기"
   

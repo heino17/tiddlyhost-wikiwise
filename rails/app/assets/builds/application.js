@@ -22237,6 +22237,23 @@
     }
   };
 
+  // app/javascript/controllers/thumbnail_preview_controller.js
+  var thumbnail_preview_controller_default = class extends Controller {
+    static targets = ["modal", "image", "title"];
+    open(event) {
+      event.preventDefault();
+      const trigger = event.currentTarget;
+      const url = trigger.dataset.thumbnailUrl;
+      if (!url) return;
+      this.imageTarget.src = url;
+      this.imageTarget.alt = trigger.dataset.thumbnailAlt || "";
+      if (this.hasTitleTarget) {
+        this.titleTarget.textContent = trigger.dataset.thumbnailTitle || "";
+      }
+      window.bootstrap.Modal.getOrCreateInstance(this.modalTarget).show();
+    }
+  };
+
   // app/javascript/controllers/index.js
   application.register("comment-counter", comment_counter_controller_default);
   application.register("hello", hello_controller_default);
@@ -22246,6 +22263,7 @@
   application.register("settings-tab", settings_tab_controller_default);
   application.register("cookie-consent", cookie_consent_controller_default);
   application.register("site-name-availability", site_name_availability_controller_default);
+  application.register("thumbnail-preview", thumbnail_preview_controller_default);
 
   // node_modules/trix/dist/trix.esm.min.js
   var t = "2.1.19";

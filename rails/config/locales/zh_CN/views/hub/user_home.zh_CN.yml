@@ -152,3 +152,6 @@ zh_CN:
     redirected: "已重定向"
     
   preview_image_not_yet_available: "预览图正在生成中。请稍等片刻，然后刷新页面。(F5)"
+  site_view_thumbnail_preview_heading: "Wiki 预览"
+  site_view_thumbnail_preview_open: "显示预览"
+  site_view_thumbnail_preview_alt: "%{name} 的预览"
