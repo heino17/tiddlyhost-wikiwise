@@ -9,7 +9,7 @@ fr:
   iso_language_code: "fr"
   
   # Logo
-  logo_link_title: "Tiddlyhost-Wikiwise - local"
+  logo_link_title: "Tiddlyhost-Wikiwise"
   logo_image_tag: "simplewiki-icon.svg"
   logo_path: "simplewiki-icon.svg"
   logo_alt: "Tiddlyhost-Wikiwise"

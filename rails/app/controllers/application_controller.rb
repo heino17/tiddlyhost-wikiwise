@@ -126,8 +126,10 @@ class ApplicationController < ActionController::Base
     ThostLogger.thost_logger.info(msg, request)
   end
 
+  # Production bekommt das aufrechte Logo – unabhängig von der Domain.
+  # In Development bleibt die Rotation (0.5turn) als lokaler Marker bestehen.
   def navbar_prod
-    'navbar-prod' if request.domain =~ /(tiddlyspot|tiddlyhost)\.com$/
+    'navbar-prod' if Rails.env.production?
   end
   helper_method :navbar_prod
 
