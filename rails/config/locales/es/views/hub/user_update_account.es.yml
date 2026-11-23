@@ -14,7 +14,7 @@ es:
   user_update_account_username_text: "Nombre de usuario único (opcional). Será clicable en la página Explorar."
   user_update_account_profile_image_label: "Imagen de perfil"
   user_update_account_profile_picture_label: "Imagen de perfil propia"
-  user_update_account_profile_picture_hint: "Máx. 100 KB, máx. 256 × 256 px, JPEG/PNG/GIF/WebP"
+  user_update_account_profile_picture_hint: "Máx. 100 KB; las imágenes más grandes se reducen a 256 × 256 px (JPEG/PNG/GIF/WebP)"
   user_update_account_profile_picture_remove: "Eliminar imagen de perfil"
   user_update_account_profile_picture_error_type: "debe ser una imagen JPEG, PNG, GIF o WebP"
   user_update_account_profile_picture_error_size: "debe ser menor de 100 KB"

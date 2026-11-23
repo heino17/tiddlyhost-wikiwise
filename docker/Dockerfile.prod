@@ -11,8 +11,13 @@ FROM docker.io/sbaird/tiddlyhost-base:latest@sha256:00812ebab8ce7df6e0accfe1c003
 ARG APP_USER=appuser
 ARG APP_PATH=/opt/app
 
-WORKDIR $APP_PATH
+# Needed by image_processing/mini_magick to scale oversized profile pictures.
+USER root
+RUN apt-get update -qq && apt-get install -y --no-install-recommends imagemagick && \
+  apt-get clean && rm -rf /var/lib/apt/lists/*
 USER $APP_USER
+
+WORKDIR $APP_PATH
 
 ENV \
   RAILS_LOG_TO_STDOUT=1 \

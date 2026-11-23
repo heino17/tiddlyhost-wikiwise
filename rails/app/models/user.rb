@@ -55,11 +55,27 @@ class User < ApplicationRecord
   validate :validate_profile_picture
   after_save :purge_profile_picture_if_requested, :clear_profile_picture_assignment
 
-  # Reading the dimensions here (before ActiveStorage unfurls the blob) lets us
-  # validate uploaded files without needing ImageMagick or libvips.
+  # Read the dimensions before ActiveStorage unfurls the blob. Oversized
+  # pictures are scaled down here so users get a working upload instead of an
+  # error; the regular validations still catch bad types and file sizes.
   def profile_picture=(attachable)
     @profile_picture_assigned = attachable.present?
-    @profile_picture_dimensions = ProfilePictureDimensions.from(attachable) if @profile_picture_assigned
+
+    if @profile_picture_assigned
+      dimensions = ProfilePictureDimensions.from(attachable)
+      if dimensions&.any? { |value| value > PROFILE_PICTURE_MAX_DIMENSION }
+        resized = ProfilePictureResizer.call(
+          attachable,
+          max_dimension: PROFILE_PICTURE_MAX_DIMENSION,
+          allowed_content_types: PROFILE_PICTURE_CONTENT_TYPES,
+        )
+        attachable = resized if resized
+      end
+      @profile_picture_dimensions = ProfilePictureDimensions.from(attachable)
+    else
+      @profile_picture_dimensions = nil
+    end
+
     super
   end
 

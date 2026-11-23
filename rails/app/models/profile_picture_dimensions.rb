@@ -1,9 +1,8 @@
 # Extracts image dimensions from the first bytes of an uploaded file.
 #
-# Deliberately dependency-free: ActiveStorage's image analyzers need either
-# mini_magick/ImageMagick or ruby-vips/libvips, neither of which is available
-# in this project's runtime image. Only the few bytes needed for the header
-# are read, so even large uploads stay cheap to validate.
+# Kept dependency-free on purpose: only the few bytes needed for the header
+# are read, so deciding whether a picture needs resizing stays cheap and does
+# not depend on ImageMagick being available.
 class ProfilePictureDimensions
   MAX_READ_BYTES = 128.kilobytes
 
@@ -36,8 +35,6 @@ class ProfilePictureDimensions
       end
     end
 
-    private
-
     def io_from(attachable)
       return attachable.tempfile if attachable.respond_to?(:tempfile)
       return attachable[:io] || attachable['io'] if attachable.is_a?(Hash)
@@ -52,6 +49,8 @@ class ProfilePictureDimensions
 
       nil
     end
+
+    private
 
     def png(bytes)
       return nil unless bytes.byteslice(0, 8) == "\x89PNG\r\n\x1A\n".b

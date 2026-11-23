@@ -22,11 +22,17 @@ class UserProfilePictureTest < ActiveSupport::TestCase
     assert @user.errors[:profile_picture].any? { |message| message.include?('100 KB') }
   end
 
-  test 'rejects images wider or taller than 256 pixels' do
-    @user.profile_picture = uploaded_png(width: 257, height: 100)
+  test 'scales images wider or taller than 256 pixels down' do
+    @user.profile_picture = uploaded_png(width: 400, height: 200)
 
-    refute @user.save
-    assert @user.errors[:profile_picture].any? { |message| message.include?('256') }
+    assert @user.save
+    assert @user.reload.has_profile_picture?
+    assert_equal [256, 128], @user.profile_picture_dimensions
+
+    require 'mini_magick'
+    @user.profile_picture.blob.open do |file|
+      assert_equal [256, 128], MiniMagick::Image.new(file.path).dimensions
+    end
   end
 
   test 'rejects unsupported content types' do

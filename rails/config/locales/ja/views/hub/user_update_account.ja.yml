@@ -13,7 +13,7 @@ ja:
   user_update_account_username_text: "ユニークなユーザー名（任意）。探索ページでクリック可能になります。"
   user_update_account_profile_image_label: "プロフィール画像"
   user_update_account_profile_picture_label: "独自のプロフィール画像"
-  user_update_account_profile_picture_hint: "最大 100 KB、最大 256 × 256 px、JPEG/PNG/GIF/WebP"
+  user_update_account_profile_picture_hint: "最大 100 KB。大きな画像は 256 × 256 px に縮小されます（JPEG/PNG/GIF/WebP）"
   user_update_account_profile_picture_remove: "プロフィール画像を削除"
   user_update_account_profile_picture_error_type: "JPEG、PNG、GIF、WebP 画像である必要があります"
   user_update_account_profile_picture_error_size: "100 KB 未満である必要があります"

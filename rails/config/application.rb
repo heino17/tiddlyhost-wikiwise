@@ -97,6 +97,10 @@ module App
     # Deprecated in Rails 7 so let's not use it
     #config.active_storage.replace_on_assign_to_many = false
 
+    # image_processing also brings in ruby-vips, but this app ships
+    # ImageMagick, so keep ActiveStorage on the matching processor.
+    config.active_storage.variant_processor = :mini_magick
+
     # Delayed job for background jobs
     config.active_job.queue_adapter = :delayed_job
   end

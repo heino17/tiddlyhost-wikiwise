@@ -62,6 +62,8 @@ RUN \
     #
     # Needed at build time to compile gems with native extensions
     gcc g++ make libpq-dev libicu-dev zlib1g-dev libyaml-dev \
+    # For image_processing/mini_magick (profile picture resizing)
+    imagemagick \
     #
     # For puppeteer.
     # (Even though it doesn't use the system chrome, this is the

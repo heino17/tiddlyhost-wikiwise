@@ -15,7 +15,7 @@ de:
   user_update_account_use: "Verwende"
   user_update_account_profile_image_label: "Profilbild"
   user_update_account_profile_picture_label: "Eigenes Profilbild"
-  user_update_account_profile_picture_hint: "Max. 100 KB, max. 256 × 256 px, JPEG/PNG/GIF/WebP"
+  user_update_account_profile_picture_hint: "Max. 100 KB; größere Bilder werden auf 256 × 256 px verkleinert (JPEG/PNG/GIF/WebP)"
   user_update_account_profile_picture_remove: "Profilbild entfernen"
   user_update_account_profile_picture_error_type: "muss ein JPEG-, PNG-, GIF- oder WebP-Bild sein"
   user_update_account_profile_picture_error_size: "muss kleiner als 100 KB sein"

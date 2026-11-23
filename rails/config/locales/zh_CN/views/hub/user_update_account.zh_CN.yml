@@ -14,7 +14,7 @@ zh_CN:
   user_update_account_username_text: "唯一用户名（可选）。将在探索页面上可点击。"
   user_update_account_profile_image_label: "个人资料图片"
   user_update_account_profile_picture_label: "自定义头像"
-  user_update_account_profile_picture_hint: "最大 100 KB，最大 256 × 256 像素，JPEG/PNG/GIF/WebP"
+  user_update_account_profile_picture_hint: "最大 100 KB；较大的图片会自动缩小到 256 × 256 像素（JPEG/PNG/GIF/WebP）"
   user_update_account_profile_picture_remove: "移除头像"
   user_update_account_profile_picture_error_type: "必须是 JPEG、PNG、GIF 或 WebP 图片"
   user_update_account_profile_picture_error_size: "必须小于 100 KB"

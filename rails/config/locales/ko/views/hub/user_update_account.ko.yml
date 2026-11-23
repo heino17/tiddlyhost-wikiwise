@@ -14,7 +14,7 @@ ko:
   user_update_account_username_text: "고유 사용자 이름 (선택). 탐색 페이지에서 클릭 가능."
   user_update_account_profile_image_label: "프로필 이미지"
   user_update_account_profile_picture_label: "나만의 프로필 사진"
-  user_update_account_profile_picture_hint: "최대 100KB, 최대 256 × 256px, JPEG/PNG/GIF/WebP"
+  user_update_account_profile_picture_hint: "최대 100KB, 큰 이미지는 256 × 256px로 축소됩니다 (JPEG/PNG/GIF/WebP)"
   user_update_account_profile_picture_remove: "프로필 사진 제거"
   user_update_account_profile_picture_error_type: "JPEG, PNG, GIF 또는 WebP 이미지여야 합니다"
   user_update_account_profile_picture_error_size: "100KB보다 작아야 합니다"

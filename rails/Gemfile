@@ -35,8 +35,8 @@ gem 'recaptcha'
 # Markdown
 gem 'redcarpet', '~> 3.6'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# Used to scale down oversized profile pictures before attaching them
+gem 'image_processing', '~> 1.2'
 
 # For memcached
 gem 'dalli'

@@ -8,7 +8,8 @@
 **+ Gäste-Login für jedes Wiki**  
 **+ SimpleWiki-Hosting für leichtgewichtige Dateninsel-Wikis**<br>
 **+ Live-Verfügbarkeitsprüfung der Wiki-Adresse beim Anlegen**<br>
-**+ Einheitliches Wikiwise-Branding (Logo, Favicon, Link-Icon)**
+**+ Einheitliches Wikiwise-Branding (Logo, Favicon, Link-Icon)**<br>
+**+ Eigenes Profilbild pro Benutzer (ActiveStorage, automatisch skaliert)**
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Schalter in menu bar
 
@@ -24,6 +25,7 @@
 - Der Admin-Bereich wurde um eine Registrierkarte/Tab erweitert  
   für direkten Zugriff auf einige Funktionen **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**   
 - Die Benutzerverwaltung wurde erweitert **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**  
+- Eigenes Profilbild pro Benutzer: Upload in `/users/edit`, max. 100 KB, automatische Verkleinerung auf max. 256×256 px, Anzeige u. a. in Header, Hub-Benutzerseite und Admin-Bereich. **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**
 - Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)** 
 - Gäste-Login für jedes Wiki **Siehe: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**
 - Spezielle Impressum-Seite für den Betrieb in Europa, im Admin-Bereich ein-/ausschaltbar **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**
@@ -187,7 +189,8 @@ Tiddlyhost ist eine Open-Source-Software. Sie verwendet eine BSD-Lizenz. Siehe
 **+ Guest login for every wiki**  
 **+ SimpleWiki hosting for lightweight data-island wikis**<br>
 **+ Live availability check for the wiki address during creation**<br>
-**+ Consistent Wikiwise branding (logo, favicon, link icon)**
+**+ Consistent Wikiwise branding (logo, favicon, link icon)**<br>
+**+ Custom profile picture per user (ActiveStorage, auto-scaled)**
 
 - 🇬🇧 EN, 🇩🇪 DE, 🇷🇺 RU, 🇪🇸 ES, 🇫🇷 FR, 🇯🇵 JP, 🇰🇷 KR, 🇨🇳 zh-CN - Switch in menu bar
 
@@ -202,6 +205,7 @@ Tiddlyhost ist eine Open-Source-Software. Sie verwendet eine BSD-Lizenz. Siehe
 - Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
 - A new tab has been added to the admin area for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
 - User management has been expanded **See: [Readme-User-Management.md](Readme-User-Management.md)**  
+- Custom profile picture per user: upload in `/users/edit`, max. 100 KB, automatically scaled down to max. 256×256 px, shown in the header, hub user page and admin area. **See: [Readme-User-Management.md](Readme-User-Management.md)**
 - Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 - Guest login for each wiki **See: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**  
 - Dedicated legal notice (imprint) page for operation in Europe, can be enabled/disabled in the admin area **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**

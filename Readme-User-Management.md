@@ -17,6 +17,7 @@ German and American
 ### 2. **Benutzer-Kontendetails**
 - **Benutzerdaten anzeigen**:
   - Basisdaten (Name, eMail, Benutzername, Zugriffsebene)
+  - Profilbild (eigenes Bild des Benutzers; im Admin-Bereich nur sichtbar, nicht änderbar)
   - Aktivität (Letzter Login, Anzahl der Logins, Erstellt, Bestätigt)
   - Inhalte (Anzahl der Seiten/Wikis, Anzahl Seiten in Hub-Ansicht)
 ---
@@ -55,6 +56,7 @@ German and American
   - Buttons für "Zurück zur Auswahl", "Benutzerdaten anzeigen" und "Hub-Seiten des Benutzers anzeigen"  
   - Anzeige der Tiddlyspot-Seiten wurde berücksichtigt, aber nicht getestet  
 - Keine Hardcoded‑Strings mehr im Admin‑Bereich  
+- Profilbild in der Admin-Benutzertabelle und in den Kontodetails sichtbar; eigene Bilder werden beim Speichern bei Bedarf auf max. 256×256 px verkleinert (max. 100 KB). Externe Avatare (Gravatar/Libravatar) bleiben optional.
 - Wenn sich ein Benutzer einloggt, landet er in der seiner Seitenübersicht  
 - Wenn sich ein Admin einloggt, landet er sofort in Admin-Bereich  
 ---
@@ -88,6 +90,7 @@ German and American
 ### 2. **User Account Details**
 - **Display user data**
   - Basic information (name, email, username, access level)
+  - Profile picture (the user's own image; visible only in the admin area, not editable there)
   - Activity (last login, number of logins, created, confirmed)
   - Content (number of sites/wikis, number of sites in Hub view)
 ---
@@ -127,6 +130,7 @@ German and American
   - Buttons for "Back to selection", "Show user details" and "Show user's Hub sites"
   - The rendering of Tiddlyspot pages has been taken into account, but not tested.
 - No more hardcoded strings in the admin area
+- Profile pictures are shown in the admin user table and account details; oversized uploads are automatically scaled down to max. 256×256 px (max. 100 KB). External avatars (Gravatar/Libravatar) remain optional.
 - When a user logs in, they land on their page overview.
 - When an administrator logs in, they are immediately taken to the admin area.
 

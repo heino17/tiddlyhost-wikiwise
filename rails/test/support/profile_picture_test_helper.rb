@@ -30,9 +30,10 @@ module ProfilePictureTestHelper
 
   def png_bytes(width, height)
     ihdr = [width, height, 8, 6, 0, 0, 0].pack('NNC5')
+    scanlines = ("\x00".b + "\x00" * (width * 4)) * height
     "\x89PNG\r\n\x1A\n".b +
       png_chunk('IHDR', ihdr) +
-      png_chunk('IDAT', Zlib::Deflate.deflate('')) +
+      png_chunk('IDAT', Zlib::Deflate.deflate(scanlines)) +
       png_chunk('IEND', '')
   end
 
