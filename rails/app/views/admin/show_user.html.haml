@@ -18,6 +18,13 @@
         %th.text-muted= t('admin.tab_users.users_username')
         %td= @user.username.presence || "—"
       %tr
+        %th.text-muted= t('admin.tab_users.users_profile_picture')
+        %td
+          - if @user.has_profile_picture?
+            = avatar_image(@user, size: 32)
+          - else
+            = "—"
+      %tr
         %th.text-muted= t('admin.tab_users.users_access_level')
         %td= @user.user_type.name
 

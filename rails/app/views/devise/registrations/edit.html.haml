@@ -24,6 +24,19 @@
       = f.text_field :username, autofocus: true, autofill: 'off', autocomplete: 'off', class: 'form-control'
       .form-text= t('user_update_account_username_text')
 
+    -# Own upload is always available, independent of external avatar settings.
+    = render layout: 'field_wrapper' do
+      = f.label :profile_picture, t('user_update_account_profile_picture_label')
+      - if resource.has_profile_picture?
+        .my-2
+          = avatar_image(resource, size: 48)
+      .form-text= t('user_update_account_profile_picture_hint')
+      = f.file_field :profile_picture, accept: 'image/jpeg,image/png,image/gif,image/webp', class: 'form-control'
+      - if resource.has_profile_picture?
+        .form-check.mt-2
+          = f.check_box :remove_profile_picture, class: 'form-check-input'
+          = f.label :remove_profile_picture, t('user_update_account_profile_picture_remove'), class: 'form-check-label'
+
     - if Setting.enabled?(:avatars_enabled)
       = render layout: 'field_wrapper' do
         = f.label t('user_update_account_profile_image_label')

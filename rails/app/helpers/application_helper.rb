@@ -212,7 +212,17 @@ module ApplicationHelper
   end
 
   def avatar_image(user, opts = {})
-    user.use_libravatar? ? libravatar_image(user, opts) : gravatar_image(user, opts)
+    opts[:size] ||= 80
+    opts[:class] ||= 'avatar'
+
+    if user.has_profile_picture?
+      opts[:alt] ||= user.name
+      image_tag(rails_storage_proxy_path(user.profile_picture), opts)
+    elsif user.use_libravatar?
+      libravatar_image(user, opts)
+    else
+      gravatar_image(user, opts)
+    end
   end
 
   def bool_text(bool_val, true_text: 'Y', false_text: 'N')

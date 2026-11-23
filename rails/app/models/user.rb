@@ -42,6 +42,27 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
+  PROFILE_PICTURE_CONTENT_TYPES = %w[image/jpeg image/png image/gif image/webp].freeze
+  PROFILE_PICTURE_MAX_BYTES = 100.kilobytes
+  PROFILE_PICTURE_MAX_DIMENSION = 256
+
+  has_one_attached :profile_picture
+
+  attr_accessor :remove_profile_picture
+
+  attr_reader :profile_picture_dimensions
+
+  validate :validate_profile_picture
+  after_save :purge_profile_picture_if_requested, :clear_profile_picture_assignment
+
+  # Reading the dimensions here (before ActiveStorage unfurls the blob) lets us
+  # validate uploaded files without needing ImageMagick or libvips.
+  def profile_picture=(attachable)
+    @profile_picture_assigned = attachable.present?
+    @profile_picture_dimensions = ProfilePictureDimensions.from(attachable) if @profile_picture_assigned
+    super
+  end
+
   has_many :sites, dependent: :destroy
   has_many :tspot_sites, dependent: :nullify
 
@@ -153,9 +174,52 @@ class User < ApplicationRecord
     is_superuser?
   end
 
-  def use_avatar?
-    use_gravatar? || use_libravatar?
+  # A freshly assigned upload has a blob that isn't persisted until save.
+  # Only serve pictures that are actually available through ActiveStorage.
+  def has_profile_picture?
+    profile_picture.attached? && profile_picture.blob.persisted?
   end
+
+  def use_avatar?
+    has_profile_picture? || use_gravatar? || use_libravatar?
+  end
+
+  private
+
+  def validate_profile_picture
+    return unless profile_picture.attached?
+    return unless @profile_picture_assigned
+
+    blob = profile_picture.blob
+    return if blob.nil?
+
+    unless PROFILE_PICTURE_CONTENT_TYPES.include?(blob.content_type)
+      errors.add(:profile_picture, I18n.t('user_update_account_profile_picture_error_type'))
+    end
+
+    if blob.byte_size.to_i > PROFILE_PICTURE_MAX_BYTES
+      errors.add(:profile_picture, I18n.t('user_update_account_profile_picture_error_size'))
+    end
+
+    dimensions = @profile_picture_dimensions
+    if dimensions && dimensions.any? { |value| value.to_i > PROFILE_PICTURE_MAX_DIMENSION }
+      errors.add(:profile_picture,
+        I18n.t('user_update_account_profile_picture_error_dimensions', max: PROFILE_PICTURE_MAX_DIMENSION))
+    end
+  end
+
+  def purge_profile_picture_if_requested
+    return unless ActiveModel::Type::Boolean.new.cast(remove_profile_picture)
+
+    profile_picture.purge
+    self.remove_profile_picture = false
+  end
+
+  def clear_profile_picture_assignment
+    @profile_picture_assigned = false
+  end
+
+  public
 
   def is_tiddlyhost?
     email == Settings.tiddlyhost_account_email

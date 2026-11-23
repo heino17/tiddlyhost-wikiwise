@@ -62,6 +62,7 @@ ja:
       users_name: "名前"
       users_email: "メール"
       users_username: "ユーザー名"
+      users_profile_picture: "プロフィール画像"
       users_access_level: "アクセスレベル"
       users_password: "パスワード"
       users_password_confirmation: "パスワード確認"

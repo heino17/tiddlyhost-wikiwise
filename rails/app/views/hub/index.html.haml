@@ -3,7 +3,7 @@
     = bi_icon('tag') + @tag
   - elsif @user.present?
     - if @user.use_avatar?
-      = avatar_image(@user, size: 30,
+      = avatar_image(@user, size: 32,
         style: 'vertical-align: top; margin-top: 0.25em; margin-right: 0.1em;') + @user.name
     - else
       = bi_icon('person-fill') + @user.name

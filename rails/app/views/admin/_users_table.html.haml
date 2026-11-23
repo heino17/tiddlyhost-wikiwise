@@ -4,8 +4,7 @@
     %th= sort_link t('admin.tab_users_table_headers.th_name'), key: 'name', default_dir: :asc
     %th= sort_link t('admin.tab_users_table_headers.th_username'), key: 'username', default_dir: :asc
     %th= sort_link t('admin.tab_users_table_headers.th_email'), key: 'email', default_dir: :asc
-    - if Setting.enabled?(:avatars_enabled)
-      %th= sort_link t('admin.tab_users_table_headers.th_av'), key: 'av'
+    %th= sort_link t('admin.tab_users_table_headers.th_av'), key: 'av'
     %th= sort_link t('admin.tab_users_table_headers.th_type'), key: 'type'
     %th= sort_link t('admin.tab_users_table_headers.th_subscription'), key: 'subscription', default_dir: :asc
     %th= sort_link t('admin.tab_users_table_headers.th_logins'), key: 'logins'
@@ -25,10 +24,9 @@
       %td= turbo_off_link_to user.name, admin_user_path(user)
       %td= turbo_off_link_to user.username, admin_user_path(user)
       %td= turbo_off_link_to user.email, admin_user_path(user)
-      - if Setting.enabled?(:avatars_enabled)
-        %td
-          - if user.use_avatar?
-            = avatar_image(user, size: 18)
+      %td
+        - if user.has_profile_picture? || (Setting.enabled?(:avatars_enabled) && user.use_avatar?)
+          = avatar_image(user, size: 18)
       %td= user.user_type.name
       %td= plan_name_with_indicator(user)
       %td= user.sign_in_count

@@ -61,6 +61,7 @@ zh_CN:
       users_name: "姓名"
       users_email: "邮箱"
       users_username: "用户名"
+      users_profile_picture: "个人资料图片"
       users_access_level: "访问级别"
       users_password: "密码"
       users_password_confirmation: "确认密码"

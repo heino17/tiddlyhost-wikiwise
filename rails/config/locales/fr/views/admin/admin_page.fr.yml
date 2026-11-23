@@ -62,6 +62,7 @@ fr:
       users_name: "Nom"
       users_email: "Email"
       users_username: "Nom d’utilisateur"
+      users_profile_picture: "Image de profil"
       users_access_level: "Niveau d’accès"
       users_password: "Mot de passe"
       users_password_confirmation: "Confirmer le mot de passe"

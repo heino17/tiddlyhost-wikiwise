@@ -62,6 +62,7 @@ en:
       users_name: "Name"
       users_email: "Email"
       users_username: "Username"
+      users_profile_picture: "Profile picture"
       users_access_level: "Access level"
       users_password: "Password"
       users_password_confirmation: "Confirm password"

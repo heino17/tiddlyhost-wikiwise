@@ -64,6 +64,7 @@ ru:
       users_name: "Имя"
       users_email: "Email"
       users_username: "Имя пользователя"
+      users_profile_picture: "Изображение профиля"
       users_access_level: "Уровень доступа"
       users_password: "Пароль"
       users_password_confirmation: "Подтвердите пароль"
