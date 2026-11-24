@@ -15,6 +15,7 @@
     %th= sort_link t('admin.tab_users_table_headers.th_last_sign_in'), key: 'last_sign_in'
     %th= sort_link t('admin.tab_users_table_headers.th_created'), key: 'created'
     %th= sort_link t('admin.tab_users_table_headers.th_confirmed'), key: 'confirmed'
+    %th= t('admin.tab_users_table_headers.th_status')
 
 %tbody
   %tr
@@ -39,5 +40,10 @@
       -# Show the timespan since it is more interesting than the raw timestamp
         %td= nice_timespan(user.created_at, user.confirmed_at)
       %td= nice_timestamp user.confirmed_at
+      %td
+        - if user.suspended?
+          %span.badge.bg-danger= t('admin.site_status.suspended')
+        - else
+          %span.badge.bg-success= t('admin.site_status.active')
   %tr
     = turbo_off_link_to t('admin.tab_users.new_user'), admin_new_user_path, class: "btn btn-primary btn-sm"

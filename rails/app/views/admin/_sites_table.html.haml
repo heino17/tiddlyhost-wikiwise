@@ -31,6 +31,8 @@
     %th= sort_link t('admin.tab_sites_table_headers.th_last_access'), key: 'last_access'
     %th= sort_link t('admin.tab_sites_table_headers.th_last_update'), key: 'last_update'
     %th= sort_link t('admin.tab_sites_table_headers.th_created'), key: 'created'
+    %th= t('admin.tab_sites_table_headers.th_status')
+    %th= t('admin.tab_sites_table_headers.th_actions')
 
 %tbody
   - records.each do |site|
@@ -67,3 +69,10 @@
       %td= nice_timestamp site.accessed_at
       %td= nice_timestamp site.blob_created_at
       %td= nice_timestamp site.created_at
+      %td= site_status_badge(site, show_active: true)
+      %td.nowrap
+        - if site.suspended?
+          = button_to t('admin.tab_sites.sites_unsuspend'), admin_unsuspend_site_path(site), method: :patch, data: { turbo: false }, class: "btn btn-sm btn-outline-success mb-1"
+        - else
+          = button_to t('admin.tab_sites.sites_suspend'), admin_suspend_site_path(site), method: :patch, data: { turbo: false, confirm: t('admin.tab_sites.sites_suspend_confirm') }, class: "btn btn-sm btn-outline-warning mb-1"
+        = button_to t('admin.tab_sites.sites_delete'), admin_destroy_site_path(site), method: :delete, data: { turbo: false, confirm: t('admin.tab_sites.sites_delete_confirm', name: site.name) }, class: "btn btn-sm btn-outline-danger"

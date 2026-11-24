@@ -119,6 +119,23 @@ module SiteCommon
     is_public? && is_searchable?
   end
 
+  # A wiki can be suspended directly by an admin, or indirectly by suspending
+  # its owner. TspotSites use their own `deleted` flag instead of `suspended`.
+  def available?
+    return false if user&.suspended?
+    return false if respond_to?(:suspended?) && suspended?
+    return false if respond_to?(:deleted?) && deleted?
+
+    true
+  end
+
+  def suspension_source
+    return :user if user&.suspended?
+    return :site if respond_to?(:suspended?) && suspended?
+
+    nil
+  end
+
   def long_name
     URI(url).hostname
   end

@@ -112,6 +112,9 @@ class User < ApplicationRecord
       message: "'%<value>s' is not allowed. Please choose a different username.",
     }
 
+  scope :suspended,     -> { where(suspended: true) }
+  scope :not_suspended, -> { where(suspended: false) }
+
   scope :signed_in_never,          ->        { where(sign_in_count: 0) }
   scope :signed_in_once,           ->        { where(sign_in_count: 1) }
   scope :signed_in_more_than,      ->(times) { where('sign_in_count > ?', times) }
@@ -188,6 +191,24 @@ class User < ApplicationRecord
 
   def is_admin?
     is_superuser?
+  end
+
+  # Admin suspension is separate from Devise's lockable feature (which is used
+  # for repeated failed logins). Devise checks this on every request, so an
+  # already open session is dropped on the next request as well.
+  def active_for_authentication?
+    super && !suspended?
+  end
+
+  def inactive_message
+    suspended? ? :suspended : super
+  end
+
+  # Devise does not check active_for_authentication? when sending reset mails.
+  def send_reset_password_instructions
+    return if suspended?
+
+    super
   end
 
   # A freshly assigned upload has a blob that isn't persisted until save.

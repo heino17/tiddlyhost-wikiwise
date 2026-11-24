@@ -11,6 +11,7 @@ es:
       inactive: "Tu cuenta aún no está activada."
       invalid: "%{authentication_keys} o contraseña inválidos."
       locked: "Tu cuenta está bloqueada."
+      suspended: "Tu cuenta está bloqueada."
       last_attempt: "Te queda un intento antes de que se bloquee tu cuenta."
       not_found_in_database: "%{authentication_keys} o contraseña inválidos."
       timeout: "Tu sesión ha expirado. Por favor, inicia sesión nuevamente."

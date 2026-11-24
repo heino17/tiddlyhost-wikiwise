@@ -55,6 +55,12 @@ ja:
       th_last_sign_in: "最終ログイン"
       th_created: "作成日"
       th_confirmed: "確認済み"
+      th_status: "状態"
+    site_status:
+      active: "有効"
+      suspended: "停止中"
+      user_suspended: "停止中 (ユーザー)"
+      #
     tab_users:
       new_user: "新しいユーザーアカウントを作成 🛠️"
       sites_count:
@@ -99,6 +105,13 @@ ja:
       users_edit_user_account_flash_dont_delete_yourself: "自分自身のアカウントを削除することはできません！"
       users_edit_user_account_flash_deleted: "ユーザーアカウントを削除しました！"
       users_edit_user_account_flash_no_permission: "権限がありません！"
+      users_status: "状態"
+      users_suspend: "ユーザーを停止 🚫"
+      users_unsuspend: "ユーザーの停止を解除 ✅"
+      users_suspend_confirm: "このユーザーとその Wiki をすべて停止しますか？"
+      users_flash_suspended: "ユーザー「%{name}」を停止しました。"
+      users_flash_unsuspended: "ユーザー「%{name}」の停止を解除しました。"
+      users_edit_user_account_flash_dont_suspend_yourself: "自分のアカウントは停止できません！"
     password:
       strength:
         0: "とても弱い"
@@ -139,6 +152,10 @@ ja:
         any:     "任意のステータス"
         none:    "未購読"
         #
+      site_suspended_yes: "停止中"
+      site_suspended_no: "停止中でない"
+      user_suspended_yes: "停止中"
+      user_suspended_no: "停止中でない"
     tab_sites_table_headers:
       th_id: "ID"
       th_name: "名前"
@@ -164,6 +181,17 @@ ja:
       th_last_access: "最終アクセス"
       th_last_update: "最終更新"
       th_created: "作成日"
+      th_status: "状態"
+      th_actions: "操作"
+    tab_sites:
+      sites_suspend: "停止 🚫"
+      sites_unsuspend: "停止解除 ✅"
+      sites_delete: "削除 🗑️"
+      sites_suspend_confirm: "この Wiki を停止しますか？アクセスできなくなります。"
+      sites_delete_confirm: "Wiki「%{name}」を本当に削除しますか？元に戻せません！"
+      sites_flash_suspended: "Wiki「%{name}」を停止しました。"
+      sites_flash_unsuspended: "Wiki「%{name}」の停止を解除しました。"
+      sites_flash_deleted: "Wiki「%{name}」を削除しました。"
     tab_sites_user_links:
       back_to_selection: "選択に戻る"
       view_user_data: "ユーザーデータを表示"

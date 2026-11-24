@@ -54,6 +54,12 @@ fr:
       th_last_sign_in: "Dernière connexion"
       th_created: "Créé"
       th_confirmed: "Confirmé"
+      th_status: "Statut"
+    site_status:
+      active: "Actif"
+      suspended: "Bloqué"
+      user_suspended: "Bloqué (utilisateur)"
+      #
     tab_users:
       new_user: "Créer un nouveau compte utilisateur 🛠️"
       sites_count:
@@ -99,6 +105,13 @@ fr:
       users_edit_user_account_flash_dont_delete_yourself: "Vous ne pouvez pas supprimer votre propre compte !"
       users_edit_user_account_flash_deleted: "Compte utilisateur supprimé !"
       users_edit_user_account_flash_no_permission: "Aucune autorisation !"
+      users_status: "Statut"
+      users_suspend: "Bloquer l'utilisateur 🚫"
+      users_unsuspend: "Débloquer l'utilisateur ✅"
+      users_suspend_confirm: "Bloquer cet utilisateur et tous ses wikis ?"
+      users_flash_suspended: "Utilisateur « %{name} » bloqué."
+      users_flash_unsuspended: "Utilisateur « %{name} » débloqué."
+      users_edit_user_account_flash_dont_suspend_yourself: "Vous n'avez pas le droit de bloquer votre propre compte !"
     password:
       strength:
         0: "Très faible"
@@ -139,6 +152,10 @@ fr:
         any:     "tout statut"
         none:    "sans abonnement"
       #
+      site_suspended_yes: "bloqué"
+      site_suspended_no: "non bloqué"
+      user_suspended_yes: "bloqué"
+      user_suspended_no: "non bloqué"
     tab_sites_table_headers:
       th_id: "Id"
       th_name: "Nom"
@@ -164,6 +181,17 @@ fr:
       th_last_access: "Dernier accès"
       th_last_update: "Dernière mise à jour"
       th_created: "Créé"
+      th_status: "Statut"
+      th_actions: "Actions"
+    tab_sites:
+      sites_suspend: "Bloquer 🚫"
+      sites_unsuspend: "Débloquer ✅"
+      sites_delete: "Supprimer 🗑️"
+      sites_suspend_confirm: "Bloquer ce wiki ? Il ne sera plus accessible."
+      sites_delete_confirm: "Vraiment supprimer le wiki « %{name} » ? Cette action est irréversible !"
+      sites_flash_suspended: "Wiki « %{name} » bloqué."
+      sites_flash_unsuspended: "Wiki « %{name} » débloqué."
+      sites_flash_deleted: "Wiki « %{name} » supprimé."
     tab_sites_user_links:
       back_to_selection: "Retour à la sélection"
       view_user_data: "Afficher les données utilisateur"

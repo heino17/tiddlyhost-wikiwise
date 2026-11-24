@@ -11,6 +11,7 @@ ja:
       inactive: "アカウントがまだ有効化されていません。"
       invalid: "%{authentication_keys} またはパスワードが正しくありません。"
       locked: "アカウントがロックされています。"
+      suspended: "アカウントが停止されています。"
       last_attempt: "あと1回の試行でアカウントがロックされます。"
       not_found_in_database: "%{authentication_keys} またはパスワードが正しくありません。"
       timeout: "セッションが期限切れになりました。続行するには再度ログインしてください。"

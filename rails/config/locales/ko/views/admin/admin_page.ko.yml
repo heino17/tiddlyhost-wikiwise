@@ -55,6 +55,12 @@ ko:
       th_last_sign_in: "마지막 로그인"
       th_created: "생성일"
       th_confirmed: "확인됨"
+      th_status: "상태"
+    site_status:
+      active: "활성"
+      suspended: "정지됨"
+      user_suspended: "정지됨 (사용자)"
+      #
     tab_users:
       new_user: "새 사용자 계정 만들기 🛠️"
       sites_count:
@@ -99,6 +105,13 @@ ko:
       users_edit_user_account_flash_dont_delete_yourself: "자기 자신의 계정은 삭제할 수 없습니다!"
       users_edit_user_account_flash_deleted: "사용자 계정이 삭제되었습니다!"
       users_edit_user_account_flash_no_permission: "권한이 없습니다!"
+      users_status: "상태"
+      users_suspend: "사용자 정지 🚫"
+      users_unsuspend: "사용자 정지 해제 ✅"
+      users_suspend_confirm: "이 사용자와 모든 위키를 정지할까요?"
+      users_flash_suspended: "사용자 「%{name}」을(를) 정지했습니다."
+      users_flash_unsuspended: "사용자 「%{name}」의 정지를 해제했습니다."
+      users_edit_user_account_flash_dont_suspend_yourself: "자기 계정은 정지할 수 없습니다!"
     password:
       strength:
         0: "매우 약함"
@@ -139,6 +152,10 @@ ko:
         any:     "모든 상태"
         none:    "구독 없음"
         #
+      site_suspended_yes: "정지됨"
+      site_suspended_no: "정지되지 않음"
+      user_suspended_yes: "정지됨"
+      user_suspended_no: "정지되지 않음"
     tab_sites_table_headers:
       th_id: "ID"
       th_name: "이름"
@@ -164,6 +181,17 @@ ko:
       th_last_access: "마지막 접근"
       th_last_update: "마지막 업데이트"
       th_created: "생성일"
+      th_status: "상태"
+      th_actions: "작업"
+    tab_sites:
+      sites_suspend: "정지 🚫"
+      sites_unsuspend: "정지 해제 ✅"
+      sites_delete: "삭제 🗑️"
+      sites_suspend_confirm: "이 위키를 정지할까요? 더 이상 접근할 수 없습니다."
+      sites_delete_confirm: "위키 「%{name}」을(를) 정말 삭제할까요? 되돌릴 수 없습니다!"
+      sites_flash_suspended: "위키 「%{name}」을(를) 정지했습니다."
+      sites_flash_unsuspended: "위키 「%{name}」의 정지를 해제했습니다."
+      sites_flash_deleted: "위키 「%{name}」을(를) 삭제했습니다."
     tab_sites_user_links:
       back_to_selection: "선택으로 돌아가기"
       view_user_data: "사용자 데이터 보기"

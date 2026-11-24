@@ -25,6 +25,7 @@
           %tr
             %td.small
               .sitelink= site_pretty_link(site, name: site.name, target: site.long_name)
+              = site_status_badge(site)
               - if site.description.present?
                 .description= span_with_title(site.description)
               - unless site.tag_list.empty?

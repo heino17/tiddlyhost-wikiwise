@@ -51,7 +51,16 @@ class Site < ApplicationRecord
   scope :never_updated,         -> { where("AGE(sites.updated_at, sites.created_at) <= INTERVAL '0.5 SECOND'") }
   scope :updated_at_least_once, -> { where("AGE(sites.updated_at, sites.created_at) >  INTERVAL '0.5 SECOND'") }
 
-  scope :for_hub, -> { searchable.updated_at_least_once }
+  scope :suspended, -> { where(suspended: true) }
+  scope :not_suspended, -> { where(suspended: false) }
+
+  # Owners are joined here so a suspended account hides all of its wikis,
+  # without having to rewrite the site records when the account is suspended.
+  scope :available, lambda {
+    not_suspended.joins(:user).where(users: { suspended: false })
+  }
+
+  scope :for_hub, -> { available.searchable.updated_at_least_once }
 
   scope :templates_only, -> { where(is_private: false, allow_public_clone: true) }
 

@@ -11,6 +11,7 @@ ko:
       inactive: "아직 계정이 활성화되지 않았습니다."
       invalid: "%{authentication_keys} 또는 비밀번호가 올바르지 않습니다."
       locked: "계정이 잠겨 있습니다."
+      suspended: "계정이 정지되었습니다."
       last_attempt: "한 번 더 시도할 수 있습니다. 그 후 계정이 잠깁니다."
       not_found_in_database: "%{authentication_keys} 또는 비밀번호가 올바르지 않습니다."
       timeout: "세션이 만료되었습니다. 계속하려면 다시 로그인해주세요."

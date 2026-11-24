@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_10_27_220000) do
+ActiveRecord::Schema[7.2].define(version: 2026_11_24_120100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -276,10 +276,13 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_27_220000) do
     t.datetime "last_collab_saved_at"
     t.string "display_name"
     t.string "subtitle"
+    t.boolean "suspended", default: false, null: false
+    t.datetime "suspended_at"
     t.index ["cloned_from_id"], name: "index_sites_on_cloned_from_id"
     t.index ["comments_count"], name: "index_sites_on_comments_count"
     t.index ["empty_id"], name: "index_sites_on_empty_id"
     t.index ["name"], name: "index_sites_on_name", unique: true
+    t.index ["suspended"], name: "index_sites_on_suspended"
     t.index ["user_id"], name: "index_sites_on_user_id"
     t.index ["vote_score"], name: "index_sites_on_vote_score"
     t.index ["votes_count"], name: "index_sites_on_votes_count"
@@ -370,9 +373,12 @@ ActiveRecord::Schema[7.2].define(version: 2026_10_27_220000) do
     t.boolean "use_libravatar", default: false
     t.string "alt_subscription"
     t.json "preferences", default: {}
+    t.boolean "suspended", default: false, null: false
+    t.datetime "suspended_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["suspended"], name: "index_users_on_suspended"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end

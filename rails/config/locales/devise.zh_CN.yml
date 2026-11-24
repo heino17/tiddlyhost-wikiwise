@@ -11,6 +11,7 @@ zh_CN:
       inactive: "您的账户尚未激活。"
       invalid: "%{authentication_keys} 或密码无效。"
       locked: "您的账户已被锁定。"
+      suspended: "您的账户已被停用。"
       last_attempt: "您还有一次尝试机会，之后账户将被锁定。"
       not_found_in_database: "%{authentication_keys} 或密码无效。"
       timeout: "您的会话已过期。请重新登录以继续。"

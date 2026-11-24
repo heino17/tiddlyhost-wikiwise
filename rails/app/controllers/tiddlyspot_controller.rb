@@ -66,7 +66,7 @@ class TiddlyspotController < ApplicationController
   def find_site
     @site_name = request.subdomain
     @site = TspotSite.find_and_populate(@site_name)
-    render :site_not_found, status: 404 unless @site
+    render :site_not_found, status: 404 unless @site&.available?
   end
 
   def redirect_maybe

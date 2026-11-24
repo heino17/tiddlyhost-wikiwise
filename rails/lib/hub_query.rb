@@ -108,8 +108,8 @@ module HubQuery
   def self.most_used_tags(for_templates: false)
     # We want tags from just the sites that are visible in the hub
 
-    from_sites = Site.searchable.updated_at_least_once
-    from_tspot_sites = TspotSite.searchable
+    from_sites = Site.available.searchable.updated_at_least_once
+    from_tspot_sites = TspotSite.available.searchable
 
     if for_templates
       from_sites = from_sites.where(allow_public_clone: true)

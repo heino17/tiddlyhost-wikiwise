@@ -54,6 +54,12 @@ ru:
       th_last_sign_in: "Последний вход"
       th_created: "Создано"
       th_confirmed: "Подтверждено"
+      th_status: "Статус"
+    site_status:
+      active: "Активно"
+      suspended: "Заблокировано"
+      user_suspended: "Заблокировано (пользователь)"
+      #
     tab_users:
       new_user: "Создать новую учетную запись 🛠️"
       sites_count:
@@ -101,6 +107,13 @@ ru:
       users_edit_user_account_flash_dont_delete_yourself: "Вы не можете удалить свою собственную учетную запись!"
       users_edit_user_account_flash_deleted: "Учетная запись удалена!"
       users_edit_user_account_flash_no_permission: "Нет прав!"
+      users_status: "Статус"
+      users_suspend: "Заблокировать пользователя 🚫"
+      users_unsuspend: "Разблокировать пользователя ✅"
+      users_suspend_confirm: "Заблокировать пользователя и все его вики?"
+      users_flash_suspended: "Пользователь «%{name}» заблокирован."
+      users_flash_unsuspended: "Пользователь «%{name}» разблокирован."
+      users_edit_user_account_flash_dont_suspend_yourself: "Нельзя заблокировать собственную учётную запись!"
     password:
       strength:
         0: "Очень слабый"
@@ -146,6 +159,10 @@ ru:
         any:     "любой статус"
         none:    "без подписки"
       #
+      site_suspended_yes: "заблокировано"
+      site_suspended_no: "не заблокировано"
+      user_suspended_yes: "заблокировано"
+      user_suspended_no: "не заблокировано"
     tab_sites_table_headers:
       th_id: "ID"
       th_name: "Имя"
@@ -171,6 +188,17 @@ ru:
       th_last_access: "Последний доступ"
       th_last_update: "Последнее обновление"
       th_created: "Создано"
+      th_status: "Статус"
+      th_actions: "Действия"
+    tab_sites:
+      sites_suspend: "Заблокировать 🚫"
+      sites_unsuspend: "Разблокировать ✅"
+      sites_delete: "Удалить 🗑️"
+      sites_suspend_confirm: "Заблокировать эту вики? Она станет недоступна."
+      sites_delete_confirm: "Действительно удалить вики «%{name}»? Это нельзя отменить!"
+      sites_flash_suspended: "Вики «%{name}» заблокирована."
+      sites_flash_unsuspended: "Вики «%{name}» разблокирована."
+      sites_flash_deleted: "Вики «%{name}» удалена."
     tab_sites_user_links:
       back_to_selection: "Назад к выбору"
       view_user_data: "Просмотреть данные пользователя"

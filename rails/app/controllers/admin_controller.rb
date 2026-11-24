@@ -75,6 +75,52 @@ class AdminController < ApplicationController
     render_records Site.left_joins(:user, :empty).with_blobs_for_query.group(:id)
   end
 
+  def suspend_site
+    site = Site.find(params[:id])
+    site.update!(suspended: true, suspended_at: Time.current)
+
+    redirect_back fallback_location: admin_sites_path,
+                  notice: t('admin.tab_sites.sites_flash_suspended', name: site.name)
+  end
+
+  def unsuspend_site
+    site = Site.find(params[:id])
+    site.update!(suspended: false, suspended_at: nil)
+
+    redirect_back fallback_location: admin_sites_path,
+                  notice: t('admin.tab_sites.sites_flash_unsuspended', name: site.name)
+  end
+
+  def destroy_site
+    site = Site.find(params[:id])
+    name = site.name
+    site.destroy
+
+    redirect_back fallback_location: admin_sites_path,
+                  notice: t('admin.tab_sites.sites_flash_deleted', name: name)
+  end
+
+  def suspend_user
+    user = User.find(params[:id])
+    if user == current_user
+      return redirect_to admin_user_path(user),
+            alert: t('admin.tab_users.users_edit_user_account_flash_dont_suspend_yourself')
+    end
+
+    user.update!(suspended: true, suspended_at: Time.current)
+
+    redirect_back fallback_location: admin_user_path(user),
+                  notice: t('admin.tab_users.users_flash_suspended', name: user.username_or_email)
+  end
+
+  def unsuspend_user
+    user = User.find(params[:id])
+    user.update!(suspended: false, suspended_at: nil)
+
+    redirect_back fallback_location: admin_user_path(user),
+                  notice: t('admin.tab_users.users_flash_unsuspended', name: user.username_or_email)
+  end
+
   def tspot_sites
     render_records TspotSite.left_joins(:user).with_blobs_for_query.group(:id)
   end
@@ -364,6 +410,20 @@ class AdminController < ApplicationController
       deleted: {
         '1' => { title: I18n.t('admin.radio_filter.deleted.yes'),    filter: ->(r) { r.where.not(deleted: false) } },
         '0' => { title: I18n.t('admin.radio_filter.deleted.no'),     filter: ->(r) { r.where(deleted: false) } },
+      },
+      site_suspended: {
+        '1' => {
+          title: I18n.t('admin.radio_filter.site_suspended_yes'),
+          filter: ->(r) { r.where(suspended: true).or(r.where(users: { suspended: true })) },
+        },
+        '0' => {
+          title: I18n.t('admin.radio_filter.site_suspended_no'),
+          filter: ->(r) { r.where(suspended: false).where(users: { suspended: [nil, false] }) },
+        },
+      },
+      user_suspended: {
+        '1' => { title: I18n.t('admin.radio_filter.user_suspended_yes'), filter: ->(r) { r.where(suspended: true) } },
+        '0' => { title: I18n.t('admin.radio_filter.user_suspended_no'),  filter: ->(r) { r.where(suspended: false) } },
       },
       kind: {
         filter: ->(r, kind) { r.where(tw_kind: kind) },

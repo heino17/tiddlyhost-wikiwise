@@ -53,6 +53,12 @@ de:
       th_last_sign_in: "Vorherige Anmeldung"
       th_created: "Erstellt"
       th_confirmed: "Bestätigt"
+      th_status: "Status"
+    site_status:
+      active: "Aktiv"
+      suspended: "Gesperrt"
+      user_suspended: "Gesperrt (User)"
+      #
     tab_users:
       new_user: "Neues Benutzerkonto erstellen 🛠️"
       sites_count:
@@ -98,6 +104,13 @@ de:
       users_edit_user_account_flash_dont_delete_yourself: "Du darfst deinen eigenen Account nicht löschen!"
       users_edit_user_account_flash_deleted: "Benutzerkonto gelöscht!"
       users_edit_user_account_flash_no_permission: "Keine Berechtigung!"
+      users_status: "Status"
+      users_suspend: "User sperren 🚫"
+      users_unsuspend: "Sperre aufheben ✅"
+      users_suspend_confirm: "Diesen User und alle seine Wikis sperren?"
+      users_flash_suspended: "User „%{name}“ gesperrt."
+      users_flash_unsuspended: "User „%{name}“ entsperrt."
+      users_edit_user_account_flash_dont_suspend_yourself: "Du darfst deinen eigenen Account nicht sperren!"
     password:
       strength:
         0: "Sehr schwach"
@@ -138,6 +151,10 @@ de:
         any:     "beliebiger Status"
         none:    "kein Abo"
         #
+      site_suspended_yes: "gesperrt"
+      site_suspended_no: "nicht gesperrt"
+      user_suspended_yes: "gesperrt"
+      user_suspended_no: "nicht gesperrt"
     tab_sites_table_headers:
       th_id: "Id"
       th_name: "Name"
@@ -163,6 +180,17 @@ de:
       th_last_access: "Letzte Anmeldung"
       th_last_update: "Letztes Update"
       th_created: "Erstellt"
+      th_status: "Status"
+      th_actions: "Aktionen"
+    tab_sites:
+      sites_suspend: "Sperren 🚫"
+      sites_unsuspend: "Sperre aufheben ✅"
+      sites_delete: "Löschen 🗑️"
+      sites_suspend_confirm: "Dieses Wiki sperren? Es ist danach nicht mehr erreichbar."
+      sites_delete_confirm: "Wiki „%{name}“ wirklich löschen? Das kann nicht rückgängig gemacht werden!"
+      sites_flash_suspended: "Wiki „%{name}“ gesperrt."
+      sites_flash_unsuspended: "Wiki „%{name}“ entsperrt."
+      sites_flash_deleted: "Wiki „%{name}“ gelöscht."
     tab_sites_user_links:
       back_to_selection: "Zurück zur Auswahl"
       view_user_data: "Benutzerdaten anzeigen"

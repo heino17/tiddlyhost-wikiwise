@@ -23,7 +23,14 @@ class TspotSite < ApplicationRecord
   alias_attribute :view_count, :access_count
 
   scope :owned, -> { where.not(user_id: nil) }
-  scope :for_hub, -> { searchable.owned }
+
+  # Tspot sites have no own suspend flag; they follow the owner's account.
+  # Unowned legacy sites stay available.
+  scope :available, lambda {
+    left_joins(:user).where(users: { suspended: [nil, false] })
+  }
+
+  scope :for_hub, -> { available.searchable.owned }
 
   # No tspot sites can be templates
   scope :templates_only, -> { where('1 = 2') }

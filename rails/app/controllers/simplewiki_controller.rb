@@ -146,7 +146,7 @@ class SimplewikiController < ApplicationController
   end
 
   def site_exists?
-    @site.present?
+    @site.present? && @site.available?
   end
 
   def find_site

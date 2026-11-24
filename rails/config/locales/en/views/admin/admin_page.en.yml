@@ -54,6 +54,12 @@ en:
       th_last_sign_in: "Last sign in"
       th_created: "Created"
       th_confirmed: "Confirmed"    
+      th_status: "Status"
+    site_status:
+      active: "Active"
+      suspended: "Suspended"
+      user_suspended: "Suspended (user)"
+      #
     tab_users:
       new_user: "Create new user account 🛠️"
       sites_count:
@@ -99,6 +105,13 @@ en:
       users_edit_user_account_flash_dont_delete_yourself: "You are not allowed to delete your own account!"
       users_edit_user_account_flash_deleted: "User account deleted!"
       users_edit_user_account_flash_no_permission: "No permission!"
+      users_status: "Status"
+      users_suspend: "Suspend user 🚫"
+      users_unsuspend: "Unsuspend user ✅"
+      users_suspend_confirm: "Suspend this user and all of their wikis?"
+      users_flash_suspended: "User „%{name}“ suspended."
+      users_flash_unsuspended: "User „%{name}“ unsuspended."
+      users_edit_user_account_flash_dont_suspend_yourself: "You are not allowed to suspend your own account!"
     password:
       strength:
         0: "Very weak"
@@ -144,6 +157,10 @@ en:
         any:     "any status"
         none:    "no subscription"
       #
+      site_suspended_yes: "suspended"
+      site_suspended_no: "not suspended"
+      user_suspended_yes: "suspended"
+      user_suspended_no: "not suspended"
     tab_sites_table_headers:
       th_id: "Id"
       th_name: "Name"
@@ -169,6 +186,17 @@ en:
       th_last_access: "Last access"
       th_last_update: "Last update"
       th_created: "Created"
+      th_status: "Status"
+      th_actions: "Actions"
+    tab_sites:
+      sites_suspend: "Suspend 🚫"
+      sites_unsuspend: "Unsuspend ✅"
+      sites_delete: "Delete 🗑️"
+      sites_suspend_confirm: "Suspend this wiki? It will no longer be reachable."
+      sites_delete_confirm: "Really delete wiki „%{name}“? This cannot be undone!"
+      sites_flash_suspended: "Wiki „%{name}“ suspended."
+      sites_flash_unsuspended: "Wiki „%{name}“ unsuspended."
+      sites_flash_deleted: "Wiki „%{name}“ deleted."
     tab_sites_user_links:
       back_to_selection: "Back to selection"
       view_user_data: "View user data"

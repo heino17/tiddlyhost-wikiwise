@@ -11,6 +11,7 @@ fr:
       inactive: "Votre compte n’est pas encore activé."
       invalid: "%{authentication_keys} ou mot de passe invalide."
       locked: "Votre compte est verrouillé."
+      suspended: "Votre compte a été suspendu."
       last_attempt: "Il vous reste une tentative avant le verrouillage de votre compte."
       not_found_in_database: "%{authentication_keys} ou mot de passe invalide."
       timeout: "Votre session a expiré. Veuillez vous reconnecter."

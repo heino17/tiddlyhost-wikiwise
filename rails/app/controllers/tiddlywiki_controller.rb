@@ -327,7 +327,7 @@ class TiddlywikiController < ApplicationController
   end
 
   def site_visible?
-    site_exists? && (site_public? || user_owns_site? || user_is_admin?)
+    site_exists? && @site.available? && (site_public? || user_owns_site? || user_is_admin?)
   end
 
   def site_downloadable?
@@ -335,7 +335,7 @@ class TiddlywikiController < ApplicationController
   end
 
   def site_saveable?
-    site_exists? && (user_owns_site? || collab_session_active?)
+    site_exists? && @site.available? && (user_owns_site? || collab_session_active?)
   end
 
   def collab_session_active?

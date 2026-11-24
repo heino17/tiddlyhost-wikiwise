@@ -94,6 +94,14 @@ Rails.application.routes.draw do
     get 'admin/settings'
     patch 'admin/settings', to: 'admin#update_settings'
     get 'admin/comments_list'
+
+    # Suspending / deleting individual wikis and user accounts
+    patch 'admin/sites/:id/suspend', to: 'admin#suspend_site', as: :admin_suspend_site
+    patch 'admin/sites/:id/unsuspend', to: 'admin#unsuspend_site', as: :admin_unsuspend_site
+    delete 'admin/sites/:id/delete', to: 'admin#destroy_site', as: :admin_destroy_site
+
+    patch 'admin/users/:id/suspend', to: 'admin#suspend_user', as: :admin_suspend_user
+    patch 'admin/users/:id/unsuspend', to: 'admin#unsuspend_user', as: :admin_unsuspend_user
     get 'admin/etc'
 
     get 'admin/raw_download'

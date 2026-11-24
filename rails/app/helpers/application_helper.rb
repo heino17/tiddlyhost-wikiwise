@@ -1,6 +1,18 @@
 module ApplicationHelper
   include Recaptcha::Adapters::ViewMethods
 
+  # Effective suspension state of a wiki, including a suspended owner.
+  def site_status_badge(site, show_active: false)
+    case site.suspension_source
+    when :user
+      tag.span t('admin.site_status.user_suspended'), class: 'badge bg-warning text-dark'
+    when :site
+      tag.span t('admin.site_status.suspended'), class: 'badge bg-danger'
+    else
+      tag.span(t('admin.site_status.active'), class: 'badge bg-success') if show_active
+    end
+  end
+
   # Language switch for i18n
   # Language switcher
   def language_switcher_links

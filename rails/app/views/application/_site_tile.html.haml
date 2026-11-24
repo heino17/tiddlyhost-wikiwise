@@ -54,6 +54,7 @@
     .small.m-1
       = site_access(site)
       = render 'site_kind_info', site: site
+      = site_status_badge(site)
 
   .description
     = span_with_title(site.description)
