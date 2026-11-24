@@ -6,6 +6,13 @@ ja:
   log_in_page_email_label: "メール"
   log_in_page_password_label: "パスワード"
   log_in_page_remember_me_label: "次回から自動ログイン"
+
+  login_puzzle_task: "動物をすべてタップしてください"
+  login_puzzle_find: "%{count}匹の動物をすべて見つけてください。"
+  login_puzzle_wrong: "それは動物ではありません。"
+  login_puzzle_solved: "できました！あなたは間違いなく人間です。"
+  login_puzzle_new: "新しいパズル"
+  login_puzzle_error: "動物パズルが正しく解けませんでした。もう一度お試しください。"
   log_in_page_submit_button: "ログイン"  
   # Page shared Links (devise)
   shared_links_cancel: "キャンセル"

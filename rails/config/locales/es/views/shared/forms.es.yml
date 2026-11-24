@@ -6,6 +6,13 @@ es:
   log_in_page_email_label: "Correo electrónico"
   log_in_page_password_label: "Contraseña"
   log_in_page_remember_me_label: "Recordarme"
+
+  login_puzzle_task: "Toca todos los animales"
+  login_puzzle_find: "Encuentra todos los %{count} animales."
+  login_puzzle_wrong: "Eso no es un animal."
+  login_puzzle_solved: "¡Bien hecho! Eres definitivamente humano."
+  login_puzzle_new: "Nuevo acertijo"
+  login_puzzle_error: "El acertijo de animales no se resolvió correctamente. Inténtalo de nuevo."
   log_in_page_submit_button: "Iniciar sesión"  
   # Page shared Links (devise)
   shared_links_cancel: "Cancelar"

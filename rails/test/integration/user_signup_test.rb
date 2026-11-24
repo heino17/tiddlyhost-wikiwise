@@ -41,10 +41,20 @@ class UserSignupTest < CapybaraIntegrationTest
     confirmation_link = confirmation_email.html_part.body.decoded.match(%r{href="([^"]+)">Confirm account</a>})[1]
     visit confirmation_link
 
-    # Login
-    fill_in 'user[email]', with: email
-    fill_in 'user[password]', with: strong_password
-    click_button I18n.t('get_started_button_login')
+    # Login. The rack_test driver cannot run Stimulus, so fetch a puzzle and
+    # post the solved values the same way the browser's JavaScript would.
+    page.driver.get login_puzzle_path
+    puzzle = JSON.parse(page.driver.response.body)
+    answer = puzzle.fetch('tiles').select { |tile| tile['animal'] }.
+      map { |tile| tile.fetch('id') }.sort.join(',')
+
+    page.driver.post(
+      '/users/sign_in',
+      user: { email: email, password: strong_password },
+      login_puzzle: { token: puzzle.fetch('token'), answer: answer },
+    )
+
+    visit page.driver.response['Location'] if page.driver.response.redirect?
 
     # Confirm we are logged in
     assert page.has_css?('h1', text: I18n.t('your_sites'))

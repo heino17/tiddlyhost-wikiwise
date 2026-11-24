@@ -6,6 +6,13 @@ fr:
   log_in_page_email_label: "Courriel"
   log_in_page_password_label: "Mot de passe"
   log_in_page_remember_me_label: "Se souvenir de moi"
+
+  login_puzzle_task: "Touchez tous les animaux"
+  login_puzzle_find: "Trouvez tous les %{count} animaux."
+  login_puzzle_wrong: "Ce n'est pas un animal."
+  login_puzzle_solved: "Bien joué ! Vous êtes bel et bien humain."
+  login_puzzle_new: "Nouveau défi"
+  login_puzzle_error: "Le défi animal n'a pas été résolu correctement. Veuillez réessayer."
   log_in_page_submit_button: "Se connecter"  
   # Page shared Links (devise)
   shared_links_cancel: "Annuler"

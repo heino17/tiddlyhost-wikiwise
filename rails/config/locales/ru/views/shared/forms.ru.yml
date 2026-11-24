@@ -6,6 +6,13 @@ ru:
   log_in_page_email_label: "Эл. почта"
   log_in_page_password_label: "Пароль"
   log_in_page_remember_me_label: "Запомнить меня"
+
+  login_puzzle_task: "Нажмите на всех животных"
+  login_puzzle_find: "Найдите всех %{count} животных."
+  login_puzzle_wrong: "Это не животное."
+  login_puzzle_solved: "Отлично! Ты точно человек."
+  login_puzzle_new: "Новая загадка"
+  login_puzzle_error: "Загадка с животными решена неверно. Попробуйте ещё раз."
   log_in_page_submit_button: "Войти"  
   # Page shared Links (devise)
   shared_links_cancel: "Отмена"

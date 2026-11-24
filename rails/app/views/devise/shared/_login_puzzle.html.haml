@@ -1,0 +1,32 @@
+- puzzle = @login_puzzle
+- if puzzle.present?
+  .login-puzzle.mb-3{ data: { controller: 'login-puzzle',
+      login_puzzle_find_text: t('login_puzzle_find', count: LoginPuzzle::ANIMAL_COUNT),
+      login_puzzle_wrong_text: t('login_puzzle_wrong'),
+      login_puzzle_solved_text: t('login_puzzle_solved'),
+      login_puzzle_new_url: login_puzzle_path } }
+    .login-puzzle-head
+      %span.login-puzzle-task= t('login_puzzle_task')
+      %button.login-puzzle-refresh{ type: 'button',
+          title: t('login_puzzle_new'),
+          'aria-label': t('login_puzzle_new'),
+          data: { action: 'login-puzzle#refresh' } }
+        %span{ 'aria-hidden': 'true' } ↻
+
+    .login-puzzle-grid{ role: 'group', 'aria-label': t('login_puzzle_task'), data: { login_puzzle_target: 'grid' } }
+      - puzzle[:tiles].each do |tile|
+        %button.login-puzzle-tile{ type: 'button',
+            'aria-pressed': 'false',
+            data: { action: 'login-puzzle#select',
+                    login_puzzle_target: 'tile',
+                    tile_id: tile[:id],
+                    animal: tile[:animal].to_s } }
+          %span{ 'aria-hidden': 'true' }= tile[:emoji]
+
+    %p.login-puzzle-feedback{ role: 'status',
+        'aria-live': 'polite',
+        data: { login_puzzle_target: 'feedback' } }
+      = t('login_puzzle_find', count: LoginPuzzle::ANIMAL_COUNT)
+
+    = hidden_field_tag 'login_puzzle[token]', puzzle[:token], data: { login_puzzle_target: 'token' }
+    = hidden_field_tag 'login_puzzle[answer]', '', data: { login_puzzle_target: 'answer' }

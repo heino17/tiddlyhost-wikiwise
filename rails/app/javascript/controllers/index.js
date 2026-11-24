@@ -30,3 +30,6 @@ application.register("site-name-availability", SiteNameAvailabilityController)
 
 import ThumbnailPreviewController from "./thumbnail_preview_controller"
 application.register("thumbnail-preview", ThumbnailPreviewController)
+
+import LoginPuzzleController from "./login_puzzle_controller"
+application.register("login-puzzle", LoginPuzzleController)

@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   constraints(lambda { |req|
     req.domain != Settings.tiddlyspot_host
   }) do
+    # New board/token for the login animal puzzle's refresh button.
+    devise_scope :user do
+      get '/users/sign_in/puzzle', to: 'sessions#puzzle', as: :login_puzzle
+    end
+
     devise_for :users, controllers: {
       registrations: :registrations,
       sessions: :sessions,

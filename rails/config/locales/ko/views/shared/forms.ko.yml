@@ -6,6 +6,13 @@ ko:
   log_in_page_email_label: "이메일"
   log_in_page_password_label: "비밀번호"
   log_in_page_remember_me_label: "자동 로그인"
+
+  login_puzzle_task: "동물을 모두 탭하세요"
+  login_puzzle_find: "동물 %{count}마리를 모두 찾으세요."
+  login_puzzle_wrong: "그건 동물이 아닙니다."
+  login_puzzle_solved: "잘했어요! 당신은 분명 사람이에요."
+  login_puzzle_new: "새 퍼즐"
+  login_puzzle_error: "동물 퍼즐을 올바르게 풀지 못했습니다. 다시 시도해 주세요."
   log_in_page_submit_button: "로그인"  
   # Page shared Links (devise)
   shared_links_cancel: "취소"

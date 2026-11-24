@@ -6,6 +6,13 @@ de:
   log_in_page_email_label: "e-Mail"
   log_in_page_password_label: "Passwort"  
   log_in_page_remember_me_label: "Angemeldet bleiben?"
+
+  login_puzzle_task: "Tippe alle Tiere an"
+  login_puzzle_find: "Finde alle %{count} Tiere."
+  login_puzzle_wrong: "Das ist kein Tier."
+  login_puzzle_solved: "Geschafft! Du bist eindeutig ein Mensch."
+  login_puzzle_new: "Neues Rätsel"
+  login_puzzle_error: "Das Tier-Rätsel wurde nicht richtig gelöst. Bitte versuche es erneut."
   log_in_page_submit_button: "Anmelden"
   # Sign up page
   sign_up_page_heading: "Registrieren"

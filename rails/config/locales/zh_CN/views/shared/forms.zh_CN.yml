@@ -6,6 +6,13 @@ zh_CN:
   log_in_page_email_label: "邮箱"
   log_in_page_password_label: "密码"
   log_in_page_remember_me_label: "记住我"
+
+  login_puzzle_task: "点击所有动物"
+  login_puzzle_find: "找出全部 %{count} 只动物。"
+  login_puzzle_wrong: "那不是动物。"
+  login_puzzle_solved: "做得好！你肯定是一个人类。"
+  login_puzzle_new: "新谜题"
+  login_puzzle_error: "动物谜题未正确完成，请重试。"
   log_in_page_submit_button: "登录"
   # Page shared Links (devise)
   shared_links_cancel: "取消"

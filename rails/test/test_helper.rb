@@ -73,6 +73,7 @@ class ActionDispatch::IntegrationTest
 
   include NewSiteHelper
   include SubscriptionTestHelpers
+  include LoginPuzzleTestHelper
 
   setup do
     host! Settings.url_defaults[:host]

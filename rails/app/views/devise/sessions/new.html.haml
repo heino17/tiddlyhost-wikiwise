@@ -25,9 +25,12 @@
         = f.check_box :remember_me
         = f.label t('log_in_page_remember_me_label')
 
+    = render 'devise/shared/login_puzzle'
+
     = render layout: 'field_wrapper' do
       - if params[:s]
         = f.hidden_field :site_redir, value: params[:s]
-      = f.submit t('get_started_button_login'), class: 'btn btn-primary'
+      = f.submit t('get_started_button_login'), class: 'btn btn-primary',
+          data: { login_puzzle_target: 'submit' }
 
     = render 'devise/shared/links'

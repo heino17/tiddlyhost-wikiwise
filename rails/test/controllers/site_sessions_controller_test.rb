@@ -23,7 +23,10 @@ class SiteSessionsControllerTest < ActionDispatch::IntegrationTest
   test 'signing in on a site host returns a superuser to the wiki' do
     user = confirmed_user(user_type: UserType.superuser)
 
-    post '/users/sign_in', params: { user: { email: user.email, password: 'Abcd1234' } }
+    post '/users/sign_in', params: {
+      user: { email: user.email, password: 'Abcd1234' },
+      login_puzzle: login_puzzle_params,
+    }
 
     assert_redirected_to '/'
   end
@@ -32,7 +35,10 @@ class SiteSessionsControllerTest < ActionDispatch::IntegrationTest
     host! Settings.url_defaults[:host]
     user = confirmed_user(user_type: UserType.superuser)
 
-    post '/users/sign_in', params: { user: { email: user.email, password: 'Abcd1234' } }
+    post '/users/sign_in', params: {
+      user: { email: user.email, password: 'Abcd1234' },
+      login_puzzle: login_puzzle_params,
+    }
 
     assert_redirected_to '/admin'
   end
