@@ -313,6 +313,9 @@ ru:
     registration_enabled:
       label: "Разрешить регистрацию"
       description: "Новые пользователи могут создавать аккаунт"
+    login_puzzle_enabled:
+      label: "Животная загадка при входе"
+      description: "Перед входом нужно решить загадку с животными 3×3"
     comments_enabled:
       label: "Комментарии активны"
       description: "Пользователи могут писать комментарии к вики"

@@ -306,6 +306,9 @@ fr:
     registration_enabled:
       label: "Autoriser l'inscription"
       description: "Les nouveaux utilisateurs peuvent créer un compte"
+    login_puzzle_enabled:
+      label: "Énigme animale à la connexion"
+      description: "Une énigme animale 3×3 doit être résolue avant la connexion"
     comments_enabled:
       label: "Commentaires actifs"
       description: "Les utilisateurs peuvent écrire des commentaires sur les wikis"

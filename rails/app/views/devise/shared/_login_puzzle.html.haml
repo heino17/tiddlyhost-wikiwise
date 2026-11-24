@@ -1,5 +1,5 @@
 - puzzle = @login_puzzle
-- if puzzle.present?
+- if Settings::Features.login_puzzle_enabled? && puzzle.present?
   .login-puzzle.mb-3{ data: { controller: 'login-puzzle',
       login_puzzle_find_text: t('login_puzzle_find', count: LoginPuzzle::ANIMAL_COUNT),
       login_puzzle_wrong_text: t('login_puzzle_wrong'),

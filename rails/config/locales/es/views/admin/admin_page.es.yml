@@ -307,6 +307,9 @@ es:
     registration_enabled:
       label: "Permitir registro"
       description: "Nuevos usuarios pueden crear una cuenta"
+    login_puzzle_enabled:
+      label: "Acertijo de animales al iniciar sesión"
+      description: "Hay que resolver un acertijo de animales 3×3 antes de entrar"
     comments_enabled:
       label: "Comentarios activos"
       description: "Los usuarios pueden escribir comentarios en wikis"

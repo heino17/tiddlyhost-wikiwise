@@ -35,6 +35,10 @@ module Settings::Features
     Setting.enabled?(:registration_enabled, default: true)
   end
 
+  def login_puzzle_enabled?
+    Setting.enabled?(:login_puzzle_enabled, default: true)
+  end
+
   def comments_enabled?
     Setting.enabled?(:comments_enabled, default: true)
   end

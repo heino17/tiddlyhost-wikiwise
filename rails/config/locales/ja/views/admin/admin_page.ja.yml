@@ -306,6 +306,9 @@ ja:
     registration_enabled:
       label: "登録を許可"
       description: "新規ユーザーがアカウントを作成可能"
+    login_puzzle_enabled:
+      label: "ログイン時の動物パズル"
+      description: "ログイン前に3×3の動物パズルを解く必要があります"
     comments_enabled:
       label: "コメント有効"
       description: "ユーザーがウィキにコメントを書けます"

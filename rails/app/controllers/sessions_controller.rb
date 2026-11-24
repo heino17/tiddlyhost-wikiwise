@@ -4,6 +4,7 @@ class SessionsController < Devise::SessionsController
   prepend_before_action :verify_login_puzzle, only: :create
   before_action :configure_sign_in_params, only: [:create]
   before_action :prepare_login_puzzle, only: [:new, :create]
+  before_action :ensure_login_puzzle_enabled, only: :puzzle
 
   # Used by the puzzle's refresh button to get a new board and token.
   def puzzle
@@ -12,11 +13,21 @@ class SessionsController < Devise::SessionsController
 
   private
 
+  def login_puzzle_enabled?
+    Settings::Features.login_puzzle_enabled?
+  end
+
+  def ensure_login_puzzle_enabled
+    head :not_found unless login_puzzle_enabled?
+  end
+
   def configure_sign_in_params
     devise_parameter_sanitizer.permit(:sign_in, keys: [:redir_to_site])
   end
 
   def prepare_login_puzzle
+    return unless login_puzzle_enabled?
+
     @login_puzzle = build_login_puzzle
     session[:login_puzzle] = {
       'token' => @login_puzzle[:token],
@@ -47,7 +58,7 @@ class SessionsController < Devise::SessionsController
   # MWS gates the submit button in the browser. We do the same here and also
   # check the solution on the server, so a direct POST cannot skip the puzzle.
   def verify_login_puzzle
-    return if user_signed_in?
+    return if !login_puzzle_enabled? || user_signed_in?
 
     stored = session[:login_puzzle]
     submitted = params[:login_puzzle] || {}

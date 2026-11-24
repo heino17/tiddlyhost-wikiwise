@@ -1,6 +1,23 @@
 require 'test_helper'
 
 class LoginPuzzleTest < ActionDispatch::IntegrationTest
+  test 'admin settings label is translated in every locale' do
+    I18n.available_locales.each do |locale|
+      label = I18n.t('admin.login_puzzle_enabled.label', locale: locale)
+
+      assert_not label.include?('translation missing')
+      assert_not_equal I18n.t('admin.registration_enabled.label', locale: locale), label
+    end
+  end
+
+  test 'puzzle is enabled by default and can be disabled in settings' do
+    assert Settings::Features.login_puzzle_enabled?
+
+    Setting.set_enabled(:login_puzzle_enabled, false)
+
+    assert_not Settings::Features.login_puzzle_enabled?
+  end
+
   test 'sign in page shows the animal puzzle' do
     get '/users/sign_in'
 
@@ -60,6 +77,39 @@ class LoginPuzzleTest < ActionDispatch::IntegrationTest
     post '/users/sign_in', params: {
       user: { email: user.email, password: 'Abcd1234' },
       login_puzzle: puzzle,
+    }
+
+    assert_redirected_to '/'
+
+    get '/users/edit'
+    assert_response :success
+  end
+
+  test 'disabled puzzle is not rendered on the sign in page' do
+    Setting.set_enabled(:login_puzzle_enabled, false)
+
+    get '/users/sign_in'
+
+    assert_response :success
+    assert_select '.login-puzzle', false
+    assert_select 'input[name="login_puzzle[token]"]', false
+    assert_select 'input[type="submit"][data-login-puzzle-target]', false
+  end
+
+  test 'disabled puzzle refresh endpoint is not available' do
+    Setting.set_enabled(:login_puzzle_enabled, false)
+
+    get login_puzzle_path
+
+    assert_response :not_found
+  end
+
+  test 'disabled puzzle does not block login' do
+    Setting.set_enabled(:login_puzzle_enabled, false)
+    user = puzzle_user
+
+    post '/users/sign_in', params: {
+      user: { email: user.email, password: 'Abcd1234' },
     }
 
     assert_redirected_to '/'

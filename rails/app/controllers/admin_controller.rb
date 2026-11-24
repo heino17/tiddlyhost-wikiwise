@@ -459,6 +459,7 @@ class AdminController < ApplicationController
       { key: :special_imprint_enabled,              group: 'general', default: true,  type: :boolean },
       { key: :cookie_consent_enabled,               group: 'general', default: false, type: :boolean },
       { key: :registration_enabled,                 group: 'general', default: false, type: :boolean },
+      { key: :login_puzzle_enabled,                 group: 'general', default: true,  type: :boolean },
 
       # === Community ===
       { key: :comments_enabled,   group: 'community', default: true,  type: :boolean },

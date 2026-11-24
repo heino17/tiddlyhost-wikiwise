@@ -307,6 +307,9 @@ de:
     registration_enabled:
       label: "Registrierung erlauben"
       description: "Neue Nutzer dürfen ein Konto erstellen"
+    login_puzzle_enabled:
+      label: "Tier-Rätsel beim Anmelden"
+      description: "Beim Anmelden muss vorher ein 3×3-Tierrätsel gelöst werden"
     comments_enabled:
       label: "Kommentare aktiv"
       description: "Nutzer können Kommentare zu Wikis schreiben"

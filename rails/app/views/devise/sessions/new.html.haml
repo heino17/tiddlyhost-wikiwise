@@ -31,6 +31,6 @@
       - if params[:s]
         = f.hidden_field :site_redir, value: params[:s]
       = f.submit t('get_started_button_login'), class: 'btn btn-primary',
-          data: { login_puzzle_target: 'submit' }
+          data: (Settings::Features.login_puzzle_enabled? ? { login_puzzle_target: 'submit' } : {})
 
     = render 'devise/shared/links'

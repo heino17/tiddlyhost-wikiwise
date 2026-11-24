@@ -311,6 +311,9 @@ en:
     registration_enabled:
       label: "Allow registration"
       description: "New users are allowed to create an account"
+    login_puzzle_enabled:
+      label: "Login animal puzzle"
+      description: "Requires solving a 3x3 animal puzzle before signing in"
     comments_enabled:
       label: "Comments active"
       description: "Users can write a comment on wikis"
