@@ -55,6 +55,9 @@ gem 'devise'
 # For captcha and strong passwords
 gem 'devise-security'
 
+# Login request throttling
+gem 'rack-attack'
+
 # Pagination
 gem 'pagy'
 gem 'will_paginate'

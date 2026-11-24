@@ -13,6 +13,7 @@ ja:
   login_puzzle_solved: "できました！あなたは間違いなく人間です。"
   login_puzzle_new: "新しいパズル"
   login_puzzle_error: "動物パズルが正しく解けませんでした。もう一度お試しください。"
+  login_rate_limit_exceeded: "ログインの試行回数が多すぎます。しばらくしてからもう一度お試しください。"
   log_in_page_submit_button: "ログイン"  
   # Page shared Links (devise)
   shared_links_cancel: "キャンセル"

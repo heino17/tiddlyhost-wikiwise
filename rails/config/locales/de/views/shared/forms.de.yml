@@ -13,6 +13,7 @@ de:
   login_puzzle_solved: "Geschafft! Du bist eindeutig ein Mensch."
   login_puzzle_new: "Neues Rätsel"
   login_puzzle_error: "Das Tier-Rätsel wurde nicht richtig gelöst. Bitte versuche es erneut."
+  login_rate_limit_exceeded: "Zu viele Anmeldeversuche. Bitte versuche es in ein paar Minuten erneut."
   log_in_page_submit_button: "Anmelden"
   # Sign up page
   sign_up_page_heading: "Registrieren"

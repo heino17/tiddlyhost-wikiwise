@@ -13,6 +13,7 @@ ru:
   login_puzzle_solved: "Отлично! Ты точно человек."
   login_puzzle_new: "Новая загадка"
   login_puzzle_error: "Загадка с животными решена неверно. Попробуйте ещё раз."
+  login_rate_limit_exceeded: "Слишком много попыток входа. Пожалуйста, попробуйте позже."
   log_in_page_submit_button: "Войти"  
   # Page shared Links (devise)
   shared_links_cancel: "Отмена"

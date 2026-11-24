@@ -39,6 +39,22 @@ module Settings::Features
     Setting.enabled?(:login_puzzle_enabled, default: true)
   end
 
+  def login_rate_limit_enabled?
+    Setting.enabled?(:login_rate_limit_enabled, default: true)
+  end
+
+  def login_rate_limit_ip_attempts
+    Setting.value_for(:login_rate_limit_ip_attempts, default: 3)
+  end
+
+  def login_rate_limit_email_failures
+    Setting.value_for(:login_rate_limit_email_failures, default: 3)
+  end
+
+  def login_rate_limit_period_minutes
+    Setting.value_for(:login_rate_limit_period_minutes, default: 5)
+  end
+
   def comments_enabled?
     Setting.enabled?(:comments_enabled, default: true)
   end

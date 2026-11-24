@@ -310,6 +310,18 @@ es:
     login_puzzle_enabled:
       label: "Acertijo de animales al iniciar sesión"
       description: "Hay que resolver un acertijo de animales 3×3 antes de entrar"
+    login_rate_limit_enabled:
+      label: "Límite de intentos de acceso"
+      description: "Limita los intentos repetidos por IP y cuenta"
+    login_rate_limit_ip_attempts:
+      label: "Máx. intentos por IP"
+      description: "Intentos de acceso desde una IP en la ventana de tiempo"
+    login_rate_limit_email_failures:
+      label: "Máx. fallos por cuenta"
+      description: "Accesos fallidos para un correo en la ventana de tiempo"
+    login_rate_limit_period_minutes:
+      label: "Ventana de tiempo (minutos)"
+      description: "Periodo en el que se cuentan los intentos"
     comments_enabled:
       label: "Comentarios activos"
       description: "Los usuarios pueden escribir comentarios en wikis"

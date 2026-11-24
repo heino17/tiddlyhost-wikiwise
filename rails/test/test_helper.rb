@@ -59,6 +59,13 @@ class ActiveSupport::TestCase
   include NewSiteHelper
   include SubscriptionTestHelpers
 
+  # Login throttling is opt-in in tests so unrelated sign-in tests stay
+  # deterministic. Rate-limit tests enable it explicitly.
+  setup do
+    Setting.set_enabled(:login_rate_limit_enabled, false)
+    Rack::Attack.cache.store.clear if defined?(Rack::Attack) && Rack::Attack.cache.store.respond_to?(:clear)
+  end
+
   # Run tests in parallel with specified workers
   # (Simplecov doesn't handle parallel workers, so skip when running coverage tests)
   parallelize(workers: :number_of_processors) unless ENV['COVERAGE'] == '1'

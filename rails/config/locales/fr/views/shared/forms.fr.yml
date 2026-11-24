@@ -13,6 +13,7 @@ fr:
   login_puzzle_solved: "Bien joué ! Vous êtes bel et bien humain."
   login_puzzle_new: "Nouveau défi"
   login_puzzle_error: "Le défi animal n'a pas été résolu correctement. Veuillez réessayer."
+  login_rate_limit_exceeded: "Trop de tentatives de connexion. Veuillez réessayer dans quelques minutes."
   log_in_page_submit_button: "Se connecter"  
   # Page shared Links (devise)
   shared_links_cancel: "Annuler"

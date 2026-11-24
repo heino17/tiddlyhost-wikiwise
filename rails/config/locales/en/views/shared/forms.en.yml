@@ -13,6 +13,7 @@ en:
   login_puzzle_solved: "Well done! You are definitely human."
   login_puzzle_new: "New puzzle"
   login_puzzle_error: "The animal puzzle was not solved correctly. Please try again."
+  login_rate_limit_exceeded: "Too many login attempts. Please try again in a few minutes."
   log_in_page_submit_button: "Log in"  
   # Page shared Links (devise)
   shared_links_cancel: "Cancel"

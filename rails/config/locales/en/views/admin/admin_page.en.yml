@@ -314,6 +314,18 @@ en:
     login_puzzle_enabled:
       label: "Login animal puzzle"
       description: "Requires solving a 3x3 animal puzzle before signing in"
+    login_rate_limit_enabled:
+      label: "Login rate limiting"
+      description: "Limits repeated login attempts per IP address and account"
+    login_rate_limit_ip_attempts:
+      label: "Max. login attempts per IP"
+      description: "Login attempts from one IP address within the time window"
+    login_rate_limit_email_failures:
+      label: "Max. failed attempts per account"
+      description: "Failed logins for one email address within the time window"
+    login_rate_limit_period_minutes:
+      label: "Rate limit window (minutes)"
+      description: "Time window in which the attempts are counted"
     comments_enabled:
       label: "Comments active"
       description: "Users can write a comment on wikis"

@@ -308,6 +308,18 @@ zh_CN:
     login_puzzle_enabled:
       label: "登录动物谜题"
       description: "登录前需要先解开 3×3 动物谜题"
+    login_rate_limit_enabled:
+      label: "登录频率限制"
+      description: "按 IP 和账号限制重复登录尝试"
+    login_rate_limit_ip_attempts:
+      label: "每个 IP 的最大尝试次数"
+      description: "时间窗口内来自同一 IP 的登录尝试次数"
+    login_rate_limit_email_failures:
+      label: "每个账号的最大失败次数"
+      description: "时间窗口内同一邮箱的登录失败次数"
+    login_rate_limit_period_minutes:
+      label: "时间窗口（分钟）"
+      description: "统计尝试次数的时间段"
     comments_enabled:
       label: "评论激活"
       description: "用户可以在维基上撰写评论"

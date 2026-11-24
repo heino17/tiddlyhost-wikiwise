@@ -309,6 +309,18 @@ fr:
     login_puzzle_enabled:
       label: "Énigme animale à la connexion"
       description: "Une énigme animale 3×3 doit être résolue avant la connexion"
+    login_rate_limit_enabled:
+      label: "Limitation des tentatives de connexion"
+      description: "Limite les tentatives répétées par IP et par compte"
+    login_rate_limit_ip_attempts:
+      label: "Max. tentatives par IP"
+      description: "Tentatives de connexion depuis une IP dans la fenêtre de temps"
+    login_rate_limit_email_failures:
+      label: "Max. échecs par compte"
+      description: "Connexions échouées pour une adresse e-mail dans la fenêtre"
+    login_rate_limit_period_minutes:
+      label: "Fenêtre (minutes)"
+      description: "Période pendant laquelle les tentatives sont comptées"
     comments_enabled:
       label: "Commentaires actifs"
       description: "Les utilisateurs peuvent écrire des commentaires sur les wikis"

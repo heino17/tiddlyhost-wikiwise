@@ -309,6 +309,18 @@ ko:
     login_puzzle_enabled:
       label: "로그인 시 동물 퍼즐"
       description: "로그인 전에 3×3 동물 퍼즐을 풀어야 합니다"
+    login_rate_limit_enabled:
+      label: "로그인 시도 제한"
+      description: "IP와 계정별 반복 로그인 시도를 제한합니다"
+    login_rate_limit_ip_attempts:
+      label: "IP당 최대 시도 횟수"
+      description: "시간 창 내 한 IP에서의 로그인 시도 횟수"
+    login_rate_limit_email_failures:
+      label: "계정당 최대 실패 횟수"
+      description: "시간 창 내 한 이메일 주소의 로그인 실패 횟수"
+    login_rate_limit_period_minutes:
+      label: "시간 창(분)"
+      description: "시도 횟수를 세는 기간"
     comments_enabled:
       label: "댓글 활성화"
       description: "사용자가 위키에 댓글을 작성할 수 있습니다"

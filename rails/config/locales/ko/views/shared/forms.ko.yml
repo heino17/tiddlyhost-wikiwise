@@ -13,6 +13,7 @@ ko:
   login_puzzle_solved: "잘했어요! 당신은 분명 사람이에요."
   login_puzzle_new: "새 퍼즐"
   login_puzzle_error: "동물 퍼즐을 올바르게 풀지 못했습니다. 다시 시도해 주세요."
+  login_rate_limit_exceeded: "로그인 시도가 너무 많습니다. 잠시 후 다시 시도해 주세요."
   log_in_page_submit_button: "로그인"  
   # Page shared Links (devise)
   shared_links_cancel: "취소"

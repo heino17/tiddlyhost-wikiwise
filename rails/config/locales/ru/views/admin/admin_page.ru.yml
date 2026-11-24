@@ -316,6 +316,18 @@ ru:
     login_puzzle_enabled:
       label: "Животная загадка при входе"
       description: "Перед входом нужно решить загадку с животными 3×3"
+    login_rate_limit_enabled:
+      label: "Ограничение попыток входа"
+      description: "Ограничивает повторные попытки входа по IP и аккаунту"
+    login_rate_limit_ip_attempts:
+      label: "Макс. попыток входа с IP"
+      description: "Попытки входа с одного IP-адреса в интервале"
+    login_rate_limit_email_failures:
+      label: "Макс. неудачных попыток на аккаунт"
+      description: "Неудачные входы для одного адреса электронной почты в интервале"
+    login_rate_limit_period_minutes:
+      label: "Интервал (минуты)"
+      description: "Время, в течение которого учитываются попытки"
     comments_enabled:
       label: "Комментарии активны"
       description: "Пользователи могут писать комментарии к вики"

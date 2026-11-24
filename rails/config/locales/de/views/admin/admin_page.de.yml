@@ -310,6 +310,18 @@ de:
     login_puzzle_enabled:
       label: "Tier-Rätsel beim Anmelden"
       description: "Beim Anmelden muss vorher ein 3×3-Tierrätsel gelöst werden"
+    login_rate_limit_enabled:
+      label: "Login-Rate-Limit"
+      description: "Begrenzt wiederholte Anmeldeversuche pro IP-Adresse und Konto"
+    login_rate_limit_ip_attempts:
+      label: "Max. Anmeldeversuche pro IP"
+      description: "Anmeldeversuche von einer IP-Adresse im Zeitfenster"
+    login_rate_limit_email_failures:
+      label: "Max. Fehlversuche pro Konto"
+      description: "Fehlgeschlagene Anmeldungen für eine E-Mail-Adresse im Zeitfenster"
+    login_rate_limit_period_minutes:
+      label: "Zeitfenster (Minuten)"
+      description: "Zeitraum, in dem die Versuche gezählt werden"
     comments_enabled:
       label: "Kommentare aktiv"
       description: "Nutzer können Kommentare zu Wikis schreiben"

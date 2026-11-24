@@ -309,6 +309,18 @@ ja:
     login_puzzle_enabled:
       label: "ログイン時の動物パズル"
       description: "ログイン前に3×3の動物パズルを解く必要があります"
+    login_rate_limit_enabled:
+      label: "ログイン試行の制限"
+      description: "IPアドレスとアカウントごとの繰り返しログインを制限します"
+    login_rate_limit_ip_attempts:
+      label: "IPごとの最大試行回数"
+      description: "時間枠内に同じIPアドレスから行うログイン試行数"
+    login_rate_limit_email_failures:
+      label: "アカウントごとの最大失敗回数"
+      description: "時間枠内に同じメールアドレスで失敗したログイン回数"
+    login_rate_limit_period_minutes:
+      label: "時間枠（分）"
+      description: "試行回数を数える期間"
     comments_enabled:
       label: "コメント有効"
       description: "ユーザーがウィキにコメントを書けます"

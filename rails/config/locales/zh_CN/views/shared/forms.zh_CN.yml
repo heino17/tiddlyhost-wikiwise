@@ -13,6 +13,7 @@ zh_CN:
   login_puzzle_solved: "做得好！你肯定是一个人类。"
   login_puzzle_new: "新谜题"
   login_puzzle_error: "动物谜题未正确完成，请重试。"
+  login_rate_limit_exceeded: "登录尝试次数过多，请几分钟后再试。"
   log_in_page_submit_button: "登录"
   # Page shared Links (devise)
   shared_links_cancel: "取消"

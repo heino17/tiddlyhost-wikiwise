@@ -460,6 +460,10 @@ class AdminController < ApplicationController
       { key: :cookie_consent_enabled,               group: 'general', default: false, type: :boolean },
       { key: :registration_enabled,                 group: 'general', default: false, type: :boolean },
       { key: :login_puzzle_enabled,                 group: 'general', default: true,  type: :boolean },
+      { key: :login_rate_limit_enabled,             group: 'general', default: true,  type: :boolean },
+      { key: :login_rate_limit_ip_attempts,         group: 'general', default: 3,    type: :integer, min: 1, max: 100 },
+      { key: :login_rate_limit_email_failures,      group: 'general', default: 3,    type: :integer, min: 1, max: 100 },
+      { key: :login_rate_limit_period_minutes,      group: 'general', default: 5,    type: :integer, min: 1, max: 60 },
 
       # === Community ===
       { key: :comments_enabled,   group: 'community', default: true,  type: :boolean },
