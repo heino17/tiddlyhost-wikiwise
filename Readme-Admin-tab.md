@@ -15,6 +15,10 @@ German and American
   - Spezielle Impressum-Seite _ein-/ausschalten_
   - Cookie-Banner _ein-/ausschalten_
   - Registrierung neuer Benutzer _ein-/ausschalten_
+  - Login-Rate-Limit _ein-/ausschalten_
+  - Max. Anmeldeversuche pro IP _Zahlenfeld_
+  - Max. Fehlversuche pro E-Mail/Benutzername _Zahlenfeld_
+  - Zeitfenster in Minuten _Zahlenfeld_
 - Tab Gemeinschaft  
   - Kommentarfunktion _ein-/ausschalten_
   - Wiki-Bewertungen _ein-/ausschalten_
@@ -71,6 +75,25 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
 - Die im Impressum hinterlegten Kontaktdaten sind als Unicode-Zeichen kodiert. Dadurch stehen sie im Quelltext nicht als Klartext, was einfache Datensammler abschreckt. Einen Schutz gegen gezieltes Auslesen bietet das nicht.
 - Der Seiteninhalt (Name, Anschrift, E-Mail) ist ein Beispiel und muss vor dem produktiven Einsatz durch die eigenen Angaben ersetzt werden. Als Vorlage diente der [Impressum-Generator von eRecht24](https://www.e-recht24.de/impressum-generator.html).
 
+### Login-Rate-Limit (Admin → Einstellungen → Allgemein)
+- Schutz für `POST /users/sign_in` über Rack::Attack, der noch vor Rails greift.
+- Zwei getrennte Zähler: **alle Anmeldeversuche pro IP** und **fehlgeschlagene Versuche pro E-Mail/Benutzername**. Erfolgreiche Anmeldungen löschen den Fehlerzähler für diese Identität.
+- Standard: **3 Versuche pro IP**, **3 Fehlversuche pro Identität**, Zeitfenster **5 Minuten**. Der 4. Versuch wird mit HTTP 429 und `Retry-After` abgewiesen.
+- Alle vier Werte sind im Admin-Bereich einstellbar (Bereiche: 1–100 Attempts, 1–60 Minuten). Ein Abschalten deaktiviert beide Zähler sofort.
+- Die Zähler laufen über `Rails.cache`; bei einem `NullStore` (z. B. in Dev/Test ohne Caching) wird automatisch ein `MemoryStore` verwendet.
+- Getestet in `rails/test/integration/login_rate_limit_test.rb`.
+
+### Admin-Bereich – Wiki- und Benutzer-Sperre
+**Der Admin kann einzelne Wikis oder ganze Benutzerkonten sperren und die Sperre jederzeit aufheben.**
+- **Wiki-Sperre** unter `/admin/sites`: Button „Sperren 🚫“ / „Sperre aufheben ✅“ direkt in der Liste, plus Statusfilter.
+- **Benutzer-Sperre** unter `/admin/users` und `/admin/users/:id`: Status, Zeitpunkt der Sperrung und Button „User sperren 🚫“ / „Sperre aufheben ✅“. Der angemeldete Admin kann sein **eigenes** Konto nicht sperren.
+- **Gesperrtes Wiki**: wird nicht ausgeliefert, Speichern ist blockiert und das Wiki verschwindet aus Hub/Explore.
+- **Gesperrter User**: kein Login (auch nicht mit bereits bestehender Session – die Sperre greift beim nächsten Request), keine Passwort-Reset-Mails.
+- **Abgeleitete Sperre**: Alle Wikis des gesperrten Users sind ebenfalls nicht verfügbar, ohne dass deren Datensätze umgeschrieben werden. Tspot-Sites haben kein eigenes Sperrflag und folgen ausschließlich der User-Sperre. Einzelne, bereits gesperrte Wikis bleiben nach dem Entsperren des Users weiterhin gesperrt.
+- **Status-Anzeige**: Badges „Aktiv“ / „Gesperrt“ in den Admin-Listen und im Besitzer-Dashboard; Filter nach Status in `/admin/sites` und `/admin/users`.
+- **Datenmodell**: `sites.suspended` + `sites.suspended_at`, `users.suspended` + `users.suspended_at` (Boolean + Zeitstempel, kein Grundfeld). Migrationen: `20261124120000_add_suspended_to_sites.rb`, `20261124120100_add_suspended_to_users.rb`.
+- Getestet in `rails/test/integration/suspension_test.rb`.
+
 ### 🇺🇸  
 ### Admin Area - “Read Comments” tab
 - ⭐ Admins can view all comments and delete individual comments
@@ -84,6 +107,10 @@ Alle geänderten Einstellungen werden sofort und ohne Neustart wirksam.
   - Dedicated legal notice page _enable/disable_
   - Cookie-Banner _enable/disable_
   - New user registration _enable/disable_
+  - Login rate limiting _enable/disable_
+  - Maximum login attempts per IP _number field_
+  - Maximum failed attempts per email/username _number field_
+  - Time window in minutes _number field_
 - Tab Community   
   - Comment feature _enable/disable_
   - Wiki ratings _enable/disable_
@@ -139,3 +166,22 @@ All changed settings take effect immediately without requiring a restart.
 - The setting is read via `special_imprint_enabled` in `rails/lib/settings/features.rb` (default: enabled).
 - The contact details in the legal notice are encoded as Unicode characters. This keeps them out of the source as plain text, which deters simple data collectors. It is not protection against targeted extraction.
 - The page content (name, address, email) is a sample and must be replaced with your own details before productive use. The [eRecht24 imprint generator](https://www.e-recht24.de/impressum-generator.html) was used as a template.
+
+### Login rate limiting (Admin → Settings → General)
+- Protection for `POST /users/sign_in` via Rack::Attack, which runs before Rails.
+- Two separate counters: **all login attempts per IP** and **failed attempts per email/username**. A successful sign-in clears the failure counter for that identity.
+- Defaults: **3 attempts per IP**, **3 failures per identity**, **5 minute** window. The 4th attempt is rejected with HTTP 429 and `Retry-After`.
+- All four values are configurable in the admin area (ranges: 1–100 attempts, 1–60 minutes). Turning the feature off disables both counters immediately.
+- Counters use `Rails.cache`; with a `NullStore` (e.g. dev/test without caching) a `MemoryStore` is installed automatically.
+- Covered by `rails/test/integration/login_rate_limit_test.rb`.
+
+### Admin area – wiki and user suspension
+**Admins can suspend individual wikis or entire user accounts and lift the suspension at any time.**
+- **Wiki suspension** at `/admin/sites`: “Suspend 🚫” / “Unsuspend ✅” button directly in the list, plus a status filter.
+- **User suspension** at `/admin/users` and `/admin/users/:id`: status, suspension timestamp and “Suspend user 🚫” / “Unsuspend ✅” button. The signed-in admin cannot suspend their **own** account.
+- **Suspended wiki**: not served, saving is blocked and the wiki disappears from Hub/Explore.
+- **Suspended user**: cannot log in (an already open session is dropped on the next request) and password reset emails are suppressed.
+- **Derived suspension**: all wikis owned by the suspended user become unavailable without rewriting their records. Tspot sites have no own suspension flag and follow the owner's account only. Wikis suspended individually before the account suspension stay suspended after unsuspending the user.
+- **Status display**: “Active” / “Suspended” badges in the admin lists and on the owner's dashboard; status filters on `/admin/sites` and `/admin/users`.
+- **Data model**: `sites.suspended` + `sites.suspended_at`, `users.suspended` + `users.suspended_at` (boolean plus timestamp, no reason field). Migrations: `20261124120000_add_suspended_to_sites.rb`, `20261124120100_add_suspended_to_users.rb`.
+- Covered by `rails/test/integration/suspension_test.rb`.

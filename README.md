@@ -4,6 +4,8 @@
 **+ Shoutbox-Mini-Chat-Widget**  
 **+ Erweiterter Admin-Bereich für Einstellungen**  
 **+ Admin‑Bereich – Benutzerverwaltung erweitert**  
+**+ Login-Rate-Limit (konfigurierbar, Rack::Attack)**<br>
+**+ Wiki- und Benutzer-Sperre im Admin-Bereich**<br>
 **+ Cookie-Banner - EU-Cookie-Richtlinien, DSGVO und TTDSG**  
 **+ Gäste-Login für jedes Wiki**  
 **+ SimpleWiki-Hosting für leichtgewichtige Dateninsel-Wikis**<br>
@@ -25,7 +27,9 @@
 - Der Admin-Bereich wurde um eine Registrierkarte/Tab erweitert  
   für direkten Zugriff auf einige Funktionen **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**   
 - Die Benutzerverwaltung wurde erweitert **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**  
-- Eigenes Profilbild pro Benutzer: Upload in `/users/edit`, max. 100 KB, automatische Verkleinerung auf max. 256×256 px, Anzeige u. a. in Header, Hub-Benutzerseite und Admin-Bereich. **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**
+- Konfigurierbares Login-Rate-Limit mit Rack::Attack: Standardmäßig 3 Anmeldeversuche pro IP und 3 Fehlversuche pro E-Mail/Benutzername in 5 Minuten; danach HTTP 429. Einstellbar unter Admin → Einstellungen → Allgemein. **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**
+- Admin-Sperre für einzelne Wikis und ganze Benutzerkonten: gesperrte Wikis sind nicht erreichbar, nicht speicherbar und nicht im Hub; gesperrte Accounts können sich nicht anmelden. **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)** und [Readme-User-Management.md](Readme-User-Management.md)**
+- Eigenes Profilbild pro Benutzer: Upload in `/users/edit`, max. 100 KB, automatische Verkleinerung auf max. 256×256 px, Anzeige u. a. in Header, Hub-Benutzerseite, Admin-Bereich und im Kopf von SimpleWiki-Wikis. **Siehe: [Readme-User-Management.md](Readme-User-Management.md)**
 - Erweitert um ein Shoutbox-Mini-Chat-Widget **Siehe: [Readme_Shoutbox.md](Readme_Shoutbox.md)** 
 - Gäste-Login für jedes Wiki **Siehe: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**
 - Spezielle Impressum-Seite für den Betrieb in Europa, im Admin-Bereich ein-/ausschaltbar **Siehe: [Readme-Admin-tab.md](Readme-Admin-tab.md)**
@@ -185,6 +189,8 @@ Tiddlyhost ist eine Open-Source-Software. Sie verwendet eine BSD-Lizenz. Siehe
 **+ Shoutbox-Mini-Chat-Widget**  
 **+ Advanced Admin Panel for Settings**  
 **+ Admin area – User management expanded**  
+**+ Configurable login rate limiting (Rack::Attack)**<br>
+**+ Wiki and user suspension in the admin area**<br>
 **+ Cookie-Banner - EU Cookie Directives, GDPR, and TTDSG**  
 **+ Guest login for every wiki**  
 **+ SimpleWiki hosting for lightweight data-island wikis**<br>
@@ -205,7 +211,9 @@ Tiddlyhost ist eine Open-Source-Software. Sie verwendet eine BSD-Lizenz. Siehe
 - Expanded with comments and ratings for Tiddlyhost wikis. **More about in [Readme_Comments_and_voting.md](Readme_Comments_and_voting.md)**
 - A new tab has been added to the admin area for direct access to various features **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**  
 - User management has been expanded **See: [Readme-User-Management.md](Readme-User-Management.md)**  
-- Custom profile picture per user: upload in `/users/edit`, max. 100 KB, automatically scaled down to max. 256×256 px, shown in the header, hub user page and admin area. **See: [Readme-User-Management.md](Readme-User-Management.md)**
+- Configurable login rate limiting with Rack::Attack: by default 3 login attempts per IP and 3 failed attempts per email/username within 5 minutes; afterwards HTTP 429. Configurable under Admin → Settings → General. **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**
+- Admin suspension for individual wikis and entire user accounts: suspended wikis are not served, not saved and hidden from the hub; suspended accounts cannot log in. **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)** and [Readme-User-Management.md](Readme-User-Management.md)**
+- Custom profile picture per user: upload in `/users/edit`, max. 100 KB, automatically scaled down to max. 256×256 px, shown in the header, hub user page, admin area and in the header of SimpleWiki sites. **See: [Readme-User-Management.md](Readme-User-Management.md)**
 - Extended with a shoutbox mini-chat widget **See: [Readme_Shoutbox.md](Readme_Shoutbox.md)**  
 - Guest login for each wiki **See: [Readme_Collaborator_Login.md](Readme_Collaborator_Login.md)**  
 - Dedicated legal notice (imprint) page for operation in Europe, can be enabled/disabled in the admin area **See: [Readme-Admin-tab.md](Readme-Admin-tab.md)**
