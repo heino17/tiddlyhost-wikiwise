@@ -13,7 +13,11 @@ ARG APP_PATH=/opt/app
 
 # Needed by image_processing/mini_magick to scale oversized profile pictures.
 USER root
-RUN apt-get update -qq && apt-get install -y --no-install-recommends imagemagick && \
+# The pinned base image still lists the old Nodesource and Yarn apt repos;
+# their signing keys are no longer accepted in 2026. Both tools are already
+# installed in the base image, so dropping the repos does not change runtime.
+RUN rm -f /etc/apt/sources.list.d/nodesource.list /etc/apt/sources.list.d/yarn.list && \
+  apt-get update -qq && apt-get install -y --no-install-recommends imagemagick && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 USER $APP_USER
 
