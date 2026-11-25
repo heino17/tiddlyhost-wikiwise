@@ -97,6 +97,7 @@ class SimplewikiController < ApplicationController
       etag: current_etag,
       logged_in: site_saveable?,
       logged_in_as: logged_in_name,
+      avatar_url: avatar_url,
       shell: shell_status,
     }
   end
@@ -129,6 +130,16 @@ class SimplewikiController < ApplicationController
     return session[:collab_name] if collab_session_active?
 
     nil
+  end
+
+  # Same-origin path to the owner's own profile picture. SimpleWiki puts it
+  # in the header in place of the 👤 and ignores any other source. People who
+  # only collaborate, and other signed-in users, never get the owner's
+  # picture through this endpoint.
+  def avatar_url
+    return nil unless user_owns_site? && current_user.has_profile_picture?
+
+    helpers.rails_storage_proxy_path(current_user.profile_picture)
   end
 
   def site_saveable?

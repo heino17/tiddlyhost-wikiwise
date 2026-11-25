@@ -163,11 +163,11 @@ class TwFileTest < ActiveSupport::TestCase
     assert_equal 'simple', tw.kind
     refute tw.is_tw5?
     assert tw.looks_valid?
-    assert_equal '0.1.56', tw.tiddlywiki_version
+    assert_equal '0.1.59', tw.tiddlywiki_version
     assert tw.simple_island_content.present?
 
     # Light detection matches too
-    assert_equal ['simple', '0.1.56'],
+    assert_equal ['simple', '0.1.59'],
       TwFile.light_get_kind_and_version(File.read(ThFile.empty_path(:simple)))
   end
 

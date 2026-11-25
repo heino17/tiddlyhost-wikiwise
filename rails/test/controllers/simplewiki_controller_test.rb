@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class SimplewikiControllerTest < ActionDispatch::IntegrationTest
+  include ProfilePictureTestHelper
+
   ISLAND = { version: 1, seiten: [], startseite: '', sprache: 'de', thema: 'light' }.freeze
   OLD_SHELL_VERSION = '0.1.51'.freeze
   OLD_SHELL_PATH = Rails.root.join('tw_content/empties/simple/0.1.51.html')
@@ -25,6 +27,39 @@ class SimplewikiControllerTest < ActionDispatch::IntegrationTest
     assert_equal SimplewikiShell.latest_version, body.dig('shell', 'latest')
     refute body.dig('shell', 'update_available')
     refute body.dig('shell', 'can_update')
+    assert_nil body['avatar_url']
+  end
+
+  test 'status carries the owner profile picture as a same-origin path' do
+    @user.profile_picture = uploaded_png(width: 32, height: 32)
+    @user.save!
+    sign_in @user
+
+    get '/simplewiki/status'
+    assert_response :success
+
+    avatar_url = JSON.parse(response.body)['avatar_url']
+    assert avatar_url.present?
+    assert avatar_url.start_with?('/rails/active_storage/blobs/proxy/'),
+           "unexpected avatar path: #{avatar_url}"
+  end
+
+  test 'status has no avatar_url when the owner has no profile picture' do
+    sign_in @user
+
+    get '/simplewiki/status'
+    assert_response :success
+    assert_nil JSON.parse(response.body)['avatar_url']
+  end
+
+  test 'status does not leak the owner profile picture to another user' do
+    @user.profile_picture = uploaded_png(width: 32, height: 32)
+    @user.save!
+    sign_in users(:mary)
+
+    get '/simplewiki/status'
+    assert_response :success
+    assert_nil JSON.parse(response.body)['avatar_url']
   end
 
   test 'status reports an available shell update without granting it anonymously' do
